@@ -125,9 +125,11 @@ class PrincipalControlador {
 
 		Vista::iniciar($modulo.":".$formato.":".$vista);
 			//Conexion::iniciar("localhost","bd_scnfinal","5432","postgres","12345");
+			
+		
 	}
 
-                
+    
 	//Método privado  que permite manejar el 	requerimiento (o acción) indicado por  el usuario según su petición .
 	//Si el módulo es login, instituto ó pensum  se irá al controlador 	correspondiente llamando a la función 		iniciar y realizará el flujo pertinente 	a la petición del usuario.
     private static function manejarRequerimiento() {
@@ -135,6 +137,8 @@ class PrincipalControlador {
 		// y convertirlo a minuscula
 		try {
 		$modulo = strtolower(PostGet::obtenerPostGet('m_modulo'));
+		
+		
 		
 		require_once("Bloque.php");
 		

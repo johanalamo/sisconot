@@ -14,6 +14,7 @@
   width: 100%;
   padding-right: 25px;
 }
+
 .error .bootstrap-select .btn {
   border: 1px solid #b94a48;
 }
@@ -88,6 +89,7 @@
   margin-top: -2px;
   vertical-align: middle;
 }
+
 .bootstrap-select.btn-group[class*="col-"] .btn {
   width: 100%;
 }
@@ -257,4 +259,9 @@
   height: 100% !important;
   opacity: 0;
 }
+
+#btnFiltrar{
+	position:fixed;
+}
+
 /*# sourceMappingURL=bootstrap-select.css.map */

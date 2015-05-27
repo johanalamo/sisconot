@@ -68,5 +68,5 @@ else if($modulo == 'usuario_NO_FUNCIONAL_AUN_JOHAN_ALAMO'){
 	Usuario_NO_FUNCIONAL_AUN_JOHAN_ALAMOControlador::manejarRequerimiento();
 }
 else 
-	throw new Exception ('(PrincipalControlador) Módulo inválido: $modulo')
+	throw new Exception ('(PrincipalControlador) Módulo inválido:'.$modulo);
 ?>

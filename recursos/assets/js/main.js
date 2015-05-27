@@ -282,6 +282,17 @@ function obtenerMenu(opcion){
 			$("#menuIA").remove();
 	}
 	else if(opcion == 'I'){
+		if($("#menuII").length == 0){
+			cadena = '<div id="menuII">';
+				cadena += '<a href="index.php?m_modulo=instituto&m_formato=html5&m_accion=listar&m_vista=Listar" style="color:white">Lista de Institutos</a>';
+				cadena += '<a href="index.php?m_modulo=pensum&m_formato=html5&m_accion=listar&m_vista=Listar" style="color:white">Lista de Pensum</a>';
+				cadena += '<a href="index.php?m_modulo=periodo&m_formato=html5&m_accion=listar&m_vista=Listar" style="color:white">Lista de Periodo</a>';
+			cadena += '</div>';
+			$('#menuIT').append(cadena);
+		}
+		else{
+			$("#menuII").remove();
+		}
 		
 	}
 }

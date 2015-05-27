@@ -11,3 +11,4 @@ CREATE DATABASE bd_scnfinal
 alter database  bd_scnfinal SET DateStyle to 'sql,dmy';
 
 
+\c bd_scnfinal;

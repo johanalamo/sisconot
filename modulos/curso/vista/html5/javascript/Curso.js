@@ -1882,9 +1882,9 @@ function montarEstudiantes(estudiantes){
 			cadena+="<tr>";
 			cadena+="<td>"+(i+1)+"</td>";
 			cadena+="<td>"+estudiantes[i]['cedula']+"</td>";
-			cadena+="<td>"+estudiantes[i]['apellido1'];
+			cadena+="<td style='text-align:left'>"+estudiantes[i]['apellido1'];
 			cadena+=", "+ estudiantes[i]['nombre1']+"</td>";
-			cadena+="<td>"+estudiantes[i]['cor_personal']+"</td>";
+			cadena+="<td style='text-align:left'>"+estudiantes[i]['cor_personal']+"</td>";
 
 			if(estudiantes[i]['nota']===null)
 				cadena+="<td>"+'N/A';
@@ -2411,36 +2411,35 @@ function succBuscarCursosSecciones(data){
  * 	cursos: matriz de cursos.
  */
 
-/*MODIFICADA POR JOHAN ALAMO, PARA RESTAURAR BUSCAR DESPUES DE ESTA
- * LA FUNCION actualizarListarCursosJohanAlamo(data)  */
+
 function actualizarListarCursos(data){
 	cadena="";
 		$('#menCurso').remove();
 		$('#tTabla').remove();
-		$("#btnFiltrar").remove();
+		$("#botonFil").remove();
 		
-		cadena += '<select id="btnFiltrar" title="Sin filtrar" onclick="filtrar(this.value)" class="form-control"></select>';
+		var subcadena = "";
 		
-		
+		subcadena += '<div id="botonFil"><select id="btnFiltrar" class="selectpicker" title="Sin filtrar" onchange="filtrar()"></select></div>';
 		cadena += '<table class="table" id="tTabla">';
-
+		
 		var trayecto = '';
-
 		var fondo = 'blue';
 		var seccion = '';
 		
-		cursos=data.cursos;					
-		
+		cursos=data.cursos;
 		
 		var cont = 0;
-		
 		var subc = "";
+		var contador = 1;
 		
 		subc += "<option selected disabled> Escoja una para filtrar </option>";
+
 		
 		for(var i=0;i<cursos.length;i++){
-
-			if ((trayecto !== cursos[i].num_trayecto)){
+			if((trayecto !== cursos[i].num_trayecto)){
+				
+				contador = 1;
 				
 				fondo = 'white';
 				
@@ -2451,7 +2450,6 @@ function actualizarListarCursos(data){
 				cadena += '<td  colspan="100">';
 				
 				cadena += '<div class="col-md-8 col-md-offset-2">';
-				
 				
 				if(cont != 0)
 					cadena += '</section>';
@@ -2466,6 +2464,7 @@ function actualizarListarCursos(data){
 				
 				cadena += '</div>';
 				cadena += '<div class="col-md-2">';
+				
 				permiso=new Per();
 
 				cadena += "<div>";
@@ -2488,12 +2487,18 @@ function actualizarListarCursos(data){
 				cadena +="</tr>";
 
 			}else if ((seccion != cursos[i].seccion)){
-				if (fondo == 'white')
+				if (fondo == 'white'){
 					fondo = 'lightgray';
-				else 
+					if(contador == 0)
+						contador = 1;
+				}
+				else{
 					fondo = 'white';
-					
-				var seccion = cursos[i].seccion;
+					if(contador == 0)
+						contador = 1;
+				}
+				
+				var seccion = cursos[i].seccion;	
 			}  			
 			cadena +="<tr bgcolor='" + fondo + "'>";
 			cadena +="<td>";
@@ -2502,21 +2507,21 @@ function actualizarListarCursos(data){
 			
 			if ($("#estPeriodo").val()=="Abierto") {
 				if ((permiso.curso.insert)&&(permiso.curso.delete)&&(permiso.curso.update)){	
-							
-					cadena += "<button id='secc"+cursos[i].seccion+"' onClick=\"configurarSeccion('dialogoSeccion','Administrar Sección','administrar','"+cursos[i].num_trayecto+"','"+cursos[i].seccion+"','"+cursos[i].cod_trayecto+"')\" class='btn btn-warning btn-sm' data-toggle='modal' data-target='#dialogoSeccion'>";
-					
+					if(contador == 1)
+						cadena += "<button id='secc"+cursos[i].seccion+"' onClick=\"configurarSeccion('dialogoSeccion','Administrar Sección','administrar','"+cursos[i].num_trayecto+"','"+cursos[i].seccion+"','"+cursos[i].cod_trayecto+"')\" class='btn btn-warning btn-sm' data-toggle='modal' data-target='#dialogoSeccion'>";
 				}
 			}
-			cadena += cursos[i].seccion; 
+			if(contador == 1)
+				cadena += cursos[i].seccion; 
 			
 			cadena +="</td>";
-			cadena +="<td >";
+			cadena +="<td style='text-align:left'>";
 			cadena += cursos[i].nombre; 
 			cadena += " ("+cursos[i].codigo+")";
 			cadena +="</td>";
 			
 			if($('#prof').val() != '1'){
-				cadena +="<td>";
+				cadena +="<td style='text-align:left'>";
 					cadena += cursos[i].nombrecompleto; 
 				cadena +="</td>";
 			}
@@ -2557,18 +2562,23 @@ function actualizarListarCursos(data){
 			cadena +="</td>";
 			cadena +="</tr>	";
 			
+			contador = 0;
 		}
 		cadena +="</table>";
 		
 		$(cadena).appendTo('#listarC');
 		
+		if($("#botonFil").length == 0)
+			$("#movible").append(subcadena);
+		
 		$("#btnFiltrar").append(subc);
 		
-		activarSelect();	
+		activarSelect();
 }
 
-function filtrar(val){
-	
+function filtrar(){
+
+	var val = $("#btnFiltrar").val()[0];
 	
 	var posicion = $("#sect"+val).offset();
 	
@@ -2578,7 +2588,7 @@ function filtrar(val){
 							{
 								scrollTop : posicion - 50
 							},
-							1500);
+							500);
 }
 
 
@@ -2764,3 +2774,34 @@ function succBuscarListar(data){
 function validarTodoCurso(i){
 	return((validarSoloNumeros('#capacidad'+i,1,3,false))&&(validarFecha('#fecInicio'+i,false))&&(validarFecha('#fecFinal'+i,false))&&(validarRangos('#observaciones'+i,0,30,false))&&(validarSoloTexto("#"+i,0,40,false)));
 }
+
+
+$(window).scroll(function(event){
+									var scroll = $(window).scrollTop();
+									if(scroll >= 171){
+										//$("#movible").css("display","none");
+										$("#movible").css("position","fixed");
+										$("#movible").css("width","60%");
+										//$("#movible").css("left","50px");
+										$("#movible").css("top","750px");
+										$("#movible").css("z-index","1000");
+										$("#movible").css("padding","2px");
+										//$("#movible").css("border","1px solid #6BD0DE");
+										$("#movible").css("background","white");
+										$("#movible").css("opacity","1");
+										$("#movible").css("border-radius","7px");
+										$("#movible").css("box-shadow","2px 1px 2px 1px #000009");
+									}
+									else{
+										$("#movible").css("width","100%");
+										$("#movible").css("position","relative");
+										$("#movible").css("top","10px");
+										$("#movible").css("left","5px");
+										$("#movible").css("border","0px solid #000000");
+										$("#movible").css("background","white");
+										$("#movible").css("opacity","1");
+										$("#movible").css("border-radius","0px");
+										$("#movible").css("box-shadow","0px 0px 0px 0px black");
+									}
+								});
+
