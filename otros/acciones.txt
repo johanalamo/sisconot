@@ -1,0 +1,9 @@
+
+agregarInstituto
+modificarInstituto
+eliminarInstituto
+listarIntituto
+consultarInsituto
+
+
+

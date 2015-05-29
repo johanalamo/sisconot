@@ -1029,3 +1029,31 @@ Trayecto:
 		#2 /var/www/SisCoNot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
 		#3 /var/www/SisCoNot/index.php(44): PrincipalControlador::iniciar()
 		#4 {main}
+**************************** Error n° 99 *****************************
+codigo Error: 99
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/DEFINITIVO/github/SisCoNot15.05.21/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/DEFINITIVO/github/SisCoNot15.05.21/modulos/instituto/modelo/InstitutoServicio.php(45): Conexion::conectar()
+		#1 /var/www/DEFINITIVO/github/SisCoNot15.05.21/modulos/instituto/InstitutoControlador.php(171): InstitutoServicio::listarInstitutos()
+		#2 /var/www/DEFINITIVO/github/SisCoNot15.05.21/modulos/instituto/InstitutoControlador.php(58): InstitutoControlador::listarInstitutos()
+		#3 /var/www/DEFINITIVO/github/SisCoNot15.05.21/modulos/principal/Bloque.php(37): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/DEFINITIVO/github/SisCoNot15.05.21/modulos/principal/PrincipalControlador.php(143): require_once('/var/www/DEFINI...')
+		#5 /var/www/DEFINITIVO/github/SisCoNot15.05.21/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/DEFINITIVO/github/SisCoNot15.05.21/index.php(44): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 100 *****************************
+codigo Error: 100
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/DEFINITIVO/github/SisCoNot15.05.21/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/DEFINITIVO/github/SisCoNot15.05.21/modulos/pensum/modelo/PensumServicio.php(40): Conexion::conectar()
+		#1 /var/www/DEFINITIVO/github/SisCoNot15.05.21/modulos/pensum/PensumControlador.php(46): PensumServicio::listarPensum(NULL)
+		#2 /var/www/DEFINITIVO/github/SisCoNot15.05.21/modulos/pensum/PensumControlador.php(19): PensumControlador::listar()
+		#3 /var/www/DEFINITIVO/github/SisCoNot15.05.21/modulos/principal/Bloque.php(45): PensumControlador::manejarRequerimiento()
+		#4 /var/www/DEFINITIVO/github/SisCoNot15.05.21/modulos/principal/PrincipalControlador.php(143): require_once('/var/www/DEFINI...')
+		#5 /var/www/DEFINITIVO/github/SisCoNot15.05.21/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/DEFINITIVO/github/SisCoNot15.05.21/index.php(44): PrincipalControlador::iniciar()
+		#7 {main}
