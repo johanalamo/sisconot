@@ -1,7 +1,6 @@
 <?php
 
 	require_once("modulos/error/modelo/ErrorServicio.php");
-//PACAN
 /**
  * @copyright 2015 - Instituto Universtiario de Tecnología Dr. Federico Rivero Palacio
  * @license GPLv3
