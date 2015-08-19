@@ -1,7 +1,6 @@
 <?php
 
-	require_once("modulos/error/modelo/ErrorServicio.php");
-/**
+	require_once("modulos/error/modelo/ErrorServicio.php");/**
  * @copyright 2015 - Instituto Universtiario de Tecnología Dr. Federico Rivero Palacio
  * @license GPLv3
  * @license http://www.gnu.org/licenses/gpl-3.0.html
