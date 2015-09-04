@@ -209,7 +209,7 @@ create table sis.t_periodo (
 
 
 
---tabla persona, padre de t_estudiante y t_docente
+--tabla persona, padre de t_estudiante y t_empleado
 create table sis.t_persona(
 	codigo integer not null,
 	cedula integer not null,
@@ -220,19 +220,29 @@ create table sis.t_persona(
 	apellido2 varchar(20),
 	sexo varchar(1) not null,
 	fec_nacimiento date,
-	tip_sangre varchar(8),
-	telefono1 varchar(20),
-	telefono2 varchar(20),
+	tip_sangre varchar(5),
+	telefono1 varchar(15),
+	telefono2 varchar(15),
 	cor_personal varchar(50),
 	cor_institucional varchar(50),
-	direccion varchar(200),
+	direccion varchar(150),
+	discapacidad varchar(50),
+	nacionalidad varchar(1),
+	hijos integer,
+	est_civil varchar(1),
+	observaciones varchar(200),
+	cod_foto integer,
 	constraint cp_persona primary key(codigo),
+	constraint cf_persona__archivo foreign key(cod_foto)
+		references sis.t_archivo(codigo),
 	constraint ca_persona_01 unique(cedula),
 	constraint ca_persona_02 unique(rif),
 	constraint ca_persona_03 unique(cor_personal),
 	constraint ca_persona_04 unique (cor_institucional),
 	constraint chk_persona_01 check (fec_nacimiento>='01/01/1940' and fec_nacimiento<= current_date),
-	constraint chk_persona_02 check (sexo in ('M','F'))
+	constraint chk_persona_02 check (sexo in ('M','F')),
+	constraint chk_persona_03 check (nacionalidad in ('V','E')),
+	constraint chk_persona_04 check (est_civil in ('S','C','D','V','O'))
 );
 --alter table sis.t_persona owner to usuarioscn;
 
@@ -246,21 +256,32 @@ create table sis.t_est_docente(
 --alter table sis.t_est_docente owner to usuarioscn;
 
 
---creación de la tabla docente (hija de persona)
-create table sis.t_docente(
-	codigo integer,  --referencia a t_persona.codigo
-	cod_departamento integer,
-	num_empleado smallint,
-	cod_estado char not null,
-	constraint cp_docente primary key(codigo),
-	constraint cf_docente__persona foreign key(codigo)
+--creación de la tabla empleado (hija de persona)
+create table sis.t_empleado(
+	 codigo integer,
+	 cod_persona integer not null,
+	 cod_instituto integer,
+	 cod_pensum integer,
+	 cod_estado character(1),
+	 fec_inicio date NOT NULL,
+	 fec_fin date,
+	 es_jef_pensum boolean not null,
+	 es_jec_con_estudio boolean not null,
+	 es_ministerio boolean not null,
+	 es_docente boolean not null,
+	 observaciones varchar(200),
+	constraint cp_empleado primary key(codigo),
+	constraint cf_empleado__persona foreign key(cod_persona)
 		references sis.t_persona(codigo),
-	constraint cf_docente__est_docente foreign key(cod_estado)
+	constraint cf_empleado__est_docente foreign key(cod_estado)
 		references sis.t_est_docente(codigo),
-	constraint fk_docente__departamento foreign key(cod_departamento)
-		references sis.t_departamento(codigo)
+	constraint cf_empleado__instituto foreign key(cod_instituto)
+		references sis.t_instituto(codigo),
+	constraint cf_empleado__pensum foreign key(cod_pensum)
+		references sis.t_pensum(codigo),
+	constraint chk_docente_01 check (fec_fin>fec_inicio)	
 );
---alter table sis.t_docente owner to usuarioscn;
+--alter table sis.t_empleado owner to usuarioscn;
 
 --tabla para el manejo del estado de un estudiante: activo, retirado, graduado... etc 
 create table sis.t_est_estudiante(
@@ -272,25 +293,31 @@ create table sis.t_est_estudiante(
 
 --tabla estudiante (hija de persona)
 create table sis.t_estudiante(
-	codigo integer,  --referencia a t_persona.codigo
-	cod_departamento integer,
-	cod_pensum integer,
-	num_carnet varchar(20),
-	num_expediente varchar(30),
-	cod_rusnies varchar(30),
-	cod_estado char not null,
+	codigo integer,  --referencia a t_persona.codigo 
+	cod_persona integer not null,
+	cod_instituto integer not null,
+	cod_pensum integer not null,
+	num_carnet varchar(25),
+	num_expediente varchar(25),
+	cod_rusnies varchar(20),
+	cod_estado char,
+	fec_inicio date not ,
+	condicion varchar(5),
+	fec_fin date,
+	observaciones varchar (200),
 	constraint cp_estudiante primary key(codigo),
-	constraint cf_estudiante__persona foreign key(codigo)
+	constraint cf_estudiante__persona foreign key(cod_persona)
 		references sis.t_persona(codigo),
 	constraint cf_estudiante__est_estado foreign key(cod_estado)
-		references sis.t_est_estudiante(codigo),
-	constraint fk_estudiante__departamento foreign key(cod_departamento)
-		references sis.t_departamento(codigo),
+		references sis.t_est_estudiante(codigo), 
+	constraint cf_estudiante__instituto foreign key(cod_instituto)
+		references sis.t_instituto(codigo),
 	constraint cf_estudiante__pensum foreign key(cod_pensum)
 		references sis.t_pensum(codigo),
 	constraint ca_estudiante_01 unique(num_carnet),
 	constraint ca_estudiante_02 unique(num_expediente),
-	constraint ca_estudiante_03 unique(cod_rusnies)
+	constraint ca_estudiante_03 unique(cod_rusnies),
+	constraint chk_docente_01 check (fec_fin>fec_inicio)
 );
 --alter table sis.t_estudiante owner to usuarioscn;
 
@@ -312,7 +339,7 @@ create table sis.t_curso(
 	constraint cf_curso__uni_curricular foreign key(cod_uni_curricular)
 		references sis.t_uni_curricular(codigo),
 	constraint cf_curso__docente foreign key(cod_docente)
-		references sis.t_docente(codigo),
+		references sis.t_empleado(codigo),
 	constraint ca_curso_01 unique(cod_periodo,cod_uni_curricular,seccion),
 	constraint chk_curso_01 check (fec_inicio < fec_final),
 	constraint chk_curso_02 check (capacidad >= 0),
@@ -352,15 +379,9 @@ create table sis.t_cur_estudiante(
 );
 --alter table sis.t_cur_estudiante owner to usuarioscn;
 
---tabla donde se almacena la fotografia de una persona
-create table sis.t_fotografia(
-	cod_persona integer not null,
-	tipo varchar(20),
-	imagen oid,
-	constraint cp_fotografia primary key(cod_persona),
-	constraint cf_fotografia__persona foreign key(cod_persona)
-		references sis.t_persona(codigo)
-);
+
+
+/*
 
 --********* CREACIÓN DE VISTAS *****************************************
 --vista de estudiantes
@@ -410,7 +431,7 @@ create view sis.v_docente as
 			d.num_empleado,
 			d.cod_estado
 	from sis.t_persona as p inner join
-		sis.t_docente as d on p.codigo = d.codigo;
+		sis.t_empleado as d on p.codigo = d.codigo; */
 
 
 --funcion que devuelve un texto invertido, ej: select reverse('prueba'); produce 'abeurp'
@@ -500,3 +521,13 @@ create table per.t_menu (
 
 
 );
+
+
+
+create table sis.t_archivo(
+	codigo integer not null,
+	tipo varchar(30),
+	archivo oid,
+	constraint cp_archivo primary key(codigo)
+);
+
