@@ -262,7 +262,7 @@ create table sis.t_empleado(
 	 cod_persona integer not null,
 	 cod_instituto integer,
 	 cod_pensum integer,
-	 cod_estado character(1),
+	 cod_estado varchar(1),
 	 fec_inicio date NOT NULL,
 	 fec_fin date,
 	 es_jef_pensum boolean not null,
@@ -279,7 +279,7 @@ create table sis.t_empleado(
 		references sis.t_instituto(codigo),
 	constraint cf_empleado__pensum foreign key(cod_pensum)
 		references sis.t_pensum(codigo),
-	constraint chk_docente_01 check (fec_fin>fec_inicio)	
+	constraint chk_empleado_01 check (fec_fin>fec_inicio)	
 );
 --alter table sis.t_empleado owner to usuarioscn;
 
@@ -293,7 +293,7 @@ create table sis.t_est_estudiante(
 
 --tabla estudiante (hija de persona)
 create table sis.t_estudiante(
-	codigo integer,  --referencia a t_persona.codigo 
+	codigo integer,  
 	cod_persona integer not null,
 	cod_instituto integer not null,
 	cod_pensum integer not null,
