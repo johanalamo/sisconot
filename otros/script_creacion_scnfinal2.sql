@@ -531,3 +531,4 @@ create table sis.t_archivo(
 	constraint cp_archivo primary key(codigo)
 );
 
+

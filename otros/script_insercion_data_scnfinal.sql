@@ -165,16 +165,16 @@ insert into sis.t_persona(codigo, cedula, nombre1, apellido1, sexo) values (102,
 insert into sis.t_persona(codigo, cedula, nombre1, apellido1, sexo) values (103, 23000000, 'Rafael','Garcia','M');
 insert into sis.t_persona(codigo, cedula, nombre1, apellido1, sexo) values (104, 24000000, 'Eleiny','Bello','F');
 insert into sis.t_persona(codigo, cedula, nombre1, apellido1, sexo) values (105, 25000000, 'Edwin','García','M');
---insertar docentes
-insert into sis.t_docente(codigo, cod_departamento, cod_estado) values (1, 1, 'A');
-insert into sis.t_docente(codigo, cod_departamento, cod_estado) values (2, 1, 'A');
-insert into sis.t_docente(codigo, cod_departamento, cod_estado) values (3, 1, 'A');
+--insertar empleado
+insert into sis.t_empleado(codigo, cod_persona, cod_estado,fec_inicio,es_jef_pensum,es_jec_con_estudio,es_ministerio,es_docente) values (1, 1, 'A','8-9-2015',false, false, false, false);
+insert into sis.t_empleado(codigo, cod_persona, cod_estado,fec_inicio,es_jef_pensum,es_jec_con_estudio,es_ministerio,es_docente) values (2, 2, 'A','8-9-2015',false, false, false, false);
+insert into sis.t_empleado(codigo, cod_persona, cod_estado,fec_inicio,es_jef_pensum,es_jec_con_estudio,es_ministerio,es_docente) values (3, 3, 'A','8-9-2015',false, false, false, false);
 --insertar estudiantes
-insert into sis.t_estudiante(codigo, cod_departamento, cod_pensum, cod_estado) values (101, 1, 1, 'A');
-insert into sis.t_estudiante(codigo, cod_departamento, cod_pensum, cod_estado) values (102, 1, 1, 'A');
-insert into sis.t_estudiante(codigo, cod_departamento, cod_pensum, cod_estado) values (103, 1, 1, 'A');
-insert into sis.t_estudiante(codigo, cod_departamento, cod_pensum, cod_estado) values (104, 1, 1, 'A');
-insert into sis.t_estudiante(codigo, cod_departamento, cod_pensum, cod_estado) values (105, 1, 1, 'A');
+insert into sis.t_estudiante(codigo, cod_persona, cod_pensum, cod_estado,fec_inicio) values (101, 1, 1, 'A','8-9-2015');
+insert into sis.t_estudiante(codigo, cod_persona, cod_pensum, cod_estado,fec_inicio) values (102, 2, 1, 'A','8-9-2015');
+insert into sis.t_estudiante(codigo, cod_persona, cod_pensum, cod_estado,fec_inicio) values (103, 3, 1, 'A','8-9-2015');
+insert into sis.t_estudiante(codigo, cod_persona, cod_pensum, cod_estado,fec_inicio) values (104, 4, 1, 'A','8-9-2015');
+insert into sis.t_estudiante(codigo, cod_persona, cod_pensum, cod_estado,fec_inicio) values (105, 5, 1, 'A','8-9-2015');
 
 
 
