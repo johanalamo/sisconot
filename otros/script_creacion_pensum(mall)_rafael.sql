@@ -1,13 +1,13 @@
 -- modificacioon Rafael Garcia
 -- ultima modificacion 30/08/2015 8:00 PM
-esto está bien, otra prueba
+
 --creación de la tabla pensum
 create table sis.t_pensum(
 	codigo integer,
 	nombre varchar(50) not null,
 	nom_corto varchar(20) not null,
 	observaciones varchar(200),
-	min_can_electiva smallint not null, -- cantidada de lectivas
+	min_can_electiva smallint not null default 0, -- cantidadad de electivas
 	min_cre_electiva smallint not null,
 	min_cre_obligatorio smallint not null,
 	fec_creacion date not null,
@@ -28,7 +28,14 @@ comment on column sis.t_pensum.min_cre_electiva is 'MInima Cantidad de Creditos 
 comment on column sis.t_pensum.min_cre_obligatorio is 'MInima Cantidad de Creditos de Electivas Obligatorios';
 comment on column sis.t_pensum.fec_creacion is 'Fecha de creacion del pensum';
 --alter table sis.t_pensum owner to usuarioscn;
-
+CORRECCIONES A LA TABLA T_PENSUM ***************************************************************************************
+ccomment on column sis.t_pensum.min_can_electiva is 'Minima Cantidad de Electivas que se deben cursar en el pesum';
+ccomment on column sis.t_pensum.min_cre_electiva is 'MInima Cantidad de unidades de créditos que se deben cursar en el pensum en electivas';
+ccomment on column sis.t_pensum.min_cre_obligatorio is 'MInima Cantidad de unidades de créditos que se deben cursar en el pensum en unidades obligatorias';
+colocar a min_can_electiva, min_cre-electriva y min_cre_obligatorio la sentencia 'default 0': ver como está min_can_electiva
+la fecha de creación puede ser nula
+la fecha de creación ponle en el check que se mayor a '01/01/1950'
+cambiar el género de obligatorio a obligatoria
 
 --creación de la tabla trayecto
 create table sis.t_trayecto(
@@ -61,6 +68,19 @@ comment on column sis.t_trayecto.min_cre_electiva is 'Mínima cantidad de Credit
 comment on column sis.t_trayecto.min_cre_acreditable is 'Mínima cantidad de acredotables por trayecto';
 comment on column sis.t_trayecto.min_can_electiva is 'Mínima cantidad de electivas por trayecto';
 --alter table sis.t_trayecto owner to usuarioscn;
+
+correcciones a la tabla t_trayecto:
+cambiar el género de obligatorio a obligatoria
+el check cod_pensum >= 0 no es necesario porque es una forànea, y ajuro este valor debe estar en la otra tabla
+a los campos min_cre_obligaoria, min_cre_electiva,min_cre_acreditable,min_can_electiva ponle default 0,
+modifica los siguientes comentarios
+ccomment on column sis.t_trayecto.min_cre_obligatorio is 'Mínima cantidad de créditos en unidades curriculares obligatorias que se deben cursar en este trayecto';
+ccomment on column sis.t_trayecto.min_cre_electiva is 'Mínima cantidad de créditos en unidades curriculares electivas que se deben cursar en este trayecto';
+ccomment on column sis.t_trayecto.min_cre_acreditable is 'Mínima cantidad de créditos en actividades acreditables que se deben tener en este trayecto';
+ccomment on column sis.t_trayecto.min_can_electiva is 'Mínima cantidad de unidades electivas que se deben cursar en este trayecto';
+
+
+voy por aaaaqqqqqqqqqqqqqqqqquuuuuuuuuuuuuuuuuuuuiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 
 
 --creación de la tabla unidad curricular
