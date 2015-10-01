@@ -1,6 +1,6 @@
 -- modificacioon Rafael Garcia
 -- ultima modificacion 30/08/2015 8:00 PM
-esto está bien
+esto está bien, otra prueba
 --creación de la tabla pensum
 create table sis.t_pensum(
 	codigo integer,
