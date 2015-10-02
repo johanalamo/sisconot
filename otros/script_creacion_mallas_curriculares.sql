@@ -293,6 +293,7 @@ detalles importantes
     no colocar not nulls cuando estában indicados en el MER, y viceversa
     copiar y pegar comentarios sin revisarlos después
     no seguir las convenciones en los nombres de restricciones de las tablas, específicamente, las foraneas
+	colocar claves alternativas erradas
 
 NOTA: PRIMERA ENTREGA, PESO 5, NOTA 14. SEGUNDA ENTREGA, PESO 15    
     
