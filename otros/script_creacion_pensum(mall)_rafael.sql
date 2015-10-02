@@ -1,5 +1,59 @@
--- modificacioon Rafael Garcia
--- ultima modificacion 30/08/2015 8:00 PM
+/*Script de creación de la base de datos del Sistema de Control de Notas
+--Creado por Johan Alamo y estudiantes de proyecto sociotecnológico 
+--Comenzado en 2012
+--Retomado en febrero de 2014
+--Dpto de informática del IUT-RC "Dr. Federico Rivero Palacio"
+
+Última versión
+septiembre de 2015.
+Participantes:
+Tutor/coordinador: Johan Alamo  (johan.alamo@gmail.com)
+Estudiantes participantes en la versión final:
+	De Sousa, Juan
+	García, Rafael
+	Sosa, Jean Pierre
+
+Participantes en versiones anteriores
+	Castillo, Geraldine
+	De Sousa, Juan
+	Vielma, Jhonny
+	Franco, Cesar
+	García, Edson
+*/
+
+-- CREACION DE LA BASE DE DATOS   *********************************************
+\connect postgres;
+
+-- consulta para limpiar el buffer, no borrar.
+select 'consulta para limpiar el buffer, no borrar.';
+
+-- Borrar la base de datos en caso de existir
+--drop database  bd_sisconot;
+
+--drop user sisconot;
+create user sisconot password '123';
+
+
+-- Crear de nuevo la base de datos
+--CREATE DATABASE bd_sisconot WITH OWNER = sisconot ENCODING = 'UTF8' CONNECTION LIMIT = -1;
+
+--cambia el formato de la fecha a Dia/mes/año para consulta e insercion
+alter database bd_sisconot SET DateStyle to 'sql,dmy';
+
+
+-- Conectarse a la nueva base de datos
+\connect bd_sisconot sisconot;
+
+
+
+--crear el esquema de las tablas del sistema  ****************************************************
+--create schema sis;
+
+
+grant usage on schema sis to sisconot;
+
+
+--***************************************  CREACIÓN DE TABLAS DE SUBSITEMA DE MALLAS CURRICULARES *********************************
 
 --creación de la tabla pensum
 create table sis.t_pensum(
@@ -27,7 +81,10 @@ comment on column sis.t_pensum.min_can_electiva is 'Minima Cantidad de Electivas
 comment on column sis.t_pensum.min_cre_electiva is 'MInima Cantidad de Creditos de Electivas';
 comment on column sis.t_pensum.min_cre_obligatorio is 'MInima Cantidad de Creditos de Electivas Obligatorios';
 comment on column sis.t_pensum.fec_creacion is 'Fecha de creacion del pensum';
---alter table sis.t_pensum owner to usuarioscn;
+alter table sis.t_pensum owner to sisconot;
+
+
+
 CORRECCIONES A LA TABLA T_PENSUM ***************************************************************************************
 ccomment on column sis.t_pensum.min_can_electiva is 'Minima Cantidad de Electivas que se deben cursar en el pesum';
 ccomment on column sis.t_pensum.min_cre_electiva is 'MInima Cantidad de unidades de créditos que se deben cursar en el pensum en electivas';
@@ -35,7 +92,7 @@ ccomment on column sis.t_pensum.min_cre_obligatorio is 'MInima Cantidad de unida
 colocar a min_can_electiva, min_cre-electriva y min_cre_obligatorio la sentencia 'default 0': ver como está min_can_electiva
 la fecha de creación puede ser nula
 la fecha de creación ponle en el check que se mayor a '01/01/1950'
-cambiar el género de obligatorio a obligatoria
+cambiar el género de obligatorio a obligatoria es decir "min_cre_obligatorio" a "min_cre_obligatoria"
 
 --creación de la tabla trayecto
 create table sis.t_trayecto(
@@ -67,7 +124,7 @@ comment on column sis.t_trayecto.min_cre_obligatorio is 'Mínima cantidad de Cre
 comment on column sis.t_trayecto.min_cre_electiva is 'Mínima cantidad de Creditos electivas por trayecto';
 comment on column sis.t_trayecto.min_cre_acreditable is 'Mínima cantidad de acredotables por trayecto';
 comment on column sis.t_trayecto.min_can_electiva is 'Mínima cantidad de electivas por trayecto';
---alter table sis.t_trayecto owner to usuarioscn;
+alter table sis.t_trayecto owner to sisconot;
 
 correcciones a la tabla t_trayecto:
 cambiar el género de obligatorio a obligatoria
@@ -78,9 +135,6 @@ ccomment on column sis.t_trayecto.min_cre_obligatorio is 'Mínima cantidad de cr
 ccomment on column sis.t_trayecto.min_cre_electiva is 'Mínima cantidad de créditos en unidades curriculares electivas que se deben cursar en este trayecto';
 ccomment on column sis.t_trayecto.min_cre_acreditable is 'Mínima cantidad de créditos en actividades acreditables que se deben tener en este trayecto';
 ccomment on column sis.t_trayecto.min_can_electiva is 'Mínima cantidad de unidades electivas que se deben cursar en este trayecto';
-
-
-voy por aaaaqqqqqqqqqqqqqqqqquuuuuuuuuuuuuuuuuuuuiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 
 
 --creación de la tabla unidad curricular
@@ -122,8 +176,15 @@ comment on column sis.t_uni_curricular.hti is 'Horas de Trabajo Independiente po
 comment on column sis.t_uni_curricular.descripcion is 'descripcion adicional de la unidad curricular';
 comment on column sis.t_uni_curricular.observacion is 'observaciones acerca de la unidad curricular';
 comment on column sis.t_uni_curricular.contenido is 'contenido de la unidad curricular';
--- alter table sis.t_uni_curricular owner to usuarioscn;
--- 
+ alter table sis.t_uni_curricular owner to sisconot;
+
+
+ 
+correcciones a la tabla t_uni_curricular
+   cod_uni_ministerio puede ser null
+   el check 08 y 09 borralos porque están de más... ya estan cubiertos con el check 06 y 07
+	ccomment on table sis.t_uni_curricular is 'Tabla que almacena la información de las unidades curriculares';
+
 
 -- creación de la tabla tipo de unidad curricular
 create table sis.t_tip_uni_curricular(
@@ -134,8 +195,15 @@ create table sis.t_tip_uni_curricular(
 comment on table  sis.t_tip_uni_curricular is 'Almacena los distintos tipos de unidades curriculares';
 comment on column sis.t_tip_uni_curricular.codigo is 'Código del tipo de unidad curricular';
 comment on column sis.t_tip_uni_curricular.nombre is 'Nombre del tipo de unidad curricular';
---alter table sis.t_tip_uni_curricular owner to usuarioscn;
--- (requerida)
+alter table sis.t_tip_uni_curricular owner to sisconot;
+
+correcciones a la tabla t_tip_uni_curricular
+cambiar el tipo de dato de "codigo" a char, para poder insertar las iniciales 'E','O', de electiva y obligatoria respectivamente
+
+
+
+
+-- creación de la tabla t_instituto
 create table sis.t_instituto(
 	codigo smallint,
 	nom_corto varchar(20) not null,
@@ -144,6 +212,13 @@ create table sis.t_instituto(
 	constraint cp_instituto primary key (codigo),
 	constraint ca_instituto unique(nom_corto)
 );
+alter table sis.t_instituto owner to sisconot;
+
+correcciones a la tabla t_instituto:
+ ya que te tocó hacerla porque dependes de ella, agrégale los comentarios
+ 
+
+
 -- creación de la tabla para almacenar las prelaciones entre unidades curriculares
 create table sis.t_prelacion (
 	codigo integer,
@@ -168,8 +243,19 @@ comment on column sis.t_prelacion.cod_pensum is 'Código único de la prelación
 comment on column sis.t_prelacion.cod_instituto is 'Código único de la prelación';
 comment on column sis.t_prelacion.cod_uni_curricular is 'Código de la unidad curricular a establecerle la prelación';
 comment on column sis.t_prelacion.cod_uni_cur_prelada is 'Código de la unidad que no se puede cursar si no se ha aprobado esta';
---alter table sis.t_prelacion owner to usuarioscn;
+alter table sis.t_prelacion owner to sisconot;
 
+correcciones a la tabla t_prelacion:
+la clave alternativa es: cod_pensum, con_instituto, cod_uni_curricular, cod_uni_cur_prelada... o sea todas a la vez, si tienes duda del por qué entonces pregúntame
+renombra los nombres de las restricciones:
+  cf_prelacion_01 por cf_prelacion__pensum
+  cf_prelacion_02 por cf_prelacion__instituto
+  cf_prelacion_03 por cf_prelacion__uni_curricular
+  cf_prelacion_04 por cf_prelacion__uni_curricular_prelada
+comentarios:
+ccomment on column sis.t_prelacion.codigo is 'Código único de la prelación';
+ccomment on column sis.t_prelacion.cod_pensum is 'Código del pensum al que pertenece la prelación';
+ccomment on column sis.t_prelacion.cod_instituto is 'Código del instituto donde se está aplicando esta prelación';
 
 --creación de la tabla relacional para malla t_uni_tra_pensum
 create table sis.t_uni_tra_pensum(
@@ -193,7 +279,21 @@ comment on column sis.t_uni_tra_pensum.codigo is 'Código del pensum';
 comment on column sis.t_uni_tra_pensum.cod_pensum is 'Nombre largo del pensum';
 comment on column sis.t_uni_tra_pensum.cod_trayecto is 'Abreviación del nombre del pensum';
 comment on column sis.t_uni_tra_pensum.cod_tipo is 'Alguna otra información relevante del pensum';
---alter table sis.t_uni_tra_pensum owner to usuarioscn;
+alter table sis.t_uni_tra_pensum owner to sisconot;
+
+correcciones a la tabla uni_tra_pensum
+cambiar tipo de dato de cod_tipo a char
+cod_pensum, cod_uni_curricular, cod_tipo son NOT NULL,
+EN LOS COMENTARIOS COPIASTE Y PEGASTE Y NO CAMBIASTE LA DESCRIPCION DE LOS CAMPOS
 
 
+
+
+detalles importantes
+    no colocar not nulls cuando estában indicados en el MER, y viceversa
+    copiar y pegar comentarios sin revisarlos después
+    no seguir las convenciones en los nombres de restricciones de las tablas, específicamente, las foraneas
+
+NOTA: PRIMERA ENTREGA, PESO 5, NOTA 14. SEGUNDA ENTREGA, PESO 15    
+    
 
