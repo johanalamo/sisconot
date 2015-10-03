@@ -1,17 +1,24 @@
 
 
 
---Tabla instituto                             AQUI
-create table sis.t_instituto(
-	codigo smallint,
-	nom_corto varchar(20) not null,
-	nombre varchar(100) not null,
-	direccion varchar(200),
-	constraint cp_instituto primary key (codigo),
-	constraint ca_instituto unique(nom_corto)
-);
---alter table sis.t_instituo owner to usuarioscn;
+correcciones a la tabla instituto:
+   Ya que rafael también la necesitaba la colocó en su script... quítalo del tuyo
 
+
+create table sis.t_archivo(
+	codigo integer not null,
+	tipo varchar(30),
+	archivo oid,
+	constraint cp_archivo primary key(codigo)
+);
+alter table sis.t_archivo owner to sisconot;
+
+correcciones a la tabla t_archivo
+   colocarle los comentarios tanto la tabla como a sus campos
+   
+
+   
+   
 
 
 --tabla persona, padre de t_estudiante y t_empleado
@@ -49,7 +56,19 @@ create table sis.t_persona(
 	constraint chk_persona_03 check (nacionalidad in ('V','E')),
 	constraint chk_persona_04 check (est_civil in ('S','C','D','V','O'))
 );
---alter table sis.t_persona owner to usuarioscn;
+alter table sis.t_persona owner to sisconot;
+correcciones a la tabla persona
+FALTAN LOS COMENTARIOS DE LAS TABLAS Y CAMPOS MAS IMPORTANTES... VE EL SCRIPT DE RAFAEL: EJEMPLOS
+     SEXO: PARA DEFINIR M y f
+     NACIONALIDAD PARA DEFIINIR V y E
+     ESTADO CIVIL PARA DEFINIR LOS CINCO ESTADOS (O=OTROS)
+codigo: no hace falta el not null ya que es primary key
+hijos: colocale check hijos mayor o igual a cero
+
+IMPORTANTE: PARA QUE EL SCRIPT CORRA CONTINUO DEBES COLOCAR LA CREACION DE LA TABLA T_ARCHIVO ANTES DE LA
+TABLA T_PERSONA, PORQUE CUANDO VA A CREAR T_PERSONA, ESTA TIENE UNA FORANEA A T_ARCHIVO Y ENTONCES COMO 
+NO ESTÁ CREADA SE VA A PARAR EL SCRIPT.
+
 
 
 --creacion de la tabla para el estado del docente: activo, retirado, jubilado... etc
@@ -61,7 +80,7 @@ create table sis.t_est_docente(
 --alter table sis.t_est_docente owner to usuarioscn;
 
 
---creación de la tabla empleado (hija de persona)
+--creación de la tabla empleado
 create table sis.t_empleado(
 	 codigo integer,
 	 cod_persona integer not null,
@@ -70,7 +89,7 @@ create table sis.t_empleado(
 	 cod_estado varchar(1),
 	 fec_inicio date NOT NULL,
 	 fec_fin date,
-	 es_jef_pensum boolean not null,
+	 es_jef_pensum boolean not null default false,
 	 es_jec_con_estudio boolean not null,
 	 es_ministerio boolean not null,
 	 es_docente boolean not null,
@@ -86,7 +105,16 @@ create table sis.t_empleado(
 		references sis.t_pensum(codigo),
 	constraint chk_empleado_01 check (fec_fin>fec_inicio)	
 );
---alter table sis.t_empleado owner to usuarioscn;
+alter table sis.t_empleado owner to sisconot;
+colocarlo los comentarios a la tabla y a los campos
+cambiar es_jec_con_estudio por es_jef_con_estudio (cambiar la C por la F)
+colocarle a los campos es_jef_pensum, es_jef_con_estudio, es_ministerio, es_docente
+   la clausula default false, (ver el ejemplo de "es_jef_pensum")
+restricciones check
+    fecha_inicio > 1/1/1970
+FALTA LA CLAVE ALTERNATIVA SIGUIENTE:
+   (cod_persona, cod_instituto, cod_pensum, fec_inicio) ==> todas en una sola
+
 
 --tabla para el manejo del estado de un estudiante: activo, retirado, graduado... etc 
 create table sis.t_est_estudiante(
@@ -94,9 +122,11 @@ create table sis.t_est_estudiante(
 	nombre varchar(20) not null,
 	constraint cp_est_estudiante primary key(codigo)
 );
---alter table sis.t_est_estudiante owner to usuarioscn;
+alter table sis.t_est_estudiante owner to sisconot;
 
---tabla estudiante (hija de persona)
+
+
+--tabla estudiante
 create table sis.t_estudiante(
 	codigo integer,  
 	cod_persona integer not null,
@@ -125,13 +155,21 @@ create table sis.t_estudiante(
 	constraint chk_docente_01 check (fec_fin>fec_inicio)
 );
 --alter table sis.t_estudiante owner to usuarioscn;
+correcciones a la tabla t_estudiante
+faltan los comentarios de la tabla y de los campos... ver script de rafael..
+    cuidar bien la redacción de estos comentarios ya que queda sólo una entrega.
+fic_inicio es not null (sólo aparece el not).
+falta la clave alternativa compuesta (cod_persona, cod_instituto, cod_pensum, fec_inicio)
+falta restricción fec_inicio > 1/1/1970
 
 
-create table sis.t_archivo(
-	codigo integer not null,
-	tipo varchar(30),
-	archivo oid,
-	constraint cp_archivo primary key(codigo)
-);
 
-
+Resumen general
+    FALTAN COMENTARIOS A TODAS LAS TABLAS Y CAMPOS
+    ya las tablas empleados y estudiantes no son hijas de personas, son tablas de movimientos históricos y de estados    
+    evidencia desconocimiento de las claves alternativas compuestas
+    
+NOTA: PRIMERA ENTREGA, PESO 5, NOTA 11. 
+      SEGUNDA ENTREGA, PESO 15, Nota: por evaluar.
+      
+    
