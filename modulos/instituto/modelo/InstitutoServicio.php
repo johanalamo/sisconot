@@ -24,6 +24,7 @@
  * @link /base/clases/Errores.php 		Clase manejadora de errores.
  *  
  * @author JHONNY VIELMA (jhonnyvq1@gmail.com)
+ * @author Rafael Garcia (rafaelantoniorf@gmail.com)
  * 
  * @package Servicios
  */
