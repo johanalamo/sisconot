@@ -14,28 +14,18 @@
  * es el archivo que permite la interacion la lo relacionado a instituto
  * en la base de datos.Todas las funciones de esta clase relanzan las excepciones si son capturadas.
  * Esto con el fin de que la clase manejadora de errores las capture y procese.
- * 
- * Esta clase trabaja en conjunto con la clase Conexion.
  *
- * @link /base/clases/conexion/Conexion.php 	Clase Conexion
- * 
- * Esta clase trabaja en conjunto co la clase manejadora de errores.
- * 
- * @link /base/clases/Errores.php 		Clase manejadora de errores.
- *  
- * @author JHONNY VIELMA (jhonnyvq1@gmail.com)
- * 
- * @package Servicios
+ * @author Rafael Garcia (rafaelantoniorf@gmail.com)
+ *  clase ejemplo con nueva estructura
  */
 
 class InstitutoServicio {
 	/**
 		 * Función que permite listar todos los institutos.
 		 * 
-		 * Realiza la consulta a la base de datos y retorna un arreglo asociativo de los institutos o
-		 * null si no se encontró coincidencia.
-		 * 
-		 * Es utilizado para filtrar la búsqueda.
+		 * Realiza la consulta a la base de datos llamando a store procedure (funcion en postgresSQL) sis.f_instituto_seleccionar() 
+		 * utilizando tranasaccion la luego leer el cursor
+		 * 		 * 
 		 * @return array|null					Retorna un arreglo de arreglos asociativos o null de no encontrarse coincidencias.								
 		 *
 		 * @throws Exception 					Si se producen errores en operaciones con la base de datos.
@@ -43,19 +33,39 @@ class InstitutoServicio {
 	public static function listarInstitutos(){
 		try{
 			$conexion=Conexion::conectar();
-			$consulta= "select * from sis.t_instituto;";
+
+			$consulta= "select sis.f_instituto_seleccionar()";
 							
 				$ejecutar= $conexion->prepare($consulta);
-				
-				$ejecutar->execute(array());
-				
-				if($ejecutar->rowCount()!=0){
-					return $ejecutar->fetchAll();
+				// inicia transaccion
+				$conexion->beginTransaction();
+				$ejecutar->execute();				
+				$cursors = $ejecutar->fetchAll();
+				// cierra cursor
+				$ejecutar->closeCursor();
+				// array para almacenar resultado del cursor
+				$results = array();
+				// sirver para leer multiples cursores si es necesario
+				foreach($cursors as $k=>$v){
+					// ejecutar otro query para leer el cursor
+					$ejecutar = $conexion->query('FETCH ALL IN "'. $v[0] .'";');
+					$results[$k] = $ejecutar->fetchAll();
+					$ejecutar->closeCursor();
+					// cierra cursor
 				}
-				else
-					return null;		
+				$conexion->commit();			
+				if(count($results) > 0)					
+					return $results;
+				else								
+					return null;
+
 			}catch (Exception $e ){
 				throw $e;
+			}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
 			}	
 		
 	}
@@ -63,61 +73,63 @@ class InstitutoServicio {
 	/**
 		 * Función que permite agregar un instituto.
 		 * 
-		 * Permite agrega un instituto a la base de datos, recive como parametro un objeto instituto
-		 * que luego se descompone y agrega a la base de datos
+		 * Permite agrega un instituto a la base de datos.
 		 * 
 		 * @param objet $instituto 			  	Objeto instituto a agregar.
 		 *
 		 * @throws Exception 					Si no se puede agregar el instituto.
 		 */
-	public static function agregar($instituto){
-			try{
-				$codigo=self::obtenerMaxCodigo()+1;
+		public static function agregar($instituto){
+			try{				
 				$conexion=Conexion::conectar();
-				$consulta="insert into sis.t_instituto 
-								(codigo,nombre,nom_corto,
-								direccion)
-								values
-								(?,?,?,?)";
-								
+				$consulta="select sis.f_instituto_insertar(:nombreCorto, :nombre, :direccion)";								
 				$ejecutar=$conexion->prepare($consulta);
-				$ejecutar->execute(array($codigo,
-										$instituto->obtenerNombre(),
-										$instituto->obtenerNombreCorto(),
-										$instituto->obtenerDireccion()
-								
-										));
-				if ($ejecutar->rowCount()==0)
-					throw new Exception("No se puede agregar el instituto");	
-			}catch(Exception $e){
-				throw $e;
-			} 
-		}
-	
-
-		public static function agregarInsituto($nombre,$nomCorto,$direccion){
-			try{
-				$codigo=self::obtenerMaxCodigo()+1;
-				$conexion=Conexion::conectar();
-				$consulta="insert into sis.t_instituto 
-								(codigo,nombre,nom_corto,
-								direccion)
-								values
-								(?,?,?,?)";
-								
-				$ejecutar=$conexion->prepare($consulta);
-				$ejecutar->execute(array($codigo,
-										$nombre,
-										$nomCorto,
-										$direccion
-								
-										));
-				if ($ejecutar->rowCount()==0)
-					throw new Exception("No se puede agregar el instituto");	
+				// indica
+				// como se indica en parametro y el tipo de parametro que se envia
+				$ejecutar->bindParam(':nombreCorto',$instituto->obtenerNombre(), PDO::PARAM_STR);
+				$ejecutar->bindParam(':nombre',$instituto->obtenerNombre(), PDO::PARAM_STR);
+				$ejecutar->bindParam(':direccion',$instituto->obtenerDireccion(), PDO::PARAM_STR);
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				//ejecuta				
+				$ejecutar->execute();
+				//primera columana codigo
+				$codigo = $ejecutar->fetchColumn(0);					
 				return $codigo;
 			}catch(Exception $e){
 				throw $e;
-			} 
+			}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
+			}	 
+		}
+	
+
+		public static function agregarInstituto($nombre,$nomCorto,$direccion){
+			try{
+				$conexion=Conexion::conectar();
+				$consulta="select sis.f_instituto_insertar(:nombreCorto, :nombre, :direccion)";								
+				$ejecutar=$conexion->prepare($consulta);
+				// indica
+				// como se indica en parametro y el tipo de parametro que se envia
+				$ejecutar->bindParam(':nombreCorto',$nomCorto, PDO::PARAM_STR);
+				$ejecutar->bindParam(':nombre',$nombre, PDO::PARAM_STR);
+				$ejecutar->bindParam(':direccion',$direccion, PDO::PARAM_STR);
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				//ejecuta				
+				$ejecutar->execute();
+				//primera columana codigo
+				$codigo = $ejecutar->fetchColumn(0);					
+				return $codigo;
+			}catch(Exception $e){
+				throw $e;
+			}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
+			}	 
 		}
 	
 
@@ -125,37 +137,74 @@ class InstitutoServicio {
 	/**
 		 * Función que permite modificar un instituto.
 		 * 
-		 * Permite modificar un instituto a la base de datos, recive como parametro un objeto instituto
-		 * que luego se descompone y mopdifica.
+		 * Permite modificar un instituto a la base de datos.
 		 * 
 		 * @param objet $instituto 			  	Objeto instituto a modificar.
 		 *
 		 * @throws Exception 					Si no se puede modificar el instituto.
 		 */
-	public static function modificar($instituto){
+		public static function modificar($instituto){
 			try{
 				$conexion=Conexion::conectar();
-				$consulta="UPDATE sis.t_instituto SET nombre=?,nom_corto=?, direccion=? WHERE codigo=?";
-								
+				$consulta="select sis.f_instituto_actualizar(:codigo,:nombreCorto, :nombre, :direccion)";								
 				$ejecutar=$conexion->prepare($consulta);
-				$ejecutar->execute(array($instituto->obtenerNombre(),
-										 $instituto->obtenerNombreCorto(),
-										 $instituto->obtenerDireccion(),
-										 $instituto->obtenerCodigo()
-								
-										));
-				if ($ejecutar->rowCount()==0)
+				// indica
+				// como se indica en parametro y el tipo de parametro que se envia
+				$ejecutar->bindParam(':codigo',$instituto->obtenerCodigo, PDO::PARAM_STR);
+				$ejecutar->bindParam(':nombreCorto',$instituto->obtenerNombre(), PDO::PARAM_STR);
+				$ejecutar->bindParam(':nombre',$instituto->obtenerNombre(), PDO::PARAM_STR);
+				$ejecutar->bindParam(':direccion',$instituto->obtenerDireccion(), PDO::PARAM_STR);
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				//ejecuta				
+				$ejecutar->execute();
+				//primera columana codigo
+				$row = $ejecutar->fetchColumn(0);					
+	
+				if ($row == 0)
 					throw new Exception("No se puede modificar el instituto");	
 			}catch(Exception $e){
 				throw $e;
-			} 
+			}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
+			}	 
 		}
 		
+		public static function modificarInstituto($codigo, $nombreCorto, $nombre, $direccion){
+			try{
+				$conexion=Conexion::conectar();
+				$consulta="select sis.f_instituto_actualizar(:codigo, :nombreCorto, :nombre, :direccion)";								
+				$ejecutar=$conexion->prepare($consulta);
+				// indica
+				// como se indica en parametro y el tipo de parametro que se envia
+				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
+				$ejecutar->bindParam(':nombreCorto',$nombreCorto, PDO::PARAM_STR);
+				$ejecutar->bindParam(':nombre',$nombre, PDO::PARAM_STR);
+				$ejecutar->bindParam(':direccion',$direccion, PDO::PARAM_STR);
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				//ejecuta				
+				$ejecutar->execute();
+				//primera columana codigo
+				$row = $ejecutar->fetchColumn(0);					
+			
+				if ($row == 0)
+					throw new Exception("No se puede modificar el instituto");	
+			}catch(Exception $e){
+				throw $e;
+			}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
+			}	 
+		}
+
 		/**
 		 * Función que permite eliminar un instituto.
 		 * 
-		 * Permite eliminar un instituto a la base de datos, recive como parametro un codigo de instituto
-		 * que sera el que se eliminara en la base de datos.
+		 * Permite eliminar un instituto a la base de datos.
 		 * 
 		 * @param int $codigo 			  		Codigo instituto a eliminar.
 		 *
@@ -164,66 +213,79 @@ class InstitutoServicio {
 		public static function eliminar($codigo){
 			try{
 				$conexion=Conexion::conectar();
-				$consulta="delete from sis.t_instituto where codigo =?";
-								
+				$consulta="select sis.f_instituto_eliminar(:codigo)";								
 				$ejecutar=$conexion->prepare($consulta);
-				$ejecutar->execute(array($codigo
-								
-										));
-				if ($ejecutar->rowCount()==0)
-					throw new Exception("No se pudo eliminar el instituto");	
+				// indica
+				// como se indica en parametro y el tipo de parametro que se envia
+				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);				
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				//ejecuta				
+				$ejecutar->execute();
+				//primera columana codigo
+				$row = $ejecutar->fetchColumn(0);					
+				var_dump($row);
+
+				if ($row == 0)
+					throw new Exception("No se puede eliminar el instituto");	
+
 			}catch(Exception $e){
 				throw $e;
-			} 
+			}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
+			}	 
 		}
 		
-		/**
-		 * Función que permite obtener el max codigode  un instituto.
-		 * 
-		 * Permite obtener el ultimo codigo de instituto que se encuentra en la base de datos.
-		 * 
-		 * @return int				Codigo del ultimo instituto,
-		 * 
-		 */
-	public static function obtenerMaxCodigo(){
-				try{
-					$conexion=Conexion::conectar();
-					$consulta="select coalesce(max(codigo),0) from sis.t_instituto";
-					$ejecutar=$conexion->query($consulta);
-					$r= $ejecutar->fetchAll();
-					return $r[0][0];
-				}catch(Exception $e){
-					throw $e;
-				}
-		}
-	
 	
 	/**
 		 * Función que permite obtener un instituto.
 		 * 
-		 * Permite obtener eun instituto de la base de datos, luego arma un objeto instituto
-		 * con lo obtenido de base de datos y lo retorna.
+		 * Permite obtener eun instituto de la base de datos.
 		 * 
 		 * @return objet				Objeto istituto obtenido en la base de datos.
 		 * 
 		 * @throws Exception 			si no existe el instituto.
 		 * 
 		 */
-	public static function obtener($codigo){
+		public static function obtener($codigo){
 			try{
-				$conexion=Conexion::conectar();
-				$consulta="select * from sis.t_instituto where codigo=? ";
-				$ejecutar=$conexion->prepare($consulta);
-				$ejecutar->execute(array($codigo));
-				if ($ejecutar->rowCount()==0)
-					throw new Exception ('no existe el instituto a modificar');
-				else {
-					return $ejecutar->fetchAll();
-					
+				$conexion=Conexion::conectar();				
+				$consulta= "select sis.f_instituto_seleccionar_por_codigo(:codigo)";
+							
+				$ejecutar= $conexion->prepare($consulta);
+				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);	
+				// inicia transaccion
+				$conexion->beginTransaction();
+				$ejecutar->execute();				
+				$cursors = $ejecutar->fetchAll();
+				// cierra cursor
+				$ejecutar->closeCursor();
+				// array para almacenar resultado del cursor
+				$results = array();
+				// sirver para leer multiples cursores si es necesario
+				foreach($cursors as $k=>$v){
+					// ejecutar otro query para leer el cursor
+					$ejecutar = $conexion->query('FETCH ALL IN "'. $v[0] .'";');
+					$results[$k] = $ejecutar->fetchAll();
+					$ejecutar->closeCursor();
+					// cierra cursor
 				}
-			}catch(Exception $e){
+				$conexion->commit();			
+				if(count($results) > 0)					
+					return $results;
+				else								
+					return null;
+
+			}catch (Exception $e ){
 				throw $e;
-			}
+			}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
+			}	
 			
 		}
 		
