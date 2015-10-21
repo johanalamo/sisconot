@@ -37,8 +37,8 @@ DECLARE
 	
 BEGIN
   -- cuerpo de la FUNCTION
-  -- obitenes el sequencian y lo guardas en variable
-  --	SELECT nextval('id_squel') into codigoInstituto;
+  -- obitenes el sequencial y lo guardas en variable
+  --	SELECT nextval('id_secuencia') into codigoInstituto;
   -- o
   -- obtienes maximo codigo 
   SELECT COALESCE (max(codigo),0) FROM sis.t_instituto INTO codigoInstituto;
@@ -50,7 +50,9 @@ BEGIN
 
   RETURN codigoInstituto;
 
--- execepcion solo se usaran para transacciones 
+-- execepcion solo se usaran para transacciones, ya que en caso de error
+-- estas rompen el procedimiento y dan el error en la consola de postgres,
+-- o en su defecto están manejadas por php
 -- ejemplo
 -- commit;	 
 -- EXCEPTION  
@@ -67,11 +69,11 @@ $BODY$
   COST 100;
   --Declara el costo por cada fila del resultado valor por defecto 100
 ALTER FUNCTION sis.f_instituto_insertar( text, text, text) -- usuriao para la funcion
-  OWNER TO postgres;
+  OWNER TO sisconot;
 
 -- prueba
--- select sis.f_instituto_insertar('inst_perez','instituto universitario pito perez','por hay cerca de por hay') ; 
--- select * from sis.t_instituto;
+--~ -- select sis.f_instituto_insertar('inst_pserez','instituto universitario pito perez','por ahí cerca de por ahí') ; 
+--~ -- select * from sis.t_instituto;
 
 -- Actualizar ------------------------------------------------------
 
@@ -98,7 +100,7 @@ DECLARE
 	--v_nombre ALIAS for $3;
 	--v_direccion ALIAS for $4;
 BEGIN
-
+   
  UPDATE sis.t_instituto 
    SET 
 	nom_corto=p_nom_corto, 
@@ -118,12 +120,12 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION sis.f_instituto_actualizar(integer, text, text, text)
-  OWNER TO postgres;
+  OWNER TO sisconot;
 
 
 -- prueba
--- select sis.f_instituto_actualizar(8,'prueba_actulizacion','prueba_actulizacion','prueba_actulizacion');
--- select * from sis.t_instituto;
+--~ -- select sis.f_instituto_actualizar(8,'prueba_actulizacion','prueba_actulizacion','prueba_actulizacion');
+--~ -- select * from sis.t_instituto;
 
 -- Eliminar ------------------------------------------------------
 
@@ -151,10 +153,14 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION sis.f_instituto_eliminar(integer)
-  OWNER TO postgres;
+  OWNER TO sisconot;
 
 
-select sis.f_instituto_eliminar(7);
+--select sis.f_instituto_eliminar(7);
+--select * from sis.t_instituto;
+
+--voy por aqui.... johan alamo
+
 
 -- SELECTS Standar ------------------------------------------------------
 
@@ -163,28 +169,28 @@ select sis.f_instituto_eliminar(7);
 -- para efectos de trabajo y prueba pasarle el nombre del cursor
 
 -- manera de prueba en db 
-CREATE OR REPLACE FUNCTION sis.f_instituto_seleccionar(refcursor)
-  RETURNS refcursor AS
-$BODY$
-
-BEGIN
-  
-  OPEN $1 FOR SELECT codigo, nom_corto, nombre, direccion
-  FROM sis.t_instituto;
-	  
- RETURN $1; 	
- 
-END;
-$BODY$
-  LANGUAGE plpgsql VOLATILE
-  COST 100;
-ALTER FUNCTION sis.f_instituto_seleccionar(refcursor)
-  OWNER TO postgres;
-
---{ para efectos de trabajo y prueba correrlos ambos (ADVERTENCIA No usar mayuscular y minusculas juntas) 
- select sis.f_instituto_seleccionar('fcursorinst');
- FETCH ALL IN fcursorinst;
---}
+--~ CREATE OR REPLACE FUNCTION sis.f_instituto_seleccionar(refcursor)
+  --~ RETURNS refcursor AS
+--~ $BODY$
+--~ 
+--~ BEGIN
+  --~ 
+  --~ OPEN $1 FOR SELECT codigo, nom_corto, nombre, direccion
+  --~ FROM sis.t_instituto;
+	  --~ 
+ --~ RETURN $1; 	
+ --~ 
+--~ END;
+--~ $BODY$
+  --~ LANGUAGE plpgsql VOLATILE
+  --~ COST 100;
+--~ ALTER FUNCTION sis.f_instituto_seleccionar(refcursor)
+  --~ OWNER TO sisconot;
+--~ 
+--~ --{ para efectos de trabajo y prueba correrlos ambos (ADVERTENCIA No usar mayuscular y minusculas juntas) 
+ --~ select sis.f_instituto_seleccionar('fcursorinst');
+ --~ FETCH ALL IN fcursorinst;
+--~ --}
 
 
 -- manera normal
@@ -206,10 +212,10 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION sis.f_instituto_seleccionar()
-  OWNER TO postgres;
+  OWNER TO sisconot;
 -- { correr ambos 
- select sis.f_instituto_seleccionar();
- FETCH ALL IN "<unnamed portal 66>" -- (valor 65 se incermenta automaticamnete con cada consulta  asignar valor siguente);
+-- select sis.f_instituto_seleccionar();
+-- FETCH ALL IN "<unnamed portal 66>" -- (valor 65 se incermenta automaticamnete con cada consulta  asignar valor siguente);
 -- } --
 
 -- (johan) analisa la nombreclatura para efectos generales
@@ -230,10 +236,33 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION sis.f_instituto_seleccionar_por_codigo(integer)
-  OWNER TO postgres;
+  OWNER TO sisconot;
 
-   select sis.f_instituto_seleccionar_por_codigo(9);
- FETCH ALL IN "<unnamed portal 69>";
+--   select sis.f_instituto_seleccionar_por_codigo(9);
+-- FETCH ALL IN "<unnamed portal 69>";
 
 
 
+CREATE TABLE foo (fooid INT, foosubid INT, fooname TEXT);
+INSERT INTO foo VALUES (1, 2, 'three');
+INSERT INTO foo VALUES (4, 5, 'six');
+INSERT INTO foo VALUES (8, 9, 'nine');
+INSERT INTO foo VALUES (11, 12, 'eleven');
+
+CREATE OR REPLACE FUNCTION getAllFoo() RETURNS SETOF foo AS
+$BODY$
+DECLARE
+    r foo%rowtype;
+BEGIN
+    FOR r IN SELECT * FROM foo
+    WHERE fooid > 0
+    LOOP
+        -- can do some processing here
+        RETURN NEXT r; -- return current row of SELECT
+    END LOOP;
+    RETURN;
+END
+$BODY$
+LANGUAGE 'plpgsql' ;
+
+SELECT fooid,fooname FROM getallfoo();
