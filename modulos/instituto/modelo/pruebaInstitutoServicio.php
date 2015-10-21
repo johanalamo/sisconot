@@ -4,7 +4,7 @@ try{
 	require_once '../../../base/clases/basededatos/Conexion.php';
 
 	require_once 'InstitutoServicio.php';
-	Conexion::iniciar("localhost","bd_scnfinal","5432","postgres","5455");
+	Conexion::iniciar("localhost","bd_sisconot","5432","postgres","1234");
 	echo "<pre>";
 	
 	echo "----------lista de institutos -----------------------\n";

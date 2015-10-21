@@ -169,27 +169,27 @@ ALTER FUNCTION sis.f_instituto_eliminar(integer)
 -- para efectos de trabajo y prueba pasarle el nombre del cursor
 
 -- manera de prueba en db 
---~ CREATE OR REPLACE FUNCTION sis.f_instituto_seleccionar(refcursor)
-  --~ RETURNS refcursor AS
---~ $BODY$
---~ 
---~ BEGIN
-  --~ 
-  --~ OPEN $1 FOR SELECT codigo, nom_corto, nombre, direccion
-  --~ FROM sis.t_instituto;
-	  --~ 
- --~ RETURN $1; 	
- --~ 
---~ END;
---~ $BODY$
-  --~ LANGUAGE plpgsql VOLATILE
-  --~ COST 100;
---~ ALTER FUNCTION sis.f_instituto_seleccionar(refcursor)
-  --~ OWNER TO sisconot;
---~ 
---~ --{ para efectos de trabajo y prueba correrlos ambos (ADVERTENCIA No usar mayuscular y minusculas juntas) 
- --~ select sis.f_instituto_seleccionar('fcursorinst');
- --~ FETCH ALL IN fcursorinst;
+CREATE OR REPLACE FUNCTION sis.f_instituto_seleccionar(refcursor)
+  RETURNS refcursor AS
+$BODY$
+
+BEGIN
+  
+  OPEN $1 FOR SELECT codigo, nom_corto, nombre, direccion
+  FROM sis.t_instituto;
+	  
+ RETURN $1; 	
+ 
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_instituto_seleccionar(refcursor)
+  OWNER TO sisconot;
+
+--{ para efectos de trabajo y prueba correrlos ambos (ADVERTENCIA No usar mayuscular y minusculas juntas) 
+ select sis.f_instituto_seleccionar('fcursorinst');
+ FETCH ALL IN fcursorinst;
 --~ --}
 
 
@@ -238,11 +238,10 @@ $BODY$
 ALTER FUNCTION sis.f_instituto_seleccionar_por_codigo(integer)
   OWNER TO sisconot;
 
---   select sis.f_instituto_seleccionar_por_codigo(9);
--- FETCH ALL IN "<unnamed portal 69>";
+--   select sis.f_instituto_seleccionar_por_codigo(8); FETCH ALL IN "<unnamed portal 19>";
 
 
-
+--~ 
 CREATE TABLE foo (fooid INT, foosubid INT, fooname TEXT);
 INSERT INTO foo VALUES (1, 2, 'three');
 INSERT INTO foo VALUES (4, 5, 'six');
@@ -265,4 +264,4 @@ END
 $BODY$
 LANGUAGE 'plpgsql' ;
 
-SELECT fooid,fooname FROM getallfoo();
+SELECT fooid,fooname FROM getallfoo() where fooid = 1;

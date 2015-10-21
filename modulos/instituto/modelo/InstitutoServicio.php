@@ -61,7 +61,7 @@ class InstitutoServicio {
 
 			}catch (Exception $e ){
 				throw $e;
-			}finally{		
+	//		}finally{		
 				// recomendad null a este objeto						
 				unset($ejecutar);
 				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
@@ -97,7 +97,7 @@ class InstitutoServicio {
 				return $codigo;
 			}catch(Exception $e){
 				throw $e;
-			}finally{		
+//			}finally{		
 				// recomendad null a este objeto						
 				unset($ejecutar);
 				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
@@ -124,7 +124,7 @@ class InstitutoServicio {
 				return $codigo;
 			}catch(Exception $e){
 				throw $e;
-			}finally{		
+//			}finally{		
 				// recomendad null a este objeto						
 				unset($ejecutar);
 				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
@@ -164,7 +164,7 @@ class InstitutoServicio {
 					throw new Exception("No se puede modificar el instituto");	
 			}catch(Exception $e){
 				throw $e;
-			}finally{		
+//			}finally{		
 				// recomendad null a este objeto						
 				unset($ejecutar);
 				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
@@ -193,7 +193,7 @@ class InstitutoServicio {
 					throw new Exception("No se puede modificar el instituto");	
 			}catch(Exception $e){
 				throw $e;
-			}finally{		
+//			}finally{		
 				// recomendad null a este objeto						
 				unset($ejecutar);
 				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
@@ -230,7 +230,7 @@ class InstitutoServicio {
 
 			}catch(Exception $e){
 				throw $e;
-			}finally{		
+	//		}finally{		
 				// recomendad null a este objeto						
 				unset($ejecutar);
 				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
@@ -280,7 +280,7 @@ class InstitutoServicio {
 
 			}catch (Exception $e ){
 				throw $e;
-			}finally{		
+//			}finally{		
 				// recomendad null a este objeto						
 				unset($ejecutar);
 				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
