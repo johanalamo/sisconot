@@ -21,20 +21,15 @@
 -- Insertar ------------------------------------------------------
 -- nombre del procedure
 -- ver documento de nomenclartura de procedure
-CREATE OR REPLACE FUNCTION sis.f_instituto_insertar(
-     TEXT, 
-     TEXT,
-     TEXT) -- parametros de entreda como cualquier funcion
+CREATE OR REPLACE FUNCTION sis.f_instituto_ins(
+     p_nom_corto TEXT, 
+     p_nombre TEXT,
+     p_direccion TEXT) -- parametros de entreda como cualquier funcion
   RETURNS INTEGER  AS  -- tipo de valor de retorno 
 $BODY$
 DECLARE
 	-- aqui se reclara las variables que necesite ejm: codigo (tipo) := ((valor) o (sin valor))
 	codigoInstituto integer := 0;
-	--pueden usar alias		
-	v_nom_corto ALIAS for $1;
-	v_nombre ALIAS for $2;
-	v_direccion ALIAS for $3;
-	
 BEGIN
   -- cuerpo de la FUNCTION
   -- obitenes el sequencial y lo guardas en variable
@@ -46,7 +41,7 @@ BEGIN
 
 	 INSERT INTO sis.t_instituto(
 		    codigo, nom_corto, nombre, direccion)
-	    VALUES (codigoInstituto, v_nom_corto, v_nombre, v_direccion);
+	    VALUES (codigoInstituto, p_nom_corto, p_nombre, p_direccion);
 
   RETURN codigoInstituto;
 
@@ -68,17 +63,17 @@ $BODY$
   -- (valor por defecto)  
   COST 100;
   --Declara el costo por cada fila del resultado valor por defecto 100
-ALTER FUNCTION sis.f_instituto_insertar( text, text, text) -- usuriao para la funcion
+ALTER FUNCTION sis.f_instituto_ins( text, text, text) -- usuriao para la funcion
   OWNER TO sisconot;
 
 -- prueba
---~ -- select sis.f_instituto_insertar('inst_pserez','instituto universitario pito perez','por ahí cerca de por ahí') ; 
+--~ -- select sis.f_instituto_ins('inst_pserez','instituto universitario pito perez','por ahí cerca de por ahí') ; 
 --~ -- select * from sis.t_instituto;
 
 -- Actualizar ------------------------------------------------------
 
 -- las referencias verlas en insercion
-CREATE OR REPLACE FUNCTION sis.f_instituto_actualizar(
+CREATE OR REPLACE FUNCTION sis.f_instituto_act(
     p_codigo integer,
     p_nom_corto text,
     p_nombre text,
@@ -119,7 +114,7 @@ END;
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION sis.f_instituto_actualizar(integer, text, text, text)
+ALTER FUNCTION sis.f_instituto_act(integer, text, text, text)
   OWNER TO sisconot;
 
 
@@ -130,7 +125,7 @@ ALTER FUNCTION sis.f_instituto_actualizar(integer, text, text, text)
 -- Eliminar ------------------------------------------------------
 
 -- consulta referencias anteriores
-CREATE OR REPLACE FUNCTION sis.f_instituto_eliminar(
+CREATE OR REPLACE FUNCTION sis.f_instituto_eli(
     p_codigo integer
     )
   RETURNS integer AS
@@ -152,11 +147,11 @@ END;
 $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
-ALTER FUNCTION sis.f_instituto_eliminar(integer)
+ALTER FUNCTION sis.f_instituto_eli(integer)
   OWNER TO sisconot;
 
 
---select sis.f_instituto_eliminar(7);
+--select sis.f_instituto_eli(7);
 --select * from sis.t_instituto;
 
 --voy por aqui.... johan alamo
@@ -169,99 +164,54 @@ ALTER FUNCTION sis.f_instituto_eliminar(integer)
 -- para efectos de trabajo y prueba pasarle el nombre del cursor
 
 -- manera de prueba en db 
-CREATE OR REPLACE FUNCTION sis.f_instituto_seleccionar(refcursor)
-  RETURNS refcursor AS
+CREATE OR REPLACE FUNCTION sis.f_instituto_sel(p_cursor refcursor)
+RETURNS refcursor AS
 $BODY$
 
 BEGIN
   
-  OPEN $1 FOR SELECT codigo, nom_corto, nombre, direccion
-  FROM sis.t_instituto;
+	OPEN p_cursor FOR
+		SELECT codigo, nom_corto, nombre, direccion
+		FROM sis.t_instituto;
 	  
- RETURN $1; 	
+	RETURN p_cursor; 	
  
 END;
 $BODY$
-  LANGUAGE plpgsql VOLATILE
-  COST 100;
-ALTER FUNCTION sis.f_instituto_seleccionar(refcursor)
+	LANGUAGE plpgsql VOLATILE
+	COST 100;
+ALTER FUNCTION sis.f_instituto_sel(refcursor)
   OWNER TO sisconot;
 
 --{ para efectos de trabajo y prueba correrlos ambos (ADVERTENCIA No usar mayuscular y minusculas juntas) 
- select sis.f_instituto_seleccionar('fcursorinst');
- FETCH ALL IN fcursorinst;
+-- select sis.f_instituto_sel('fcursorinst');
+-- FETCH ALL IN fcursorinst;
 --~ --}
 
 
 -- manera normal
 
-CREATE OR REPLACE FUNCTION sis.f_instituto_seleccionar()
-  RETURNS refcursor AS
+-- (johan) analiza la nombreclatura para efectos generales
+
+
+
+CREATE OR REPLACE FUNCTION sis.f_instituto_sel_por_codigo(p_refcursor refcursor, p_codigo integer) 
+RETURNS refcursor AS
 $BODY$
-DECLARE
-	ref refcursor;
 BEGIN
-  
-  OPEN ref FOR SELECT codigo, nom_corto, nombre, direccion
-  FROM sis.t_instituto;
-	  
- RETURN ref; 	
- 
+	OPEN p_refcursor FOR 
+		SELECT codigo, nom_corto, nombre, direccion
+		FROM sis.t_instituto 
+		where codigo = p_codigo;
+	RETURN p_refcursor; 	
+
 END;
 $BODY$
-  LANGUAGE plpgsql VOLATILE
-  COST 100;
-ALTER FUNCTION sis.f_instituto_seleccionar()
-  OWNER TO sisconot;
--- { correr ambos 
--- select sis.f_instituto_seleccionar();
--- FETCH ALL IN "<unnamed portal 66>" -- (valor 65 se incermenta automaticamnete con cada consulta  asignar valor siguente);
--- } --
+	LANGUAGE plpgsql VOLATILE
+	COST 100;
 
--- (johan) analisa la nombreclatura para efectos generales
-CREATE OR REPLACE FUNCTION sis.f_instituto_seleccionar_por_codigo(integer) -- analisa esta nomenclatura
-  RETURNS refcursor AS
-$BODY$
-DECLARE
-	ref refcursor;
-BEGIN
-  
-  OPEN ref FOR SELECT codigo, nom_corto, nombre, direccion
-  FROM sis.t_instituto where codigo = $1;
-	  
- RETURN ref; 	
- 
-END;
-$BODY$
-  LANGUAGE plpgsql VOLATILE
-  COST 100;
-ALTER FUNCTION sis.f_instituto_seleccionar_por_codigo(integer)
-  OWNER TO sisconot;
+ALTER FUNCTION sis.f_instituto_sel_por_codigo(refcursor, integer)
+OWNER TO sisconot;
 
---   select sis.f_instituto_seleccionar_por_codigo(8); FETCH ALL IN "<unnamed portal 19>";
-
-
---~ 
-CREATE TABLE foo (fooid INT, foosubid INT, fooname TEXT);
-INSERT INTO foo VALUES (1, 2, 'three');
-INSERT INTO foo VALUES (4, 5, 'six');
-INSERT INTO foo VALUES (8, 9, 'nine');
-INSERT INTO foo VALUES (11, 12, 'eleven');
-
-CREATE OR REPLACE FUNCTION getAllFoo() RETURNS SETOF foo AS
-$BODY$
-DECLARE
-    r foo%rowtype;
-BEGIN
-    FOR r IN SELECT * FROM foo
-    WHERE fooid > 0
-    LOOP
-        -- can do some processing here
-        RETURN NEXT r; -- return current row of SELECT
-    END LOOP;
-    RETURN;
-END
-$BODY$
-LANGUAGE 'plpgsql' ;
-
-SELECT fooid,fooname FROM getallfoo() where fooid = 1;
+--select sis.f_instituto_sel_por_codigo('cursor',4); 
+--FETCH ALL IN "cursor";

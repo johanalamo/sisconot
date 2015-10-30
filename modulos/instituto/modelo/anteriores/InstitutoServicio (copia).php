@@ -30,13 +30,11 @@ class InstitutoServicio {
 		 *
 		 * @throws Exception 					Si se producen errores en operaciones con la base de datos.
 		 */
-	
 	public static function listarInstitutos(){
 		try{
-			$consulta= "select sis.f_instituto_seleccionar('nombrecursor')";
-
 			$conexion=Conexion::conectar();
 
+			$consulta= "select sis.f_instituto_seleccionar()";
 							
 				$ejecutar= $conexion->prepare($consulta);
 				// inicia transaccion
@@ -48,9 +46,53 @@ class InstitutoServicio {
 				// array para almacenar resultado del cursor
 				$results = array();
 				// sirver para leer multiples cursores si es necesario
+				$con = 1;
+				foreach($cursors as $k=>$v){
+					echo "con: $con <br>";
+					// ejecutar otro query para leer el cursor
+					$ejecutar = $conexion->query('FETCH ALL IN "'. $v[0] .'";');
+					$results[$k] = $ejecutar->fetchAll();
+					$ejecutar->closeCursor();
+					// cierra cursor
+				}
+				$conexion->commit();			
+				if(count($results) > 0)					
+					return $results;
+				else								
+					return null;
+
+			}catch (Exception $e ){
+				throw $e;
+	//		}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
+			}	
+		
+	}
+	
+	public static function listarInstitutos_v2(){
+		try{
+			$consulta= "select sis.f_instituto_seleccionar()";
+
+			$conexion=Conexion::conectar();
+
+							
+				$ejecutar= $conexion->prepare($consulta);
+				// inicia transaccion
+				$conexion->beginTransaction();
+				$ejecutar->execute();				
+				$cursors = $ejecutar->fetchAll();
+				// cierra cursor
+				$ejecutar->closeCursor();
+				
+				// array para almacenar resultado del cursor
+				$results = array();
+				// sirver para leer multiples cursores si es necesario
 
 					// ejecutar otro query para leer el cursor
-					$ejecutar = $conexion->query('FETCH ALL IN nombrecursor;');
+					$ejecutar = $conexion->query('FETCH ALL IN "'. $cursors[0][0] .'";');
 					$results = $ejecutar->fetchAll();
 					$ejecutar->closeCursor();
 
@@ -67,6 +109,9 @@ class InstitutoServicio {
 			}catch (Exception $e ){
 
 				throw $e;
+	//		}finally{		
+				// recomendad null a este objeto						
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
 			}	
 		
 	}
@@ -98,6 +143,11 @@ class InstitutoServicio {
 				return $codigo;
 			}catch(Exception $e){
 				throw $e;
+//			}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
 			}	 
 		}
 	
@@ -120,6 +170,11 @@ class InstitutoServicio {
 				return $codigo;
 			}catch(Exception $e){
 				throw $e;
+//			}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
 			}	 
 		}
 	
@@ -155,6 +210,11 @@ class InstitutoServicio {
 					throw new Exception("No se puede modificar el instituto");	
 			}catch(Exception $e){
 				throw $e;
+//			}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
 			}	 
 		}
 		
@@ -179,6 +239,11 @@ class InstitutoServicio {
 					throw new Exception("No se puede modificar el instituto");	
 			}catch(Exception $e){
 				throw $e;
+//			}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
 			}	 
 		}
 
@@ -211,6 +276,11 @@ class InstitutoServicio {
 
 			}catch(Exception $e){
 				throw $e;
+	//		}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
 			}	 
 		}
 		
@@ -256,6 +326,11 @@ class InstitutoServicio {
 
 			}catch (Exception $e ){
 				throw $e;
+//			}finally{		
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);
 			}	
 			
 		}
