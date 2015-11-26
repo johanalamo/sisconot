@@ -12,7 +12,7 @@ insert into sis.t_persona (  codigo,   cedula,    rif,
   direccion
  )
  values(
-    (select max(codigo) + 1 from sis.t_persona),     25639748,   null,
+    (select max(codigo) + 1 from sis.t_persona),     CEDULA,   null,
     'KEVIN',  'ANDRÉS'  ,    'MEDINA',  'MEJIA',
     'M',    '07/02/1996',    null,
     '04242276509',    null,
@@ -30,6 +30,7 @@ iinsert into sis.t_estudiante(codigo,cod_instituto,cod_pensum ,num_carnet,num_ex
 iinsert into sis.t_docente( codigo,cod_instituto,num_empleado,cod_estado)
     values ((select codigo  from  sis.t_persona where cedula = ),11,null,'A');
 --ddelete from  sis.t_persona where cedula = 10000;
+
 --ddelete from sis.t_docente where codigo = (select codigo from sis.t_persona where cedula = '10000');
 --ddelete from sis.t_estudiante where codigo = (select codigo from sis.t_persona where cedula = '10000');
 --*********************************************************************************************
