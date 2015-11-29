@@ -1,3 +1,4 @@
+revision del script en octubre de 2015
 
 - faltaron los comentarios de instituto
 

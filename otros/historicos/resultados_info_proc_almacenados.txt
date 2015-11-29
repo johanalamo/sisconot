@@ -31,3 +31,4 @@ visitar:    http://www.postgresql.org/docs/9.3/static/plpgsql-errors-and-message
 
 Qué tipo de excepción se man
 ver:   http://www.postgresql.org/docs/current/static/errcodes-appendix.html
+
