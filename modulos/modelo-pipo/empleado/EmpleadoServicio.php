@@ -5,6 +5,11 @@ class EmpleadoServicio
 	de la base de datos
 	*/
 
+
+	/* ver la correcciòn de PersonaServicio.php primero, para que pudeas corregir
+	 * la forma de colocar los parámetros, 
+	 * Ç*************************************************************************************************************
+	 * */
 	public static function agregar($cod_persona=null,$cod_instituto=null,$cod_pensum=null,$cod_estado=null,
 								   $fec_inicio=null,$fec_fin=null,$es_jef_pensum=null,$es_jef_con_estudio=null,
 								   $es_ministerio=null,$es_docente=null,$observaciones=null)
@@ -13,6 +18,7 @@ class EmpleadoServicio
 		{
 
 			$conexion = Conexion::conectar();
+			/* igual aquí, revisar primero PersonaServicio.php **************************************************************/
 			$consulta = " select sis.f_empleado_ins(:cod_persona,:cod_instituto,
 													:cod_pensum,:cod_estado,:fec_inicio,
 													:fec_fin,:es_jef_pensum,:es_jef_con_estudio,
@@ -91,6 +97,10 @@ class EmpleadoServicio
 		try
 		{
 			$conexion = Conexion::conectar();
+
+			//chequea bien, pero aqui creo que puedes pasarle directamente el nombre del cursor**************************************
+			// ejemplo:   $consulta= "select sis.f_empleado_lis_cod('micursor',:codigo)";
+
 			$consulta= "select sis.f_empleado_lis_cod(:cursor,:codigo)";
 			
 			$ejecutar= $conexion->prepare($consulta);
@@ -108,6 +118,10 @@ class EmpleadoServicio
 			// sirver para leer multiples cursores si es necesario
 			foreach($cursors as $k=>$v){
 				// ejecutar otro query para leer el cursor
+				//si le pasaste el nombre del cursor directamente aquí tambien pudieras hacerlo ****************************************************
+				//pasandole el nombre de cursor que decidiste arriba:
+				//ejemplo :   $ejecutar = $conexion->query("FETCH ALL IN 'micursor';");
+				//pero revisalo tu no estoy seguro ******************************************************************************
 				$ejecutar = $conexion->query('FETCH ALL IN "'. $v[0] .'";');
 				$results[$k] = $ejecutar->fetchAll();
 				$ejecutar->closeCursor();

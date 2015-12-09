@@ -1,11 +1,23 @@
 <?php
 class PersonaServicio
 {
-	public static function agregar ($cod_foto,$cedula,$rif,$nombre1,$nombre2,
-									$apellido1,$apellido2,$sexo,$fec_nacimiento,$tip_sangre,
-									$telefono1,$telefono2,$cor_personal,$cor_institucional,
-									$direccion,$discapacidad,$nacionalidad,$hijos,$est_civil,
-									$observaciones)
+
+/*Ordenar los parámetros para que se entiendan, puede ser uno por linea
+ * o si son muchos podemos probar tres por lineas a ver como queda
+ *************************************************************************************************************** 
+ */
+
+
+
+	public static function agregar (
+		$cod_foto,		$cedula,		$rif,
+		$nombre1,		$nombre2,		$apellido1,
+		$apellido2,		$sexo,			$fec_nacimiento,
+		$tip_sangre,	$telefono1,		$telefono2,
+		$cor_personal,	$cor_institucional,$direccion,
+		$discapacidad,	$nacionalidad,	$hijos,
+		$est_civil,		$observaciones
+	)
 
 
 	{
@@ -15,14 +27,16 @@ class PersonaServicio
 			$conexion = Conexion::conectar();
 
 			
-			
-			$consulta="select sis.f_persona_ins(:cedula,:rif,:nombre1, 
-											    :nombre2,:apellido1,:apellido2,:sexo,
-											    :fec_nacimiento,:tip_sangre,:telefono1,
-											    :telefono2,:cor_personal,:cor_institucional,
-											    :direccion,:discapacidad,:nacionalidad,
-											    :hijos,:est_civil,:observaciones,:cod_foto
-											     )";
+	/* a esta también aplícale la misma *******************************************************************/		
+			$consulta="select sis.f_persona_ins(
+					:cedula,		:rif,			:nombre1, 
+					:nombre2,		:apellido1,		:apellido2,
+					:sexo,		    :fec_nacimiento,:tip_sangre,
+					:telefono1,		:telefono2,		:cor_personal,
+					:cor_institucional,:direccion,	:discapacidad,
+					:nacionalidad,	:hijos,			:est_civil,
+					:observaciones,	:cod_foto
+					)";
 
 			$ejecutar=$conexion->prepare($consulta);
 
