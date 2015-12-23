@@ -56,7 +56,21 @@ class EstudianteServicio
 			throw $e;
 		}
 	}
+//////////////////////////////////////////////////////////////
 
+	campos de interes para 
+	public static function listar (
+				$codigo=null, 		$codPersona=null, 	$codInstituto=null, 
+				$codPensum=null, 	$numCarnet=null, 	$numExpediente=null, 
+				$codRusnies=null, 	$codEstado=null, 	$fecInicio=null, 
+				$fecFin=null)
+		
+		campos: cod_pensum,cod_instituto,cod_estado,cod_persona,                     num_carnet, cod_rusnies
+
+		cod_pensum, y cod_instituto no debe ser con like sino con igual (=)
+
+
+//////////////////////////////////////////////////////////////////
 	public static function listar ($codigo=null, $codPersona=null, $codInstituto=null, $codPensum=null, $numCarnet=null, $numExpediente=null, $codRusnies=null, $codEstado=null, $fecInicio=null, $fecFin=null)
 	{
 		try

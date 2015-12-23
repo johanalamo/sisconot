@@ -1,0 +1,31 @@
+Reunión del proyecto.
+Lugar: el encanto
+fecha: 23 de diciembre de 2015.
+
+se realizó lo siguiente:
+* se revisaron las funciones de los servicios y quedaron estandarizadas.
+
+
+* se decidió documentar los servicios con PHP Documentor
+* Javascript se documentará en archivos planos, y el mismo archivo fuente
+* La fecha de entrega de los servicios completos y las funciones
+  reutilizables de javascript será el 15 de enero de 2016
+* Se puede ir adelantando pantallas
+
+
+La estructura de desarrollo de capas será la siguiente
+|---------------------------------------------------------|
+|  5  Pantallas: por definir, bootstrap, modal, etc       |
+|---------------------------------------------------------|
+|      javascript: funciones propias no reutilizables     |
+|      ---------------------------------------------------| 
+|  4   javascript: funciones de pantalla reutilizables    |
+|      ---------------------------------------------------|
+|      javascript: funciones de datos reutilizables       |
+|---------------------------------------------------------|
+|  3. Servicios: documentar con PHPDocumentor             |
+|---------------------------------------------------------|
+|  2. Funciones de base de datos                          |
+|---------------------------------------------------------|
+|  1. Base de datos                                       |
+|---------------------------------------------------------|

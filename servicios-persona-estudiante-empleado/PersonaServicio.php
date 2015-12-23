@@ -25,29 +25,31 @@ class PersonaServicio
 		{
 			$codigo=self::obtenerMayorCodigo()+1;
 			$conexion = Conexion::conectar();
-			$ejecutar = $conexion->prepare("insert into sis.t_persona (codigo,
-																		cod_foto,
-																		cedula,
-																		rif,
-																		nombre1,
-																		nombre2,
-																		apellido1,
-																		apellido2,
-																		sexo,
-																		fec_nacimiento,
-																		tip_sangre,
-																		telefono1,
-																		telefono2,
-																		cor_personal,
-																		cor_institucional,
-																		direccion,
-																		discapacidad,
-																		nacionalidad,
-																		hijos,
-																		est_civil,
-																		observaciones
-																		) 
-																	values (".UtilBdd::repetirInterrogacion(21).");");
+			$ejecutar = $conexion->prepare(
+				"insert into sis.t_persona (
+					codigo,
+					cod_foto,
+					cedula,
+					rif,
+					nombre1,
+					nombre2,
+					apellido1,
+					apellido2,
+					sexo,
+					fec_nacimiento,
+					tip_sangre,
+					telefono1,
+					telefono2,
+					cor_personal,
+					cor_institucional,
+					direccion,
+					discapacidad,
+					nacionalidad,
+					hijos,
+					est_civil,
+					observaciones
+					) 
+				values (".UtilBdd::repetirInterrogacion(21).");");
 			$ejecutar-> execute(array(
 											$codigo,
 											$persona->obtenerCodFoto(),
@@ -81,7 +83,29 @@ class PersonaServicio
 		}
 	}
 
-	public static function listar($codigo=null,$cedula=null,$rif=null,$corPersonal=null,$corInstitucional=null)
+/**********************************************************************************************************************
+ revision 23 de diciembre de dos mil quince 
+ 	public static function listar($codigo=null,$cedula=null,$rif=null,$corPersonal=null,$corInstitucional=null)
+ 	{
+		campos: codigo, cedula, correo, nombre1,nombre2,apellido1,apellido2,sexo
+
+		$c = "select * from sis.t_persona where true ";
+		
+		if ($codigo != null)
+			$c .= " and codigo like '%$codigo%'";
+			
+		if ($cedula != null)
+			$c .= " and cedula like '%$cedula%'";
+			
+
+	
+
+		ejecutar el select .....
+
+
+	}
+*////////////////////////////////
+	public static function listar($codigo=null,$cedula=null,$rif=null,$corPersonal=null,$corInstitucional=null, )
 	{
 		try
 		{
