@@ -1,0 +1,319 @@
+{% extends 'Persona.html.twig' %}
+{% block headVista %}
+	<style>
+		/*td
+		{
+			text-align:center;
+		}	
+
+		.contenedor{
+			margin:7% 3%;			
+		}
+
+		.espacio-input{
+			padding-right:2%;			
+		}
+
+		.formuario-persona{
+			padding: 0 3%;
+			padding-bottom:2%;
+		}
+		textarea{
+			resize:none;
+		}
+		*/
+	</style>
+
+	<script>
+		/*$(document).ready(function() {
+		    $('div.estudiante').fadeIn(700);				
+			$('div.empleado').hide();
+		});
+
+		$(function()
+		{	
+			$("a.estudiante").click(function()
+			{				
+				$('div.estudiante').fadeIn(700);				
+				$('div.empleado').hide();							
+			});
+
+			$("a.empleado").click(function()
+			{				
+				$('div.empleado').fadeIn(700);				
+				$('div.estudiante').hide();							
+			});
+		});*/
+	</script>
+	
+{% endblock %}
+{% block contenido %}
+	
+	<div class="contenedor">
+		<div class="col-md-12">
+
+			<div class="reset-fieldset">
+
+				<ul class="uk-tab" data-uk-tab>
+				    <li class="uk-active"><a href="" class="estudiante">Estudiante</a></li>
+				    <li><a href="" class="empleado">Empleado</a></li>				    
+				    <li class="uk-disabled"><a href="" >Bloqueado</a></li>
+				</ul>
+
+				<fieldset class="scheduler-border">
+					<legend class="scheduler-border">Edicion</legend>
+					
+					<div class="estudiante_empleado">						
+
+						<div class="estudiante" >
+
+							<div class="form-inline formuario-persona col-md-12">
+								Codigo
+								<div class="form-group espacio-input">
+									 <input type="text" name="cod_estudiante" id="cod_estudiante" class="form-control" placeholder="00000" maxlength="7">
+								</div>
+								 Codigo cod_rusnies
+								<div class="form-group espacio-input">
+									 <input type="text" name="cod_rusnies" id="cod_rusnies" class="form-control" placeholder="2323132" maxlength="20">
+								</div>					
+							</div>
+
+							<div class="form-inline formuario-persona col-md-12">
+								Instituto
+								<div class="form-group espacio-input">							
+									 <select name="nom_ins_estudiante">
+										<option value="seleccionar">Institucion</option>
+									 	<option value="1">IUT Dr. FRC</option>
+									 	<option value="2">CULCA</option>
+									 </select>
+								</div>
+								
+								Pensum
+								<div class="form-group espacio-input">
+									 <select name="pen_estudiante">
+										<option value="seleccionar">Carrera</option>
+									 	<option value="1">Informatica</option>
+									 	<option value="2">Electdonica</option>
+									 </select>
+								</div>	
+
+								N° Carnet
+								<div class="form-group espacio-input">
+									 <input type="text" name="num_carnet" id="num_carnet" class="form-control" placeholder="autogenerado" maxlength="25">
+								</div>
+
+								Expediente
+								<div class="form-group espacio-input">
+									 <input type="text" name="expediente" id="expediente" class="form-control" placeholder="autogenerado" maxlength="25">
+								</div>					
+							</div>
+
+							<div class="form-inline formuario-persona col-md-12">
+														
+								Estado
+								<div class="form-group espacio-input">
+									 <select name="est_estudiante">
+										<option value="seleccionar">estatus</option>
+									 	<option value="A">Activo</option>
+									 	<option value="E">Egresado</option>
+									 </select>
+								</div>	
+
+								fecha de Inicio
+								<div class="form-group espacio-input">
+									 <input type="date" name="fec_ini_estudiante" id="fec_ini_estudiante" class="form-control" placeholder="fecha actual" disabled>
+								</div>
+
+								Condicion
+								<div class="form-group espacio-input">
+									 <input type="text" name="condicion" id="condicion" class="form-control" placeholder="la condicion" maxlength="5">
+								</div>					
+							</div>
+
+
+							<div class="formuario-persona col-md-12">
+						
+								Observaciones
+								<div class="form-group espacio-input">
+									 <textarea  name="obs_estudiante" id="obs_estudiante" class="form-control" maxlength="200"></textarea>
+								</div>
+								<div class="text-right formuario-persona form-inline">
+									Estado
+									<div class="form-group espacio-input">	
+										<input class="form-control" type="text" value="M" disabled>
+									</div>
+									<button type="button" name="nv_estudiante" class="btn btn-primary" onclick="nuevoPersonaEstudiante();"><b>Nuevo</b></button>				
+									<button type="button" name="md_estudiante" class="btn btn-success"><b>Guardar</b></button>								
+								</div>
+							</div>
+
+						</div>
+
+					
+						<div class="empleado">
+							<div class="form-inline formuario-persona col-md-12">
+								Codigo
+								<div class="form-group espacio-input">
+									 <input type="text" name="cod_empleado" id="cod_empleado" class="form-control" placeholder="00000" maxlength="7">
+								</div>				
+							</div>
+
+							<div class="form-inline formuario-persona col-md-12">
+								Instituto
+								<div class="form-group espacio-input">							 
+									 <select name="ins_empleado" id="ins_empleado">
+										<option value="seleccionar">Institucion</option>
+									 	<option value="1">IUT Dr. FRC</option>
+									 	<option value="2">CULCA</option>
+									 </select>
+								</div>
+								
+								Pensum
+								<div class="form-group espacio-input">
+									 <select name="pen_empleado">
+										<option value="seleccionar">Carrera</option>
+									 	<option value="1">Informatica</option>
+									 	<option value="2">Electdonica</option>
+									 </select>
+								</div>	
+
+								fecha de Inicio
+								<div class="form-group espacio-input">
+									 <input type="date" name="fec_ini_empleado" id="fec_ini_empleado" class="form-control" placeholder="fecha actual" disabled>
+								</div>										
+							</div>
+
+							<div class="form-inline formuario-persona col-md-12">
+								Estado
+								<div class="form-group espacio-input">
+									 <select name="est_empleado">
+										<option value="seleccionar">estatus</option>
+									 	<option value="A">Activo</option>
+									 	<option value="J">Jubilado</option>
+									 </select>
+								</div>
+
+								Jefe de Pensum <input type="checkbox" name="es_jef_pensum" value="es_jef_pensum">
+
+								&nbsp; Jefe de Contdol de Estudio <input type="checkbox" name="es_jef_con_estudio" value="es_jef_con_estudio">
+
+								&nbsp; Personal Ministerio <input type="checkbox" name="es_ministerio" value="es_ministerio">
+
+								&nbsp; Docente <input type="checkbox" name="Docente" value="Docente">				
+							</div>
+
+							<div class="formuario-persona col-md-12">
+						
+								Observaciones
+								<div class="form-group espacio-input">
+									 <textarea  name="obs_empleado" id="obs_empleado" class="form-control" maxlength="200"></textarea>
+								</div>
+								<div class="text-right formuario-persona form-inline">
+									Estado
+									<div class="form-group espacio-input">	
+										<input class="form-control" type="text" value="M" disabled>
+									</div>
+									<button type="button" name="nv_empleado" class="btn btn-primary" btn-primary" onclick="nuevoPersonaEmpleado();"><b>Nuevo</b></button>
+									<button type="button" name="md_empleado" class="btn btn-success"><b>Guardar</b></button>								
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+				</fieldset>
+
+				<div class="reset-fieldset">
+				<fieldset class="scheduler-border">
+					<legend class="scheduler-border">Historico</legend>
+					<div class="estudiante_empleado">
+						<div class="estudiante" >
+							<div class="text-right">
+
+								<button type="button" name="nuevo_estudiante" class="btn btn-primary" onclick="nuevoPersonaEstudiante();"><span class="glyphicon glyphicon-plus" ></span></button>
+
+								<button type="button" name="borrar_estudiante" class="btn btn-danger"><span class="glyphicon glyphicon-remove" ></span></button>
+
+								<button type="button" name="editar_estudiante" class="btn btn-info"><span class="glyphicon glyphicon-pencil" ></span></button>
+								
+							</div>
+							<table class="table table-hover">
+
+								<tr>
+								  <td>Codigo</td>
+								  <td>Fecha de Inicio</td>
+								  <td>Fecha Fin</td>
+								  <td>Estado</td>
+								  <td>Instituto</td>
+								  <td>Pensum</td>
+								  <td>Condicion</td>
+								  <td>Observaciones</td>
+								</tr>
+
+								<tbody id="listarPersonaEstudiante">
+
+								</tody>
+								
+							</table>
+						</div>
+
+						<div class="empleado" >
+							<table class="table table-stdiped table-hover">
+								<div class="text-right">
+
+								<button type="button" name="nuevo_empleado" class="btn btn-primary" onclick="nuevoPersonaEmpleado();"><span class="glyphicon glyphicon-plus" ></span></button>
+
+								<button type="button" name="borrar_empleado" class="btn btn-danger"><span class="glyphicon glyphicon-remove" ></span></button>
+
+								<button type="button" name="editar_empleado" class="btn btn-info"><span class="glyphicon glyphicon-pencil" ></span></button>
+								
+							</div>
+							<table class="table table-hover">
+
+								<tr>
+								  <td>Codigo</td>
+								  <td>Fecha de Inicio</td>
+								  <td>Fecha Fin</td>
+								  <td>Estado</td>
+								  <td>Instituto</td>
+								  <td>Pensum</td>
+								  <td>J.P.</td>
+								  <td>J.C.E</td>
+								  <td>Min.</td>
+								  <td>Doc.</td>
+								  <td>Observaciones</td>
+								</tr>
+
+								<tr>
+								  <td>1</td>
+								  <td>2014</td>
+								  <td>-</td>
+								  <td>activo</td>
+								  <td>IUT-FRP</td>
+								  <td>Informatica</td>
+								  <td>021</td>
+								  <td>----</td>
+								</tr>
+								<tr>
+								  <td>1</td>
+								  <td>2014</td>
+								  <td>-</td>
+								  <td>activo</td>
+								  <td>IUT-FRP</td>
+								  <td>Informatica</td>
+								  <td>021</td>
+								  <td>----</td>
+								</tr>
+							</table>
+							<br>
+						</div>
+					</div>
+					<br>
+				</fieldset>
+			</div>
+
+		</div>
+	</div>
+			
+{% endblock %}
