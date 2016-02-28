@@ -2026,7 +2026,7 @@ COMMENT ON COLUMN sis.t_estudiante.condicion IS 'Condicion que posee el estudian
 COMMENT ON COLUMN sis.t_estudiante.fec_fin IS 'Fecha en la que el estudiante dejo de estudiar';
 COMMENT ON COLUMN sis.t_estudiante.observaciones IS 'Observaciones sobre el estudiante';
 
-
+/*
 CREATE TABLE sis.t_fotografia (
     cod_persona integer NOT NULL,
     tipo character varying(20),
@@ -2035,7 +2035,7 @@ CREATE TABLE sis.t_fotografia (
 
 
 ALTER TABLE sis.t_fotografia OWNER TO sisconot;
-
+*/
 
 
 CREATE TABLE sis.t_persona (
