@@ -54,6 +54,8 @@ Descripción:
 					self::mostrarVista();
 				else if($accion == "agregarCurso")
 					self::agregarCurso();
+				else if($accion == "modificarCurso")
+					self::modificarCurso();
 				else if($accion == "buscarSeccionPorTrayecto")
 					self::buscarSeccionPorTrayecto();
 				else if($accion == "listarUniCurricular")
@@ -132,14 +134,21 @@ Descripción:
 				$capacidad = PostGet::obtenerPostGet("capacidad");
 				$observaciones = PostGet::obtenerPostGet("observaciones");
 
+				if($codDocente == '')
+					$codDocente = NULL;
+					
+				if($fecInicio == '')
+					$fecInicio = NULL;
+					
+				if($fecFinal == '')
+					$fecFinal = NULL;
+
 				$r = CursoServicio::insertarCurso($codPeriodo, $codUniCurricular, $codDocente, $seccion, $fecInicio, $fecFinal, $capacidad, $observaciones);
 
-				if($r == 0)
-					Vista::asignarDato("mensaje","No se pudo agregar el curso");
-				else{
-					Vista::asignarDato("codCurso",$r);
-				}
-
+				
+				Vista::asignarDato("codCurso",$r);
+				
+		
 				Vista::mostrar();
 			}
 			catch(Exception $e){
@@ -168,8 +177,21 @@ Descripción:
 				$capacidad = PostGet::obtenerPostGet("capacidad");
 				$observaciones = PostGet::obtenerPostGet("observaciones");
 
-				CursoServicio::modificarCurso($codigo,$codPeriodo, $codUniCurricular, $codDocente, $seccion, $fecInicio, $fecFinal, $capacidad, $observaciones);
+				if($codDocente == '')
+					$codDocente = NULL;
+					
+				if($fecInicio == '')
+					$fecInicio = NULL;
+					
+				if($fecFinal == '')
+					$fecFinal = NULL;
 
+				$r = CursoServicio::modificarCurso($codigo,$codPeriodo, $codUniCurricular, $codDocente, $seccion, $fecInicio, $fecFinal, $capacidad, $observaciones);
+				
+
+				Vista::asignarDato("mensaje","El curso con código $codigo se ha modificado exitosamente.");
+
+				
 				Vista::mostrar();
 			}
 			catch(Exception $e){

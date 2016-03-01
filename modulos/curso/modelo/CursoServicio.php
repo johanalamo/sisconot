@@ -144,12 +144,12 @@ Descripción:
 				$ejecutar->bindParam(':p_fec_final',$fecFinal, PDO::PARAM_STR);
 				$ejecutar->bindParam(':p_capacidad',$capacidad, PDO::PARAM_INT);
 				$ejecutar->bindParam(':p_observaciones',$observaciones, PDO::PARAM_STR);
-				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 
 				$ejecutar->execute();
 
-				$codigo = $ejecutar->fetchColumn(0);
-				return $codigo;
+				$row = $ejecutar->fetchColumn(0);
+					
+				return $row;
 			}
 			catch(Exception $e){
 				throw $e;
@@ -191,14 +191,9 @@ Descripción:
 				$ejecutar->bindParam(':p_fec_final',$fecFinal, PDO::PARAM_STR);
 				$ejecutar->bindParam(':p_capacidad',$capacidad, PDO::PARAM_INT);
 				$ejecutar->bindParam(':p_observaciones',$observaciones, PDO::PARAM_STR);
-				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				
 
 				$ejecutar->execute();
-
-				$row = $ejecutar->fetchColumn(0);
-
-				if ($row == 0)
-					throw new Exception("No se puede modificar el curso");
 			}
 			catch(Exception $e){
 				throw $e;
@@ -630,31 +625,36 @@ Descripción:
 				$consulta="select 	cur.codigo codCurso,
 									uni.nombre,
 									cur.capacidad,
-									uni.codigo,
+									uni.codigo coduni,
 									pers.codigo,
 									pers.nombre1 || ' ' || pers.apellido1 nombredocente,
 									cur.fec_inicio,
 									cur.fec_final,
 									cur.observaciones
-									from sis.t_periodo as per
-									inner join sis.t_uni_tra_pensum as utp
+									from sis.t_periodo per
+									inner join sis.t_uni_tra_pensum utp
 										on utp.cod_pensum = per.cod_pensum
-									left join sis.t_curso as cur
-										on cur.cod_uni_curricular = utp.cod_uni_curricular
+									left join (select 	cu.*
+												from sis.t_curso as cu
+												where cu.seccion= :seccion
+												and cu.cod_periodo= :periodo) as cur
+										on utp.cod_uni_curricular = cur.cod_uni_curricular
+									left join sis.t_empleado as emp
+										on emp.codigo = cur.cod_docente
 									left join sis.t_persona as pers
-										on cur.cod_docente = pers.codigo
+										on pers.codigo = emp.cod_persona
 									inner join sis.t_uni_curricular as uni
 										on uni.codigo = utp.cod_uni_curricular
-									where utp.cod_trayecto = :trayecto and per.codigo = :periodo or cur.seccion = :seccion
-									order by
-										cur.codigo;
-";
+									where (utp.cod_trayecto = :trayecto and per.codigo = :periodo2)
+									order by 
+										cur.codigo";
 
 				$ejecutar=$conexion->prepare($consulta);
 				$conexion->beginTransaction();
 				$ejecutar->bindParam(':seccion',$seccion, PDO::PARAM_STR);
 				$ejecutar->bindParam(':trayecto',$trayecto, PDO::PARAM_INT);
 				$ejecutar->bindParam(':periodo',$periodo, PDO::PARAM_INT);
+				$ejecutar->bindParam(':periodo2',$periodo, PDO::PARAM_INT);
 				$ejecutar->execute();
 				$results = $ejecutar->fetchAll();
 				$conexion->commit();
