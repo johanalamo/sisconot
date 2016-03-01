@@ -255,10 +255,18 @@ function succListarCursos(data){
 			
 			for(var i = 0; i < 9; i++){
 				
-				if(cur[cont][i] != null)
-					cad += "<td style='text-align:center' class='"+p+"' id='c"+i+cont+"'>"+cur[cont][i]+"</td>";
-				else
-					cad += "<td style='text-align:center' class='"+p+"'>No asignado</td>";
+				if(cur[cont][i] != null){
+					if(i == 5)
+						cad += "<td style='text-align:center' class='"+p+"' id='cant"+cont+"'>"+cur[cont][i]+"</td>";
+					else
+						cad += "<td style='text-align:center' class='"+p+"' id='c"+i+cont+"'>"+cur[cont][i]+"</td>";
+				}
+				else{
+					if(i == 5)
+						cad += "<td style='text-align:center' class='"+p+"' id='cant"+cont+"'>0</td>";
+					else
+						cad += "<td style='text-align:center' class='"+p+"'>No asignado</td>";
+				}
 			}
 			cad += "</tr>";
 
@@ -320,10 +328,16 @@ function verificarChecks(el){
 				}
 			}
 			else if(el == 'le') {
-				window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=ListarEstudiantes&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
+				if($("#cant"+i).html() != '0')
+					window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=ListarEstudiantes&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
+				else
+					mostrarMensaje("No se puede generar la lista de estudiantes para este curso porque no posee estudiantes inscritos",3);
 			}
 			else if(el == 'cn'){
-				window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=CargarNotas&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
+				if($("#cant"+i).html() != '0')
+					window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=CargarNotas&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
+				else
+					mostrarMensaje("No se puede abrir la pestaña de cargar notas para este curso porque no posee estudiantes inscritos",3);
 			}
 			else if(el == 'ri'){
 				window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=InscribirRetirarEstudiante&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
