@@ -576,6 +576,7 @@ Descripción:
 									per.codigo,
 									utp.cod_trayecto,
 									cur.seccion,
+									cur.codigo as codigocurso,
 									cur.cod_uni_curricular,
 									cur.cod_docente,
 									ins.nombre nombreins,

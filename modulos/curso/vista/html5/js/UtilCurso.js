@@ -337,7 +337,7 @@ function verificarChecks(el){
 				if($("#cant"+i).html() != '0')
 					window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=CargarNotas&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
 				else
-					mostrarMensaje("No se puede abrir la pestaña de cargar notas para este curso porque no posee estudiantes inscritos",3);
+					mostrarMensaje("No se puede abrir la pestaña de cargar notas ipara este curso porque no posee estudiantes inscritos",3);
 			}
 			else if(el == 'ri'){
 				window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=InscribirRetirarEstudiante&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
@@ -361,7 +361,6 @@ function retirarEstudiante(codigo, uni){
 }
 
 function succRetirarEstudiante(data){
-	console.log(data);
 	mostrarMensaje("Se ha realizado un retiro exitoso.",1);
 	listarEstudiantes(succListarEstudiantes,$('#selUni').val()[0]);
 }
@@ -609,14 +608,14 @@ function succListarEstudiantes(data){
 		}
 		cad += "</table>";
 
-		$("#divButt").show();
+		
 		// Cálculos de promedio
 	}
 	else {
-		$("#divButt").hide();
-		mostrarMensaje("No hay resultados para los criterios de búsqueda",3);
+		mostrarMensaje("No hay estudiantes inscritos en este curso.",4);
 	}
-
+	
+	$("#divButt").show();
 	$("#table-lis").remove();
 	$("#divLis").append(cad);
 
@@ -815,12 +814,11 @@ function succGuardarNotas(data){
 
 function succMontarSelects(data){
 	var dat = data.cursoInfoMontar;
-
+	console.log(data);
 	var i = 1;
 	if(dat[0]['cod_instituto'] != null){
 		setTimeout(function (){
 			$("#selInst").val(dat[0]['cod_instituto']);
-			$("#selInst").selectpicker("refresh");
 			cargarPensums();
 		}, 150);
 	}
@@ -855,9 +853,9 @@ function succMontarSelects(data){
 		}, 750);
 	}
 
-	if(dat[0]['cod_uni_curricular'] != null){
+	if(dat[0]['codigocurso'] != null){
 		setTimeout(function (){
-			$("#selUni").val(dat[0]['cod_uni_curricular']);
+			$("#selUni").val(dat[0]['codigocurso']);
 		}, 1000);
 	}
 
@@ -871,6 +869,7 @@ function succMontarSelects(data){
 	}, 1200);
 
 }
+
 
 function montarSelect(sel,val){
 	$(sel).val(val);
