@@ -1,0 +1,49 @@
+{% extends 'Periodo.html5.twig' %}
+
+{% block contenido %}
+<br>
+<br>
+<center><h2> Administrar Periodos </h2></center>
+<div class="row">
+	<div class="col-md-6">
+		<center><h3>Edición</h3>
+		<div class="col-md-6">
+			Código: <input type="text" class="form-control"></input>
+			Instituto: <input type="text" class="form-control"></input>
+			Fecha de inicio: <input type="text" class="form-control"></input>
+			Estado: <input type="text" class="form-control"></input><br>
+		</div>
+		<div class="col-md-6">
+			Nombre del Periodo: <input type="text" class="form-control"></input>
+			Pensum: <input type="text" class="form-control"></input>
+			Fecha de fin: <input type="text" class="form-control"></input>
+		</div>
+		<div class="col-md-11">
+			<input type="text" class="form-control">Observaciones<br><br>
+			<button class="btn btn-primary">Guardar</button>
+		</div>
+	</div>
+</div>
+
+
+<div class="row-fluid">
+	<div class="col-md-6">
+		<center><h3>Lista de Periodos</h3>
+		<div class="col-md-6">
+			Patrón de búsqueda: <input type="text" class="form-control"></input>
+		</div>
+		
+		<div class="col-md-6">
+			<button class="btn btn-success">Agregar</button>
+			<button class="btn btn-danger">Eliminar</button>
+			<button class="btn btn-warning">Modificar</button>
+		</div>
+		<div class="col-md-11">
+		<br>
+			LISTA DE PERIODOS
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

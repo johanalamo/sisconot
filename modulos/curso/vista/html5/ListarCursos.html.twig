@@ -1,0 +1,45 @@
+{% extends 'Curso.html.twig' %}
+{% block contenido %}
+<center><h2> Lista de Cursos </h2><br>
+<div class="row">
+	<div class="col-md-6">
+		Instituto:
+		<div id="divInst">
+			<select class='selectpicker' id="selInst" onchange="cargarPensums()" title='Seleccione Instituto'>
+			</select>
+		</div>
+		<br>
+
+		Pensum:
+		<div id="divPen">
+			<select class='selectpicker' id="selPen" onchange="cargarPeriodos()" data-live-search='true' data-size='auto' multiple data-max-options="1" title='Seleccione Pensum'>
+			</select>
+		</div>
+	</div>
+	<div class="col-md-6">
+		Periodo:
+		<div id="divPer">
+			<select class='selectpicker' id="selPer" data-live-search='true' data-size='auto' multiple data-max-options="1" title='Seleccione Periodo'>
+			</select>
+		</div>
+		<br>
+		Patrón:
+		<div id="divPat">
+			<input type="text" id="patron" placeholder="Patrón de Búsqueda"></input>
+		</div>
+		<br>
+
+			<button class="btn btn-dark btn-sm" onclick="listarCursos()">Buscar</button>
+
+	</div>
+</div>
+
+<br>
+<div class="row">
+	<div class="col-md-12" id="divLis">
+		<div class="col-md-4"><a href="index.php?m_vista=CrearModificarCurso&m_formato=html5&m_modulo=curso&m_accion=mostrar"><button class="btn btn-success btn-xs">Agregar Curso</button></a></div><div id="panelB" hidden class='col-md-8'><button class="btn btn-warning btn-xs" onclick="verificarChecks('mod')">Modificar Curso</button> <button class="btn btn-info btn-xs" onclick="verificarChecks('le')">Lista de Estudiantes</button> <button class="btn btn-info btn-xs" onclick="verificarChecks('cn')">Cargar Notas</button> <button class="btn btn-info btn-xs" onclick="verificarChecks('ri')">Retirar/Inscribir Estudiante</button></div>
+		<br><br>
+	</div>
+</div>
+
+{% endblock %}

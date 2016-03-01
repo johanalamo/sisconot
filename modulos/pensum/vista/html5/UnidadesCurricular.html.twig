@@ -1,0 +1,176 @@
+{% extends 'Pensum.html.twig' %}
+
+{% block headVista %}
+
+ <!-- -------------- CSS - allcp forms -------------- -->
+ <link rel="stylesheet" type="text/css" href="modulos/pensum/vista/html5/ccs/forms.css">
+
+{% endblock %}
+
+{% block contenido %}
+
+	<div class="mw1300 center-block">
+
+                <!-- -------------- Spec Form -------------- -->
+                <div class="allcp-form">
+                    <form method="post" id="form-wizard" novalidate="novalidate">
+                        <div class="wizard steps-bg clearfix steps-show-icons steps-tabs steps-left" id="steps-uid-0">
+                    	<div class="steps clearfix">
+                    		<li role="tab" class="first current" >
+                            	<a id="steps-uid-0-t-1" href="#" >
+                                	<i class="icon-sitemap"></i>Informacion General
+                                </a>
+                            </li>        
+                            <li role="tab" class="last done" >
+                            	<a id="steps-uid-0-t-1" href="#steps-uid-0-h-1" >
+                                	<i class="icon-sitemap"></i>Trayectos
+                                </a>
+                            </li>
+                            <li role="tab" class="last done" >
+                            	<a id="steps-uid-0-t-2" href="#steps-uid-0-h-2" >
+                  			    	<i class="icon-hdd"></i> Unidad Curriculares 
+                  			    </a>
+                  			</li>
+                  			<li role="tab" class="last done">
+                  				<a id="steps-uid-0-t-2" href="#steps-uid-0-h-2" >             
+                                	<i class="fa fa-file-text pr5"></i> Prelaciones 
+                            	</a>
+                            </li>
+                    	</div><div class="content clearfix">
+     
+                        <div class="col-md-12">
+
+				    		<div class="panel">
+				                    <div class="panel-heading">                       
+				                         <h3><i class="icon-table"></i> Agregar/Modificar Pensum</h3>    
+				                         <span class="panel-title">Campos para agregar/modificar Pensum</span>
+				                    </div>
+				                    <div class="panel-body" style="min-height: 447px;">
+
+                             <div class="box-content">
+                            		 						<form class="form-horizontal" >
+
+	 						
+	                                <div class="form-group">
+	                                    <label class="col-lg-1 control-label" style="font-size: 15px; font-weight: 900; margin-top: 10px;">Codigo:</label>
+
+	                                    <div class="col-lg-3">                                    
+	                                            
+	                                   	<input type='text' name='codigo'id='codigo' maxlength='50' class='form-control'  placeholder='Codigo' disabled>
+					
+	                                      
+	                                    </div>
+	                                </div>	                         
+                            	
+                            		<div class="form-group  display-10px">
+	                                    <label  class="col-lg-2 control-label display-10px"  style="font-size: 15px; font-weight: 900; margin-top: 10px;">Nombre Corto:</label>
+	                                    <div class="col-lg-5">
+	                                     
+	                                    	<input type='text' name='nom_corto' onkeyup='validarSoloTexto("#nom_corto",2,20,true)' id='nom_corto' maxlength='25' class='form-control'  placeholder='Nombre Corto'>
+	                                      
+	                                    </div>
+	                                </div>
+
+	                                <div class="form-group ">
+	                                    <label  class="col-lg-2 control-label  display-15px"  style="font-size: 15px; font-weight: 900;">Nombre Completo:</label>
+	                                    <div class="col-lg-9">	                                        
+	                                            <input type='text' name='nombre' onkeyup='validarSoloTexto("#nombre",5,60,true)' id='nombre' maxlength='50' class='form-control  display-10px'  placeholder='Nombre'>                                      
+	                                    </div>
+	                                </div>
+	                     
+                             	<div class="clearfix"></div>
+                             	<hr class="short alt">
+
+                                	<div class="form-group">
+	                                    <label  class="col-lg-5 control-label"  style="font-size: 15px; font-weight: 900; margin-top: 10px;">Minima cantidad electiva:</label>
+	                                    <div class="col-lg-7">	                                        
+	                                           <input type='text' name='min_cant_elect' onkeyup="validarSoloNumeros('#min_cant_elect',1,2,true)"  maxlength='2' id='min_cant_elect'  class='form-control'  placeholder='Min cantidad electiva'>	                                      
+	                                    </div>
+	                                </div>
+         
+                             
+                             	<div class="form-group">
+		                                    <label  class="col-lg-3 control-label"  style="font-size: 15px; font-weight: 900; margin-top: 10px;">Minima credito electiva:</label>
+		                                    <div class="col-lg-8">		                                       
+		                                          <input type='text' name='min_cre_elect' onkeyup="validarSoloNumeros('#min_cre_elect',1,2,true)"  maxlength='2' id='min_cre_elect' class='form-control'  placeholder='Min credito obligatorio'>
+		                                    </div>
+                                </div>
+
+		                        <div class="col-sm-4">
+	                                <div class="form-group">
+	                                    <label  class="col-lg-3 control-label"  style="font-size: 15px; font-weight: 900; margin-top: 10px;">Minima credito obligatorio:</label>
+	                                    <div class="col-lg-7">	                                        
+	                                       <!--     <input  type="number" min="1" max="999" id="hta" name="hta" class="form-control" > -->
+	                                       <input  type="number" min="1" max="999" id="hti" name="hti" class="form-control">
+	                                    </div>
+	                            	</div>   
+	                            </div>	 
+                            	<div class="col-sm-4">
+	                                <div class="form-group">
+	                                    <label  class="col-lg-3 control-label">Fecha:</label>
+	                                    <div class="col-lg-7">	                                        
+	                                            <input type='text' name='fecha' id='fecha' maxlength='25' class='form-control'  placeholder='Fecha'>
+	                                      
+	                                    </div>
+                            		</div>
+                            	</div>	
+                            	
+                            	<div class="clearfix"></div>
+                            	<hr class="short alt">
+                                <div class="form-group">
+                                    <label class="col-lg-3 control-label" for="textArea1">Contenido:</label>
+
+                                    <div class="col-lg-8">                                       
+                                              <textarea class="form-control textarea-grow" id="contenido" name="contenido" rows="5" placeholder="Contenido..."></textarea>
+                                       
+                                    </div>
+                                </div>
+	                              
+	                            <div class="form-group">
+                                    <label class="col-lg-3 control-label" for="textArea2"  placeholder="Observación...">Observación:</label>
+                                    <div class="col-lg-8">                 
+                                            <textarea class="form-control" id="observacion" name="observacion" rows="3"></textarea>                                        
+                                    </div>
+                                </div>
+
+                                 <div class="form-group" align="center">
+                                 	 <button class='btn btn-alert' onclick="setClear()" class='close' data-dismiss='alert'>LIMPIAR</button>
+                               		 <button class='btn btn-success' onclick="agregarModificar()" class='close' data-dismiss='alert'>GUARDAR</button>
+
+	                             </div>
+                            </form>	
+                        </div>
+                        				</div>
+				
+			
+
+
+    </div>
+
+
+</div>
+                 
+
+                        </div><div class="actions clearfix">
+                        <ul role="menu" aria-label="Pagination">
+                        	<li class="disabled" aria-disabled="true">
+                        		<a href="#previous" role="menuitem">Previous</a>
+                        	</li>
+                        	<li aria-hidden="false" aria-disabled="false" class="" style="display: inline-block;">
+                        		<a href="#next" role="menuitem">Next</a>
+                        	</li>
+                        </ul></div>
+                    	</div>
+
+                        <!-- -------------- /Wizard -------------- -->
+
+                    </form>
+                    <!-- -------------- /Form -------------- -->
+                </div>
+                <!-- -------------- /Spec Form -------------- -->
+
+            </div>
+
+
+
+{% endblock %}

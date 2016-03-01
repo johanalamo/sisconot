@@ -1,0 +1,484 @@
+{% extends 'Persona.html.twig' %}
+{% block headVista %}
+	<style>
+		/*td
+		{
+			text-align:center;
+		}	
+
+		.contenedor{
+			margin:7% 3%;			
+		}
+
+		.espacio-input{
+			padding-right:2%;			
+		}
+
+		.formuario-persona{
+			padding: 0 3%;
+			padding-bottom:2%;
+		}
+		textarea{
+			resize:none;
+		}
+		*/
+	</style>
+
+	<script>
+	
+	</script>
+	
+{% endblock %}
+{% block contenido %}
+	
+	<div class="contenedor">
+		<div class="col-md-12">
+
+			<div class="reset-fieldset">
+
+				<div id="tabsActivo">
+					<ul class="uk-tab" data-uk-tab>
+						<li class="uk-active"><a href="" class="infoPersona" >Persona</a></li>
+					    <li><a href="" class="estudiantes" onclick="verEstadoEs(); mostrarInformaion();">Estudiante</a></li>
+					    <li><a href="" class="empleados" onclick="verEstadoEm(); mostrarInformaion2();">Empleado</a></li>				    
+					    <li class="uk-disabled"><a  >Bloqueado</a></li>
+					</ul>					
+				</div>
+
+				<div id="tabsBloqueado">
+					<ul class="uk-tab" data-uk-tab>
+					<li class="uk-disabled">><a>Persona</a></li>
+					<li class="uk-disabled"><a>	Estudiante</a></li>
+					<li class="uk-disabled"><a>Empleado</a></li>			    
+					<li class="uk-disabled"><a  >Bloqueado</a></li>
+					</ul>
+				</div>
+
+
+
+
+
+				
+
+				
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+				<fieldset class="scheduler-border">
+					<legend class="scheduler-border">Edicion</legend>
+					
+					<div id="infoPersona" class="infoPersona">
+
+
+						<div class="form-inline formuario-persona col-md-12">
+							Codigo
+							<div class="form-group espacio-input">
+								 <input type="text" name="cod_persona" id="cod_persona" class="form-control" placeholder="00000" maxlength="7" disabled>
+							</div>
+							 Cedula
+							<div class="form-group espacio-input">
+								 <input type="text" name="ced_persona" id="ced_persona" class="form-control" placeholder="2323132" maxlength="8" onkeyup="validarSoloNumeros('#ced_persona',6,8,true)">
+							</div>
+							RIF 
+							<div class="form-group espacio-input">
+								 <input type="text" name="rif_persona" id="rif_persona" class="form-control" placeholder="v-2323132-6" maxlength="20">
+							</div>	
+
+							<div class="form-group espacio-input foto">
+								<a href="" class="thumbnail" class="form-control" align="middle">
+							      <img src="modulos/persona/vista/html5/imagen/foto.gif" alt="..." >
+							    </a>
+							    <input name="foto" type="file" id="foto">
+							</div>
+						</div>
+
+
+						<div class="form-inline formuario-persona col-md-12">
+				
+							Nombre1
+							<div class="form-group espacio-input">
+								 <input type="name" name="nombre1" id="nombre1" class="form-control" placeholder="Jean" maxlength="20" onkeyup="validarSoloTexto('#nombre1',2,20,true)">
+							</div>
+							
+							Nombre2
+							<div class="form-group espacio-input">
+								 <input type="name" name="nombre2" id="nombre2" class="form-control" placeholder="Pierre" maxlength="20" onkeyup="validarSoloTexto('#nombre2',2,20,false)">
+							</div>
+							
+							Apellido1
+							<div class="form-group espacio-input">
+								 <input type="name" name="apellido1" id="apellido1" class="form-control" placeholder="Sosa" maxlength="20" onkeyup="validarSoloTexto('#apellido1',2,20,true)">
+							</div>
+
+						</div>
+
+
+						<div class="form-inline formuario-persona col-md-12">
+				
+							Apellido2
+							<div class="form-group espacio-input">
+								 <input type="name" name="apellido2" id="apellido2" class="form-control" placeholder="Gomez" maxlength="20" onkeyup="validarSoloTexto('#apellido2',2,20,false)">
+							</div>
+							
+							Fecha de Nacimiento
+							<div class="form-group espacio-input">
+								 <input type="date" name="fec_nac" id="fec_nac" class="form-control" value="2-9-1992">
+							</div>
+							
+							Tipo de sangre
+							<div class="form-group espacio-input">
+								 <select name="tip_sangre" id="tip_sangre" class='selectpicker' data-live-search='true' data-size='auto' data-max-options='12' >
+								 	<option value="S/T">Sangre</option>
+								 	<option value="A+" selected='selected'>A+</option>
+								 	<option value="A-">A-</option>
+								 	<option value="B+">B+</option>
+								 	<option value="B-">B-</option>
+								 	<option value="AB+">AB+</option>
+								 	<option value="AB-">AB-</option>
+								 	<option value="O+">O+</option>
+								 	<option value="O-">O-</option>
+								 </select>
+							</div>
+						</div>
+
+						<div class="form-inline formuario-persona col-md-12">
+				
+							Telefono1
+							<div class="form-group espacio-input">
+								 <input type="name" name="telefono1" id="telefono1" class="form-control" placeholder="02125556677" maxlength="15" onkeyup="validarTelefono('#telefono1',7,15,true)">
+							</div>
+							
+							Telefono2
+							<div class="form-group espacio-input">
+								 <input type="name" name="telefono2" id="telefono2" class="form-control" placeholder="04167171717" maxlength="15" onkeyup="validarTelefono('#telefono2',7,15,false)">
+							</div>
+							
+							Nacionalidad
+							<div class="form-group espacio-input">
+								 <select name="nacionalidad" id="nacionalidad" class='selectpicker' data-live-search='true' data-size='auto' data-max-options='12' >
+								 	<option value="V" selected='selected'>Venezolano</option>
+								 	<option value="E">Extrangero</option>
+								 </select>
+							</div>
+
+							Sexo
+							<div class="form-group espacio-input">
+								 <select name="sexo" id="sexo" class='selectpicker' data-live-search='true' data-size='auto' data-max-options='12' >					 	
+								 	<option value="M" selected='selected' >Masculino</option>
+								 	<option value="F">Femenino</option>
+								 </select>
+							</div>
+						</div>
+
+
+						<div class="form-inline formuario-persona col-md-12">
+				
+							Correo Personal
+							<div class="form-group espacio-input">
+								 <input type="email" name="cor_personal" id="cor_personal" class="form-control" placeholder="pepemujica@gmail.com" maxlength="50" onkeyup="validarEmail('#cor_personal',10,50,true)">
+							</div>
+							
+							Correo Institucional
+							<div class="form-group espacio-input">
+								 <input type="email" name="cor_institucional" id="cor_institucional" class="form-control" placeholder="pmujica@iutrc.com" maxlength="50" onkeyup="validarEmail('#cor_institucional',10,50,false)">
+							</div>
+							
+							Hijos
+							<div class="form-group espacio-input">
+								 <select name="hijos" id="hijo" class='selectpicker' data-live-search='true' data-size='auto' data-max-options='12' >				 	
+								 	<option value="0">0</option>
+								 	<option value="1">1</option>
+								 	<option value="2">2</option>
+								 	<option value="3">3</option>
+								 	<option value="4">4</option>
+								 	<option value="5">5</option>
+								 </select>
+							</div>
+
+							Estado Civil
+							<div class="form-group espacio-input">
+								 <select name="est_civil" id="est_civil" class='selectpicker' data-live-search='true' data-size='auto' data-max-options='12' >					 	
+								 	<option value="S">Soltero</option>
+								 	<option value="C">Casado</option>
+								 	<option value="D">Divorciado</option>
+								 	<option value="V">Viudo</option>
+								 	<option value="O">Estado O</option>
+								 </select>
+							</div>
+						</div>
+
+
+						<div class="formuario-persona col-md-12">
+				
+							Discapacidad
+							<div class="form-group espacio-input">
+								 <textarea  name="discapacidad" id="discapacidad" class="form-control" maxlength="50" ></textarea>
+							</div>
+							
+							Direccion
+							<div class="form-group espacio-input">
+								 <textarea  name="direccion" id="direccion" class="form-control" maxlength="150"></textarea>
+							</div>
+							
+							Observaciones
+							<div class="form-group espacio-input">
+								 <textarea  name="obs_persona" id="obs_persona" class="form-control" maxlength="200"></textarea>
+							</div>
+							<!--<input type="text" value="N" name="estado" id='estado'>-->
+							<input type="hidden" name="codigoPersona" id="codigoPersona">
+							<div class="text-right formuario-persona">
+								<button type="button" name="grd_persona" class="btn btn-success" onclick="guardarPersona(); verEstadoEs();"><b>Guardar</b></button>
+							</div>
+						</div>
+
+
+					</div>	
+
+
+				
+			<div class="estudiante_empleado_agregar">					
+
+				<div class="estudiantes" id="estudiante" >
+					<input type="hidden" name="codigoPersona" id="codigoPersona">
+					<div class="form-inline formuario-persona col-md-12">
+						Codigo
+						<div class="form-group espacio-input">
+							 <input type="text" name="cod_estudiante" id="cod_estudiante" class="form-control" placeholder="00000" maxlength="7" disabled>
+						</div>
+						 Codigo Rusnies
+						<div class="form-group espacio-input">
+							 <input type="text" name="cod_rusnies" id="cod_rusnies" class="form-control" placeholder="2323132" maxlength="20">
+						</div>		
+
+						<div class="form-group espacio-input" id="selectInstitutos">
+							 
+						</div>			
+					</div>
+
+					<div class="form-inline formuario-persona col-md-12">
+						
+						
+						
+					
+						<div class="form-group espacio-input selectPensum">
+							 
+						</div>	
+
+						N° Carnet
+						<div class="form-group espacio-input">
+							 <input type="text" name="num_carnet" id="num_carnet" class="form-control" placeholder="autogenerado" maxlength="25" >
+						</div>
+
+						Expediente
+						<div class="form-group espacio-input">
+							 <input type="text" name="expediente" id="expediente" class="form-control" placeholder="autogenerado" maxlength="25">
+						</div>					
+					</div>
+
+					<div class="form-inline formuario-persona col-md-12">
+												
+						
+						<div class="form-group espacio-input selectEstado">
+						
+						</div>	
+
+						fecha de Inicio
+						<div class="form-group espacio-input">
+							 <input type="date" name="fec_ini_estudiante" id="fec_ini_estudiante" class="form-control" placeholder="fecha actual" >
+						</div>
+
+						culminacion
+						<div class="form-group espacio-input">
+							 <input type="date" name="fec_fin_estudiante" id="fec_fin_estudiante" class="form-control" placeholder="fecha de culminacion" >
+						</div>										
+					</div>
+					<div class="form-inline formuario-persona col-md-12">
+					Condicion
+						<div class="form-group espacio-input">
+							 <input type="text" name="condicion" id="condicion" class="form-control" placeholder="la condicion" maxlength="5">
+						</div>	
+					</div>
+
+					<div class="formuario-persona col-md-12">
+				
+						Observaciones
+						<div class="form-group espacio-input">
+							 <textarea  name="obs_estudiante" id="obs_estudiante" class="form-control" maxlength="200"></textarea>
+						</div>
+								<div class="text-right formuario-persona form-inline">
+									Estado
+									<div class="form-group espacio-input">	
+										<input class="form-control" type="text" value="M" disabled>
+									</div>
+									<button type="button" name="nv_estudiante" id="nv_estudiante" class="btn btn-primary" onclick="nuevoEstudiante();"><b>Nuevo</b></button>		
+									<div id="md_estudiante" class="form-group">	
+										<button type="button" name="md_estudiante" class="btn btn-success" onclick="guardarEstudiante();"><b>Guardar</b></button>	
+									</div>							
+								</div>
+							</div>
+
+						</div>
+
+					
+						<div class="empleados" id="empleado">
+					<div class="form-inline formuario-persona col-md-12 ">
+						Codigo
+						<div class="form-group espacio-input">
+							 <input type="text" name="cod_empleado" id="cod_empleado" class="form-control" placeholder="00000" maxlength="7" disabled>
+						</div>	
+
+						fecha de Inicio
+						<div class="form-group espacio-input">
+							 <input type="date" name="fec_ini_empleado" id="fec_ini_empleado" class="form-control" placeholder="fecha actual" >
+						</div>	
+
+						fecha fin
+						<div class="form-group espacio-input">
+							 <input type="date" name="fec_fin_empleado" id="fec_fin_empleado" class="form-control" placeholder="fecha actual" >
+						</div>	
+
+					</div>
+
+					<div class="form-inline formuario-persona col-md-12" id="formu">
+						<div class="form-group espacio-input selectInstituto" id="selectInstitutos">
+							 
+						</div>
+						
+						<div class="form-group espacio-input selectPensum" id="selPensumEm">
+							 
+						</div>	
+
+						<div class="form-group espacio-input selectEstado" id="selEstadoEm">
+						
+						</div>
+								
+					</div>
+
+					<div class="form-inline formuario-persona col-md-12" id='formu'>
+					
+						
+						Jefe de Pensum <input type="checkbox" name="es_jef_pensum" value="es_jef_pensum" id='es_jef_pensum'>
+
+						&nbsp; Jefe de Control de Estudio <input type="checkbox" name="es_jef_con_estudio" id='es_jef_con_estudio' value="es_jef_con_estudio">
+
+						&nbsp; Personal Ministerio <input type="checkbox" id="es_ministerio" name="es_ministerio" value="es_ministerio">
+
+						&nbsp; Docente <input type="checkbox" name="Docente" value="Docente" id='Docente'>				
+					</div>
+
+					<div class="formuario-persona col-md-12">
+				
+						Observaciones
+						<div class="form-group espacio-input">
+							 <textarea  name="obs_empleado" id="obs_empleado" class="form-control" maxlength="200"></textarea>
+						</div>
+								<div class="text-right formuario-persona form-inline">
+									Estado
+									<div class="form-group espacio-input">	
+										<input class="form-control" type="text" value="M" disabled>
+									</div>
+									<button type="button" name="nv_empleado" id="nv_empleado" class="btn btn-primary" btn-primary" onclick="NuevoEmpleado();"><b>Nuevo</b></button>
+									<div id="md_empleado" class="form-group">	
+										<button type="button" name="md_empleado" class="btn btn-success" onclick="preGuardarEmpleado();"><b>Guardar</b></button>	
+									</div>							
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+				</fieldset>
+
+				
+
+				<div class="reset-fieldset">
+				<fieldset class="scheduler-border">
+					<legend class="scheduler-border">Historico</legend>
+					<div class="estudiante_empleado">
+						<div class="estudiantes" >
+							<div class="text-right form-inline">
+
+								<button type="button" name="nuevo_estudiante" id="nuevo_estudiante" class="btn btn-primary" onclick="nuevoEstudiante();" ><span class="fa fa-plus" ></span></button>
+								<div id="borrar_estudiante" class="form-group ">
+									<button type="button" name="borrar_estudiante" class="btn btn-danger" onclick="borrarEstudiante();"><span class="fa fa-times" ></span></button>
+								</div>
+								<button type="button" name="editar_estudiante" id="editar_estudiante" class="btn btn-info" onclick="modificarPersona();"><span class="fa fa-pencil" ></span></button>
+								
+							</div>
+							<table class="table table-hover" id="tablaEstudiante">
+
+								<tr>
+								  <td>Codigo</td>
+								  <td>Fecha de Inicio</td>
+								  <td>Fecha Fin</td>
+								  <td>Estado</td>
+								  <td>Instituto</td>
+								  <td>Pensum</td>
+								  <td>Condicion</td>
+								  <td>Observaciones</td>
+								</tr>
+
+								<tbody id="listarEstudiante">
+
+								</tody>
+								
+							</table>
+						</div>
+
+						<div class="empleados" >
+							<table class="table table-stdiped table-hover">
+								<div class="text-right form-inline">
+
+								<button type="button" name="nuevo_empleado" id="nuevo_empleado" class="btn btn-primary" onclick="NuevoEmpleado();"><span class="fa fa-plus" ></span></button>
+								<div id="borrar_empleado" class="form-group ">
+									<button type="button" name="borrar_empleado" class="btn btn-danger" onclick="borrarEmpleado();"><span class="fa fa-times" ></span></button>
+								</div>
+								<button type="button" name="editar_empleado" id="editar_empleado" class="btn btn-info" onclick="modificarPersona();"><span class="fa fa-pencil" ></span></button>
+								
+							</div>
+							<table class="table table-hover" id='tablaEmpleado'>
+
+								<tr>
+								  <td>N°</td>
+								  <td>Codigo</td>
+								  <td>Fecha de Inicio</td>
+								  <td>Fecha Fin</td>
+								  <td>Estado</td>
+								  <td>Instituto</td>
+								  <td>Pensum</td>
+								  <td title="Jefe de Pensum">J.P.</td>
+								  <td title="Jefe de Control de Estudio">J.C.E</td>
+								  <td title="Personal del Ministerio">Min.</td>
+								  <td title="Docente">Doc.</td>
+								  <td>Observaciones</td>
+								</tr>
+
+								<tbody id="listarEmpleado" >
+
+
+					       		</tbody>
+								
+							</table>
+							<br>
+						</div>
+					</div>
+					<br>
+				</fieldset>
+			</div>
+
+		</div>
+	</div>
+			
+{% endblock %}
