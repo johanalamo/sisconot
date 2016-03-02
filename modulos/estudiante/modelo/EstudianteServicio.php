@@ -322,7 +322,8 @@ class EstudianteServicio
 								and pdo.codigo = $cod_periodo 
 								and est.cod_estado = '$cod_estado'
 								order by
-									per.apellido1;";
+									per.apellido1,
+									per.nombre1;";
 
 			$ejecutar=$conexion->prepare($consulta);
 
