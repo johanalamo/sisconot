@@ -138,7 +138,6 @@ function succCargarTrayectos(data){
 
 
 	$("#selTra").append(cad).selectpicker('refresh');;
-	//$("#divTra").show();
 }
 
 function cargarSeccion(){
@@ -163,8 +162,7 @@ function succCargarSeccion(data){
 	}
 
 
-	$("#selSec").append(cad).selectpicker('refresh');;
-	//$("#divSec").show();
+	$("#selSec").append(cad).selectpicker('refresh');
 }
 
 function cargarUni(){
@@ -1131,5 +1129,4 @@ function succRetirarUni(data){
 	mostrarMensaje(data.mensaje,1);
 	listarUniEstudiante();
 }
-
 

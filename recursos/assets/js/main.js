@@ -49,7 +49,7 @@ function activarFecha(elemento){
 function mostrarMensaje(mensaje, tipo){
 	
 	if(tipo==1){
-		cad = 'success'; 
+		cad = 'info'; 
 		cad2 = '¡Éxito!';
 	}
 	else if(tipo==2){ 
@@ -61,11 +61,11 @@ function mostrarMensaje(mensaje, tipo){
 		cad2 = '¡Advertencia!';
 	}
 	else if(tipo==4){ 
-		cad = 'info';
+		cad = 'dark';
 		cad2 = '¡Información!'; 
 	}
 
-	var cont = $("<div class='alert alert-" + cad + " alert-dismissible fade in' role='alert' style='position:fixed'>"
+	var cont = $("<div class='alert alert-" + cad + " alert-dismissible' role='alert'>"
 					+ "<button type='button' class='close' data-dismiss='alert'>"
 					+ "<span aria-hidden='true'>&times;</span>"
 					+ "</button>"
