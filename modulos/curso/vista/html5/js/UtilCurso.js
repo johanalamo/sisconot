@@ -997,10 +997,10 @@ function succCursosInscribir(data){
 	}
 	else{
 		mostrarMensaje("Este estudiante no tiene cursos disponibles para inscribir",4);
-		$("#info").remove();
+		
 	}
 	
-	
+	$("#info").remove();
 	$("#btnCD").remove();
 	$("#tableCD").remove();
 	$("#tableCursosD").append(cad);
