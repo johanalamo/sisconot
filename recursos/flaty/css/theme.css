@@ -12202,13 +12202,19 @@ a.thumbnail.active {
   color: #7f828f;
 }
 .alert {
-  color: #ffffff;
-  font-size: 14px;
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 0;
-  z-index:2000;
-  border-radius: 3px;
+	color: #ffffff;
+	font-size: 14px;
+	padding: 15px;
+	border: 0;
+	z-index:2000;
+	border-radius: 3px;
+	position: fixed;
+	bottom:0;
+/*
+	left:40%;
+	top:90%;
+	margin-bottom:-100px;
+*/
 }
 .alert .close {
   color: #7f828f;

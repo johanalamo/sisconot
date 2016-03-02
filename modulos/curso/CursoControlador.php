@@ -74,6 +74,12 @@ Descripción:
 					self::obtenerCursosPorEstudiante();
 				else if($accion == "modificarCurEst")
 					self::modificarCurEst();
+				else if($accion == "retirarCurEstudiante")
+					self::retirarCurEstudiante();
+				else if($accion == "obtenerCursosDisponiblesParaInscripcionPorEstudiante")
+					self::obtenerCursosDisponiblesParaInscripcionPorEstudiante();
+				else if($accion == "agregarCurEst")
+					self::agregarCurEst();
 				else
 					throw new Exception ("No se pudo resolver la acción $accion");
 			}
@@ -277,6 +283,7 @@ Descripción:
 				$r = CursoServicio::insertarCurEst($codEstudiante, $codCurso, $porAsistencia, $nota, $codEstado, $observaciones);
 
 				Vista::asignarDato("codCurEst",$r);
+				Vista::asignarDato("codigo",$codCurso);
 
 				Vista::mostrar();
 			}
@@ -343,6 +350,22 @@ Descripción:
 
 		public static function mostrarVista(){
 			try{
+				Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+		
+		public static function retirarCurEstudiante(){
+			try{
+				$codigo = PostGet::obtenerPostGet("codigo");
+				
+				$r = CursoServicio::retirarCurEstudiante($codigo);
+				
+				if($r != 0)
+					Vista::asignarDato("mensaje","Se retiró la Unidad Curricular con éxito");
+				
 				Vista::mostrar();
 			}
 			catch(Exception $e){
@@ -472,16 +495,35 @@ Descripción:
 				throw $e;
 			}
 		}
-
-		public static function prueba(){
+		
+		public static function obtenerCursosDisponiblesParaInscripcionPorEstudiante(){
 			try{
-				$a = PostGet::obtenerPostGet("archivo");
-
+				$estudiante = PostGet::obtenerPostGet("estudiante");
+				$instituto = PostGet::obtenerPostGet("instituto");
+				$pensum = PostGet::obtenerPostGet("pensum");
+				$periodo = PostGet::obtenerPostGet("periodo");
+				
+				$listaUniCur = CursoServicio::obtenerUnidadesCurricularesDelPensumPorEstudiante($estudiante);
+				
+				$convalidaciones = CursoServicio::obtenerUnidadesCurricularesConvalidadasPorEstudiante($estudiante,$pensum);
+				
+				$aprobadas = CursoServicio::obtenerUnidadesCurricularesAprobadasPorEstudiante($estudiante,$pensum);
+				
+				$preladas = CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares($listaUniCur,$pensum,$instituto);
+				
+				$cursando = CursoServicio::obtenerCursosCursando($estudiante,$pensum);
+				
+				$r = CursoServicio::obtenerCursosDisponiblesParaInscripcionPorEstudiante($estudiante, $aprobadas, $convalidaciones, $preladas, $cursando);
+				
+				Vista::asignarDato("cursos",$r);
+				
 				Vista::mostrar();
 			}
 			catch(Exception $e){
 				throw $e;
 			}
 		}
+
+		
 	}
 ?>

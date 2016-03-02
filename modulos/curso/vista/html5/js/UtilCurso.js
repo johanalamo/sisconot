@@ -1,7 +1,7 @@
 
 function succ(data){
 	alert("succ");
-	console.log(data.mensaje);
+	console.log(data);
 }
 
 function err(data){
@@ -337,7 +337,7 @@ function verificarChecks(el){
 				if($("#cant"+i).html() != '0')
 					window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=CargarNotas&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
 				else
-					mostrarMensaje("No se puede abrir la pestaña de cargar notas ipara este curso porque no posee estudiantes inscritos",3);
+					mostrarMensaje("No se puede abrir la pestaña de cargar notas para este curso porque no posee estudiantes inscritos",3);
 			}
 			else if(el == 'ri'){
 				window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=InscribirRetirarEstudiante&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
@@ -399,15 +399,15 @@ function succCargarCursosPensum(data){
 	var cad = "";
 	
 	if(cur){
-		cad += "<table id='tableCur' class='table table-striped table-bordered table-hover table-condensed table-responsive'>";
+		cad += "<table id='tableCur' class='table table-hover table-condensed table-responsive'>";
 
-		cad += "<th style='text-align:center'>Cursos Activos</th>";
-		cad += "<th style='text-align:center'>Unidad Curricular</th>";
-		cad += "<th style='text-align:center'>Capacidad</th>";
-		cad += "<th style='text-align:center'>Docente</th>";
-		cad += "<th style='text-align:center'>Fecha de Inicio</th>";
-		cad += "<th style='text-align:center'>Fecha de Fin</th>";
-		cad += "<th style='text-align:center'>Observaciones</th>";
+		cad += "<th style='text-align:center' class='dark'>Cursos Activos</th>";
+		cad += "<th style='text-align:center' class='dark'>Unidad Curricular</th>";
+		cad += "<th style='text-align:center' class='dark'>Capacidad</th>";
+		cad += "<th style='text-align:center' class='dark'>Docente</th>";
+		cad += "<th style='text-align:center' class='dark'>Fecha de Inicio</th>";
+		cad += "<th style='text-align:center' class='dark'>Fecha de Fin</th>";
+		cad += "<th style='text-align:center' class='dark'>Observaciones</th>";
 
 		for(var i = 0; i < cur.length; i++){
 			cad += "<tr>";
@@ -550,19 +550,19 @@ function succListarEstudiantes(data){
 	if(est){
 		var estB = ($("#selEst").length > 0);
 
-		cad += "<table id='table-lis' class='table table-striped table-bordered table-hover table-condensed table-responsive'>";
+		cad += "<table id='table-lis' class='table table-hover table-condensed table-responsive'>";
 
 		if(estB)
-			cad += "<th style='text-align:center'></th>";
+			cad += "<th style='text-align:center' class='dark'></th>";
 
-		cad += "<th style='text-align:center'>#</th>";
-		cad += "<th style='text-align:center'>Cédula</th>";
-		cad += "<th style='text-align:center'>Apellido</th>";
-		cad += "<th style='text-align:center'>Nombre</th>";
-		cad += "<th style='text-align:center'>Correo</th>";
-		cad += "<th style='text-align:center'>Nota</th>";
-		cad += "<th style='text-align:center'>% Asistencia</th>";
-		cad += "<th style='text-align:center'>Estado</th>";
+		cad += "<th style='text-align:center' class='dark'>#</th>";
+		cad += "<th style='text-align:center' class='dark'>Cédula</th>";
+		cad += "<th style='text-align:center' class='dark'>Apellido</th>";
+		cad += "<th style='text-align:center' class='dark'>Nombre</th>";
+		cad += "<th style='text-align:center' class='dark'>Correo</th>";
+		cad += "<th style='text-align:center' class='dark'>Nota</th>";
+		cad += "<th style='text-align:center' class='dark'>% Asistencia</th>";
+		cad += "<th style='text-align:center' class='dark'>Estado</th>";
 
 		var prom = 0;
 
@@ -711,16 +711,16 @@ function succListarEstudiantesCargarNotas(data){
 	}
 	
 	if(est){
-		cad += "<table id='table-Est' class='table table-striped table-bordered table-hover table-condensed table-responsive'>";
+		cad += "<table id='table-Est' class='table table-hover table-condensed table-responsive'>";
 
-		cad += "<th style='text-align:center'>#</th>";
-		cad += "<th style='text-align:center'>Cédula</th>";
-		cad += "<th style='text-align:center'>Apellido</th>";
-		cad += "<th style='text-align:center'>Nombre</th>";
-		cad += "<th style='text-align:center'>Nota</th>";
-		cad += "<th style='text-align:center'>% Asistencia</th>";
-		cad += "<th style='text-align:center'>Estado</th>";
-		cad += "<th style='text-align:center'>Observaciones</th>";
+		cad += "<th style='text-align:center' class='dark'>#</th>";
+		cad += "<th style='text-align:center' class='dark'>Cédula</th>";
+		cad += "<th style='text-align:center' class='dark'>Apellido</th>";
+		cad += "<th style='text-align:center' class='dark'>Nombre</th>";
+		cad += "<th style='text-align:center' class='dark'>Nota</th>";
+		cad += "<th style='text-align:center' class='dark'>% Asistencia</th>";
+		cad += "<th style='text-align:center' class='dark'>Estado</th>";
+		cad += "<th style='text-align:center' class='dark'>Observaciones</th>";
 
 		var prom = 0;
 
@@ -906,19 +906,230 @@ function succCargarEstudiantes(data){
 }
 
 function listarUniEstudiante(){
-	var arr = Array("m_modulo"		,		"curso",
-					"m_accion"		,		"obtenerCursosPorEstudiante",
-					"codigo"		,		$("#selEstudiante").val()[0]);
+	if(obtenerGet("m_vista") != 'Inscripcion'){
+		var arr = Array("m_modulo"		,		"curso",
+						"m_accion"		,		"obtenerCursosPorEstudiante",
+						"codigo"		,		$("#selEstudiante").val()[0]);
 
-	ajaxMVC(arr,succListarUniEstudiante,err);
+		ajaxMVC(arr,succListarUniEstudiante,err);
+	}
+	else{
+		var arr = Array("m_modulo"		,		"curso",
+						"m_accion"		,		"obtenerCursosDisponiblesParaInscripcionPorEstudiante",
+						"estudiante"	,		$("#selEstudiante").val()[0],
+						"instituto"		,		$("#selInst").val()[0],
+						"pensum"		,		$("#selPen").val()[0],
+						"periodo"		,		$("#selPer").val()[0]);
+		
+		ajaxMVC(arr,succCursosInscribir,err);
+	}
+}
+
+function succCursosInscribir(data){
+	var dat = data.cursos;
+	console.log(data);
+	
+	if(dat){
+		var cad = "";
+		
+		cad += "<table class='table table-hover table-condensed table-responsive' id='tableCD'>";
+		
+		cad += "<th class='dark' style='text-align:center'>Trayecto</th>";
+		cad += "<th class='dark' style='text-align:center'>Unidad Curricular</th>";
+		cad += "<th class='dark' style='text-align:center'>UC</th>";
+		cad += "<th class='dark' style='text-align:center'>Sección a Inscribir (Cantidad de Estudiantes)</th>";
+		
+		var len = dat.length;
+		var cont = 0;
+		
+		var cod = -1;
+		
+		for(var i = 0; i < len; i++){
+						
+			if(cod != dat[i]['cod_uni_curricular']){
+				cont++;
+				cad += "<tr style='text-align:center'>";
+			
+				cad += "<td>"+dat[i]['num_trayecto']+"</td>";
+				cad += "<td>"+dat[i]['nombre']+"</td>";
+				cad += "<td id='uni"+cont+"'>"+dat[i]['uni_credito']+"</td>";
+				
+				cad += "<input type='hidden' id='est"+cont+"' value='0'>";
+				
+				cad += "<td>";
+				
+				cad += "<div class='radio-inline'>" +
+					  "<label>" +
+							"<input type='radio' name='opc"+cont+"' checked onchange='cambiarEstUC(0,"+cont+")'>" +
+							"N.I." +
+					  "</label>"+
+					"</div>";
+				
+				cad += 
+				
+				"<div class='radio-inline'>" +
+				  "<label>" +
+						"<input type='radio' name='opc"+cont+"' onchange='cambiarEstUC("+dat[i]['codigo']+","+cont+")'>" +
+						""+ dat[i]['seccion'] + "(" + dat[i]['cantidad'] + ")" +
+				  "</label>"+
+				"</div>";
+				
+				cod = dat[i]['cod_uni_curricular'];
+			}
+			else{
+				cad += 
+				
+				"<div class='radio-inline'>" +
+				  "<label>" +
+						"<input type='radio' name='opc"+cont+"' onchange='cambiarEstUC("+dat[i]['codigo']+","+cont+")'>" +
+						""+ dat[i]['seccion'] + "(" + dat[i]['cantidad'] + ")" +
+				  "</label>"+
+				"</div>";
+			}
+			
+		}
+			
+		cad += "</td>";
+		
+		cad += "</tr>";
+		
+		cad += "</table>";
+		
+		cad += "<center><button class='btn btn-dark btn-xs' id='btnCD' onclick='inscribirUC()'>Inscribir Unidades Curriculares</button>";
+	}
+	else{
+		mostrarMensaje("Este estudiante no tiene cursos disponibles para inscribir",4);
+		$("#info").remove();
+	}
+	
+	
+	$("#btnCD").remove();
+	$("#tableCD").remove();
+	$("#tableCursosD").append(cad);
+}
+
+function cambiarEstUC(num,i){
+	$("#est"+i).val(num);
+	
+	var len = $('#tableCD >tbody >tr').length;
+	var cont = 0;
+	var a = 0;
+	var cad = "";
+	
+	for(var i = 1; i < len; i++){
+		if($("#est"+i).val() != 0){
+			cont += parseInt($("#uni"+i).html());
+			a++;
+		}
+	}
+	
+	cad += "<div id='info'>";
+	
+	cad += "Cantidad de Unidades de Crédito a Inscribir: "+cont;
+	
+	cad += "<br>";
+	
+	cad += "Cantidad de Unidades Curriculares a Inscribir: "+cont;
+	
+	cad += "</div>";
+	
+	$("#info").remove();
+	
+	$("#tableCursosD").append(cad);
+}
+
+function inscribirUC(){
+	var len = $('#tableCD >tbody >tr').length;
+				
+	for(var i = 1; i < len; i++){
+		if($("#est"+i).val() != 0){
+			var arr = Array("m_modulo"		,		"curso",
+							"m_accion"		,		"agregarCurEst",
+							"codEstudiante"	,		$("#selEstudiante").val()[0],
+							"codCurso"		,		$("#est"+i).val(),
+							"porAsistencia"	,		0,
+							"nota"			,		0,
+							"codEstado"		,		"C",
+							"observaciones"	,		"");
+			
+			ajaxMVC(arr,succInscribirUC,err);
+		}
+	}
+}
+
+function succInscribirUC(data){
+	var ce = data.codCurEst;
+	var cod = data.codigo;
+	
+	if(ce != 0){
+		mostrarMensaje("El estudiante se ha inscrito con éxito en el curso "+cod+".",1);
+	}
+	else{
+		mostrarMensaje("No se pudo realizar la inscripción en el curso "+cod+".",3);
+	}
 }
 
 function succListarUniEstudiante(data){
-	console.log(data);
+	var dat = data.cursos;
+	var cad = "";
+	
+	if(dat){
+		cad += "<table class='table table-hover table-condensed table-responsive' id='tableC'>";
+		
+		cad += "<th class='dark' style='text-align:center'>Seleccionar</th>";
+		cad += "<th class='dark' style='text-align:center'>Trayecto</th>";
+		cad += "<th class='dark' style='text-align:center'>Nombre UC</th>";
+		cad += "<th class='dark' style='text-align:center'>Sección</th>";
+		cad += "<th class='dark' style='text-align:center'>Estado</th>";
+		
+		for(var i = 0; i < dat.length; i++){
+			cad += "<tr>";
+			
+			cad += "<td style='text-align:center'><input type='checkbox' id='checkbox"+i+"'></input></td>";
+			
+			cad += "<input type='hidden' id='hid"+i+"' value="+dat[i]['cod_ce']+"></input>";
+			
+			cad += "<td style='text-align:center'>"+dat[i]['num_trayecto']+"</td>";
+			
+			cad += "<td style='text-align:center'>"+dat[i]['nombre']+"</td>";
+			
+			cad += "<td style='text-align:center'>"+dat[i]['seccion']+"</td>";
+			
+			cad += "<td style='text-align:center'>"+dat[i]['edonom']+"</td>";
+		}
+		
+		cad += "</table>";
+		
+		cad += "<button class='btn btn-dark btn-xs' id='butRet' onclick='retirarUni()'>Retirar Unidad Curricular</button>";
+		
+		$("#butRet").remove();
+		$("#tableC").remove();
+		$("#listaC").append(cad);
+	}
+	else{
+		$("#butRet").remove();
+		$("#tableC").remove();
+		mostrarMensaje("El estudiante no tiene unidades curriculares con estado 'Cursando'",3);
+	}
 }
 
-//~ function guardarCambiosCurso(){
-	//~ var arr = Array("m_modulo"		,		"curso",
-					//~ "m_accion"		,		"guardarDatosCurso",
-					
-//~ }
+function retirarUni(){
+	var len = $('#tableC >tbody >tr').length;
+	
+	for(var i = 0; i < len; i++){
+		if($("#checkbox"+i).is(":checked")){
+			var arr = Array("m_modulo"		,		"curso",
+							"m_accion"		,		"retirarCurEstudiante",
+							"codigo"		,		$("#hid"+i).val());
+							
+			ajaxMVC(arr,succRetirarUni,err);
+		}
+	}
+}
+
+function succRetirarUni(data){
+	mostrarMensaje(data.mensaje,1);
+	listarUniEstudiante();
+}
+
+
