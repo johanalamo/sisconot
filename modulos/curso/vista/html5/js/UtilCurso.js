@@ -1027,7 +1027,7 @@ function cambiarEstUC(num,i){
 	
 	cad += "<br>";
 	
-	cad += "Cantidad de Unidades Curriculares a Inscribir: "+cont;
+	cad += "Cantidad de Unidades Curriculares a Inscribir: "+a;
 	
 	cad += "</div>";
 	

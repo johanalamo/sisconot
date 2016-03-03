@@ -1287,3 +1287,271 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 105 *****************************
+codigo Error: 105
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 380
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(380): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(208): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(57): PensumControlador::buscarPorInstituto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 106 *****************************
+codigo Error: 106
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 380
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(380): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(208): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(57): PensumControlador::buscarPorInstituto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 107 *****************************
+codigo Error: 107
+Mensaje error: SQLSTATE[42804]: Datatype mismatch: 7 ERROR:  la columna «fec_inicio» es de tipo date pero la expresión es de tipo text
+LINE 15:         p_fec_inicio,
+                 ^
+HINT:  Necesitará reescribir la expresión o aplicarle una conversión de tipo.
+QUERY:  INSERT INTO sis.t_curso (	codigo,
+								cod_periodo,
+								cod_uni_curricular,
+								cod_docente,
+								seccion,
+								fec_inicio,
+								fec_final,
+								capacidad,
+								observaciones)
+	 VALUES ( 					cod_curso,
+								p_cod_periodo,
+								p_cod_uni_curricular,
+								p_cod_docente,
+								p_seccion,
+								p_fec_inicio,
+								p_fec_final,
+								p_capacidad,
+								p_observaciones)
+CONTEXT:  función PL/pgSQL sis.f_curso_ins(integer,integer,integer,text,text,text,integer,text) en la línea 6 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 148
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(148): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(152): CursoServicio::insertarCurso('1', '1', NULL, 'A', NULL, NULL, '30', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(56): CursoControlador::agregarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 108 *****************************
+codigo Error: 108
+Mensaje error: SQLSTATE[42804]: Datatype mismatch: 7 ERROR:  la columna «fec_inicio» es de tipo date pero la expresión es de tipo text
+LINE 15:         p_fec_inicio,
+                 ^
+HINT:  Necesitará reescribir la expresión o aplicarle una conversión de tipo.
+QUERY:  INSERT INTO sis.t_curso (	codigo,
+								cod_periodo,
+								cod_uni_curricular,
+								cod_docente,
+								seccion,
+								fec_inicio,
+								fec_final,
+								capacidad,
+								observaciones)
+	 VALUES ( 					cod_curso,
+								p_cod_periodo,
+								p_cod_uni_curricular,
+								p_cod_docente,
+								p_seccion,
+								p_fec_inicio,
+								p_fec_final,
+								p_capacidad,
+								p_observaciones)
+CONTEXT:  función PL/pgSQL sis.f_curso_ins(integer,integer,integer,text,text,text,integer,text) en la línea 6 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 148
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(148): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(152): CursoServicio::insertarCurso('1', '3', NULL, 'A', NULL, NULL, '30', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(56): CursoControlador::agregarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 109 *****************************
+codigo Error: 109
+Mensaje error: SQLSTATE[42804]: Datatype mismatch: 7 ERROR:  la columna «fec_inicio» es de tipo date pero la expresión es de tipo text
+LINE 15:         p_fec_inicio,
+                 ^
+HINT:  Necesitará reescribir la expresión o aplicarle una conversión de tipo.
+QUERY:  INSERT INTO sis.t_curso (	codigo,
+								cod_periodo,
+								cod_uni_curricular,
+								cod_docente,
+								seccion,
+								fec_inicio,
+								fec_final,
+								capacidad,
+								observaciones)
+	 VALUES ( 					cod_curso,
+								p_cod_periodo,
+								p_cod_uni_curricular,
+								p_cod_docente,
+								p_seccion,
+								p_fec_inicio,
+								p_fec_final,
+								p_capacidad,
+								p_observaciones)
+CONTEXT:  función PL/pgSQL sis.f_curso_ins(integer,integer,integer,text,text,text,integer,text) en la línea 6 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 148
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(148): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(152): CursoServicio::insertarCurso('1', '2', NULL, 'A', NULL, NULL, '30', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(56): CursoControlador::agregarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 110 *****************************
+codigo Error: 110
+Mensaje error: SQLSTATE[42804]: Datatype mismatch: 7 ERROR:  la columna «fec_inicio» es de tipo date pero la expresión es de tipo text
+LINE 15:         p_fec_inicio,
+                 ^
+HINT:  Necesitará reescribir la expresión o aplicarle una conversión de tipo.
+QUERY:  INSERT INTO sis.t_curso (	codigo,
+								cod_periodo,
+								cod_uni_curricular,
+								cod_docente,
+								seccion,
+								fec_inicio,
+								fec_final,
+								capacidad,
+								observaciones)
+	 VALUES ( 					cod_curso,
+								p_cod_periodo,
+								p_cod_uni_curricular,
+								p_cod_docente,
+								p_seccion,
+								p_fec_inicio,
+								p_fec_final,
+								p_capacidad,
+								p_observaciones)
+CONTEXT:  función PL/pgSQL sis.f_curso_ins(integer,integer,integer,text,text,text,integer,text) en la línea 6 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 148
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(148): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(152): CursoServicio::insertarCurso('1', '1', NULL, 'A', NULL, NULL, '30', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(56): CursoControlador::agregarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 111 *****************************
+codigo Error: 111
+Mensaje error: SQLSTATE[42804]: Datatype mismatch: 7 ERROR:  la columna «fec_inicio» es de tipo date pero la expresión es de tipo text
+LINE 15:         p_fec_inicio,
+                 ^
+HINT:  Necesitará reescribir la expresión o aplicarle una conversión de tipo.
+QUERY:  INSERT INTO sis.t_curso (	codigo,
+								cod_periodo,
+								cod_uni_curricular,
+								cod_docente,
+								seccion,
+								fec_inicio,
+								fec_final,
+								capacidad,
+								observaciones)
+	 VALUES ( 					cod_curso,
+								p_cod_periodo,
+								p_cod_uni_curricular,
+								p_cod_docente,
+								p_seccion,
+								p_fec_inicio,
+								p_fec_final,
+								p_capacidad,
+								p_observaciones)
+CONTEXT:  función PL/pgSQL sis.f_curso_ins(integer,integer,integer,text,text,text,integer,text) en la línea 6 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 148
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(148): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(152): CursoServicio::insertarCurso('1', '2', NULL, 'A', NULL, NULL, '30', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(56): CursoControlador::agregarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 112 *****************************
+codigo Error: 112
+Mensaje error: SQLSTATE[42804]: Datatype mismatch: 7 ERROR:  la columna «fec_inicio» es de tipo date pero la expresión es de tipo text
+LINE 15:         p_fec_inicio,
+                 ^
+HINT:  Necesitará reescribir la expresión o aplicarle una conversión de tipo.
+QUERY:  INSERT INTO sis.t_curso (	codigo,
+								cod_periodo,
+								cod_uni_curricular,
+								cod_docente,
+								seccion,
+								fec_inicio,
+								fec_final,
+								capacidad,
+								observaciones)
+	 VALUES ( 					cod_curso,
+								p_cod_periodo,
+								p_cod_uni_curricular,
+								p_cod_docente,
+								p_seccion,
+								p_fec_inicio,
+								p_fec_final,
+								p_capacidad,
+								p_observaciones)
+CONTEXT:  función PL/pgSQL sis.f_curso_ins(integer,integer,integer,text,text,text,integer,text) en la línea 6 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 148
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(148): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(152): CursoServicio::insertarCurso('1', '3', NULL, 'A', NULL, NULL, '30', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(56): CursoControlador::agregarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 113 *****************************
+codigo Error: 113
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/curso/vista/html5/Inscribir.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(127): Vista::iniciar('curso:html5:Ins...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 114 *****************************
+codigo Error: 114
+Mensaje error: SQLSTATE[HY000]: General error
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 315
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(315): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(293): EstudianteServicio::listarEstudiantePeriodo('1', '1', '1', 'A')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(44): EstudianteControlador::listarEstudiantePeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
