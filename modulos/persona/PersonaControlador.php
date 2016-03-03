@@ -5,6 +5,7 @@
 	require_once("modulos/empleado/modelo/EmpleadoServicio.php");
 	require_once("modulos/pensum/modelo/PensumServicio.php");
 	require_once("modulos/instituto/modelo/InstitutoServicio.php");
+	require_once("modulos/foto/FotoControlador.php");
 /**
  * @copyright 2015 - Instituto Universtiario de Tecnología Dr. Federico Rivero Palacio
  * @license GPLv3
@@ -44,7 +45,7 @@
 		public static function manejarRequerimiento()
 		{
 			$accion= PostGet::obtenerPostGet("m_accion");
-						if(!$accion)
+			if(!$accion)
 				$accion="listar";
 
 			if($accion == 'listar')
@@ -79,36 +80,46 @@
 				$tipo_persona=PostGet::obtenerPostGet("tipo_persona");
 				$campo=PostGet::obtenerPostGet("campo");
 
+
+				Vista::asignarDato('institutos',$instituto);
+				Vista::asignarDato('pnfs',$pnf);
+				Vista::asignarDato('estados',$estado);
+
 				if($pnf=="seleccionar")
 					$pnf=null;
 				
 				if($estado=="seleccionar")
 					$estado=null;
 								
-				if(!$instituto)
-					$instituto=11;
-
 				if($instituto=="seleccionar")
 					$instituto=null;
+
+				
 
 
 				if(!$campo)
 					$campo=null;
 
 				if(!$tipo_persona)
-					$tipo_persona=null;				
+					$tipo_persona=null;	
 
+					$personas=null;			
 
+				
 				if(!$tipo_persona)			
 					$personas=PersonaServicio::listar($pnf,$estado,$instituto,$campo);
 								
-				elseif($tipo_persona=="estudiante"){
+			/*	elseif($tipo_persona=="estudiante"){
 					$personas=EstudianteServicio::listarPersonaEstudiante($pnf,$estado,$instituto,null,null,null,null,null);
 				}
 			
 				elseif($tipo_persona=="empleado")
 					$personas=EmpleadoServicio::listarPersonaEmpleado($pnf,$estado,$instituto);
-							
+				*/
+
+			
+				if(!$instituto)
+					$instituto=null;
 				$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
 				$instituto=InstitutoServicio::listarInstitutos();	
 				
@@ -160,7 +171,7 @@
 				$persona=PersonaServicio::listar(null,null,null,null,$codigo);	
 				$estudiante=EstudianteServicio::listar(null,null,null,null,$codigo);
 				$empleado=EmpleadoServicio::listar(null,null,null,null,$codigo);
-			//	$foto=PersonaServicio::listarFoto($codigo);
+				$foto=PersonaServicio::listarFoto($codigo);
 			//	$a=stream_get_contents($foto[0]["archivo"]);
 			//	copy($a,"lafoto.jpg");
 
@@ -169,8 +180,8 @@
 					Vista::asignarDato('persona',$persona);
 					Vista::asignarDato('estudiante',$estudiante);
 					Vista::asignarDato('empleado',$empleado);
-					//Vista::asignarDato('foto',$foto);
-
+					Vista::asignarDato('foto',$foto[0]["archivo"]);
+					//var_dump($foto[0]["archivo"]);
 
 					Vista::asignarDato('estatus',1);
 				}
@@ -203,104 +214,112 @@
 			try
 			{					
 				
-				//~ $codigo=PostGet::obtenerPostGet("codigo");	
-				//~ $cedula=PostGet::obtenerPostGet("cedPersona");	
-				//~ $rif=PostGet::obtenerPostGet("rifPersona");		
-				//~ $nombre1=PostGet::obtenerPostGet("nombre1");
-				//~ $nombre2=PostGet::obtenerPostGet("nombre2");
-				//~ $apellido1=PostGet::obtenerPostGet("apellido1");
-				//~ $apellido2=PostGet::obtenerPostGet("apellido2");
-				//~ $telefono1=PostGet::obtenerPostGet("telefono1");
-				//~ $telefono2=PostGet::obtenerPostGet("telefono2");
-				//~ $corPersonal=PostGet::obtenerPostGet("corPersonal");
-				//~ $corInstitucional=PostGet::obtenerPostGet("corInstitucional");				
-				//~ $direccion=PostGet::obtenerPostGet("direccion");
-				//~ $discapacidad=PostGet::obtenerPostGet("discapacidad");
-				//~ $observaciones=PostGet::obtenerPostGet("obsPersona");
-				//~ $sexo=PostGet::obtenerPostGet("sexo");
-				//~ $tipSangre=PostGet::obtenerPostGet("tipSangre");
-				//~ $estCivil=PostGet::obtenerPostGet("estCivil");
-				//~ $hijos=PostGet::obtenerPostGet("hijo");
-				//~ $nacionalidad=PostGet::obtenerPostGet("nacionalidad");
-				//~ $fecNacimiento=PostGet::obtenerPostGet("fecNacimiento");
+				$codigo=PostGet::obtenerPostGet("codigo");	
+				$cedula=PostGet::obtenerPostGet("cedPersona");	
+				$rif=PostGet::obtenerPostGet("rifPersona");		
+				$nombre1=PostGet::obtenerPostGet("nombre1");
+				$nombre2=PostGet::obtenerPostGet("nombre2");
+				$apellido1=PostGet::obtenerPostGet("apellido1");
+				$apellido2=PostGet::obtenerPostGet("apellido2");
+				$telefono1=PostGet::obtenerPostGet("telefono1");
+				$telefono2=PostGet::obtenerPostGet("telefono2");
+				$corPersonal=PostGet::obtenerPostGet("corPersonal");
+				$corInstitucional=PostGet::obtenerPostGet("corInstitucional");				
+				$direccion=PostGet::obtenerPostGet("direccion");
+				$discapacidad=PostGet::obtenerPostGet("discapacidad");
+				$observaciones=PostGet::obtenerPostGet("obsPersona");
+				$sexo=PostGet::obtenerPostGet("sexo");
+				$tipSangre=PostGet::obtenerPostGet("tipSangre");
+				$estCivil=PostGet::obtenerPostGet("estCivil");
+				$hijos=PostGet::obtenerPostGet("hijo");
+				$nacionalidad=PostGet::obtenerPostGet("nacionalidad");
+				$fecNacimiento=PostGet::obtenerPostGet("fecNacimiento");
 				$archivo=PostGet::obtenerFiles("archivo","name");
 
 
-				//~ if(!$rif)
-					//~ $rif=null;
-				//~ if(!$corPersonal)
-					//~ $corPersonal=null;
-				//~ if(!$corInstitucional)
-					//~ $corInstitucional=null;
-				//~ if(!$codigo)
-					//~ $codigo=null;
-				//~ if(!$archivo)
-					//~ $archivo=null;
+				if(!$rif)
+					$rif=null;
+				if(!$corPersonal)
+					$corPersonal=null;
+				if(!$corInstitucional)
+					$corInstitucional=null;
+				if(!$codigo)
+					$codigo=null;
+				if(!$archivo)
+					$archivo=null;
 
 				
-				//~ $response=null;
-				//~ $response2=null;
-				//~ if(!$codigo){
-					//~ $response=PersonaServicio::agregar($cedula,			$rif,				$nombre1,		
-													 //~ $nombre2,			$apellido1,			$apellido2,		
-													 //~ $sexo,				$fecNacimiento,	    $tipSangre,	
-													 //~ $telefono1,		$telefono2,			$corPersonal,	
-													 //~ $corInstitucional, $direccion,			$discapacidad,	
-													 //~ $nacionalidad,		$hijos,				$estCivil,		
-													 //~ $observaciones
-												//~ );
+				$response=null;
+				$response2=null;
+				if(!$codigo){
+					$response=PersonaServicio::agregar($cedula,			$rif,				$nombre1,		
+													 $nombre2,			$apellido1,			$apellido2,		
+													 $sexo,				$fecNacimiento,	    $tipSangre,	
+													 $telefono1,		$telefono2,			$corPersonal,	
+													 $corInstitucional, $direccion,			$discapacidad,	
+													 $nacionalidad,		$hijos,				$estCivil,		
+													 $observaciones
+												);
 
-				//~ }
-				//~ else
-					//~ $response2=PersonaServicio::modificar($codigo,			$cedula,			$rif,
-											   //~ $nombre1,		$nombre2,			$apellido1,
-											   //~ $apellido2,		$sexo,				$fecNacimiento,
-											   //~ $tipSangre,		$telefono1,			$telefono2,
-											   //~ $corPersonal,	$corInstitucional,	$direccion,
-											   //~ $discapacidad,	$nacionalidad,		$hijos,
-											   //~ $estCivil,		$observaciones
-											//~ );
-				//~ if($response){
-					//~ if($response>0)
-						//~ Vista::asignarDato('mensaje','Se ha agregado la Persona '.$nombre1.' '.$apellido1.'.');
-					//~ else
-						//~ Vista::asignarDato('mensaje','No se pudo agregar a la Persona '.$nombre1.' '.$apellido1.'.');
+				}
+				else
+					$response2=PersonaServicio::modificar($codigo,			$cedula,			$rif,
+											   $nombre1,		$nombre2,			$apellido1,
+											   $apellido2,		$sexo,				$fecNacimiento,
+											   $tipSangre,		$telefono1,			$telefono2,
+											   $corPersonal,	$corInstitucional,	$direccion,
+											   $discapacidad,	$nacionalidad,		$hijos,
+											   $estCivil,		$observaciones
+											);
+				if($response){
+					if($response>0)
+						Vista::asignarDato('mensaje','Se ha agregado la Persona '.$nombre1.' '.$apellido1.'.');
+					else
+						Vista::asignarDato('mensaje','No se pudo agregar a la Persona '.$nombre1.' '.$apellido1.'.');
 					
-					//~ Vista::asignarDato('estatus',$response);
-				//~ }
+					Vista::asignarDato('estatus',$response);
+				}
 
-				//~ elseif($response2){
-					//~ if($response2>0)
-						//~ Vista::asignarDato('mensaje','Se han modificado los datos de la Persona '.$nombre1.' '.$apellido1.'.');
-					//~ else
-						//~ Vista::asignarDato('mensaje','los datos de la persona'.$nombre1.' '.$apellido1.' No pudieron ser modificados.');
+				elseif($response2){
+					if($response2>0)
+						Vista::asignarDato('mensaje','Se han modificado los datos de la Persona '.$nombre1.' '.$apellido1.'.');
+					else
+						Vista::asignarDato('mensaje','los datos de la persona'.$nombre1.' '.$apellido1.' No pudieron ser modificados.');
 						
-						//~ Vista::asignarDato('estatus',$response2);
-				//~ }
+					Vista::asignarDato('estatus',$response2);
+				}
 				
-				//~ if($response2>0 || $response>0){
-					//~ $persona="";					
-					//~ $persona=PersonaServicio::listar(null,null,null,null,null,$cedula);
-					//~ Vista::asignarDato('codPersona',$persona[0]['cod_persona']);
-					//~ Vista::asignarDato('respuesta',$persona);
-					//~ Vista::asignarDato('tipo_persona','estudiante');
-				//~ }
+				if($response2>0 || $response>0){
+					$persona="";					
+					$persona=PersonaServicio::listar(null,null,null,null,null,$cedula);
+					Vista::asignarDato('codPersona',$persona[0]['cod_persona']);
+					Vista::asignarDato('respuesta',$persona);
+					Vista::asignarDato('tipo_persona','estudiante');
+				}
 
-				//if($archivo && !$codigo){
+				$foto="";
+				if($archivo && !$codigo){
 					$a=explode(".",$archivo["name"]);
+					$arch=pg_escape_string($archivo["tmp_name"]);					
+					copy($arch,"temp/".$persona[0]["cod_persona"].".".$a[1]);
+					$foto=FotoControlador::Iniciar("temp/".$persona[0]["cod_persona"].".".$a[1]);
+					if($foto)
+						PersonaServicio::agregarFoto($persona[0]["cod_persona"],$foto,$a[1]);
+				}
+				elseif($archivo && $codigo){
+					$a=explode(".",$archivo["name"]);	
 					$arch=pg_escape_string($archivo["tmp_name"]);
-					var_dump(PersonaServicio::AgregarFoto(1,"temp/".$archivo["name"],$a[1],$archivo["name"]));
-					//copy($arch,"temp/".$persona[0]["cod_persona"].".".$a[1]);
-				//}
-				//elseif($archivo && $codigo){
-					//~ $a=explode(".",$archivo["name"]);	
-					//~ $arch=pg_escape_string($archivo["tmp_name"]);
-					//~ //PersonaServicio::modificarFoto($codigo,$arch,$a[1],$archivo["name"]);
-					//~ copy($arch,"temp/".$codigo.".".$a[1]);
+					//PersonaServicio::modificarFoto($codigo,$arch,$a[1],$archivo["name"]);
+					copy($arch,"temp/".$codigo.".".$a[1]);
+					$foto=FotoControlador::Iniciar("temp/".$persona[0]["cod_persona"].".".$a[1]);
+					PersonaServicio::modificarFoto($persona[0]["cod_persona"],$foto,$a[1]);
 
-				//}
+				}
+
+				if($foto)
+					Vista::asignarDato("foto",$foto);
 				
-				Vista::asignarDato("nombre","temp/"."1".".".$a[1]);
+					
 
 				Vista::mostrar();
 			}

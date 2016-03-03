@@ -197,9 +197,11 @@
 					self::escribirExceptionHtml5($e);
 				} else if ($formato=="pdf"){
 					self::escribirExceptionPdf($e);
-				} else if ($formato=="odt"){
+				} /*else if ($formato=="odt"){
 					self::escribirExceptionOdt($e);
-				} else if ($formato=="txt"){
+				} else if($formato=="ods"){
+					self::escribirExceptionOds($e);
+				}*/else if ($formato=="txt"){
 					self::escribirExceptionTxt($e);
 				}else{
 					$mensaje = "Formato incorrecto ".$formato;
