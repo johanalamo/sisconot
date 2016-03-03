@@ -49,6 +49,7 @@
 		public static function iniciar($cadenaConfigurar=null,$datos=null,$nombreArchivoDestino=null){
 				try{
 					if ($cadenaConfigurar != null){
+
 						$parametros= explode(':',$cadenaConfigurar);
 						if ((count($parametros)!=3)&&(count($parametros)!=2)){
 							throw new Exception("La candenaConfigurar de la funcion requiere 3 parametros para vistas html5 modulo:formato:vista ejemplo (pemsun:html5:agregar) y 2 parameros para vistas json ejemplo(pensum:json).");
@@ -77,6 +78,14 @@
 								throw new Exception("Ruta no existente verifique dicha ruta: ".self::obtenerRuta());
 							}
 						}
+
+						if(self::$formato=="ods"){
+							self::$vista=$parametros[2];
+							if(self::existeArchivo(self::obtenerRuta())==false){
+								throw new Exception("Ruta no existente verifique dicha ruta: ".self::obtenerRuta());
+							}
+						}
+
 						if(self::$formato=="txt"){
 									self::$vista=$parametros[2];
 									if(self::existeArchivo(self::obtenerRuta())==false){
@@ -233,6 +242,11 @@
 						throw new Exception("La ruta a mostrar no se encuenta: ".self::obtenerRuta() ." verfique que ya inicio la clase vista");
 					else
 						self::mostrarODT();
+				if (self::$formato=="ods")
+					if (self::existeArchivo(self::obtenerRuta())==false)
+						throw new Exception("La ruta a mostrar no se encuenta: ".self::obtenerRuta() ." verfique que ya inicio la clase vista");
+					else
+						self::mostrarODS();
 				if (self::$formato=="txt")
 					if (self::existeArchivo(self::obtenerRuta())==false)
 						throw new Exception("La ruta a mostrar no se encuenta: ".self::obtenerRuta() ." verfique que ya inicio la clase vista");
@@ -322,10 +336,21 @@
 
 		private static function mostrarODT(){
 			if(self::obtenerDatos() != null){
-				require_once("recursos/odf/odf");
+				//require_once("recursos/odf/odf");
+				header("Content-type: application/vnd.oasis.opendocument.spreadsheet");
+				header("Content-Disposition: attachment; filename=reporte.odt");
 				require_once(self::obtenerRuta());
 			}
 		}
+
+		private static function mostrarODS(){
+			if(self::obtenerDatos() != null){
+				//require_once("recursos/odf/odf");
+				header("Content-type: application/vnd.oasis.opendocument.spreadsheet");
+				header("Content-Disposition: attachment; filename=reporte.ods");
+				require_once(self::obtenerRuta());
+			}
+		}	
 		
 		private static function mostrarTxt(){
 			if(self::obtenerDatos() != null){				
