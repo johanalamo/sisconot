@@ -417,18 +417,16 @@ BEGIN
 		inner join sis.t_trayecto tra on pen.codigo = tra.cod_pensum;
 
 	  ELSE
-	  OPEN $1 FOR select 	tra.codigo,
-                        	tra.num_trayecto
-                        	from sis.t_uni_tra_pensum utp
-                        	inner join sis.t_trayecto tra
-                        		on tra.codigo = utp.cod_trayecto
-                        	where utp.cod_pensum = $2
-                        	group by
-                        		tra.codigo,
-                        		tra.num_trayecto;
+    OPEN $1 FOR select  tra.codigo,
+                          tra.num_trayecto,
+                          tra.certificado
+                          from  sis.t_trayecto tra                            
+                          where tra.cod_pensum = $2
+                          group by
+                            tra.codigo,
+                            tra.num_trayecto, tra.certificado;
 
-	END IF;
-
+  END IF;
  RETURN $1;
 
 END;
