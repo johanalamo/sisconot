@@ -3,7 +3,12 @@ td
 	text-align:center;
 }
 
-
+a:visited {
+  background-color:  pink;
+}
+a:link{
+  background-color:  pink;
+}
 .caja{
 	 border: 2px solid #000;
 	 padding:0%;
