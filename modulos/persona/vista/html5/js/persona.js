@@ -72,9 +72,7 @@ $(function()
 });
 
 $(document).ready(function() {
-
 	verInstituto();
-	alert("se acomodo");
 	verPNF();
 	verEstado();
 	verPersona();
@@ -741,7 +739,7 @@ function exportarPDF(){
 }
 
 function exportarODT(){
-	//alert();
+
 	window.location.assign("index.php?m_modulo=persona&m_formato=odt&m_vista=ListarPersona");
 }
 
