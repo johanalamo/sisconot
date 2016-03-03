@@ -61,15 +61,10 @@ class EmpleadoControlador
 			$pnf=PostGet::obtenerPostGet("pnf");
 			$estado=PostGet::obtenerPostGet("estado");
 			$instituto=PostGet::obtenerPostGet("instituto");
-
 			$tipo_persona=PostGet::obtenerPostGet("tipo_persona");
 			$campo=PostGet::obtenerPostGet("campo");
 			$codPersona=PostGet::obtenerPostGet("codPersona");
 			$codigo=PostGet::obtenerPostGet("codEmpleado");
-
-			$achi=PostGet::obtenerPostGet("achi");
-
-			
 
 			if($pnf=="seleccionar")
 				$pnf=null;
@@ -89,8 +84,6 @@ class EmpleadoControlador
 
 			if(!$codigo)
 				$codigo=null;
-
-
 
 
 			$personas=EmpleadoServicio::listarPersonaEmpleado($pnf,$estado,$instituto);
@@ -155,27 +148,6 @@ class EmpleadoControlador
 				$codigo=null;
 			if(!$fecFin)
 				$fecFin=null;
-				
-			$es_jef_con_estudio=trim($es_jef_con_estudio);
-			$es_ministerio=trim($es_ministerio);
-			$es_jef_pensum=trim($es_jef_pensum);
-			$Docente=trim($Docente);
-			
-			
-				
-			if($es_jef_con_estudio=="")
-				$es_jef_con_estudio='false';
-
-				
-			if($es_ministerio=="")
-				$es_ministerio='false';
-			
-			if($es_jef_pensum=="")
-				$es_jef_pensum='false';
-				
-			if($Docente=="")
-				$Docente='false';
-				
 
 			if(!$codigo)
 				$response = EmpleadoServicio::agregar($codPersona, 	$codInstituto, 			$codPensum, 	

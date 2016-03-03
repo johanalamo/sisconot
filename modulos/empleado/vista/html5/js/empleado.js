@@ -271,8 +271,7 @@ function guardarEmpleado(codigo,bool=null){
 					"es_jef_pensum",	$('#es_jef_pensum').prop('checked'),
 					"Docente",			$('#Docente').prop('checked')
 				);
-	
-	//alert($("#codigoPersona").val()+"<<<"+$("#empleado #selEstadoEm #selectEstado").val()+"<<<"+$("#empleado  #selectInstitutos #selectInstituto").val()+"<<"+$("#empleado  #selPensumEm #selectPNF").val()+"<<"+$("#obs_empleado").val()+"<<<");
+
 	ajaxMVC(arr,succAgregarEmpleado,error);
 }
 
@@ -298,8 +297,7 @@ function verInstitutoEm(){
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"empleado",
-					"campo",		$("#campo")
+					"tipo_persona",	"empleado"
 					);
 		
 	ajaxMVC(arr,montarSelectInstituto,error);
@@ -342,8 +340,7 @@ function verPNFEm(){
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"empleado",
-					"campo",		$("#campo")												
+					"tipo_persona",	"empleado"														
 					);
 		
 	ajaxMVC(arr,montarSelectPNF,error);
@@ -353,7 +350,7 @@ function verPNFEm(){
 /**
 * Funcion Java Script que permite mostrar un select con
 * los PNF y es concatenado a un  div en la vista HTML
-*//*
+*/
 function montarSelectPNFE(data){
 
 	var cadena = "";
@@ -368,7 +365,7 @@ function montarSelectPNFE(data){
 	$(cadena).appendTo('.selectPensumEm');
 	activarSelect();					
 }
-*/
+
 /**
 * Funcion Java Script que permite listar Todos los estados que posee un actor
 * para que luego sea mostado en un select. los datos son enviados
@@ -382,8 +379,7 @@ function verEstadoEm(){
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"empleado",
-					"campo",		$("#campo")		
+					"tipo_persona",	"empleado"			
 					);		
 	ajaxMVC(arr,montarSelectEstado,error);
 }

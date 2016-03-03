@@ -1,9 +1,12 @@
 <?php
 //require_once("base/clases/utilitarias/UtilBdd.clase.php");
 require_once("modulos/estudiante/modelo/EstudianteServicio.php");
+require_once("negocio/Estudiante.clase.php");
 require_once("modulos/pensum/modelo/PensumServicio.php");
 require_once("modulos/persona/modelo/PersonaServicio.php");
 require_once("modulos/instituto/modelo/InstitutoServicio.php");
+require_once("modulos/curso/modelo/CursoServicio.php");
+
 class EstudianteControlador
 {
 	/**
@@ -38,6 +41,8 @@ class EstudianteControlador
 			self::eliminar();
 		else if($accion == 'listarEstudiantesPorCurso')
 			self::listarEstudiantesPorCurso();
+		else if($accion == 'listarEstudiantePeriodo')
+			self::listarEstudiantePeriodo();
 		else
 			throw new Exception ("'EstudianteControlador' La accion $accion no es valida");
 	}
@@ -137,7 +142,6 @@ class EstudianteControlador
 			$fecFin= PostGet::obtenerPostGet("fecFin");
 			$condicion= PostGet::obtenerPostGet("condicion");
 			$observaciones= PostGet::obtenerPostGet("obsEstudiante");
-			
 
 			if(!$codRusnies)
 				$codRusnies=null;
@@ -268,6 +272,25 @@ class EstudianteControlador
 			$codigo = PostGet::obtenerPostGet("codigo");
 
 			Vista::asignarDato("estudiante",EstudianteServicio::listarEstudiantesDeCurso($codigo));
+
+			$r = CursoServicio::obtenerEstusEstudiante();
+
+			Vista::asignarDato("estados",$r);
+
+			Vista::mostrar();
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+	public static function listarEstudiantePeriodo(){
+		try{
+			$instituto = PostGet::obtenerPostGet("instituto");
+			$pensum = PostGet::obtenerPostGet("pensum");
+			$periodo = PostGet::obtenerPostGet("periodo");
+
+			Vista::asignarDato("estudiantes",EstudianteServicio::listarEstudiantePeriodo($instituto,$pensum,$periodo,'A'));
 
 			Vista::mostrar();
 		}
