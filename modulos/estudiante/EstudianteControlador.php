@@ -1,7 +1,6 @@
 <?php
 //require_once("base/clases/utilitarias/UtilBdd.clase.php");
 require_once("modulos/estudiante/modelo/EstudianteServicio.php");
-require_once("negocio/Estudiante.clase.php");
 require_once("modulos/pensum/modelo/PensumServicio.php");
 require_once("modulos/persona/modelo/PersonaServicio.php");
 require_once("modulos/instituto/modelo/InstitutoServicio.php");
@@ -142,6 +141,7 @@ class EstudianteControlador
 			$fecFin= PostGet::obtenerPostGet("fecFin");
 			$condicion= PostGet::obtenerPostGet("condicion");
 			$observaciones= PostGet::obtenerPostGet("obsEstudiante");
+			
 
 			if(!$codRusnies)
 				$codRusnies=null;

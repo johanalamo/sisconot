@@ -154,7 +154,7 @@ class PersonaServicio
 								)
 	{
 		try
-		{
+		{	
 			$conexion = Conexion::conectar();
 
 			/*if(!$pnf && !$estado && !$instituto)
@@ -169,6 +169,7 @@ class PersonaServicio
 								left join sis.t_empleado em 
 									on (em.cod_persona=p.codigo and em.cod_instituto =$instituto and  em.cod_pensum =$pnf  and em.cod_estado='$estado')
 									where true ";*/
+			$bool=false;
 			$con_empleado="";
 			$con_estudiante="";
 			$consulta="	where true ";
@@ -203,7 +204,7 @@ class PersonaServicio
 			}
 
 			if($estado){
-				$consulta.= "and (em.cod_estado = '$estado' or em.cod_estado = '$estado') ";
+				$consulta.= "and (em.cod_estado = '$estado' or es.cod_estado = '$estado') ";
 				$con_empleado.=" and em.cod_estado = '$estado' ";
 				$con_estudiante.=" and es.cod_estado = '$estado' ";
 			}
@@ -215,8 +216,9 @@ class PersonaServicio
 			}
 
 			if($campo){
-				$consulta.=" and cast(p.cedula as char) like '%$campo%' or p.nombre1 like '%$campo%'
-							or p.nombre2 like '%$campo%' or apellido1 like '%$campo%' or apellido2 like '%$campo%' ";
+				$bool=true;
+				$consulta.=" and CONCAT (cast(p.cedula as varchar),p.nombre1,p.nombre2,apellido1, apellido2) 
+							like '%$campo%' ";
 			}
 			if($codigo){
 				$consulta.= " and p.codigo = $codigo ";
@@ -267,7 +269,6 @@ class PersonaServicio
 
 			if(!$pnf && !$estado && !$instituto){
 				$consulta2="select p.*,p.codigo as cod_persona from sis.t_persona p ";
-				
 			}
 			else{
 				$consulta2=" select p.*/*,em.*,es.*, p.codigo as cod_persona,es.codigo as cod_estudiante, em.codigo as cod_empleado,
@@ -277,7 +278,7 @@ class PersonaServicio
 							on true and p.codigo=es.cod_persona  $con_estudiante
 							left join sis.t_empleado em 
 							on true and em.cod_persona=p.codigo  $con_empleado ";
-
+				if(!$bool)
 				$consulta.=" and p.codigo=es.cod_persona or p.codigo=em.cod_persona ";
 			}
 			$consulta.=" group by p.codigo  order by p.codigo ";
@@ -501,7 +502,7 @@ class PersonaServicio
 	}
 
 
-	public static function AgregarFoto($codigo,$foto,$tipo,$nombre){
+	public static function agregarFoto($codigo=null,$foto=null,$tipo=null){
 
 		try{
 			$conexion = Conexion::conectar();
@@ -526,25 +527,37 @@ class PersonaServicio
 		try{
 			$conexion = Conexion::conectar();
 
-			$consulta="
-					SELECT lo_export(sis.t_archivo.archivo, '/tmp/motd') FROM sis.t_archivo
-						WHERE codigo=$codigo";
+			$consulta="select * from sis.t_archivo where codigo=?";
 
 			$ejecutar=$conexion->prepare($consulta);
 
-			$ejecutar-> execute(array());
-			
-			
- 
+			$ejecutar-> execute(array($codigo));
+ 			
+ 		
+			if($ejecutar->rowCount() != 0)
+				return $ejecutar->fetchAll();
+			else
+				return null;
 		}
 		catch(Exception $e){
 			throw $e;
 		}
 	}
-	public static function modificarFoto($codigo){
+	public static function modificarFoto($codigo,$foto,$tipo){
 
 		try{
+			$conexion = Conexion::conectar();
 
+			$consulta="update sis.t_archivo set tipo=?, archivo=? where codigo=?;";
+
+			$ejecutar=$conexion->prepare($consulta);
+
+			$ejecutar-> execute(array($tipo,$foto,$codigo));
+ 
+			if($ejecutar->rowCount() != 0)
+				return $ejecutar->fetchAll();
+			else
+				return null;
 		}
 		catch(Exception $e){
 			throw $e;

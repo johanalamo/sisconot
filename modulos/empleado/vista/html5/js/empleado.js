@@ -56,8 +56,8 @@ function montarEmpleado(data){
 		for(var x=0; x<data.empleado.length; x++)
 		{
 			acu=x+1;
-			cadena+='<tr onclick="modificarEmpleado('+data.empleado[x]['codigo']+');">';
-			cadena+='<td>'+acu+'</td>';
+			cadena+='<tr onclick="modificarEmpleado('+data.empleado[x]['codigo']+');"  id="'+data.empleado[x]['codigo']+'">';
+			cadena+='<a href="#"><td>'+acu+'</td>';
 			cadena+='<td>'+data.empleado[x]['codigo']+'</td>';
 			cadena+='<td>'+data.empleado[x]['fec_inicios']+'</td>';
 			if(data.empleado[x]['fec_fin'])
@@ -90,8 +90,8 @@ function montarEmpleado(data){
 			if(data.empleado[x]['observaciones'])
 				cadena+='<td id="Observaciones">'+data.empleado[x]['observaciones']+'</td>';
 			else
-				cadena+='<td> - </td>';
-			cadena+='</tr>';
+				cadena+='<td> - </td> ';
+			cadena+='</a></tr>';
 		}
 	}
 	cadena+="</tbody>";
@@ -271,7 +271,8 @@ function guardarEmpleado(codigo,bool=null){
 					"es_jef_pensum",	$('#es_jef_pensum').prop('checked'),
 					"Docente",			$('#Docente').prop('checked')
 				);
-
+	
+	//alert($("#codigoPersona").val()+"<<<"+$("#empleado #selEstadoEm #selectEstado").val()+"<<<"+$("#empleado  #selectInstitutos #selectInstituto").val()+"<<"+$("#empleado  #selPensumEm #selectPNF").val()+"<<"+$("#obs_empleado").val()+"<<<");
 	ajaxMVC(arr,succAgregarEmpleado,error);
 }
 
@@ -297,7 +298,8 @@ function verInstitutoEm(){
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"empleado"
+					"tipo_persona",	"empleado",
+					"campo",		$("#campo")
 					);
 		
 	ajaxMVC(arr,montarSelectInstituto,error);
@@ -340,17 +342,19 @@ function verPNFEm(){
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"empleado"														
+					"tipo_persona",	"empleado",
+					"campo",		$("#campo")												
 					);
 		
 	ajaxMVC(arr,montarSelectPNF,error);
 }
 
 
+
 /**
 * Funcion Java Script que permite mostrar un select con
 * los PNF y es concatenado a un  div en la vista HTML
-*/
+*//*
 function montarSelectPNFE(data){
 
 	var cadena = "";
@@ -365,7 +369,7 @@ function montarSelectPNFE(data){
 	$(cadena).appendTo('.selectPensumEm');
 	activarSelect();					
 }
-
+*/
 /**
 * Funcion Java Script que permite listar Todos los estados que posee un actor
 * para que luego sea mostado en un select. los datos son enviados
@@ -379,7 +383,8 @@ function verEstadoEm(){
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"empleado"			
+					"tipo_persona",	"empleado",
+					"campo",		$("#campo")		
 					);		
 	ajaxMVC(arr,montarSelectEstado,error);
 }
@@ -490,12 +495,14 @@ function succMontarModificarEmpleado (data){
 	console.log(data.empleado);
 	$("#cod_empleado").val(data.empleado[0]['codigo']);
 	$("#cod_persona").val(data.empleado[0]['cod_persona']);
-	$("#empleado #selectPNF").val(data.empleado[0]['cod_pensum']);
-	$('#empleado #selectPNF').selectpicker('refresh');
 	$("#empleado #selEstadoEm #selectEstado").val(data.empleado[0]['cod_estado']);
 	$("#empleado #selEstadoEm #selectEstado").selectpicker('refresh');
 	$("#empleado #selectInstituto").val(data.empleado[0]['cod_instituto']);	
 	$('#empleado #selectInstituto').selectpicker('refresh');
+	verPNFEm();setTimeout(function(){ 
+
+	$("#empleado #selectPNF").val(data.empleado[0]['cod_pensum']);
+	$('#empleado #selectPNF').selectpicker('refresh');  }, 300);
 	$("#fec_ini_empleado").val(data.empleado[0]['fec_inicios']);
 	if(data.empleado[0]['fec_final'])
 		$("#fec_fin_empleado").val(data.empleado[0]['fec_final']);
