@@ -274,7 +274,7 @@ class PersonaServicio
 				$consulta2=" select p.*/*,em.*,es.*, p.codigo as cod_persona,es.codigo as cod_estudiante, em.codigo as cod_empleado,
 							es.fec_inicio as fec_inicio_es, es.fec_fin as fec_fin_es, em.fec_inicio as fec_inicio_em,
 							em.fec_fin as fec_fin_em */, p.codigo as cod_persona
-							from sis.t_archivo arch, sis.t_persona p left join sis.t_estudiante es 
+							from sis.t_persona p left join sis.t_estudiante es 
 							on true and p.codigo=es.cod_persona  $con_estudiante
 							left join sis.t_empleado em 
 							on true and em.cod_persona=p.codigo  $con_empleado ";
