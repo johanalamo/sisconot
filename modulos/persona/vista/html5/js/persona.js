@@ -145,7 +145,7 @@ function verInstituto(){
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"campo",		$("#campo"),
+					"campo",		$("#campo").val(),
 					"tipo_persona", "ambos"
 					);
 		
@@ -196,7 +196,7 @@ function verPNF(){
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"campo",		$("#campo"),
+					"campo",		$("#campo").val(),
 					"tipo_persona", "ambos"						
 					);
 		
@@ -248,7 +248,7 @@ function verEstado(){
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"campo",		$("#campo"),
+					"campo",		$("#campo").val(),
 					"tipo_persona", "ambos"		
 					);		
 	ajaxMVC(arr,montarSelectEstado,error);
