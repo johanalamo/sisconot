@@ -21,9 +21,11 @@ insert into sis.t_est_estudiante(codigo,nombre) values ('G', 'Graduado');
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('P','Preinscrito');
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('I','Inscrito');
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('C','Cursando');
-
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('X','Retirado');
 
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('A','Aprobado');
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('R','Reprobado');
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('N','Reprobado por inasistencia');
+
+
+

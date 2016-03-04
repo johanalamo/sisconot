@@ -1631,3 +1631,13 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 118 *****************************
+codigo Error: 118
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/curso/vista/html5/AdministrarPeriodos.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(127): Vista::iniciar('curso:html5:Adm...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
