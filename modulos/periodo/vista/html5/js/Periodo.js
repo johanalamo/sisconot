@@ -323,8 +323,6 @@ function agregarPeriodoD(){
 		
 		cad += "<br>";
 		cad += "<br>";
-
-
 	
 		cad += "Fecha de Inicio: <input type='text'id='fecIP' value='"+dat['fec_inicio']+"'></input>";
 		
