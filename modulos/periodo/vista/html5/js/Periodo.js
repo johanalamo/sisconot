@@ -152,6 +152,7 @@ function succCargarPeriodosP(data){
 			cad += "<tr>";
 			
 			cad += "<td style='text-align:center'><input name='radio' type='radio'></td>";
+			cad += "<input type='hidden' id='cod"+i+"' value='"+dat[i]['codigo']+"'>";
 			cad += "<td style='text-align:center'>"+dat[i]['nomi']+"</td>";
 			cad += "<td style='text-align:center'>"+dat[i]['nomp']+"</td>";
 			cad += "<td style='text-align:center'>"+dat[i]['nombre']+"</td>";
@@ -213,7 +214,7 @@ function succModificarPeriodoD(data){
 		cad += "<br>";
 		cad += "<br>";
 		
-		cad += "Nombre del Periodo: <input type='text' id='nombreP' value='"+dat['nombre']+"'></input>";
+		cad += "Nombre del Periodo: <input type='text' id='nombreP' value='"+dat['nombre']+"'>";
 		
 		cad += "<br>";
 		cad += "<br>";
@@ -260,11 +261,15 @@ function succModificarPeriodoD(data){
 		
 	}
 	
+	$("#dialogoPer").modal("destroy");
+	
 	crearDialogo("dialogoPer", "Modificar Periodo",dat['nombre'], 1, "modificarPeriodo('"+dat['codigo']+"')",'Aceptar',true);
 	
 	$(".modal-body").append(cad);
 	
-	$("#dialogoPer").modal("show");
+	//~ setTimeout(function(){
+		$("#dialogoPer").modal("show");
+	//~ },500);
 		
 }
 
@@ -276,7 +281,7 @@ function modificarPeriodo(cod){
 	
 	var arr = Array("m_modulo"		,		"periodo",
 					"m_accion"		,		"modificarPeriodo",
-					"nomPeriodo"	,		$("#nombreP").val(),
+					"nomPeriodo"	,		$("#dialogoPer #nombreP").val(),
 					"codInstituto"	,		$("#codIns").val(),
 					"codPensum"		,		$("#codPen").val(),
 					"fecInicio"		,		$("#fecIP").val(),
@@ -284,68 +289,66 @@ function modificarPeriodo(cod){
 					"observaciones"	,		$("#obsP").val(),		
 					"codEstado"		,		$("#selEst").val(),
 					"codPeriodo"	,		cod);
-
-	alert($("#selEst").val());
 	
 	ajaxMVC(arr,succModificarPeriodo,err);
 }
 
 function succModificarPeriodo(data){
-	
 	if(data.mensaje){
 		mostrarMensaje(data.mensaje,1);
+		cargarPeriodosP();
 	}
 	else{
 		mostrarMensaje("El periodo no pudo ser modificado. Revise si la información que introdujo es la correcta.",3);
 	}
 }
 
-function agregarPeriodoD(){
-	cad += "<center>";
+//~ function agregarPeriodoD(){
+	//~ cad += "<center>";
 	
-		cad += "Código del Periodo: "+dat['codigo'];
+		//~ cad += "Código del Periodo: "+dat['codigo'];
 		
-		cad += "<br>";
-		cad += "<br>";
+		//~ cad += "<br>";
+		//~ cad += "<br>";
 		
-		cad += "Instituto: "+dat['nom_instituto'];
+		//~ cad += "Instituto: "+dat['nom_instituto'];
 		
-		cad += "<br>";
-		cad += "<br>";
+		//~ cad += "<br>";
+		//~ cad += "<br>";
 		
-		cad += ""+dat['nom_pensum'];
+		//~ cad += ""+dat['nom_pensum'];
 		
 		
-		cad += "<br>";
-		cad += "<br>";
+		//~ cad += "<br>";
+		//~ cad += "<br>";
 		
-		cad += "Nombre del Periodo: <input type='text' id='nombreP' value='"+dat['nombre']+"'></input>";
+		//~ cad += "Nombre del Periodo: <input type='text' id='nombreP' value='"+dat['nombre']+"'></input>";
 		
-		cad += "<br>";
-		cad += "<br>";
+		//~ cad += "<br>";
+		//~ cad += "<br>";
 	
-		cad += "Fecha de Inicio: <input type='text'id='fecIP' value='"+dat['fec_inicio']+"'></input>";
+		//~ cad += "Fecha de Inicio: <input type='text'id='fecIP' value='"+dat['fec_inicio']+"'></input>";
 		
-		cad += "<br>";
-		cad += "<br>";
+		//~ cad += "<br>";
+		//~ cad += "<br>";
 		
-		cad += "Fecha de Fin: <input type='text' id='fecFP' value='"+dat['fec_final']+"'></input>";
+		//~ cad += "Fecha de Fin: <input type='text' id='fecFP' value='"+dat['fec_final']+"'></input>";
 		
-		cad += "<br>";
-		cad += "<br>";
+		//~ cad += "<br>";
+		//~ cad += "<br>";
 		
-		cad += cad2;
+		//~ cad += cad2;
 		
-		cad += "<br>";
-		cad += "<br>";
+		//~ cad += "<br>";
+		//~ cad += "<br>";
 		
-		if(dat['observaciones'] == 'null')
-			cad += "Observaciones: <input type='text' class='form-control' id='obsP' value='"+dat['observaciones']+"'></input>";
-		else
-			cad += "Observaciones: <input type='text' class='form-control' id='obsP' value=''></input>";
+		//~ if(dat['observaciones'] == 'null')
+			//~ cad += "Observaciones: <input type='text' class='form-control' id='obsP' value='"+dat['observaciones']+"'></input>";
+		//~ else
+			//~ cad += "Observaciones: <input type='text' class='form-control' id='obsP' value=''></input>";
 
-		cad += "<br>";
-		cad += "<br>";
-}
+		//~ cad += "<br>";
+		//~ cad += "<br>";
+//~ }
 
 modificarPeriodoD(1);
