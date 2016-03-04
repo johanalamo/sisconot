@@ -215,7 +215,7 @@ function succListarCursos(data){
 
 		var cont = 0;
 		var tope = cur.length;
-		var it = 0;
+		var it = -1;
 
 		var sec = cur[0][2];
 		var p = '';
@@ -252,7 +252,6 @@ function succListarCursos(data){
 			cad += "<td style='text-align:center' class='"+p+"'><input type='checkbox' onchange='actualizarCheck("+cont+")' id='checkbox"+cont+"'><input type='text' hidden id='hid"+cont+"' value='"+cur[cont][0]+"'></td>"
 			
 			for(var i = 0; i < 9; i++){
-				
 				if(cur[cont][i] != null){
 					if(i == 5)
 						cad += "<td style='text-align:center' class='"+p+"' id='cant"+cont+"'>"+cur[cont][i]+"</td>";
@@ -317,12 +316,18 @@ function verificarChecks(el){
 	var len = $('#table-lis >tbody >tr').length;
 
 	var sec = '';
+	var tra = '';
+	
 	for(var i = 0; i < len; i++){
 		if($("#checkbox"+i).is(":checked"))
 			if(el == 'mod'){
-				if($("#c2"+i).html() != sec){
-					window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=CrearModificarCurso&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
-					sec = $("#c2"+i).html();
+				if($("#c1"+i).html() != tra){	
+					sec = '';
+					if($("#c2"+i).html() != sec){
+						window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=CrearModificarCurso&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
+						sec = $("#c2"+i).html();
+						tra = $("#c1"+i).html();
+					}
 				}
 			}
 			else if(el == 'le') {

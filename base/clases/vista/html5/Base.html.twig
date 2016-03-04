@@ -126,31 +126,31 @@
 
 	            <!-- -------------- Sidebar Menu  -------------- -->
 	            <ul class="nav sidebar-menu">
-	                <li class="sidebar-label pt30">Menu</li>
+	             
 
 	                <li>
 	                    <a class="accordion-toggle" href="#">
 	                        <span class="fa fa-dashboard"></span>
-	                        <span class="sidebar-title">Principal</span>
-	                        <span class="caret"></span>
+	                        <span class="sidebar-title">Inicio</span>
+	                       
 	                    </a>
 
 	                </li>
 	                <li class="sidebar-label pt25">Gestiones</li>
 	                <li>
 	                    <a class="accordion-toggle" href="#">
-	                        <span class="fa fa-share-square-o"></span>
-	                        <span class="sidebar-title">ADM DE Pensum</span>
+	                        <span class="fa fa-building-o"></span>
+	                        <span class="sidebar-title">Instituto</span>
 	                        <span class="caret"></span>
 	                    </a>
 	                    <ul class="nav sub-nav">
 	                        <li>
 	                            <a href="index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=Agregar">
-	                                <span class="glyphicon glyphicon-tags"></span> Agregar </a>
+	                                <span class="glyphicon glyphicon-tags"></span>Búsqueda</a>
 	                        </li>
 	                        <li>
 	                            <a href="index.php?m_modulo=pensum&m_formato=html5&m_accion=listar&m_vista=Listar">
-	                                <span class="fa fa-money"></span> Listar </a>
+	                                <span class="fa fa-money"></span>Agregar</a>
 	                        </li>
 
 	                    </ul>
@@ -159,23 +159,22 @@
 
 	                <li>
 	                    <a class="accordion-toggle" href="#">
-	                        <span class="fa fa-desktop"></span>
-	                        <span class="sidebar-title">Unidad Curricular</span>
+	                        <span class="fa fa-book"></span>
+	                        <span class="sidebar-title">Pensum</span>
 	                        <span class="caret"></span>
 	                    </a>
 	                    <ul class="nav sub-nav">
 	                        <li>
 	                            <a href="index.php?m_modulo=unidad&m_formato=html5&m_accion=preAgregarModif&m_vista=Agregar">
 	                                <span class="fa fa fa-arrows-h"></span>
-	                                Agregar
+	                                Búsqueda
 	                            </a>
 
 	                        </li>
 	                        <li>
 	                            <a href="index.php?m_modulo=unidad&m_formato=html5&m_accion=listarUnidades&m_vista=Listar">
 	                                <span class="fa fa-hand-o-up"></span>
-	                                Listar
-
+	                                Agregar
 	                            </a>
 	                        </li>
 	                    </ul>
@@ -185,50 +184,80 @@
 	                 <li>
 	                    <a class="accordion-toggle" href="#">
 	                        <span class="fa fa-group"></span>
-	                        <span class="sidebar-title">Persona</span>
+	                        <span class="sidebar-title">Personas</span>
 	                        <span class="caret"></span>
 	                    </a>
 	                    <ul class="nav sub-nav">
 	                        <li>
 	                            <a href="index.php?m_modulo=persona&m_vista=Principal&m_formato=html5">
-	                                <span class="fa fa-user"></span> Agregar Persona</a>
+	                                <span class="fa fa-user"></span>Búsqueda</a>
 	                        </li>
 	                        <li>
 	                            <a href="index.php?m_accion=listar&m_modulo=persona&m_vista=Listar&m_formato=html5">
-	                                <span class="fa fa-eye"></span> Consultar Persona </a>
+	                                <span class="fa fa-eye"></span>Agregar</a>
 	                        </li>
 	                    </ul>
 	                </li>
-
-	                <li class="sidebar-label pt30">Modulos</li>
-
+<!--
+	                <li class="sidebar-label pt30">Académico</li>
+-->
  					<li>
 	                    <a class="accordion-toggle" href="#">
-	                       <span class="fa fa-wrench"></span>
-	                        <span class="sidebar-title">Instituto</span>
+	                       <span class="fa fa-pencil"></span>
+	                        <span class="sidebar-title">Académico</span>
 	                        <span class="caret"></span>
 	                    </a>
 	                    <ul class="nav sub-nav">
 	                        <li>
+	                            <a href="index.php?m_modulo=curso&m_accion=mostrar&m_vista=ListarCursos&m_formato=html5">
+	                                <span class="fa fa-warning"></span>Mis Cursos</a>
+	                        </li>
+	                        <li>
 	                            <a href="index.php?m_modulo=instituto&m_formato=html5&m_accion=listar&m_vista=Listar">
-	                                <span class="fa fa-warning"></span> Listar </a>
+	                                <span class="fa fa-warning"></span>Mis Notas</a>
+	                        </li>
+	                        <li>
+	                            <a href="index.php?m_modulo=instituto&m_formato=html5&m_accion=listar&m_vista=Listar">
+	                                <span class="fa fa-warning"></span>Períodos</a>
+	                        </li>
+	                         <li>
+	                            <a href="index.php?m_modulo=curso&m_accion=mostrar&m_vista=ListarCursos&m_formato=html5">
+	                                <span class="fa fa-warning"></span>Cursos</a>
+	                        </li>
+	                         <li>
+	                            <a href="index.php?m_vista=CrearModificarCurso&m_formato=html5&m_modulo=curso&m_accion=mostrar">
+	                                <span class="fa fa-warning"></span>Agregar Cursos</a>
+	                        </li>
+	                        <li>
+	                            <a href="index.php?m_modulo=instituto&m_formato=html5&m_accion=listar&m_vista=Listar">
+	                                <span class="fa fa-warning"></span>Validación de Electivas</a>
+	                        </li>
+	                        <li>
+	                            <a href="index.php?m_modulo=instituto&m_formato=html5&m_accion=listar&m_vista=Listar">
+	                                <span class="fa fa-warning"></span>Acreditar</a>
+	                        </li>
+	                        <li>
+	                            <a href="index.php?m_modulo=instituto&m_formato=html5&m_accion=listar&m_vista=Listar">
+	                                <span class="fa fa-warning"></span>Convalidar</a>
+	                        </li>
+	                        <li>
+	                            <a href="index.php?m_vista=Inscripcion&m_formato=html5&m_modulo=curso&m_accion=mostrar">
+	                                <span class="fa fa-warning"></span>Inscripción</a>
 	                        </li>
 	                    </ul>
 	                </li>
-
+					 <li class="sidebar-label pt30">Configuración</li>
 	                <li>
 	                    <a href="#">
-	                        <span class="fa fa-envelope-o"></span>
-	                        <span class="sidebar-title">Mensajeria</span>
+	                        <span class="fa fa-user"></span>
+	                        <span class="sidebar-title">Crear Usuario</span>
 	                    </a>
 	                </li>
 
-
-
 	                <li>
 	                    <a href="index.php">
-	                        <span class="fa fa-book"></span>
-	                        <span class="sidebar-title">Documentation</span>
+	                        <span class="fa fa-key"></span>
+	                        <span class="sidebar-title">Cambiar Contraseña</span>
 	                    </a>
 	                </li>
 

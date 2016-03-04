@@ -150,7 +150,7 @@ function succCargarPeriodos(data){
 		for(var i = 0; i < len; i++){
 			cad += "<tr>";
 			
-			cad += "<td style='text-align:center'><input type='radio'></td>";
+			cad += "<td style='text-align:center'><input name='radio' type='radio'></td>";
 			cad += "<td style='text-align:center'>"+dat[i]['nomi']+"</td>";
 			cad += "<td style='text-align:center'>"+dat[i]['nomp']+"</td>";
 			cad += "<td style='text-align:center'>"+dat[i]['nombre']+"</td>";
