@@ -735,7 +735,7 @@ function exportarODS(){
 
 function exportarPDF(){
 	
-	window.location.assign("index.php?m_modulo=persona&m_formato=pdf&m_vista=ListarPersona");
+	window.location.assign("index.php?m_modulo=persona&m_accion=listar&m_formato=pdf&m_vista=ListarPersona&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selecInstituto").val()+"&tipo_persona="+""+"&campo"+$("#campo").val());
 }
 
 function exportarODT(){

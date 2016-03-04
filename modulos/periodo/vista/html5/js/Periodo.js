@@ -104,3 +104,80 @@ function eliminarPeriodo(codigo, funSucc, funErr){
 	
 	ajaxMVC(arr, funSucc, funErr);
 }
+
+
+
+/* **************************************************************************************/
+
+function succ(data){
+	alert("succ");
+	console.log(data);
+}
+
+function err(data){
+	alert("err");
+	console.log(data);
+}
+
+
+function cargarPeriodos(){
+	var arr = Array("m_modulo"		,		"periodo",
+					"m_accion"		,		"listar",
+					"patron"		,		"");
+	
+	ajaxMVC(arr,succCargarPeriodos,err);
+	
+}
+
+function succCargarPeriodos(data){
+	var dat = data.periodos;
+	var cad = "";
+	
+	
+	if(dat){
+		cad += "<table id='tableP' class='table table-hover table-condensed table-responsive'>";
+		
+		cad += "<th class='dark' style='text-align:center'>Opciones</th>";
+		cad += "<th class='dark' style='text-align:center'>Instituto</th>";
+		cad += "<th class='dark' style='text-align:center'>Pensum</th>";
+		cad += "<th class='dark' style='text-align:center'>Nombre del Periodo</th>";
+		cad += "<th class='dark' style='text-align:center'>Fecha de Inicio</th>";
+		cad += "<th class='dark' style='text-align:center'>Fecha de Fin</th>";
+		cad += "<th class='dark' style='text-align:center'>Estado del Periodo</th>";
+		
+		var len = dat.length;
+		
+		for(var i = 0; i < len; i++){
+			cad += "<tr>";
+			
+			cad += "<td style='text-align:center'><input type='radio'></td>";
+			cad += "<td style='text-align:center'>"+dat[i]['nomi']+"</td>";
+			cad += "<td style='text-align:center'>"+dat[i]['nomp']+"</td>";
+			cad += "<td style='text-align:center'>"+dat[i]['nombre']+"</td>";
+			cad += "<td style='text-align:center'>"+dat[i]['fec_inicio']+"</td>";
+			cad += "<td style='text-align:center'>"+dat[i]['fec_final']+"</td>";
+			cad += "<td style='text-align:center'>"+dat[i]['nome']+"</td>";
+			
+			cad += "</tr>";
+		}
+		
+		cad += "</table>";
+		
+		$("#tableP").remove();
+		$("#divP").append(cad);
+	}
+	else{
+		
+	}
+	
+	
+}
+
+function mostrar(){
+	if($("#divEdicion").is(':visible'))
+		$("#divEdicion").hide();
+	else
+		$("#divEdicion").show();
+}
+
+cargarPeriodos();

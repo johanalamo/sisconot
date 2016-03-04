@@ -47,6 +47,8 @@ Descripción:
 					self::listarPeriodo();
 				else if($accion == "mostrar")
 					self::mostrar();
+				else if($accion == "listar")
+					self::listar();
 			}
 			catch(Exception $e){
 				throw $e;
@@ -164,6 +166,22 @@ Descripción:
 		
 		public static function mostrar(){
 			Vista::mostrar();
+		}
+		
+		
+		public static function listar(){
+			try{
+				$patron = PostGet::obtenerPostGet("patron");
+				
+				$r = PeriodoServicio::listar($patron);
+				
+				Vista::asignarDato("periodos",$r);
+				
+				Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
 		}
 	}
 ?>

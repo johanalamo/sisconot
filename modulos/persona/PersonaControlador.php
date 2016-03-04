@@ -120,6 +120,7 @@
 			
 				if(!$instituto)
 					$instituto=null;
+				
 				$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
 				$instituto=InstitutoServicio::listarInstitutos();	
 				

@@ -925,7 +925,6 @@ function listarUniEstudiante(){
 
 function succCursosInscribir(data){
 	var dat = data.cursos;
-	console.log(data);
 	
 	if(dat){
 		var cad = "";
@@ -935,7 +934,7 @@ function succCursosInscribir(data){
 		cad += "<th class='dark' style='text-align:center'>Trayecto</th>";
 		cad += "<th class='dark' style='text-align:center'>Unidad Curricular</th>";
 		cad += "<th class='dark' style='text-align:center'>UC</th>";
-		cad += "<th class='dark' style='text-align:center'>Sección a Inscribir (Cantidad de Estudiantes)</th>";
+		cad += "<th class='dark' style='text-align:center'>Sección a Inscribir (Cantidad de Estudiantes/Capacidad del Curso)</th>";
 		
 		var len = dat.length;
 		var cont = 0;
@@ -959,7 +958,7 @@ function succCursosInscribir(data){
 				cad += "<div class='radio-inline'>" +
 					  "<label>" +
 							"<input type='radio' name='opc"+cont+"' checked onchange='cambiarEstUC(0,"+cont+")'>" +
-							"N.I." +
+							"No inscribir" +
 					  "</label>"+
 					"</div>";
 				
@@ -968,7 +967,7 @@ function succCursosInscribir(data){
 				"<div class='radio-inline'>" +
 				  "<label>" +
 						"<input type='radio' name='opc"+cont+"' onchange='cambiarEstUC("+dat[i]['codigo']+","+cont+")'>" +
-						""+ dat[i]['seccion'] + "(" + dat[i]['cantidad'] + ")" +
+						""+ dat[i]['seccion'] + "(" + dat[i]['cantidad'] +"/"+ dat[i]['capacidad'] + ")" +
 				  "</label>"+
 				"</div>";
 				
@@ -1065,6 +1064,7 @@ function succInscribirUC(data){
 	else{
 		mostrarMensaje("No se pudo realizar la inscripción en el curso "+cod+".",3);
 	}
+	listarUniEstudiante();
 }
 
 function succListarUniEstudiante(data){

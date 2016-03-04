@@ -259,5 +259,45 @@ Descripción:
 				throw $e;
 			}
 		}
+		
+		public static function listar($patron = null){
+			try{				
+				$conexion = Conexion::conectar();
+				
+				$consulta = "select per.codigo,
+									ins.nom_corto nomi,
+									pen.nom_corto nomp,
+									per.nombre,
+									per.fec_inicio,
+									per.fec_final,
+									est.nombre nome,
+									per.cod_estado
+									from sis.t_periodo per
+									inner join sis.t_instituto ins
+										on ins.codigo = per.cod_instituto
+									inner join sis.t_pensum pen
+										on pen.codigo = per.cod_pensum
+									inner join sis.t_est_periodo est
+										on est.codigo = per.cod_estado
+									where upper(ins.nom_corto) like upper('%$patron%')
+									or upper(pen.nom_corto) like upper('%$patron%')
+									or upper(per.nombre) like upper('%$patron%')
+									or upper(est.nombre) like upper('%$patron%');";
+					
+				$ejecutar=$conexion->prepare($consulta);
+				$conexion->beginTransaction();
+				$ejecutar->execute();
+				$results = $ejecutar->fetchAll();
+				$conexion->commit();
+
+				if(count($results) > 0)
+					return $results;
+				else
+					return null;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
 	}
 ?>
