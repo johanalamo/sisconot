@@ -328,4 +328,28 @@ INSERT INTO sis.t_uni_curricular(
     VALUES (68,      'PIID431 ',        '   IDIOMAS   ',                     24,     6,    1,              12,           12,                  20,          '  CONVERSACIONAL III ', '','');
 
 
+INSERT INTO sis.t_prelacion(
+            codigo, cod_pensum, cod_instituto, cod_uni_curricular, cod_uni_cur_prelada)
+    VALUES (1,   1,   1,   28,   11);
+
+INSERT INTO sis.t_prelacion(
+            codigo, cod_pensum, cod_instituto, cod_uni_curricular, cod_uni_cur_prelada)
+    VALUES (2,   1,   1,   29,   12);
+
+INSERT INTO sis.t_prelacion(
+            codigo, cod_pensum, cod_instituto, cod_uni_curricular, cod_uni_cur_prelada)
+    VALUES (3,   1,   1,   30,   13);
+
+INSERT INTO sis.t_prelacion(
+            codigo, cod_pensum, cod_instituto, cod_uni_curricular, cod_uni_cur_prelada)
+    VALUES (4,   1,   1,   58,   45);
+
+INSERT INTO sis.t_prelacion(
+            codigo, cod_pensum, cod_instituto, cod_uni_curricular, cod_uni_cur_prelada)
+    VALUES (5,   1,   1,   59,   46);
+
+INSERT INTO sis.t_prelacion(
+            codigo, cod_pensum, cod_instituto, cod_uni_curricular, cod_uni_cur_prelada)
+    VALUES (6,   1,   1,   60,   47);
+
 
