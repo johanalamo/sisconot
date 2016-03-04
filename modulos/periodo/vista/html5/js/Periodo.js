@@ -109,6 +109,8 @@ function eliminarPeriodo(codigo, funSucc, funErr){
 
 /* **************************************************************************************/
 
+cargarPeriodosP();
+
 function succ(data){
 	alert("succ");
 	console.log(data);
@@ -120,19 +122,18 @@ function err(data){
 }
 
 
-function cargarPeriodos(){
+function cargarPeriodosP(){
 	var arr = Array("m_modulo"		,		"periodo",
 					"m_accion"		,		"listar",
-					"patron"		,		"");
+					"patron"		,		$("#patron").val());
 	
-	ajaxMVC(arr,succCargarPeriodos,err);
+	ajaxMVC(arr,succCargarPeriodosP,err);
 	
 }
 
-function succCargarPeriodos(data){
+function succCargarPeriodosP(data){
 	var dat = data.periodos;
 	var cad = "";
-	
 	
 	if(dat){
 		cad += "<table id='tableP' class='table table-hover table-condensed table-responsive'>";
@@ -167,17 +168,186 @@ function succCargarPeriodos(data){
 		$("#divP").append(cad);
 	}
 	else{
-		
+		mostrarMensaje("No hay periodos con este criterio de búsqueda",4);
+		$("#tableP").remove();
 	}
 	
 	
 }
 
-function mostrar(){
-	if($("#divEdicion").is(':visible'))
-		$("#divEdicion").hide();
-	else
-		$("#divEdicion").show();
+function modificarPeriodoD(i){
+	var arr = Array("m_modulo"		,		"periodo",
+					"m_accion"		,		"obtenerDatosPeriodo",
+					"codigo"		,		i);
+					
+	ajaxMVC(arr,succModificarPeriodoD,err);
 }
 
-cargarPeriodos();
+
+function succModificarPeriodoD(data){
+	var dat = data.periodo[0];
+	var est = data.estados;
+	var cad = "";
+	var cad2 = "";
+	
+	if(dat){
+		var len = est.length;
+		
+		cad += "<input type='hidden' id='codIns' value='"+dat['cod_instituto']+"'>";
+		cad += "<input type='hidden' id='codPen' value='"+dat['cod_pensum']+"'>";
+		
+		cad += "<center>";
+	
+		cad += "Código del Periodo: "+dat['codigo'];
+		
+		cad += "<br>";
+		cad += "<br>";
+		
+		cad += ""+dat['nom_instituto'];
+		
+		cad += "<br>";
+		cad += "<br>";
+		
+		cad += ""+dat['nom_pensum'];
+		
+		cad += "<br>";
+		cad += "<br>";
+		
+		cad += "Nombre del Periodo: <input type='text' id='nombreP' value='"+dat['nombre']+"'></input>";
+		
+		cad += "<br>";
+		cad += "<br>";
+
+		cad += "<input type='hidden' id='selEst' value='"+dat['cod_estado']+"'>";
+
+		cad += "<div class='radio-inline'>";
+
+		for(var i = 0; i < len; i++){
+			cad += "<div class='radio-inline'>";
+			if(dat['cod_estado'] == est[i]['codigo']){
+				cad += "<input type='radio' onclick='actEst(\""+est[i]['codigo']+"\")' name='radio' checked>";
+				cad += "<label>";
+				cad += est[i]['nombre'];
+				cad += "</label>";
+			}
+			else{
+				cad += "<input type='radio' onclick='actEst(\""+est[i]['codigo']+"\")' name='radio'>";
+				cad += "<label>";
+				cad += est[i]['nombre'];
+				cad += "</label>";
+			}
+			cad += "<br>";
+			cad += "</div>";
+		}
+		
+		cad += "<br>";
+		cad += "<br>";
+		
+		cad += "Fecha de Inicio: <input type='text'id='fecIP' value='"+dat['fec_inicio']+"'></input>";
+		
+		cad += "<br>";
+		cad += "<br>";
+		
+		cad += "Fecha de Fin: <input type='text' id='fecFP' value='"+dat['fec_final']+"'></input>";
+		
+		cad += "<br>";
+		cad += "<br>";
+		
+		cad += "Observaciones: <input type='text' class='form-control' id='obsP' value='"+dat['observaciones']+"'></input>";
+		
+		cad += "<br>";
+		cad += "<br>";
+		
+	}
+	
+	crearDialogo("dialogoPer", "Modificar Periodo",dat['nombre'], 1, "modificarPeriodo('"+dat['codigo']+"')",'Aceptar',true);
+	
+	$(".modal-body").append(cad);
+	
+	$("#dialogoPer").modal("show");
+		
+}
+
+function actEst(val){
+	$("#selEst").val(val);
+}
+
+function modificarPeriodo(cod){
+	
+	var arr = Array("m_modulo"		,		"periodo",
+					"m_accion"		,		"modificarPeriodo",
+					"nomPeriodo"	,		$("#nombreP").val(),
+					"codInstituto"	,		$("#codIns").val(),
+					"codPensum"		,		$("#codPen").val(),
+					"fecInicio"		,		$("#fecIP").val(),
+					"fecFinal"		,		$("#fecFP").val(),
+					"observaciones"	,		$("#obsP").val(),		
+					"codEstado"		,		$("#selEst").val(),
+					"codPeriodo"	,		cod);
+
+	alert($("#selEst").val());
+	
+	ajaxMVC(arr,succModificarPeriodo,err);
+}
+
+function succModificarPeriodo(data){
+	
+	if(data.mensaje){
+		mostrarMensaje(data.mensaje,1);
+	}
+	else{
+		mostrarMensaje("El periodo no pudo ser modificado. Revise si la información que introdujo es la correcta.",3);
+	}
+}
+
+function agregarPeriodoD(){
+	cad += "<center>";
+	
+		cad += "Código del Periodo: "+dat['codigo'];
+		
+		cad += "<br>";
+		cad += "<br>";
+		
+		cad += "Instituto: "+dat['nom_instituto'];
+		
+		cad += "<br>";
+		cad += "<br>";
+		
+		cad += ""+dat['nom_pensum'];
+		
+		
+		cad += "<br>";
+		cad += "<br>";
+		
+		cad += "Nombre del Periodo: <input type='text' id='nombreP' value='"+dat['nombre']+"'></input>";
+		
+		cad += "<br>";
+		cad += "<br>";
+
+
+	
+		cad += "Fecha de Inicio: <input type='text'id='fecIP' value='"+dat['fec_inicio']+"'></input>";
+		
+		cad += "<br>";
+		cad += "<br>";
+		
+		cad += "Fecha de Fin: <input type='text' id='fecFP' value='"+dat['fec_final']+"'></input>";
+		
+		cad += "<br>";
+		cad += "<br>";
+		
+		cad += cad2;
+		
+		cad += "<br>";
+		cad += "<br>";
+		
+		if(dat['observaciones'] == 'null')
+			cad += "Observaciones: <input type='text' class='form-control' id='obsP' value='"+dat['observaciones']+"'></input>";
+		else
+			cad += "Observaciones: <input type='text' class='form-control' id='obsP' value=''></input>";
+
+		cad += "<br>";
+		cad += "<br>";
+}
+
+modificarPeriodoD(1);

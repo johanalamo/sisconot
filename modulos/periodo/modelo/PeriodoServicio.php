@@ -219,14 +219,15 @@ Descripción:
 				$ejecutar->bindParam(':p_fec_final',$fecFin, PDO::PARAM_STR);
 				$ejecutar->bindParam(':p_observaciones',$observaciones, PDO::PARAM_STR);
 				$ejecutar->bindParam(':p_cod_estado',$codEst, PDO::PARAM_STR);
-				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 		
 				$ejecutar->execute();
 
-				$row = $ejecutar->fetchColumn(0);					
+				$row = $ejecutar->rowCount();					
 			
 				if ($row == 0)
-					throw new Exception("No se puede modificar el instituto");	
+					throw new Exception("No se puede modificar el periodo.");	
+				
+				return $row;
 			}
 			catch(Exception $e){
 				throw $e;
@@ -285,6 +286,70 @@ Descripción:
 									or upper(est.nombre) like upper('%$patron%');";
 					
 				$ejecutar=$conexion->prepare($consulta);
+				$conexion->beginTransaction();
+				$ejecutar->execute();
+				$results = $ejecutar->fetchAll();
+				$conexion->commit();
+
+				if(count($results) > 0)
+					return $results;
+				else
+					return null;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+		
+		public static function obtenerDatosPeriodo($codigo){
+			try{
+				$conexion = Conexion::conectar();
+				
+				$consulta = "select 	per.codigo,
+										per.cod_instituto,
+										per.cod_pensum,
+										per.cod_estado,
+										per.nombre,
+										ins.nombre nom_instituto,
+										pen.nombre nom_pensum,
+										per.fec_inicio,
+										per.fec_final,
+										per.observaciones,
+										per.cod_estado
+										from sis.t_periodo per
+										inner join sis.t_pensum pen
+											on pen.codigo = per.cod_pensum
+										inner join sis.t_instituto ins
+											on ins.codigo = per.cod_instituto
+										where per.codigo = :codigo;";
+										
+				$ejecutar=$conexion->prepare($consulta);
+				$conexion->beginTransaction();			
+				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
+				$ejecutar->execute();
+				$results = $ejecutar->fetchAll();
+				$conexion->commit();
+
+				if(count($results) > 0)
+					return $results;
+				else
+					return null;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+		
+		public static function obtenerEstadosPeriodo(){
+			try{
+				$conexion = Conexion::conectar();
+				
+				$consulta = "select 	est.codigo,
+										est.nombre
+										from sis.t_est_periodo est;";
+				
+				$ejecutar = $conexion->prepare($consulta);
+				
 				$conexion->beginTransaction();
 				$ejecutar->execute();
 				$results = $ejecutar->fetchAll();

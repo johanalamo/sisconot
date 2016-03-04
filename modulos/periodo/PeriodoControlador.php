@@ -49,6 +49,14 @@ Descripción:
 					self::mostrar();
 				else if($accion == "listar")
 					self::listar();
+				else if($accion == "obtenerDatosPeriodo")
+					self::obtenerDatosPeriodo();
+				else if($accion == "agregarPeriodo")
+					self::agregarPeriodo();
+				else if($accion == "modificarPeriodo")
+					self::modificarPeriodo();
+				else
+					throw new Exception("No existe la opción $accion en PeriodoControlador");
 			}
 			catch(Exception $e){
 				throw $e;
@@ -133,7 +141,10 @@ Descripción:
 				$observaciones = PostGet::obtenerPostGet("observaciones");
 				$codEst = PostGet::obtenerPostGet("codEstado");
 				
-				PeriodoServicio::modificarPeriodo($codigo, $nombre, $codIns, $codPen, $fecIni, $fecFin, $observaciones, $codEst);
+				$r = PeriodoServicio::modificarPeriodo($codigo, $nombre, $codIns, $codPen, $fecIni, $fecFin, $observaciones, $codEst);
+				
+				if($r != 0)
+					Vista::asignarDato("mensaje","El periodo $nombre se ha modificado con éxito");
 				
 				Vista::mostrar();
 			}
@@ -176,6 +187,25 @@ Descripción:
 				$r = PeriodoServicio::listar($patron);
 				
 				Vista::asignarDato("periodos",$r);
+				
+				Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+		
+		public static function obtenerDatosPeriodo(){
+			try{
+				$codigo = PostGet::obtenerPostGet("codigo");
+				
+				$r = PeriodoServicio::obtenerDatosPeriodo($codigo);
+				
+				Vista::asignarDato("periodo",$r);
+				
+				$r = PeriodoServicio::obtenerEstadosPeriodo();
+				
+				Vista::asignarDato("estados",$r);
 				
 				Vista::mostrar();
 			}

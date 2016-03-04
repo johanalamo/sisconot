@@ -1,61 +1,16 @@
 {% extends 'Periodo.html5.twig' %}
 
 {% block contenido %}
-<center><h2> Administrar Periodos</h2></center>
-<center>
-<div class="row">
-	<center><h3>  <button onclick='mostrar()' class='btn btn-info btn-xs'>Mostrar Edición</button></h3>
-	
-	<div class="col-md-8 col-md-offset-2" id='divEdicion' hidden>
-		<fieldset class="scheduler-border-1">
-		<legend class="scheduler-border">Edición</legend>
-		
-		<input type='hidden' id='estado' value='s'>
-		
-		<div class="col-xs-4 col-md-offset-2">
-			Código: <input type="text" class="form-control" size='4' disabled ></input>
-			
-			Instituto:
-			<div id="divInst">
-				<select class='selectpicker' id="selInst" onchange="cargarPensums()" title='Seleccione Instituto'>
-				</select>
-			</div>
+<center><h2> Administrar Periodos</h2>
 
-			Fecha de inicio: <input type="text" class="form-control"></input>
-		</div>
-		<div class="col-xs-4">
-			Nombre del Periodo: <input type="text" class="form-control"></input>
-			
-			Pensum:
-			<div id="divPen">
-				<select class='selectpicker' id="selPen" data-live-search='true' data-size='auto' multiple data-max-options="1" title='Seleccione Pensum'>
-				</select>
-			</div>
-			
-			Fecha de fin: <input type="text" class="form-control"></input>
-		</div>
-		<div class="col-md-8 col-md-offset-2">
-			Estado: 
-			<div id="divInst">
-				<select class='selectpicker' id="selInst" onchange="cargarPensums()" title='Seleccione Instituto'>
-				</select>
-			</div>
-			<br>
-			Observaciones
-			<input type="text" class="form-control">
-			<br>
-			<button class="btn btn-primary btn-xs">Guardar</button>
-		</div>
-		</fieldset>
-	</div>
+<div id='rowP'>
 </div>
 
-<div class='col-md-12'>
-	<div class="col-md-12">
+<div class="row">
 		<center><h3>Lista de Periodos</h3>
 		<br>
 		<div class="col-md-6">
-			<input type="text" class="form-control" placeholder='Patrón de búsqueda' onkeyup='cargarPeriodos()'></input>
+			<input type="text" id="patron" class="form-control" placeholder='Patrón de búsqueda' onchange='cargarPeriodosP()'></input>
 		</div>
 		<div class="col-md-6">
 			<button class="btn btn-success btn-xs">Agregar</button>
