@@ -469,7 +469,9 @@ class EstudianteServicio
 									inner join sis.t_est_cur_estudiante ece
 										on ce.cod_estado = ece.codigo
 									where ce.cod_curso = :codigo
-									order by per.apellido1";
+									order by 
+										ce.cod_estado,
+										per.apellido1";
 
 			$ejecutar=$conexion->prepare($consulta);
 			$ejecutar->bindParam(":codigo", $codigo, PDO::PARAM_INT);

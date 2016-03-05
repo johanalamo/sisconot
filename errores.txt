@@ -2045,3 +2045,138 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 143 *****************************
+codigo Error: 143
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  inserción o actualización en la tabla «t_cur_estudiante» viola la llave foránea «cf_cur_estudiante__est_cur_estudiante»
+DETAIL:  La llave (cod_estado)=(X) no está presente en la tabla «t_est_cur_estudiante».
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 709
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(709): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(459): CursoServicio::retirarEstudiante('3', '8')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(70): CursoControlador::retirarEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 144 *****************************
+codigo Error: 144
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_cur_estudiante»
+DETAIL:  Ya existe la llave (cod_curso, cod_estudiante)=(9, 2).
+CONTEXT:  sentencia SQL: «INSERT INTO sis.t_cur_estudiante (	codigo,
+										cod_estudiante,
+										cod_curso,
+										por_asistencia,
+										nota,
+										cod_estado,
+										observaciones)
+	 VALUES ( 					cod_cur_est,
+								p_cod_estudiante,
+								p_cod_curso,
+								p_por_asistencia,
+								p_nota,
+								p_cod_estado,
+								p_observaciones)»
+función PL/pgSQL sis.f_cur_estudiante_ins(integer,integer,double precision,double precision,text,text) en la línea 6 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 351
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(351): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('2', '9', '0', '0', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 145 *****************************
+codigo Error: 145
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_cur_estudiante»
+DETAIL:  Ya existe la llave (cod_curso, cod_estudiante)=(13, 2).
+CONTEXT:  sentencia SQL: «INSERT INTO sis.t_cur_estudiante (	codigo,
+										cod_estudiante,
+										cod_curso,
+										por_asistencia,
+										nota,
+										cod_estado,
+										observaciones)
+	 VALUES ( 					cod_cur_est,
+								p_cod_estudiante,
+								p_cod_curso,
+								p_por_asistencia,
+								p_nota,
+								p_cod_estado,
+								p_observaciones)»
+función PL/pgSQL sis.f_cur_estudiante_ins(integer,integer,double precision,double precision,text,text) en la línea 6 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 351
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(351): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('2', '13', '0', '0', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 146 *****************************
+codigo Error: 146
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_cur_estudiante»
+DETAIL:  Ya existe la llave (cod_curso, cod_estudiante)=(8, 3).
+CONTEXT:  sentencia SQL: «INSERT INTO sis.t_cur_estudiante (	codigo,
+										cod_estudiante,
+										cod_curso,
+										por_asistencia,
+										nota,
+										cod_estado,
+										observaciones)
+	 VALUES ( 					cod_cur_est,
+								p_cod_estudiante,
+								p_cod_curso,
+								p_por_asistencia,
+								p_nota,
+								p_cod_estado,
+								p_observaciones)»
+función PL/pgSQL sis.f_cur_estudiante_ins(integer,integer,double precision,double precision,text,text) en la línea 6 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 351
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(351): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('3', '8', '0', '0', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 147 *****************************
+codigo Error: 147
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_cur_estudiante»
+DETAIL:  Ya existe la llave (cod_curso, cod_estudiante)=(8, 3).
+CONTEXT:  sentencia SQL: «INSERT INTO sis.t_cur_estudiante (	codigo,
+										cod_estudiante,
+										cod_curso,
+										por_asistencia,
+										nota,
+										cod_estado,
+										observaciones)
+	 VALUES ( 					cod_cur_est,
+								p_cod_estudiante,
+								p_cod_curso,
+								p_por_asistencia,
+								p_nota,
+								p_cod_estado,
+								p_observaciones)»
+función PL/pgSQL sis.f_cur_estudiante_ins(integer,integer,double precision,double precision,text,text) en la línea 6 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 351
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(351): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('3', '8', '0', '0', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

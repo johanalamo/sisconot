@@ -279,12 +279,18 @@ Descripción:
 				$nota = PostGet::obtenerPostGet("nota");
 				$codEstado = PostGet::obtenerPostGet("codEstado");
 				$observaciones = PostGet::obtenerPostGet("observaciones");
-
+				
 				$r = CursoServicio::insertarCurEst($codEstudiante, $codCurso, $porAsistencia, $nota, $codEstado, $observaciones);
 
-				Vista::asignarDato("codCurEst",$r);
-				Vista::asignarDato("codigo",$codCurso);
-
+				if($r == 0){
+					Vista::asignarDato("mensaje","El estudiante se encontraba retirado en el curso. Se realizó la inscripción colocando como 'Cursando' al mismo.");
+				}
+				else{
+					Vista::asignarDato("codCurEst",$r);
+					Vista::asignarDato("codigo",$codCurso);
+					
+					Vista::asignarDato("mensaje","El estudiante se ha inscrito exitosamente en el curso $codCurso");
+				}
 				Vista::mostrar();
 			}
 			catch(Exception $e){
@@ -380,9 +386,7 @@ Descripción:
 				$r = CursoServicio::obtenerDatosDeCurso($codigo);
 
 				Vista::asignarDato("cursoInfoMontar",$r);
-
-			
-
+				
 				Vista::mostrar();
 			}
 			catch(Exception $e){
@@ -471,7 +475,7 @@ Descripción:
 			try{
 				$codEstudiante = PostGet::obtenerPostGet("codEstudiante");
 				$codCurso = PostGet::obtenerPostGet("codCurso");
-
+				
 				CursoServicio::eliminarEstudiante($codEstudiante,$codCurso);
 
 				Vista::asignarDato("mensaje","Se ha retirado el estudiante con éxito.");

@@ -569,6 +569,9 @@ function listarEstudiantes(funsucc,cod){
 function succListarEstudiantes(data){
 	var est = data.estudiante;
 	var cad = "";
+	
+	console.log(est);
+	
 	if(est){
 		var estB = ($("#selEst").length > 0);
 
@@ -587,14 +590,27 @@ function succListarEstudiantes(data){
 		cad += "<th style='text-align:center' class='dark'>Estado</th>";
 
 		var prom = 0;
-
+		var ne = 0;				
+		var ret = false;
+		
 		for(var i = 0; i < est.length; i++){
+			
+			if(est[i]['cod_estado'] == 'X' && !ret){		
+				cad += "<th style='text-align:center' colspan='9' class='dark'>Retirados</th>";
+				ret = true;	
+			}
+			
 			cad += "<tr>";
 
 			if(estB)
 				cad += "<td style='text-align:center'><input type='checkbox' id='checkbox"+i+"'><input type='hidden' id='hid"+i+"' value='"+est[i]['codigo']+"'></input></td>";
-
-			cad += "<td style='text-align:center'>"+(i+1)+"</td>";
+			
+			if(ret){
+				ne++;
+				cad += "<td style='text-align:center'>"+(ne)+"</td>";
+			}
+			else
+				cad += "<td style='text-align:center'>"+(i+1)+"</td>";
 
 			cad += "<td style='text-align:center'>"+est[i]['cedula']+"</td>";
 
@@ -625,8 +641,6 @@ function succListarEstudiantes(data){
 				cad += "<td style='text-align:center'>"+est[i]['nombre']+"</td>";
 
 			cad += "</tr>";
-
-
 		}
 		cad += "</table>";
 
@@ -1007,7 +1021,7 @@ function succCursosInscribir(data){
 				"<div class='radio-inline'>" +
 				  "<label>" +
 						"<input type='radio' name='opc"+cont+"' onchange='cambiarEstUC("+dat[i]['codigo']+","+cont+")'>" +
-						""+ dtableCursosDat[i]['seccion'] + "(" + dat[i]['cantidad'] + ")" +
+						""+ dat[i]['seccion'] + "(" + dat[i]['cantidad'] + ")" +
 				  "</label>"+
 				"</div>";
 			}
@@ -1085,15 +1099,10 @@ function inscribirUC(){
 }
 
 function succInscribirUC(data){
-	var ce = data.codCurEst;
-	var cod = data.codigo;
+	var msj = data.mensaje;
 	
-	if(ce != 0){
-		mostrarMensaje("El estudiante se ha inscrito con éxito en el curso "+cod+".",1);
-	}
-	else{
-		mostrarMensaje("No se pudo realizar la inscripción en el curso "+cod+".",3);
-	}
+	
+	mostrarMensaje(msj,1);
 }
 
 function succListarUniEstudiante(data){

@@ -337,21 +337,30 @@ Descripción:
 		 public static function insertarCurEst($codEstudiante, $codCurso, $porAsistencia, $nota, $codEstado, $observaciones){
 			 try{
 				$conexion=Conexion::conectar();
-				$consulta="select sis.f_cur_estudiante_ins(:p_cod_estudiante,:p_cod_curso,:p_por_asistencia,:p_nota,:p_cod_estado,:p_observaciones)";
-				$ejecutar=$conexion->prepare($consulta);
+				
+				if(!self::verificarEst($codEstudiante,$codCurso)){
+					$consulta="select sis.f_cur_estudiante_ins(:p_cod_estudiante,:p_cod_curso,:p_por_asistencia,:p_nota,:p_cod_estado,:p_observaciones)";
+					
+					$ejecutar=$conexion->prepare($consulta);
 
-				$ejecutar->bindParam(':p_cod_estudiante',$codEstudiante, PDO::PARAM_INT);
-				$ejecutar->bindParam(':p_cod_curso',$codCurso, PDO::PARAM_INT);
-				$ejecutar->bindParam(':p_por_asistencia',$porAsistencia, PDO::PARAM_INT);
-				$ejecutar->bindParam(':p_nota',$nota, PDO::PARAM_STR);
-				$ejecutar->bindParam(':p_cod_estado',$codEstado, PDO::PARAM_STR);
-				$ejecutar->bindParam(':p_observaciones',$observaciones, PDO::PARAM_STR);
-				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+					$ejecutar->bindParam(':p_cod_estudiante',$codEstudiante, PDO::PARAM_INT);
+					$ejecutar->bindParam(':p_cod_curso',$codCurso, PDO::PARAM_INT);
+					$ejecutar->bindParam(':p_por_asistencia',$porAsistencia, PDO::PARAM_INT);
+					$ejecutar->bindParam(':p_nota',$nota, PDO::PARAM_STR);
+					$ejecutar->bindParam(':p_cod_estado',$codEstado, PDO::PARAM_STR);
+					$ejecutar->bindParam(':p_observaciones',$observaciones, PDO::PARAM_STR);
+					$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 
-				$ejecutar->execute();
+					$ejecutar->execute();
 
-				$codigo = $ejecutar->fetchColumn(0);
-				return $codigo;
+					$codigo = $ejecutar->fetchColumn(0);
+					return $codigo;
+				}
+				else{
+					self::cambiarEstado($codEstudiante,$codCurso,'C');
+					
+					return 0;
+				}
 			}
 			catch(Exception $e){
 				throw $e;
@@ -920,9 +929,6 @@ Descripción:
 				$ejecutar=$conexion->prepare($consulta);
 				$conexion->beginTransaction();
 				
-				
-				
-				//$ejecutar->bindParam(':lista',$lista, PDO::PARAM_INT);
 				$ejecutar->bindParam(':pensum',$pensum);
 				$ejecutar->bindParam(':instituto',$instituto);
 				
@@ -1068,6 +1074,57 @@ Descripción:
 				throw $e;
 			}
 		}
-
+		
+		
+		public static function cambiarEstado($codEstudiante,$codCurso,$estado){
+			try{
+				$conexion = Conexion::conectar();
+				
+				$consulta = "update 	sis.t_cur_estudiante
+										set cod_estado = :estado
+										where cod_estudiante = :codEstudiante
+										and cod_curso = :codCurso";
+										
+				$ejecutar=$conexion->prepare($consulta);
+				$conexion->beginTransaction();
+				$ejecutar->bindParam(':codEstudiante', $codEstudiante, PDO::PARAM_INT);
+				$ejecutar->bindParam(':codCurso', $codCurso, PDO::PARAM_INT);
+				$ejecutar->bindParam(':estado', $estado, PDO::PARAM_INT);
+				$ejecutar->execute();
+				
+				$conexion->commit();
+			
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+		
+		
+		
+		public static function verificarEst($codEstudiante,$codCurso){
+			try{
+				$conexion = Conexion::conectar();
+				
+				$consulta = "select		codigo
+										from sis.t_cur_estudiante
+										where cod_estudiante = :codEstudiante
+										and cod_curso = :codCurso";
+				
+				$ejecutar=$conexion->prepare($consulta);
+				$conexion->beginTransaction();
+				$ejecutar->bindParam(':codEstudiante', $codEstudiante, PDO::PARAM_INT);
+				$ejecutar->bindParam(':codCurso', $codCurso, PDO::PARAM_INT);
+				
+				$ejecutar->execute();
+				
+				return ($ejecutar->rowCount() > 0);
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+		
+		
 	}
 ?>
