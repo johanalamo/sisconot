@@ -70,7 +70,7 @@ function mostrarMensaje(mensaje, tipo){
 		cad2 = '¡Información!'; 
 	}
 
-	var cont = $("<div class='alert alert-" + cad + " alert-dismissible' style='bottom:"+cont+"px' role='alert'>"
+	var cont = $("<div class='alert alert-" + cad + " alert-dismissible' id='"+$(".alert").length+"' style='bottom:"+cont+"px' role='alert'>"
 					+ "<button type='button' class='close' data-dismiss='alert'>"
 					+ "<span aria-hidden='true'>&times;</span>"
 					+ "</button>"
@@ -78,7 +78,10 @@ function mostrarMensaje(mensaje, tipo){
 					+ "</div>");
 	
 	$(cont).appendTo(".alerts");
-
+	
+	setTimeout(function(){
+		$("#"+($(".alert").length - 1)).remove();
+	},5000);
 }
 
 

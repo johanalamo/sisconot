@@ -381,6 +381,8 @@ Descripción:
 
 				Vista::asignarDato("cursoInfoMontar",$r);
 
+			
+
 				Vista::mostrar();
 			}
 			catch(Exception $e){

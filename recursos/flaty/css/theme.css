@@ -26,12 +26,7 @@
   -webkit-animation-duration: 2s !important;
   animation-duration: 2s !important;
 }
-/*
-    Animate.css - http://daneden.me/animate
-    Licensed under the MIT license - http://opensource.org/licenses/MIT
 
-    Copyright (c) 2014 Daniel Eden
-*/
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -10650,7 +10645,7 @@ tbody.collapse.in {
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
   text-decoration: none;
-  color: #67d3e0;
+  color: black;
   background-color: transparent;
 }
 .bg-dark .dropdown-menu > li > a:hover,
@@ -10669,13 +10664,13 @@ tbody.collapse.in {
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
-  color: #bcbdc0;
-  background-color: #2a2f43;
+  color: black;
+  background-color: white;
 }
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
-  color: #777777;
+  color: #bcbdc0;
 }
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {

@@ -20,14 +20,15 @@ function succCargarInstitutos(data){
 	
 	var ins = data.institutos;
 	var cad = "";
-
-	//~ cad += '<select class="selectpicker" id="selInst" multiple title="Choose one of the following...">';
-
-	cad += "<select class='selectpicker' id='selInst' onchange='cargarPensums()' multiple title='Seleccione Instituto'>";
+	cad += "<select class='selectpicker' id='selInst' onchange='cargarPensums()' data-live-search='true' data-size='auto'>";
 
 	if(ins){
+		
+		cad += "<option value='-1' disabled selected> Seleccione Instituto</option>";
+		
 		for(var i = 0; i < ins.length; i++){
 			cad += "<option value="+ins[i][0]+">"+ins[i]['nombre']+"</option>";
+			
 		}
 		
 	}
@@ -38,6 +39,7 @@ function succCargarInstitutos(data){
 	cad += "</select>";
 
 	$("#selInst").selectpicker("destroy");
+	$("#selInst").remove();
 	$("#divInst").append(cad);
 	$("#selInst").selectpicker();
 }
@@ -55,10 +57,11 @@ function succCargarPensums(data){
 	var pen = data.pensum;
 	var cad = "";
 
-	cad += "<select class='selectpicker' id='selPen' onchange='cargarPeriodos()' data-live-search='true' data-size='auto' multiple data-max-options='1' title='Seleccione Pensum'>";
+	cad += "<select class='selectpicker' id='selPen' onchange='cargarPeriodos()' data-live-search='true' data-size='auto'>";
 
 	if(pen){
-
+		cad += "<option value='-1' disabled selected> Seleccione Pensum</option>";
+		
 		for(var i = 0; i < pen.length; i++){
 			cad += "<option value="+pen[i][0]+">"+pen[i][1]+"</option>";
 		}
@@ -97,12 +100,14 @@ function succCargarPeriodos(data){
 	var cad = "";
 
 	if($("#divEstudiante").length > 0){
-		cad += "<select class='selectpicker' id='selPer' onchange='cargarEstudiantes()' data-live-search='true' data-size='auto' multiple data-max-options='1' title='Seleccione Periodo'>";
+		cad += "<select class='selectpicker' id='selPer' onchange='cargarEstudiantes()' data-live-search='true' data-size='auto'>";
 	}
 	else {
-		cad += "<select class='selectpicker' id='selPer' onchange='cargarTrayectos()' data-live-search='true' data-size='auto' multiple data-max-options='1' title='Seleccione Periodo'>";
+		cad += "<select class='selectpicker' id='selPer' onchange='cargarTrayectos()' data-live-search='true' data-size='auto'>";
 	}
 	if(per){
+		cad += "<option value='-1' disabled selected> Seleccione Periodo</option>";
+		
 		for(var i = 0; i < per.length; i++){
 			cad += "<option value="+per[i][0]+">"+per[i][1]+"</option>";
 		}
@@ -133,6 +138,9 @@ function succCargarTrayectos(data){
 	var cad = "";
 
 	if(tra){
+		
+		cad += "<option value='-1' disabled selected> Seleccione Trayecto</option>";
+		
 		for(var i = 0; i < tra.length; i++){
 			cad += "<option value="+tra[i]['codigo']+">Trayecto "+tra[i]['num_trayecto']+"</option>";
 		}
@@ -158,6 +166,9 @@ function succCargarSeccion(data){
 	var cad = "";
 
 	if(sec){
+		
+		cad += "<option value='-1' disabled selected> Seleccione Sección</option>";
+		
 		for(var i = 0; i < sec.length; i++){
 			cad += "<option value="+sec[i][0]+">Sección "+sec[i][0]+"</option>";
 		}
@@ -186,6 +197,9 @@ function succCargarUni(data){
 	var cad = "";
 
 	if(uni){
+		
+		cad += "<option value='-1' disabled selected> Seleccione Unidad Curricular</option>";
+		
 		for(var i = 0; i < uni.length; i++){
 			cad += "<option value="+uni[i]['codigo']+">"+uni[i]['nombre']+"</option>";
 		}
@@ -683,7 +697,7 @@ function montarSelectEstado(data){
 		var cad = "";
 		if(dat){
 			for(var i = 0; i < dat.length; i++)
-				cad += "<option value='"+dat[i]['codigo']+"'>"+dat[i]['nombre']+"</option>";
+				cad += "<option value='"+dat[i]['codigo']+"'>"+dat[i]['nombre']+"</option>";
 		}
 	}
 }
@@ -731,15 +745,16 @@ function succListarEstudiantesCargarNotas(data){
 		cad += "<th style='text-align:center' class='dark'>Observaciones</th>";
 
 		var prom = 0;
-
-		montarSelectEstado(null);
-
+		
+		console.log(est);
+		
 		cad += "<input type='hidden' id='codigocurso' value='"+est[0]['cod_curso']+"'>";
 
 		for(var i = 0; i < est.length; i++){
 			cad += "<tr>";
 
 			cad += "<td style='text-align:center'>"+(i+1)+" <input type='hidden' id='hid"+i+"' value='n'>";
+			
 			cad += "<input type='hidden' id='curest"+i+"' value='"+est[i]['cod_curest']+"'></td>";
 			cad += "<input type='hidden' id='est"+i+"' value='"+est[i]['codigo']+"'></td>";
 
@@ -764,7 +779,7 @@ function succListarEstudiantesCargarNotas(data){
 			cad += "<td style='text-align:center'><select class='selectpicker' onchange='actualizarEstado("+i+")' data-live-search='true' data-size='auto' multiple data-max-options='1' id='estado"+i+"'>"+cad2+"</select></td>";
 
 			if(est[i]['observaciones'] == null)
-				cad += "<td style='text-align:center'><input type='text' class='form-control'  onchange='actualizarEstado("+i+")' id='obser"+i+"' value=''></td>";
+				cad += "<td style='text-align:center'><input type='text' class='form-control' onchange='actualizarEstado("+i+")' id='obser"+i+"' value=''></td>";
 			else
 				cad += "<td style='text-align:center'><input type='text' class='form-control' onchange='actualizarEstado("+i+")' id='obser"+i+"' value='"+est[i]['observaciones']+"'></td>";
 
@@ -810,7 +825,7 @@ function guardarNotas(i){
 							"nota"			,		$("#nota"+i).val(),
 							"observaciones"	,		$("#obser"+i).val(),
 							"nombre"		,		$("#nom"+i).val());
-
+			
 			ajaxMVC(arr,succGuardarNotas,err);
 		}
 	}
@@ -822,7 +837,7 @@ function succGuardarNotas(data){
 
 function succMontarSelects(data){
 	var dat = data.cursoInfoMontar;
-	console.log(data);
+	
 	var i = 1;
 	if(dat[0]['cod_instituto'] != null){
 		setTimeout(function (){
@@ -898,9 +913,12 @@ function succCargarEstudiantes(data){
 	var dat = data.estudiantes;
 	var cad = "";
 
-	cad += "<select class='selectpicker' id='selEstudiante' onchange='listarUniEstudiante()' data-live-search='true' data-size='auto' multiple data-max-options='1' title='Seleccione Estudiante'>";
+	cad += "<select class='selectpicker' id='selEstudiante' onchange='listarUniEstudiante()' data-live-search='true' data-size='auto'a>";
 
 	if(dat){
+		
+		cad += "<option value='-1' disabled selected> Seleccione Estudiante</option>";
+		
 		for(var i = 0; i < dat.length; i++){
 			cad += "<option value='"+dat[i]['codigo']+"'>"+dat[i]['nombrecompleto']+"</option>";
 		}
@@ -989,7 +1007,7 @@ function succCursosInscribir(data){
 				"<div class='radio-inline'>" +
 				  "<label>" +
 						"<input type='radio' name='opc"+cont+"' onchange='cambiarEstUC("+dat[i]['codigo']+","+cont+")'>" +
-						""+ dat[i]['seccion'] + "(" + dat[i]['cantidad'] + ")" +
+						""+ dtableCursosDat[i]['seccion'] + "(" + dat[i]['cantidad'] + ")" +
 				  "</label>"+
 				"</div>";
 			}
