@@ -210,7 +210,7 @@ function verInstitutoEs(){
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
 					"tipo_persona",	"estudiante",
-					"campo",		$("#campo")													
+					"campo",		$("#campo").val()												
 					);
 		
 	ajaxMVC(arr,montarSelectInstituto,error);
@@ -254,7 +254,7 @@ function verPNFEs(){
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
 					"tipo_persona",	"estudiante",
-					"campo",		$("#campo")													
+					"campo",		$("#campo").val()												
 					);
 		
 	ajaxMVC(arr,montarSelectPNF,error);
@@ -284,7 +284,7 @@ function montarSelectPNFE(data){
 /**
 * Funcion Java Script que permite mostrar un select con
 * los estados y es concatenado a un  div en la vista HTML
-*/
+*/ /*
 function montarSelectEstadoE(data){
 	
 	var cadena = "";
@@ -299,7 +299,7 @@ function montarSelectEstadoE(data){
 	$(cadena).appendTo('.selectEstado');
 	activarSelect();					
 }
-
+*/
 
 /** 
 * Funcion Java Script que permite listar Todas las personas de tipo estudiante
@@ -334,8 +334,9 @@ function verEstadoEs(){
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
 					"tipo_persona",	"estudiante",
-					"campo",		$("#campo")			
-					);		
+					"campo",		$("#campo").val()	
+					);	
+
 	ajaxMVC(arr,montarSelectEstado,error);
 }
 
@@ -346,7 +347,7 @@ function verEstadoEs(){
 * para que luego sean mostradas. los datos son enviados
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarPersona().
-*/
+*//*
 function montarPersonaEstudiante(data){
 
 	cadena="";
@@ -376,7 +377,7 @@ function montarPersonaEstudiante(data){
 	$("#listarPersona").remove();
 	$(cadena).appendTo('#primeraTabla');
 }
-
+*/
 /**
 * Funcion Java Script que permite listar a un estudiante en el HTML para
 * que lugo se modifique su informacionde la base de datos. Los Datos son enviados

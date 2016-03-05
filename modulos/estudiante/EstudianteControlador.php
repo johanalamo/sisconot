@@ -107,6 +107,8 @@ class EstudianteControlador
 			Vista::asignarDato('tipo_persona',$tipo_persona);
 			Vista::asignarDato('estudiante',$estudiante);
 
+			Vista::asignarDato('codi',PostGet::obtenerPostGet("codi"));
+			
 			Vista::Mostrar();
 
 		}

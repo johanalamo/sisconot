@@ -24,12 +24,32 @@
 				<fieldset class="scheduler-border">
 					<legend class="scheduler-border">personalizacion de busqueda (no entiendo)</legend>
 					<div class="selectListar text-center">
-						<div class="selectInstituto"> </div>
+						<div class="selectInstituto"> 
+							<div id='selectIns' onmouseover="verInstituto();"> institutos
+								<select onchange='verPersona(); verPNF();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >
+									<option value='seleccionar' >Seleccionar</option>
+								</select>
+							</div>
+
+						</div>
 
 						<br>
-						<div class="selectPensum"> </div>
+						<div class="selectPensum">
+							<div id='selectPensuma'> Pensum 
+								<select onchange='verPersona(); verPNF();' class='selectpicker' id='selectPNF' title='Pensum' data-live-search='true' data-size='auto' data-max-options='12' >
+									<option value='seleccionar' >Seleccionar</option>
+								</select>
+							</div>
+						</div>
 						<br>
-						<div class="selectEstado"> </div>
+
+						<div class="selectEstado" > 
+							<div id='selectEstados' onmouseover="verEstado();"> Estado
+								<select onchange='verPersona(); verEstado();' class='selectpicker' id='selectEstado' title='Estados' data-live-search='true' data-size='auto' data-max-options='12' >
+									<option value='seleccionar' >Seleccionar</option>
+								</select>
+							</div>
+						</div>
 						<br>
 						
 						<input type='text' name='campo' id='campo' placeholder='Nombre/Apellido/Cedula' onkeyup='buscarPorCampo();' class="form-control">
@@ -62,7 +82,7 @@
 								<b>Estudiantes<b>
 							</button>
 
-							<button type="button" class="btn btn-info" title="ambos" onclick="verPersona(); verEstado(); ">
+							<button type="button" class="btn btn-info" title="ambos" onclick="verPersona();">
 								<b>Ambos<b>
 							</button>
 
@@ -74,11 +94,12 @@
 						<div class="text-right">
 							<button type="button" name="ods" class="btn btn-warning" title="Exportar en formato documento" onclick="exportarODT();"><b>ODT</b></button>
 
-						<a type="button" name="pdf" class="btn btn-warning" title="Exportar en formato PDF" onclick="exportarPDF();"><b>PDF</b></a>
+						<a type="button" name="pdf" class="btn btn-warning" title="Exportar en formato PDF" onclick="exportarPDF(); "><b>PDF</b></a>
 
 						<button type="button" name="excel" class="btn btn-warning" title="Exportar en formato Excel" onclick="exportarODS();"><b>Hoja de calculo</b></button>
 
 							<input type="hidden" id="tipoPersona" name="tipoPersona" value="ambos">
+							<input type="hidden" id="cod_persona" name="cod_persona" value="null">
 						</div>
 
 						<table class="table table-hover tablaListar" id="primeraTabla" " width="100%">
