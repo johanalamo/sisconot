@@ -59,7 +59,7 @@ class EmpleadoServicio
 	{
 		try
 		{
-
+			
 			$conexion = Conexion::conectar();
 			$consulta = " select sis.f_empleado_ins(
 													:cod_persona,		:cod_instituto,		:cod_pensum,
@@ -367,7 +367,7 @@ class EmpleadoServicio
 			$consulta= "select sis.f_empleado_sel(:cursor)";
 			
 			$ejecutar= $conexion->prepare($consulta);
-			$cursor='fcursorinst';;
+			$cursor='fcursorinst';
 			$ejecutar->bindParam(':cursor',$cursor, PDO::PARAM_INT);	
 			// inicia transaccion
 			$conexion->beginTransaction();

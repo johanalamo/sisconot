@@ -274,7 +274,7 @@ class PersonaServicio
 				$consulta2=" select p.*/*,em.*,es.*, p.codigo as cod_persona,es.codigo as cod_estudiante, em.codigo as cod_empleado,
 							es.fec_inicio as fec_inicio_es, es.fec_fin as fec_fin_es, em.fec_inicio as fec_inicio_em,
 							em.fec_fin as fec_fin_em */, p.codigo as cod_persona
-							from sis.t_persona p left join sis.t_estudiante es 
+							from  sis.t_persona p left join sis.t_estudiante es 
 							on true and p.codigo=es.cod_persona  $con_estudiante
 							left join sis.t_empleado em 
 							on true and em.cod_persona=p.codigo  $con_empleado ";
@@ -287,7 +287,8 @@ class PersonaServicio
 
 			
 			$ejecutar-> execute(array());
- 
+ 			
+ 		
 			if($ejecutar->rowCount() != 0)
 				return $ejecutar->fetchAll();
 			else
@@ -490,7 +491,7 @@ class PersonaServicio
 				$ejecutar->execute();
 				//primera columana codigo
 				$row = $ejecutar->fetchColumn(0);					
-				var_dump($row);
+				//var_dump($row);
 				if ($row == 0)
 					throw new Exception("No se pudo eliminar a la persona.");
 

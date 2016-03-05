@@ -72,9 +72,9 @@ $(function()
 });
 
 $(document).ready(function() {
-	verInstituto();
-	verPNF();
-	verEstado();
+	//verInstituto();
+	//verPNF();
+	//verEstado();
 	verPersona();
 	tabsBloqueados();
 	removerEsEm();
@@ -136,8 +136,8 @@ function foto(data){
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarSelectInstituto().
 */
-function verInstituto(){
 
+function verInstituto(){
 	var arr = Array("m_modulo"	,	"persona",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
@@ -158,25 +158,40 @@ function verInstituto(){
 function montarSelectInstituto(data){
 	var cadena = "";
 
-	$("#selectIns").remove();	
-	cadena+="<div id='selectIns'> institutos ";
+	if(!data.empleado2){
+		//$("#selectEstados").remove();	
+		$("#selectIns").remove();
+		cadena+="<div id='selectIns'> institutos ";
+	}
+	else{
+		$("#selectInsEm").remove();
+		cadena+="<div id='selectInsEm'> institutos ";
+	}
+
+	
 	if(data.tipo_persona=='estudiante')
 		cadena += "<select onchange='verPersonaEstudiante(); verPNFEs();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	else if(data.tipo_persona=='empleado')
+	else if(data.tipo_persona=='empleado' && !data.empleado2)
 		cadena += "<select onchange='verPersonaEmpleado(); verPNFEm();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
+	else if(data.tipo_persona=='empleado' && data.empleado2)
+		cadena += "<select onchange='verPersonaEmpleado(); ' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >";
 	else
 		cadena += "<select onchange='verPersona(); verPNF();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar' >Seleccionar</option>";
 	for(var x=0; x<data.instituto.length;x++)
 	{
-	 	if(data.instituto[x]['codigo']!=11)
+
 	 		cadena += '<option value="'+data.instituto[x]["codigo"]+'">'+data.instituto[x]["nom_corto"]+'</option>';
 	 	/*else
 	 		cadena += '<option selected="selected" value="'+data.instituto[x]["codigo"]+'">'+data.instituto[x]["nom_corto"]+'</option>';*/
 	}
 	cadena +="</select>";
-	$(cadena).appendTo('#selectInstitutos');
-	$(cadena).appendTo('.selectInstituto');
+	if(!data.empleado2){
+		$(cadena).appendTo('#selectInstitutos');
+		$(cadena).appendTo('.selectInstituto');
+	}
+	else
+		$(cadena).appendTo('.selectInstitutoEm');
 	activarSelect();	
 
 }
@@ -188,7 +203,7 @@ function montarSelectInstituto(data){
 * los resultados en la funcion montarSelectPNF().
 */
 function verPNF(){
-
+	//alert($("#selectInstituto").val());
 	var arr = Array("m_modulo"	,	"persona",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
@@ -207,9 +222,9 @@ function verPNF(){
 * los PNF y es concatenado a un  div en la vista HTML
 */
 function montarSelectPNF(data){
-
+console.log(data);
 	var cadena = "";
-	$("#selectPensuma").remove();	$("#selectPensuma").remove();
+	$("#selectPensuma").remove();//	$("#selectPensuma").remove();
 
 	cadena+="<div id='selectPensuma'> Pensum ";
 	if(data.tipo_persona=='estudiante')
@@ -222,7 +237,7 @@ function montarSelectPNF(data){
 	if(data.pnf){
 		for(var x=0; x<data.pnf.length;x++)
 		{	
-			cadena += '<option value="'+data.pnf[x]["codigo"]+'">'+data.pnf[x][1]+'</option>';
+			cadena += '<option value="'+data.pnf[x]["cod_pensum"]+'">'+data.pnf[x][2]+'</option>';
 		}
 	}
 	
@@ -257,14 +272,24 @@ function verEstado(){
 * los estados y es concatenado a un  div en la vista HTML
 */
 function montarSelectEstado(data){
-
+	console.log(data);
 	var cadena = "";
-	$("#selectEstados").remove();$("#selectEstados").remove();	
-	cadena+="<div id='selectEstados'> Estado ";
+	$("#selectEstados").remove();
+	if(data.empleado2){
+		$("#selectEstadosEm").remove();$("#selectEstadosEm").remove();//$("#selectEstados").remove();	
+	}
+	//alert(data.empleado2);
+	if(!data.empleado2)
+		cadena+="<div id='selectEstados'> Estado ";
+	else
+		cadena+="<div id='selectEstadosEm'> Estado";
+	
 	if(data.tipo_persona=='estudiante')
 		cadena += "<select onchange='verPersonaEstudiante();' name='selectEstado' id='selectEstado' class='selectpicker'  title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	else if(data.tipo_persona=='empleado')
+	else if(data.tipo_persona=='empleado' && !data.empleado2)
 		cadena += "<select onchange='verPersonaEmpleado();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
+	else if(data.tipo_persona=="empleado" && data.empleado2==true)
+		cadena += "<select onchange='verPersonaEmpleado();' name='selectEstado' class='selectpicker' id='selectEstado2' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	else
 		cadena += "<select onchange='verPersona();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar'>Seleccionar</option>";
@@ -273,8 +298,10 @@ function montarSelectEstado(data){
 		cadena += '<option value="'+data.estado[x]["codigo"]+'">'+data.estado[x]["nombre"]+'</option>';
 	}
 	cadena +="</select></div>";
-
-	$(cadena).appendTo('.selectEstado');
+	if(!data.empleado2)
+		$(cadena).appendTo('.selectEstado');
+	else
+		$(cadena).appendTo('.selectEstadoEm');
 	activarSelect();	
 				
 }
@@ -285,15 +312,17 @@ function montarSelectEstado(data){
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarPersona().
 */
-function verPersona(){
+function verPersona(codi=null){
+
 	var arr = Array("m_modulo"	,	"persona",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"campo"		,	$("#campo").val()
+					"campo"		,	$("#campo").val(),
+					"tipo_persona", "ambos",
+					"codi"		,	codi
 					);
-		
 	ajaxMVC(arr,montarPersona,error);
 }
 
@@ -324,14 +353,15 @@ function succFoto(data){
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarPersona().
 */
-function verPersonaEmpleado(){
+function verPersonaEmpleado(codi=null){
 	$("#tipoPersona").val("empleado");
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"empleado"
+					"tipo_persona",	"empleado",
+					"codi"		,	codi
 					);
 		
 	ajaxMVC(arr,montarPersona,error);
@@ -345,16 +375,17 @@ function verPersonaEmpleado(){
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarPersona().
 */
-function verPersonaEstudiante(){
+function verPersonaEstudiante(codi=null){
 	$("#tipoPersona").val("estudiante");
 	var arr = Array("m_modulo"	,	"estudiante",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"estudiante"
+					"tipo_persona",	"estudiante",
+					"codi"		,	codi
 					);
-	
+	//alert(codi);
 	ajaxMVC(arr,montarPersona,error);
 }
 
@@ -364,8 +395,6 @@ function verPersonaEstudiante(){
 */
 function montarPersona(data){	
 
-	console.log(data);
-	console.log(data);
 	cadena="";
 	cadena+='<tbody id="listarPersona">';
 
@@ -381,8 +410,43 @@ function montarPersona(data){
 				var apellido=data.persona[x]['nombre2'];
 			else
 				var apellido="";
-			cadena+="<tr>";
-			cadena+="<td><input id='cod_persona' type='radio' name='cod_persona' value='"+data.persona[x]['cod_persona']+"'>"+data.persona[x]['cod_persona']+"</td>";
+
+			if(data.codi){
+				if(data.codi==data.persona[x]['cod_persona']){
+					$("#cod_persona").val(data.persona[x]['cod_persona']);
+
+					if($("#tipoPersona").val()=="estudiante"){
+						cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
+					}
+					else if($("#tipoPersona").val()=="empleado")
+						cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
+					else if($("#tipoPersona").val()=="ambos")
+						cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
+
+				}
+				else{
+					if($("#tipoPersona").val()=="estudiante")
+						cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+");'>";
+					else if($("#tipoPersona").val()=="empleado")
+						cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+");'>";
+					else if($("#tipoPersona").val()=="ambos")
+						cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");' >";
+
+					//cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");'>";
+				}
+			}
+			else{
+
+				if($("#tipoPersona").val()=="estudiante")
+					cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+");'>";
+				else if($("#tipoPersona").val()=="empleado")
+					cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+");'>";
+				else if($("#tipoPersona").val()=="ambos")
+					cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");' >";
+
+				//cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");'>";
+			}
+			cadena+="<td>"+data.persona[x]['cod_persona']+"</td>";
 			cadena+="<td>"+data.persona[x]['cedula']+"</td>";
 			cadena+="<td>"+data.persona[x]['apellido1']+" "+nombre+"</td>";
 			cadena+="<td>"+data.persona[x]['nombre1']+" "+apellido+"</td>";
@@ -398,6 +462,8 @@ function montarPersona(data){
 	$(cadena).appendTo('#primeraTabla');
 
 }
+
+
 
 /**
 * Funcion Java Script que permite modificar la informacion
@@ -474,8 +540,8 @@ function guardarPersona(){
 					"estado",		$('#estado').val(),
 					a 		,		b
 				);
-
-	setTimeout(function(){ ajaxMVC(arr,succAgregarPersona,error); }, 600);
+	
+	setTimeout(function(){ ajaxMVC(arr,succAgregarPersona,error); }, 300);
 	
 	//ajaxMVC(arr,succAgregarPersona,error);
 }
@@ -487,12 +553,13 @@ function guardarPersona(){
 */
 function modificarPersona(codigo=null){
 
+
 	if(getVarsUrl().persona)
 		codigo=getVarsUrl().persona;
 	else if(!codigo)
-		codigo=$('input:radio[name=cod_persona]:checked').val();
+		codigo=$('#cod_persona').val();
 
-	window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_formato=html5&persona='+codigo+'&accion=M';
+	window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_accion=listar&m_formato=html5&persona='+codigo+'&accion=M';
 }
 
 function mostrarPersona(){
@@ -501,7 +568,7 @@ function mostrarPersona(){
 	if(getVarsUrl().persona)
 		codigo=getVarsUrl().persona;
 	else
-		codigo=$('input:radio[name=cod_persona]:checked').val();
+		codigo=$('#cod_persona').val();
 	
 	window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_formato=html5&persona='+codigo+'&accion=V';
 }
@@ -518,6 +585,7 @@ function bloquearCampos(ver=null){
 
 function mostrarInformaion(){
 	$("#historico").hide();
+
 	if(getVarsUrl().persona){
 		var arr = Array("m_modulo"	,"persona",
 					"m_accion"	,	"modificar",					
@@ -552,7 +620,7 @@ function mostrarInformaion(){
 			$("#nv_empleado").remove();
 			$("#nv_estudiante").remove();
 		}
-
+	//	alert("$$$$$$$"); 	
 		ajaxMVC(arr,succMontarModificarPersona,error);
 	}
 	
@@ -573,7 +641,9 @@ function mostrarInformaion2(){
 }
 
 function succMontarModificarPersona2(data){
-	setTimeout(function(){ succMontarModificarEmpleado(data); }, 300);
+	if(data.empleado){
+		setTimeout(function(){ succMontarModificarEmpleado(data); }, 300);
+	}
 }
 /**
  * esta funcion JavaScript permite signar los datos obtenido en la
@@ -591,9 +661,13 @@ function succMontarModificarPersona (data){
 
 
 function succMontarModificarPersona(data){
-	
-	verEstadoEs();
+	/*console.log(data.persona);
+	console.log(data.persona);*/
+
+
+	//verEstadoEs();	
 	tabsActivos(); 
+	
 	//$("#estudiante").show();
 	//$("#historico").hide();
 	$("#ced_persona").val(data.persona[0]['cedula']);
@@ -617,8 +691,7 @@ function succMontarModificarPersona(data){
 	$('#fecNacimiento').val(data.persona[0]['fec_nacimiento']);
 	$('#cod_persona').val(data.persona[0]['codigo']);
 	$('#codigoPersona').val(data.persona[0]['codigo']);
-	//alert(data.foto);
-	setTimeout(function(){ 
+	//setTimeout(function(){ 
 	if(data.foto){
 		
 		$("#imagen").remove();
@@ -629,7 +702,9 @@ function succMontarModificarPersona(data){
 		
 		$("#superImagen").append(cadena);
 	}
-	}, 400);
+	//}, 400);
+	//alert(data.foto);
+	
 	if(data.empleado)
 		setTimeout(function(){ succMontarModificarEmpleado(data); }, 400);
 	if(data.estudiante)
@@ -693,7 +768,7 @@ function fecActual(){
 
 function succAgregarPersona(data){
 	//aqui se agrega el codigo de persona en el hiden
-	console.log(data);
+	//console.log(data);
 //alert(data.mensaje);
 	//alert(data.codPersona);
 
@@ -714,15 +789,19 @@ function succAgregarPersona(data){
 		
 		if(data.foto){
 			//alert(data.foto);
-			$("#imagen").remove();
+			/*$("#imagen").remove();
 			var cadena ="";
 			cadena+="<div id='imagen'>";
 			cadena+="<img src="+data.foto+" width='200' height='200'>";
 			cadena+="</div>";
 			
 			$("#superImagen").append(cadena);
+			$("#imagen").remove();*/
+			modificarPersona(data.codPersona); 
+				//window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_accion=listar&m_formato=html5&persona='+codigo+'&accion=M';
+			//mostrarInformaion();
 		}
-		//setTimeout(function(){modificarPersona(data.codPersona); }, 400);
+		
 
 	}
 
@@ -730,17 +809,17 @@ function succAgregarPersona(data){
 
 function exportarODS(){
 
-	window.location.assign("index.php?m_modulo=persona&m_formato=ods&m_vista=ListarPersona");
+	window.location.assign("index.php?m_modulo=persona&m_formato=ods&m_vista=ListarPersona&m_accion=listar&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selectInstituto").val());
 }
 
 function exportarPDF(){
-	
-	window.location.assign("index.php?m_modulo=persona&m_accion=listar&m_formato=pdf&m_vista=ListarPersona&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selecInstituto").val()+"&tipo_persona="+""+"&campo"+$("#campo").val());
+	//verPersona();
+	window.location.assign("index.php?m_modulo=persona&m_formato=pdf&m_vista=ListarPersona&m_accion=listar&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selectInstituto").val());
 }
 
 function exportarODT(){
 
-	window.location.assign("index.php?m_modulo=persona&m_formato=odt&m_vista=ListarPersona");
+	window.location.assign("index.php?m_modulo=persona&m_formato=odt&m_vista=ListarPersona&m_accion=listar&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selectInstituto").val());
 }
 
 function tabsBloqueados(){

@@ -106,7 +106,7 @@
 					$personas=null;			
 
 				
-				if(!$tipo_persona)			
+				if(!$tipo_persona || $tipo_persona=="ambos")			
 					$personas=PersonaServicio::listar($pnf,$estado,$instituto,$campo);
 								
 			/*	elseif($tipo_persona=="estudiante"){
@@ -120,7 +120,9 @@
 			
 				if(!$instituto)
 					$instituto=null;
+
 				
+
 				$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
 				$instituto=InstitutoServicio::listarInstitutos();	
 				
@@ -130,9 +132,9 @@
 				Vista::asignarDato('estado',$estado);
 				Vista::asignarDato('persona',$personas);
 				Vista::asignarDato('tipo_persona',$tipo_persona);
-				
-				if(!$personas){
-					
+				Vista::asignarDato('codi',PostGet::obtenerPostGet("codi"));
+
+				if(!$personas){					
 					Vista::asignarDato('persona',null);
 				}
 
@@ -308,8 +310,7 @@
 					$foto=FotoControlador::Iniciar("temp/".$persona[0]["cod_persona"].".".$a[1]);
 
 					}
-					else			
-						echo "noooooooo";
+					
 					if($foto)
 						PersonaServicio::agregarFoto($persona[0]["cod_persona"],$foto,$a[1]);
 				}
@@ -320,11 +321,10 @@
 					//PersonaServicio::modificarFoto($codigo,$arch,$a[1],$archivo["name"]);
 					if($a){
 						copy($arch,"temp/".$codigo.".".$a[1]);
-					$foto=FotoControlador::Iniciar("temp/".$persona[0]["cod_persona"].".".$a[1]);
+						$foto=FotoControlador::Iniciar("temp/".$persona[0]["cod_persona"].".".$a[1]);
 
 					}
-					else
-						echo "nuuuuu";
+					
 					
 					$response=PersonaServicio::listarFoto($codigo);
 					if($response)

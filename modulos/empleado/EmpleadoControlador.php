@@ -67,7 +67,7 @@ class EmpleadoControlador
 			$codPersona=PostGet::obtenerPostGet("codPersona");
 			$codigo=PostGet::obtenerPostGet("codEmpleado");
 
-			$achi=PostGet::obtenerPostGet("achi");
+			
 
 			
 
@@ -92,9 +92,9 @@ class EmpleadoControlador
 
 
 
-
 			$personas=EmpleadoServicio::listarPersonaEmpleado($pnf,$estado,$instituto);
 			$empleado=EmpleadoServicio::listar(null,null,null,$codigo,$codPersona);
+						
 			vista::asignarDato('persona',$personas);
 
 			if(!$personas)					
@@ -102,7 +102,7 @@ class EmpleadoControlador
 
 			if(!$codPersona)
 				Vista::asignarDato('empleado',null);
-			
+			//var_dump($instituto);
 			$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
 			$instituto=InstitutoServicio::listarInstitutos();			
 			$estado=PersonaServicio::listarEstado("docente");
@@ -112,6 +112,8 @@ class EmpleadoControlador
 			Vista::asignarDato('tipo_persona',$tipo_persona);			
 			Vista::asignarDato('empleado',$empleado);
 			Vista::asignarDato('codPersona',$codPersona);
+			Vista::asignarDato('empleado2',PostGet::obtenerPostGet("empleado2"));
+			Vista::asignarDato('codi',PostGet::obtenerPostGet("codi"));
 
 			Vista::Mostrar();
 
@@ -183,12 +185,22 @@ class EmpleadoControlador
 											$es_jef_pensum, $es_jef_con_estudio,$es_ministerio,
 											$Docente,		$observaciones
 										);
-			else
-				$response2= EmpleadoServicio::modificar($codigo,		$codPersona, 	$codInstituto, 			$codPensum, 	
+			else{
+				
+				if(EmpleadoServicio::listar(null,null,null,$codigo))
+					$response2= EmpleadoServicio::modificar($codigo,		$codPersona, 	$codInstituto, 			$codPensum, 	
 											$codEstado,		$fecInicio, 		$fecFin, 
 											$es_jef_pensum, $es_jef_con_estudio,$es_ministerio,
 											$Docente,		$observaciones
 										);
+				else
+					$response = EmpleadoServicio::agregar($codPersona, 	$codInstituto, 			$codPensum, 	
+											$codEstado,		$fecInicio, 		$fecFin, 
+											$es_jef_pensum, $es_jef_con_estudio,$es_ministerio,
+											$Docente,		$observaciones
+										);
+
+			}
 			//var_dump($response);
 			if($response!=null){
 				Vista::asignarDato('estatus', $response);
