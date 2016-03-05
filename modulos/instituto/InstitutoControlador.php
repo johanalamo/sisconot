@@ -183,6 +183,7 @@ class InstitutoControlador {
 					$mensaje="no hay institutos";
 					Vista::asignarDato('mensaje',$mensaje);
 				}
+				
 				Vista::mostrar();
 			}catch(Exception $e){
 				throw $e;

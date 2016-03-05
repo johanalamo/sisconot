@@ -13,10 +13,16 @@
 			<input type="text" id="patron" class="form-control" placeholder='Patrón de búsqueda' onchange='cargarPeriodosP()'></input>
 		</div>
 		<div class="col-md-6">
-			<button class="btn btn-success btn-xs">Agregar</button>
-			<button class="btn btn-warning btn-xs">Modificar</button>
-			<button class="btn btn-danger btn-xs">Eliminar</button>
+			<div>
+				<button class="btn btn-success btn-xs">Agregar</button>
+			</div>
+			
+			<div id='divBtn' hidden>
+				<button class="btn btn-warning btn-xs">Modificar</button>
+				<button class="btn btn-danger btn-xs">Eliminar</button>
+			</div>
 		</div>
+		<br>
 		<br>
 		<br>
 		<div class="col-md-12" id="divP">

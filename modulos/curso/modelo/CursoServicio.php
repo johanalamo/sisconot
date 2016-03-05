@@ -962,6 +962,8 @@ Descripción:
 											on uni.codigo = utp.cod_uni_curricular
 										inner join sis.t_curso as cur
 											on cur.cod_uni_curricular = utp.cod_uni_curricular
+										inner join sis.t_periodo pdo
+											on pdo.codigo = cur.cod_periodo
 										left join sis.t_trayecto as tra
 											on tra.codigo = utp.cod_trayecto
 										left join (SELECT ce.cod_curso codigo, 
@@ -969,9 +971,11 @@ Descripción:
 												FROM sis.t_cur_estudiante ce 
 												where ce.cod_estado <> 'X' 
 												group by ce.cod_curso) cantc
+										
 										on cantc.codigo = cur.codigo
 										where est.codigo = :estudiante 
 										and coalesce(cantc.t,0) < cur.capacidad
+										and pdo.cod_estado = 'A' 
 										";
 										
 										if($aprobadas != NULL){

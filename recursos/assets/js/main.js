@@ -47,8 +47,12 @@ function activarFecha(elemento){
 }
 
 function mostrarMensaje(mensaje, tipo){
-	var cont = $(".alert").length * 100;
+	var len = $(".alert").height();
 	
+	len += len/2;
+	
+	var cont = $(".alert").length * len;
+
 	if(tipo==1){
 		cad = 'info'; 
 		cad2 = '¡Éxito!';
@@ -231,3 +235,5 @@ function obtenerMenu(opcion){
 		
 	}
 }
+
+

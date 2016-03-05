@@ -17,20 +17,25 @@ function cargarInstitutos(){
 }
 
 function succCargarInstitutos(data){
+	
 	var ins = data.institutos;
 	var cad = "";
 
-	cad += "<select class='selectpicker' id='selInst' onchange='cargarPensums()' data-live-search='true' data-size='auto' multiple data-max-options='1' title='Seleccione Instituto'>";
+	//~ cad += '<select class="selectpicker" id="selInst" multiple title="Choose one of the following...">';
+
+	cad += "<select class='selectpicker' id='selInst' onchange='cargarPensums()' multiple title='Seleccione Instituto'>";
 
 	if(ins){
 		for(var i = 0; i < ins.length; i++){
 			cad += "<option value="+ins[i][0]+">"+ins[i]['nombre']+"</option>";
 		}
-		cad += "</select>";
+		
 	}
 	else{
 		cad += "<option></option>";
 	}
+
+	cad += "</select>";
 
 	$("#selInst").selectpicker("destroy");
 	$("#divInst").append(cad);
@@ -123,7 +128,7 @@ function cargarTrayectos(){
 }
 
 function succCargarTrayectos(data){
-	console.log(data);
+
 	var tra = data.pensum;
 	var cad = "";
 
@@ -759,9 +764,9 @@ function succListarEstudiantesCargarNotas(data){
 			cad += "<td style='text-align:center'><select class='selectpicker' onchange='actualizarEstado("+i+")' data-live-search='true' data-size='auto' multiple data-max-options='1' id='estado"+i+"'>"+cad2+"</select></td>";
 
 			if(est[i]['observaciones'] == null)
-				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='obser"+i+"' value=''></td>";
+				cad += "<td style='text-align:center'><input type='text' class='form-control'  onchange='actualizarEstado("+i+")' id='obser"+i+"' value=''></td>";
 			else
-				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='obser"+i+"' value='"+est[i]['observaciones']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='form-control' onchange='actualizarEstado("+i+")' id='obser"+i+"' value='"+est[i]['observaciones']+"'></td>";
 
 			cad += "</tr>";
 		}
@@ -1057,6 +1062,8 @@ function inscribirUC(){
 			ajaxMVC(arr,succInscribirUC,err);
 		}
 	}
+	
+	listarUniEstudiante();
 }
 
 function succInscribirUC(data){
@@ -1069,7 +1076,6 @@ function succInscribirUC(data){
 	else{
 		mostrarMensaje("No se pudo realizar la inscripción en el curso "+cod+".",3);
 	}
-	listarUniEstudiante();
 }
 
 function succListarUniEstudiante(data){

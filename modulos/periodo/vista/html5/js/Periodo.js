@@ -151,7 +151,7 @@ function succCargarPeriodosP(data){
 		for(var i = 0; i < len; i++){
 			cad += "<tr>";
 			
-			cad += "<td style='text-align:center'><input name='radio' type='radio'></td>";
+			cad += "<td style='text-align:center'><input name='radio' type='radio' onclick='mostrarB()'></td>";
 			cad += "<input type='hidden' id='cod"+i+"' value='"+dat[i]['codigo']+"'>";
 			cad += "<td style='text-align:center'>"+dat[i]['nomi']+"</td>";
 			cad += "<td style='text-align:center'>"+dat[i]['nomp']+"</td>";
@@ -172,8 +172,15 @@ function succCargarPeriodosP(data){
 		mostrarMensaje("No hay periodos con este criterio de búsqueda",4);
 		$("#tableP").remove();
 	}
-	
-	
+}
+
+function mostrarB(){
+	$("#divBtn").show();
+	//~ $("#estadoSel").val($("#
+}
+
+function mod(){
+	modificarPeriodo($("#estadoSel").val());
 }
 
 function modificarPeriodoD(i){
@@ -267,9 +274,7 @@ function succModificarPeriodoD(data){
 	
 	$(".modal-body").append(cad);
 	
-	//~ setTimeout(function(){
-		$("#dialogoPer").modal("show");
-	//~ },500);
+	$("#dialogoPer").modal("show");
 		
 }
 
@@ -303,52 +308,8 @@ function succModificarPeriodo(data){
 	}
 }
 
-//~ function agregarPeriodoD(){
-	//~ cad += "<center>";
+function agregarPeriodoD(){
 	
-		//~ cad += "Código del Periodo: "+dat['codigo'];
-		
-		//~ cad += "<br>";
-		//~ cad += "<br>";
-		
-		//~ cad += "Instituto: "+dat['nom_instituto'];
-		
-		//~ cad += "<br>";
-		//~ cad += "<br>";
-		
-		//~ cad += ""+dat['nom_pensum'];
-		
-		
-		//~ cad += "<br>";
-		//~ cad += "<br>";
-		
-		//~ cad += "Nombre del Periodo: <input type='text' id='nombreP' value='"+dat['nombre']+"'></input>";
-		
-		//~ cad += "<br>";
-		//~ cad += "<br>";
-	
-		//~ cad += "Fecha de Inicio: <input type='text'id='fecIP' value='"+dat['fec_inicio']+"'></input>";
-		
-		//~ cad += "<br>";
-		//~ cad += "<br>";
-		
-		//~ cad += "Fecha de Fin: <input type='text' id='fecFP' value='"+dat['fec_final']+"'></input>";
-		
-		//~ cad += "<br>";
-		//~ cad += "<br>";
-		
-		//~ cad += cad2;
-		
-		//~ cad += "<br>";
-		//~ cad += "<br>";
-		
-		//~ if(dat['observaciones'] == 'null')
-			//~ cad += "Observaciones: <input type='text' class='form-control' id='obsP' value='"+dat['observaciones']+"'></input>";
-		//~ else
-			//~ cad += "Observaciones: <input type='text' class='form-control' id='obsP' value=''></input>";
+}
 
-		//~ cad += "<br>";
-		//~ cad += "<br>";
-//~ }
-
-modificarPeriodoD(1);
+//~ modificarPeriodoD(1);
