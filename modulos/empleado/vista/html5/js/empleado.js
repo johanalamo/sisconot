@@ -32,15 +32,17 @@ Diseñador - Programador /   Fecha   / Descripción del cambio
 $(document).ready(function() {
 
 	verEmpleado();
+	pnf2=null;
 
 } );
 
-function verEmpleado (){
+function verEmpleado (codi=null){
 
 
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"listar",
-					"codPersona",	getVarsUrl().persona
+					"codPersona",	getVarsUrl().persona,
+					"codi"		,	codi
 					);
 
 	ajaxMVC(arr,montarEmpleado,error);
@@ -56,7 +58,10 @@ function montarEmpleado(data){
 		for(var x=0; x<data.empleado.length; x++)
 		{
 			acu=x+1;
-			cadena+='<tr onclick="modificarEmpleado('+data.empleado[x]['codigo']+');"  id="'+data.empleado[x]['codigo']+'">';
+			if(data.codi==data.empleado[x]['codigo'])
+				cadena+='<tr onclick="modificarEmpleado('+data.empleado[x]['codigo']+'); verEmpleado('+data.empleado[x]['codigo']+'); "  id="'+data.empleado[x]['codigo']+'" style="background-color:#E5EAEE;">';
+			else
+								cadena+='<tr onclick="modificarEmpleado('+data.empleado[x]['codigo']+'); verEmpleado('+data.empleado[x]['codigo']+'); "  id="'+data.empleado[x]['codigo']+'">';
 			cadena+='<a href="#"><td>'+acu+'</td>';
 			cadena+='<td>'+data.empleado[x]['codigo']+'</td>';
 			cadena+='<td>'+data.empleado[x]['fec_inicios']+'</td>';
@@ -121,6 +126,7 @@ function compararDatosEmpleados(data){
 
 	var bool= true;
 	var boolAux=false;
+	var boolCom=false;
 	var acu=0;
 	var mensaje="";
 	var i=0;		
@@ -148,6 +154,7 @@ function compararDatosEmpleados(data){
 					&& (data.empleado[x]['codigo'] == $("#cod_empleado").val())
 					&& data.empleado[x]['fec_inicios'] == $("#fec_ini_empleado").val()){
 				bool=true;
+				boolCom=true;
 				break;				
 			}
 			
@@ -192,49 +199,50 @@ function compararDatosEmpleados(data){
 			}
 			else 
 				bool=false;
-
 		}
 		//setTimeout(function(){verEmpleado ();}, 300);
 	}
-	alert(bool);
-	if(boolAux)
-		preDobleGuardar(bool,boolAux,data.empleado[i]);
+	
+	alert(bool+" ** "+boolAux);
+	if(boolAux || boolCom)
+		preDobleGuardar(bool,boolAux,data.empleado[i],boolCom);
 	else
 		preDobleGuardar(bool);
 
-	verEmpleado ();
+	verEmpleado();
 }
 
 
-function preDobleGuardar(bool=null,boolAux=null,data=null){
+function preDobleGuardar(bool=null,boolAux=null,data=null,boolCom=false){
 
 	if(boolAux){
-
 		guardarEmpleadoAux(data);
 	}
 
 	if(bool)
-		guardarEmpleado($("#cod_empleado").val(),3);
+		guardarEmpleadoAux(data,boolCom);
 	else if(boolAux)
 		guardarEmpleado(null,false);
-	else
+	else if(!boolCom)
 		guardarEmpleado(null,true);
 
 }
 
-function guardarEmpleadoAux(data){
+function guardarEmpleadoAux(data,boolCom=false){
 	
 	var fecha='';
-	if($("#fec_fin_empleado").val())
-		fecha=$("#fec_fin_empleado").val();
-	else
-		fecha=fecActual();
+	if(!boolCom){
+		if($("#fec_fin_empleado").val())
+			fecha=$("#fec_fin_empleado").val();
+		else
+			fecha=fecActual();
+	}
 
 	alert("jpipo"+fecha);
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"agregar",	
 					"codPersona",  data['cod_persona'],
-					"codEstado", $("#empleado  #selectEstado").val(),
+					"codEstado", data['cod_estado'],
 					"codEmpleado",  data['codigo'],
 					"codInstituto", data['cod_instituto'],
 					"codPensum", data['cod_pensum'],
@@ -264,20 +272,24 @@ function guardarEmpleado(codigo,bool=null){
 		fec_ini=$("#fec_fin_empleado").val();
 	}
 	else{
+		alert("akika"+codigo+"**");
 		if($("#fec_fin_empleado").val())
 			fec_fin=$("#fec_fin_empleado").val();
+		else if(!codigo)
+			fec_fin=null;
 		else
 			fec_fin=fecActual();
 	}
 
-	alert(fec_fin);
+
+	//alert(fec_fin+" "+$("#empleado #selectEstado").val()+" ** "+$("#empleado #selectInstituto").val());
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"agregar",	
 					"codPersona",  $("#codigoPersona").val(),
-					"codEstado", $("#empleado #selEstadoEm #selectEstado").val(),
-					"codEmpleado",  codigo,
-					"codInstituto", $("#empleado  #selectInstitutos #selectInstituto").val(),
-					"codPensum", $("#empleado  #selPensumEm #selectPNF").val(),
+					"codEstado", $("#empleado #selectEstado").val(),
+					//"codEmpleado",  codigo,
+					"codInstituto", $("#empleado #selectInstituto").val(),
+					"codPensum", $("#empleado #selectPNF").val(),
 					"fecInicio", fec_ini,///'7/2/2015',//fecActual(),
 					"fecFin", fec_fin,///'7/2/2015',//fecActual(),
 					"observaciones", $("#obs_empleado").val(),
@@ -321,19 +333,49 @@ function verInstitutoEm(){
 	ajaxMVC(arr,montarSelectInstituto,error);
 }
 
-function verInstitutoEm2(){
-	alert($("#empleado #selectInstituto").val());
-	var arr = Array("m_modulo"	,	"empleado",
+function verInstitutoEm2(instituto=null){
+	
+	if(!instituto){
+		instituto ='';
+	estado='';
+	pnf='';
+		setTimeout(function(){ 
+
+			if($("#empleado #selectInstituto").val()!=null)
+				instituto=$("#empleado #selectInstituto").val();
+			else
+				instituto=$("#selectInstituto").val();	
+
+			if($("#empleado #selectEstado").val()!=null)
+				estado=$("#empleado #selectEstado").val();
+			else
+				estado=$("#selectEstado").val();
+
+			if($("#empleado #selectEstado").val()!=null)
+				pnf=$("#empleado #selectPNF").val();
+			else
+				pnf=$("#selectPNF").val();
+
+		}, 500);
+	}
+	//alert(instituto+"***");
+	setTimeout(function(){ 
+
+		var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"listar",
-					"estado"	,	$("#selectEstado2").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#empleado #selectInstituto").val(),
+					"estado"	,	estado,
+					"pnf"		,	pnf,
+					"instituto"	,	instituto,
 					"tipo_persona",	"empleado",
 					"campo",		$("#campo").val(),
 					"empleado2"	,	true
-					);
-	ajaxMVC(arr,montarSelectInstituto,error);
+					);	
+		ajaxMVC(arr,montarSelectInstituto,error);	
+
+	}, 700);
+	
 }
+
 
 
 
@@ -381,17 +423,43 @@ function verPNFEm(){
 
 function verPNFEm2(){
 
-	var arr = Array("m_modulo"	,	"empleado",
+	instituto ='';
+	estado='';
+	pnf='';
+	setTimeout(function(){ 
+
+		if($("#empleado #selectInstituto").val()!=null)
+			instituto=$("#empleado #selectInstituto").val();
+		else
+			instituto=$("#selectInstituto").val();	
+
+		if($("#empleado #selectEstado").val()!=null)
+			estado=$("#empleado #selectEstado").val();
+		else
+			estado=$("#selectEstado").val();
+
+		if($("#empleado #selectPNF").val()!=null)
+			pnf=$("#empleado #selectPNF").val();
+		else
+			pnf=$("#selectPNF").val();
+
+	}, 500);
+
+	setTimeout(function(){ 
+
+		var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"listar",
-					"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
+					"estado"	,	$("#empleado #selectEstado").val(),
+					"pnf"		,	pnf,
 					"instituto"	,	$("#empleado #selectInstituto").val(),
 					"tipo_persona",	"empleado",
 					"campo",		$("#campo").val(),
-					"empleado2"	,	true										
-					);
+					"empleado2"	,	true
+					)
+		ajaxMVC(arr,montarSelectPNF,error);
+	}, 600);
 		
-	ajaxMVC(arr,montarSelectPNF,error);
+	
 }
 
 
@@ -436,17 +504,68 @@ function verEstadoEm(){
 }
 
 function verEstadoEm2(){
+	instituto ='';
+	estado='';
+	pnf='';
+	setTimeout(function(){ 
 
-	var arr = Array("m_modulo"	,	"empleado",
+		if($("#empleado #selectInstituto").val()!=null)
+			instituto=$("#empleado #selectInstituto").val();
+		else
+			instituto=$("#selectInstituto").val();	
+
+		if($("#empleado #selectEstado").val()!=null)
+			estado=$("#empleado #selectEstado").val();
+		else
+			estado=$("#selectEstado").val();
+
+		if($("#empleado #selectEstado").val()!=null)
+			pnf=$("#empleado #selectPNF").val();
+		else
+			pnf=$("#selectPNF").val();
+
+	}, 500);
+
+	setTimeout(function(){ 
+
+		var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"listar",
-					"estado"	,	$("#selectEstado2").val(),
-					"pnf"		,	$("#selectPNF").val(),
+					"estado"	,	estado,
+					"pnf"		,	pnf,
+					"instituto"	,	instituto,
+					"tipo_persona",	"empleado",
+					"campo",		$("#campo").val(),
+					"empleado2"	,	true
+					);	
+		ajaxMVC(arr,montarSelectEstado,error);
+	}, 500);
+	
+}
+function segundo (){
+	setTimeout(function(){ 
+	mostrarInformaion2(); 		
+}, 500);
+setTimeout(function(){ 
+	//alert($("#empleado #selectInstituto").val());
+	
+		var arr = Array("m_modulo"	,	"empleado",
+					"m_accion"	,	"listar",
+					"estado"	,	$("#empleado #selectEstado").val(),
+					"pnf"		,	$("#empleado #selectPNF").val(),
 					"instituto"	,	$("#empleado #selectInstituto").val(),
 					"tipo_persona",	"empleado",
 					"campo",		$("#campo").val(),
 					"empleado2"	,	true
-					);		
-	ajaxMVC(arr,montarSelectEstado,error);
+					);	
+		ajaxMVC(arr,montarSelectPNF,error);
+		
+}, 1100);
+setTimeout(function(){ 
+	if(!pnf2)
+		pnf2=null;
+	$("#empleado #selectPNF").val(pnf2);
+	$('#empleado #selectPNF').selectpicker('refresh');
+}, 1150);
 }
 /**
 * Funcion Java Script que permite mostrar un select con
@@ -550,16 +669,19 @@ function modificarEmpleado(cod_empleado=null,cod_persona=null){
  */
 function succMontarModificarEmpleado (data){
 //alert(data.empleado[0]['cod_estado']);
+	//se inicializa la variable global.
 	
+	pnf2=data.empleado[0]['cod_pensum'];
 	console.log(data.empleado);
 	$("#cod_empleado").val(data.empleado[0]['codigo']);
 	$("#cod_persona").val(data.empleado[0]['cod_persona']);
-	$("#empleado  #selectEstado2").val(data.empleado[0]['cod_estado']);
-	$("#empleado  #selectEstado2").selectpicker('refresh');
+	$("#empleado #selectEstado").val(data.empleado[0]['cod_estado']);
+	$("#empleado #selectEstado").selectpicker('refresh');
 	$("#empleado #selectInstituto").val(data.empleado[0]['cod_instituto']);	
-	
+	$('#empleado #selectInstituto').selectpicker('refresh');
+
 	setTimeout(function(){ 
-$('#empleado #selectInstituto').selectpicker('refresh');
+
 		$("#empleado #selectPNF").val(data.empleado[0]['cod_pensum']);
 		$('#empleado #selectPNF').selectpicker('refresh');  
 	}, 300);
@@ -573,7 +695,9 @@ $('#empleado #selectInstituto').selectpicker('refresh');
 	$("#es_jef_pensum").prop( "checked",data.empleado[0]['es_jef_pensum']);
 	$("#es_jef_con_estudio").prop( "checked",data.empleado[0]['es_jef_con_estudio']);
 	$("#Docente").prop( "checked",data.empleado[0]['es_docente']);
-	//alert(data.empleado[0]['cod_estado']);
+
+
+
 }
 
 function NuevoEmpleado (){
@@ -584,8 +708,8 @@ function NuevoEmpleado (){
 	//$("#cod_persona").val("");
 	$("#empleado #selectPNF").val("seleccionar");
 	$('#empleado #selectPNF').selectpicker('refresh');
-	$("#empleado #selEstadoEm #selectEstado2").val("seleccionar");
-	$("#empleado #selEstadoEm #selectEstado2").selectpicker('refresh');
+	$("#empleado #selectEstado").val("seleccionar");
+	$("#empleado #selectEstado").selectpicker('refresh');
 	$("#empleado #selectInstituto").val("seleccionar");	
 	$('#empleado #selectInstituto').selectpicker('refresh');
 	$("#fec_ini_empleado").val(fecActual());

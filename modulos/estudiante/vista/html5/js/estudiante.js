@@ -39,7 +39,8 @@ function verEstudiante (cod_estudiante=null,cod_persona=null){
 
 	var arr = Array("m_modulo"	,	"estudiante",
 					"m_accion"	,	"listar",
-					"codPersona",	getVarsUrl().persona
+					"codPersona",	getVarsUrl().persona,
+					"codi"		,	cod_estudiante
 					);
 
 	ajaxMVC(arr,montarEstudiante,error);
@@ -53,7 +54,10 @@ function montarEstudiante(data){
 	if(data.estudiante!=null){
 		for(var x=0; x<data.estudiante.length; x++)
 		{
-			cadena+='<tr onclick="modificarEstudiante('+data.estudiante[x]['codigo']+');">';
+			if(data.codi==data.estudiante[x]['codigo'])
+				cadena+='<tr onclick="modificarEstudiante('+data.estudiante[x]['codigo']+'); verEstudiante('+data.estudiante[x]['codigo']+');" style="background-color:#E5EAEE;">';
+			else
+				cadena+='<tr onclick="modificarEstudiante('+data.estudiante[x]['codigo']+'); verEstudiante('+data.estudiante[x]['codigo']+');">';
 			cadena+='<td>'+data.estudiante[x]['codigo']+'</td>';
 			cadena+='<td>'+data.estudiante[x]['fec_inicios']+'</td>';
 			if(data.estudiante[x]['fec_fin'])
@@ -210,7 +214,8 @@ function verInstitutoEs(){
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
 					"tipo_persona",	"estudiante",
-					"campo",		$("#campo").val()												
+					"campo",		$("#campo").val(),
+					"codi"		,	$("#cod_estudiante").val()											
 					);
 		
 	ajaxMVC(arr,montarSelectInstituto,error);
@@ -254,7 +259,8 @@ function verPNFEs(){
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
 					"tipo_persona",	"estudiante",
-					"campo",		$("#campo").val()												
+					"campo",		$("#campo").val(),
+					"codi"		,	$("#cod_estudiante").val()				
 					);
 		
 	ajaxMVC(arr,montarSelectPNF,error);
@@ -334,7 +340,8 @@ function verEstadoEs(){
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
 					"tipo_persona",	"estudiante",
-					"campo",		$("#campo").val()	
+					"campo",		$("#campo").val(),
+					"codi"		,	$("#cod_estudiante").val()
 					);	
 
 	ajaxMVC(arr,montarSelectEstado,error);
@@ -394,40 +401,50 @@ function modificarEstudiante(cod_estudiante=null,cod_persona=null){
 	var arr = Array("m_modulo"	,	"estudiante",
 					"m_accion"	,	"listar",
 					"codPersona",  cod_persona,
-					"codEstudiante", cod_estudiante								
+					"codEstudiante", cod_estudiante,
+					"codi"		,	cod_estudiante						
 					);
 		
 	ajaxMVC(arr,succMontarModificarEstudiante,error);
 
 }
+function segundoLlamado(){
+	//verPNFEs(); verInstitutoEs(); verEstadoEs();
+	
 
+		//mostrarInformaion();
+	
+}
 /**
  * esta funcion JavaScript permite signar los datos obtenido en la
  * consuta  la base de datos y colocarlos en la vista HTML
  * de esta manera el usuario podra modificar los datos del estudiante
  */
 function succMontarModificarEstudiante (data){
-	console.log(data);
-	$("#cod_estudiante").val(data.estudiante[0]['codigo']);
-	$("#codPersona").val(data.estudiante[0]['cod_persona']);
-	
-	$("#num_carnet").val(data.estudiante[0]['num_carnet']);
-	$("#expediente").val(data.estudiante[0]['num_expediente']);
-	$("#cod_rusnies").val(data.estudiante[0]['cod_rusnies']);
-	$("#selectEstado").val(data.estudiante[0]['cod_estado']);
-	$('#selectEstado').selectpicker('refresh');
-	$("#fec_ini_estudiante").val(data.estudiante[0]['fec_inicios']);
-	$("#fec_fin_estudiante").val(data.estudiante[0]['fec_final']);
-	$("#condicion").val(data.estudiante[0]['condicion']);
-	$("#obs_estudiante").val(data.estudiante[0]['observaciones']);										
-	$("#estadoEs").val(data.estudiante[0]['cod_estado']);
-	$("#selectInstituto").val(data.estudiante[0]['cod_instituto']);	
-	$('#selectInstituto').selectpicker('refresh');
-	verPNFEs();
+	//console.log(data);
+	verPNFEs(); verInstitutoEs(); verEstadoEs();
 	setTimeout(function(){ 
-	$("#selectPNF").val(data.estudiante[0]['cod_pensum']);
-	$('#selectPNF').selectpicker('refresh');
-	}, 300);
+		$("#cod_estudiante").val(data.estudiante[0]['codigo']);
+		$("#codPersona").val(data.estudiante[0]['cod_persona']);
+		
+		$("#num_carnet").val(data.estudiante[0]['num_carnet']);
+		$("#expediente").val(data.estudiante[0]['num_expediente']);
+		$("#cod_rusnies").val(data.estudiante[0]['cod_rusnies']);
+		$("#selectEstado").val(data.estudiante[0]['cod_estado']);
+		$('#selectEstado').selectpicker('refresh');
+		$("#fec_ini_estudiante").val(data.estudiante[0]['fec_inicios']);
+		$("#fec_fin_estudiante").val(data.estudiante[0]['fec_final']);
+		$("#condicion").val(data.estudiante[0]['condicion']);
+		$("#obs_estudiante").val(data.estudiante[0]['observaciones']);										
+		$("#estadoEs").val(data.estudiante[0]['cod_estado']);
+		$("#selectInstituto").val(data.estudiante[0]['cod_instituto']);	
+		$('#selectInstituto').selectpicker('refresh');	
+		setTimeout(function(){ 
+			$("#selectPNF").val(data.estudiante[0]['cod_pensum']);
+			$('#selectPNF').selectpicker('refresh');
+		}, 500);
+	}, 600);
+	
 	//alert($("#selectEstado").val());
 }
 

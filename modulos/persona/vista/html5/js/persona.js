@@ -174,7 +174,7 @@ function montarSelectInstituto(data){
 	else if(data.tipo_persona=='empleado' && !data.empleado2)
 		cadena += "<select onchange='verPersonaEmpleado(); verPNFEm();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	else if(data.tipo_persona=='empleado' && data.empleado2)
-		cadena += "<select onchange='verPersonaEmpleado(); ' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >";
+		cadena += "<select onchange='verPersonaEmpleado(); verPNFEm2();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >";
 	else
 		cadena += "<select onchange='verPersona(); verPNF();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar' >Seleccionar</option>";
@@ -224,9 +224,17 @@ function verPNF(){
 function montarSelectPNF(data){
 console.log(data);
 	var cadena = "";
-	$("#selectPensuma").remove();//	$("#selectPensuma").remove();
+	if(!data.empleado2){
+		$("#selectPensuma").remove();//	$("#selectPensuma").remove();
+		cadena+="<div id='selectPensuma'> Pensum ";
+	}		
+	else{
+		$("#selectPensumaEm").remove();
+		cadena+="<div id='selectPensumaEm'> Pensum ";
+	}
 
-	cadena+="<div id='selectPensuma'> Pensum ";
+
+	
 	if(data.tipo_persona=='estudiante')
 		cadena += "<select onchange='verPersonaEstudiante();' class='selectpicker' id='selectPNF' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	else if(data.tipo_persona=='empleado')
@@ -243,7 +251,10 @@ console.log(data);
 	
 	cadena +="</select>";
 
-	$(cadena).appendTo('.selectPensum');
+	if(!data.empleado2)
+		$(cadena).appendTo('.selectPensum');
+	else
+		$(cadena).appendTo('.selectPensumEm');
 	activarSelect();					
 }
 
@@ -272,6 +283,7 @@ function verEstado(){
 * los estados y es concatenado a un  div en la vista HTML
 */
 function montarSelectEstado(data){
+
 	console.log(data);
 	var cadena = "";
 	$("#selectEstados").remove();
@@ -289,7 +301,7 @@ function montarSelectEstado(data){
 	else if(data.tipo_persona=='empleado' && !data.empleado2)
 		cadena += "<select onchange='verPersonaEmpleado();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	else if(data.tipo_persona=="empleado" && data.empleado2==true)
-		cadena += "<select onchange='verPersonaEmpleado();' name='selectEstado' class='selectpicker' id='selectEstado2' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
+		cadena += "<select onchange='verPersonaEmpleado();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	else
 		cadena += "<select onchange='verPersona();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar'>Seleccionar</option>";
@@ -607,6 +619,7 @@ function mostrarInformaion(){
 			$("#nv_empleado").remove();
 			$("#nuevo_empleado").remove();
 			$("#nuevo_estudiante").remove();
+			$("#fotoSpan").remove();
 		}
 		else {
 			$("#md_estudiante").remove();
@@ -619,6 +632,7 @@ function mostrarInformaion(){
 			$("#nuevo_empleado").remove();
 			$("#nv_empleado").remove();
 			$("#nv_estudiante").remove();
+			$("#foto").remove();
 		}
 	//	alert("$$$$$$$"); 	
 		ajaxMVC(arr,succMontarModificarPersona,error);

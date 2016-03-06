@@ -203,6 +203,7 @@ class EmpleadoControlador
 			}
 			//var_dump($response);
 			if($response!=null){
+				
 				Vista::asignarDato('estatus', $response);
 				if($response>0)
 					Vista::asignarDato('mensaje',"La informacion del empleado fue almacenada con exito.");
@@ -211,6 +212,7 @@ class EmpleadoControlador
 			}
 
 			elseif($response2!=null){
+
 				Vista::asignarDato('estatus', $response2);
 				if($response2>0)
 					Vista::asignarDato('mensaje',"La informacion del empleado ha sido modificada con exito.");

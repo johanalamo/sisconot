@@ -19,7 +19,6 @@ function armarDato(m){
 		data[m[i]]  = m[i+1];
 	return data;
 }
-
 function armarDato2(m){
 	var data = new FormData();
 	data.append("m_formato", "json");
@@ -52,26 +51,20 @@ function armarDato2(m){
  * 			la llamada ajax presente un error.
  */ 
 var ajaxMVC=function (a, funcSucc, funcErr){
-	$.ajax({
-			type:"post",
-			dataType:"json",
-			url: "index.php",
-			data: armarDato(a),
-			beforeSend: funcMouseW,
-			complete: funcMouseN,
-			success: funcSucc,
-			error: funcErr
-		});	
-}
 
-function funcMouseW(){
-	$("body").css("cursor","wait");
+	jQuery.ajax({
+	    url: 'index.php',
+	    data: armarDato2(a),
+	    cache: false,
+	    dataType:"json",
+	    contentType: false,
+	    processData: false,
+	    type: 'post',
+	    success: funcSucc,
+		error: funcErr
+	});	
+	
 }
-
-function funcMouseN(){
-	$("body").css("cursor","default");
-}
-
 
 var ajaxMVCArchivo=function (data, funcSucc, funcErr){
 
