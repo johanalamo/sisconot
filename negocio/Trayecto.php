@@ -72,8 +72,14 @@ class Trayecto {
 								$minCreElectiva=NULL,
 								$minCreAcreditable=NULL,
 								$minCanElectiva=NULL){
-	
-								}
+		$this->asignarCodigo($codigo);
+		$this->asignarCodPensum($codPensum);
+		$this->asignarNumero($numTrayecto);
+		$this->asignarCertificado($certificado);
+		$this->asignarMinCredito($minCredito);
+		if ($unidades!=null)
+		$this->asignarUnidades($unidades);
+	}
 
 	//Asignar y obtener de cada atributo
 	public function asignarCodigo($codigo){

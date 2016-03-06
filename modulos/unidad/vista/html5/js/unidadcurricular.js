@@ -26,8 +26,8 @@ function consultarDetalleUni(data) {
 		
 		cadena+="<div id='detallePen' class='third'>";
 		cadena+="<table id='pesum' class='table table-bordered table-striped' style='clear: both'><tbody>";
-		cadena+="<tr><td style='width: 35%;''>Código:</td><td style='width: 65%;'><a href='#'' >"+unidad[0]+"</a></td></tr>";
-		cadena+="<tr><td>Código de Ministerio:</td><td>";
+		cadena+="<tr><td style='width: 35%;''>Codigo:</td><td style='width: 65%;'><a href='#'' >"+unidad[0]+"</a></td></tr>";
+		cadena+="<tr><td>Codigo de Ministerio:</td><td>";
 		cadena+="<a href='#'' >"+unidad[1]+"</a></td></tr>";
 		cadena+="<tr><td>Nombre:</td><td>";
 		cadena+="<a href='#'' >"+unidad[2]+"</a></td></tr>";		
@@ -35,13 +35,13 @@ function consultarDetalleUni(data) {
 		cadena+="<a href='#'' >"+unidad[3]+"</a></td></tr>";
 		cadena+="<tr><td>Horas de Trabajo Independiente (HTI):</td><td>";
 		cadena+="<a href='#'' >"+unidad[4]+"</a></td></tr>";	
-		cadena+="<tr><td>Unidades de Crédito:</td><td>";
+		cadena+="<tr><td>Unidades de Credito:</td><td>";
 		cadena+="<a href='#'' >"+unidad[5]+"</a></td></tr>";	
-		cadena+="<tr><td>Duración de Semanas:</td><td>";
+		cadena+="<tr><td>Duracion de Semanas:</td><td>";
 		cadena+="<a href='#'' >"+unidad[6]+"</a></td></tr>";
-		cadena+="<tr><td>Nota Mínima Aprobatoria:</td><td>";
+		cadena+="<tr><td>Nota Minima Aprobatoria:</td><td>";
 		cadena+="<a href='#'' >"+unidad[7]+"</a></td></tr>";	
-		cadena+="<tr><td>Nota Máxima:</td><td>";
+		cadena+="<tr><td>Nota Maxima:</td><td>";
 		cadena+="<a href='#'' >"+unidad[8]+"</a></td></tr>";
 		cadena+="<tr><td>Descripción:</td><td>";
 		cadena+="<a href='#'' >"+unidad[9]+"</a></td></tr>";
@@ -77,7 +77,7 @@ function verConsultarPatronUni(data){
 	
 	if (data["unidades"] != null){
 		cadena+=" <div class='trow' style='width:auto; height:200px; overflow:auto;'>";		                			
-		cadena+="<table class='table table-hover mbn'><thead><tr class='active'><th># Código</th> <th>Código Ministerio</th><th>Nombre</th><th>Descripción</th></tr></thead>";
+		cadena+="<table class='table table-hover mbn'><thead><tr class='active'><th># Codigo</th> <th>Codigo Ministerio</th><th>Nombre</th><th>Descripción</th></tr></thead>";
 	    cadena+="<tbody> ";
 	    for (var i = 0; i < unidades.length ; i++) {	    	
 	    	 cadena+="  <tr class='active' href='#' onclick='verDetalleYCampos( "+ unidades[i][0]+ ")'><th># "+ unidades[i][0]+ "</th> <th>"+ unidades[i][1]+ "</th> <th>"+ unidades[i][2]+ "</th> <th>"+ unidades[i][3]+ "</th> </tr>";
@@ -197,12 +197,9 @@ function validarFrom(){
 }
 // mensaje de agregar o modificar exito
 function succAgregarModifUnidad(data){
-	console.log(data)
 	if (data.estatus>0){
-		//mostrarMensaje("No se puede realizar operacion fallo del servicio", 3);
 		mostrarMensaje("El pensum ha sido agregado satisfactoriamente!",1);	
-	//	mostrarMensaje("El pensum ha sido agregado satisfactoriamente!",1);
-		//alert()		
+		setClear();
 	}
 }
 
@@ -214,7 +211,7 @@ function errorCamposInvalidos(){mostrarMensaje("No se puede hacer el cambio Camp
 
 // redireciona el boton de edit a el formulario de agregar
 function redirectEdit(codigo){
-	  window.location="index.php?m_modulo=unidad&m_formato=html5&m_accion=preAgregarModif&m_vista=Agregar&codigo="+codigo;
+	  window.location="http://localhost:8085/sisconot-desarrollo/index.php?m_modulo=unidad&m_formato=html5&m_accion=preAgregarModif&m_vista=Agregar&codigo="+codigo;
 }
 
 
@@ -264,7 +261,7 @@ function succObtenerU(data){
 		$(cadena).appendTo(".modal-body");
 		
 		$("<br>").appendTo(".modal-body");
-		cadena= "<h4>Código : "+data.unidad[0]['codigo']+"</h4>";
+		cadena= "<h4>Codigo : "+data.unidad[0]['codigo']+"</h4>";
 		$(cadena).appendTo(".modal-body");
 		cadena= "<h4>Nombre: "+data.unidad[0]['nombre']+"</h4>";
 		$(cadena).appendTo(".modal-body");
@@ -299,7 +296,7 @@ function actualizarLista(data){
 		cadena="<table class='table table-advance' id='table'>";
 		cadena+="<thead>";
 	    cadena+="<tr>";
-    	cadena+="<th>N° Código</th>";
+    	cadena+="<th>N° Codigo</th>";
         cadena+="<th>Nombre Unidad Curricular</th>";
         cadena+="<th>Descripcion</th>";
         cadena+="<th>Modificar</th>";

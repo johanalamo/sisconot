@@ -4150,14 +4150,3 @@
   margin-top: 15px !important;
 }  
 /*# sourceMappingURL=../css/forms.map */
-.open{
-  width: 80% !important; 
-}
-.show-tick{
-  width: 80% !important;
-}
-
-.inactivoA{
-  pointer-events: none;
-  cursor: default;
-}

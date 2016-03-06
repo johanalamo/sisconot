@@ -20,9 +20,8 @@ function validarAgregarPensum(){
 }
 
 function agregarPensum(){	
-	if ($("#codigo").val() != ''){
 	var arr = Array ("m_modulo", "pensum",
-					 "m_accion", "preModifAgre",
+					 "m_accion", "agregar",
 					 "nombre", $("#nombre").val(),
 					 "nom_corto", $("#nom_corto").val(), 
 					 "observaciones", $("#observaciones").val(),
@@ -32,36 +31,20 @@ function agregarPensum(){
 					 "fecha",$("#fecha").val()
 
 					 );
-	}else{
-	var arr = Array ("m_modulo", "pensum",
-				 "m_accion", "preModifAgre",
-				 "codigo", $("#codigo").val(),
-				 "nombre", $("#nombre").val(),
-				 "nom_corto", $("#nom_corto").val(), 
-				 "observaciones", $("#observaciones").val(),
-				 "minCanElectiva", $("#min_cant_elect").val(),
-				 "minCreElectiva", $("#min_cre_elect").val(),
-				 "minCreObli",$("#min_cre_oblig").val(),
-				 "fecha",$("#fecha").val()
-
-				 );
-	}
-	console.log(arr.toString());
+//	console.log(arr);
 	ajaxMVC(arr,succAgregarPensum,errorAgregarPensum);
-
 }
 
 function succAgregarPensum(data){
-	console.log(data)
 	if (data.estatus>0){		
-		pensums=data.pensum; 	
-		mostrarMensaje("El pensum ha sido agregado satisfactoriamente!",1);		
+		pensums=data.pensum; 
+		$("#preagregarpensum").modal('hide');		
+		mostrarMensaje("El pensum ha sido agregado satisfactoriamente!",1);
+		recargarPensum();
 	}
 }
 
-function errorAgregarPensum(data){
-	console.log(data)
- mostrarMensaje("No pueden agregar pensum revisar log",2);}
+function errorAgregarPensum(){mostrarMensaje("No pueden agregar pensum revisar log",2);}
 
 function eliminar(codigo){	
 		var arr = Array ("m_modulo","pensum",
@@ -481,18 +464,18 @@ function consultarDetallePen(data) {
 		
 		cadena+="<div id='detallePen' class='third'>";
 		cadena+="<table id='pesum' class='table table-bordered table-striped' style='clear: both'><tbody>";
-		cadena+="<tr><td style='width: 35%;''>Código:</td><td style='width: 65%;'><a href='#'' >"+pensum[0]+"</a></td></tr>";
+		cadena+="<tr><td style='width: 35%;''>Codigo:</td><td style='width: 65%;'><a href='#'' >"+pensum[0]+"</a></td></tr>";
 		cadena+="<tr><td>Nombre:</td><td>";
 		cadena+="<a href='#'' >"+pensum[1]+"</a></td></tr>";
 		cadena+="<tr><td>Nombre Corto:</td><td>";
 		cadena+="<a href='#'' >"+pensum[2]+"</a></td></tr>";		
 		cadena+="<tr><td>Observaciones:</td><td>";
 		cadena+="<a href='#'' >"+pensum[3]+"</a></td></tr>";
-		cadena+="<tr><td>Mínima cantidad electiva:</td><td>";
+		cadena+="<tr><td>Minima cantidad electiva:</td><td>";
 		cadena+="<a href='#'' >"+pensum[4]+"</a></td></tr>";	
-		cadena+="<tr><td>Mínima crédito electiva:</td><td>";
+		cadena+="<tr><td>Minima credito electiva:</td><td>";
 		cadena+="<a href='#'' >"+pensum[5]+"</a></td></tr>";	
-		cadena+="<tr><td>Mínima crédito obligatorio:</td><td>";
+		cadena+="<tr><td>Minima credito obligatorio:</td><td>";
 		cadena+="<a href='#'' >"+pensum[6]+"</a></td></tr>";
 		cadena+="<tr><td>Fecha de Creación:</td><td>";
 		cadena+="<a href='#'' >"+pensum[7]+"</a></td></tr>";	
@@ -544,22 +527,9 @@ function ObtenerIDPensum(){
 	     console.log(a);
 	     return a;
 	   }else{
-	//   	alert('No posee codigo Pensum en url');
-	   	return 'not';
+	   	alert('No posee codigo Pensum en url');
+	   	return 'no valida la variable';
 	   }
 }
 
-function modificarURL(codigoPensum, formulario){
-	if (formulario == 'info'){
-		$("#steps-uid-0-t-T").attr("href", "index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=Trayecto&codigoPensum="+codigoPensum);
-		$("#steps-uid-0-t-U").attr("href", "index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=UnidadesCurricular&codigoPensum="+codigoPensum);
-		$("#steps-uid-0-t-P").attr("href", "index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=Prelacion&codigoPensum="+codigoPensum);
-	}else if (formulario == 'tray'){
-
-	}else if (formulario == 'uni'){
-
-	}else if (formulario == 'pre'){
-
-	}
-};
 

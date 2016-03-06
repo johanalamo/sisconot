@@ -12,57 +12,64 @@
                     <div class="panel-body" style="min-height: 447px;">
 
   
-			            <div class="box-content">
-			                <div class="btn-toolbar pull-right clearfix">
-				                    <div class="btn-group">
-				                        <a class="btn btn-circle show-tooltip" title="Agregar Unidad Curricular" href="index.php?m_modulo=unidad&m_formato=html5&m_accion=preAgregarModif&m_vista=Agregar" ><i class="icon-plus"></i></a>
-				                   	</div>
-				                    <div class="btn-group">
-				                        <a class="btn btn-circle show-tooltip" title="Print" href="#"><i class="icon-print"></i></a>
-				                        <a class="btn btn-circle show-tooltip" title="Export to PDF" href="#"><i class="icon-file-text-alt"></i></a>
-				                        <a class="btn btn-circle show-tooltip" title="Export to Exel" href="#"><i class="icon-table"></i></a>
-				                    </div>	                  
-		                       </div>
-				 			<div class="clearfix"></div>
-					 			<div id='listarI'>											
-								    	<table class="table table-advance" id="table">
-										 <thead>
-								            <tr>
-								            	<th>N° Código</>
-								                <th>Nombre Unidad Curricular</th>
-								                <th>Descripción</th>			            
-								                <th>Modificar</th>
-								                <th>Eliminar</th>
-								            </tr>
-								        </thead>
-										  <tbody>									
-											{% for unidad in unidades %}									
-													<tr >
-														
-														<td><a href="#" onmouseover="verDetalle({{unidad.codigo}})" >{{unidad.codigo}}</a></td>
-														<td><a href="#"  onmouseover="verDetalle({{unidad.codigo}})">{{unidad.nombre}} </a></td>
-														<td><a href="#"  onmouseover="verDetalle({{unidad.codigo}})">{{unidad.cod_uni_ministerio}}</a></td>
-														<td>										
-															<button class="btn btn-xs btn-info" title="Modificar la Unidada Curricular" onclick="redirectEdit({{unidad.codigo}})">
-																<i class="icon-pencil"></i>
-															</button>
-														</td>	
-														<td>
-															<button class="btn btn-xs btn-danger" title="Eliminar Pensum" onclick="eliminarUnidad({{unidad.codigo}});" title="Eliminar Unidad">
-																<i class="icon-remove"></i>
-															</button>
-														</td>	
+            <div class="box-content">
+                <div class="btn-toolbar pull-right clearfix">
+                    <div class="btn-group">
+                        <a class="btn btn-circle show-tooltip" title="Agregar Unidad Curricular" href="http://localhost:8085/sisconot-desarrollo/index.php?m_modulo=unidad&m_formato=html5&m_accion=preAgregarModif&m_vista=Agregar" ><i class="icon-plus"></i></a>
+                   	</div>
+                    <div class="btn-group">
+                        <a class="btn btn-circle show-tooltip" title="Print" href="#"><i class="icon-print"></i></a>
+                        <a class="btn btn-circle show-tooltip" title="Export to PDF" href="#"><i class="icon-file-text-alt"></i></a>
+                        <a class="btn btn-circle show-tooltip" title="Export to Exel" href="#"><i class="icon-table"></i></a>
+                    </div>	                  
+                       </div>
+	 			<div class="clearfix"></div>
+	 			<div id='listarI'>			
+				
+				    	<table class="table table-advance" id="table">
+						 <thead>
+				            <tr>
+				            	<th>N° Codigo</>
+				                <th>Nombre Unidad Curricular</th>
+				                <th>Descripcion</th>			            
+				                <th>Modificar</th>
+				                <th>Eliminar</th>
+				            </tr>
+				        </thead>
+						  <tbody>									
+							{% for unidad in unidades %}									
+									<tr >
+										
+										<td><a href="#" onmouseover="verDetalle({{unidad.codigo}})" >{{unidad.codigo}}</a></td>
+										<td><a href="#"  onmouseover="verDetalle({{unidad.codigo}})">{{unidad.nombre }} ({{unidad.cod_uni_ministerio}})</a></td>
+										<td><a href="#"  onmouseover="verDetalle({{unidad.codigo}})">{{unidad.descripcion}}</a></td>
+										<td>										
+											<button class="btn btn-info" title="Modificar la Unidada Curricular" onclick="redirectEdit({{unidad.codigo}})">
+												<i class="icon-pencil"></i>
+											</button>
+										</td>	
+										<td>
+										<button class="btn btn-danger" title="Eliminar Pensum" onclick="eliminarUnidad({{unidad.codigo}});" data-toggle="modal" data-target="#dialogoUnidad" title="Eliminar Unidad">
+												<i class="icon-remove"></i>
+											</button>
+										</td>	
 
-													</tr>
-													
-											{% endfor %} 
-								  		</tbody>		
-									</table>    		 
-				   				 </div>
-						</div>			
+									</tr>
+									
+							{% endfor %} 
+				  		</tbody>		
+					</table>    		 
+   				 </div>
+
+		</div>
+			
 				</div>
-		    </div>
-	</div>
+				
+			
+
+
+    </div>
+</div>
 		
 
 <div class="col-md-6">
@@ -89,14 +96,14 @@
 
 			               
 
-			                	<div class="alert alert-primary" style="margin-top: 22px; position: unset;"> Detalle de Unidad Curricular selecionada:                           
+			                	<div class="alert alert-primary" style="margin-top: 22px;"> Detalle de Unidad Curricular selecionada:                           
 	                       		 </div>
 
 	                       	<div id="detallePen" class="third">
 
 			                	
 
-			                	<div class="alert alert-alert" style="margin-top: 22px; position: unset;"> No ha selecionado Unidad Curricular
+			                	<div class="alert alert-alert" style="margin-top: 22px;"> No selecionado Unidad Curricular
 	                       		 </div>
 
 		                	</div>
@@ -108,6 +115,6 @@
 </div>
 
 
-
+<div ="pensumV"/>   	
 
 {% endblock %}

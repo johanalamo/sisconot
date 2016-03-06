@@ -350,326 +350,327 @@ INSERT INTO sis.t_trayecto(
 
 
 
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (1,  1,  1,  1,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (2,  1,  1,  2,  'O');
+    VALUES (1,  1,  0,  1,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (3,  1,  1,  3,  'O');
-
-
-
+    VALUES (2,  1,  0,  2,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (4,  1,  2,  4,  'O');
+    VALUES (3,  1,  0,  3,  'O');
 
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (5,  1,  2,  5,  'O');
 
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (6,  1,  2,  6,  'O');
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (7,  1,  2,  7,  'O');
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (8,  1,  2,  8,  'O');
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (9,  1,  2,  9,  'O');
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (10,  1,  2,  10,  'O');
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (11,  1,  2,  11,  'O');
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (12,  1,  2,  12,  'O');
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (13,  1,  2,  13,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (14,  1,  2,  14,  'E');
+    VALUES (4,  1,  1,  4,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (18,  1,  2,  15,  'E');
+    VALUES (5,  1,  1,  5,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (19,  1,  2,  16,  'E');
+    VALUES (6,  1,  1,  6,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (20,  1,  2,  17,  'E');
+    VALUES (7,  1,  1,  7,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (21,  1,  3,  18,  'O');
+    VALUES (8,  1,  1,  8,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (22,  1,  3,  19,  'O');
+    VALUES (9,  1,  1,  9,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (23,  1,  3,  20,  'O');
+    VALUES (10,  1,  1,  10,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (24,  1,  3,  21,  'O');
+    VALUES (11,  1,  1,  11,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (25,  1,  3,  22,  'O');
+    VALUES (12,  1,  1,  12,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (26,  1,  3,  23,  'O');
+    VALUES (13,  1,  1,  13,  'O');
+
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (27,  1,  3,  24,  'O');
+    VALUES (14,  1,  1,  14,  'E');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (28,  1,  3,  25,  'O');
+    VALUES (18,  1,  1,  15,  'E');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (29,  1,  3,  26,  'O');
+    VALUES (19,  1,  1,  16,  'E');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (30,  1,  3,  27,  'O');
+    VALUES (20,  1,  1,  17,  'E');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (31,  1,  3,  28,  'O');
+    VALUES (21,  1,  2,  18,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (32,  1,  3,  29,  'O');
+    VALUES (22,  1,  2,  19,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (33,  1,  3,  30,  'O');
+    VALUES (23,  1,  2,  20,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (34,  1,  3,  31,  'O');
+    VALUES (24,  1,  2,  21,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (35,  1,  3,  32,  'O');
+    VALUES (25,  1,  2,  22,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (36,  1,  3,  33,  'E');
+    VALUES (26,  1,  2,  23,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (37,  1,  3,  34,  'E');
+    VALUES (27,  1,  2,  24,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (38,  1,  3,  35,  'O');
+    VALUES (28,  1,  2,  25,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (39,  1,  3,  36,  'O');
+    VALUES (29,  1,  2,  26,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (40,  1,  3,  37,  'O');
+    VALUES (30,  1,  2,  27,  'O');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (31,  1,  2,  28,  'O');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (32,  1,  2,  29,  'O');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (33,  1,  2,  30,  'O');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (34,  1,  2,  31,  'O');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (35,  1,  2,  32,  'O');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (36,  1,  2,  33,  'E');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (37,  1,  2,  34,  'E');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (38,  1,  2,  35,  'O');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (39,  1,  2,  36,  'O');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (40,  1,  2,  37,  'O');
 
 ---ING ---
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (41,  1,  4,  38,  'O');
+    VALUES (41,  1,  3,  38,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (42,  1,  4,  39,  'O');
+    VALUES (42,  1,  3,  39,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (43,  1,  4,  40,  'O');
+    VALUES (43,  1,  3,  40,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (44,  1,  4,  41,  'O');
+    VALUES (44,  1,  3,  41,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (45,  1,  4,  42,  'O');
+    VALUES (45,  1,  3,  42,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (46,  1,  4,  42,  'O');
+    VALUES (46,  1,  3,  42,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (47,  1,  4,  43,  'O');
+    VALUES (47,  1,  3,  43,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (48,  1,  4,  44,  'O');
+    VALUES (48,  1,  3,  44,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (49,  1,  4,  45,  'O');
+    VALUES (49,  1,  3,  45,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (50,  1,  4,  46,  'O');
-
-
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (51,  1,  4,  47,  'O');
-
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (52,  1,  4,  48,  'O');
-
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (53,  1,  4,  49,  'O');
-
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (54,  1,  4,  50,  'O');
-
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (55,  1,  4,  51,  'E');
-
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (56,  1,  4,  52,  'E');
+    VALUES (50,  1,  3,  46,  'O');
 
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (57,  1,  5,  53,  'O');
+    VALUES (51,  1,  3,  47,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (58,  1,  5,  54,  'O');
+    VALUES (52,  1,  3,  48,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (59,  1,  5,  55,  'O');
+    VALUES (53,  1,  3,  49,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (60,  1,  5,  56,  'O');
-
-
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (61,  1,  5,  57,  'O');
-
+    VALUES (54,  1,  3,  50,  'O');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (62,  1,  5,  58,  'O');
-
+    VALUES (55,  1,  3,  51,  'E');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (63,  1,  5,  59,  'O');
+    VALUES (56,  1,  3,  52,  'E');
 
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (64,  1,  5,  60,  'O');
+    VALUES (57,  1,  4,  53,  'O');
+
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (58,  1,  4,  54,  'O');
+
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (59,  1,  4,  55,  'O');
+
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (60,  1,  4,  56,  'O');
 
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (65,  1,  5,  61,  'O');
+    VALUES (61,  1,  4,  57,  'O');
 
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (66,  1,  5,  62,  'O');
+    VALUES (62,  1,  4,  58,  'O');
 
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (67,  1,  5,  63,  'O');
-
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (68,  1,  5,  64,  'O');
+    VALUES (63,  1,  4,  59,  'O');
 
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (69,  1,  5,  65,  'E');
+    VALUES (64,  1,  4,  60,  'O');
 
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (70,  1,  5,  66,  'E');
-
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (71,  1,  5,  67,  'E');
 
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (72,  1,  5,  68,  'E');
+    VALUES (65,  1,  4,  61,  'O');
+
+
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (66,  1,  4,  62,  'O');
+
+
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (67,  1,  4,  63,  'O');
+
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (68,  1,  4,  64,  'O');
+
+
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (69,  1,  4,  65,  'E');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (70,  1,  4,  66,  'E');
+
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (71,  1,  4,  67,  'E');
+
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (72,  1,  4,  68,  'E');
 
 

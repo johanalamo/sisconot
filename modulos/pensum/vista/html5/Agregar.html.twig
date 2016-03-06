@@ -7,25 +7,8 @@
 
 {% endblock %}
 
-
-{% block JavaScriptInit %}
-    <script type="text/javascript">
-    jQuery(document).ready(function () {          
-
-                
-                       var a = ObtenerIDPensum();
-                         if (a != 'not'){                           
-                            modificarURL(a,'info');
-                         }
-
-                });
-    </script>
-{% endblock %}
-
-
 {% block contenido %}
 
-      <input type='hidden' name='codigoPensum' id='codigoPensum' value="">
 	<div class="mw1300 center-block">
 
                 <!-- -------------- Spec Form -------------- -->
@@ -34,22 +17,22 @@
                         <div class="wizard steps-bg clearfix steps-show-icons steps-tabs steps-left" id="steps-uid-0">
                     	<div class="steps clearfix">
                     		<li role="tab" class="first current" >
-                            	<a id="steps-uid-0-t-I" href="#" >
-                                	<i class="icon-sitemap"></i> Información General
+                            	<a id="steps-uid-0-t-1" href="#" >
+                                	<i class="icon-sitemap"></i>Informacion General
                                 </a>
                             </li>        
                             <li role="tab" class="last done" >
-                            	<a id="steps-uid-0-t-T" href="index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=Trayecto">
+                            	<a id="steps-uid-0-t-1" href="index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=Trayecto&codigoPensum=1" >
                                 	<i class="icon-sitemap"></i>Trayectos
                                 </a>
                             </li>
                             <li role="tab" class="last done" >
-                            	<a id="steps-uid-0-t-U" href="index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=UnidadesCurricular" >
-                  			    	<i class="icon-hdd"></i> Unidades Curriculares 
+                            	<a id="steps-uid-0-t-2" href="index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=agregar&codigoPensum=1" >
+                  			    	<i class="icon-hdd"></i> Unidad Curriculares 
                   			    </a>
                   			</li>
                   			<li role="tab" class="last done">
-                  				<a id="steps-uid-0-t-P" href="index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=Prelacion" >             
+                  				<a id="steps-uid-0-t-2" href="index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=agregar&codigoPensum=1" >             
                                 	<i class="fa fa-file-text pr5"></i> Prelaciones 
                             	</a>
                             </li>
@@ -59,25 +42,23 @@
 
 				    		<div class="panel" style="padding-left: 20px;">
 				                    <div class="panel-heading">                       
-				                         <h3><i class="icon-table"></i> Agregar/Modificar Información del Pensum</h3>    
+				                         <h3><i class="icon-table"></i> Agregar/Modificar Informacion del Pensum</h3>    
 				                         <span class="panel-title">Campos para agregar/modificar Pensum</span>
 				                    </div>
 				                    <div class="panel-body" style="min-height: 338px; padding: 0px ! important; margin-top: 4%;">
 
                              <div class="box-content">
 						<form class="form-horizontal" >	 						
-	                 <div class="container-fluid">    
-
-                                  <div class="row-fluid">
+	                 <div class="container-fluid">     
+                            <div class="row-fluid">
                                     <div class="col-md-12 col-md-offset-0">     
                                         <div class="input-group">                                   
-                                                <span class="input-group-addon">Código:</span>
-                                                <input type='text' name='codigo' id='codigo' class='form-control'  placeholder='Código' disabled>
+                                                <span class="input-group-addon">Nombre Completo:</span>
+                                                <input type='text' name='nombre' onkeyup='validarSoloTexto("#nombre",5,60,true)' id='nombre' maxlength='50' class='form-control'  placeholder='Nombre'>
                                             </div>
                                         </div>
                             </div><br><br>
-
-                                  <div class="row-fluid">
+                            <div class="row-fluid">
                                     <div class="col-md-12 col-md-offset-0">     
                                         <div class="input-group">                                   
                                                 <span class="input-group-addon">Nombre Corto:</span>
@@ -89,34 +70,24 @@
                             <div class="row-fluid">
                                     <div class="col-md-12 col-md-offset-0">     
                                         <div class="input-group">                                   
-                                                <span class="input-group-addon">Nombre Completo:</span>
-                                                <input type='text' name='nombre' onkeyup='validarSoloTexto("#nombre",5,60,true)' id='nombre' maxlength='50' class='form-control'  placeholder='Nombre'>
-                                            </div>
-                                        </div>
-                            </div><br><br>
-                      
-
-                            <div class="row-fluid">
-                                    <div class="col-md-12 col-md-offset-0">     
-                                        <div class="input-group">                                   
-                                                <span class="input-group-addon">Míinima cantidad electiva:</span>
-                                                <input type='number' name='min_cant_elect' onkeyup="validarSoloNumeros('#min_cant_elect',1,2,true)"  maxlength='2' id='min_cant_elect'  class='form-control'  placeholder='Mín. cantidad electiva'>
+                                                <span class="input-group-addon">Minima cantidad electiva:</span>
+                                                <input type='number' name='min_cant_elect' onkeyup="validarSoloNumeros('#min_cant_elect',1,2,true)"  maxlength='2' id='min_cant_elect'  class='form-control'  placeholder='Min cantidad electiva'>
                                             </div>
                                         </div>
                             </div><br><br>
                             <div class="row-fluid">
                                     <div class="col-md-12 col-md-offset-0">     
                                         <div class="input-group">                                   
-                                                <span class="input-group-addon">Mínima crédito electiva:</span>
-                                                <input type='number' name='min_cre_elect' onkeyup="validarSoloNumeros('#min_cre_elect',1,2,true)"  maxlength='2' id='min_cre_elect' class='form-control'  placeholder='Mín. crédito electiva'>
+                                                <span class="input-group-addon">Minima credito electiva:</span>
+                                                <input type='number' name='min_cre_elect' onkeyup="validarSoloNumeros('#min_cre_elect',1,2,true)"  maxlength='2' id='min_cre_elect' class='form-control'  placeholder='Min credito obligatorio'>
                                             </div>
                                         </div>
                             </div><br><br>
                             <div class="row-fluid">
                                     <div class="col-md-12 col-md-offset-0">     
                                         <div class="input-group">                                   
-                                                <span class="input-group-addon">Mínima crédito obligatorio:</span>
-                                                <input type='number' name='min_cre_oblig'  onkeyup="validarSoloNumeros('#min_cre_oblig',1,3,true)"  maxlength='3' id='min_cre_oblig' class='form-control'  placeholder='Mín. crédito obligatorio'>
+                                                <span class="input-group-addon">Minima credito obligatorio:</span>
+                                                <input type='number' name='min_cre_oblig'  onkeyup="validarSoloNumeros('#min_cre_oblig',1,3,true)"  maxlength='3' id='min_cre_oblig' class='form-control'  placeholder='Min credito obligatorio'>
                                             </div>
                                         </div>
                             </div><br><br>
@@ -142,11 +113,7 @@
                         </div>
                         				</div>
 				
-			           <div class="form-group" align="center" style="margin-top: 10px;">
-                                     <button class='btn btn-alert' onclick="setClear()" class='close' data-dismiss='alert'>LIMPIAR</button>
-                                     <button class='btn btn-success' onclick="validarAgregarPensum()" class='close' data-dismiss='alert'>GUARDAR</button>
-
-                                 </div>
+			
 
 
     </div>
@@ -155,7 +122,15 @@
 </div>
                  
 
-                        </div>
+                        </div><div class="actions clearfix">
+                        <ul role="menu" >
+                        	<li class="disabled" >
+                        		<a href="#previous" role="menuitem">Limpiar</a>
+                        	</li>
+                        	<li aria-hidden="false" class="" style="display: inline-block;">
+                        		<a href="#next" role="menuitem">Guardar</a>
+                        	</li>
+                        </ul></div>
                     	</div>
 
                         <!-- -------------- /Wizard -------------- -->
