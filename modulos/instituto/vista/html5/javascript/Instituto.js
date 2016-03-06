@@ -210,14 +210,14 @@ function succListar(data){
 				cadena+="<td>"+data.institutos[i]['direccion']+"</td>";
 			cadena+="<td>";
 			
-			cadena+="<button type='button' onClick='modificarInstituto("+data.institutos[i]['codigo']+")' data-toggle='modal' data-target='#dialogoInstituto' title='Modificar Instituto'>";
+			cadena+="<button type='button' class='btn btn-xs btn-info' onClick='modificarInstituto("+data.institutos[i]['codigo']+")' data-toggle='modal' data-target='#dialogoInstituto' title='Modificar Instituto'>";
 			cadena+="<i class='icon-pencil'></i>"
 			cadena+="</button>";
 			
 			cadena+="</td>";
 			cadena+="<td>"
 		
-			cadena+="<button type='button' onClick='eliminarInstituto("+data.institutos[i]['codigo']+")' data-toggle='modal' data-target='#dialogoInstituto' title='Eliminar Instituto'>"
+			cadena+="<button type='button' class='btn btn-xs btn-danger' onClick='eliminarInstituto("+data.institutos[i]['codigo']+")' data-toggle='modal' data-target='#dialogoInstituto' title='Eliminar Instituto'>"
 			cadena+="<i class='icon-trash'></i>"
 			cadena+="</button>";
 		

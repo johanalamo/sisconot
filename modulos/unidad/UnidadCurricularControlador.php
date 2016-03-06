@@ -92,7 +92,7 @@
 	 *
 	 * @throws Exception 					Si no se puede hacer la acion y ocurre una error en el servicio.
 	 */	
-		static function listarUnidades(){
+	 public static function listarUnidades(){
 			try{				
 				$unidades=UnidadServicio::listarUniCurricular();
 				$mensaje="Unidades";
@@ -107,13 +107,13 @@
 
 
 	/**
-	 * Función del controlaodr que Permite listar .
+	 * Función del controlaor que Permite ver la vista de agregar/modificar .
 	 * 
 	 * permite listar todos las UnidadCurricular.		 		 
 	 *
 	 * @throws Exception 					Si no se puede hacer la acion y ocurre una error en el servicio.
 	 */	
-		static function preAgregarModif(){
+	 public static function preAgregarModif(){
 			try{				
 				if (PostGet::obtenerPostGet('codigo'))				
 					$unidades = UnidadServicio::obtener(PostGet::obtenerPostGet('codigo'));			
@@ -136,7 +136,7 @@
 	*
     * @throws Exception 					Si no se puede hacer la acion y ocurre una error en el servicio.
 	*/	
-		static function preAgregModif(){
+	public static function preAgregModif(){
 			try{				
 				if (!PostGet::obtenerPostGet('codigo')){				
 					$UniCurricular=new UniCurricular();
