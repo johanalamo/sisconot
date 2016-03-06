@@ -49,8 +49,12 @@
 					$accion = 'listar';			
 				else if ($accion == 'listar') 	
 					self::listar();
+				else if ($accion == 'preModif')					
+					self::preModif();
+				else if ($accion == 'preModifAgre')					
+					self::preModifAgre();
 				else if ($accion == 'agregar')					
-					self::agregar();				
+					self::agregar();					
 				else if ($accion == 'buscarPensum')
 					self::buscarPensum();
 				else if ($accion == 'buscarPorInstituto')
@@ -86,6 +90,61 @@
 			}
 		}
 
+
+/**
+		 * Función Permite Agregar/modifiar pensum.
+		 * 
+		 * @param int codigo                     variable codigo de pesum
+		 * @param string nombre 			  	variable pensum a agregar.
+		 * @param string nomCorto 			  	variable pensum a agregar.
+		 * @param string direccion 			  	variable pensum a agregar.
+		 * @param int min_can_elect 			  	variable pensum a agregar.
+		 * @param int min_cre_elect 			  	variable pensum a agregar.
+		 * @param int min_cre_obligat 			  	variable pensum a agregar.
+		 * @param string fec_creac 			  	variable pensum a agregar.
+		 *
+		 * @throws Exception 					Si no se puede hacer la acion.
+		 */	
+
+		public static function preModifAgre()
+		{
+			try
+			{
+				$pensum = new Pensum ();
+				if (!PostGet::obtenerPostGet('codigo')){	
+				$pensum->asignarNombre(PostGet::obtenerPostGet('nombre'));			
+				$pensum->asignarNombreCorto(PostGet::obtenerPostGet('nom_corto'));			
+				$pensum->asignarObservaciones(PostGet::obtenerPostGet('observaciones'));
+				$pensum->asignarMinCanElectiva(PostGet::obtenerPostGet('minCanElectiva'));
+				$pensum->asignarMinCreElectiva(PostGet::obtenerPostGet('minCreElectiva'));
+				$pensum->asignarMinCreObligatorio(PostGet::obtenerPostGet('minCreObli'));
+				$pensum->asignarFechaCreacion(PostGet::obtenerPostGet('fecha'));
+				if (PostGet::obtenerPostGet('observaciones')==='')
+					$pensum->asignarObservaciones(null);				
+				 	self::agregar($pensum);
+				}else{
+				$pensum->asignarCodigo(PostGet::obtenerPostGet('codigo'));
+				$pensum->asignarNombre(PostGet::obtenerPostGet('nombre'));			
+				$pensum->asignarNombreCorto(PostGet::obtenerPostGet('nom_corto'));			
+				$pensum->asignarObservaciones(PostGet::obtenerPostGet('observaciones'));
+				$pensum->asignarMinCanElectiva(PostGet::obtenerPostGet('minCanElectiva'));
+				$pensum->asignarMinCreElectiva(PostGet::obtenerPostGet('minCreElectiva'));
+				$pensum->asignarMinCreObligatorio(PostGet::obtenerPostGet('minCreObli'));
+				$pensum->asignarFechaCreacion(PostGet::obtenerPostGet('fecha'));
+				if (PostGet::obtenerPostGet('observaciones')==='')
+					$pensum->asignarObservaciones(null);
+					self::modificar($pensum);
+				}			
+			
+
+			}catch (Exception $e){
+				throw $e;
+				//var_dump($e);
+			}
+		}
+
+
+
 /**
 		 * Función Permite Agregar pensum.
 		 * 
@@ -105,20 +164,10 @@
 		 * @throws Exception 					Si no se puede hacer la acion.
 		 */	
 
-		public static function agregar()
+		public static function agregar($pensum)
 		{
 			try
-			{
-				$pensum = new Pensum ();
-				$pensum->asignarNombre(PostGet::obtenerPostGet('nombre'));			
-				$pensum->asignarNombreCorto(PostGet::obtenerPostGet('nom_corto'));			
-				$pensum->asignarObservaciones(PostGet::obtenerPostGet('observaciones'));
-				$pensum->asignarMinCanElectiva(PostGet::obtenerPostGet('minCanElectiva'));
-				$pensum->asignarMinCreElectiva(PostGet::obtenerPostGet('minCreElectiva'));
-				$pensum->asignarMinCreObligatorio(PostGet::obtenerPostGet('minCreObli'));
-				$pensum->asignarFechaCreacion(PostGet::obtenerPostGet('fecha'));
-				if (PostGet::obtenerPostGet('observaciones')==='')
-					$pensum->asignarObservaciones(null);				
+			{					
 				$r=PensumServicio::agregarPensumObjetc($pensum);			
 				$mensaje= "Pensum Agregado";
 				Vista::asignarDato('pensum', $r);
@@ -265,21 +314,11 @@
 	 * @param string fec_creac 			  	variable pensum a modificar.
 	 * @throws Exception 					Si no se puede hacer la acion.
 	 */	
-		public static function modificar ()
+		public static function modificar ($pensum)
 		{
 			try
 			{
-    			$pensum = new Pensum ();
-			    $pensum->asignarCodigo(PostGet::obtenerPostGet('codigo'));
-				$pensum->asignarNombre(PostGet::obtenerPostGet('nombre'));			
-				$pensum->asignarNombreCorto(PostGet::obtenerPostGet('nom_corto'));			
-				$pensum->asignarObservaciones(PostGet::obtenerPostGet('observaciones'));
-				$pensum->asignarMinCanElectiva(PostGet::obtenerPostGet('minCanElectiva'));
-				$pensum->asignarMinCreElectiva(PostGet::obtenerPostGet('minCreElectiva'));
-				$pensum->asignarMinCreObligatorio(PostGet::obtenerPostGet('minCreObli'));
-				$pensum->asignarFechaCreacion(PostGet::obtenerPostGet('fecha'));
-				if (PostGet::obtenerPostGet('observaciones')==='')
-					$pensum->asignarObservaciones(null);				
+    		
 				$r = PensumServicio::modificarPensumObject($pensum);
 				$mensaje= "Pensum Modificado";
 				Vista::asignarDato('pensum',$r);
@@ -302,6 +341,27 @@
 			try{				
 				Vista::mostrar();
 			}catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		/**
+		* Funcion del carga vista de modificar
+		*
+		*
+		*/
+		public static function preModif(){
+			try
+			{
+				$r=PensumServicio::obtener(PostGet::obtenerPostGet('codigo'));
+			//	var_dump($r);
+				$mensaje="Pensum";
+				Vista::asignarDato('pensum',$r);
+				Vista::asignarDato('estatus',1);
+				Vista::asignarDato('mensaje',$mensaje);
+				Vista::mostrar();
+			}
+			catch (Exception $e){
 				throw $e;
 			}
 		}	

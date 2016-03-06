@@ -71,32 +71,6 @@ class TrayectoServicio
 	}
 
 
-/**
-		 * Función que permite agregar un trayecto.
-		 * 
-		 * Permite agrega un trayecto a la base de datos.
-		 * 
-		 * @param objet $trayecto 			  	Objeto trayecto a trayecto.
-		 *
-		 * @throws Exception 					Si no se puede trayecto el trayecto.
-		 */	
-	public static function agregar(){
-		try{
-				$nArg=func_num_args();
-				if ($nArg==1){
-				$p=func_get_arg(0);
-				if ((is_object($p)) && (get_class($p)=='Trayecto'))
-				self::agregarTrayectoObjetc($p);
-				}else{
-				if ($nArg!=2)
-					throw new Exception ('Cantidad de parámetros incorrecta');
-				else
-					self::agregarD(func_get_arg(0),func_get_arg(1),func_get_arg(2));
-				}
-			}catch (Exception $e){
-			throw $e;
-			}
-	}
 
 	/**
 		 * Función que permite agregar un trayecto.
@@ -149,7 +123,7 @@ class TrayectoServicio
 		 *
 		 * @throws Exception 					Si no se puede agregar el trayecto.
 		*/
-	public static function agregarTrayectoParametro($cod_pensum, $num_trayecto, $certificado, $min_cre_obligatoria, $min_cre_electiva, $min_cre_acreditable, $min_can_electiva){
+		public static function agregarTrayectoParametro($cod_pensum, $num_trayecto, $certificado, $min_cre_obligatoria, $min_cre_electiva, $min_cre_acreditable, $min_can_electiva){
 		try{
 			$conexion=Conexion::conectar();
 			$consulta="select sis.f_trayecto_insertar(:cod_pensum, :num_trayecto, :certificado, :min_cre_obligatoria, :min_cre_electiva, :min_cre_acreditable, :min_can_electiva)";								
@@ -188,8 +162,9 @@ class TrayectoServicio
 		 */
 		public static function modificarTrayectoObject($trayecto){
 			try{
+		
 				$conexion=Conexion::conectar();
-				$consulta="select sis.f_trayecto_actualizar(:codigo, :nombre, :nombreCorto, :observaciones, :min_can_elect, :min_cre_elect, :min_cre_obligat, :fec_creac)";								
+				$consulta="select sis.f_trayecto_actualizar(:codigo, :cod_pensum, :num_trayecto, :certificado, :min_cre_obligatoria, :min_cre_electiva, :min_cre_acreditable, :min_can_electiva)";								
 				$ejecutar=$conexion->prepare($consulta);
 				// indica
 				// como se indica en parametro y el tipo de parametro que se envia
@@ -217,54 +192,7 @@ class TrayectoServicio
 			}	 
 		}
 
-		/**
-		 * Función que permite modificar un trayecto.
-		 * 
-		 * Permite modificar un trayecto a la base de datos.
-		 * 
-		 * @param codigo $codigo 			  	variable trayecto a modificar.
-		 * @param cod_pensum $cod_pensum 			  	variable trayecto a modificar.
-		 * @param num_trayecto $num_trayecto 			  	variable trayecto a modificar.
-		 * @param certificado $certificado 			  	variable trayecto a modificar.
-		 * @param min_cre_obligatoria $min_cre_obligatoria 			  	variable trayecto a modificar.
-		 * @param min_cre_electiva $min_cre_electiva 			  	variable trayecto a modificar.
-		 * @param min_cre_acreditable $min_cre_acreditable 			  	variable trayecto a modificar.
-		 * @param min_can_electiva $min_can_electiva 			  	variable trayecto a modificar.
-		 *
-		 * @throws Exception 					Si no se puede modificar el trayecto.
-		*/
-		public static function modificarTrayectoParametro($codigo, $nombre, $nombreCorto, $observaciones, $min_can_elect, $min_cre_elect, $min_cre_obligat, $fec_creac){
-			try{
-				$conexion=Conexion::conectar();
-				$consulta="select sis.f_trayecto_actualizar(:codigo, :nombre, :nombreCorto, :observaciones, :min_can_elect, :min_cre_elect, :min_cre_obligat, :fec_creac)";								
-			    $ejecutar=$conexion->prepare($consulta);
-				// indica
-				// como se indica en parametro y el tipo de parametro que se envia
-				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
-				$ejecutar->bindParam(':nombre',$nombre, PDO::PARAM_STR);
-				$ejecutar->bindParam(':nombreCorto',$nombreCorto, PDO::PARAM_STR);
-				$ejecutar->bindParam(':observaciones',$observaciones, PDO::PARAM_STR);
-				$ejecutar->bindParam(':min_can_elect',$min_can_elect, PDO::PARAM_INT);
-				$ejecutar->bindParam(':min_cre_elect',$min_cre_elect, PDO::PARAM_INT);
-				$ejecutar->bindParam(':min_cre_obligat',$min_cre_obligat, PDO::PARAM_INT);
-				$ejecutar->bindParam(':fec_creac', strtotime(date ("Y-m-d", $fec_creac)), PDO::PARAM_STR);
-				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-				//ejecuta				
-				$ejecutar->execute();
-				//primera columana codigo
-				$row = $ejecutar->fetchColumn(0);					
-				// recomendad null a este objeto						
-				unset($ejecutar);
-				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
-				unset($conexion);
-				if ($row == 0)
-					throw new Exception("No se puede modificar el trayecto");	
-
-			}catch(Exception $e){
-				throw $e;
-			}	 
-		}
-
+		
 		/**
 		 * Función que permite eliminar un trayecto.
 		 * 
@@ -277,7 +205,7 @@ class TrayectoServicio
 		public static function eliminar($codigo){
 		try{
 				$conexion=Conexion::conectar();
-				$consulta="select sis.f_trayecto_eliminars(:codigo)";								
+				$consulta="select sis.f_trayecto_eliminar(:codigo)";								
 				$ejecutar=$conexion->prepare($consulta);
 				// indica
 				// como se indica en parametro y el tipo de parametro que se envia
@@ -287,7 +215,7 @@ class TrayectoServicio
 				$ejecutar->execute();
 				//primera columana codigo
 				$row = $ejecutar->fetchColumn(0);					
-				var_dump($row);
+			
 				// recomendad null a este objeto	
 				unset($ejecutar);
 				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
@@ -345,7 +273,52 @@ class TrayectoServicio
 			}
 		}
 
+		/**
+		 * Función que permite obtener un trayecto por patron.
+		 * 
+		 * Permite obtener eun trayecto de la base de datos.
+		 * 
+		 * @param int $codigo				Objeto trayecto obtenido en la base de datos.
+		 * 
+		 * @throws Exception 			si no existe el trayecto.
+		 * 
+		 */
+		public static function obtenerPorPatron($codigo,$patron){
+			try{
+				$conexion=Conexion::conectar();				
+				$consulta= "select sis.f_trayecto_por_patron_seleccionar('pcursor', :codigo, :patron)";
+							
+				$ejecutar= $conexion->prepare($consulta);
+				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
+				$ejecutar->bindParam(':patron',$patron, PDO::PARAM_STR);	
+				// inicia transaccion
+				$conexion->beginTransaction();   
+				$ejecutar->execute();			 
+				$cursors = $ejecutar->fetchAll();
+				// cierra cursor
+				$ejecutar->closeCursor();         
+				// array para almacenar resultado del cursor
+				$results = array();				
+				// ejecutar otro query para leer el cursor
+				$ejecutar = $conexion->query('FETCH ALL IN pcursor;');
+				$results = $ejecutar->fetchAll();
+				$ejecutar->closeCursor();
+				// cierra cursor			
+				$conexion->commit();	
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);	
 
+				if(count($results) > 0)					
+					return $results;
+				else								
+					return null;
+
+			}catch (Exception $e ){
+				throw $e;
+			}
+		}
 
 	
 }

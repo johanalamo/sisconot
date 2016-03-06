@@ -40,15 +40,15 @@
 													<tr >
 														
 														<td><a href="#" onmouseover="verDetalle({{unidad.codigo}})" >{{unidad.codigo}}</a></td>
-														<td><a href="#"  onmouseover="verDetalle({{unidad.codigo}})">{{unidad.nombre}} </a></td>
+														<td><a href="#"  onmouseover="verDetalle({{unidad.codigo}})">{{unidad.nombre }} ({{unidad.cod_uni_ministerio}})</a></td>
 														<td><a href="#"  onmouseover="verDetalle({{unidad.codigo}})">{{unidad.cod_uni_ministerio}}</a></td>
 														<td>										
-															<button class="btn btn-xs btn-info" title="Modificar la Unidada Curricular" onclick="redirectEdit({{unidad.codigo}})">
+															<button class="btn btn-info" title="Modificar la Unidada Curricular" onclick="redirectEdit({{unidad.codigo}})">
 																<i class="icon-pencil"></i>
 															</button>
 														</td>	
 														<td>
-															<button class="btn btn-xs btn-danger" title="Eliminar Pensum" onclick="eliminarUnidad({{unidad.codigo}});" title="Eliminar Unidad">
+															<button class="btn btn-danger" title="Eliminar Pensum" onclick="eliminarUnidad({{unidad.codigo}});" title="Eliminar Unidad">
 																<i class="icon-remove"></i>
 															</button>
 														</td>	
@@ -89,14 +89,14 @@
 
 			               
 
-			                	<div class="alert alert-primary" style="margin-top: 22px; position: unset;"> Detalle de Unidad Curricular selecionada:                           
+			                	<div class="alert alert-primary" style="margin-top: 22px;"> Detalle de Unidad Curricular selecionada:                           
 	                       		 </div>
 
 	                       	<div id="detallePen" class="third">
 
 			                	
 
-			                	<div class="alert alert-alert" style="margin-top: 22px; position: unset;"> No ha selecionado Unidad Curricular
+			                	<div class="alert alert-alert" style="margin-top: 22px;"> No ha selecionado Unidad Curricular
 	                       		 </div>
 
 		                	</div>

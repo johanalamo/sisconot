@@ -1,4 +1,8 @@
-{% extends 'Unidad.html.twig' %}
+{% extends 'Base.html.twig' %}
+
+{% block headModulo %}	
+	<script src="modulos/unidad/vista/html5/js/unidadcurricular.js"></script>
+{% endblock %}
 
 {% block contenido %}
 
@@ -8,7 +12,7 @@
     		<div class="panel">
                     <div class="panel-heading">                       
                          <h3><i class="icon-table"></i> Agregar/Modificar Unidad Curricular</h3>    
-                         <span class="panel-title">Campos para agregar/modificar unidad</span>
+                         <span class="panel-title">Campos para agregar/modificar Unidad</span>
                     </div>
                     <div class="panel-body" style="min-height: 447px;">
 
@@ -20,42 +24,44 @@
 	 					{% if unidad is null %}		
 	 						<form class="form-horizontal" >
 
-	 							<div class="col-sm-4">
-	                                <div class="form-group">
-	                                    <label class="col-lg-3 control-label">Codigo:</label>
-
-	                                    <div class="col-lg-8">
-	                                    
-	                                            
-	                                    	<input type="text" id="codigo" name="codigo" class="form-control" placeholder="codigo.." disabled style="margin-left: 10px;">
+	 							 <div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group">                                   
+                                                <span class="input-group-addon">Código:</span>                                            
+                                    			<input type="text" id="codigo" name="codigo" class="form-control" placeholder="código.." disabled>
 	                                      
-	                                    </div>
-	                                </div>
-	                            </div>    
-                            	<div class="col-sm-8">
-	                                <div class="form-group">
-	                                    <label  class="col-lg-5 control-label">Codigo Ministerio</label>
-	                                    <div class="col-lg-7">	                                        
-	                                            <input type="text" id="codigoMinisterio" name="codigoMinisterio" class="form-control" onkeyup="verCoincidencia()" placeholder="codigo ministerio...">
+                                        </div>
+                                    </div>
+                            	</div>
+
+                                  <div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                  	   <span class="input-group-addon">Código Ministerio</span>	                                                                      
+	                                            <input type="text" id="codigoMinisterio" name="codigoMinisterio" class="form-control" onkeyup="verCoincidencia()" placeholder="Código Ministerio...">
 	                                      
 	                                    </div>
 	                                </div>
                             	</div>
+
                             	<div class="clearfix"></div>
-                            	<div class="col-sm-8">
-	                            	<div class="form-group">
-		                                    <label  class="col-lg-3 control-label">Nombre:</label>
-		                                    <div class="col-lg-9">
+                            	
+                            	<div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+		                                     <span class="input-group-addon">Nombre:</span>
+		                                  
 		                                     
-		                                            <input type="text" class="form-control"  id="nombre" name="nombre" placeholder="Nombre...">
+		                                            <input type="text" class="form-control"  id="nombre" name="nombre" placeholder="Nombre..." onkeyup="verCoincidencia()">
 		                                      
 		                                    </div>
 		                                </div>
 		                        </div>
-                                <div class="col-sm-4">
-                                	<div class="form-group">
-	                                    <label  class="col-lg-5 control-label">U.C.</label>
-	                                    <div class="col-lg-7">	                                        
+                              <div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                     <span class="input-group-addon">U.C.</span>
+	                                                                     
 	                                            <input  type="number" min="1" max="999" id="unidadCredito" name="unidadCredito" class="form-control" >
 	                                      
 	                                    </div>
@@ -63,58 +69,66 @@
                              	</div>
                              	<div class="clearfix"></div>
                              	<hr class="short alt">
-                             	<div class="form-group">
-		                                    <label  class="col-lg-3 control-label">Descripcion:</label>
-		                                    <div class="col-lg-8">
+                             	<div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+
+		                                     <span class="input-group-addon">Descripción:</span>
+		                                   
 		                                       
-		                                            <input type="text" id="descripcion" name="descripcion" class="form-control" placeholder="Descripcion...">
+		                                            <input type="text" id="descripcion" name="descripcion" class="form-control" placeholder="Descripción..." onkeyup="verCoincidencia()">
 		                                    
 		                                    </div>
 		                                </div>
-
-		                        <div class="col-sm-4">
-	                                <div class="form-group">
-	                                    <label  class="col-lg-3 control-label">H.T.A.</label>
-	                                    <div class="col-lg-7">	                                        
-	                                            <input  type="number" min="1" max="999" id="hta" name="hta" class="form-control" >
+		                            </div>
+		                        <div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                     <span class="input-group-addon">H.T.A.</span>
+	                                                                         
+	                                            <input  type="number" min="0" max="999" id="hta" name="hta" class="form-control" >
 	                                      
 	                                    </div>
 	                            	</div>   
 	                            </div>	 
-                            	<div class="col-sm-4">
-	                                <div class="form-group">
-	                                    <label  class="col-lg-3 control-label">H.T.I</label>
-	                                    <div class="col-lg-7">	                                        
-	                                            <input  type="number" min="1" max="999" id="hti" name="hti" class="form-control">
+                            	<div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                    <span class="input-group-addon">H.T.I</span>
+	                                                                           
+	                                            <input  type="number" min="0" max="999" id="hti" name="hti" class="form-control">
 	                                      
 	                                    </div>
                             		</div>
                             	</div>	
-                            	<div class="col-sm-4">
-	                                <div class="form-group">
-	                                    <label  class="col-lg-5 control-label" style="padding-left: 0px ! important; padding-right: 0px ! important;">D. Semanas</label>
-	                                    <div class="col-lg-7">	                                        
-	                                            <input  type="number" min="1" max="999" id="semanas" name="semanas" class="form-control">
+                            	<div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                     <span class="input-group-addon">D. Semanas</span>
+	                                                                           
+	                                            <input  type="number" min="0" max="999" id="semanas" name="semanas" class="form-control">
 	                                      
 	                                    </div>
                             		</div>
                             	</div>
                             	<div class="clearfix"></div>
                             	<hr class="short alt">
-                            	<div class="col-sm-5">
-	                                <div class="form-group">
-	                                    <label  class="col-lg-3 control-label" style="padding-left: 0px ! important; padding-right: 0px ! important;">Nota Min Aprobatoria</label>
-	                                    <div class="col-lg-7">	                                        
-	                                            <input  type="number" min="1" max="999" id="notaMin" name="notaMin" class="form-control" >
+                            	<div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                     <span class="input-group-addon">Nota Min Aprobatoria</span>
+	                                                                       
+	                                            <input  type="number" min="0" max="999" id="notaMin" name="notaMin" class="form-control" >
 	                                      
 	                                    </div>
 	                            	</div>   
 	                            </div>	 
-                            	<div class="col-sm-5">
-	                                <div class="form-group">
-	                                    <label  class="col-lg-3 control-label" style="padding-left: 0px ! important; padding-right: 0px ! important;">Nota Maxima</label>
-	                                    <div class="col-lg-7">	                                        
-	                                            <input  type="number" min="1" max="999" id="notMaxima" name="notMaxima" class="form-control">
+                            	<div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                     <span class="input-group-addon">Nota Máxima</span>
+	                                                                        
+	                                            <input  type="number" min="0" max="999" id="notMaxima" name="notMaxima" class="form-control">
 	                                      
 	                                    </div>
                             		</div>
@@ -122,23 +136,29 @@
 
                             	<div class="clearfix"></div>
                             	<hr class="short alt">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label" for="textArea1">Contenido:</label>
+                                <div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+                                     <span class="input-group-addon">Contenido:</span>
 
-                                    <div class="col-lg-8">                                       
+                                                                         
                                               <textarea class="form-control textarea-grow" id="contenido" name="contenido" rows="5" placeholder="Contenido..."></textarea>
-                                       
+                                       </div>
                                     </div>
                                 </div>
 	                              
-	                            <div class="form-group">
-                                    <label class="col-lg-3 control-label" for="textArea2"  placeholder="Observación...">Observación:</label>
-                                    <div class="col-lg-8">                 
-                                            <textarea class="form-control" id="observacion" name="observacion" rows="3"></textarea>                                        
-                                    </div>
-                                </div>
-
-                                 <div class="form-group" align="center">
+	                             <div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                    <span class="input-group-addon">Observación:</span>
+	                                                  
+	                                            <textarea class="form-control" id="observacion" name="observacion" rows="3"></textarea>                                        
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            	<div class="clearfix"></div>
+                            	<hr class="short alt">
+                                 <div class="form-group" align="center" style="margin-top:10px;">
                                  	 <button class='btn btn-alert' onclick="setClear()" class='close' data-dismiss='alert'>LIMPIAR</button>
                                		 <button class='btn btn-success' onclick="agregarModificar()" class='close' data-dismiss='alert'>GUARDAR</button>
 
@@ -147,104 +167,114 @@
                      	{% endif %} 
 
 				    	{% if unidad is not null %}		
-				    		{% for uni in unidad %}		
-								<form class="form-horizontal" >
+				    		{% for uni in unidad %}	
 
-	 							<div class="col-sm-4">
-	                                <div class="form-group">
-	                                    <label class="col-lg-3 control-label">Codigo:</label>
+				    							<form class="form-horizontal" >
 
-	                                    <div class="col-lg-8">
+	 							 <div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group">                                   
+                                                <span class="input-group-addon">Código:</span>                                            
+                                    			<input type="text" id="codigo" value="{{uni.codigo}}" name="codigo" class="form-control" placeholder="código.." disabled >
 	                                    
-	                                            
-	                                    	<input type="text" id="codigo" value="{{uni.codigo}}" name="codigo" class="form-control" placeholder="codigo.. {{uni.codigo}}" disabled style="margin-left: 10px;">
 	                                      
-	                                    </div>
-	                                </div>
-	                            </div>    
-                            	<div class="col-sm-8">
-	                                <div class="form-group">
-	                                    <label  class="col-lg-5 control-label">Codigo Ministerio</label>
-	                                    <div class="col-lg-7">	                                        
-	                                            <input type="text" id="codigoMinisterio" value="{{uni.cod_uni_ministerio}}" name="codigoMinisterio" class="form-control" onkeyup="verCoincidencia()" placeholder="codigo ministerio...">
-	                                      
+                                        </div>
+                                    </div>
+                            	</div>
+
+                                  <div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                  	   <span class="input-group-addon">Código Ministerio</span>	                                                                      
+	                                             <input type="text" id="codigoMinisterio" value="{{uni.cod_uni_ministerio}}" name="codigoMinisterio" class="form-control" onkeyup="verCoincidencia()" placeholder="Código ministerio...">
 	                                    </div>
 	                                </div>
                             	</div>
+
                             	<div class="clearfix"></div>
-                            	<div class="col-sm-8">
-	                            	<div class="form-group">
-		                                    <label  class="col-lg-3 control-label">Nombre:</label>
-		                                    <div class="col-lg-9">
+                            	
+                            	<div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+		                                     <span class="input-group-addon">Nombre:</span>
+		                                  
 		                                     
-		                                            <input type="text" class="form-control" value="{{uni.nombre}}"  id="nombre" name="nombre" placeholder="Nombre...">
+		                                               <input type="text" class="form-control"  onkeyup="verCoincidencia()" value="{{uni.nombre}}"  id="nombre" name="nombre" placeholder="Nombre...">
 		                                      
 		                                    </div>
 		                                </div>
 		                        </div>
-                                <div class="col-sm-4">
-                                	<div class="form-group">
-	                                    <label  class="col-lg-5 control-label">U.C.</label>
-	                                    <div class="col-lg-7">	                                        
-	                                            <input  type="number" min="1" max="999" id="unidadCredito"  value="{{uni.uni_credito}}" name="unidadCredito" class="form-control" >
+                              <div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                     <span class="input-group-addon">U.C.</span>
+	                                                                     
+	                                           <input  type="number" min="0" max="999" id="unidadCredito"  value="{{uni.uni_credito}}" name="unidadCredito" class="form-control" >
 	                                      
 	                                    </div>
 	                                </div>
                              	</div>
                              	<div class="clearfix"></div>
                              	<hr class="short alt">
-                             	<div class="form-group">
-		                                    <label  class="col-lg-3 control-label">Descripcion:</label>
-		                                    <div class="col-lg-8">
+                             	<div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+
+		                                     <span class="input-group-addon">Descripción:</span>
+		                                   
 		                                       
 		                                            <input type="text" id="descripcion" name="descripcion"  value="{{uni.descripcion}}" class="form-control" placeholder="Descripcion...">
 		                                    
 		                                    </div>
 		                                </div>
-
-		                        <div class="col-sm-4">
-	                                <div class="form-group">
-	                                    <label  class="col-lg-3 control-label">H.T.A.</label>
-	                                    <div class="col-lg-7">	                                        
+		                            </div>
+		                        <div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                     <span class="input-group-addon">H.T.A.</span>
+	                                                                         
 	                                            <input  type="number" min="1" max="999" id="hta"  value="{{uni.hta}}" name="hta" class="form-control" >
 	                                      
 	                                    </div>
 	                            	</div>   
 	                            </div>	 
-                            	<div class="col-sm-4">
-	                                <div class="form-group">
-	                                    <label  class="col-lg-3 control-label">H.T.I</label>
-	                                    <div class="col-lg-7">	                                        
-	                                            <input  type="number" min="1" max="999" id="hti" name="hti" value="{{uni.hti}}" class="form-control">
+                            	<div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                    <span class="input-group-addon">H.T.I</span>
+	                                                                           
+	                                        <input  type="number" min="1" max="999" id="hti" name="hti" value="{{uni.hti}}" class="form-control">
 	                                      
 	                                    </div>
                             		</div>
                             	</div>	
-                            	<div class="col-sm-4">
-	                                <div class="form-group">
-	                                    <label  class="col-lg-5 control-label" style="padding-left: 0px ! important; padding-right: 0px ! important;">D. Semanas</label>
-	                                    <div class="col-lg-7">	                                        
-	                                            <input  type="number" min="1" max="999" id="semanas" name="semanas" value="{{uni.dur_semanas}}" class="form-control">
+                            	<div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                     <span class="input-group-addon">D. Semanas</span>
+	                                                                           
+	                                          <input  type="number" min="1" max="999" id="semanas" name="semanas" value="{{uni.dur_semanas}}" class="form-control"> 
 	                                      
 	                                    </div>
                             		</div>
                             	</div>
                             	<div class="clearfix"></div>
                             	<hr class="short alt">
-                            	<div class="col-sm-5">
-	                                <div class="form-group">
-	                                    <label  class="col-lg-3 control-label" style="padding-left: 0px ! important; padding-right: 0px ! important;">Nota Min Aprobatoria</label>
-	                                    <div class="col-lg-7">	                                        
-	                                            <input  type="number" min="1" max="999" id="notaMin" name="notaMin" value="{{uni.not_min_aprobatoria}}" class="form-control" >
-	                                      
+                            	<div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                     <span class="input-group-addon">Nota Min Aprobatoria</span>
+	                                                                       
+	                                              <input  type="number" min="1" max="999" id="notaMin" name="notaMin" value="{{uni.not_min_aprobatoria}}" class="form-control" >
 	                                    </div>
 	                            	</div>   
 	                            </div>	 
-                            	<div class="col-sm-5">
-	                                <div class="form-group">
-	                                    <label  class="col-lg-3 control-label" style="padding-left: 0px ! important; padding-right: 0px ! important;">Nota Maxima</label>
-	                                    <div class="col-lg-7">	                                        
-	                                            <input  type="number" min="1" max="999" id="notMaxima" name="notMaxima" value="{{uni.not_maxima}}"  class="form-control">
+                            	<div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                     <span class="input-group-addon">Nota Máxima</span>
+	                                                                        
+	                                              <input  type="number" min="1" max="999" id="notMaxima" name="notMaxima" value="{{uni.not_maxima}}"  class="form-control">
 	                                      
 	                                    </div>
                             		</div>
@@ -252,28 +282,35 @@
 
                             	<div class="clearfix"></div>
                             	<hr class="short alt">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label" for="textArea1">Contenido:</label>
+                                <div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+                                     <span class="input-group-addon">Contenido:</span>
 
-                                    <div class="col-lg-8">                                       
                                               <textarea class="form-control textarea-grow" id="contenido" name="contenido" value="" rows="5" placeholder="Contenido...">{{uni.contenido}}</textarea>
-                                       
+                                       </div>
                                     </div>
                                 </div>
 	                              
-	                            <div class="form-group">
-                                    <label class="col-lg-3 control-label" for="textArea2"  placeholder="Observación...">Observación:</label>
-                                    <div class="col-lg-8">                 
-                                            <textarea class="form-control" id="observacion" name="observacion" value="" rows="3">{{uni.observacion}}</textarea>                                        
-                                    </div>
-                                </div>
-
-                                 <div class="form-group" align="center">
+	                             <div class="row-fluid">
+                                    <div class="col-md-12 col-md-offset-0">     
+                                        <div class="input-group"> 
+	                                    <span class="input-group-addon">Observación:</span>
+	                                                  
+	                                              <textarea class="form-control" id="observacion" name="observacion" value="" rows="3">{{uni.observacion}}</textarea>                                        
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            	<div class="clearfix"></div>
+                            	<hr class="short alt">
+                                 <div class="form-group" align="center" style="margin-top:10px;">
                                  	 <button class='btn btn-alert' onclick="setClear()" class='close' data-dismiss='alert'>LIMPIAR</button>
                                		 <button class='btn btn-success' onclick="agregarModificar()" class='close' data-dismiss='alert'>GUARDAR</button>
 
 	                             </div>
                             </form>
+
+			
 							{% endfor %} 			
 						{% endif %} 
 
@@ -315,22 +352,22 @@
 
 			               
 
-			                	<div class="alert alert-primary" style="margin-top: 22px;  background-color: rgb(42, 47, 67)  ! important;"> Lista de Coincidencia:   
+			                	<div class="alert alert-primary" style="margin-top: 22px;  background-color: rgb(42, 47, 67)  ! important; position: initial;"> Lista de Coincidencia:   
 
 			                		<div class="trow" style="width:auto; height:200px; overflow:auto;">
 			                			
 			                			<table class="table table-hover mbn">
 									    <thead>
 									    <tr class="active">
-									        <th># Codigo</th>
-									        <th>Codigo Ministerio</th>
+									        <th># Código</th>
+									        <th>Código Ministerio</th>
 									        <th>Nombre</th>
 									        <th>Descripción</th>
 									    </tr>
 									    </thead>
 									    <tbody>
 										    
-										    <tr class="alert" style="background-color: rgb(255, 199, 52);">
+										    <tr class="alert" style="background-color: rgb(255, 199, 52); position: initial;">
 										        <td colspan="4">NO HAY COINCIDENCIA</td>
 										        
 										    </tr>
@@ -341,13 +378,13 @@
                		  		 </div>
 
 
-               		  		  	<div class="alert alert-primary" style="margin-top: 22px;  background-color: rgb(42, 47, 67)  ! important;"> Detalle de unidad Selecionada:   
+               		  		  	<div class="alert alert-primary" style="margin-top: 22px;  background-color: rgb(42, 47, 67)  ! important; position: initial;"> Detalle de Unidad Selecionada:   
                		  		  	</div>
 	                       	<div id="detallePen" class="third">
 
 			                	
 
-			                	<div class="alert alert-alert" style="margin-top: 22px;"> No selecionado Unidad Curricular
+			                	<div class="alert alert-alert" style="margin-top: 22px; position: initial;"> No ha selecionado Unidad Curricular
 	                       		 </div>
 
 		                	</div>
