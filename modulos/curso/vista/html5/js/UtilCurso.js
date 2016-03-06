@@ -570,8 +570,6 @@ function succListarEstudiantes(data){
 	var est = data.estudiante;
 	var cad = "";
 	
-	console.log(est);
-	
 	if(est){
 		var estB = ($("#selEst").length > 0);
 
@@ -594,53 +592,55 @@ function succListarEstudiantes(data){
 		var ret = false;
 		
 		for(var i = 0; i < est.length; i++){
+			if(est[i]['cod_estado'] != 'X'){
 			
-			if(est[i]['cod_estado'] == 'X' && !ret){		
-				cad += "<th style='text-align:center' colspan='9' class='dark'>Retirados</th>";
-				ret = true;	
+				if(est[i]['cod_estado'] == 'X' && !ret){		
+					cad += "<th style='text-align:center' colspan='9' class='dark'>Retirados</th>";
+					ret = true;	
+				}
+				
+				cad += "<tr>";
+
+				if(estB)
+					cad += "<td style='text-align:center'><input type='checkbox' id='checkbox"+i+"'><input type='hidden' id='hid"+i+"' value='"+est[i]['codigo']+"'></input></td>";
+				
+				if(ret){
+					ne++;
+					cad += "<td style='text-align:center'>"+(ne)+"</td>";
+				}
+				else
+					cad += "<td style='text-align:center'>"+(i+1)+"</td>";
+
+				cad += "<td style='text-align:center'>"+est[i]['cedula']+"</td>";
+
+				cad += "<td style='text-align:center'>"+est[i]['apellido1']+"</td>";
+
+				cad += "<td style='text-align:center'>"+est[i]['nombre1']+"</td>";
+
+				if(est[i]['cor_personal'] == null)
+					cad += "<td style='text-align:center'>No asignado</td>";
+				else
+					cad += "<td style='text-align:center'>"+est[i]['cor_personal']+"</td>";
+
+				if(est[i]['nota'] == null)
+					cad += "<td style='text-align:center'>No asignado</td>";
+				else{
+					cad += "<td style='text-align:center'>"+est[i]['nota']+"</td>";
+					prom += est[i]['nota'];
+				}
+
+				if(est[i]['por_asistencia'] == null)
+					cad += "<td style='text-align:center'>No asignado</td>";
+				else
+					cad += "<td style='text-align:center'>"+est[i]['por_asistencia']+"</td>";
+
+				if(est[i]['nombre'] == null)
+					cad += "<td style='text-align:center'>No asignado</td>";
+				else
+					cad += "<td style='text-align:center'>"+est[i]['nombre']+"</td>";
+
+				cad += "</tr>";
 			}
-			
-			cad += "<tr>";
-
-			if(estB)
-				cad += "<td style='text-align:center'><input type='checkbox' id='checkbox"+i+"'><input type='hidden' id='hid"+i+"' value='"+est[i]['codigo']+"'></input></td>";
-			
-			if(ret){
-				ne++;
-				cad += "<td style='text-align:center'>"+(ne)+"</td>";
-			}
-			else
-				cad += "<td style='text-align:center'>"+(i+1)+"</td>";
-
-			cad += "<td style='text-align:center'>"+est[i]['cedula']+"</td>";
-
-			cad += "<td style='text-align:center'>"+est[i]['apellido1']+"</td>";
-
-			cad += "<td style='text-align:center'>"+est[i]['nombre1']+"</td>";
-
-			if(est[i]['cor_personal'] == null)
-				cad += "<td style='text-align:center'>No asignado</td>";
-			else
-				cad += "<td style='text-align:center'>"+est[i]['cor_personal']+"</td>";
-
-			if(est[i]['nota'] == null)
-				cad += "<td style='text-align:center'>No asignado</td>";
-			else{
-				cad += "<td style='text-align:center'>"+est[i]['nota']+"</td>";
-				prom += est[i]['nota'];
-			}
-
-			if(est[i]['por_asistencia'] == null)
-				cad += "<td style='text-align:center'>No asignado</td>";
-			else
-				cad += "<td style='text-align:center'>"+est[i]['por_asistencia']+"</td>";
-
-			if(est[i]['nombre'] == null)
-				cad += "<td style='text-align:center'>No asignado</td>";
-			else
-				cad += "<td style='text-align:center'>"+est[i]['nombre']+"</td>";
-
-			cad += "</tr>";
 		}
 		cad += "</table>";
 
@@ -760,44 +760,44 @@ function succListarEstudiantesCargarNotas(data){
 
 		var prom = 0;
 		
-		console.log(est);
-		
 		cad += "<input type='hidden' id='codigocurso' value='"+est[0]['cod_curso']+"'>";
 
 		for(var i = 0; i < est.length; i++){
-			cad += "<tr>";
+			if(est[i]['cod_estado'] != 'X'){
+				cad += "<tr>";
 
-			cad += "<td style='text-align:center'>"+(i+1)+" <input type='hidden' id='hid"+i+"' value='n'>";
-			
-			cad += "<input type='hidden' id='curest"+i+"' value='"+est[i]['cod_curest']+"'></td>";
-			cad += "<input type='hidden' id='est"+i+"' value='"+est[i]['codigo']+"'></td>";
+				cad += "<td style='text-align:center'>"+(i+1)+" <input type='hidden' id='hid"+i+"' value='n'>";
+				
+				cad += "<input type='hidden' id='curest"+i+"' value='"+est[i]['cod_curest']+"'></td>";
+				cad += "<input type='hidden' id='est"+i+"' value='"+est[i]['codigo']+"'></td>";
 
-			cad += "<td style='text-align:center'>"+est[i]['cedula']+"</td>";
+				cad += "<td style='text-align:center'>"+est[i]['cedula']+"</td>";
 
-			cad += "<td style='text-align:center'>"+est[i]['apellido1']+"</td>";
+				cad += "<td style='text-align:center'>"+est[i]['apellido1']+"</td>";
 
-			cad += "<td style='text-align:center'>"+est[i]['nombre1']+"</td>";
+				cad += "<td style='text-align:center'>"+est[i]['nombre1']+"</td>";
 
-			cad += "<input type='hidden' id='nom"+i+"' value='"+est[i]['nombre1']+" "+est[i]['apellido1']+"'>";
+				cad += "<input type='hidden' id='nom"+i+"' value='"+est[i]['nombre1']+" "+est[i]['apellido1']+"'>";
 
-			if(est[i]['nota'] == null)
-				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='nota"+i+"' size='2' value=''></td>";
-			else
-				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='nota"+i+"'  size='2' value='"+est[i]['nota']+"'></td>";
+				if(est[i]['nota'] == null)
+					cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='nota"+i+"' size='2' value=''></td>";
+				else
+					cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='nota"+i+"'  size='2' value='"+est[i]['nota']+"'></td>";
 
-			if(est[i]['por_asistencia'] == null)
-				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='3' value=''></td>";
-			else
-				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='3' value='"+est[i]['por_asistencia']+"'></td>";
+				if(est[i]['por_asistencia'] == null)
+					cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='3' value=''></td>";
+				else
+					cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='3' value='"+est[i]['por_asistencia']+"'></td>";
 
-			cad += "<td style='text-align:center'><select class='selectpicker' onchange='actualizarEstado("+i+")' data-live-search='true' data-size='auto' multiple data-max-options='1' id='estado"+i+"'>"+cad2+"</select></td>";
+				cad += "<td style='text-align:center'><select class='selectpicker' onchange='actualizarEstado("+i+")' data-live-search='true' data-size='auto' id='estado"+i+"'>"+cad2+"</select></td>";
 
-			if(est[i]['observaciones'] == null)
-				cad += "<td style='text-align:center'><input type='text' class='form-control' onchange='actualizarEstado("+i+")' id='obser"+i+"' value=''></td>";
-			else
-				cad += "<td style='text-align:center'><input type='text' class='form-control' onchange='actualizarEstado("+i+")' id='obser"+i+"' value='"+est[i]['observaciones']+"'></td>";
+				if(est[i]['observaciones'] == null)
+					cad += "<td style='text-align:center'><input type='text' class='form-control' onchange='actualizarEstado("+i+")' id='obser"+i+"' value=''></td>";
+				else
+					cad += "<td style='text-align:center'><input type='text' class='form-control' onchange='actualizarEstado("+i+")' id='obser"+i+"' value='"+est[i]['observaciones']+"'></td>";
 
-			cad += "</tr>";
+				cad += "</tr>";
+			}
 		}
 
 		cad += "</table>";

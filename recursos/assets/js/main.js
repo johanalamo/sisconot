@@ -85,7 +85,7 @@ function mostrarMensaje(mensaje, tipo){
 }
 
 
-function crearDialogo(id, titulo, segundoTitulo, size, accion, boton = 'Aceptar', tipo = true){
+function crearDialogo(id, titulo, segundoTitulo, size, accion, boton, tipo){
 	if($('.modal').length==0){
 		if(size==1)
 			cad = '<div class="modal-dialog" data-backdrop="static">';
