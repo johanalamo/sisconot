@@ -620,7 +620,36 @@ END;
 $_$;
 
 
+
 ALTER FUNCTION sis.f_trayecto_seleccionar(refcursor) OWNER TO sisconot;
+
+
+
+CREATE OR REPLACE FUNCTION sis.f_trayecto_por_patron_seleccionar(
+    refcursor,
+    integer,
+    text)
+  RETURNS refcursor AS
+$BODY$
+BEGIN
+
+  OPEN $1 FOR select tra.codigo,
+      tra.num_trayecto,
+        tra.certificado
+        from  sis.t_trayecto tra                            
+      where tra.cod_pensum = $2 and 
+  upper(tra.certificado) like upper('%'||$3||'%');
+  
+
+ RETURN $1;
+
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_trayecto_por_patron_seleccionar(refcursor, integer, text)
+  OWNER TO sisconot;
+
 
 
 CREATE FUNCTION sis.f_uni_tra_pensu_actualizar(integer, integer, integer, integer, integer) RETURNS integer

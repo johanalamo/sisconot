@@ -110,6 +110,7 @@ class PensumServicio
 	public static function agregarPensumObjetc($pensum){
 		try{
 			
+			//var_dump($pensum);
 			$conexion=Conexion::conectar();
 			$consulta="select sis.f_pensum_insertar(:nombre, :nombreCorto, :observaciones, :min_can_elect, :min_cre_elect, :min_cre_obligat, :fec_creac)";								
 			$ejecutar=$conexion->prepare($consulta);
@@ -172,7 +173,7 @@ class PensumServicio
 
 			$ejecutar->bindParam(':min_cre_obligat',$min_cre_obligat, PDO::PARAM_INT);
 
-			$ejecutar->bindParam(':fec_creac', strtotime(date ("Y-m-d", $fec_creac)), PDO::PARAM_STR);
+			$ejecutar->bindParam(':fec_creac', strtotime(date ("d-m-Y", $fec_creac)), PDO::PARAM_STR);
 			
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 			//ejecuta				
