@@ -950,18 +950,23 @@ Descripción:
 			try{
 				$conexion = Conexion::conectar();
 
-				//incluye el periodo
-
 				$consulta = "select 	
-										utp.cod_uni_curricular,   --dlkjf
+										utp.cod_uni_curricular,
 										cur.codigo,
 										tra.num_trayecto,
 										uni.nombre,
 										uni.uni_credito,
 										cur.seccion,
-										coalesce(cantc.t,0) cantidad,
-										cur.capacidad
-								from sis.t_estudiante est
+										cur.capacidad,
+										(SELECT coalesce(count(*),0) t
+													FROM sis.t_cur_estudiante ce 
+													where ce.cod_estado <> 'X'
+													  and ce.cod_curso = cur.codigo 
+												) 	
+										as cantidad
+										from sis.t_estudiante est
+										inner join sis.t_persona per
+											on per.codigo = est.cod_persona
 										inner join sis.t_uni_tra_pensum utp
 											on utp.cod_pensum = est.cod_pensum
 										inner join sis.t_uni_curricular uni
@@ -972,15 +977,12 @@ Descripción:
 											on pdo.codigo = cur.cod_periodo
 										left join sis.t_trayecto as tra
 											on tra.codigo = utp.cod_trayecto
-										left join (SELECT ce.cod_curso codigo, 
-												coalesce(count(*),0) t
-												FROM sis.t_cur_estudiante ce 
-												where ce.cod_estado <> 'X' 
-												group by ce.cod_curso) cantc
-										
-										    on cantc.codigo = cur.codigo
-								where est.codigo = :estudiante 
-										and coalesce(cantc.t,0) < cur.capacidad
+										where est.codigo = :estudiante 
+										and (SELECT coalesce(count(*),0) t
+													FROM sis.t_cur_estudiante ce 
+													where ce.cod_estado <> 'X'
+													  and ce.cod_curso = cur.codigo 
+												) < cur.capacidad
 										and pdo.cod_estado = 'A' 
 										";
 										
@@ -994,17 +996,17 @@ Descripción:
 											$convalidadas = "(".$convalidadas.")";
 											$consulta .= " and utp.cod_uni_curricular not in $convalidadas ";
 										}
-										
-										if($cursando != NULL){
-											$cursando = implode(",",$cursando);
-											$cursando = "(".$cursando.")";
-											$consulta .= " and utp.cod_uni_curricular not in $cursando ";
-										}
 										if($prelacion != NULL){
 											$prelacion = implode(",",$prelacion);
 											$prelacion = "(".$prelacion.")";
 											$consulta .= " and utp.cod_uni_curricular not in $prelacion ";
 										}
+										if($cursando != NULL){
+											$cursando = implode(",",$cursando);
+											$cursando = "(".$cursando.")";
+											$consulta .= " and utp.cod_uni_curricular not in $cursando ";
+										}
+										
 										$consulta .=" 
 										
 										group by 
@@ -1015,7 +1017,11 @@ Descripción:
 											uni.nombre,
 											uni.uni_credito,
 											cur.seccion,
-											cantc.t,
+											(SELECT coalesce(count(*),0) t
+													FROM sis.t_cur_estudiante ce 
+													where ce.cod_estado <> 'X'
+													  and ce.cod_curso = cur.codigo 
+												),
 											cur.capacidad
 										order by
 											utp.cod_trayecto,

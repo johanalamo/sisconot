@@ -2180,3 +2180,585 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 148 *****************************
+codigo Error: 148
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_persona_01"
+DETAIL:  Key (cedula)=(16148116) already exists.
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(265): PersonaServicio::agregar('16148116', NULL, 'Johan', '', 'Alamo', '', 'M', '8-3-84', 'A+', '02123220899', '04166156819', 'johan@gmail.com', 'johan2@hotmail....', 'iiiiiiiiiiiiiii...', 'ddddddddddddddd...', 'V', '3', 'S', 'ooooooooooooooo...')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(56): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 149 *****************************
+codigo Error: 149
+Mensaje error: SQLSTATE[23502]: Not null violation: 7 ERROR:  null value in column "fec_inicio" violates not-null constraint
+DETAIL:  Failing row contains (6, 41, 1, 1, , , null, A, null, , null, oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo...).
+CONTEXT:  SQL statement "insert into sis.t_estudiante (	codigo, 		cod_persona, 		cod_instituto,
+					cod_pensum, 		num_carnet, 		num_expediente,
+					cod_rusnies, 		cod_estado,		fec_inicio,
+					fec_fin, 		condicion,		observaciones
+				     )
+			     values (	cod_estudiante, 	p_cod_persona, 		p_cod_instituto,
+					p_cod_pensum, 		p_num_carnet,		p_num_expediente,
+					p_cod_rusnies, 		p_cod_estado, 		p_fec_inicio,
+					p_fec_fin, 		p_condicion, 		p_observaciones
+				    )"
+PL/pgSQL function sis.f_estudiante_ins(integer,integer,integer,text,text,text,text,date,date,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 84
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(84): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(168): EstudianteServicio::agregar('41', '1', '1', '', '', NULL, 'A', NULL, NULL, '', 'ooooooooooooooo...')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(38): EstudianteControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 150 *****************************
+codigo Error: 150
+Mensaje error: SQLSTATE[23502]: Not null violation: 7 ERROR:  null value in column "fec_inicio" violates not-null constraint
+DETAIL:  Failing row contains (6, 41, 1, 1, , , null, A, null, , null, oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo...).
+CONTEXT:  SQL statement "insert into sis.t_estudiante (	codigo, 		cod_persona, 		cod_instituto,
+					cod_pensum, 		num_carnet, 		num_expediente,
+					cod_rusnies, 		cod_estado,		fec_inicio,
+					fec_fin, 		condicion,		observaciones
+				     )
+			     values (	cod_estudiante, 	p_cod_persona, 		p_cod_instituto,
+					p_cod_pensum, 		p_num_carnet,		p_num_expediente,
+					p_cod_rusnies, 		p_cod_estado, 		p_fec_inicio,
+					p_fec_fin, 		p_condicion, 		p_observaciones
+				    )"
+PL/pgSQL function sis.f_estudiante_ins(integer,integer,integer,text,text,text,text,date,date,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 84
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(84): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(168): EstudianteServicio::agregar('41', '1', '1', '', '', NULL, 'A', NULL, NULL, '', 'ooooooooooooooo...')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(38): EstudianteControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 151 *****************************
+codigo Error: 151
+Mensaje error: SQLSTATE[23502]: Not null violation: 7 ERROR:  null value in column "fec_inicio" violates not-null constraint
+DETAIL:  Failing row contains (6, 41, 1, 1, , , null, A, null, , null, oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo...).
+CONTEXT:  SQL statement "insert into sis.t_estudiante (	codigo, 		cod_persona, 		cod_instituto,
+					cod_pensum, 		num_carnet, 		num_expediente,
+					cod_rusnies, 		cod_estado,		fec_inicio,
+					fec_fin, 		condicion,		observaciones
+				     )
+			     values (	cod_estudiante, 	p_cod_persona, 		p_cod_instituto,
+					p_cod_pensum, 		p_num_carnet,		p_num_expediente,
+					p_cod_rusnies, 		p_cod_estado, 		p_fec_inicio,
+					p_fec_fin, 		p_condicion, 		p_observaciones
+				    )"
+PL/pgSQL function sis.f_estudiante_ins(integer,integer,integer,text,text,text,text,date,date,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 84
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(84): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(168): EstudianteServicio::agregar('41', '1', '1', '', '', NULL, 'A', NULL, NULL, '', 'ooooooooooooooo...')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(38): EstudianteControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 152 *****************************
+codigo Error: 152
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 667
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(667): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(435): CursoServicio::obtenerCursosPensum('a', '', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(64): CursoControlador::obtenerCursosPensum()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 153 *****************************
+codigo Error: 153
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 667
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(667): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(435): CursoServicio::obtenerCursosPensum('a', '', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(64): CursoControlador::obtenerCursosPensum()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 154 *****************************
+codigo Error: 154
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 667
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(667): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(435): CursoServicio::obtenerCursosPensum('a', '', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(64): CursoControlador::obtenerCursosPensum()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 155 *****************************
+codigo Error: 155
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 667
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(667): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(435): CursoServicio::obtenerCursosPensum('a', '', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(64): CursoControlador::obtenerCursosPensum()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 156 *****************************
+codigo Error: 156
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('6', '6', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 157 *****************************
+codigo Error: 157
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('6', '2', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 158 *****************************
+codigo Error: 158
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('6', '8', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 159 *****************************
+codigo Error: 159
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('3', '6', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 160 *****************************
+codigo Error: 160
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('3', '8', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 161 *****************************
+codigo Error: 161
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('3', '2', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 162 *****************************
+codigo Error: 162
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('3', '4', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 163 *****************************
+codigo Error: 163
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 1119
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(1119): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(341): CursoServicio::verificarEst('3', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('3', '', '', '', 'C', '')
+		#3 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 164 *****************************
+codigo Error: 164
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('3', '6', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 165 *****************************
+codigo Error: 165
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('3', '1', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 166 *****************************
+codigo Error: 166
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('3', '1', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 167 *****************************
+codigo Error: 167
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 357
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(357): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('3', '1', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 168 *****************************
+codigo Error: 168
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 357
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(357): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('3', '2', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 169 *****************************
+codigo Error: 169
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(283): CursoServicio::insertarCurEst('3', '2', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 170 *****************************
+codigo Error: 170
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(285): CursoServicio::insertarCurEst('3', '2', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 171 *****************************
+codigo Error: 171
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(285): CursoServicio::insertarCurEst('3', '4', '', '', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 172 *****************************
+codigo Error: 172
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for type double precision: "0A"
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 354
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(354): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(285): CursoServicio::insertarCurEst('3', '2', '0', '0A', 'C', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(82): CursoControlador::agregarCurEst()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 173 *****************************
+codigo Error: 173
+Mensaje error: SQLSTATE[42P01]: Undefined table: 7 ERROR:  missing FROM-clause entry for table "cantc"
+LINE 8:           coalesce(cantc.t,0) cantidad,
+                           ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 1030
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(1030): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(524): CursoServicio::obtenerCursosDisponiblesParaInscripcionPorEstudiante('3', NULL, NULL, Array, NULL)
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(80): CursoControlador::obtenerCursosDisponiblesParaInscripcionPorEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 174 *****************************
+codigo Error: 174
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "cantidad" does not exist
+LINE 30:           and cantidad < cur.capacidad
+                       ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 1029
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(1029): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(524): CursoServicio::obtenerCursosDisponiblesParaInscripcionPorEstudiante('3', NULL, NULL, Array, NULL)
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(80): CursoControlador::obtenerCursosDisponiblesParaInscripcionPorEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 175 *****************************
+codigo Error: 175
+Mensaje error: SQLSTATE[42P01]: Undefined table: 7 ERROR:  missing FROM-clause entry for table "cantc"
+LINE 45:            cantc.t,
+                    ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 1032
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(1032): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(524): CursoServicio::obtenerCursosDisponiblesParaInscripcionPorEstudiante('3', NULL, NULL, Array, NULL)
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(80): CursoControlador::obtenerCursosDisponiblesParaInscripcionPorEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 176 *****************************
+codigo Error: 176
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at or near ")"
+LINE 3:           where pre.cod_uni_curricular IN ()
+                                                   ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 935
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(935): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(534): CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares(NULL, '1', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(80): CursoControlador::obtenerCursosDisponiblesParaInscripcionPorEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 177 *****************************
+codigo Error: 177
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at or near ")"
+LINE 3:           where pre.cod_uni_curricular IN ()
+                                                   ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 935
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(935): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(534): CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares(NULL, '1', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(80): CursoControlador::obtenerCursosDisponiblesParaInscripcionPorEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 178 *****************************
+codigo Error: 178
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at or near ")"
+LINE 3:           where pre.cod_uni_curricular IN ()
+                                                   ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 935
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(935): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(534): CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares(NULL, '1', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(80): CursoControlador::obtenerCursosDisponiblesParaInscripcionPorEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 179 *****************************
+codigo Error: 179
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at or near ")"
+LINE 3:           where pre.cod_uni_curricular IN ()
+                                                   ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 935
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(935): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(534): CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares(NULL, '1', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(80): CursoControlador::obtenerCursosDisponiblesParaInscripcionPorEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 180 *****************************
+codigo Error: 180
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at or near ")"
+LINE 3:           where pre.cod_uni_curricular IN ()
+                                                   ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 935
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(935): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(534): CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares(NULL, '1', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(80): CursoControlador::obtenerCursosDisponiblesParaInscripcionPorEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 181 *****************************
+codigo Error: 181
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at or near ")"
+LINE 3:           where pre.cod_uni_curricular IN ()
+                                                   ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 935
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(935): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(535): CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares(NULL, '1', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(80): CursoControlador::obtenerCursosDisponiblesParaInscripcionPorEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 182 *****************************
+codigo Error: 182
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at or near ")"
+LINE 3:           where pre.cod_uni_curricular IN ()
+                                                   ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 935
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(935): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(535): CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares(NULL, '1', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(80): CursoControlador::obtenerCursosDisponiblesParaInscripcionPorEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 183 *****************************
+codigo Error: 183
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at or near ")"
+LINE 3:           where pre.cod_uni_curricular IN ()
+                                                   ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 935
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(935): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(535): CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares(NULL, '1', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(80): CursoControlador::obtenerCursosDisponiblesParaInscripcionPorEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(141): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

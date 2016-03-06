@@ -280,6 +280,8 @@ Descripción:
 				$codEstado = PostGet::obtenerPostGet("codEstado");
 				$observaciones = PostGet::obtenerPostGet("observaciones");
 				
+				//~ var_dump($_POST);
+				
 				$r = CursoServicio::insertarCurEst($codEstudiante, $codCurso, $porAsistencia, $nota, $codEstado, $observaciones);
 
 				if($r == 0){
@@ -509,16 +511,27 @@ Descripción:
 				$pensum = PostGet::obtenerPostGet("pensum");
 				$periodo = PostGet::obtenerPostGet("periodo");
 				
+				//arreglo
 				$listaUniCur = CursoServicio::obtenerUnidadesCurricularesDelPensumPorEstudiante($estudiante);
 				
+				//arreglo
 				$convalidaciones = CursoServicio::obtenerUnidadesCurricularesConvalidadasPorEstudiante($estudiante,$pensum);
 				
+				//arreglo
 				$aprobadas = CursoServicio::obtenerUnidadesCurricularesAprobadasPorEstudiante($estudiante,$pensum);
 				
+				if ($aprobadas != null)
+					$listaUniCur = array_diff ($listaUniCur, $aprobadas);
+				if ($convalidaciones != null)
+					$listaUniCur = array_diff( $listaUniCur, $convalidaciones);
+
+				//arreglo
 				$preladas = CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares($listaUniCur,$pensum,$instituto);
 				
+				//arreglo
 				$cursando = CursoServicio::obtenerCursosCursando($estudiante,$pensum);
 				
+				//arreglo
 				$r = CursoServicio::obtenerCursosDisponiblesParaInscripcionPorEstudiante($estudiante, $aprobadas, $convalidaciones, $preladas, $cursando);
 				
 				Vista::asignarDato("cursos",$r);

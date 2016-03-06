@@ -49,6 +49,8 @@ grant usage on schema public to sisconot;
 
 /*----------------------------------------TABLAS DEL SISTEMA------------------------------------------------ --*/
 
+/* */
+
 CREATE TABLE sis.t_instituto (
     codigo smallint NOT NULL,
     nom_corto character varying(20) NOT NULL,
@@ -371,6 +373,8 @@ COMMENT ON COLUMN sis.t_persona.cod_foto IS 'Es la clave foranea de la tabla arc
 
 /************ JUAN **************/
 
+
+
 CREATE TABLE sis.t_acreditable (
     codigo integer NOT NULL,
     cod_estudiante integer NOT NULL,
@@ -421,6 +425,18 @@ COMMENT ON COLUMN sis.t_convalidacion.cod_trayecto IS 'Código del trayecto en e
 COMMENT ON COLUMN sis.t_convalidacion.cod_uni_curricular IS 'Código de la unidad curricular que se convalidará.';
 COMMENT ON COLUMN sis.t_convalidacion.descripcion IS 'Descripción de la convalidación (opcional)';
 
+
+
+
+
+
+CREATE SEQUENCE sis.s_cur_estudiante
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+ALTER TABLE sis.s_cur_estudiante OWNER TO sisconot;
 CREATE TABLE sis.t_cur_estudiante (
     codigo integer DEFAULT nextval('sis.s_cur_estudiante'::regclass) NOT NULL,
     cod_curso integer NOT NULL,
@@ -445,6 +461,18 @@ COMMENT ON COLUMN sis.t_cur_estudiante.cod_estado IS 'Estado del estudiante en e
 COMMENT ON COLUMN sis.t_cur_estudiante.observaciones IS 'Observaciones del estudiante en el curso.';
 
 
+
+
+
+
+
+CREATE SEQUENCE sis.s_curso
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+ALTER TABLE sis.s_curso OWNER TO sisconot;
 CREATE TABLE sis.t_curso (
     codigo integer DEFAULT nextval('sis.s_curso'::regclass) NOT NULL,
     cod_periodo integer NOT NULL,

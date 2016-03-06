@@ -17,20 +17,20 @@ function cargarInstitutos(){
 }
 
 function succCargarInstitutos(data){
-	
+
 	var ins = data.institutos;
 	var cad = "";
 	cad += "<select class='selectpicker' id='selInst' onchange='cargarPensums()' data-live-search='true' data-size='auto'>";
 
 	if(ins){
-		
+
 		cad += "<option value='-1' disabled selected> Seleccione Instituto</option>";
-		
+
 		for(var i = 0; i < ins.length; i++){
 			cad += "<option value="+ins[i][0]+">"+ins[i]['nombre']+"</option>";
-			
+
 		}
-		
+
 	}
 	else{
 		cad += "<option></option>";
@@ -61,7 +61,7 @@ function succCargarPensums(data){
 
 	if(pen){
 		cad += "<option value='-1' disabled selected> Seleccione Pensum</option>";
-		
+
 		for(var i = 0; i < pen.length; i++){
 			cad += "<option value="+pen[i][0]+">"+pen[i][1]+"</option>";
 		}
@@ -107,7 +107,7 @@ function succCargarPeriodos(data){
 	}
 	if(per){
 		cad += "<option value='-1' disabled selected> Seleccione Periodo</option>";
-		
+
 		for(var i = 0; i < per.length; i++){
 			cad += "<option value="+per[i][0]+">"+per[i][1]+"</option>";
 		}
@@ -138,9 +138,9 @@ function succCargarTrayectos(data){
 	var cad = "";
 
 	if(tra){
-		
+
 		cad += "<option value='-1' disabled selected> Seleccione Trayecto</option>";
-		
+
 		for(var i = 0; i < tra.length; i++){
 			cad += "<option value="+tra[i]['codigo']+">Trayecto "+tra[i]['num_trayecto']+"</option>";
 		}
@@ -166,9 +166,9 @@ function succCargarSeccion(data){
 	var cad = "";
 
 	if(sec){
-		
+
 		cad += "<option value='-1' disabled selected> Seleccione Sección</option>";
-		
+
 		for(var i = 0; i < sec.length; i++){
 			cad += "<option value="+sec[i][0]+">Sección "+sec[i][0]+"</option>";
 		}
@@ -197,9 +197,9 @@ function succCargarUni(data){
 	var cad = "";
 
 	if(uni){
-		
+
 		cad += "<option value='-1' disabled selected> Seleccione Unidad Curricular</option>";
-		
+
 		for(var i = 0; i < uni.length; i++){
 			cad += "<option value="+uni[i]['codigo']+">"+uni[i]['nombre']+"</option>";
 		}
@@ -225,7 +225,7 @@ function listarCursos(){
 }
 
 function succListarCursos(data){
-	
+
 	var cur = data.cursos;
 	var cad = "";
 
@@ -269,7 +269,7 @@ function succListarCursos(data){
 
 			cad += "<tr>";
 			cad += "<td style='text-align:center' class='"+p+"'><input type='checkbox' onchange='actualizarCheck("+cont+")' id='checkbox"+cont+"'><input type='text' hidden id='hid"+cont+"' value='"+cur[cont][0]+"'></td>"
-			
+
 			for(var i = 0; i < 9; i++){
 				if(cur[cont][i] != null){
 					if(i == 5)
@@ -336,11 +336,11 @@ function verificarChecks(el){
 
 	var sec = '';
 	var tra = '';
-	
+
 	for(var i = 0; i < len; i++){
 		if($("#checkbox"+i).is(":checked"))
 			if(el == 'mod'){
-				if($("#c1"+i).html() != tra){	
+				if($("#c1"+i).html() != tra){
 					sec = '';
 					if($("#c2"+i).html() != sec){
 						window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=CrearModificarCurso&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
@@ -409,7 +409,7 @@ function cargarCursosPensum(){
 						"seccion"		,		$("#sec").val(),
 						"trayecto"		,		$("#selTra").val()[0],
 						"periodo"		,		$("#selPer").val()[0]);
-	
+
 		ajaxMVC(arr,succCargarCursosPensum,err);
 	}
 	else
@@ -419,7 +419,7 @@ function cargarCursosPensum(){
 function succCargarCursosPensum(data){
 	var cur = data.cursos;
 	var cad = "";
-	
+
 	if(cur){
 		cad += "<table id='tableCur' class='table table-hover table-condensed table-responsive'>";
 
@@ -439,17 +439,17 @@ function succCargarCursosPensum(data){
 			else {
 				cad += "<td style='text-align:center'><span class='label label-danger'>Inactivo</span></td>";
 			}
-			
+
 			cad += "<input type='hidden' id='estado"+i+"' value='s'>";
-			
+
 			cad += "<input type='hidden' id='uni"+i+"' value='"+cur[i]['coduni']+"'>";
-			
+
 			if(cur[i]['codcurso'] != null){
 				cad += "<input type='hidden' id='cod"+i+"' value='"+cur[i]['codcurso']+"'>";
 			}
 			else
 				cad += "<input type='hidden' id='cod"+i+"' value='-1'>";
-			
+
 			if(cur[i]['codcurso'] != null)
 				cad += "<td style='text-align:center'>"+cur[i]['nombre']+" ("+cur[i]['codcurso']+")</td>";
 			else
@@ -489,7 +489,7 @@ function succCargarCursosPensum(data){
 		}
 
 		cad += "</table>";
-		
+
 		cad += "<button id='btn-b' class='btn btn-dark btn-xs' onclick='actualizarCursos()'>Guardar Cambios</button>";
 	}
 	else{
@@ -504,14 +504,14 @@ function succCargarCursosPensum(data){
 function actualizarEstadoCurso(i){
 	if($("#estado"+i).val() == 's')
 		$("#estado"+i).val("m");
-	
+
 	if($("#estado"+i).val() == 'm' && $("#cod"+i).val() == -1)
 		$("#estado"+i).val("n");
 }
 
 function actualizarCursos(){
 	var len = $('#tableCur >tbody >tr').length;
-	
+
 	for(var i = 0; i < len; i++){
 		if($("#estado"+i).val() == 'n'){
 			var arr = Array("m_modulo"			,		"curso",
@@ -524,7 +524,7 @@ function actualizarCursos(){
 							"fecFinal"			,		$("#fecfinal"+i).val(),
 							"capacidad"			,		$("#capacidad"+i).val(),
 							"observaciones"		,		$("#observaciones"+i).val());
-		
+
 			ajaxMVC(arr,succActualizarCursosA,err);
 		}
 		else if($("#estado"+i).val() == 'm'){
@@ -539,7 +539,7 @@ function actualizarCursos(){
 							"fecFinal"			,		$("#fecfinal"+i).val(),
 							"capacidad"			,		$("#capacidad"+i).val(),
 							"observaciones"		,		$("#observaciones"+i).val());
-						
+
 			ajaxMVC(arr2,succActualizarCursosM,err);
 		}
 	}
@@ -569,7 +569,7 @@ function listarEstudiantes(funsucc,cod){
 function succListarEstudiantes(data){
 	var est = data.estudiante;
 	var cad = "";
-	
+
 	if(est){
 		var estB = ($("#selEst").length > 0);
 
@@ -588,22 +588,22 @@ function succListarEstudiantes(data){
 		cad += "<th style='text-align:center' class='dark'>Estado</th>";
 
 		var prom = 0;
-		var ne = 0;				
+		var ne = 0;
 		var ret = false;
-		
+
 		for(var i = 0; i < est.length; i++){
 			if(est[i]['cod_estado'] != 'X'){
-			
-				if(est[i]['cod_estado'] == 'X' && !ret){		
+
+				if(est[i]['cod_estado'] == 'X' && !ret){
 					cad += "<th style='text-align:center' colspan='9' class='dark'>Retirados</th>";
-					ret = true;	
+					ret = true;
 				}
-				
+
 				cad += "<tr>";
 
 				if(estB)
 					cad += "<td style='text-align:center'><input type='checkbox' id='checkbox"+i+"'><input type='hidden' id='hid"+i+"' value='"+est[i]['codigo']+"'></input></td>";
-				
+
 				if(ret){
 					ne++;
 					cad += "<td style='text-align:center'>"+(ne)+"</td>";
@@ -644,13 +644,13 @@ function succListarEstudiantes(data){
 		}
 		cad += "</table>";
 
-		
+
 		// Cálculos de promedio
 	}
 	else {
 		mostrarMensaje("No hay estudiantes inscritos en este curso.",4);
 	}
-	
+
 	$("#divButt").show();
 	$("#table-lis").remove();
 	$("#divLis").append(cad);
@@ -745,7 +745,7 @@ function succListarEstudiantesCargarNotas(data){
 	for(var j = 0; j < edos.length; j++){
 		cad2 += "<option value='"+edos[j]['codigo']+"'>"+edos[j]['nombre']+"</option>";
 	}
-	
+
 	if(est){
 		cad += "<table id='table-Est' class='table table-hover table-condensed table-responsive'>";
 
@@ -759,7 +759,7 @@ function succListarEstudiantesCargarNotas(data){
 		cad += "<th style='text-align:center' class='dark'>Observaciones</th>";
 
 		var prom = 0;
-		
+
 		cad += "<input type='hidden' id='codigocurso' value='"+est[0]['cod_curso']+"'>";
 
 		for(var i = 0; i < est.length; i++){
@@ -767,7 +767,7 @@ function succListarEstudiantesCargarNotas(data){
 				cad += "<tr>";
 
 				cad += "<td style='text-align:center'>"+(i+1)+" <input type='hidden' id='hid"+i+"' value='n'>";
-				
+
 				cad += "<input type='hidden' id='curest"+i+"' value='"+est[i]['cod_curest']+"'></td>";
 				cad += "<input type='hidden' id='est"+i+"' value='"+est[i]['codigo']+"'></td>";
 
@@ -839,7 +839,7 @@ function guardarNotas(i){
 							"nota"			,		$("#nota"+i).val(),
 							"observaciones"	,		$("#obser"+i).val(),
 							"nombre"		,		$("#nom"+i).val());
-			
+
 			ajaxMVC(arr,succGuardarNotas,err);
 		}
 	}
@@ -851,7 +851,7 @@ function succGuardarNotas(data){
 
 function succMontarSelects(data){
 	var dat = data.cursoInfoMontar;
-	
+
 	var i = 1;
 	if(dat[0]['cod_instituto'] != null){
 		setTimeout(function (){
@@ -930,9 +930,9 @@ function succCargarEstudiantes(data){
 	cad += "<select class='selectpicker' id='selEstudiante' onchange='listarUniEstudiante()' data-live-search='true' data-size='auto'a>";
 
 	if(dat){
-		
+
 		cad += "<option value='-1' disabled selected> Seleccione Estudiante</option>";
-		
+
 		for(var i = 0; i < dat.length; i++){
 			cad += "<option value='"+dat[i]['codigo']+"'>"+dat[i]['nombrecompleto']+"</option>";
 		}
@@ -960,87 +960,87 @@ function listarUniEstudiante(){
 						"instituto"		,		$("#selInst").val()[0],
 						"pensum"		,		$("#selPen").val()[0],
 						"periodo"		,		$("#selPer").val()[0]);
-		
+
 		ajaxMVC(arr,succCursosInscribir,err);
 	}
 }
 
 function succCursosInscribir(data){
 	var dat = data.cursos;
-	
+
 	if(dat){
 		var cad = "";
-		
+
 		cad += "<table class='table table-hover table-condensed table-responsive' id='tableCD'>";
-		
+
 		cad += "<th class='dark' style='text-align:center'>Trayecto</th>";
-		cad += "<th class='dark' style='text-align:center'>Unidad Curricular</th>";
+		cad += "<th class='dark' style='text-align:left'>Unidad Curricular</th>";
 		cad += "<th class='dark' style='text-align:center'>UC</th>";
-		cad += "<th class='dark' style='text-align:center'>Sección a Inscribir (Cantidad de Estudiantes/Capacidad del Curso)</th>";
-		
+		cad += "<th class='dark' style='text-align:left'>Sección a Inscribir (Cantidad de Estudiantes/Capacidad del Curso)</th>";
+
 		var len = dat.length;
 		var cont = 0;
-		
+
 		var cod = -1;
-		
+
 		for(var i = 0; i < len; i++){
-						
+
 			if(cod != dat[i]['cod_uni_curricular']){
 				cont++;
-				cad += "<tr style='text-align:center'>";
-			
+				cad += "<tr style='text-align:left'>";
+
 				cad += "<td>"+dat[i]['num_trayecto']+"</td>";
-				cad += "<td>"+dat[i]['nombre']+"</td>";
+				cad += "<td style='text-align:left'>"+dat[i]['nombre']+"</td>";
 				cad += "<td id='uni"+cont+"'>"+dat[i]['uni_credito']+"</td>";
-				
+
 				cad += "<input type='hidden' id='est"+cont+"' value='0'>";
-				
-				cad += "<td>";
-				
+
+				cad += "<td style='text-align:left'>";
+
 				cad += "<div class='radio-inline'>" +
 					  "<label>" +
 							"<input type='radio' name='opc"+cont+"' checked onchange='cambiarEstUC(0,"+cont+")'>" +
 							"No inscribir" +
 					  "</label>"+
 					"</div>";
-				
-				cad += 
-				
+
+				cad +=
+
 				"<div class='radio-inline'>" +
 				  "<label>" +
 						"<input type='radio' name='opc"+cont+"' onchange='cambiarEstUC("+dat[i]['codigo']+","+cont+")'>" +
 						""+ dat[i]['seccion'] + "(" + dat[i]['cantidad'] +"/"+ dat[i]['capacidad'] + ")" +
 				  "</label>"+
 				"</div>";
-				
+
 				cod = dat[i]['cod_uni_curricular'];
 			}
 			else{
-				cad += 
-				
+				cad +=
+
 				"<div class='radio-inline'>" +
 				  "<label>" +
 						"<input type='radio' name='opc"+cont+"' onchange='cambiarEstUC("+dat[i]['codigo']+","+cont+")'>" +
-						""+ dat[i]['seccion'] + "(" + dat[i]['cantidad'] + ")" +
+						""+ dat[i]['seccion'] + "(" + dat[i]['cantidad'] +"/"+ dat[i]['capacidad'] + ")" +
 				  "</label>"+
 				"</div>";
 			}
-			
+
 		}
-			
+
 		cad += "</td>";
-		
+
 		cad += "</tr>";
-		
+
 		cad += "</table>";
-		
+
 		cad += "<center><button class='btn btn-dark btn-xs' id='btnCD' onclick='inscribirUC()'>Inscribir Unidades Curriculares</button>";
 	}
 	else{
 		mostrarMensaje("Este estudiante no tiene cursos disponibles para inscribir",4);
-		
+
 	}
-	
+
 	$("#info").remove();
 	$("#btnCD").remove();
 	$("#tableCD").remove();
@@ -1049,95 +1049,94 @@ function succCursosInscribir(data){
 
 function cambiarEstUC(num,i){
 	$("#est"+i).val(num);
-	
+
 	var len = $('#tableCD >tbody >tr').length;
 	var cont = 0;
 	var a = 0;
 	var cad = "";
-	
+
 	for(var i = 1; i < len; i++){
 		if($("#est"+i).val() != 0){
 			cont += parseInt($("#uni"+i).html());
 			a++;
 		}
 	}
-	
+
 	cad += "<div id='info'>";
-	
+
 	cad += "Cantidad de Unidades de Crédito a Inscribir: "+cont;
-	
+
 	cad += "<br>";
-	
+
 	cad += "Cantidad de Unidades Curriculares a Inscribir: "+a;
-	
+
 	cad += "</div>";
-	
+
 	$("#info").remove();
-	
+
 	$("#tableCursosD").append(cad);
 }
 
 function inscribirUC(){
 	var len = $('#tableCD >tbody >tr').length;
-				
+
 	for(var i = 1; i < len; i++){
 		if($("#est"+i).val() != 0){
 			var arr = Array("m_modulo"		,		"curso",
-							"m_accion"		,		"agregarCurEst",
+							"m_accion"			,		"agregarCurEst",
 							"codEstudiante"	,		$("#selEstudiante").val()[0],
-							"codCurso"		,		$("#est"+i).val(),
-							"porAsistencia"	,		0,
-							"nota"			,		0,
+							"codCurso"			,		$("#est"+i).val(),
+							"porAsistencia"	,		"0",
+							"nota"					,		"0",
 							"codEstado"		,		"C",
 							"observaciones"	,		"");
-			
 			ajaxMVC(arr,succInscribirUC,err);
 		}
 	}
-	
+
 	listarUniEstudiante();
 }
 
 function succInscribirUC(data){
 	var msj = data.mensaje;
-	
-	
+
+
 	mostrarMensaje(msj,1);
 }
 
 function succListarUniEstudiante(data){
 	var dat = data.cursos;
 	var cad = "";
-	
+
 	if(dat){
 		cad += "<table class='table table-hover table-condensed table-responsive' id='tableC'>";
-		
+
 		cad += "<th class='dark' style='text-align:center'>Seleccionar</th>";
 		cad += "<th class='dark' style='text-align:center'>Trayecto</th>";
 		cad += "<th class='dark' style='text-align:center'>Nombre UC</th>";
 		cad += "<th class='dark' style='text-align:center'>Sección</th>";
 		cad += "<th class='dark' style='text-align:center'>Estado</th>";
-		
+
 		for(var i = 0; i < dat.length; i++){
 			cad += "<tr>";
-			
+
 			cad += "<td style='text-align:center'><input type='checkbox' id='checkbox"+i+"'></input></td>";
-			
+
 			cad += "<input type='hidden' id='hid"+i+"' value="+dat[i]['cod_ce']+"></input>";
-			
+
 			cad += "<td style='text-align:center'>"+dat[i]['num_trayecto']+"</td>";
-			
+
 			cad += "<td style='text-align:center'>"+dat[i]['nombre']+"</td>";
-			
+
 			cad += "<td style='text-align:center'>"+dat[i]['seccion']+"</td>";
-			
+
 			cad += "<td style='text-align:center'>"+dat[i]['edonom']+"</td>";
 		}
-		
+
 		cad += "</table>";
-		
+
 		cad += "<button class='btn btn-dark btn-xs' id='butRet' onclick='retirarUni()'>Retirar Unidad Curricular</button>";
-		
+
 		$("#butRet").remove();
 		$("#tableC").remove();
 		$("#listaC").append(cad);
@@ -1151,13 +1150,13 @@ function succListarUniEstudiante(data){
 
 function retirarUni(){
 	var len = $('#tableC >tbody >tr').length;
-	
+
 	for(var i = 0; i < len; i++){
 		if($("#checkbox"+i).is(":checked")){
 			var arr = Array("m_modulo"		,		"curso",
 							"m_accion"		,		"retirarCurEstudiante",
 							"codigo"		,		$("#hid"+i).val());
-							
+
 			ajaxMVC(arr,succRetirarUni,err);
 		}
 	}
@@ -1167,4 +1166,3 @@ function succRetirarUni(data){
 	mostrarMensaje(data.mensaje,1);
 	listarUniEstudiante();
 }
-

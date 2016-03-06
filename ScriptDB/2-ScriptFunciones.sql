@@ -371,7 +371,7 @@ BEGIN
     OPEN $1 FOR select  tra.codigo,
                           tra.num_trayecto,
                           tra.certificado
-                          from  sis.t_trayecto tra                            
+                          from  sis.t_trayecto tra
                           where tra.cod_pensum = $2
                           group by
                             tra.codigo,
@@ -956,8 +956,8 @@ CREATE OR REPLACE FUNCTION sis.f_curso_ins(
 						 p_cod_uni_curricular integer,
 						 p_cod_docente integer,
 						 p_seccion TEXT,
-						 p_fec_inicio TEXT,
-						 p_fec_final TEXT,
+						 p_fec_inicio date,
+						 p_fec_final date,
 						 p_capacidad integer,
 						 p_observaciones TEXT)
   RETURNS INTEGER AS
@@ -1704,26 +1704,3 @@ $$;
 
 
 ALTER FUNCTION sis.f_persona_sel(p_cursor refcursor) OWNER TO sisconot;
-
-
-/*****************************************SECUANCIALES ***********************************************************/
-
-CREATE SEQUENCE sis.s_cur_estudiante
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE sis.s_cur_estudiante OWNER TO sisconot;
-
-CREATE SEQUENCE sis.s_curso
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE sis.s_curso OWNER TO sisconot;
