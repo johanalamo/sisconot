@@ -235,22 +235,27 @@ function succCargarSeccion(data){
 	var sec = data.secciones;
 	var cad = "";
 
-	cad += "<select class='selectpicker' id='selSec' data-live-search='true' onchange='cargarUni()' data-size='auto'>";
-
-	if(sec){
-		cad += "<option value='-1' disabled selected>Seleccione Sección</option>";
-
-		for(var i = 0; i < sec.length; i++){
-			cad += "<option value="+sec[i][0]+">Sección "+sec[i][0]+"</option>";
-		}
+	if($("#sec").length > 0){
+		$("#sec").val(sec[0][0]);
 	}
 	else{
-		cad += "<option></option>";
-	}
+		cad += "<select class='selectpicker' id='selSec' data-live-search='true' onchange='cargarUni()' data-size='auto'>";
 
-	$("#selSec").selectpicker("destroy");
-	$("#divSec").append(cad);
-	$("#selSec").selectpicker();
+		if(sec){
+			cad += "<option value='-1' disabled selected>Seleccione Sección</option>";
+
+			for(var i = 0; i < sec.length; i++){
+				cad += "<option value="+sec[i][0]+">Sección "+sec[i][0]+"</option>";
+			}
+		}
+		else{
+			cad += "<option></option>";
+		}
+
+		$("#selSec").selectpicker("destroy");
+		$("#divSec").append(cad);
+		$("#selSec").selectpicker();
+	}
 
 	limpiarCampos('sec');
 }
@@ -654,7 +659,7 @@ function succListarEstudiantes(data){
 	var cad = "";
 
 	if(est){
-		var estB = ($("#selEst").length > 0);
+		var estB = (obtenerGet("m_vista") == 'InscribirRetirarEstudiante');
 
 		cad += "<table id='table-lis' class='table table-hover table-condensed table-responsive'>";
 
@@ -673,19 +678,63 @@ function succListarEstudiantes(data){
 		var prom = 0;
 		var ne = 0;
 		var ret = false;
-
+		console.log(estB);
 		for(var i = 0; i < est.length; i++){
 			if(est[i]['cod_estado'] != 'X'){
-
-				if(est[i]['cod_estado'] == 'X' && !ret){
-					cad += "<th style='text-align:center' colspan='9' class='dark'>Retirados</th>";
-					ret = true;
-				}
-
 				cad += "<tr>";
 
 				if(estB)
 					cad += "<td style='text-align:center'><input type='checkbox' id='checkbox"+i+"'><input type='hidden' id='hid"+i+"' value='"+est[i]['codigo']+"'></input></td>";
+
+					cad += "<td style='text-align:center'>"+(i+1)+"</td>";
+
+				cad += "<td style='text-align:center'>"+est[i]['cedula']+"</td>";
+
+				cad += "<td style='text-align:center'>"+est[i]['apellido1']+"</td>";
+
+				cad += "<td style='text-align:center'>"+est[i]['nombre1']+"</td>";
+
+				if(est[i]['cor_personal'] == null)
+					cad += "<td style='text-align:center'>No asignado</td>";
+				else
+					cad += "<td style='text-align:center'>"+est[i]['cor_personal']+"</td>";
+
+				if(est[i]['nota'] == null)
+					cad += "<td style='text-align:center'>No asignado</td>";
+				else{
+					cad += "<td style='text-align:center'>"+est[i]['nota']+"</td>";
+					prom += est[i]['nota'];
+				}
+
+				if(est[i]['por_asistencia'] == null)
+					cad += "<td style='text-align:center'>No asignado</td>";
+				else
+					cad += "<td style='text-align:center'>"+est[i]['por_asistencia']+"</td>";
+
+				if(est[i]['nombre'] == null)
+					cad += "<td style='text-align:center'>No asignado</td>";
+				else
+					cad += "<td style='text-align:center'>"+est[i]['nombre']+"</td>";
+
+				cad += "</tr>";
+			}
+			else if(obtenerGet("m_vista") != 'InscribirRetirarEstudiante'){
+				if(!ret){
+					cad += "<tr>";
+					cad += "<th style='text-align:center' colspan='9' class='dark'>Retirados</th>";
+					ret = true;
+					cad += "</tr>";
+					cad += "<th style='text-align:center' class='dark'>#</th>";
+					cad += "<th style='text-align:center' class='dark'>Cédula</th>";
+					cad += "<th style='text-align:center' class='dark'>Apellido</th>";
+					cad += "<th style='text-align:center' class='dark'>Nombre</th>";
+					cad += "<th style='text-align:center' class='dark'>Correo</th>";
+					cad += "<th style='text-align:center' class='dark'>Nota</th>";
+					cad += "<th style='text-align:center' class='dark'>% Asistencia</th>";
+					cad += "<th style='text-align:center' class='dark'>Estado</th>";
+				}
+
+				cad += "<tr>";
 
 				if(ret){
 					ne++;
@@ -1121,7 +1170,6 @@ function succCursosInscribir(data){
 	}
 	else{
 		mostrarMensaje("Este estudiante no tiene cursos disponibles para inscribir",4);
-
 	}
 
 	$("#info").remove();
@@ -1165,25 +1213,24 @@ function inscribirUC(){
 
 	for(var i = 1; i < len; i++){
 		if($("#est"+i).val() != 0){
-			var arr = Array("m_modulo"		,		"curso",
+			var arr = Array("m_modulo"			,		"curso",
 							"m_accion"			,		"agregarCurEst",
-							"codEstudiante"	,		$("#selEstudiante").val()[0],
+							"codEstudiante"		,		$("#selEstudiante").val()[0],
 							"codCurso"			,		$("#est"+i).val(),
-							"porAsistencia"	,		"0",
-							"nota"					,		"0",
-							"codEstado"		,		"C",
-							"observaciones"	,		"");
+							"porAsistencia"		,		"0",
+							"nota"				,		"0",
+							"codEstado"			,		"C",
+							"observaciones"		,		"");
 			ajaxMVC(arr,succInscribirUC,err);
 		}
 	}
-
 	listarUniEstudiante();
+
+	window.location.assign("index.php?m_modulo=curso&m_formato=pdf&m_vista=ticketInscripcion&m_accion=generarTicketInscripcion&codEstudiante="+$("#selEstudiante").val()[0]+"&codPeriodo="+$("#selPer").val()[0]+"&codPensum="+$("#selPen").val()[0]+"");
 }
 
 function succInscribirUC(data){
 	var msj = data.mensaje;
-
-
 	mostrarMensaje(msj,1);
 }
 

@@ -80,6 +80,8 @@ Descripción:
 					self::obtenerCursosDisponiblesParaInscripcionPorEstudiante();
 				else if($accion == "agregarCurEst")
 					self::agregarCurEst();
+				else if($accion == "generarTicketInscripcion")
+					self::generarTicketInscripcion();
 				else
 					throw new Exception ("No se pudo resolver la acción $accion");
 			}
@@ -569,6 +571,23 @@ Descripción:
 				$r = CursoServicio::obtenerCursosDisponiblesParaInscripcionPorEstudiante($estudiante, $aprobadas, $convalidaciones, $preladas, $cursando);
 
 				Vista::asignarDato("cursos",$r);
+
+				Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function generarTicketInscripcion(){
+			try{
+				$estudiante = PostGet::obtenerPostGet("codEstudiante");
+				$pensum = PostGet::obtenerPostGet("codPensum");
+				$periodo = PostGet::obtenerPostGet("codPeriodo");
+
+				$r = CursoServicio::obtenerTicketInscripcion($estudiante, $pensum, $periodo);
+
+				Vista::asignarDato("ticket",$r);
 
 				Vista::mostrar();
 			}

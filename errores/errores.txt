@@ -3043,3 +3043,351 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 208 *****************************
+codigo Error: 208
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «[object Object]»
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 223
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(223): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(144): PeriodoServicio::modificarPeriodo('[object Object]', '', '', '', '', '', '', '')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(57): PeriodoControlador::modificarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 209 *****************************
+codigo Error: 209
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 223
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(223): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(144): PeriodoServicio::modificarPeriodo('1', '', '', '', '', '', '', '')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(57): PeriodoControlador::modificarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 210 *****************************
+codigo Error: 210
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_periodo»
+DETAIL:  Ya existe la llave (cod_instituto, cod_pensum, fec_inicio)=(1, 1, 01/01/2015).
+CONTEXT:  sentencia SQL: «UPDATE sis.t_periodo
+		SET
+			nombre = p_nombre,
+			cod_instituto = p_cod_instituto,
+			cod_pensum = p_cod_pensum,
+			fec_inicio = p_fec_inicio,
+			fec_final = p_fec_final,
+			observaciones = p_observaciones,
+			cod_estado = p_cod_estado
+		WHERE
+			codigo = p_codigo»
+función PL/pgSQL sis.f_periodo_mod(integer,text,integer,integer,date,date,text,text) en la línea 4 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 223
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(223): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(144): PeriodoServicio::modificarPeriodo('2', '2016-2017', '1', '1', '01/01/2015', '01/01/2016', '', 'A')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(57): PeriodoControlador::modificarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 211 *****************************
+codigo Error: 211
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_periodo»
+DETAIL:  Ya existe la llave (cod_instituto, cod_pensum, fec_inicio)=(1, 1, 01/01/2015).
+CONTEXT:  sentencia SQL: «UPDATE sis.t_periodo
+		SET
+			nombre = p_nombre,
+			cod_instituto = p_cod_instituto,
+			cod_pensum = p_cod_pensum,
+			fec_inicio = p_fec_inicio,
+			fec_final = p_fec_final,
+			observaciones = p_observaciones,
+			cod_estado = p_cod_estado
+		WHERE
+			codigo = p_codigo»
+función PL/pgSQL sis.f_periodo_mod(integer,text,integer,integer,date,date,text,text) en la línea 4 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 223
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(223): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(144): PeriodoServicio::modificarPeriodo('2', '2016-2017', '1', '1', '01/01/2015', '01/01/2016', 'adsadsasd', 'A')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(57): PeriodoControlador::modificarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 212 *****************************
+codigo Error: 212
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_periodo»
+DETAIL:  Ya existe la llave (cod_instituto, cod_pensum, fec_inicio)=(1, 1, 01/01/2015).
+CONTEXT:  sentencia SQL: «UPDATE sis.t_periodo
+		SET
+			nombre = p_nombre,
+			cod_instituto = p_cod_instituto,
+			cod_pensum = p_cod_pensum,
+			fec_inicio = p_fec_inicio,
+			fec_final = p_fec_final,
+			observaciones = p_observaciones,
+			cod_estado = p_cod_estado
+		WHERE
+			codigo = p_codigo»
+función PL/pgSQL sis.f_periodo_mod(integer,text,integer,integer,date,date,text,text) en la línea 4 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 223
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(223): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(144): PeriodoServicio::modificarPeriodo('2', '2016-2017', '1', '1', '01/01/2015', '01/01/2016', 'adsadsasd', 'A')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(57): PeriodoControlador::modificarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 213 *****************************
+codigo Error: 213
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_periodo»
+DETAIL:  Ya existe la llave (cod_instituto, cod_pensum, fec_inicio)=(1, 1, 01/01/2015).
+CONTEXT:  sentencia SQL: «UPDATE sis.t_periodo
+		SET
+			nombre = p_nombre,
+			cod_instituto = p_cod_instituto,
+			cod_pensum = p_cod_pensum,
+			fec_inicio = p_fec_inicio,
+			fec_final = p_fec_final,
+			observaciones = p_observaciones,
+			cod_estado = p_cod_estado
+		WHERE
+			codigo = p_codigo»
+función PL/pgSQL sis.f_periodo_mod(integer,text,integer,integer,date,date,text,text) en la línea 4 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 223
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(223): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(144): PeriodoServicio::modificarPeriodo('2', '2016-2017', '1', '1', '01/01/2015', '01/01/2016', 'adsadsasd', 'A')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(57): PeriodoControlador::modificarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 214 *****************************
+codigo Error: 214
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_periodo»
+DETAIL:  Ya existe la llave (cod_instituto, cod_pensum, fec_inicio)=(1, 1, 01/01/2015).
+CONTEXT:  sentencia SQL: «UPDATE sis.t_periodo
+		SET
+			nombre = p_nombre,
+			cod_instituto = p_cod_instituto,
+			cod_pensum = p_cod_pensum,
+			fec_inicio = p_fec_inicio,
+			fec_final = p_fec_final,
+			observaciones = p_observaciones,
+			cod_estado = p_cod_estado
+		WHERE
+			codigo = p_codigo»
+función PL/pgSQL sis.f_periodo_mod(integer,text,integer,integer,date,date,text,text) en la línea 4 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 223
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(223): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(144): PeriodoServicio::modificarPeriodo('2', '2016-2017', '1', '1', '01/01/2015', '01/01/2016', 'adsadsasd', 'A')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(57): PeriodoControlador::modificarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 215 *****************************
+codigo Error: 215
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_periodo»
+DETAIL:  Ya existe la llave (cod_instituto, cod_pensum, fec_inicio)=(1, 1, 01/01/2015).
+CONTEXT:  sentencia SQL: «UPDATE sis.t_periodo
+		SET
+			nombre = p_nombre,
+			cod_instituto = p_cod_instituto,
+			cod_pensum = p_cod_pensum,
+			fec_inicio = p_fec_inicio,
+			fec_final = p_fec_final,
+			observaciones = p_observaciones,
+			cod_estado = p_cod_estado
+		WHERE
+			codigo = p_codigo»
+función PL/pgSQL sis.f_periodo_mod(integer,text,integer,integer,date,date,text,text) en la línea 4 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 223
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(223): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(144): PeriodoServicio::modificarPeriodo('2', '2016-2017', '1', '1', '01/01/2015', '01/01/2016', 'adsadsasd', 'A')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(57): PeriodoControlador::modificarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 216 *****************************
+codigo Error: 216
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_periodo»
+DETAIL:  Ya existe la llave (cod_instituto, cod_pensum, fec_inicio)=(1, 1, 01/01/2015).
+CONTEXT:  sentencia SQL: «UPDATE sis.t_periodo
+		SET
+			nombre = p_nombre,
+			cod_instituto = p_cod_instituto,
+			cod_pensum = p_cod_pensum,
+			fec_inicio = p_fec_inicio,
+			fec_final = p_fec_final,
+			observaciones = p_observaciones,
+			cod_estado = p_cod_estado
+		WHERE
+			codigo = p_codigo»
+función PL/pgSQL sis.f_periodo_mod(integer,text,integer,integer,date,date,text,text) en la línea 4 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 223
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(223): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(144): PeriodoServicio::modificarPeriodo('2', '2016-2017', '1', '1', '01/01/2015', '01/01/2016', 'adsadsasd', 'A')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(57): PeriodoControlador::modificarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 217 *****************************
+codigo Error: 217
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_periodo»
+DETAIL:  Ya existe la llave (cod_instituto, cod_pensum, fec_inicio)=(1, 1, 01/01/2015).
+CONTEXT:  sentencia SQL: «UPDATE sis.t_periodo
+		SET
+			nombre = p_nombre,
+			cod_instituto = p_cod_instituto,
+			cod_pensum = p_cod_pensum,
+			fec_inicio = p_fec_inicio,
+			fec_final = p_fec_final,
+			observaciones = p_observaciones,
+			cod_estado = p_cod_estado
+		WHERE
+			codigo = p_codigo»
+función PL/pgSQL sis.f_periodo_mod(integer,text,integer,integer,date,date,text,text) en la línea 4 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 223
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(223): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(144): PeriodoServicio::modificarPeriodo('2', '2016-2017', '1', '1', '01/01/2015', '01/01/2016', 'adsadsasd', 'A')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(57): PeriodoControlador::modificarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 218 *****************************
+codigo Error: 218
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_periodo»
+DETAIL:  Ya existe la llave (cod_instituto, cod_pensum, fec_inicio)=(1, 1, 01/01/2015).
+CONTEXT:  sentencia SQL: «UPDATE sis.t_periodo
+		SET
+			nombre = p_nombre,
+			cod_instituto = p_cod_instituto,
+			cod_pensum = p_cod_pensum,
+			fec_inicio = p_fec_inicio,
+			fec_final = p_fec_final,
+			observaciones = p_observaciones,
+			cod_estado = p_cod_estado
+		WHERE
+			codigo = p_codigo»
+función PL/pgSQL sis.f_periodo_mod(integer,text,integer,integer,date,date,text,text) en la línea 4 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 223
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(223): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(144): PeriodoServicio::modificarPeriodo('2', '2016-2017', '1', '1', '01/01/2015', '01/01/2016', 'adsadsasd', 'A')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(57): PeriodoControlador::modificarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 219 *****************************
+codigo Error: 219
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update o delete en «t_periodo» viola la llave foránea «cf_curso__periodo» en la tabla «t_curso»
+DETAIL:  La llave (codigo)=(1) todavía es referida desde la tabla «t_curso».
+CONTEXT:  sentencia SQL: «DELETE FROM sis.t_periodo WHERE codigo = p_codigo»
+función PL/pgSQL sis.f_periodo_del(integer) en la línea 5 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 179
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(179): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(171): PeriodoServicio::eliminarPeriodo('1')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(59): PeriodoControlador::eliminarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 220 *****************************
+codigo Error: 220
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update o delete en «t_periodo» viola la llave foránea «cf_curso__periodo» en la tabla «t_curso»
+DETAIL:  La llave (codigo)=(1) todavía es referida desde la tabla «t_curso».
+CONTEXT:  sentencia SQL: «DELETE FROM sis.t_periodo WHERE codigo = p_codigo»
+función PL/pgSQL sis.f_periodo_del(integer) en la línea 5 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 179
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(179): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(171): PeriodoServicio::eliminarPeriodo('1')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(59): PeriodoControlador::eliminarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 221 *****************************
+codigo Error: 221
+Mensaje error: No se pudo eliminar el Periodo.
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 184
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(171): PeriodoServicio::eliminarPeriodo('2')
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(59): PeriodoControlador::eliminarPeriodo()
+		#2 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 222 *****************************
+codigo Error: 222
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/curso/vista/pdf/.php
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 71
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('curso:pdf:')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 222 *****************************
+codigo Error: 222
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/curso/vista/pdf/.php
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 71
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('curso:pdf:')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 222 *****************************
+codigo Error: 222
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/curso/vista/pdf/.php
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 71
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('curso:pdf:')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}

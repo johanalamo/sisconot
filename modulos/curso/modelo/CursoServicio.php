@@ -565,7 +565,7 @@ Descripción:
 				$patron = "%".$patron."%";
 
 				$r = Array($codIns,$codPen,$codPer,$patron,$patron,$patron,$patron,$patron);
-				
+
 				$ejecutar->execute($r);
 				$results = $ejecutar->fetchAll();
 				$conexion->commit();
@@ -1131,6 +1131,67 @@ Descripción:
 			}
 		}
 
+		public static function obtenerTicketInscripcion($codEstudiante, $codPensum, $codPeriodo){
+			try{
+				$conexion = Conexion::conectar();
+
+				$consulta = "select	ins.nombre as nombreinst,
+									pen.nombre as nombrepensum,
+									pdo.nombre as nombreper,
+									per.nacionalidad,
+									per.cedula,
+									per.nombre1 || ' ' || per.apellido1 as nombreest,
+									uni.nombre as nombreuni,
+									coalesce(per2.nombre1 || ' ' || per2.apellido1,'No asignado') as nombredoc,
+									cur.codigo codcurso,
+									cur.seccion,
+									(select count(codigo)
+										from sis.t_cur_estudiante
+										where cod_curso = cur.codigo
+										and cod_estado = 'C')
+									as orden
+									from sis.t_estudiante est
+									inner join sis.t_persona per
+										on per.codigo = est.cod_persona
+									inner join sis.t_cur_estudiante curest
+										on curest.cod_estudiante = est.codigo
+									inner join sis.t_curso cur
+										on cur.codigo = curest.cod_curso
+									inner join sis.t_periodo pdo
+										on pdo.codigo = cur.cod_periodo
+									inner join sis.t_pensum pen
+										on pen.codigo = est.cod_pensum
+									inner join sis.t_uni_curricular uni
+										on uni.codigo = cur.cod_uni_curricular
+									inner join sis.t_instituto ins
+										on ins.codigo = pdo.cod_instituto
+									left join sis.t_empleado emp
+										on emp.codigo = cur.cod_docente
+									left join sis.t_persona per2
+										on per2.codigo = emp.cod_persona
+									where est.codigo = :estudiante
+									and pdo.codigo = :periodo
+									and pen.codigo = :pensum
+									and curest.cod_estado = 'C';";
+
+					$ejecutar=$conexion->prepare($consulta);
+					$conexion->beginTransaction();
+					$ejecutar->bindParam(':estudiante', $codEstudiante, PDO::PARAM_INT);
+					$ejecutar->bindParam(':pensum', $codPensum, PDO::PARAM_INT);
+					$ejecutar->bindParam(':periodo', $codPeriodo, PDO::PARAM_INT);
+					$ejecutar->execute();
+					$results = $ejecutar->fetchAll();
+					$conexion->commit();
+
+					if(count($results) > 0)
+						return $results;
+					else
+						return null;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
 
 	}
 ?>
