@@ -148,7 +148,7 @@ Descripción:
 				$ejecutar->execute();
 
 				$row = $ejecutar->fetchColumn(0);
-					
+
 				return $row;
 			}
 			catch(Exception $e){
@@ -191,7 +191,7 @@ Descripción:
 				$ejecutar->bindParam(':p_fec_final',$fecFinal, PDO::PARAM_STR);
 				$ejecutar->bindParam(':p_capacidad',$capacidad, PDO::PARAM_INT);
 				$ejecutar->bindParam(':p_observaciones',$observaciones, PDO::PARAM_STR);
-				
+
 
 				$ejecutar->execute();
 			}
@@ -337,10 +337,10 @@ Descripción:
 		 public static function insertarCurEst($codEstudiante, $codCurso, $porAsistencia, $nota, $codEstado, $observaciones){
 			 try{
 				$conexion=Conexion::conectar();
-				
+
 				if(!self::verificarEst($codEstudiante,$codCurso)){
 					$consulta="select sis.f_cur_estudiante_ins(:p_cod_estudiante,:p_cod_curso,:p_por_asistencia,:p_nota,:p_cod_estado,:p_observaciones)";
-					
+
 					$ejecutar=$conexion->prepare($consulta);
 
 					$ejecutar->bindParam(':p_cod_estudiante',$codEstudiante, PDO::PARAM_INT);
@@ -358,7 +358,7 @@ Descripción:
 				}
 				else{
 					self::cambiarEstado($codEstudiante,$codCurso,'C');
-					
+
 					return 0;
 				}
 			}
@@ -524,12 +524,12 @@ Descripción:
 									t1.t c,
 									cur.capacidad,
 									cur.fec_inicio,
-									cur.fec_final 
+									cur.fec_final
 									from sis.t_uni_tra_pensum utp
 									inner join sis.t_curso cur
 										on cur.cod_uni_curricular = utp.cod_uni_curricular
 									inner join sis.t_periodo per
-										on per.cod_pensum = utp.cod_pensum
+										on per.codigo = cur.cod_periodo
 									left join sis.t_trayecto tra
 										on tra.codigo = utp.cod_trayecto
 									inner join sis.t_uni_curricular as uni
@@ -538,7 +538,9 @@ Descripción:
 										on pers.codigo = cur.cod_docente
 									left join (SELECT ce.cod_curso, COUNT(*) t FROM sis.t_cur_estudiante ce where ce.cod_estado <> 'X' group by ce.cod_curso) t1
 										on t1.cod_curso = cur.codigo
-									where per.cod_instituto = ? and per.cod_pensum = ? and per.codigo = ?								
+									where (per.cod_instituto = ?)
+									and (per.cod_pensum = ?)
+									and (per.codigo = ?)
 									and (upper(uni.nombre) like upper(?) or upper(pers.nombre1) like upper(?) or upper(pers.nombre2) like upper(?)
 									or upper(pers.apellido1) like upper(?) or upper(pers.apellido2) like upper(?))
 									group by
@@ -555,12 +557,16 @@ Descripción:
 										tra.num_trayecto,
 										cur.seccion,
 										uni.nombre;
-									;";
+									";
+
 
 				$ejecutar=$conexion->prepare($consulta);
 				$conexion->beginTransaction();
 				$patron = "%".$patron."%";
-				$ejecutar->execute(Array($codIns,$codPen,$codPer,$patron,$patron,$patron,$patron,$patron));
+
+				$r = Array($codIns,$codPen,$codPer,$patron,$patron,$patron,$patron,$patron);
+				
+				$ejecutar->execute($r);
 				$results = $ejecutar->fetchAll();
 				$conexion->commit();
 
@@ -655,7 +661,7 @@ Descripción:
 									inner join sis.t_uni_curricular as uni
 										on uni.codigo = utp.cod_uni_curricular
 									where (utp.cod_trayecto = :trayecto and per.codigo = :periodo2)
-									order by 
+									order by
 										cur.codigo";
 
 				$ejecutar=$conexion->prepare($consulta);
@@ -787,38 +793,38 @@ Descripción:
 				throw $e;
 			}
 		}
-		
+
 		public static function retirarCurEstudiante($codigo){
 			try{
 				$conexion = Conexion::conectar();
-				
+
 				$consulta = "update sis.t_cur_estudiante set cod_estado = 'X' where codigo = :codigo;";
-				
+
 				$ejecutar=$conexion->prepare($consulta);
 				$conexion->beginTransaction();
 				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
 				$ejecutar->execute();
 				$conexion->commit();
-				
+
 				$row = $ejecutar->rowCount();
 
 				if ($row == 0)
 					throw new Exception("No se pudo eliminar el estudiante en este curso.");
-					
+
 				return $row;
 			}
 			catch(Exception $e){
 				throw $e;
 			}
 		}
-		
+
 		/* SECUENCIA DE INSCRIPCION */
-		
+
 		public static function obtenerUnidadesCurricularesDelPensumPorEstudiante($codigo){
 			try{
-				
+
 				$conexion = Conexion::conectar();
-				
+
 				$consulta = "select 	utp.cod_uni_curricular
 										from sis.t_estudiante est
 										inner join sis.t_persona per
@@ -831,14 +837,14 @@ Descripción:
 											on cur.cod_uni_curricular = utp.cod_uni_curricular
 										where est.codigo = :codigo
 										group by utp.cod_uni_curricular;";
-										
+
 				$ejecutar=$conexion->prepare($consulta);
 				$conexion->beginTransaction();
 				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
 				$ejecutar->execute();
 				$results = $ejecutar->fetchAll(PDO::FETCH_COLUMN, 0);
 				$conexion->commit();
-				
+
 				if(count($results) > 0)
 					return $results;
 				else
@@ -848,17 +854,17 @@ Descripción:
 				throw $e;
 			}
 		}
-		
+
 		public static function obtenerUnidadesCurricularesConvalidadasPorEstudiante($codigo,$pensum){
 			try{
-				
+
 				$conexion = Conexion::conectar();
-				
+
 				$consulta = "select 	con.cod_uni_curricular
 										from sis.t_convalidacion con
 										where cod_estudiante = :codigo
 										and cod_pensum = :pensum";
-										
+
 				$ejecutar=$conexion->prepare($consulta);
 				$conexion->beginTransaction();
 				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
@@ -866,7 +872,7 @@ Descripción:
 				$ejecutar->execute();
 				$results = $ejecutar->fetchAll(PDO::FETCH_COLUMN, 0);
 				$conexion->commit();
-				
+
 				if(count($results) > 0)
 					return $results;
 				else
@@ -876,31 +882,31 @@ Descripción:
 				throw $e;
 			}
 		}
-		
+
 		public static function obtenerUnidadesCurricularesAprobadasPorEstudiante($codigo,$pensum){
 			try{
-				
+
 				$conexion = Conexion::conectar();
-				
+
 				$consulta = "select	cur.cod_uni_curricular
 									from sis.t_cur_estudiante ce
 									inner join sis.t_curso cur
 										on cur.codigo = ce.cod_curso
 									inner join sis.t_estudiante est
 										on est.codigo = ce.cod_estudiante
-									where ce.cod_estudiante = :codigo 
+									where ce.cod_estudiante = :codigo
 									and ce.cod_estado = 'A'
 									and est.cod_pensum = :pensum;";
-										
+
 				$ejecutar=$conexion->prepare($consulta);
 				$conexion->beginTransaction();
-				
+
 				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
 				$ejecutar->bindParam(':pensum',$pensum, PDO::PARAM_INT);
 				$ejecutar->execute();
 				$results = $ejecutar->fetchAll(PDO::FETCH_COLUMN, 0);
 				$conexion->commit();
-				
+
 				if(count($results) > 0)
 					return $results;
 				else
@@ -910,32 +916,32 @@ Descripción:
 				throw $e;
 			}
 		}
-		
+
 		public static function obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares($lista,$pensum,$instituto){
 			try{
-				
+
 				$conexion = Conexion::conectar();
-				
+
 				$lista = implode(",",$lista);
-				
+
 				$lista = "(".$lista.")";
-				
+
 				$consulta = "select 	pre.cod_uni_cur_prelada
 										from sis.t_prelacion pre
 										where pre.cod_uni_curricular IN $lista
 										and cod_pensum = :pensum
 										and cod_instituto = :instituto";
-										
+
 				$ejecutar=$conexion->prepare($consulta);
 				$conexion->beginTransaction();
-				
+
 				$ejecutar->bindParam(':pensum',$pensum);
 				$ejecutar->bindParam(':instituto',$instituto);
-				
+
 				$ejecutar->execute();
 				$results = $ejecutar->fetchAll(PDO::FETCH_COLUMN, 0);
 				$conexion->commit();
-				
+
 				if(count($results) > 0)
 					return $results;
 				else
@@ -945,14 +951,14 @@ Descripción:
 				throw $e;
 			}
 		}
-		
+
 		public static function obtenerCursosDisponiblesParaInscripcionPorEstudiante($estudiante, $aprobadas, $convalidadas, $prelacion, $cursando){
 			try{
 				$conexion = Conexion::conectar();
 
 				//incluye el periodo
 
-				$consulta = "select 	
+				$consulta = "select
 										utp.cod_uni_curricular,   --dlkjf
 										cur.codigo,
 										tra.num_trayecto,
@@ -972,18 +978,18 @@ Descripción:
 											on pdo.codigo = cur.cod_periodo
 										left join sis.t_trayecto as tra
 											on tra.codigo = utp.cod_trayecto
-										left join (SELECT ce.cod_curso codigo, 
+										left join (SELECT ce.cod_curso codigo,
 												coalesce(count(*),0) t
-												FROM sis.t_cur_estudiante ce 
-												where ce.cod_estado <> 'X' 
+												FROM sis.t_cur_estudiante ce
+												where ce.cod_estado <> 'X'
 												group by ce.cod_curso) cantc
-										
+
 										    on cantc.codigo = cur.codigo
-								where est.codigo = :estudiante 
+								where est.codigo = :estudiante
 										and coalesce(cantc.t,0) < cur.capacidad
-										and pdo.cod_estado = 'A' 
+										and pdo.cod_estado = 'A'
 										";
-										
+
 										if($aprobadas != NULL){
 											$aprobadas = implode(",",$aprobadas);
 											$aprobadas = "(".$aprobadas.")";
@@ -994,7 +1000,7 @@ Descripción:
 											$convalidadas = "(".$convalidadas.")";
 											$consulta .= " and utp.cod_uni_curricular not in $convalidadas ";
 										}
-										
+
 										if($cursando != NULL){
 											$cursando = implode(",",$cursando);
 											$cursando = "(".$cursando.")";
@@ -1005,9 +1011,9 @@ Descripción:
 											$prelacion = "(".$prelacion.")";
 											$consulta .= " and utp.cod_uni_curricular not in $prelacion ";
 										}
-										$consulta .=" 
-										
-										group by 
+										$consulta .="
+
+										group by
 											utp.cod_uni_curricular,
 											utp.cod_trayecto,
 											cur.codigo,
@@ -1021,16 +1027,16 @@ Descripción:
 											utp.cod_trayecto,
 											utp.cod_uni_curricular,
 											cur.seccion";
-											
+
 				$ejecutar=$conexion->prepare($consulta);
 				$conexion->beginTransaction();
-				
+
 				$ejecutar->bindParam(':estudiante', $estudiante);
-				
+
 				$ejecutar->execute();
 				$results = $ejecutar->fetchAll();
 				$conexion->commit();
-				
+
 				if(count($results) > 0)
 					return $results;
 				else
@@ -1040,11 +1046,11 @@ Descripción:
 				throw $e;
 			}
 		}
-		
+
 		public static function obtenerCursosCursando($estudiante,$pensum){
 			try{
 				$conexion = Conexion::conectar();
-				
+
 				$consulta = "select 	cur.cod_uni_curricular
 										from sis.t_cur_estudiante ce
 										inner join sis.t_curso cur
@@ -1056,7 +1062,7 @@ Descripción:
 										and utp.cod_pensum = :pensum
 										group by
 											cur.cod_uni_curricular;";
-											
+
 				$ejecutar=$conexion->prepare($consulta);
 				$conexion->beginTransaction();
 				$ejecutar->bindParam(':estudiante', $estudiante, PDO::PARAM_INT);
@@ -1064,7 +1070,7 @@ Descripción:
 				$ejecutar->execute();
 				$results = $ejecutar->fetchAll(PDO::FETCH_COLUMN, 0);
 				$conexion->commit();
-				
+
 				if(count($results) > 0)
 					return $results;
 				else
@@ -1074,57 +1080,57 @@ Descripción:
 				throw $e;
 			}
 		}
-		
-		
+
+
 		public static function cambiarEstado($codEstudiante,$codCurso,$estado){
 			try{
 				$conexion = Conexion::conectar();
-				
+
 				$consulta = "update 	sis.t_cur_estudiante
 										set cod_estado = :estado
 										where cod_estudiante = :codEstudiante
 										and cod_curso = :codCurso";
-										
+
 				$ejecutar=$conexion->prepare($consulta);
 				$conexion->beginTransaction();
 				$ejecutar->bindParam(':codEstudiante', $codEstudiante, PDO::PARAM_INT);
 				$ejecutar->bindParam(':codCurso', $codCurso, PDO::PARAM_INT);
 				$ejecutar->bindParam(':estado', $estado, PDO::PARAM_INT);
 				$ejecutar->execute();
-				
+
 				$conexion->commit();
-			
+
 			}
 			catch(Exception $e){
 				throw $e;
 			}
 		}
-		
-		
-		
+
+
+
 		public static function verificarEst($codEstudiante,$codCurso){
 			try{
 				$conexion = Conexion::conectar();
-				
+
 				$consulta = "select		codigo
 										from sis.t_cur_estudiante
 										where cod_estudiante = :codEstudiante
 										and cod_curso = :codCurso";
-				
+
 				$ejecutar=$conexion->prepare($consulta);
 				$conexion->beginTransaction();
 				$ejecutar->bindParam(':codEstudiante', $codEstudiante, PDO::PARAM_INT);
 				$ejecutar->bindParam(':codCurso', $codCurso, PDO::PARAM_INT);
-				
+
 				$ejecutar->execute();
-				
+
 				return ($ejecutar->rowCount() > 0);
 			}
 			catch(Exception $e){
 				throw $e;
 			}
 		}
-		
-		
+
+
 	}
 ?>

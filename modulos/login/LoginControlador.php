@@ -13,6 +13,7 @@
  * 
  *  
  * @author JHONNY VIELMA 		(jhonnyvq1@gmail.com)
+ * @author GERALDINE CASTILLO 	(geralcs@gmail.com)
  * 
  * 
  * @link /modulos/login/modelo/LoginServicio.php 			 Clase LoginControlador
@@ -21,10 +22,10 @@
  */
  
 
-
-
 /* Clase que permite la comunicación con la base de datos*/
 require_once "modulos/login/modelo/LoginServicio.php";
+require_once "modulos/usuario/modelo/UsuarioServicio.php";
+require_once "negocio/Usuario.php";
 
 class LoginControlador {
 	  
@@ -68,41 +69,41 @@ class LoginControlador {
 		 *
 		 * 
 		 */
-	public static function iniciarLogin(){	
+	public static function iniciarLogin(){
+	try{	
 		$usuario      = PostGet::obtenerPostGet('usuario');
 		$password     = PostGet::obtenerPostGet('pass');
-		$login=null;
-		if ($usuario=='usuarioscn'){
-			Conexion::iniciar("localhost","bd_scnfinal","5432",$usuario,$password);
-			conexion::conectar();
-			Vista::asignarDato("mensaje", "Bienvenido Administrador usuarioSCN");
-			$permisos=new Permisos();
-			$permisos::iniciar();
-			$permisos::asignarPermisos();
-			$login= new Login('usuarioSCN','Administrador',"A",1,'usuarioscn',$password,null,null,null,null,null);
-			Sesion::iniciar($login,$permisos);
-			Vista::asignarDato("login",$login);
-			Vista::asignarDato("permisos",$permisos);
-			Vista::asignarDato("estatus",1);
+		$instalacion= new Instalacion();
+		$instalacion->obtenerInstalacionIni();
+		if ($instalacion->obtenerUsuBD()=='false'){
+			$usu =LoginServicio::obtenerLogin($usuario,$password,false);
 		}else{
-			$login=LoginServicio::obtenerLogin($usuario);
-			if ($login!=null){
-				Conexion::iniciar("localhost","bd_scnfinal","5432",$usuario,$password);
-				conexion::conectar();
-				Vista::asignarDato("mensaje", "Bienvenido, ".$login->obtenerNombre()." ".$login->obtenerApellido());
-				$permisos=new Permisos();
-				$permisos::iniciar();
-				$permisos::asignarPermisos();
-				$login->asignarPass($password);
-				Sesion::iniciar($login,$permisos);
-				Vista::asignarDato("login",$login);
-				Vista::asignarDato("permisos",$permisos);
-				Vista::asignarDato("estatus",1);
-
-			}else
-				Vista::asignarDato("mensaje", "Datos no existentes Creese un usuario.");
+			$usu =LoginServicio::obtenerLogin($usuario,$password);
 		}
+		$permisos= usuarioServicio::obtenerAccionesUsuarios($usuario);
+		
+		$usu->asignarPermisos($permisos);
+
+		Sesion::iniciar($usu);
+		Vista::asignarDato("mensaje", "Bienvenido ".$usu->obtenerUsuario()." al ".$instalacion->obtenerNombreAplicacion());
+		Vista::asignarDato("estatus", 1);
+		Vista::asignarDato("login",$usu);
+
+		
 		Vista::mostrar();
+	}catch(Exception $e){
+			throw $e;
+	}
+	}
+	public static function restaurarPermisos(){
+	try{	
+		$usuario=Sesion::obtenerLogin();
+		$permisos= usuarioServicio::obtenerAccionesUsuarios($usuario->obtenerUsuario());
+		$usuario->asignarPermisos($permisos);
+		Sesion::iniciar($usuario);
+	}catch(Exception $e){
+			throw $e;
+	}
 
 	}
 	

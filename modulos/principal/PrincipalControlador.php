@@ -42,9 +42,8 @@ Johan Alamo  - Geraldine Castillo /  diciembre del 2013  /se modificó la config
 //estará disponible como un objeto global a toda la aplicación
 require_once 'base/clases/utilitarias/PostGet.clase.php';
 require_once 'base/clases/utilitarias/Util.clase.php';
-require_once 'modulos/login/modelo/Sesion.php';
-require_once "negocio/Login.php";
-require_once "modulos/login/modelo/Permisos.php";
+require_once 'negocio/Sesion.php';
+
 //objeto que permitirá efectuar conexiones con la base de datos.
 //estará disponible como una clase estatica en toda la aplicacion
 require_once 'base/clases/basededatos/Conexion.php';
@@ -82,7 +81,7 @@ class PrincipalControlador {
 	*/
 
 	private static function configurar(){
-		Sesion::iniciarSesion();
+		//~ Sesion::iniciarSesion();
 		//colocar todas las claves de los arreglos $_POST y $_GET en
 		//minúscula
 

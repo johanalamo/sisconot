@@ -12,6 +12,7 @@
  * 
  *  
  * @author JHONNY VIELMA 		(jhonnyvq1@gmail.com)
+ * @author GERALDINE CASTILLO 	(geralcs@gmail.com)
  * 
  * @link /base/clases/conexion/Conexion.php 	Clase Conexion
  * 
@@ -42,77 +43,33 @@ class LoginServicio{
 		 * @throws Exception 					Exceptiones capturas.
 		 * 
 		 */
-	public static function obtenerLogin($usuario){
+	public static function obtenerLogin($usuario,$contraseña,$tipo=true){
 			try{
 				
 				$conexion=Conexion::conectar();
-				$consulta= " select u.*, per.*,minis.codigo as ministerio,depar.codigo as departamento,
-       							    depar.codigo as codigo_departamento_depa,doce.codigo as docente,
-       								doce.cod_instituto as codigo_departamento_doce, estudi.codigo as estudiante,
-       								estudi.cod_pensum,estudi.cod_instituto as codigo_departamento_estu,
-       								conEstudio.codigo as conEstudios,conEstudio.cod_instituto as cod_instituto_con,
-      								departamento.nombre as nombre_departamento_depa,departamento1.nombre as nombre_departamento_doce,
-      								departamento2.nombre as nombre_departamento_estu,
-       								instituto.nombre as instituto_nombre_depa, instituto.codigo as instituto_codigo_depa,instituto1.nombre as instituto_nombre_doce,
-       								instituto1.codigo as instituto_codigo_doce,instituto2.nombre as instituto_nombre_estu,instituto2.codigo as instituto_codigo_estu,
-      							 	instituto3.nombre as instituto_nombre_con
-							 from per.t_usuario as u
-									left join sis.t_persona as per on (per.codigo=u.codigo)
-       								left join sis.t_usu_ministerio as minis on (per.codigo=minis.codigo)
-									left join sis.t_usu_enc_pensum as depar on (per.codigo=depar.codigo)
-									left join sis.t_usu_con_estudios as conEstudio on (per.codigo=conEstudio.codigo)
-									left join sis.t_estudiante as estudi on (per.codigo=estudi.codigo)
-									left join sis.t_docente as doce on (per.codigo=doce.codigo)
-									left join sis.t_instituto as departamento on (depar.cod_instituto=departamento.codigo)
-									left join sis.t_instituto as departamento1 on (doce.cod_instituto=departamento1.codigo)
-									left join sis.t_instituto as departamento2 on (estudi.cod_instituto=departamento2.codigo)
-									left join sis.t_instituto as instituto on (departamento.codigo=instituto.codigo)
-									left join sis.t_instituto as instituto1 on (departamento1.codigo=instituto1.codigo)
-									left join sis.t_instituto as instituto2 on (departamento2.codigo=instituto2.codigo)
-									left join sis.t_instituto as instituto3 on (conEstudio.cod_instituto=instituto3.codigo)
-							where u.nombre=?" ;
-
-				$ejecutar= $conexion->prepare($consulta);
-				$ejecutar->execute(array($usuario));
-				
-				if($ejecutar->rowCount()!=0){
-					$logueo=$ejecutar->fetchAll();
-
-					//echo"<pre>";
-					//var_dump($logueo);
-					//echo"</pre>";
-					if ($logueo[0]['ministerio']!=null){
-						$login= new Login($logueo[0]['nombre1'],$logueo[0]['apellido1'],'M',$logueo[0]['codigo'],$logueo[0]['nombre'],null,
-										  null,null,null,null,null);
-						return $login;
-					}
-					else if ($logueo[0]['conestudios']!=null){
-						$login= new Login($logueo[0]['nombre1'],$logueo[0]['apellido1'],"JC",$logueo[0]['codigo'],$logueo[0]['nombre'],null,
-							              $logueo[0]['instituto_nombre_con'],$logueo[0]['cod_instituto_con'],null,null,null);
-						return $login;
-					}
-					else if ($logueo[0]['departamento']!=null){
-						$login= new Login($logueo[0]['nombre1'],$logueo[0]['apellido1'],"JD",$logueo[0]['codigo'],$logueo[0]['nombre'],null,
-							              $logueo[0]['instituto_nombre_depa'],$logueo[0]['instituto_codigo_depa'],$logueo[0]['nombre_departamento_depa'],
-							              $logueo[0]['codigo_departamento_depa'],null);
-						return $login;
-					}
-					else if ($logueo[0]['docente']!=null){
-						$login= new Login($logueo[0]['nombre1'],$logueo[0]['apellido1'],"D",$logueo[0]['codigo'],$logueo[0]['nombre'],null,
-							              $logueo[0]['instituto_nombre_doce'],$logueo[0]['instituto_codigo_doce'],$logueo[0]['nombre_departamento_doce'],
-							              $logueo[0]['codigo_departamento_doce'],null);
-						return $login;
-					}
-					else if ($logueo[0]['estudiante']!=null){
-						$login= new Login($logueo[0]['nombre1'],$logueo[0]['apellido1'],"E",$logueo[0]['codigo'],$logueo[0]['nombre'],null,
-							              $logueo[0]['instituto_nombre_estu'],$logueo[0]['instituto_codigo_estu'],$logueo[0]['nombre_departamento_estu'],
-							              $logueo[0]['codigo_departamento_estu'],$logueo[0]['cod_pensum']);
-						return $login;
-					}
-					else
-						return null;
+				if ($tipo){
+					$consulta= "select * from per.t_usuario where usuario=?";
+					$parametros=array($usuario);
+				}else{
+					$consulta= "select * from per.t_usuario where usuario=? and pass=?";
+					$parametros=array($usuario,md5($contraseña));
 				}
-						
+				
+				$ejecutar= $conexion->prepare($consulta);
+				$ejecutar->execute($parametros);
+				$a=$ejecutar->fetchAll();
+				if ($a){
+					$usu= new Usuario();
+					$usu->asignarCodigo($a[0]["codigo"]);
+					$usu->asignarUsuario($a[0]["usuario"]);
+					$usu->asignarTipo($a[0]["tipo"]);
+					$usu->asignarCampo1($a[0]["campo1"]);
+					$usu->asignarCampo2($a[0]["campo2"]);
+					$usu->asignarCampo3($a[0]["campo3"]);
+					$usu->asignarClave($contraseña);
+					return $usu;
+				}else
+					throw new Exception("Datos de autentificación incorrectos");
 			}catch (Exception $e ){
 				throw $e;
 			}	

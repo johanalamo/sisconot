@@ -16,6 +16,14 @@ else if($modulo == 'estudiante'){
 	require_once 'modulos/estudiante/EstudianteControlador.php';
 	EstudianteControlador::manejarRequerimiento();
 }
+else if($modulo == 'estudiante.old'){
+	require_once 'modulos/estudiante.old/Estudiante.oldControlador.php';
+	Estudiante.oldControlador::manejarRequerimiento();
+}
+else if($modulo == 'foto'){
+	require_once 'modulos/foto/FotoControlador.php';
+	FotoControlador::manejarRequerimiento();
+}
 else if($modulo == 'instituto'){
 	require_once 'modulos/instituto/InstitutoControlador.php';
 	InstitutoControlador::manejarRequerimiento();
@@ -31,6 +39,10 @@ else if($modulo == 'pensum'){
 else if($modulo == 'periodo'){
 	require_once 'modulos/periodo/PeriodoControlador.php';
 	PeriodoControlador::manejarRequerimiento();
+}
+else if($modulo == 'permisos'){
+	require_once 'modulos/permisos/PermisosControlador.php';
+	PermisosControlador::manejarRequerimiento();
 }
 else if($modulo == 'persona'){
 	require_once 'modulos/persona/PersonaControlador.php';
@@ -49,13 +61,17 @@ else if($modulo == 'trayecto'){
 	TrayectoControlador::manejarRequerimiento();
 }
 else if($modulo == 'unidad'){
-	require_once 'modulos/unidad/UnidadCurricularControlador.php';
+	require_once 'modulos/unidad/UnidadControlador.php';
 	UnidadControlador::manejarRequerimiento();
+}
+else if($modulo == 'usuario'){
+	require_once 'modulos/usuario/UsuarioControlador.php';
+	UsuarioControlador::manejarRequerimiento();
 }
 else if($modulo == 'usuario_NO_FUNCIONAL_AUN_JOHAN_ALAMO'){
 	require_once 'modulos/usuario_NO_FUNCIONAL_AUN_JOHAN_ALAMO/Usuario_NO_FUNCIONAL_AUN_JOHAN_ALAMOControlador.php';
 	Usuario_NO_FUNCIONAL_AUN_JOHAN_ALAMOControlador::manejarRequerimiento();
 }
-else
+else 
 	throw new Exception ('(PrincipalControlador) Módulo inválido: $modulo')
 ?>

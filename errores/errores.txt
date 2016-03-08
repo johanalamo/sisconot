@@ -2762,3 +2762,284 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(70): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 184 *****************************
+codigo Error: 184
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/instituto/vista/html5/RetirarEstudiante.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('instituto:html5...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 185 *****************************
+codigo Error: 185
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/instituto/vista/html5/RetirarEstudiante.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('instituto:html5...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 186 *****************************
+codigo Error: 186
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/instituto/vista/html5/RetirarEstudiante.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('instituto:html5...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 187 *****************************
+codigo Error: 187
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/instituto/vista/html5/InscribirRetirarEstudiante.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('instituto:html5...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 188 *****************************
+codigo Error: 188
+Mensaje error: No se pudo resolver la acción listar
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/CursoControlador.php
+Linea Error: 84
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 189 *****************************
+codigo Error: 189
+Mensaje error: No se pudo resolver la acción listar
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/CursoControlador.php
+Linea Error: 84
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 190 *****************************
+codigo Error: 190
+Mensaje error: No se pudo resolver la acción listar
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/CursoControlador.php
+Linea Error: 84
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 191 *****************************
+codigo Error: 191
+Mensaje error: No se pudo resolver la acción listar
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/CursoControlador.php
+Linea Error: 84
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 192 *****************************
+codigo Error: 192
+Mensaje error: No se pudo resolver la acción listar
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/CursoControlador.php
+Linea Error: 84
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 193 *****************************
+codigo Error: 193
+Mensaje error: No se pudo resolver la acción listar
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/CursoControlador.php
+Linea Error: 84
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 194 *****************************
+codigo Error: 194
+Mensaje error: No se pudo resolver la acción listar
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/CursoControlador.php
+Linea Error: 84
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 195 *****************************
+codigo Error: 195
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/periodo/vista/html5/ListarCursos.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('periodo:html5:L...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 196 *****************************
+codigo Error: 196
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/periodo/vista/html5/ListarCursos.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('periodo:html5:L...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 197 *****************************
+codigo Error: 197
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/periodo/vista/html5/ListarCursos.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('periodo:html5:L...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 198 *****************************
+codigo Error: 198
+Mensaje error: No se pudo resolver la acción listar
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/CursoControlador.php
+Linea Error: 84
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 199 *****************************
+codigo Error: 199
+Mensaje error: No se pudo resolver la acción listar
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/CursoControlador.php
+Linea Error: 84
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 200 *****************************
+codigo Error: 200
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 616
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(616): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(388): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 201 *****************************
+codigo Error: 201
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 478
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(478): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(276): EstudianteServicio::listarEstudiantesDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(42): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 202 *****************************
+codigo Error: 202
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 616
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(616): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(388): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 203 *****************************
+codigo Error: 203
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 478
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(478): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(276): EstudianteServicio::listarEstudiantesDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(42): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 204 *****************************
+codigo Error: 204
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 616
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(616): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(388): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 205 *****************************
+codigo Error: 205
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 478
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(478): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(276): EstudianteServicio::listarEstudiantesDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(42): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 206 *****************************
+codigo Error: 206
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 616
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(616): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(388): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 207 *****************************
+codigo Error: 207
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 478
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(478): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(276): EstudianteServicio::listarEstudiantesDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(42): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

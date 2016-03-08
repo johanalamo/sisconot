@@ -106,10 +106,10 @@ Descripción:
 				$codPer = PostGet::obtenerPostGet("codPeriodo");
 				$patron = PostGet::obtenerPostGet("patron");
 
-				if($codigo == NULL)
+				//if($codigo == NULL)
 					$r = CursoServicio::listarCursos($codIns,$codPen,$codPer,$patron);
-				else
-					$r = CursoServicio::obtenerCursoPorCodigo($codigo);
+				// else
+				// 	$r = CursoServicio::obtenerCursoPorCodigo($codigo);
 
 				Vista::asignarDato("cursos",$r);
 
@@ -142,19 +142,19 @@ Descripción:
 
 				if($codDocente == '')
 					$codDocente = NULL;
-					
+
 				if($fecInicio == '')
 					$fecInicio = NULL;
-					
+
 				if($fecFinal == '')
 					$fecFinal = NULL;
 
 				$r = CursoServicio::insertarCurso($codPeriodo, $codUniCurricular, $codDocente, $seccion, $fecInicio, $fecFinal, $capacidad, $observaciones);
 
-				
+
 				Vista::asignarDato("codCurso",$r);
-				
-		
+
+
 				Vista::mostrar();
 			}
 			catch(Exception $e){
@@ -185,19 +185,19 @@ Descripción:
 
 				if($codDocente == '')
 					$codDocente = NULL;
-					
+
 				if($fecInicio == '')
 					$fecInicio = NULL;
-					
+
 				if($fecFinal == '')
 					$fecFinal = NULL;
 
 				$r = CursoServicio::modificarCurso($codigo,$codPeriodo, $codUniCurricular, $codDocente, $seccion, $fecInicio, $fecFinal, $capacidad, $observaciones);
-				
+
 
 				Vista::asignarDato("mensaje","El curso con código $codigo se ha modificado exitosamente.");
 
-				
+
 				Vista::mostrar();
 			}
 			catch(Exception $e){
@@ -279,9 +279,9 @@ Descripción:
 				$nota = PostGet::obtenerPostGet("nota");
 				$codEstado = PostGet::obtenerPostGet("codEstado");
 				$observaciones = PostGet::obtenerPostGet("observaciones");
-				
+
 				//~ var_dump($_POST);
-				
+
 				$r = CursoServicio::insertarCurEst($codEstudiante, $codCurso, $porAsistencia, $nota, $codEstado, $observaciones);
 
 				if($r == 0){
@@ -290,7 +290,7 @@ Descripción:
 				else{
 					Vista::asignarDato("codCurEst",$r);
 					Vista::asignarDato("codigo",$codCurso);
-					
+
 					Vista::asignarDato("mensaje","El estudiante se ha inscrito exitosamente en el curso $codCurso");
 				}
 				Vista::mostrar();
@@ -364,16 +364,16 @@ Descripción:
 				throw $e;
 			}
 		}
-		
+
 		public static function retirarCurEstudiante(){
 			try{
 				$codigo = PostGet::obtenerPostGet("codigo");
-				
+
 				$r = CursoServicio::retirarCurEstudiante($codigo);
-				
+
 				if($r != 0)
 					Vista::asignarDato("mensaje","Se retiró la Unidad Curricular con éxito");
-				
+
 				Vista::mostrar();
 			}
 			catch(Exception $e){
@@ -388,7 +388,7 @@ Descripción:
 				$r = CursoServicio::obtenerDatosDeCurso($codigo);
 
 				Vista::asignarDato("cursoInfoMontar",$r);
-				
+
 				Vista::mostrar();
 			}
 			catch(Exception $e){
@@ -477,7 +477,7 @@ Descripción:
 			try{
 				$codEstudiante = PostGet::obtenerPostGet("codEstudiante");
 				$codCurso = PostGet::obtenerPostGet("codCurso");
-				
+
 				CursoServicio::eliminarEstudiante($codEstudiante,$codCurso);
 
 				Vista::asignarDato("mensaje","Se ha retirado el estudiante con éxito.");
@@ -503,23 +503,57 @@ Descripción:
 				throw $e;
 			}
 		}
-		
+
+		/*
+		 * Función pública y estática que sirve para conocer los cursos
+		 * que puede inscribir un estudiante.
+		 *
+		 * Para esto, se sigue el siguiente algoritmo:
+		 *		1) Se buscan todos los códigos de las unidades curriculares que tiene
+		 * que ver el estudiante en el pensum. (Devuelve un arreglo con los códigos de las
+		 * unidades curriculares)
+		 *  	2) Se obtienen todas las unidades curriculares que ha convalidado ese
+		 * estudiante en el pensum. (Devuelve un arreglo con los códigos de las
+		 * unidades curriculares)
+		 *  	3) Se obtienen todas las unidades curriculares que el estudiante
+		 * ha aprobado en el pensum. (Devuelve un arreglo con los códigos de las
+		 * unidades curriculares)
+		 *  	4) Si hay unidades curriculares aprobadas, se restan de la lista de
+		 * unidades curriculares disponibles para inscribir (función array_diff)
+		 *  	5) Si hay unidades curriculares convalidadas, se restan de la lista
+		 * de unidades curriculares disponibles para inscribir (función array_diff)
+		 *  	6) Se obtienen las unidades curriculares preladas de ese pensum.
+		 *  Se pasa como parámetro la lista de unidades curriculares y Devuelve
+		 *  la lista de las unidades curriculares que deben removerse de las disponibles.
+		 *  	7) Se obtienen los códigos de unidades curriculares donde el estudiante
+		 * se encuentra como 'Cursando' en un curso que imparte la misma.
+		 *  	8) Se obtienen los cursos que imparten las u de datsonidades curriculares disponibles
+		 *  luego de las restricciones antes mencionadas.
+		 * La fórmula general del algoritmo es:
+		 *		$listaUniCur = (($listaUniCur - $aprobadas) - $convalidaciones)
+		 *		$r (total) = (($listaUniCur - $preladas) - $cursando)
+		 *
+		 *	Para entender más el comportamiento de este procedimiento,
+		 * revisar CursoServicio.php en las funciones que intervienen
+		 * en el mismo.
+		 */
+
 		public static function obtenerCursosDisponiblesParaInscripcionPorEstudiante(){
 			try{
 				$estudiante = PostGet::obtenerPostGet("estudiante");
 				$instituto = PostGet::obtenerPostGet("instituto");
 				$pensum = PostGet::obtenerPostGet("pensum");
 				$periodo = PostGet::obtenerPostGet("periodo");
-				
-				//arreglo
+
+				/* Unidades curriculares que tiene que ver en el pensum */
 				$listaUniCur = CursoServicio::obtenerUnidadesCurricularesDelPensumPorEstudiante($estudiante);
-				
-				//arreglo
+
+				/* Unidades curriculares que ha convalidado */
 				$convalidaciones = CursoServicio::obtenerUnidadesCurricularesConvalidadasPorEstudiante($estudiante,$pensum);
-				
+
 				//arreglo
 				$aprobadas = CursoServicio::obtenerUnidadesCurricularesAprobadasPorEstudiante($estudiante,$pensum);
-				
+
 				if ($aprobadas != null)
 					$listaUniCur = array_diff ($listaUniCur, $aprobadas);
 				if ($convalidaciones != null)
@@ -527,15 +561,15 @@ Descripción:
 
 				//arreglo
 				$preladas = CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares($listaUniCur,$pensum,$instituto);
-				
+
 				//arreglo
 				$cursando = CursoServicio::obtenerCursosCursando($estudiante,$pensum);
-				
+
 				//arreglo
 				$r = CursoServicio::obtenerCursosDisponiblesParaInscripcionPorEstudiante($estudiante, $aprobadas, $convalidaciones, $preladas, $cursando);
-				
+
 				Vista::asignarDato("cursos",$r);
-				
+
 				Vista::mostrar();
 			}
 			catch(Exception $e){
@@ -543,6 +577,6 @@ Descripción:
 			}
 		}
 
-		
+
 	}
 ?>

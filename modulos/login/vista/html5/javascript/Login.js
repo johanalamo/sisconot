@@ -43,6 +43,7 @@ Diseñador - Programador /   Fecha   / Descripción del cambio
 function dialogoSesion(){
 	crearDialogo('dialogoSesion','Iniciar Sesión', '<center>Ventana de acceso al SCN</center>',1, 'iniciarSesion()','Entrar al Sistema',true);
 	montarInformacionDialogoSesion();
+	$("#dialogoSesion").modal("show");
 	
 }
 /* Funcion que monta el formulario de sesion en el modal, esta funciom
@@ -291,7 +292,6 @@ function error(data){
      * 
      * */
 	function conectar(){
-		alert('hola mundo')
 		var a=Array("m_modulo","login","m_accion","iniciar",
 					"m_vista","Iniciar","usuario",$("#Lusuario").val(),"pass",$("#Lcontraseña").val()
 					);
@@ -307,10 +307,11 @@ function error(data){
      * */
 	function succConectar(data){
 		if(data.estatus>0){
+			console.log(data);
 			mostrarMensaje(data.mensaje,1);
 			$("#nombreUsuario").remove();
 			cadena="";
-			cadena+="<li id='nombreUsuario' class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'>Usuario: "+data.login.nombre +" "+data.login.apellido+"<span class='caret'></span></a>";
+			cadena+="<li id='nombreUsuario' class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'>Usuario: "+data.login.usuario +"<span class='caret'></span></a>";
 			cadena+="<ul class='dropdown-menu' role='menu'>";
 			cadena+="<li><a href='#'>Ver Perfil</a></li>";
 			cadena+="<li><a href='#'>Configuración</a></li>";
@@ -391,11 +392,7 @@ function error(data){
      * */
 	function verificarDatos(){
 		if ($("#Lusuario").val()==""){
-			$("#Lusuario").val("geraldine");
 			mostrarMensaje("Introduzca usuario",2);
-			alert($("#Lusuario").length);
-
-
 		}
 		else if ($("#Lcontraseña").val()=="")
 			mostrarMensaje("Introduzca contraseña",2);

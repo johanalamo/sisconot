@@ -8,7 +8,7 @@
 			 <meta name="author" content="IUT-FRP">
 			<link rel="shortcut icon" href="recursos/assets/ico/favicon.ico">
 
-				<title>{% block titulo %}Sistema Control de Notas{% endblock %}</title>
+				<title>{% block titulo %}Sistema de Gestión Académica{% endblock %}</title>
 
 
 			{% block headBase %}
@@ -26,8 +26,9 @@
 				   function sleep() {
 					  $('#table').DataTable();
 					}
-
-				  {{ permisos.obtenerEnJavaScript() }} </script>
+					
+					{{ permisos.obtenerEnJavaScript() }} 
+				</script>	
 				<script src="modulos/login/vista/html5/javascript/Login.js"> </script>
 
 
@@ -229,39 +230,39 @@
 	                    <ul class="nav sub-nav">
 	                        <li>
 	                            <a href="index.php?m_modulo=curso&m_accion=mostrar&m_vista=ListarCursos&m_formato=html5">
-	                                <span class="fa fa-warning"></span>Mis Cursos</a>
+	                                <span class="fa fa-warning"></span>Lista de Cursos</a>
 	                        </li>
 	                        <li>
-	                            <a href="index.php?m_modulo=instituto&m_formato=html5&m_accion=listar&m_vista=Listar">
-	                                <span class="fa fa-warning"></span>Mis Notas</a>
+	                            <a href="index.php?m_modulo=curso&m_formato=html5&m_accion=mostrar&m_vista=CrearModificarCurso">
+	                                <span class="fa fa-warning"></span>Crear/Modificar Curso</a>
 	                        </li>
 	                        <li>
-	                            <a href="index.php?m_modulo=instituto&m_formato=html5&m_accion=listar&m_vista=Listar">
-	                                <span class="fa fa-warning"></span>Períodos</a>
-	                        </li>
-	                         <li>
-	                            <a href="index.php?m_modulo=curso&m_accion=mostrar&m_vista=ListarCursos&m_formato=html5">
-	                                <span class="fa fa-warning"></span>Cursos</a>
-	                        </li>
-	                         <li>
-	                            <a href="index.php?m_vista=CrearModificarCurso&m_formato=html5&m_modulo=curso&m_accion=mostrar">
-	                                <span class="fa fa-warning"></span>Agregar Cursos</a>
-	                        </li>
-	                        <li>
-	                            <a href="index.php?m_modulo=instituto&m_formato=html5&m_accion=listar&m_vista=Listar">
-	                                <span class="fa fa-warning"></span>Validación de Electivas</a>
-	                        </li>
-	                        <li>
-	                            <a href="index.php?m_modulo=instituto&m_formato=html5&m_accion=listar&m_vista=Listar">
-	                                <span class="fa fa-warning"></span>Acreditar</a>
-	                        </li>
-	                        <li>
-	                            <a href="index.php?m_modulo=instituto&m_formato=html5&m_accion=listar&m_vista=Listar">
-	                                <span class="fa fa-warning"></span>Convalidar</a>
-	                        </li>
-	                        <li>
-	                            <a href="index.php?m_vista=Inscripcion&m_formato=html5&m_modulo=curso&m_accion=mostrar">
+	                            <a href="index.php?m_modulo=curso&m_formato=html5&m_accion=mostrar&m_vista=Inscripcion">
 	                                <span class="fa fa-warning"></span>Inscripción</a>
+	                        </li>
+	                         <li>
+	                            <a href="index.php?m_modulo=periodo&m_accion=mostrar&m_vista=AdministrarPeriodos&m_formato=html5">
+	                                <span class="fa fa-warning"></span>Periodos</a>
+	                        </li>
+	                         <li>
+	                            <a href="index.php?m_vista=ListarEstudiantes&m_formato=html5&m_modulo=curso&m_accion=mostrar">
+	                                <span class="fa fa-warning"></span>Lista de Estudiantes</a>
+	                        </li>
+	                        <li>
+	                            <a href="index.php?m_modulo=curso&m_formato=html5&m_accion=mostrar&m_vista=InscribirRetirarEstudiante">
+	                                <span class="fa fa-warning"></span>Retirar Estudiante</a>
+	                        </li>
+	                        <li>
+	                            <a href="index.php?m_vista=RetirarUnidadCurricular&m_formato=html5&m_modulo=curso&m_accion=mostrar">
+	                                <span class="fa fa-warning"></span>Retirar Unidad Curricular</a>
+	                        </li>
+	                        <li>
+	                            <a href="index.php?m_vista=ValidacionElectivas&m_formato=html5&m_modulo=curso&m_accion=mostrar">
+	                                <span class="fa fa-warning"></span>Validar Electivas</a>
+	                        </li>
+	                        <li>
+	                            <a href="index.php?m_vista=Acreditables&m_formato=html5&m_modulo=curso&m_accion=mostrar">
+	                                <span class="fa fa-warning"></span>Actividades Acreditables</a>
 	                        </li>
 	                    </ul>
 	                </li>
@@ -339,26 +340,13 @@
 	<div class="alerts">
 
 	</div>
-		<div id="wrap">
-
-       		 <div id="content" class="">
-        	   <div class="row">
-
-
+		
 
 	{% block contenido %}
-	  <!-- -------------- Content -------------- -->
-
-
-        <!-- -------------- /Content -------------- -->
+	
 	{% endblock %}
 
 
-			   </div>
-
-        	</div>
-
-		</div>
 
 	   <!-- -------------- Content -------------- -->
        <section id="content" class="table-layout">
