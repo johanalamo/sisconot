@@ -1,3 +1,32 @@
+/**
+ * * * * * * * * * * LICENCIA * * * * * * * * * * * * * * * * * * * * *
+
+Copyright(C) 2015
+Instituto Universtiario de Tecnología Dr. Federico Rivero Palacio
+
+Este programa es Software Libre y usted puede redistribuirlo y/o modificarlo
+bajo los términos de la versión 3.0 de la Licencia Pública General (GPLv3)
+publicada por la Free Software Foundation (FSF), es distribuido sin ninguna
+garantía. Usted debe haber recibido una copia de la GPLv3 junto con este
+programa, sino, puede encontrarlo en la página web de la FSF,
+específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
+
+ * * * * * * * * * * ARCHIVO * * * * * * * * * * * * * * * * * * * * *
+
+Nombre: UtilCurso.js
+Diseñador: Juan De Sousa (juanmdsousa@gmail.com)
+Programador: Juan De Sousa
+Fecha: Febrero de 2016
+Descripción:
+	Librería JS del módulo. Encargada de todas las llamadas AJAX y
+elementos visuales dinámicos.
+
+ * * * * * * * * Cambios/Mejoras/Correcciones/Revisiones * * * * * * * *
+*---                         ----      ---------
+
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*/
+
 
 function succ(data){
 	alert("succ");
@@ -9,7 +38,21 @@ function err(data){
 	console.log(data);
 }
 
+/*
+ * Función que limpia los campos/selects dependientes.
+ *
+ * Recibe como parámetro una cadena que indica hasta
+ * donde tiene que limpiar.
+ * Para limpiar, se remueven los selects (de existir)
+ * y se vuelven a crear (sin información)
+ *
+ * De ser un input que se tiene que limpiar,
+ * simplemente se elimina su value.
+ */
+
 function limpiarCampos(val){
+
+	/* Uni no limpia ningún campo */
 
 	if(val == 'uni')
 		return;
@@ -76,12 +119,36 @@ function limpiarCampos(val){
 
 }
 
+/*
+ * Llamada AJAX para cargar los institutos del sistema
+ *
+ * Si es succ, llama a la función succCargarInstitutos.
+ * De ser error, llama a la función err y muestra un mensaje
+ * al usuario.
+ */
+
 function cargarInstitutos(){
 	var arr = Array("m_modulo"		,		"instituto",
 					"m_accion"		,		"listar");
 
 	ajaxMVC(arr,succCargarInstitutos,err);
 }
+
+/*
+ * Función succCargarInstitutos.
+ *
+ * Se encarga de montar la información proveniente
+ * del AJAX en un select.
+ *
+ * Para asegurar la limpieza, se elimina el select y se vuelve
+ * a crear.
+ *
+ * Parámetro de entrada:
+ * 		data 				Resultado del AJAX.
+ *
+ * Como se está modificando el elemento, se utiliza la función
+ * limpiarCampos para que limpie los elementos dependientes de este.
+ */
 
 function succCargarInstitutos(data){
 
@@ -90,26 +157,30 @@ function succCargarInstitutos(data){
 	cad += "<select class='selectpicker' id='selInst' onchange='cargarPensums()' data-live-search='true' data-size='auto'>";
 
 	if(ins){
-
 		cad += "<option value='-1' disabled selected> Seleccione Instituto</option>";
-
 		for(var i = 0; i < ins.length; i++){
 			cad += "<option value="+ins[i][0]+">"+ins[i]['nombre']+"</option>";
-
 		}
 	}
 	else{
 		cad += "<option></option>";
 	}
-
 	cad += "</select>";
 
 	$("#selInst").selectpicker("destroy");
 	$("#divInst").append(cad);
 	$("#selInst").selectpicker();
-
 	limpiarCampos('inst');
 }
+
+/*
+ * Llamada AJAX para cargar los pensum de un instituto
+ *
+ * Si es succ, llama a la función succCargarPensum.
+ * De ser error, llama a la función err y muestra un mensaje
+ * al usuario.
+ */
+
 
 function cargarPensums(){
 
@@ -119,6 +190,22 @@ function cargarPensums(){
 
 	ajaxMVC(arr,succCargarPensums,err);
 }
+
+/*
+ * Función succCargarPensums.
+ *
+ * Se encarga de montar la información proveniente
+ * del AJAX en un select.
+ *
+ * Para asegurar la limpieza, se elimina el select y se vuelve
+ * a crear.
+ *
+ * Parámetro de entrada:
+ * 		data 				Resultado del AJAX.
+ *
+ * Como se está modificando el elemento, se utiliza la función
+ * limpiarCampos para que limpie los elementos dependientes de este.
+ */
 
 function succCargarPensums(data){
 	var pen = data.pensum;
@@ -146,6 +233,14 @@ function succCargarPensums(data){
 	limpiarCampos('pen');
 }
 
+/*
+ * Llamada AJAX para cargar los periodos de un pensum en un instituto
+ *
+ * Si es succ, llama a la función succCargarInstitutos.
+ * De ser error, llama a la función err y muestra un mensaje
+ * al usuario.
+ */
+
 function cargarPeriodos(){
 	var arr = Array("m_modulo"		,		"periodo",
 					"m_accion"		,		"listarPeriodos",
@@ -153,6 +248,22 @@ function cargarPeriodos(){
 
 	ajaxMVC(arr,succCargarPeriodos,err);
 }
+
+/*
+ * Función succCargarPeriodos.
+ *
+ * Se encarga de montar la información proveniente
+ * del AJAX en un select.
+ *
+ * Para asegurar la limpieza, se elimina el select y se vuelve
+ * a crear.
+ *
+ * Parámetro de entrada:
+ * 		data 				Resultado del AJAX.
+ *
+ * Como se está modificando el elemento, se utiliza la función
+ * limpiarCampos para que limpie los elementos dependientes de este.
+ */
 
 function succCargarPeriodos(data){
 
@@ -186,6 +297,14 @@ function succCargarPeriodos(data){
 	limpiarCampos('per');
 }
 
+/*
+ * Llamada AJAX para cargar los trayectos de un pensum
+ *
+ * Si es succ, llama a la función succCargarInstitutos.
+ * De ser error, llama a la función err y muestra un mensaje
+ * al usuario.
+ */
+
 function cargarTrayectos(){
 	var arr = Array("m_modulo"		,		"pensum",
 					"m_accion"		,		"buscarPorTrayecto",
@@ -193,6 +312,22 @@ function cargarTrayectos(){
 
 	ajaxMVC(arr,succCargarTrayectos,err);
 }
+
+/*
+ * Función succCargarTrayectos.
+ *
+ * Se encarga de montar la información proveniente
+ * del AJAX en un select.
+ *
+ * Para asegurar la limpieza, se elimina el select y se vuelve
+ * a crear.
+ *
+ * Parámetro de entrada:
+ * 		data 				Resultado del AJAX.
+ *
+ * Como se está modificando el elemento, se utiliza la función
+ * limpiarCampos para que limpie los elementos dependientes de este.
+ */
 
 function succCargarTrayectos(data){
 
@@ -223,6 +358,14 @@ function succCargarTrayectos(data){
 	limpiarCampos('tra');
 }
 
+/*
+ * Llamada AJAX para cargar las secciones de los trayectos
+ *
+ * Si es succ, llama a la función succCargarInstitutos.
+ * De ser error, llama a la función err y muestra un mensaje
+ * al usuario.
+ */
+
 function cargarSeccion(){
 	var arr = Array("m_modulo"		,		"curso",
 					"m_accion"		,		"buscarSeccionPorTrayecto",
@@ -230,6 +373,22 @@ function cargarSeccion(){
 
 	ajaxMVC(arr,succCargarSeccion,err);
 }
+
+/*
+ * Función succCargarSeccion.
+ *
+ * Se encarga de montar la información proveniente
+ * del AJAX en un select.
+ *
+ * Para asegurar la limpieza, se elimina el select y se vuelve
+ * a crear.
+ *
+ * Parámetro de entrada:
+ * 		data 				Resultado del AJAX.
+ *
+ * Como se está modificando el elemento, se utiliza la función
+ * limpiarCampos para que limpie los elementos dependientes de este.
+ */
 
 function succCargarSeccion(data){
 	var sec = data.secciones;
@@ -260,6 +419,14 @@ function succCargarSeccion(data){
 	limpiarCampos('sec');
 }
 
+/*
+ * Llamada AJAX para cargar las unidades curriculares de una sección, pensum, trayecto y periodo
+ *
+ * Si es succ, llama a la función succCargarInstitutos.
+ * De ser error, llama a la función err y muestra un mensaje
+ * al usuario.
+ */
+
 function cargarUni(){
 	var arr = Array("m_modulo"		,		"curso",
 					"m_accion"		,		"listarUniCurricular",
@@ -270,6 +437,22 @@ function cargarUni(){
 
 	ajaxMVC(arr,succCargarUni,err);
 }
+
+/*
+ * Función succCargarUni.
+ *
+ * Se encarga de montar la información proveniente
+ * del AJAX en un select.
+ *
+ * Para asegurar la limpieza, se elimina el select y se vuelve
+ * a crear.
+ *
+ * Parámetro de entrada:
+ * 		data 				Resultado del AJAX.
+ *
+ * Como se está modificando el elemento, se utiliza la función
+ * limpiarCampos para que limpie los elementos dependientes de este.
+ */
 
 function succCargarUni(data){
 	var uni = data.uni;
@@ -295,6 +478,14 @@ function succCargarUni(data){
 	limpiarCampos('uni');
 }
 
+/*
+ * Llamada AJAX para cargar los cursos del sistema. Se cargan
+ * por Instituto, pensum, periodo y patrón de búsqueda.
+ *
+ * Si es succ, llama a la función succCargarInstitutos.
+ * De ser error, llama a la función err y muestra un mensaje
+ * al usuario.
+ */
 
 function listarCursos(){
 	var arr = Array("m_modulo"		,		"curso",
@@ -306,6 +497,14 @@ function listarCursos(){
 
 	ajaxMVC(arr,succListarCursos,err)
 }
+
+/*
+ *
+ *
+ *
+ *
+ *
+ */
 
 function succListarCursos(data){
 
@@ -380,7 +579,7 @@ function succListarCursos(data){
 
 	$("#table-lis").remove();
 	$("#divLis").append(cad);
-	//$("#divLis").show();
+
 	verificarChecks();
 }
 
@@ -506,7 +705,6 @@ function cargarCursosPensum(){
 function succCargarCursosPensum(data){
 	var cur = data.cursos;
 	var cad = "";
-	console.log(data);
 
 	if(cur){
 		cad += "<table id='tableCur' class='table table-hover table-condensed table-responsive'>";
@@ -1055,6 +1253,22 @@ function cargarEstudiantes(){
 	ajaxMVC(arr,succCargarEstudiantes,err);
 }
 
+/*
+ * Función succCargarEstudiantes.
+ *
+ * Se encarga de montar la información proveniente
+ * del AJAX en un select.
+ *
+ * Para asegurar la limpieza, se elimina el select y se vuelve
+ * a crear.
+ *
+ * Parámetro de entrada:
+ * 		data 				Resultado del AJAX.
+ *
+ * Como se está modificando el elemento, se utiliza la función
+ * limpiarCampos para que limpie los elementos dependientes de este.
+ */
+
 function succCargarEstudiantes(data){
 	var dat = data.estudiantes;
 	var cad = "";
@@ -1224,8 +1438,16 @@ function inscribirUC(){
 			ajaxMVC(arr,succInscribirUC,err);
 		}
 	}
+
+	listarUniEstudiante();
 	listarUniEstudiante();
 
+	$("#btnTicket").remove();
+
+	$("#ticket").append("<button id='btnTicket' class='btn btn-danger btn-xs' onclick='generarTicket()'>Generar Ticket de Inscripción</button>");
+}
+
+function generarTicket(){
 	window.location.assign("index.php?m_modulo=curso&m_formato=pdf&m_vista=ticketInscripcion&m_accion=generarTicketInscripcion&codEstudiante="+$("#selEstudiante").val()[0]+"&codPeriodo="+$("#selPer").val()[0]+"&codPensum="+$("#selPen").val()[0]+"");
 }
 
