@@ -1,4 +1,5 @@
 <?php
+require_once("modulos/foto/modelo/FotografiaServicio.php");
 class FotoControlador{
 
 	//private $ruta;		// Se establece la ruta en de la ubicacion de la imagen.	
@@ -6,28 +7,27 @@ class FotoControlador{
 	private static $altura_limite=300;		//Se establece el limite de pixeles de alto que va a obtener la imagen despues de ser modificada.
 
 
-	public static function iniciar($ruta){
+	public static function iniciar(){
+		$codigo=Vista::obtenerDato("codPersona");
+		$ruta=Vista::obtenerDato("ruta");
 		$dimensionesMinimas=self::validar_dimensiones_minimas ($ruta);
 		if(!self::validar_dimensiones ($ruta)){
 			$dimensiones=self::get_dimensiones ($ruta);
 			self::guardar (self::redimensionar ($dimensiones,$ruta),$ruta);
-			$a=explode("/",$ruta);
-			$destino="modulos/persona/vista/html5/imagen/PersonasImg/".$a[1];
-			copy($ruta,$destino);
-			unlink($ruta);
-			return $destino;
+			$tipo=explode(".",$ruta);
+			//$destino="modulos/persona/vista/html5/imagen/PersonasImg/".$a[1];
+			//copy($ruta,$destino);
+			//unlink($ruta);			
+			return true;
 
 		}
 		elseif(!$dimensionesMinimas){
-			return $dimensionesMinimas;
+			return false;
 		}
 		else
-		{
-			$destino="/var/www/proyecto/todoIntegrado/sisconot/modulos/persona/vista/html5/imagen/PersonasImg/".$a[1];
-			copy($ruta,$destino);
-			unlink($ruta);
-			return $destino;
-
+		{		
+			var_dump("fdd");
+			return true;
 		}
 
 
@@ -69,7 +69,7 @@ class FotoControlador{
 
 	public static function validar_dimensiones_minimas ($ruta)
 	{
-		$a=explode("|",self::get_dimensiones($ruta));	
+		$a=explode("|",self::get_dimensiones($ruta));
 		if($a[0]<=250 or $a[1]<=250)	{return false;}
 		else 							{return true;}
 	}

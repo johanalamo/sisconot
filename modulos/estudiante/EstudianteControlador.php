@@ -4,8 +4,6 @@ require_once("modulos/estudiante/modelo/EstudianteServicio.php");
 require_once("modulos/pensum/modelo/PensumServicio.php");
 require_once("modulos/persona/modelo/PersonaServicio.php");
 require_once("modulos/instituto/modelo/InstitutoServicio.php");
-require_once("modulos/curso/modelo/CursoServicio.php");
-
 class EstudianteControlador
 {
 	/**
@@ -40,8 +38,6 @@ class EstudianteControlador
 			self::eliminar();
 		else if($accion == 'listarEstudiantesPorCurso')
 			self::listarEstudiantesPorCurso();
-		else if($accion == 'listarEstudiantePeriodo')
-			self::listarEstudiantePeriodo();
 		else
 			throw new Exception ("'EstudianteControlador' La accion $accion no es valida");
 	}
@@ -97,7 +93,6 @@ class EstudianteControlador
 			if(!$personas)
 				Vista::asignarDato('persona',null);
 
-
 			$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
 			$instituto=InstitutoServicio::listarInstitutos();
 			$estado=PersonaServicio::listarEstado("estudiante");
@@ -106,7 +101,6 @@ class EstudianteControlador
 			Vista::asignarDato('estado',$estado);
 			Vista::asignarDato('tipo_persona',$tipo_persona);
 			Vista::asignarDato('estudiante',$estudiante);
-
 			Vista::asignarDato('codi',PostGet::obtenerPostGet("codi"));
 			
 			Vista::Mostrar();
@@ -144,7 +138,14 @@ class EstudianteControlador
 			$condicion= PostGet::obtenerPostGet("condicion");
 			$observaciones= PostGet::obtenerPostGet("obsEstudiante");
 			
-
+			if($codEstado=="seleccionar")
+				$codEstado=null;
+			if(!$condicion)
+				$condicion=null;
+			if(!$numCarnet)
+				$numCarnet=null;
+			if(!$numExpediente)
+				$numExpediente=null;
 			if(!$codRusnies)
 				$codRusnies=null;
 
@@ -170,14 +171,21 @@ class EstudianteControlador
 
 			else
 				$response2=EstudianteServicio::modificar($codigo,		$codPersona, 	$codInstituto, 	$codPensum,
-											$numCarnet, 	$numExpediente,	$codRusnies,
-											$codEstado,		$fecInicio, 	$fecFin,
-											$condicion, 	$observaciones
-										);
+														$numCarnet, 	$numExpediente,	$codRusnies,
+														$codEstado,		$fecInicio, 	$fecFin,
+														$condicion, 	$observaciones
+													);
 
 			if($response){
-				if($response>0)
+				if($response>0){
+					$estudiante=EstudianteServicio::listar( $codPensum, 		$codEstado,		$codInstituto,
+															null, 				$codPersona, 	null, 	
+															$numExpediente,     $codRusnies,	$fecInicio
+															);
+					//var_dump($estudiante);
+					Vista::asignarDato("codEstudiante",$estudiante[0]['codigo']);
 					Vista::asignarDato('mensaje','El estudiante fue agregado exitosamente');
+				}
 				else
 					Vista::asignarDato('mensaje','El empleado no pudo ser Agregado');
 				Vista::asignarDato('estatus',$response);
@@ -274,25 +282,6 @@ class EstudianteControlador
 			$codigo = PostGet::obtenerPostGet("codigo");
 
 			Vista::asignarDato("estudiante",EstudianteServicio::listarEstudiantesDeCurso($codigo));
-
-			$r = CursoServicio::obtenerEstusEstudiante();
-
-			Vista::asignarDato("estados",$r);
-
-			Vista::mostrar();
-		}
-		catch(Exception $e){
-			throw $e;
-		}
-	}
-
-	public static function listarEstudiantePeriodo(){
-		try{
-			$instituto = PostGet::obtenerPostGet("instituto");
-			$pensum = PostGet::obtenerPostGet("pensum");
-			$periodo = PostGet::obtenerPostGet("periodo");
-
-			Vista::asignarDato("estudiantes",EstudianteServicio::listarEstudiantePeriodo($instituto,$pensum,$periodo,'A'));
 
 			Vista::mostrar();
 		}

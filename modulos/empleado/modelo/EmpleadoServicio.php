@@ -218,13 +218,13 @@ class EmpleadoServicio
 				$consulta.= " and em.codigo = $codigo ";
 
 			if($pnf)
-				$consulta.= " and em.cod_pensum = $cod_pensum ";
+				$consulta.= " and em.cod_pensum = $pnf ";
 
 			if($instituto)
-				$consulta.= " and em.cod_instituto = $cod_instituto ";
+				$consulta.= " and em.cod_instituto = $instituto ";
 
 			if($estado)
-				$consulta.= " and em.cod_estado ='$cod_estado' ";
+				$consulta.= " and em.cod_estado ='$estado' ";
 
 			if($cod_persona)
 				$consulta.= " and em.cod_persona = $cod_persona ";
@@ -242,10 +242,10 @@ class EmpleadoServicio
 				$consulta.= " and em.es_docente = $es_docente ";
 
 			if($fec_inicio)
-				$consulta.= " and em.fec_inicio = $fec_inicio ";
+				$consulta.= " and em.fec_inicio = '$fec_inicio' ";
 
 			if($fec_fin)
-				$consulta.= "and em.fec_fin = $fec_fin ";
+				$consulta.= " and em.fec_fin = '$fec_fin' ";
 
 			$consulta.=" and i.codigo=em.cod_instituto and e.codigo=em.cod_estado 
 				and p.codigo=em.cod_pensum order by em.fec_inicio desc";

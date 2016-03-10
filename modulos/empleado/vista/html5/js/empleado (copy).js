@@ -126,7 +126,7 @@ function compararDatosEmpleados(data){
 
 	var bool= true;
 	var boolAux=false;
-	//var boolCom=false;
+	var boolCom=false;
 	var boolNada=true;
 	var boolFecha=true;
 	var acu=0;
@@ -136,7 +136,8 @@ function compararDatosEmpleados(data){
 	if(data.empleado){
 		for(var x=0; x<data.empleado.length; x++){
 			acu=x+1;
-			if((data.empleado[x]['cod_instituto'] == $("#empleado #selectInstituto").val()
+			if((data.empleado[x]['cod_persona'] == data.codPersona 
+				&& data.empleado[x]['cod_instituto'] == $("#empleado #selectInstituto").val()
 				&& data.empleado[x]['cod_pensum'] == $("#empleado  #selectPNF").val()
 				&& data.empleado[x]['fec_inicios'] == $("#fec_ini_empleado").val() )	
 				&& (data.empleado[x]['codigo'] != $("#cod_empleado").val())		
@@ -152,40 +153,52 @@ function compararDatosEmpleados(data){
 					&& data.empleado[x]['es_jef_pensum'] == $('#es_jef_pensum').prop('checked')
 					&& data.empleado[x]['es_docente'] == $('#Docente').prop('checked')
 					&& data.empleado[x]['cod_estado'] == $("#empleado  #selectEstado").val()
-					&& data.empleado[x]['codigo'] == $("#cod_empleado").val()
-					&& data.empleado[x]['fec_inicios'] == $("#fec_ini_empleado").val()
-					&& data.empleado[x]['cod_instituto'] == $("#empleado #selectInstituto").val()
-					&& data.empleado[x]['cod_pensum'] == $("#empleado  #selectPNF").val()
-					&& (data.empleado[x]['fec_final']!= $("#fec_fin_empleado").val()
-					||	data.empleado[x]['observaciones']!=$("#obs_empleado").val())){
-						bool=true;
-						break;
-					}			
-			else if(/*data.empleado[x]['fec_final']==null						
-						&&*/( data.empleado[x]['cod_estado'] != $("#empleado  #selectEstado").val()
-						|| data.empleado[x]['es_jef_con_estudio'] != $('#es_jef_con_estudio').prop('checked')
+					&& (data.empleado[x]['codigo'] == $("#cod_empleado").val())
+					&& data.empleado[x]['fec_inicios'] == $("#fec_ini_empleado").val()){
+				bool=true;
+				boolCom=true;
+				break;				
+			}
+			
+			else if(data.empleado[x]['fec_final']==null 
+						&& data.empleado[x]['fec_inicios'] == $("#fec_ini_empleado").val()
+						&& data.empleado[x]['cod_estado'] != $("#empleado  #selectEstado").val()
+						&& data.empleado[x]['codigo'] == $("#cod_empleado").val()){
+				bool=true;
+				i=x;
+
+				if(data.empleado[x]['es_jef_con_estudio'] != $('#es_jef_con_estudio').prop('checked')
 						|| data.empleado[x]['es_ministerio'] != $('#es_ministerio').prop('checked')
 						|| data.empleado[x]['es_jef_pensum'] != $('#es_jef_pensum').prop('checked')
-						|| data.empleado[x]['es_docente'] != $('#Docente').prop('checked'))
-						//|| data.empleado[x]['cod_instituto'] != $("#empleado #selectInstituto").val()
-						//|| data.empleado[x]['cod_pensum'] != $("#empleado #selectPNF").val()						
-						&& data.empleado[x]['codigo'] == $("#cod_empleado").val()){
-				bool=true;				
-				boolAux=true; 
+						|| data.empleado[x]['es_docente'] != $('#Docente').prop('checked')
+						|| data.empleado[x]['cod_instituto'] != $("#empleado #selectInstituto").val()
+						|| data.empleado[x]['cod_pensum'] != $("#empleado #selectPNF").val()
+						|| data.empleado[x]['fec_inicios'] != $("#fec_ini_empleado").val()){
+					bool=false;
+					//boolAux=true; antes estaba descomentado
+					alert("dddd");
+				}
+				boolAux=true; // esto no estaba
 				break;	
 			}
-			else if(data.empleado[x]['cod_instituto'] != $("#empleado #selectInstituto").val()
-					|| data.empleado[x]['cod_pensum'] != $("#empleado  #selectPNF").val()
-					|| data.empleado[x]['fec_inicios'] != $("#fec_ini_empleado").val() 	
-					|| data.empleado[x]['codigo'] == $("#cod_empleado").val()){
-					bool=false;
-					break;
-				}
+			else if((  
+					   data.empleado[x]['es_jef_con_estudio'] != $('#es_jef_con_estudio').prop('checked')
+					|| data.empleado[x]['es_ministerio'] != $('#es_ministerio').prop('checked')
+					|| data.empleado[x]['es_jef_pensum'] != $('#es_jef_pensum').prop('checked')
+					|| data.empleado[x]['es_docente'] != $('#Docente').prop('checked')
+					)
+					&& (data.empleado[x]['codigo'] == $("#cod_empleado").val())
+					&& data.empleado[x]['fec_inicios'] == $("#fec_ini_empleado").val()){				
+				
+				bool=false;
+				break;
+			}
 			else if(data.empleado[x]['fec_inicios'] == $("#fec_ini_empleado").val()){
 				mensaje+="Ya esta modificacion se realizo anteriormente. Si desea afectuarla puede";
 				mensaje+=" eliminar la informacion que se encuentra en la fila N° "+acu+" o cambie la fecha"; 
 				mensaje+=" de inicio.";	
 				mostrarMensaje(mensaje,2);	
+				bool=false;	
 				boolNada=false;
 				break;			
 			}
@@ -202,22 +215,21 @@ function compararDatosEmpleados(data){
 		var fechFin=$("#fec_fin_empleado").val().split("/");
 		fechFin=new Date (fechFin[2],fechFin[1],fechFin[0]);
 		fecha= new Date(fecha[2],fecha[1],fecha[0]);
-		if(fechFin<=fecha)
+		if(fechFin<fecha)
 			boolFecha=false;			
 	}
 
 	alert(bool+" ** "+boolAux);
-	// bool== true se modifica
-	// bool== false se agrega
-	//boolux== true se agrega y se modifica
-	if(boolNada && boolFecha){
-		if(boolAux && data.empleado)
-			preDobleGuardar(bool,boolAux,data.empleado[i]);
-		else if(data.empleado && bool)
-			preDobleGuardar(bool,null,data.empleado[i]);
-		else
-			preDobleGuardar(false);
 
+	if(boolNada && boolFecha){
+		if(boolAux || boolCom && data.empleado)
+			preDobleGuardar(bool,boolAux,data.empleado[i],boolCom);
+		else if(data.empleado)
+			preDobleGuardar(bool,null,data.empleado[i]);
+		else if(boolAux || boolCom )
+			preDobleGuardar(bool,boolAux,null,boolCom);
+		else 
+			preDobleGuardar(bool);
 		verEmpleado();
 	}
 
@@ -227,30 +239,31 @@ function compararDatosEmpleados(data){
 }
 
 
-function preDobleGuardar(bool=null,boolAux=null,data=null){
+function preDobleGuardar(bool=null,boolAux=null,data=null,boolCom=false){
 
-	if(boolAux && boolAux){
-		guardarEmpleadoAux(data);
-		guardarEmpleado(bool);
+
+	if(bool)
+		guardarEmpleadoAux(data,boolCom);
+	else if(boolAux)
+		guardarEmpleado(null,false);
+	else if(!boolCom)
+		guardarEmpleado(null,true);
+
+	if(boolAux){
+		guardarEmpleado($("#cod_empleado").val(),3);
 	}
-	else if(bool)
-		guardarEmpleadoAux(data);
-	else
-		guardarEmpleado(bool);
-
-
 
 }
 
-function guardarEmpleadoAux(data){
+function guardarEmpleadoAux(data,boolCom=false){
 	
 	var fecha='';
-	
-	if($("#fec_fin_empleado").val())
-		fecha=$("#fec_fin_empleado").val();
-	else
-		fecha=fecActual();
-
+	if(!boolCom){
+		if($("#fec_fin_empleado").val())
+			fecha=$("#fec_fin_empleado").val();
+		else
+			fecha=fecActual();
+	}
 
 	alert("jpipo"+fecha);
 
@@ -274,21 +287,34 @@ function guardarEmpleadoAux(data){
 
 }
 
-function guardarEmpleado(bool=null){
+function guardarEmpleado(codigo,bool=null){
 	var fec_ini=$("#fec_ini_empleado").val();
 	var fec_fin=null;
-	
-	if(bool && fec_ini){	
+	if(bool==true){
+
+		fec_fin=$("#fec_fin_empleado").val();
+
+	}
+	else if(bool==false){
+		fec_fin=null;
+		fec_ini=$("#fec_fin_empleado").val();
+	}
+	else{
+		alert("akika"+codigo+"**");
+		/*if($("#fec_fin_empleado").val())
+			fec_fin=$("#fec_fin_empleado").val();
+		else if(!codigo)
+			fec_fin=null;
+		else
+			fec_fin=fecActual(); //asi funcionaba antes*/
+
 		if($("#fec_fin_empleado").val())
 			fec_ini=$("#fec_fin_empleado").val();
 		else
-			fec_ini=fecActual();		
+			fec_ini=fecActual();
 	}
 
-	if(!bool)
-		fec_fin=$("#fec_fin_empleado").val();
-	
-	alert("yeah"+fec_ini);
+	alert("yeah");
 	//alert(fec_fin+" "+$("#empleado #selectEstado").val()+" ** "+$("#empleado #selectInstituto").val());
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"agregar",	
@@ -315,8 +341,7 @@ function succAgregarEmpleado(data){
 
 	if(data.estatus>0){
 		if(data.codEmpleado)
-			$("#cod_empleado").val(data.codEmpleado);
-		alert(data.codEmpleado);
+			$("#cod_empleado").val();
 		mostrarMensaje(data.mensaje,1);
 	}
 	else
@@ -760,8 +785,7 @@ function succMontarEliminarEmpleado (data){
 
 	if(data.estatus>0){
 		mostrarMensaje(data.mensaje,1);
-		setTimeout(function(){verEmpleado();}, 300);
-		$("#cod_empleado").val('');
+		setTimeout(function(){verEmpleado ();}, 300);
 	}
 	else
 		mostrarMensaje(data.mensaje,2);

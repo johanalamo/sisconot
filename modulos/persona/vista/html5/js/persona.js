@@ -72,9 +72,12 @@ $(function()
 });
 
 $(document).ready(function() {
-	//verInstituto();
-	//verPNF();
-	//verEstado();
+	verInstituto();
+	verPNF();
+	verEstado();
+	verInstitutoEm2();
+	verPNFEm2();
+	verEstadoEm2();
 	verPersona();
 	tabsBloqueados();
 	removerEsEm();
@@ -158,23 +161,24 @@ function verInstituto(){
 function montarSelectInstituto(data){
 	var cadena = "";
 
-	if(!data.empleado2){
+	//if(!data.empleado2){
 		//$("#selectEstados").remove();	
 		$("#selectIns").remove();
 		cadena+="<div id='selectIns'> institutos ";
-	}
+	/*}
 	else{
 		$("#selectInsEm").remove();
 		cadena+="<div id='selectInsEm'> institutos ";
-	}
+	}*/
 
 	
 	if(data.tipo_persona=='estudiante')
 		cadena += "<select onchange='verPersonaEstudiante(); verPNFEs();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	else if(data.tipo_persona=='empleado' && !data.empleado2)
+	else if(data.tipo_persona=='empleado')
 		cadena += "<select onchange='verPersonaEmpleado(); verPNFEm();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	else if(data.tipo_persona=='empleado' && data.empleado2)
+	/*else if(data.tipo_persona=='empleado' && data.empleado2)
 		cadena += "<select onchange='verPersonaEmpleado(); verPNFEm2();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >";
+	*/
 	else
 		cadena += "<select onchange='verPersona(); verPNF();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar' >Seleccionar</option>";
@@ -186,12 +190,12 @@ function montarSelectInstituto(data){
 	 		cadena += '<option selected="selected" value="'+data.instituto[x]["codigo"]+'">'+data.instituto[x]["nom_corto"]+'</option>';*/
 	}
 	cadena +="</select>";
-	if(!data.empleado2){
+	//if(!data.empleado2){
 		$(cadena).appendTo('#selectInstitutos');
 		$(cadena).appendTo('.selectInstituto');
-	}
+/*	}
 	else
-		$(cadena).appendTo('.selectInstitutoEm');
+		$(cadena).appendTo('.selectInstitutoEm');*/
 	activarSelect();	
 
 }
@@ -224,14 +228,14 @@ function verPNF(){
 function montarSelectPNF(data){
 console.log(data);
 	var cadena = "";
-	if(!data.empleado2){
+	//if(!data.empleado2){
 		$("#selectPensuma").remove();//	$("#selectPensuma").remove();
 		cadena+="<div id='selectPensuma'> Pensum ";
-	}		
+	/*}		
 	else{
 		$("#selectPensumaEm").remove();
 		cadena+="<div id='selectPensumaEm'> Pensum ";
-	}
+	}*/
 
 
 	
@@ -249,12 +253,12 @@ console.log(data);
 		}
 	}
 	
-	cadena +="</select>";
+	cadena +="</select></div>";
 
-	if(!data.empleado2)
+	//if(!data.empleado2)
 		$(cadena).appendTo('.selectPensum');
-	else
-		$(cadena).appendTo('.selectPensumEm');
+	/*else
+		$(cadena).appendTo('.selectPensumEm');*/
 	activarSelect();					
 }
 
@@ -287,22 +291,22 @@ function montarSelectEstado(data){
 	console.log(data);
 	var cadena = "";
 	$("#selectEstados").remove();
-	if(data.empleado2){
+	/*if(data.empleado2){
 		$("#selectEstadosEm").remove();$("#selectEstadosEm").remove();//$("#selectEstados").remove();	
-	}
+	}*/
 	//alert(data.empleado2);
-	if(!data.empleado2)
+	//if(!data.empleado2)
 		cadena+="<div id='selectEstados'> Estado ";
-	else
+	/*else
 		cadena+="<div id='selectEstadosEm'> Estado";
-	
+	*/
 	if(data.tipo_persona=='estudiante')
 		cadena += "<select onchange='verPersonaEstudiante();' name='selectEstado' id='selectEstado' class='selectpicker'  title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	else if(data.tipo_persona=='empleado' && !data.empleado2)
+	else if(data.tipo_persona=='empleado' )
 		cadena += "<select onchange='verPersonaEmpleado();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	else if(data.tipo_persona=="empleado" && data.empleado2==true)
+	/*else if(data.tipo_persona=="empleado" && data.empleado2==true)
 		cadena += "<select onchange='verPersonaEmpleado();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	else
+	*/else
 		cadena += "<select onchange='verPersona();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar'>Seleccionar</option>";
 	for(var x=0; x<data.estado.length;x++)
@@ -325,7 +329,7 @@ function montarSelectEstado(data){
 * los resultados en la funcion montarPersona().
 */
 function verPersona(codi=null){
-
+	$("#tipoPersona").val("ambos");
 	var arr = Array("m_modulo"	,	"persona",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
@@ -427,21 +431,21 @@ function montarPersona(data){
 				if(data.codi==data.persona[x]['cod_persona']){
 					$("#cod_persona").val(data.persona[x]['cod_persona']);
 
-					if($("#tipoPersona").val()=="estudiante"){
+					if(data.tipo_persona=="estudiante"){
 						cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
 					}
-					else if($("#tipoPersona").val()=="empleado")
+					else if(data.tipo_persona=="empleado")
 						cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
-					else if($("#tipoPersona").val()=="ambos")
+					else if(data.tipo_persona=="ambos")
 						cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
 
 				}
 				else{
-					if($("#tipoPersona").val()=="estudiante")
+					if(data.tipo_persona=="estudiante")
 						cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+");'>";
-					else if($("#tipoPersona").val()=="empleado")
+					else if(data.tipo_persona=="empleado")
 						cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+");'>";
-					else if($("#tipoPersona").val()=="ambos")
+					else if(data.tipo_persona=="ambos")
 						cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");' >";
 
 					//cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");'>";
@@ -716,6 +720,7 @@ function succMontarModificarPersona(data){
 		
 		$("#superImagen").append(cadena);
 	}
+	
 	//}, 400);
 	//alert(data.foto);
 	

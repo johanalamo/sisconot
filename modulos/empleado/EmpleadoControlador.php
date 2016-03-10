@@ -201,9 +201,13 @@ class EmpleadoControlador
 										);
 
 			}
-			//var_dump($response);
+
 			if($response!=null){
-				
+				$empleado=EmpleadoServicio::listar($codPensum, 			 $codEstado,	 $codInstituto,
+													null,				 $codPersona,	 $es_jef_pensum,
+											   		$es_jef_con_estudio, $es_ministerio, $es_docente,
+											   		$fecInicio	);
+				Vista::asignarDato("codEmpleado",$empleado[0]['codigo']);
 				Vista::asignarDato('estatus', $response);
 				if($response>0)
 					Vista::asignarDato('mensaje',"La informacion del empleado fue almacenada con exito.");

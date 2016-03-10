@@ -158,6 +158,29 @@ function compararDatosEstudiante (){
 }
 */
 
+function preGuardarEstudiante(){
+	var bool=true;
+	if($("#estudiante #selectInstituto").val()=="seleccionar"){
+		mostrarMensaje("debe de seleccionar un Instituto",2);
+		bool=false;
+	}
+	else if(!validarFecha("#fec_ini_estudiante",true)){
+		mostrarMensaje("debe de seleccionar la fecha de inicio",2);
+		bool=false;
+	}	
+	else if($("#estudiante #selectPNF").val() =="seleccionar"){
+		mostrarMensaje("debe de seleccionar un Pensum",2);
+		bool=false;
+	}	
+	else if($("#estudiante #selectEstado").val()=="seleccionar"){
+		mostrarMensaje("debe de seleccionar un estado",2);
+		bool=false;
+	}
+	
+	if(bool)
+		guardarEstudiante ();
+
+}
 /**
 * Funcion Java Script que permite guardar los datos de a un estudiante
 * para que luego sean almacenados en la base de datos. Los Datos son enviados
@@ -180,7 +203,7 @@ function guardarEstudiante (){
 					"condicion",  $("#condicion").val(),
 					"obsEstudiante",  $("#obs_estudiante").val(),										
 					//"estadoEs",  $("#selectEstado").val(),
-					"codPensum", '1'	//$("#estudiante #selectPNF").val()
+					"codPensum", $("#estudiante #selectPNF").val()
 					);
 	//alert($("#fec_fin_estudiante").val());
 	ajaxMVC(arr,succAgregarEstudiante,error);
@@ -192,6 +215,9 @@ function succAgregarEstudiante(data){
 	//alert('adding student');
 	//alert("sas");
 	if(data.estatus>0){
+		alert(data.codEstudiante);
+		if(data.codEstudiante)
+			$("#cod_estudiante").val(data.codEstudiante);
 		mostrarMensaje(data.mensaje, 1);
 		verEstudiante();
 	}			
@@ -488,6 +514,7 @@ function borrarEstudiante(){
 function succMontarEliminarEstudiante (data){
 
 	if(data.estatus>0){
+		$("#cod_estudiante").val('');
 		mostrarMensaje(data.mensaje, 1);
 		verEstudiante();
 	}

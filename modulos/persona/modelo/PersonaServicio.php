@@ -503,68 +503,9 @@ class PersonaServicio
 	}
 
 
-	public static function agregarFoto($codigo=null,$foto=null,$tipo=null){
+	
+	
 
-		try{
-			$conexion = Conexion::conectar();
-
-			$consulta="insert into sis.t_archivo (codigo,tipo,archivo) values(?,?,?);";
-
-			$ejecutar=$conexion->prepare($consulta);
-
-			$ejecutar-> execute(array($codigo,$tipo,$foto));
- 
-			if($ejecutar->rowCount() != 0)
-				return $ejecutar->fetchAll();
-			else
-				return null;
-		}
-		catch(Exception $e){
-			throw $e;
-		}
-
-	}
-	public static function listarFoto($codigo){
-		try{
-			$conexion = Conexion::conectar();
-
-			$consulta="select * from sis.t_archivo where codigo=?";
-
-			$ejecutar=$conexion->prepare($consulta);
-
-			$ejecutar-> execute(array($codigo));
- 			
- 		
-			if($ejecutar->rowCount() != 0)
-				return $ejecutar->fetchAll();
-			else
-				return null;
-		}
-		catch(Exception $e){
-			throw $e;
-		}
-	}
-	public static function modificarFoto($codigo,$foto,$tipo){
-
-		try{
-			$conexion = Conexion::conectar();
-
-			$consulta="update sis.t_archivo set tipo=?, archivo=? where codigo=?;";
-
-			$ejecutar=$conexion->prepare($consulta);
-
-			$ejecutar-> execute(array($tipo,$foto,$codigo));
- 
-			if($ejecutar->rowCount() != 0)
-				return $ejecutar->fetchAll();
-			else
-				return null;
-		}
-		catch(Exception $e){
-			throw $e;
-		}
-
-	}
 
 
 

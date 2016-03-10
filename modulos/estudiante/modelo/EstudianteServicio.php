@@ -123,9 +123,8 @@ class EstudianteServicio
 	 * @throws Exception 					Si se producen errores en operaciones con la base de datos.
 	 */
 	public static function listar (	$pnf=null, 			$estado=null,		$instituto=null,
-									$codigo=null, 		$cod_persona=null, 	$cod_instituto=null,
-									$cod_pensum=null,	$num_carnet=null, 	$num_expediente=null,
-									$cod_rusnies=null,	$cod_estado=null, 	$fec_inicio=null,
+									$codigo=null, 		$cod_persona=null, 	$num_carnet=null, 	
+									$num_expediente=null,$cod_rusnies=null,	$fec_inicio=null,
 									$fec_fin=null
 									)
 	{
@@ -143,34 +142,34 @@ class EstudianteServicio
 							sis.t_est_estudiante e, sis.t_pensum p where true ";
 
 			if($codigo)
-				$consulta.= "and es.codigo ='$codigo'";
+				$consulta.= "and es.codigo =$codigo";
 
 			if($cod_persona)
-				$consulta.= " and es.cod_persona =$cod_persona";
+				$consulta.= " and es.cod_persona =$cod_persona ";
 
-			if($cod_instituto)
-				$consulta.= "and es.cod_instituto =$cod_instituto";
+			if($instituto)
+				$consulta.= " and es.cod_instituto =$instituto ";
 
-			if($cod_pensum)
-				$consulta.= "and es.cod_pensum = $cod_pensum";
+			if($pnf)
+				$consulta.= " and es.cod_pensum = $pnf ";
 
 			if($num_carnet)
-				$consulta.= " and es.num_carnet like '%$num_carnet%'";
+				$consulta.= " and es.num_carnet ='$num_carnet' ";
 
 			if($num_expediente)
-				$consulta.= "and es.num_expediente like '%num_expediente%'";
+				$consulta.= " and es.num_expediente ='$num_expediente' ";
 
 			if($cod_rusnies)
-				$consulta.= " and es.cod_rusnies like '%cod_rusnies%'";
+				$consulta.= " and es.cod_rusnies ='$cod_rusnies' ";
 
-			if($cod_estado)
-				$consulta.= "and es.cod_estado = $cod_estado";
+			if($estado)
+				$consulta.= " and es.cod_estado = '$estado' ";
 
 			if($fec_inicio)
-				$consulta.= "and es.fec_inicio like '%fec_inicio%'";
+				$consulta.= " and es.fec_inicio='$fec_inicio' ";
 
 			if($fec_fin)
-				$consulta.= " and es.fec_fin like '%fec_fin%'";
+				$consulta.= " and es.fec_fin='$fec_fin' ";
 
 			$consulta.=" and i.codigo=es.cod_instituto and e.codigo=es.cod_estado
 				and p.codigo=es.cod_pensum ";
