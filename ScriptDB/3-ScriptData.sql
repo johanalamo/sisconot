@@ -1,4 +1,4 @@
-\connect postgres;
+﻿\connect postgres;
 
 \connect bd_sisconot;
 
@@ -9,14 +9,6 @@ insert into sis.t_tip_uni_curricular(codigo,nombre) values ('A','Acreditable');
 insert into sis.t_est_periodo(codigo,nombre) values ('A', 'Abierto');
 insert into sis.t_est_periodo(codigo,nombre) values ('C', 'Cerrado');
 
-insert into sis.t_est_docente(codigo,nombre) values ('A', 'Activo');
-insert into sis.t_est_docente(codigo,nombre) values ('R', 'Retirado');
-insert into sis.t_est_docente(codigo,nombre) values ('J', 'Jubilado');
-
-insert into sis.t_est_estudiante(codigo,nombre) values ('A', 'Activo');
-insert into sis.t_est_estudiante(codigo,nombre) values ('I', 'Inactivo');
-insert into sis.t_est_estudiante(codigo,nombre) values ('R', 'Retirado');
-insert into sis.t_est_estudiante(codigo,nombre) values ('G', 'Graduado');
 
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('P','Preinscrito');
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('I','Inscrito');
@@ -28,15 +20,24 @@ insert into sis.t_est_cur_estudiante(codigo,nombre) values ('A','Aprobado');
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('R','Reprobado');
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('N','Reprobado por inasistencia');
 
-INSERT INTO sis.t_tip_uni_curricular(codigo, nombre) VALUES ('E',    'Electiva');
-INSERT INTO sis.t_tip_uni_curricular(codigo, nombre) VALUES ('O',    'Obligatoria');
-
 INSERT INTO sis.t_instituto(codigo, nom_corto, nombre, direccion) VALUES (1, 'IUTFRP', 'IUT Federico Rivero Palacio', 'k8 de la panamericana');
+INSERT INTO sis.t_instituto(codigo, nom_corto, nombre, direccion) VALUES (2, 'CULCA', 'CU CECILIO ACOSTA', 'LOS TEQUES');
+INSERT INTO sis.t_instituto(codigo, nom_corto, nombre, direccion) VALUES (3, 'CUC', 'IUT CU DE CARACAS', 'CHACAO');
 
 INSERT INTO sis.t_pensum(codigo, nombre, nom_corto, observaciones, min_can_electiva, min_cre_electiva,min_cre_obligatoria, fec_creacion) VALUES (1,	'Programa Nacional de Formación Informática',	'PNFI',	'PNFI 2008' ,	2,	1,	2,	'2008-01-01');
+INSERT INTO sis.t_pensum(codigo, nombre, nom_corto, observaciones, min_can_electiva, min_cre_electiva,min_cre_obligatoria, fec_creacion) VALUES (2,	'Programa Nacional de Formación MECANICA',	'PNFM',	'PNFM 2008' ,	2,	1,	2,	'2008-01-01');
+INSERT INTO sis.t_pensum(codigo, nombre, nom_corto, observaciones, min_can_electiva, min_cre_electiva,min_cre_obligatoria, fec_creacion) VALUES (3,	'Programa Nacional de Formación QUIMICA',	'PNFQ',	'PNFQ 2008' ,	2,	1,	2,	'2008-01-01');
+INSERT INTO sis.t_pensum(codigo, nombre, nom_corto, observaciones, min_can_electiva, min_cre_electiva,min_cre_obligatoria, fec_creacion) VALUES (4,	'Programa Nacional de Formación TELECOMINICACIONES','PNFT','PNFT 2008' ,	2,	1,	2,	'2008-01-01');					
+INSERT INTO sis.t_pensum(codigo, nombre, nom_corto, observaciones, min_can_electiva, min_cre_electiva,min_cre_obligatoria, fec_creacion) VALUES (5,	'Programa Nacional de Formación ELECTRONICA',	'PNFE',	'PNFE 2008' ,	2,	1,	2,	'2008-01-01');
+INSERT INTO sis.t_pensum(codigo, nombre, nom_corto, observaciones, min_can_electiva, min_cre_electiva,min_cre_obligatoria, fec_creacion) VALUES (6,	'Programa Nacional de Formación ADMINISTRACION','PNFA',	'PNFA 2008' ,	2,	1,	2,	'2008-01-01');
 
 
 INSERT INTO sis.t_periodo values(1,'2016-2016',1,1,'2016-01-01','2017-01-01','','A');
+INSERT INTO sis.t_periodo values(2,'2016-2016',1,2,'2016-01-01','2017-01-01','','A');
+INSERT INTO sis.t_periodo values(3,'2016-2016',1,3,'2016-01-01','2017-01-01','','A');
+INSERT INTO sis.t_periodo values(4,'2016-2016',2,4,'2016-01-01','2017-01-01','','A');
+INSERT INTO sis.t_periodo values(5,'2016-2016',2,5,'2016-01-01','2017-01-01','','A');
+INSERT INTO sis.t_periodo values(6,'2016-2016',3,6,'2016-01-01','2017-01-01','','A');
 
 INSERT INTO sis.t_uni_curricular(
             codigo, cod_uni_ministerio,  nombre,                                                    hta,    hti,    uni_credito,    dur_semanas, not_min_aprobatoria, not_maxima,  descripcion,         observacion, contenido)
@@ -822,67 +823,83 @@ INSERT INTO sis.t_uni_tra_pensum(
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
     es_docente,observaciones) values(5,5,1,2,'A','2/10/1971',true,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(6,6,1,2,'A','3/2/1988',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
+    es_docente,observaciones) values(6,6,1,4,'A','3/2/1988',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(7,7,1,2,'J','19/7/1998',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
+    es_docente,observaciones) values(7,7,2,5,'J','19/7/1998',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(8,8,1,2,'I','2/5/1986',false,false,false,false,'');
+    es_docente,observaciones) values(8,8,2,4,'I','2/5/1986',false,false,false,false,'');
     insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(9,9,1,3,'A','27/8/1980',false,true,false,false,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
+    es_docente,observaciones) values(9,9,2,5,'A','27/8/1980',false,true,false,false,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(10,10,1,3,'A','23/11/1999',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
+    es_docente,observaciones) values(10,10,2,4,'A','23/11/1999',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(11,11,1,3,'J','22/8/1998',false,false,false,false,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
+    es_docente,observaciones) values(11,11,2,5,'J','22/8/1998',false,false,false,false,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(12,12,1,3,'A','25/10/1986',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
+    es_docente,observaciones) values(12,12,2,4,'A','25/10/1986',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(13,13,1,3,'A','8/9/1994',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
+    es_docente,observaciones) values(13,13,3,6,'A','8/9/1994',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(14,14,1,3,'A','22/5/1988',false,false,true,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
+    es_docente,observaciones) values(14,14,3,6,'A','22/5/1988',false,false,true,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(15,15,1,2,'A','16/9/1972',false,false,true,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
+    es_docente,observaciones) values(15,15,3,6,'A','16/9/1972',false,false,true,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(16,16,1,2,'A','26/1/1982',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
+    es_docente,observaciones) values(16,16,3,6,'A','26/1/1982',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(17,17,1,1,'A','20/8/1998',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
+    es_docente,observaciones) values(17,17,3,6,'A','20/8/1998',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(18,18,1,1,'A','23/1/1972',false,false,false,true,'');
+    es_docente,observaciones) values(18,18,3,6,'A','23/1/1972',false,false,false,true,'');
     insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(19,19,1,2,'A','22/3/1990',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
+    es_docente,observaciones) values(19,19,1,6,'A','22/3/1990',false,false,false,true,'');insert into sis.t_empleado (codigo,cod_persona,cod_instituto,cod_pensum,
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
-    es_docente,observaciones) values(20,20,1,2,'A','12/1/1974',false,false,false,true,'');
+    es_docente,observaciones) values(20,20,2,6,'A','12/1/1974',false,false,false,true,'');
 
     insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
     condicion,observaciones) values(1,1,1,1,'111','111','111','A','25/8/1980',01,'sin obersevacion');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
-    condicion,observaciones) values(2,21,1,1,'2121','2121','2121','A','27/1/1998',01,'sin obersevacion');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+    condicion,observaciones) values(2,21,1,2,'2121','2121','2121','A','27/1/1998',01,'sin obersevacion');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
-    condicion,observaciones) values(3,22,1,1,'2222','2222','2222','A','5/7/1985',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+    condicion,observaciones) values(3,22,1,3,'2222','2222','2222','A','5/7/1985',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
     condicion,observaciones) values(4,23,1,1,'2323','2323','2323','A','17/2/1974',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
-    condicion,observaciones) values(5,24,1,1,'2424','2424','2424','G','6/8/1981',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+    condicion,observaciones) values(5,24,1,2,'2424','2424','2424','G','6/8/1981',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
-    condicion,observaciones) values(6,25,1,2,'2525','2525','2525','G','24/6/1997',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+    condicion,observaciones) values(6,25,1,3,'2525','2525','2525','G','24/6/1997',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
-    condicion,observaciones) values(7,26,1,2,'2626','2626','2626','A','25/6/2000',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+    condicion,observaciones) values(7,26,2,4,'2626','2626','2626','A','25/6/2000',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
-    condicion,observaciones) values(8,27,1,2,'2727','2727','2727','A','25/7/1981',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+    condicion,observaciones) values(8,27,2,5,'2727','2727','2727','A','25/7/1981',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
-    condicion,observaciones) values(9,28,1,3,'2828','2828','2828','A','17/7/1976',01,'');
+    condicion,observaciones) values(9,28,2,4,'2828','2828','2828','A','17/7/1976',01,'');
     insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
-    condicion,observaciones) values(10,29,1,3,'2929','2929','2929','I','13/10/1974',01,'');
+    condicion,observaciones) values(10,29,2,5,'2929','2929','2929','I','13/10/1974',01,'');
     insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
-    condicion,observaciones) values(11,30,1,3,'3030','3030','3030','I','23/6/1982',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+    condicion,observaciones) values(11,30,2,4,'3030','3030','3030','I','23/6/1982',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
-    condicion,observaciones) values(12,31,1,3,'3131','3131','3131','A','1/5/1983',01,'tuvo una pelea con el profesor y le pego un golpe');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+    condicion,observaciones) values(12,31,2,5,'3131','3131','3131','A','1/5/1983',01,'tuvo una pelea con el profesor y le pego un golpe');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
-    condicion,observaciones) values(13,32,1,3,'3232','3232','3232','A','16/3/1979',01,'se encontro al estudiante fumando dentro del salon');
-
+    condicion,observaciones) values(13,32,2,4,'3232','3232','3232','A','16/3/1979',01,'se encontro al estudiante fumando dentro del salon');
+    insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+				num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
+				condicion,observaciones) values(14,33,3,6,'3333','3333','3333','A','12/3/1989',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+				num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
+				condicion,observaciones) values(15,34,3,6,'3434','3434','3434','I','21/6/1985',01,'el estudinte fue expulsado de la institucion por vender drogas dentro del resinto');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+				num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
+				condicion,observaciones) values(16,35,3,6,'3535','3535','3535','A','7/10/1994',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+				num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
+				condicion,observaciones) values(17,36,3,6,'36','36','3636','A','19/9/1992',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+				num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
+				condicion,observaciones) values(18,37,3,6,'3737','3737','3737','A','23/3/1996',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+				num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
+				condicion,observaciones) values(19,38,3,6,'3838','3838','3838','A','19/4/1973',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+				num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
+				condicion,observaciones) values(20,39,3,6,'3939','3939','3939','A','4/1/1976',01,'');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
+				num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
+				condicion,observaciones) values(21,40,3,6,'4040','4040','4040','A','13/10/1984',01,'');
 
 update sis.t_persona set nombre1 = upper(nombre1), nombre2 = upper(nombre2), apellido1 = upper(apellido1), apellido2 = upper(apellido2);

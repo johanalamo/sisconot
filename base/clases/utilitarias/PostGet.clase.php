@@ -88,5 +88,9 @@ abstract class PostGet {
     public static function obtenerGet($indice){
         return isset($_GET[$indice]) ?   $_GET[$indice]: null;
     }
+
+    public static function obtenerFiles($indice,$indice2){
+    	return 	isset($_FILES[$indice][$indice2]) ?   $_FILES[$indice]: null;
+    }
 }
 ?>
