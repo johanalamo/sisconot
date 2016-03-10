@@ -121,6 +121,38 @@ function err(data){
 	console.log(data);
 }
 
+function cargarPensums(){
+
+	var arr = Array("m_modulo"		,	"pensum",
+					"m_accion"		,	"buscarPorInstituto",
+					"codigo" 		, 	$("#dialogoPerAgregar #selInst").val());
+
+	ajaxMVC(arr,succCargarPensums,err);
+}
+
+function succCargarPensums(data){
+	var pen = data.pensum;
+	var cad = "";
+
+	cad += "<select class='selectpicker' id='selPen' data-live-search='true' data-size='auto'>";
+
+	if(pen){
+		cad += "<option value='-1' disabled selected> Seleccione Pensum</option>";
+
+		for(var i = 0; i < pen.length; i++){
+			cad += "<option value="+pen[i][0]+">"+pen[i][1]+"</option>";
+		}
+
+	}
+	else{
+		mostrarMensaje("No hay pensums para este instituto.",3);
+	}
+	cad += "</select>";
+
+	$("#dialogoPerAgregar #selPen").selectpicker('destroy');
+	$("#dialogoPerAgregar #divPen").append(cad);
+	$("#dialogoPerAgregar #selPen").selectpicker();
+}
 
 function cargarPeriodosP(){
 	var arr = Array("m_modulo"		,		"periodo",
@@ -139,7 +171,7 @@ function succCargarPeriodosP(data){
 		cad += "<table id='tableP' class='table table-hover table-condensed table-responsive'>";
 
 		cad += "<th class='dark' style='text-align:center'>Opciones</th>";
-		cad += "<th class='dark' style='text-align:center'>Instituto</th>";
+		cad += "<th class='dark' style='text-align:center'>Instituto (Código)</th>";
 		cad += "<th class='dark' style='text-align:center'>Pensum</th>";
 		cad += "<th class='dark' style='text-align:center'>Nombre del Periodo</th>";
 		cad += "<th class='dark' style='text-align:center'>Fecha de Inicio</th>";
@@ -154,7 +186,7 @@ function succCargarPeriodosP(data){
 			cad += "<td style='text-align:center'><button class='btn btn-warning btn-xs' title='Modificar Periodo' onclick='modificarPeriodoD("+dat[i]['codigo']+")'><span class='fa fa-pencil'></span></button>    ";
 			cad += "<button class='btn btn-danger btn-xs' title='Eliminar Periodo' onclick='eliminarPeriodo("+dat[i]['codigo']+")'><span class='fa fa-remove'></span></button></td>";
 
-			cad += "<td style='text-align:center'>"+dat[i]['nomi']+"</td>";
+			cad += "<td style='text-align:center'>"+dat[i]['nomi']+" ("+dat[i]['codigo']+")</td>";
 			cad += "<td style='text-align:center'>"+dat[i]['nomp']+"</td>";
 			cad += "<td style='text-align:center'>"+dat[i]['nombre']+"</td>";
 			cad += "<td style='text-align:center'>"+dat[i]['fec_inicio']+"</td>";
@@ -266,7 +298,6 @@ function succModificarPeriodoD(data){
 		cad += "<br>";
 		cad += "<br>";
 
-        console.log(data);
 		cad += "Observaciones: <input type='text' class='form-control' size='80' id='obsP' value='"+dat['observaciones']+"'></input>";
 
 		cad += "<br>";
@@ -286,7 +317,11 @@ function succModificarPeriodoD(data){
 }
 
 function actEst(val){
-	$("#selEst").val(val);
+	$("#dialogoPer #selEst").val(val);
+}
+
+function actEstA(val){
+	$("#dialogoPerAgregar #selEst").val(val);
 }
 
 function modificarPeriodo(cod){
@@ -301,7 +336,7 @@ function modificarPeriodo(cod){
 					"observaciones"	,		$("#dialogoPer #obsP").val(),
 					"codEstado"		,		$("#dialogoPer #selEst").val(),
 					"codPeriodo"	,		cod);
-    console.log(arr);
+
 	ajaxMVC(arr,succModificarPeriodo,err);
 }
 
@@ -316,5 +351,118 @@ function succModificarPeriodo(data){
 }
 
 function agregarPeriodoD(){
-    
+	var arr = Array("m_modulo"		,		"periodo",
+					"m_accion"		,		"obtenerDatos");
+
+	ajaxMVC(arr,succAgregarPeriodoD,err);
+}
+
+function succAgregarPeriodoD(data){
+	console.log(data);
+	var inst = data.institutos;
+	var est = data.estados;
+
+	var cad = "";
+	var cad2 = "";
+	var len = inst.length;
+
+	for(var i = 0; i < len; i++){
+		cad2 += "<option value='"+inst[i]['codigo']+"'>"+inst[i]['nombre']+"</option>";
+	}
+
+	cad += "<center>";
+
+	cad += "Código del Periodo: <input type='text' size='4' id='codPeriodo' disabled>";
+
+	cad += "<br>";
+	cad += "<br>";
+
+	cad += "Nombre del Periodo: <br><input type='text' id='nombreP' value=''>";
+
+	cad += "<br>";
+	cad += "<br>";
+
+	cad += "<div id='divInst'>";
+
+		cad += "<select class='selectpicker' id='selInst' onchange='cargarPensums()' data-live-search='true' data-size='auto'>";
+
+		cad += "<option value='-1' selected disabled> Seleccione un Instituto</option>";
+
+		cad += cad2;
+
+		cad += "</select>";
+
+	cad += "</div>";
+
+	cad += "<br>";
+
+	cad += "<div id='divPen'>";
+
+		cad += "<select class='selectpicker' id='selPen' data-live-search='true' data-size='auto'>";
+
+		cad += "</select>";
+
+	cad += "</div>";
+
+	cad += "<input type='hidden' id='selEst' value=''>";
+
+	cad += "<br>";
+
+	len = est.length;
+
+	cad += "Estado del Periodo:";
+
+	cad += "<br>";
+
+	for(var i = 0; i < len; i++){
+		cad += "<input type='radio' onclick='actEstA(\""+est[i]['codigo']+"\")' name='radio'>   ";
+		cad += "<label>";
+		cad += est[i]['nombre'];
+		cad += "</label>   ";
+		cad += "<br>";
+	}
+
+	cad += "Fecha de Inicio: <br><input type='text'id='fecIP' value=''></input>";
+
+	cad += "<br>";
+	cad += "<br>";
+
+	cad += "Fecha de Fin: <br><input type='text' id='fecFP' value=''></input>";
+
+	cad += "<br>";
+	cad += "<br>";
+
+	cad += "Observaciones: <br><input type='text' class='form-control' size='80' id='obsP' value=''></input>";
+
+	cad += "<br>";
+	cad += "<br>";
+
+	crearDialogo("dialogoPerAgregar", "Agregar Periodo",'Nuevo Periodo', 1, "agregarPeriodo()",'Aceptar',true);
+
+	$(".modal-body").append(cad);
+
+	$("#dialogoPerAgregar").modal("show");
+	$(".selectpicker").selectpicker();
+}
+
+function agregarPeriodo(){
+	var arr = Array("m_modulo"			,		"periodo",
+					"m_accion"			,		"agregarPeriodo",
+					"nomPeriodo"		,		$("#dialogoPerAgregar #nombreP").val(),
+					"codIns"			,		$("#dialogoPerAgregar #selInst").val()[0],
+					"codPen"			,		$("#dialogoPerAgregar #selPen").val()[0],
+					"fecIni"			,		$("#dialogoPerAgregar #fecIP").val(),
+					"fecFin"			,		$("#dialogoPerAgregar #fecFP").val(),
+					"observaciones"		,		$("#dialogoPerAgregar #obsP").val(),
+					"codEst"			,		$("#dialogoPerAgregar #selEst").val());
+
+	ajaxMVC(arr,succAgregarPeriodo,err);
+}
+
+function succAgregarPeriodo(data){
+	if(data.codPeriodo > 0){
+		mostrarMensaje("El periodo se ha agregado exitosamente con el código "+data.codPeriodo+".",1);
+		$("#dialogoPerAgregar").modal('hide');
+		cargarPeriodosP();
+	}
 }

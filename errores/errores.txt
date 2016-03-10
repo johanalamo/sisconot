@@ -3391,3 +3391,350 @@ Trayecto:
 		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
 		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#3 {main}
+**************************** Error n° 222 *****************************
+codigo Error: 222
+Mensaje error: 'EstudianteControlador' La accion listarEstudiantePeriodo no es valida
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php
+Linea Error: 42
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 223 *****************************
+codigo Error: 223
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(106): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(35): EmpleadoControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 224 *****************************
+codigo Error: 224
+Mensaje error: 'EstudianteControlador' La accion listarEstudiantePeriodo no es valida
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php
+Linea Error: 42
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 225 *****************************
+codigo Error: 225
+Mensaje error: 'EstudianteControlador' La accion listarEstudiantePeriodo no es valida
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php
+Linea Error: 42
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 226 *****************************
+codigo Error: 226
+Mensaje error: 'EstudianteControlador' La accion listarEstudiantePeriodo no es valida
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php
+Linea Error: 42
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 227 *****************************
+codigo Error: 227
+Mensaje error: 'EstudianteControlador' La accion listarEstudiantePeriodo no es valida
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php
+Linea Error: 42
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 228 *****************************
+codigo Error: 228
+Mensaje error: 'EstudianteControlador' La accion listarEstudiantePeriodo no es valida
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php
+Linea Error: 42
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 229 *****************************
+codigo Error: 229
+Mensaje error: 'EstudianteControlador' La accion listarEstudiantePeriodo no es valida
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php
+Linea Error: 42
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 230 *****************************
+codigo Error: 230
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 231 *****************************
+codigo Error: 231
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 232 *****************************
+codigo Error: 232
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 233 *****************************
+codigo Error: 233
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 234 *****************************
+codigo Error: 234
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 235 *****************************
+codigo Error: 235
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 236 *****************************
+codigo Error: 236
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 237 *****************************
+codigo Error: 237
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 238 *****************************
+codigo Error: 238
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 239 *****************************
+codigo Error: 239
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 240 *****************************
+codigo Error: 240
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 241 *****************************
+codigo Error: 241
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 242 *****************************
+codigo Error: 242
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 243 *****************************
+codigo Error: 243
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 244 *****************************
+codigo Error: 244
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 245 *****************************
+codigo Error: 245
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 246 *****************************
+codigo Error: 246
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 247 *****************************
+codigo Error: 247
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 248 *****************************
+codigo Error: 248
+Mensaje error: No existe la opción obtenerDatos en PeriodoControlador
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php
+Linea Error: 61
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#4 {main}
+**************************** Error n° 249 *****************************
+codigo Error: 249
+Mensaje error: SQLSTATE[22008]: Datetime field overflow: 7 ERROR:  el valor de hora/fecha está fuera de rango: «12/13/14»
+HINT:  Quizás necesite una configuración diferente de «datestyle».
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 149
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(149): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(118): PeriodoServicio::insertarPeriodo('123123123', '1', '1', '12/13/14', '12/13/15', '', 'A')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(56): PeriodoControlador::agregarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 250 *****************************
+codigo Error: 250
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_periodo»
+DETAIL:  Ya existe la llave (cod_instituto, cod_pensum, fec_inicio)=(1, 1, 12/11/2014).
+CONTEXT:  sentencia SQL: «INSERT INTO sis.t_periodo(	codigo,
+								nombre,
+								cod_instituto,
+								cod_pensum,
+								fec_inicio,
+								fec_final,
+								observaciones,
+								cod_estado)
+	VALUES					 (	cod_periodo,
+								p_nombre,
+								p_cod_instituto,
+								p_cod_pensum,
+								p_fec_inicio,
+								p_fec_final,
+								p_observaciones,
+								p_cod_estado)»
+función PL/pgSQL sis.f_periodo_ins(text,integer,integer,date,date,text,text) en la línea 6 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 149
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(149): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(118): PeriodoServicio::insertarPeriodo('1231545', '1', '1', '12/11/14', '12/11/15', 'asdasdsdsaadsad...', 'A')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(56): PeriodoControlador::agregarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(41): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

@@ -29,7 +29,6 @@ class EstudianteControlador
 		//si $accion viene null se tomara por defecto la accion de listar
 		if(!$accion)
 			$accion = 'listar';
-
 		if($accion == 'listar')
 			self::listar();
 		elseif($accion == 'agregar')
@@ -38,6 +37,8 @@ class EstudianteControlador
 			self::eliminar();
 		else if($accion == 'listarEstudiantesPorCurso')
 			self::listarEstudiantesPorCurso();
+		else if($accion == 'listarEstudiantePeriodo')
+			self::listarEstudiantePeriodo();
 		else
 			throw new Exception ("'EstudianteControlador' La accion $accion no es valida");
 	}
@@ -102,7 +103,7 @@ class EstudianteControlador
 			Vista::asignarDato('tipo_persona',$tipo_persona);
 			Vista::asignarDato('estudiante',$estudiante);
 			Vista::asignarDato('codi',PostGet::obtenerPostGet("codi"));
-			
+
 			Vista::Mostrar();
 
 		}
@@ -137,7 +138,7 @@ class EstudianteControlador
 			$fecFin= PostGet::obtenerPostGet("fecFin");
 			$condicion= PostGet::obtenerPostGet("condicion");
 			$observaciones= PostGet::obtenerPostGet("obsEstudiante");
-			
+
 			if($codEstado=="seleccionar")
 				$codEstado=null;
 			if(!$condicion)
@@ -179,7 +180,7 @@ class EstudianteControlador
 			if($response){
 				if($response>0){
 					$estudiante=EstudianteServicio::listar( $codPensum, 		$codEstado,		$codInstituto,
-															null, 				$codPersona, 	null, 	
+															null, 				$codPersona, 	null,
 															$numExpediente,     $codRusnies,	$fecInicio
 															);
 					//var_dump($estudiante);
@@ -282,6 +283,21 @@ class EstudianteControlador
 			$codigo = PostGet::obtenerPostGet("codigo");
 
 			Vista::asignarDato("estudiante",EstudianteServicio::listarEstudiantesDeCurso($codigo));
+
+			Vista::mostrar();
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+	public static function listarEstudiantePeriodo(){
+		try{
+			$instituto = PostGet::obtenerPostGet("instituto");
+			$pensum = PostGet::obtenerPostGet("pensum");
+			$periodo = PostGet::obtenerPostGet("periodo");
+
+			Vista::asignarDato("estudiantes",EstudianteServicio::listarEstudiantePeriodo($instituto,$pensum,$periodo,'A'));
 
 			Vista::mostrar();
 		}

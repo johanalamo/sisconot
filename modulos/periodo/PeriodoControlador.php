@@ -27,6 +27,7 @@ Descripción:
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
 	require_once ("modulos/periodo/modelo/PeriodoServicio.php");
+	require_once ("modulos/instituto/modelo/InstitutoServicio.php");
 
 	class PeriodoControlador{
 
@@ -57,6 +58,8 @@ Descripción:
 					self::modificarPeriodo();
 				else if($accion == 'eliminarPeriodo')
 					self::eliminarPeriodo();
+				else if($accion == 'obtenerDatos')
+					self::obtenerDatos();
 				else
 					throw new Exception("No existe la opción $accion en PeriodoControlador");
 			}
@@ -206,6 +209,23 @@ Descripción:
 				$r = PeriodoServicio::obtenerDatosPeriodo($codigo);
 
 				Vista::asignarDato("periodo",$r);
+
+				$r = PeriodoServicio::obtenerEstadosPeriodo();
+
+				Vista::asignarDato("estados",$r);
+
+				Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function obtenerDatos(){
+			try{
+				$r = InstitutoServicio::listarInstitutos();
+
+				Vista::asignarDato("institutos",$r);
 
 				$r = PeriodoServicio::obtenerEstadosPeriodo();
 

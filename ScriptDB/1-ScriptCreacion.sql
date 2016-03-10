@@ -21,17 +21,17 @@ Estudiantes participantes en la versión final:
 select 'consulta para limpiar el buffer, no borrar.' as resultado;
 
 -- Borrar la base de datos en caso de existir
--- ~ drop database  bd_sisconot;
+drop database  bd_sisconot;
 
--- ~ drop user sisconot;
--- ~ create user sisconot password '123';
+drop user sisconot;
+create user sisconot password '123';
 
 
 -- Crear de nuevo la base de datos
--- ~ CREATE DATABASE bd_sisconot WITH OWNER = sisconot ENCODING = 'UTF8' CONNECTION LIMIT = -1;
+CREATE DATABASE bd_sisconot WITH OWNER = sisconot ENCODING = 'UTF8' CONNECTION LIMIT = -1;
 
 --cambia el formato de la fecha a Dia/mes/año para consulta e insercion
--- ~ alter database bd_sisconot SET DateStyle to 'sql,dmy';
+alter database bd_sisconot SET DateStyle to 'sql,dmy';
 
 
 -- Conectarse a la nueva base de datos

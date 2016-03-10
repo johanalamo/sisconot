@@ -1,7 +1,7 @@
 <?php
     $info = Vista::obtenerDato("ticket");
     if($info){
-        $pdf = new FPDF('p','mm',array(120,150));
+        $pdf = new FPDF('p','mm',array(130,200));
 
         $pdf->AddPage();
         $pdf->SetFont('Arial','B',10);
@@ -9,7 +9,7 @@
         $pdf->SetFillColor(255,255,255);
 
         $pdf->SetFont('Arial','B',12);
-        $pdf->Cell(0,5,"TICKET DE INSCRIPCION",0,0,'C',true);
+        $pdf->Cell(0,5,"TICKET DE INSCRIPCIÓN",0,0,'C',true);
         $pdf->Ln();
 
         $pdf->SetFont('Arial','',10);
@@ -39,8 +39,8 @@
 
         $pdf->SetFont('Arial','',7);
         for($i = 0; $i < count($info); $i++){
-            if(strlen($info[$i]['nombreuni']) > 20)
-                $pdf->Cell(25,5,substr($info[$i]['nombreuni'],0,17)."...",1,0,'C',true);
+            if(strlen($info[$i]['nombreuni']) > 18)
+                $pdf->Cell(25,5,substr($info[$i]['nombreuni'],0,15)."...",1,0,'C',true);
             else
                 $pdf->Cell(25,5,$info[$i]['nombreuni'],1,0,'C',true);
             $pdf->Cell(20,5,$info[$i]['nombredoc'],1,0,'C',true);
@@ -57,7 +57,23 @@
         $pdf->Ln();
         $pdf->Ln();
         $pdf->Cell(0,5,"Sello del Departamento",0,0,'C',true);
+        $pdf->Ln();
+        $pdf->Ln();
+        $a = getdate();
+
+        $hora = "am";
+
+        if($a['hours'] > 12){
+            $a['hours'] -= 12;
+            $hora = "pm";
+        }
+        else if($a['hours'] == 12){
+            $hora = "pm";
+        }
+
+        $pdf->Cell(0,5,"Este ticket fue generado por el Sistema de Gestión Académica (SISGESAC) el ".$a['mday']."/".$a['mon']."/".$a['year']." a las ".$a['hours'].":".$a['minutes'].$hora,0,0,'C',true);
         $pdf->Output($info[0]['nombreper']."-".$info[0]['nombreest']."TICKET_INSCRIPCION".".pdf", 'D');
+
     }
     else{
         throw new Exception("No se puede generar el PDF.");
