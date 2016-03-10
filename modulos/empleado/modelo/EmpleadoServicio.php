@@ -7,33 +7,33 @@
  *
  * EmpleadoServicio.php - Servicio del módulo Empleado.
  *
- * Esta clase ofrece el servicio de conexión a la base de datos, recibe 
- * los parámetros, construye las consultas SQL, hace las peticiones a 
+ * Esta clase ofrece el servicio de conexión a la base de datos, recibe
+ * los parámetros, construye las consultas SQL, hace las peticiones a
  * la base de datos y retorna los objetos o datos correspondientes a la
  * acción. Todas las funciones de esta clase relanzan las excepciones si son capturadas.
  * Esto con el fin de que la clase manejadora de errores las capture y procese.
  * Esta clase trabaja en conjunto con la clase Conexion.
- * 
+ *
  *
  * @link /base/clases/conexion/Conexion.php 	Clase Conexion
- * 
+ *
  * Esta clase trabaja en conjunto con la clase errores.
- * 
+ *
  * @link /base/clases/Errores.php 		Clase manejadora de errores.
- *  
+ *
  * @author JEAN PIERRE SOSA GOMEZ (jean_pipo_10@hotmail.com)
- * 
+ *
  * @package Servicios
  */
 class EmpleadoServicio
 {
-	
+
 	/**
 	 * Función pública y estática que permite agregar un empleado a la base de datos.
 	 *
-	 * Esta funcion es la encargada de agregar un nuevo empleado a la base de datos, 
+	 * Esta funcion es la encargada de agregar un nuevo empleado a la base de datos,
 	 * donde recibe cierta cantidad parametros para ser almacenados en la tabla sis.t_empleado.
-	 * 
+	 *
 	 *
 	 * @param int $cod_persona 					Codigo de la persona este es el codigo que relaciona la tabla persona con la tabla empleado.
 	 * @param int $cod_instituto				Codigo de la institucion donde labora el empleado.
@@ -59,7 +59,7 @@ class EmpleadoServicio
 	{
 		try
 		{
-			
+
 			$conexion = Conexion::conectar();
 			$consulta = " select sis.f_empleado_ins(
 													:cod_persona,		:cod_instituto,		:cod_pensum,
@@ -88,14 +88,14 @@ class EmpleadoServicio
 		/*	if($ejecutar->fetchColumn(0) == 0)
 					throw new Exception("No se pudo agregar al empleado.");
 			else{
-				$codigo = $ejecutar->fetchColumn(0);			
-		*/		
+				$codigo = $ejecutar->fetchColumn(0);
+		*/
 				$codigo=$ejecutar->fetchColumn(0);
 				return $codigo;
 		//	}
-			
 
-			
+
+
 		}
 		catch(Exception $e){
 			throw $e;
@@ -107,7 +107,7 @@ class EmpleadoServicio
 	 *
 	 * Esta funcion es la encargada de modificar un a un empleado, se pasan cierta cantidad de parámetros
 	 * para ser modificados en la base de datos.
-	 * 
+	 *
 	 *
 	 * @param int $codigo 						Codigo del empleado este es el codigo que posee el empleado.
 	 * @param int $cod_persona 					Codigo de la persona este es el codigo que relaciona la tabla persona con la tabla empleado.
@@ -160,15 +160,15 @@ class EmpleadoServicio
 
 			$ejecutar->execute();
 
-			$row = $ejecutar->fetchColumn(0);	
+			$row = $ejecutar->fetchColumn(0);
 			/*if($ejecutar->rowCount()==0)
-				throw new Exception("No se logro modificar la informacion del empleado.");	
+				throw new Exception("No se logro modificar la informacion del empleado.");
 */
-			return $row;	
+			return $row;
 		}
 		catch(Exception $e){
 			throw $e;
-		}	
+		}
 	}
 
 	/**
@@ -191,7 +191,7 @@ class EmpleadoServicio
 	 * @param bool $es_ministerio				Indica si el empleado trabaja en el ministerio
 	 * @param bool $es_docente					Indica si el empleado es un docente
 	 *
-	 * @return array|null						Retorna un arreglo de arreglos asociativos o null de no encontrarse coincidencias.								
+	 * @return array|null						Retorna un arreglo de arreglos asociativos o null de no encontrarse coincidencias.
 	 *
 	 * @throws Exception 					Si se producen errores en operaciones con la base de datos.
 	 */
@@ -207,8 +207,8 @@ class EmpleadoServicio
 
 
 			$conexion = Conexion::conectar();
-			$consulta="select em.*, p.nom_corto as nom_pensum, i.nom_corto as nom_instituto, e.nombre, 
-							p.nombre as nom_pen_largo, i.nombre as nom_ins_largo, 
+			$consulta="select em.*, p.nom_corto as nom_pensum, i.nom_corto as nom_instituto, e.nombre,
+							p.nombre as nom_pen_largo, i.nombre as nom_ins_largo,
 							(select to_char(em.fec_inicio,'DD/MM/YYYY')) as fec_inicios,
 							(select to_char(em.fec_fin,'DD/MM/YYYY')) as fec_final
 						from sis.t_empleado em, sis.t_instituto i,
@@ -247,7 +247,7 @@ class EmpleadoServicio
 			if($fec_fin)
 				$consulta.= " and em.fec_fin = '$fec_fin' ";
 
-			$consulta.=" and i.codigo=em.cod_instituto and e.codigo=em.cod_estado 
+			$consulta.=" and i.codigo=em.cod_instituto and e.codigo=em.cod_estado
 				and p.codigo=em.cod_pensum order by em.fec_inicio desc";
 
 
@@ -289,7 +289,7 @@ class EmpleadoServicio
 	 * @param int $cod_instituto				Indica el instituto donde el empleado esta trabajando.
 	 * @param int $cod_pensum 					Codigo de pensum.
 	 * @param chart $cod_estado 				Codigo de estado que posee el empleado.
-	 * @return array|null						Retorna un arreglo de arreglos asociativos o null de no encontrarse coincidencias.								
+	 * @return array|null						Retorna un arreglo de arreglos asociativos o null de no encontrarse coincidencias.
 	 *
 	 * @throws Exception 					Si se producen errores en operaciones con la base de datos.
 	 */
@@ -297,7 +297,7 @@ class EmpleadoServicio
 	public static function listarPersonaEmpleado (	$cod_pensum=null,	$cod_estado=null,	$cod_instituto=null,
 													$codigo=null,		$cedula=null,		$correo=null,
 												  	$nombre1=null,		$nombre2=null,		$apellido1=null,
-												  	$apellido2=null,	$sexo=null												  	
+												  	$apellido2=null,	$sexo=null
 											)
 	{
 
@@ -351,12 +351,12 @@ class EmpleadoServicio
 				return $ejecutar->fetchAll();
 			else
 				return null;
-			
 
-		}	
+
+		}
 		catch(Exception $e){
 			throw $e;
-		}	
+		}
 	}
 
 	public static function listarTodo ()
@@ -365,13 +365,13 @@ class EmpleadoServicio
 		{
 			$conexion = Conexion::conectar();
 			$consulta= "select sis.f_empleado_sel(:cursor)";
-			
+
 			$ejecutar= $conexion->prepare($consulta);
 			$cursor='fcursorinst';
-			$ejecutar->bindParam(':cursor',$cursor, PDO::PARAM_INT);	
+			$ejecutar->bindParam(':cursor',$cursor, PDO::PARAM_INT);
 			// inicia transaccion
 			$conexion->beginTransaction();
-			$ejecutar->execute();				
+			$ejecutar->execute();
 			$cursors = $ejecutar->fetchAll();
 			// cierra cursor
 			$ejecutar->closeCursor();
@@ -385,11 +385,11 @@ class EmpleadoServicio
 				$ejecutar->closeCursor();
 				// cierra cursor
 			}
-			$conexion->commit();			
-			if(count($results) > 0)					
+			$conexion->commit();
+			if(count($results) > 0)
 				return $results;
-			else								
-				return null;			
+			else
+				return null;
 
 		}
 		catch(Exception $e){
@@ -404,33 +404,74 @@ class EmpleadoServicio
 	 * en la base de datos se va a eliminar.
 	 *
 	 * @param int $codigo 				Código del empleado que va a ser eliminado de la base de datos.
-	 * 
+	 *
 	 * @return int 						Si la eliminacion fue exitoza la funcion devolvera 1 de lo contrario devolvera 0.
-	 * @throws Exception 				Con el mensaje "No se pudo eliminar el empleado." 
+	 * @throws Exception 				Con el mensaje "No se pudo eliminar el empleado."
 	 * si no se puede llevar a cabo la eliminación.
 	 */
 	public static function eliminar($codigo=null){
 		try{
 			$conexion=Conexion::conectar();
-			$consulta="select sis.f_empleado_eli(:codigo)";								
+			$consulta="select sis.f_empleado_eli(:codigo)";
 			$ejecutar=$conexion->prepare($consulta);
 			// indica
 			// como se indica en parametro y el tipo de parametro que se envia
-			$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);				
+			$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-			//ejecuta				
+			//ejecuta
 			$ejecutar->execute();
 			//primera columana codigo
-			$row = $ejecutar->fetchColumn(0);					
+			$row = $ejecutar->fetchColumn(0);
 
 
 		/*	if ($row == 0)
-				throw new Exception("No se pudo eliminar el empleado.");	
+				throw new Exception("No se pudo eliminar el empleado.");
 */
 			return $row;
 		}catch(Exception $e){
 			throw $e;
-		 }	 
-	}	
+		 }
+	}
+
+	public static function buscarDocentes($patron,$pensum,$instituto){
+		try{
+			$conexion=Conexion::conectar();
+			$consulta = "select
+								emp.codigo,
+								per.nombre1,
+								per.apellido1
+								from sis.t_empleado emp
+								inner join sis.t_persona per
+									on per.codigo = emp.cod_persona
+								where es_docente = true
+								and emp.cod_pensum = :pensum
+								and emp.cod_instituto = :instituto
+								and emp.cod_estado = 'A'
+								and CONCAT (cast(per.cedula as varchar),
+										upper(per.nombre1),
+										upper(per.nombre2),
+										upper(per.apellido1),
+										upper(per.apellido2))
+								like upper('%$patron%')
+								order by apellido1;";
+
+			$ejecutar=$conexion->prepare($consulta);
+
+			$ejecutar->bindParam(':pensum',$pensum, PDO::PARAM_INT);
+			$ejecutar->bindParam(':instituto',$instituto, PDO::PARAM_INT);
+
+			$ejecutar->execute();
+
+
+			if($ejecutar->rowCount() != 0){
+				return $ejecutar->fetchAll();
+			}
+			else
+				return null;
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
 }
 ?>

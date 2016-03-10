@@ -645,6 +645,7 @@ Descripción:
 									pers.nombre1 || ' ' || pers.apellido1 nombredocente,
 									cur.fec_inicio,
 									cur.fec_final,
+									cur.cod_docente codDocente,
 									cur.observaciones
 									from sis.t_periodo per
 									inner join sis.t_uni_tra_pensum utp

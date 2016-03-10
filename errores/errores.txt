@@ -3738,3 +3738,117 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 251 *****************************
+codigo Error: 251
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(106): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(35): EmpleadoControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 252 *****************************
+codigo Error: 252
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(106): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(35): EmpleadoControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 253 *****************************
+codigo Error: 253
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  debe ser superusuario para utilizar lo_import() en el extremo del servidor
+HINT:  Todos los usuarios pueden utilizar lo_import() de cliente proporcionada por libpq.
+Archivo Error: /var/www/html/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 113
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(113): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(350): FotografiaServicio::guardar('1', 'jpg', '/var/www/proyec...')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 254 *****************************
+codigo Error: 254
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  debe ser superusuario para utilizar lo_import() en el extremo del servidor
+HINT:  Todos los usuarios pueden utilizar lo_import() de cliente proporcionada por libpq.
+Archivo Error: /var/www/html/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 113
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(113): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(350): FotografiaServicio::guardar('1', 'jpg', '/var/www/proyec...')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 255 *****************************
+codigo Error: 255
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «undefined»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 196
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(196): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(197): CursoServicio::modificarCurso('10', '1', '4', 'undefined', 'A', NULL, NULL, '25', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(58): CursoControlador::modificarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 256 *****************************
+codigo Error: 256
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «undefined»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 196
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(196): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(197): CursoServicio::modificarCurso('10', '1', '4', 'undefined', 'A', NULL, NULL, '25', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(58): CursoControlador::modificarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 257 *****************************
+codigo Error: 257
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: « No hay coincidencias »
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 196
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(196): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(197): CursoServicio::modificarCurso('11', '1', '5', ' No hay coincid...', 'A', NULL, NULL, '30', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(58): CursoControlador::modificarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 258 *****************************
+codigo Error: 258
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: « No hay coincidencias »
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 196
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(196): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(197): CursoServicio::modificarCurso('14', '1', '11', ' No hay coincid...', 'A', NULL, NULL, '30', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(58): CursoControlador::modificarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

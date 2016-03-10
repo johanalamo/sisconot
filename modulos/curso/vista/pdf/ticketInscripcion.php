@@ -58,11 +58,8 @@
         $pdf->Ln();
         $pdf->Cell(0,5,"Sello del Departamento",0,0,'C',true);
         $pdf->Ln();
-        $pdf->Ln();
         $a = getdate();
-
         $hora = "am";
-
         if($a['hours'] > 12){
             $a['hours'] -= 12;
             $hora = "pm";
@@ -70,10 +67,8 @@
         else if($a['hours'] == 12){
             $hora = "pm";
         }
-
         $pdf->Cell(0,5,"Este ticket fue generado por el Sistema de Gestión Académica (SISGESAC) el ".$a['mday']."/".$a['mon']."/".$a['year']." a las ".$a['hours'].":".$a['minutes'].$hora,0,0,'C',true);
         $pdf->Output($info[0]['nombreper']."-".$info[0]['nombreest']."TICKET_INSCRIPCION".".pdf", 'D');
-
     }
     else{
         throw new Exception("No se puede generar el PDF.");

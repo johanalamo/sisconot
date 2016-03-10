@@ -10,12 +10,12 @@ class EmpleadoControlador
 	/**
 	 * Función pública y estática que permite manejar el requerimiento
 	 * (o acción) indicado por el usuario.
-	 * 
-	 * Todas las acciones de este módulo trabajan en conjunto con la clase Vista para 
+	 *
+	 * Todas las acciones de este módulo trabajan en conjunto con la clase Vista para
      * mostrar el resultado de la petición del usuario y dicha interacción con la base de datos.
      * Para más información de esta clase, visite:
 	 *
-	 * @link /base/clases/vista/Vista.php 	Clase Vista.	
+	 * @link /base/clases/vista/Vista.php 	Clase Vista.
      *
 	 * @var string $accion 					Acción requerida por el usuario.
 	 *
@@ -24,13 +24,12 @@ class EmpleadoControlador
 	 */
 	public static function manejarRequerimiento()
 	{
-		
-		$accion = PostGet::obtenerPostGet('m_accion');		
+
+		$accion = PostGet::obtenerPostGet('m_accion');
 
 		//si $accion viene null se tomara por defecto la accion de listar
 		if(!$accion)
 			$accion = 'listar';
-
 		if($accion == 'listar')
 			self::listar();
 		else if($accion == 'agregar')
@@ -39,6 +38,8 @@ class EmpleadoControlador
 			self::modificar();
 		else if($accion == 'eliminar')
 			self::eliminar();
+		else if($accion == 'auto')
+			self::buscarEmpleado();
 		else
 			throw new Exception ("'EmpleadoControlador' La accion $accion no es valida");
 	}
@@ -46,11 +47,11 @@ class EmpleadoControlador
 
 	/**
 	 * Función pública y estática que permite listar a un empleado que esta registrado en la DB.
-	 * 
+	 *
 	 *
 	 * se obtiene el estudiante, y se lista la informacion obtenida
-	 * 
-	 * 		
+	 *
+	 *
 	 *
 	 * @throws Exception 		Si es capturada alguna excepción en el servicio.
 	 */
@@ -67,17 +68,17 @@ class EmpleadoControlador
 			$codPersona=PostGet::obtenerPostGet("codPersona");
 			$codigo=PostGet::obtenerPostGet("codEmpleado");
 
-			
 
-			
+
+
 
 			if($pnf=="seleccionar")
 				$pnf=null;
-			
+
 			if($estado=="seleccionar")
 				$estado=null;
-							
-				
+
+
 			if($instituto=="seleccionar")
 				$instituto=null;
 
@@ -94,22 +95,22 @@ class EmpleadoControlador
 
 			$personas=EmpleadoServicio::listarPersonaEmpleado($pnf,$estado,$instituto);
 			$empleado=EmpleadoServicio::listar(null,null,null,$codigo,$codPersona);
-						
+
 			vista::asignarDato('persona',$personas);
 
-			if(!$personas)					
+			if(!$personas)
 				Vista::asignarDato('persona',null);
 
 			if(!$codPersona)
 				Vista::asignarDato('empleado',null);
-			//var_dump($instituto);
+
 			$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
-			$instituto=InstitutoServicio::listarInstitutos();			
+			$instituto=InstitutoServicio::listarInstitutos();
 			$estado=PersonaServicio::listarEstado("docente");
 			Vista::asignarDato('instituto',$instituto);
 			Vista::asignarDato('pnf',$pnf);
 			Vista::asignarDato('estado',$estado);
-			Vista::asignarDato('tipo_persona',$tipo_persona);			
+			Vista::asignarDato('tipo_persona',$tipo_persona);
 			Vista::asignarDato('empleado',$empleado);
 			Vista::asignarDato('codPersona',$codPersona);
 			Vista::asignarDato('empleado2',PostGet::obtenerPostGet("empleado2"));
@@ -117,7 +118,7 @@ class EmpleadoControlador
 
 			Vista::Mostrar();
 
-			
+
 		}
 		catch(Exception $e){
 			throw $e;
@@ -126,15 +127,15 @@ class EmpleadoControlador
 
 	/**
 	 * Función pública y estática que permite almacenar la informacion de un empleado en la DB
-	 *  
-	 * se determina si el estado de la operacion, si es N se va agregar un nuevo  empleado a 
+	 *
+	 * se determina si el estado de la operacion, si es N se va agregar un nuevo  empleado a
 	 * la base de datos, si es M se va a modificar dicha informacion. Luego de determianar
 	 * el estado se llamara al servicio correspondiente.
 	 *
 	 * @throws Exception 		Si es capturada alguna excepción en el servicio.
 	 */
 	public static function agregar()
-	{	
+	{
 		try
 		{
 			$codPersona=PostGet::obtenerPostGet("codPersona");
@@ -149,7 +150,7 @@ class EmpleadoControlador
 			$es_ministerio=PostGet::obtenerPostGet("es_ministerio");
 			$es_jef_pensum=PostGet::obtenerPostGet("es_jef_pensum");
 			$Docente=PostGet::obtenerPostGet("Docente");
-			
+
 			$response=null;
 			$response2=null;
 
@@ -157,45 +158,45 @@ class EmpleadoControlador
 				$codigo=null;
 			if(!$fecFin)
 				$fecFin=null;
-				
+
 			$es_jef_con_estudio=trim($es_jef_con_estudio);
 			$es_ministerio=trim($es_ministerio);
 			$es_jef_pensum=trim($es_jef_pensum);
 			$Docente=trim($Docente);
-			
-			
-				
+
+
+
 			if($es_jef_con_estudio=="")
 				$es_jef_con_estudio='false';
 
-				
+
 			if($es_ministerio=="")
 				$es_ministerio='false';
-			
+
 			if($es_jef_pensum=="")
 				$es_jef_pensum='false';
-				
+
 			if($Docente=="")
 				$Docente='false';
-				
+
 
 			if(!$codigo)
-				$response = EmpleadoServicio::agregar($codPersona, 	$codInstituto, 			$codPensum, 	
-											$codEstado,		$fecInicio, 		$fecFin, 
+				$response = EmpleadoServicio::agregar($codPersona, 	$codInstituto, 			$codPensum,
+											$codEstado,		$fecInicio, 		$fecFin,
 											$es_jef_pensum, $es_jef_con_estudio,$es_ministerio,
 											$Docente,		$observaciones
 										);
 			else{
-				
+
 				if(EmpleadoServicio::listar(null,null,null,$codigo))
-					$response2= EmpleadoServicio::modificar($codigo,		$codPersona, 	$codInstituto, 			$codPensum, 	
-											$codEstado,		$fecInicio, 		$fecFin, 
+					$response2= EmpleadoServicio::modificar($codigo,		$codPersona, 	$codInstituto, 			$codPensum,
+											$codEstado,		$fecInicio, 		$fecFin,
 											$es_jef_pensum, $es_jef_con_estudio,$es_ministerio,
 											$Docente,		$observaciones
 										);
 				else
-					$response = EmpleadoServicio::agregar($codPersona, 	$codInstituto, 			$codPensum, 	
-											$codEstado,		$fecInicio, 		$fecFin, 
+					$response = EmpleadoServicio::agregar($codPersona, 	$codInstituto, 			$codPensum,
+											$codEstado,		$fecInicio, 		$fecFin,
 											$es_jef_pensum, $es_jef_con_estudio,$es_ministerio,
 											$Docente,		$observaciones
 										);
@@ -223,7 +224,7 @@ class EmpleadoControlador
 				else
 					Vista::asignarDato('mensaje',"No se pudo modificar al empleado.");
 			}
-			
+
 
 			Vista::mostrar();
 
@@ -237,7 +238,7 @@ class EmpleadoControlador
 
 	/**
 	 * Función pública y estática que permite modificar la informacion de un empleado
-	 * que estan registradas en la DB. 
+	 * que estan registradas en la DB.
 	 *
 	 * Se envia el codigo de la persona a la cual se desea modificar a informacion,
 	 * se lista toda la informacion de la persona.
@@ -247,7 +248,7 @@ class EmpleadoControlador
 		/*public static function modificar()
 		{
 			try
-			{		
+			{
 
 				$cod_persona=PostGet::obtenerPostGet("codPersona");
 				$codigo=PostGet::obtenerPostGet("codEmpleado");
@@ -262,7 +263,7 @@ class EmpleadoControlador
 				//self::listar();
 
 				if($empleado)
-				{					
+				{
 					Vista::asignarDato('empleado',$empleado);
 					Vista::asignarDato('estatus',1);
 				}
@@ -280,7 +281,7 @@ class EmpleadoControlador
 
 	/**
 	 * Función pública y estática que permite eliminar a un empleado de la base de datos
-	 * de manera permanente. 
+	 * de manera permanente.
 	 *
 	 * Se envia el codigo del empleado al servicio, a la cual se desea eliminar..
 	 *
@@ -305,6 +306,44 @@ class EmpleadoControlador
 
 		}
 		catch (Exception $e){
+			throw $e;
+		}
+	}
+
+	public static function buscarEmpleado(){
+		try{
+			$patron = PostGet::obtenerPostGet("patron");
+			$pensum = PostGet::obtenerPostGet("pensum");
+			$instituto = PostGet::obtenerPostGet("instituto");
+
+			$r = EmpleadoServicio::buscarDocentes($patron,$pensum,$instituto);
+
+			$cad = "[";
+			if ($r != null){
+				$c = 0;
+				foreach ($r as $docente) {
+					if ($c > 0)
+						$cad .= ",";
+					$cad .= "{";
+					$cad .= '"label": "' . $docente['nombre1']. ' ' . $docente['apellido1'] . '", ';
+					$cad .= '"value": '.$docente['codigo'];
+					$cad .= "}";
+					$c++;
+				}
+			}
+			else{
+				$cad .= "{";
+				$cad .= '"label":"No hay coincidencias", ';
+				$cad .= '"value": "null"';
+				$cad .= "}";
+			}
+			$cad .= "]";
+
+			Vista::asignarDato("auto",$cad);
+
+			Vista::mostrar();
+		}
+		catch(Exception $e){
 			throw $e;
 		}
 	}

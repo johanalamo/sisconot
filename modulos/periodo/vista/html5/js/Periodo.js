@@ -117,7 +117,7 @@ function succ(data){
 }
 
 function err(data){
-	alert("err");
+	mostrarMensaje("Error de comunicación con el servidor. Es posible que su petición no se haya procesado exitosamente.",2);
 	console.log(data);
 }
 
@@ -464,5 +464,8 @@ function succAgregarPeriodo(data){
 		mostrarMensaje("El periodo se ha agregado exitosamente con el código "+data.codPeriodo+".",1);
 		$("#dialogoPerAgregar").modal('hide');
 		cargarPeriodosP();
+	}
+	else{
+		mostrarMensaje("El periodo no se pudo agregar.",2);
 	}
 }

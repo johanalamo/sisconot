@@ -692,7 +692,7 @@ function cargarCursosPensum(){
 						"seccion"		,		$("#sec").val().toUpperCase(),
 						"trayecto"		,		$("#selTra").val()[0],
 						"periodo"		,		$("#selPer").val()[0]);
-		console.log(arr);
+
 		ajaxMVC(arr,succCargarCursosPensum,err);
 	}
 	else{
@@ -749,12 +749,11 @@ function succCargarCursosPensum(data){
 
 
 			if(cur[i]['nombredocente'] == null)
-				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstadoCurso("+i+")' id='nombredocente"+i+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='docente' onclick='autocompletarDocente()' onchange='actualizarEstadoCurso("+i+")' id='"+i+"'></td>";
 			else
-				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstadoCurso("+i+")' id='nombredocente"+i+"' value='"+cur[i]['nombredocente']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='docente' onclick='autocompletarDocente()' onchange='actualizarEstadoCurso("+i+")' id='"+i+"' value='"+cur[i]['nombredocente']+"'></td>";
 
-			cad += "<input type='hidden' id='doc"+i+"' value=''>";
-
+			cad += "<input type='hidden' id='doc"+i+"' value='"+cur[i]['coddocente']+"'>";
 
 			if(cur[i]['fec_inicio'] == null)
 				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstadoCurso("+i+")' id='fecini"+i+"'></td>";
@@ -1439,9 +1438,6 @@ function inscribirUC(){
 		}
 	}
 
-	listarUniEstudiante();
-	listarUniEstudiante();
-
 	$("#btnTicket").remove();
 
 	$("#ticket").append("<button id='btnTicket' class='btn btn-danger btn-xs' onclick='generarTicket()'>Generar Ticket de Inscripción</button>");
@@ -1454,6 +1450,7 @@ function generarTicket(){
 function succInscribirUC(data){
 	var msj = data.mensaje;
 	mostrarMensaje(msj,1);
+	listarUniEstudiante();
 }
 
 function succListarUniEstudiante(data){
@@ -1498,6 +1495,56 @@ function succListarUniEstudiante(data){
 		$("#tableC").remove();
 		mostrarMensaje("El estudiante no tiene unidades curriculares con estado 'Cursando'",3);
 	}
+}
+
+function autocompletarDocente(){
+	$(".docente").autocomplete({
+			delay: 200,  //milisegundos
+			minLength: 1,
+			source: function( request, response ) {
+				var a=Array("m_modulo"		,		"empleado",
+							"m_accion"		,		"auto",
+							"patron"		,		request.term,
+							"instituto"		,		$("#selInst").val()[0],
+							"pensum"		,		$("#selPen").val()[0]
+							);
+
+				ajaxMVC(a,function(data){
+							return response(data);
+						  },
+						  function(data){
+							return response([{"label": "Error de conexión", "value": {"nombreCorto":""}}]);
+
+						   }
+						);
+
+			},
+			select: function (event, ui){
+				if(ui.item.value == "null"){
+					$(this).val("");
+					event.preventDefault();
+					$("#doc"+$(this).attr("id")).val("");
+				}
+				else{
+					$(this).val(ui.item.label);
+					event.preventDefault();
+					$("#doc"+$(this).attr("id")).val(ui.item.value);
+				}
+
+			},
+			focus: function (event, ui){
+				if(ui.item.value == "null"){
+					$(this).val("");
+					event.preventDefault();
+					$("#doc"+$(this).attr("id")).val("");
+				}
+				else{
+					$(this).val(ui.item.label);
+					event.preventDefault();
+					$("#doc"+$(this).attr("id")).val(ui.item.value);
+				}
+			}
+	});
 }
 
 function retirarUni(){
