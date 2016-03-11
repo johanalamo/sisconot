@@ -22,31 +22,27 @@ class FotoControlador{
 
 		}
 		elseif(!$dimensionesMinimas){
-			return false;
+			return '2';
 		}
 		else
 		{		
-			var_dump("fdd");
 			return true;
 		}
 
 
 	}
+
 	/*la funcion abrir imagen abre la imagen de la planilla para poder ser trabajada*/
 	public static function obtener_foto($ruta)
-	{
-		if(!strpos($ruta, ".jpg")===false)
+	{	
+		if(!strpos(strtoupper($ruta), ".JPG")===false || !strpos(strtoupper($ruta), ".JPEG")===false){
 			return imagecreatefromjpeg($ruta);	//Se abre la imagen donde esta la planilla.
-		elseif(!strpos($ruta, ".png")===false)
+		}
+		elseif(!strpos(strtoupper($ruta), ".PNG")===false)
 			return imagecreatefrompng($ruta);  //Se guardan los cambios realizados.	
-		elseif(!strpos($ruta, ".gif")===false)
+		elseif(!strpos(strtoupper($ruta), ".GIF")===false)
 			return imagecreatefromgif($ruta);//Se guardan los cambios realizados.	
-		elseif(!strpos($ruta, ".JPG")===false)
-			return imagecreatefromjpeg($ruta);	//Se abre la imagen donde esta la planilla.
-		elseif(!strpos($ruta, ".PNG")===false)
-			return imagecreatefrompng($ruta);  //Se guardan los cambios realizados.	
-		elseif(!strpos($ruta, ".GIF")===false)
-			return imagecreatefromgif($ruta);//Se guardan los cambios realizados.	
+			
 	}
 
 	/*La funcion get_dimensiones obtiene la cantidad de pixeles de la imagen
@@ -79,18 +75,12 @@ class FotoControlador{
 		
 		if($cambio!=null)
 		{
-			if(!strpos($ruta ,".jpg")===false)
+			if(!strpos(strtoupper($ruta) ,".JPG")===false || !strpos(strtoupper($ruta) ,".JPEG")===false)
 				imagejpeg($cambio,$ruta);  //Se guardan los cambios realizados.	
-			elseif(!strpos($ruta, ".png")===false)
+			elseif(!strpos(strtoupper($ruta), ".PNG")===false)
 				imagepng($cambio,$ruta);  //Se guardan los cambios realizados.	
-			elseif(!strpos($ruta, ".gif")===false)
+			elseif(!strpos(strtoupper($ruta), ".GIF")===false)
 				imagegif($cambio,$ruta);  //Se guardan los cambios realizados.
-			elseif(!strpos($ruta ,".JPG")===false)
-				imagejpeg($cambio,$ruta);  //Se guardan los cambios realizados.	
-			elseif(!strpos($ruta, ".PNG")===false)
-				imagepng($cambio,$ruta);  //Se guardan los cambios realizados.	
-			elseif(!strpos($ruta, ".GIF")===false)
-				imagegif($cambio,$ruta);  //Se guardan los cambios realizados.	
 		}
 		
 	}

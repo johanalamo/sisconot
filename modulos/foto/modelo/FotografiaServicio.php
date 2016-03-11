@@ -72,7 +72,7 @@ class FotografiaServicio {
 	Excepciones que lanza: 
 	Exception: si ocurre un error en la conexión a la base de datos.	
 	*/	
-	static public function eliminar($codigo){
+	/*static public function eliminar($codigo){
 		global $gbConectorBD;
 		$sql = "delete from ts_fotografia 
 		         where cast(cod_persona as varchar(10)) = $1;";           
@@ -86,7 +86,7 @@ class FotografiaServicio {
 		else 
 			return true;
 		
-	}
+	}*/
 
 	/* método público que permite guardar  todos los datos referentes a una fotografía en la base de datos. 
 	Parámetros de entrada: 
@@ -109,7 +109,8 @@ class FotografiaServicio {
 				$consulta = "INSERT INTO sis.t_archivo (codigo,tipo,archivo) 				
 								VALUES 
 								(?,?,lo_import(?));";
-				$ejecutar=$conexion->prepare($consulta);		
+				$ejecutar=$conexion->prepare($consulta);
+						
 				$ejecutar-> execute(array($cod_persona,$tipo,$ruta));
 			}
 			else{

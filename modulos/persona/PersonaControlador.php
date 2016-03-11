@@ -178,7 +178,7 @@
 				//var_dump($persona);
 
 				if($foto){					
-					$ruta="/var/www/proyecto/GitHub/sisconot/temp/".$codigo.".".$foto[0]["tipo"];
+					$ruta="/var/www/sisconot/temp/".$codigo.".".$foto[0]["tipo"];
 					FotografiaServicio::extraerEn($codigo,$ruta);
 				}
 
@@ -190,7 +190,8 @@
 					Vista::asignarDato('persona',$persona);
 					Vista::asignarDato('estudiante',$estudiante);
 					Vista::asignarDato('empleado',$empleado);
-					Vista::asignarDato('foto',"temp/".$codigo.".".$foto[0]["tipo"]);
+					if($foto)
+						Vista::asignarDato('foto',"temp/".$codigo.".".$foto[0]["tipo"]);
 					//var_dump($foto[0]["archivo"]);
 
 					Vista::asignarDato('estatus',1);
@@ -314,7 +315,7 @@
 					$tipo=explode(".",$archivo["name"]);
 					$arch=pg_escape_string($archivo["tmp_name"]);	
 					if($tipo){
-						$ruta="/var/www/proyecto/GitHub/sisconot/temp/".$codigo.".".$tipo[1];
+						$ruta="/var/www/sisconot/temp/".$codigo.".".$tipo[1];
 						copy($arch,$ruta);
 						Vista::asignarDato("ruta",$ruta);
 						$foto=FotoControlador::Iniciar();
@@ -328,7 +329,7 @@
 					$arch=pg_escape_string($archivo["tmp_name"]);
 					//PersonaServicio::modificarFoto($codigo,$arch,$a[1],$archivo["name"]);
 					if($tipo){						
-						$ruta="/var/www/proyecto/GitHub/sisconot/temp/".$codigo.".".$tipo[1];
+						$ruta="/var/www/sisconot/temp/".$codigo.".".$tipo[1];
 						unlink($ruta);
 						copy($arch,$ruta);
 						//var_dump($ruta);
@@ -345,15 +346,17 @@
 						PersonaServicio::agregarFoto($persona[0]["cod_persona"],$foto,$a[1]);
 					*/				
 				}
-				
-				if($foto && $response>0 || $response2>0){
+				if($foto===true && ($response>0 || $response2>0)){
 					FotografiaServicio::guardar($codigo,$tipo[count($tipo)-1],$ruta);
 				}
+				unlink($ruta);
 				
 
-				if($foto){
+				if($foto!=2 && $foto==true){
 					Vista::asignarDato("foto",$ruta);
-					//unlink($ruta);
+				}
+				else if($foto==='2'){
+					Vista::asignarDato("mensajeFoto","la imagen NO posee el tamaño minimo para almacernarse");
 				}
 				
 					

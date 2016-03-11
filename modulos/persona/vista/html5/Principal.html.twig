@@ -145,7 +145,7 @@
 							
 							<div class="form-group espacio-input col-md-3">
 								Fecha de Nacimiento
-								 <input type="date" name="fec_nac" id="fec_nac" class="form-control" value="2-9-1992">
+								 <input type="date" name="fec_nac" id="fec_nac" class="form-control"  onkeyup="validarFecha('#fec_nac',false)">
 							</div>
 							
 							
@@ -261,7 +261,7 @@
 							<!--<input type="text" value="N" name="estado" id='estado'>-->
 							<input type="hidden" name="codigoPersona" id="codigoPersona">
 							<div class="text-right formuario-persona form-group">
-								<button type="button" name="grd_persona" id="guardarPersona" class="btn btn-success" onclick="guardarPersona(); verEstadoEs();"><b>Guardar</b></button>
+								<button type="button" name="grd_persona" id="guardarPersona" class="btn btn-success" onclick="preGuardarPersona(); verEstadoEs();"><b>Guardar</b></button>
 								<button class="btn btn-info" onclick="nuevoPersonaEstudiante();" title="Agregar una nueva persona" type="button">
 									Nuevo
 								</button>

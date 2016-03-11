@@ -82,9 +82,11 @@ $(document).ready(function() {
 	tabsBloqueados();
 	removerEsEm();
 	mostrarInformaion();
-	//bloquearCampos();
+
 
 } );
+
+
 
 function getVarsUrl(){
     var url= location.search.replace("?", "");
@@ -163,8 +165,8 @@ function montarSelectInstituto(data){
 
 	//if(!data.empleado2){
 		//$("#selectEstados").remove();	
-		$("#selectIns").remove();
-		cadena+="<div id='selectIns'> institutos ";
+	$("#selectIns").remove();
+	cadena+="<div id='selectIns'> institutos ";
 	/*}
 	else{
 		$("#selectInsEm").remove();
@@ -182,12 +184,10 @@ function montarSelectInstituto(data){
 	else
 		cadena += "<select onchange='verPersona(); verPNF();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar' >Seleccionar</option>";
+	if(data.instituto)
 	for(var x=0; x<data.instituto.length;x++)
 	{
-
-	 		cadena += '<option value="'+data.instituto[x]["codigo"]+'">'+data.instituto[x]["nom_corto"]+'</option>';
-	 	/*else
-	 		cadena += '<option selected="selected" value="'+data.instituto[x]["codigo"]+'">'+data.instituto[x]["nom_corto"]+'</option>';*/
+		cadena += '<option value="'+data.instituto[x]["codigo"]+'">'+data.instituto[x]["nom_corto"]+'</option>';
 	}
 	cadena +="</select>";
 	//if(!data.empleado2){
@@ -309,9 +309,11 @@ function montarSelectEstado(data){
 	*/else
 		cadena += "<select onchange='verPersona();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar'>Seleccionar</option>";
-	for(var x=0; x<data.estado.length;x++)
-	{
-		cadena += '<option value="'+data.estado[x]["codigo"]+'">'+data.estado[x]["nombre"]+'</option>';
+	if(data.estado){
+		for(var x=0; x<data.estado.length;x++)
+		{
+			cadena += '<option value="'+data.estado[x]["codigo"]+'">'+data.estado[x]["nombre"]+'</option>';
+		}
 	}
 	cadena +="</select></div>";
 	if(!data.empleado2)
@@ -330,6 +332,7 @@ function montarSelectEstado(data){
 */
 function verPersona(codi=null){
 	$("#tipoPersona").val("ambos");
+	$("#campo").val("");
 	var arr = Array("m_modulo"	,	"persona",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
@@ -371,6 +374,7 @@ function succFoto(data){
 */
 function verPersonaEmpleado(codi=null){
 	$("#tipoPersona").val("empleado");
+	$("#campo").val("");
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
@@ -393,6 +397,7 @@ function verPersonaEmpleado(codi=null){
 */
 function verPersonaEstudiante(codi=null){
 	$("#tipoPersona").val("estudiante");
+	$("#campo").val("");
 	var arr = Array("m_modulo"	,	"estudiante",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
@@ -413,8 +418,11 @@ function montarPersona(data){
 
 	cadena="";
 	cadena+='<tbody id="listarPersona">';
-
+	$("#btnVerPersona").hide();
+	$("#btnModificarPersona").hide();	
 	if(data.persona!=null){
+		$("#btnVerPersona").show();
+		$("#btnModificarPersona").show();
 		for(var x=0; x<data.persona.length; x++)
 		{
 			if(data.persona[x]['apellido2']!=null)
@@ -512,12 +520,60 @@ function montarModificarPersona(data){
 	
 }
 */
+
+function preGuardarPersona(){
+	var bool=true;
+	if(!validarSoloNumeros('#ced_persona',6,8,true)){
+		mostrarMensaje("Debe de introducir una cedula",2);
+		bool=false;
+	}
+	else if(!validarSoloTexto('#nombre1',2,20,true)){
+		mostrarMensaje("Debe de introducir el primer nombre",2);
+		bool=false;
+	}
+	else if (!validarSoloTexto('#nombre2',2,20,false)){
+		mostrarMensaje("para los campos nombre solo se permiten letras",2);
+		bool=false;
+	}
+	else if (!validarSoloTexto('#apellido1',2,20,true)){
+		mostrarMensaje("Debe de introducir el primer apellido",2);
+		bool=false;
+	}
+	else if(!validarSoloTexto('#apellido2',2,20,false)){
+		mostrarMensaje("para los campos apellido solo se permiten letras",2);
+		bool=false;
+	}
+	else if(!validarFecha('#fec_nac',true)){
+		mostrarMensaje("debe de introducir una fecha valida",2);
+		bool=false;
+	}
+	else if(!validarTelefono('#telefono1',7,15,true)){
+		mostrarMensaje("debes de introducir un numero telefonico",2);
+		bool=false;
+	}
+	else if(!validarTelefono('#telefono2',7,15,false)){
+		mostrarMensaje("ingresa un numero telefonico valido",2);
+		bool=false;
+	}
+	else if(!validarEmail('#cor_personal',10,50,true)){
+		mostrarMensaje("introduzca un E-mail",2);
+		bool=false;
+	}
+	else if(!validarEmail('#cor_institucional',10,50,false)){
+		mostrarMensaje("introduzca un E-mail valido",2);
+		bool=false;
+	}
+
+	if(bool)
+		guardarPersona();
+}
+
+
 /**
 * Funcion Java Script que permite guardar los datos de a una persona
 * para que luego sean guaradosde la base de datos. Los Datos son enviados
 * por ajax.
 */
-
 function guardarPersona(){
 
 //	var data = new FormData();
@@ -528,11 +584,11 @@ function guardarPersona(){
 	   a='archivo';
 	   b=file;
 	});
-	
+
 	var arr= Array( "m_modulo"	,	"persona",
 					"m_accion"	,	"agregar",
-					"m_modulo"	,	"persona",
-					"m_accion"	,	"agregar",
+					//"m_modulo"	,	"persona",
+					//"m_accion"	,	"agregar",
 					"cedPersona",	$("#ced_persona").val(),
 					"rifPersona",	$("#rif_persona").val(),
 					"nombre1"	,	$("#nombre1").val(),
@@ -711,7 +767,6 @@ function succMontarModificarPersona(data){
 	$('#codigoPersona').val(data.persona[0]['codigo']);
 	//setTimeout(function(){ 
 	if(data.foto){
-		
 		$("#imagen").remove();
 		var cadena ="";
 		cadena+="<div id='imagen'>";
@@ -820,7 +875,8 @@ function succAgregarPersona(data){
 				//window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_accion=listar&m_formato=html5&persona='+codigo+'&accion=M';
 			//mostrarInformaion();
 		}
-		
+		if(data.mensajeFoto)
+			mostrarMensaje(data.mensajeFoto,2);		
 
 	}
 
