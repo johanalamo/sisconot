@@ -82,7 +82,8 @@ $(document).ready(function() {
 	tabsBloqueados();
 	removerEsEm();
 	mostrarInformaion();
-
+	activarCal();
+	//activarFecha(".date");
 
 } );
 
@@ -357,14 +358,7 @@ function buscarPorCampo(){
 	ajaxMVC(arr,montarPersona,error);
 }
 
-function guardarFoto(){
-	//var data = new FormData();
 
-}
-
-function succFoto(data){
-//	alert("foto");
-}
 
 /**
 * Funcion Java Script que permite listar Todos los empleado
@@ -680,6 +674,7 @@ function mostrarInformaion(){
 			$("#nuevo_empleado").remove();
 			$("#nuevo_estudiante").remove();
 			$("#fotoSpan").remove();
+			$("#borrar_persona").remove();
 		}
 		else {
 			$("#md_estudiante").remove();
@@ -693,6 +688,7 @@ function mostrarInformaion(){
 			$("#nv_empleado").remove();
 			$("#nv_estudiante").remove();
 			$("#foto").remove();
+			$("#borrar_persona").remove();
 		}
 	//	alert("$$$$$$$"); 	
 		ajaxMVC(arr,succMontarModificarPersona,error);
@@ -798,7 +794,6 @@ function succMontarModificarPersona(data){
 * por ajax.
 */
 function borrarPersona(){ //activoo controlador.
-
 	var arr = Array("m_modulo"	,	"persona",
 					"m_accion"	,	"eliminar",
 					"cod_persona",  $("#cod_persona").val()									
@@ -810,17 +805,17 @@ function borrarPersona(){ //activoo controlador.
 
 function succMontarEliminarPersona (data){
 
-	if(data.estatus>0)
-		montarEliminarPersona(data);
+	if(data.estatus>0){
+		mostrarMensaje(data.mensaje,1);
+		setTimeout(function(){ 
+			window.location.href = 'index.php?m_accion=listar&m_modulo=persona&m_vista=Listar&m_formato=html5'
+		}, 2000);
+	}
 	else
-		mostrarMensaje(data.mensaje,4);
+		mostrarMensaje(data.mensaje,2);
 
 }
 
-function montarEliminarPersona(data){
-
-	
-}
 
 function fecActual(){
 	var today = new Date();
@@ -863,17 +858,15 @@ function succAgregarPersona(data){
 		
 		if(data.foto){
 			//alert(data.foto);
-			/*$("#imagen").remove();
+			$("#imagen").remove();
 			var cadena ="";
 			cadena+="<div id='imagen'>";
 			cadena+="<img src="+data.foto+" width='200' height='200'>";
 			cadena+="</div>";
 			
 			$("#superImagen").append(cadena);
-			$("#imagen").remove();*/
+			$("#imagen").remove();
 			modificarPersona(data.codPersona); 
-				//window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_accion=listar&m_formato=html5&persona='+codigo+'&accion=M';
-			//mostrarInformaion();
 		}
 		if(data.mensajeFoto)
 			mostrarMensaje(data.mensajeFoto,2);		
@@ -898,63 +891,18 @@ function exportarODT(){
 }
 
 function tabsBloqueados(){
-	/*var cadena="";
-		cadena+='<div id="tab">';
-		cadena+='<ul class="uk-tab" data-uk-tab>';
-		cadena+='<li class="uk-disabled"><a class="estudiante" onclick="verEstadoEs();">Estudiante</a></li>';
-		cadena+='<li class="uk-disabled"><a class="empleado" onclick="verEstadoEm();">Empleado</a></li>';			    
-		cadena+='<li class="uk-disabled"><a  >Bloqueado</a></li>';
-		cadena+='</ul>';
-		cadena+='</div>';
-	$("#tab").remove();
-	$(cadena).appendTo('#tabs');*/
+	
 	$("#tabsBloqueado").hide();
 	$("#tabsActivo").hide();
 	$("#historico").hide();
-	
-
-
 }
 
 function tabsActivos(){
-	/*var cadena="";
-	alert($("#cod_persona").val());
-	if($("#cod_persona").val()){
-		
-		cadena+='<div id="tab">';
-		cadena+='<ul class="uk-tab" data-uk-tab>';
-		cadena+='<li class="uk-active"><a href="" class="estudiante" onclick="verEstadoEs();">Estudiante</a></li>';
-		cadena+='<li><a href="" class="empleado" onclick="verEstadoEm();">Empleado</a></li>';			    
-		cadena+='<li class="uk-disabled"><a  >Bloqueado</a></li>';
-		cadena+='</ul>';
-		cadena+='</div>';
-		$("#tab").remove();
-		$(cadena).appendTo('#tabs');
-
-	}
-	else{
-		tabsBloqueados();
-	}*/
+	
 	$("#tabsBloqueado").hide();
 	$("#tabsActivo").show();
-	//$("#historico").show();
 }
-/*
-function AgregarEsEm(){
-	
-	if($("#cod_persona").val()){
-		
-		$("#estudiante").show();
-		$("#empleado").show();
-		//$('.estudiante_empleado_agregar').load('modulos/persona/vista/html5/js/EstudianteEmpleadoTabs.html');
 
-	}
-	else{
-		removerEsEm();
-		tabsBloqueados()
-	}
-}
-*/
 function removerEsEm(){
 	
 	$("#estudiante").hide();

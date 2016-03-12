@@ -212,7 +212,7 @@ class EmpleadoServicio
 							(select to_char(em.fec_inicio,'DD/MM/YYYY')) as fec_inicios,
 							(select to_char(em.fec_fin,'DD/MM/YYYY')) as fec_final
 						from sis.t_empleado em, sis.t_instituto i,
-							sis.t_est_docente e, sis.t_pensum p where true ";
+							sis.t_est_empleado e, sis.t_pensum p where true ";
 
 			if($codigo)
 				$consulta.= " and em.codigo = $codigo ";

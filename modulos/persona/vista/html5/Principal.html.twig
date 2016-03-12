@@ -145,7 +145,7 @@
 							
 							<div class="form-group espacio-input col-md-3">
 								Fecha de Nacimiento
-								 <input type="date" name="fec_nac" id="fec_nac" class="form-control"  onkeyup="validarFecha('#fec_nac',false)">
+								 <input type="date" name="fec_nac" id="fec_nac" class="form-control date"  onkeyup="validarFecha('#fec_nac',false)">
 							</div>
 							
 							
@@ -264,6 +264,10 @@
 								<button type="button" name="grd_persona" id="guardarPersona" class="btn btn-success" onclick="preGuardarPersona(); verEstadoEs();"><b>Guardar</b></button>
 								<button class="btn btn-info" onclick="nuevoPersonaEstudiante();" title="Agregar una nueva persona" type="button">
 									Nuevo
+								</button>
+							
+								<button class="btn btn-danger" id="borrar_persona"onclick="crearConfirm('¿Estas de acuerdo en borrar a esta persona?','borrarPersona()','Aceptar');" title="Eliminar una persona" type="button">
+									Eliminar
 								</button>
 							</div>
 							
@@ -468,7 +472,8 @@
 
 								<button type="button" name="nuevo_estudiante" id="nuevo_estudiante" class="btn btn-primary" onclick="nuevoEstudiante();" ><span class="fa fa-plus" ></span></button>
 								<div id="borrar_estudiante" class="form-group ">
-									<button type="button" name="borrar_estudiante" class="btn btn-danger" onclick="borrarEstudiante();"><span class="fa fa-times" ></span></button>
+									<button type="button" name="borrar_estudiante" class="btn btn-danger" onclick="crearConfirm('¿Estas de acuerdo en borrar a este estudiante?',
+									'borrarEstudiante()','Aceptar');"><span class="fa fa-times" ></span></button>
 								</div>
 								<button type="button" name="editar_estudiante" id="editar_estudiante" class="btn btn-info" onclick="modificarPersona();"><span class="fa fa-pencil" ></span></button>
 								
@@ -499,7 +504,8 @@
 
 								<button type="button" name="nuevo_empleado" id="nuevo_empleado" class="btn btn-primary" onclick="NuevoEmpleado();"><span class="fa fa-plus" ></span></button>
 								<div id="borrar_empleado" class="form-group ">
-									<button type="button" name="borrar_empleado" class="btn btn-danger" onclick="borrarEmpleado();"><span class="fa fa-times" ></span></button>
+									<button type="button" name="borrar_empleado" class="btn btn-danger" onclick="crearConfirm('¿Estas de acuerdo en borrar a este empleado?',
+									'borrarEmpleado()','Aceptar');"><span class="fa fa-times" ></span></button>
 								</div>
 								<button type="button" name="editar_empleado" id="editar_empleado" class="btn btn-info" onclick="modificarPersona();"><span class="fa fa-pencil" ></span></button>
 								

@@ -222,7 +222,7 @@ COMMENT ON COLUMN sis.t_uni_tra_pensum.cod_tipo IS 'Alguna otra información rel
 CREATE TABLE sis.t_archivo (
     codigo integer NOT NULL,
     tipo character varying(30),
-    archivo oid
+    archivo varchar(200)
 );
 
 
