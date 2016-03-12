@@ -1,6 +1,3 @@
-\connect postgres;
-
-\connect bd_sisconot;
 
 CREATE FUNCTION sis.f_instituto_actualizar(p_codigo integer, p_nom_corto text, p_nombre text, p_direccion text) RETURNS integer
     LANGUAGE plpgsql
@@ -35,7 +32,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_instituto_actualizar(p_codigo integer, p_nom_corto text, p_nombre text, p_direccion text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_instituto_actualizar(p_codigo integer, p_nom_corto text, p_nombre text, p_direccion text) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_instituto_eliminar(p_codigo integer) RETURNS integer
@@ -58,7 +55,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_instituto_eliminar(p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_instituto_eliminar(p_codigo integer) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_instituto_insertar(text, text, text) RETURNS integer
     LANGUAGE plpgsql
@@ -99,7 +96,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_instituto_insertar(text, text, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_instituto_insertar(text, text, text) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_instituto_seleccionar() RETURNS refcursor
@@ -118,7 +115,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_instituto_seleccionar() OWNER TO sisconot;
+ALTER FUNCTION sis.f_instituto_seleccionar() OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_instituto_seleccionar(refcursor) RETURNS refcursor
@@ -136,7 +133,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_instituto_seleccionar(refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_instituto_seleccionar(refcursor) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_instituto_seleccionar_por_codigo(refcursor, integer) RETURNS refcursor
@@ -154,7 +151,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_instituto_seleccionar_por_codigo(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_instituto_seleccionar_por_codigo(refcursor, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_pensum_actualizar(integer, text, text, text, integer, integer, integer, date) RETURNS integer
@@ -183,7 +180,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_actualizar(integer, text, text, text, integer, integer, integer, date) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_actualizar(integer, text, text, text, integer, integer, integer, date) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_pensum_eliminar(integer) RETURNS integer
     LANGUAGE plpgsql
@@ -206,7 +203,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_eliminar(integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_eliminar(integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_pensum_insertar(text, text, text, integer, integer, integer, date) RETURNS integer
@@ -235,7 +232,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_insertar(text, text, text, integer, integer, integer, date) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_insertar(text, text, text, integer, integer, integer, date) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_pensum_por_codigo_seleccionar(refcursor, integer) RETURNS refcursor
@@ -253,7 +250,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_por_codigo_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_por_codigo_seleccionar(refcursor, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_pensum_por_filtro_seleccionar(refcursor, text, integer) RETURNS refcursor
@@ -323,7 +320,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_por_filtro_seleccionar(refcursor, text, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_por_filtro_seleccionar(refcursor, text, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_pensum_por_instituto_seleccionar(refcursor, integer) RETURNS refcursor
@@ -353,7 +350,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_por_instituto_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_por_instituto_seleccionar(refcursor, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_pensum_por_trayecto_seleccionar(refcursor, integer) RETURNS refcursor
@@ -384,7 +381,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_por_trayecto_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_por_trayecto_seleccionar(refcursor, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_pensum_seleccionar(refcursor) RETURNS refcursor
@@ -403,7 +400,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_seleccionar(refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_seleccionar(refcursor) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_prelacion_actualizar(integer, integer, integer, integer, integer) RETURNS integer
@@ -432,7 +429,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_prelacion_actualizar(integer, integer, integer, integer, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_prelacion_actualizar(integer, integer, integer, integer, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_prelacion_eliminar(integer) RETURNS integer
@@ -456,7 +453,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_prelacion_eliminar(integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_prelacion_eliminar(integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_prelacion_insertar(integer, integer, integer, integer) RETURNS integer
@@ -483,7 +480,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_prelacion_insertar(integer, integer, integer, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_prelacion_insertar(integer, integer, integer, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_prelacion_por_codigo_seleccionar(refcursor, integer) RETURNS refcursor
@@ -500,7 +497,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_prelacion_por_codigo_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_prelacion_por_codigo_seleccionar(refcursor, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_trayecto_actualizar(integer, integer, integer, text, integer, integer, integer, integer) RETURNS integer
@@ -530,7 +527,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_trayecto_actualizar(integer, integer, integer, text, integer, integer, integer, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_trayecto_actualizar(integer, integer, integer, text, integer, integer, integer, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_trayecto_eliminar(integer) RETURNS integer
@@ -554,7 +551,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_trayecto_eliminar(integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_trayecto_eliminar(integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_trayecto_insertar(integer, integer, text, integer, integer, integer, integer) RETURNS integer
@@ -583,7 +580,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_trayecto_insertar(integer, integer, text, integer, integer, integer, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_trayecto_insertar(integer, integer, text, integer, integer, integer, integer) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_trayecto_por_codigo_seleccionar(refcursor, integer) RETURNS refcursor
     LANGUAGE plpgsql
@@ -600,7 +597,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_trayecto_por_codigo_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_trayecto_por_codigo_seleccionar(refcursor, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_trayecto_seleccionar(refcursor) RETURNS refcursor
@@ -621,7 +618,7 @@ $_$;
 
 
 
-ALTER FUNCTION sis.f_trayecto_seleccionar(refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_trayecto_seleccionar(refcursor) OWNER TO adminsisgesac;
 
 
 
@@ -648,7 +645,7 @@ $BODY$
   LANGUAGE plpgsql VOLATILE
   COST 100;
 ALTER FUNCTION sis.f_trayecto_por_patron_seleccionar(refcursor, integer, text)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 
@@ -678,7 +675,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_uni_tra_pensu_actualizar(integer, integer, integer, integer, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_uni_tra_pensu_actualizar(integer, integer, integer, integer, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_uni_tra_pensu_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) RETURNS integer
@@ -709,7 +706,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_uni_tra_pensu_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_uni_tra_pensu_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_uni_tra_pensu_eliminar(integer) RETURNS integer
@@ -733,7 +730,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_uni_tra_pensu_eliminar(integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_uni_tra_pensu_eliminar(integer) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_uni_tra_pensu_insertar(integer, integer, integer, integer) RETURNS integer
     LANGUAGE plpgsql
@@ -758,7 +755,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_uni_tra_pensu_insertar(integer, integer, integer, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_uni_tra_pensu_insertar(integer, integer, integer, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_uni_tra_pensu_por_codigo_seleccionar(refcursor, integer) RETURNS refcursor
@@ -775,7 +772,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_uni_tra_pensu_por_codigo_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_uni_tra_pensu_por_codigo_seleccionar(refcursor, integer) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_unicurricular_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) RETURNS integer
     LANGUAGE plpgsql
@@ -813,7 +810,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_unicurricular_eliminar(integer) RETURNS integer
     LANGUAGE plpgsql
@@ -836,7 +833,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_eliminar(integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_eliminar(integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_unicurricular_insertar(text, text, integer, integer, integer, integer, integer, integer, text, text, text) RETURNS integer
@@ -870,7 +867,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_insertar(text, text, integer, integer, integer, integer, integer, integer, text, text, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_insertar(text, text, integer, integer, integer, integer, integer, integer, text, text, text) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_unicurricular_por_codigo_seleccionar(refcursor, integer) RETURNS refcursor
     LANGUAGE plpgsql
@@ -887,7 +884,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_por_codigo_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_por_codigo_seleccionar(refcursor, integer) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_unicurricular_por_patron_seleccionar(refcursor, text) RETURNS refcursor
     LANGUAGE plpgsql
@@ -905,7 +902,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_por_patron_seleccionar(refcursor, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_por_patron_seleccionar(refcursor, text) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_unicurricular_por_pen_y_tray_seleccionar(refcursor, integer, integer) RETURNS refcursor
     LANGUAGE plpgsql
@@ -925,7 +922,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_por_pen_y_tray_seleccionar(refcursor, integer, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_por_pen_y_tray_seleccionar(refcursor, integer, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_unicurricular_por_pensum_seleccionar(refcursor, integer) RETURNS refcursor
@@ -955,7 +952,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_por_pensum_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_por_pensum_seleccionar(refcursor, integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_unicurricular_seleccionar(refcursor) RETURNS refcursor
@@ -976,7 +973,7 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_seleccionar(refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_seleccionar(refcursor) OWNER TO adminsisgesac;
 
 
 
@@ -1020,7 +1017,7 @@ $BODY$
 language plpgsql volatile
 			COST 100;
 ALTER FUNCTION sis.f_curso_ins(integer, integer, integer, text, DATE, DATE, integer, text)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 CREATE OR REPLACE FUNCTION sis.f_curso_mod(
@@ -1060,7 +1057,7 @@ $BODY$
 language 	plpgsql volatile
 			COST 100;
 ALTER FUNCTION sis.f_curso_mod(integer, integer, integer, integer, text, DATE, DATE, integer, text)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 CREATE OR REPLACE FUNCTION sis.f_curso_del(p_codigo integer)
@@ -1081,7 +1078,7 @@ $BODY$
 LANGUAGE plpgsql
 	COST 100;
 ALTER FUNCTION sis.f_curso_del(integer)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 CREATE OR REPLACE FUNCTION sis.f_curso_sel(p_cursor refcursor)
@@ -1107,7 +1104,7 @@ $BODY$
 LANGUAGE plpgsql VOLATILE
 	COST 100;
 ALTER FUNCTION sis.f_curso_sel(refcursor)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 CREATE OR REPLACE FUNCTION sis.f_periodo_pensum_sel(p_cursor refcursor, p_codigo integer)
 RETURNS refcursor AS
@@ -1125,7 +1122,7 @@ BEGIN
     COST 100;
 
 ALTER FUNCTION sis.f_periodo_pensum_sel(refcursor, integer)
-    OWNER TO sisconot;
+    OWNER TO adminsisgesac;
 
 
 CREATE OR REPLACE FUNCTION sis.f_curso_sel_por_codigo(p_cursor refcursor, p_codigo integer)
@@ -1150,7 +1147,7 @@ $BODY$
 LANGUAGE plpgsql VOLATILE
 	COST 100;
 ALTER FUNCTION sis.f_curso_sel_por_codigo(refcursor, integer)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 
@@ -1188,7 +1185,7 @@ $BODY$
 language plpgsql volatile
 			COST 100;
 ALTER FUNCTION sis.f_cur_estudiante_ins(integer, integer, float, float, text, text)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 
@@ -1226,7 +1223,7 @@ $BODY$
 language 	plpgsql volatile
 			COST 100;
 ALTER FUNCTION sis.f_cur_estudiante_mod(integer, integer, integer, float, float, text, text)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 
@@ -1248,7 +1245,7 @@ $BODY$
 LANGUAGE plpgsql
 	COST 100;
 ALTER FUNCTION sis.f_cur_estudiante_del(integer)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 CREATE OR REPLACE FUNCTION sis.f_cur_estudiante_sel(p_cursor refcursor)
@@ -1272,7 +1269,7 @@ $BODY$
 LANGUAGE plpgsql VOLATILE
 	COST 100;
 ALTER FUNCTION sis.f_curso_sel(refcursor)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 CREATE OR REPLACE FUNCTION sis.f_cur_estudiante_sel_por_codigo(p_cursor refcursor, p_codigo integer)
@@ -1295,7 +1292,7 @@ $BODY$
 LANGUAGE plpgsql VOLATILE
 	COST 100;
 ALTER FUNCTION sis.f_cur_estudiante_sel_por_codigo(refcursor, integer)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 
@@ -1336,7 +1333,7 @@ $BODY$
 language plpgsql volatile
 			COST 100;
 ALTER FUNCTION sis.f_periodo_ins(text,integer,integer,date,date,text,text)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 
@@ -1375,7 +1372,7 @@ $BODY$
 language 	plpgsql volatile
 			COST 100;
 ALTER FUNCTION sis.f_periodo_mod(integer,text,integer,integer,date,date,text,text)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 
@@ -1397,7 +1394,7 @@ $BODY$
 LANGUAGE plpgsql
 	COST 100;
 ALTER FUNCTION sis.f_periodo_del(integer)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 CREATE OR REPLACE FUNCTION sis.f_periodo_sel(p_cursor refcursor)
@@ -1422,7 +1419,7 @@ $BODY$
 LANGUAGE plpgsql VOLATILE
 	COST 100;
 ALTER FUNCTION sis.f_periodo_sel(refcursor)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 CREATE OR REPLACE FUNCTION sis.f_periodo_sel_por_codigo(p_cursor refcursor, p_codigo integer)
@@ -1446,7 +1443,7 @@ $BODY$
 LANGUAGE plpgsql VOLATILE
 	COST 100;
 ALTER FUNCTION sis.f_periodo_sel_por_codigo(refcursor, integer)
-  OWNER TO sisconot;
+  OWNER TO adminsisgesac;
 
 
 
@@ -1470,7 +1467,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_empleado_act(p_codigo integer, p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_es_jef_pensum boolean, p_es_jef_con_estudio boolean, p_es_ministerio boolean, p_es_docente boolean, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_empleado_act(p_codigo integer, p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_es_jef_pensum boolean, p_es_jef_con_estudio boolean, p_es_ministerio boolean, p_es_docente boolean, p_observaciones text) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_empleado_eli(p_codigo integer) RETURNS integer
@@ -1490,7 +1487,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_empleado_eli(p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_empleado_eli(p_codigo integer) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_empleado_ins(p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_es_jef_pensum boolean, p_es_jef_con_estudio boolean, p_es_ministerio boolean, p_es_docente boolean, p_observaciones text) RETURNS integer
     LANGUAGE plpgsql
@@ -1517,7 +1514,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_empleado_ins(p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_es_jef_pensum boolean, p_es_jef_con_estudio boolean, p_es_ministerio boolean, p_es_docente boolean, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_empleado_ins(p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_es_jef_pensum boolean, p_es_jef_con_estudio boolean, p_es_ministerio boolean, p_es_docente boolean, p_observaciones text) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_empleado_sel(p_cursor refcursor) RETURNS refcursor
     LANGUAGE plpgsql
@@ -1531,7 +1528,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_empleado_sel(p_cursor refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_empleado_sel(p_cursor refcursor) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_empleado_sel_cod(p_cursor refcursor, p_codigo integer) RETURNS refcursor
@@ -1546,7 +1543,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_empleado_sel_cod(p_cursor refcursor, p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_empleado_sel_cod(p_cursor refcursor, p_codigo integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_estudiante_act(p_codigo integer, p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_num_carnet text, p_num_expediente text, p_cod_rusnies text, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_condicion text, p_observaciones text) RETURNS integer
@@ -1570,7 +1567,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_estudiante_act(p_codigo integer, p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_num_carnet text, p_num_expediente text, p_cod_rusnies text, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_condicion text, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_estudiante_act(p_codigo integer, p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_num_carnet text, p_num_expediente text, p_cod_rusnies text, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_condicion text, p_observaciones text) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_estudiante_eli(p_codigo integer) RETURNS integer
@@ -1590,7 +1587,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_estudiante_eli(p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_estudiante_eli(p_codigo integer) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_estudiante_ins(p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_num_carnet text, p_num_expediente text, p_cod_rusnies text, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_condicion text, p_observaciones text) RETURNS integer
@@ -1620,7 +1617,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_estudiante_ins(p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_num_carnet text, p_num_expediente text, p_cod_rusnies text, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_condicion text, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_estudiante_ins(p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_num_carnet text, p_num_expediente text, p_cod_rusnies text, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_condicion text, p_observaciones text) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_estudiante_sel(p_cursor refcursor) RETURNS refcursor
     LANGUAGE plpgsql
@@ -1635,7 +1632,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_estudiante_sel(p_cursor refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_estudiante_sel(p_cursor refcursor) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_persona_act(p_codigo integer, p_cedula integer, p_rif text, p_nombre1 text, p_nombre2 text, p_apellido1 text, p_apellido2 text, p_sexo text, p_fec_nacimiento date, p_tip_sangre text, p_telefono1 text, p_telefono2 text, p_cor_personal text, p_cor_institucional text, p_direccion text, p_discapacidad text, p_nacionalidad text, p_hijos integer, p_est_civil text, p_observaciones text) RETURNS integer
     LANGUAGE plpgsql
@@ -1663,7 +1660,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_persona_act(p_codigo integer, p_cedula integer, p_rif text, p_nombre1 text, p_nombre2 text, p_apellido1 text, p_apellido2 text, p_sexo text, p_fec_nacimiento date, p_tip_sangre text, p_telefono1 text, p_telefono2 text, p_cor_personal text, p_cor_institucional text, p_direccion text, p_discapacidad text, p_nacionalidad text, p_hijos integer, p_est_civil text, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_persona_act(p_codigo integer, p_cedula integer, p_rif text, p_nombre1 text, p_nombre2 text, p_apellido1 text, p_apellido2 text, p_sexo text, p_fec_nacimiento date, p_tip_sangre text, p_telefono1 text, p_telefono2 text, p_cor_personal text, p_cor_institucional text, p_direccion text, p_discapacidad text, p_nacionalidad text, p_hijos integer, p_est_civil text, p_observaciones text) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_persona_eli(p_codigo integer) RETURNS integer
     LANGUAGE plpgsql
@@ -1682,7 +1679,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_persona_eli(p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_persona_eli(p_codigo integer) OWNER TO adminsisgesac;
 
 CREATE FUNCTION sis.f_persona_ins(p_cedula integer, p_rif text, p_nombre1 text, p_nombre2 text, p_apellido1 text, p_apellido2 text, p_sexo text, p_fec_nacimiento date, p_tip_sangre text, p_telefono1 text, p_telefono2 text, p_cor_personal text, p_cor_institucional text, p_direccion text, p_discapacidad text, p_nacionalidad text, p_hijos integer, p_est_civil text, p_observaciones text) RETURNS integer
     LANGUAGE plpgsql
@@ -1716,7 +1713,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_persona_ins(p_cedula integer, p_rif text, p_nombre1 text, p_nombre2 text, p_apellido1 text, p_apellido2 text, p_sexo text, p_fec_nacimiento date, p_tip_sangre text, p_telefono1 text, p_telefono2 text, p_cor_personal text, p_cor_institucional text, p_direccion text, p_discapacidad text, p_nacionalidad text, p_hijos integer, p_est_civil text, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_persona_ins(p_cedula integer, p_rif text, p_nombre1 text, p_nombre2 text, p_apellido1 text, p_apellido2 text, p_sexo text, p_fec_nacimiento date, p_tip_sangre text, p_telefono1 text, p_telefono2 text, p_cor_personal text, p_cor_institucional text, p_direccion text, p_discapacidad text, p_nacionalidad text, p_hijos integer, p_est_civil text, p_observaciones text) OWNER TO adminsisgesac;
 
 
 CREATE FUNCTION sis.f_persona_sel(p_cursor refcursor) RETURNS refcursor
@@ -1732,4 +1729,4 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_persona_sel(p_cursor refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_persona_sel(p_cursor refcursor) OWNER TO adminsisgesac;

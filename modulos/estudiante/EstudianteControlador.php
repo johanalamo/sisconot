@@ -4,6 +4,8 @@ require_once("modulos/estudiante/modelo/EstudianteServicio.php");
 require_once("modulos/pensum/modelo/PensumServicio.php");
 require_once("modulos/persona/modelo/PersonaServicio.php");
 require_once("modulos/instituto/modelo/InstitutoServicio.php");
+require_once("modulos/curso/modelo/CursoServicio.php");
+
 class EstudianteControlador
 {
 	/**
@@ -283,6 +285,10 @@ class EstudianteControlador
 			$codigo = PostGet::obtenerPostGet("codigo");
 
 			Vista::asignarDato("estudiante",EstudianteServicio::listarEstudiantesDeCurso($codigo));
+			
+			$r = CursoServicio::obtenerEstusEstudiante();
+
+			Vista::asignarDato("estados",$r);
 
 			Vista::mostrar();
 		}

@@ -852,6 +852,7 @@ function listarEstudiantes(funsucc,cod){
 }
 
 function succListarEstudiantes(data){
+
 	var est = data.estudiante;
 	var cad = "";
 
@@ -875,7 +876,7 @@ function succListarEstudiantes(data){
 		var prom = 0;
 		var ne = 0;
 		var ret = false;
-		console.log(estB);
+
 		for(var i = 0; i < est.length; i++){
 			if(est[i]['cod_estado'] != 'X'){
 				cad += "<tr>";
@@ -1066,6 +1067,7 @@ function succCargarNotas(data){
 
 
 function succListarEstudiantesCargarNotas(data){
+	console.log(data);
 	var est = data.estudiante;
 	var cad = "";
 	var cad2 = "";
@@ -1230,8 +1232,15 @@ function succMontarSelects(data){
 
 		if($("#divLis").length == 0)
 			cargarCursosPensum();
-		else
-			listarEstudiantes(succListarEstudiantes,$("#selUni").val()[0]);
+		else{
+			if(obtenerGet('codigo') != null){
+				listarEstudiantes(succListarEstudiantes,obtenerGet('codigo'));
+			}
+			else {
+				listarEstudiantes(succListarEstudiantes,$("#selUni").val()[0]);
+			}
+		}
+
 	}, 1200);
 
 }
