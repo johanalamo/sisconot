@@ -598,7 +598,7 @@ Descripción:
 									tra.num_trayecto numtrayecto,
 									uni.nombre nombreuni,
 									per.nombre nombreperiodo,
-									pers.nombre1 || ' ' || pers.apellido2 as nombredocente
+									pers.nombre1 || ' ' || pers.apellido1 as nombredocente
 									from sis.t_curso cur
 									inner join sis.t_periodo per
 										on per.codigo = cur.cod_periodo
@@ -1146,10 +1146,16 @@ Descripción:
 									coalesce(per2.nombre1 || ' ' || per2.apellido1,'No asignado') as nombredoc,
 									cur.codigo codcurso,
 									cur.seccion,
-									(select count(codigo)
-										from sis.t_cur_estudiante
-										where cod_curso = cur.codigo
-										and cod_estado = 'C')
+									cur.capacidad,
+									(select  	count(codigo)
+												from sis.t_cur_estudiante
+												where  cod_estado = 'C'
+												and cod_curso = cur.codigo
+												and codigo < (select codigo
+												from sis.t_cur_estudiante
+												where cod_estudiante = est.codigo
+												and cod_estado = 'C'
+												and cod_curso = cur.codigo) + 1)
 									as orden
 									from sis.t_estudiante est
 									inner join sis.t_persona per

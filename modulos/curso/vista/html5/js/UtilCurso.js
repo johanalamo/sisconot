@@ -52,10 +52,27 @@ function err(data){
 
 function limpiarCampos(val){
 
-	/* Uni no limpia ningún campo */
+	/* El return de cada bloque indica hasta dónde se va a limpiar.
+	 *
+	 * Es decir, el parámetros val con valor "uni" no limpiaría ningún
+	 * select/campo. Ya que en todas las vistas es el último select
+	 * presente y de él no depende ningún otro.
+	 *
+	 * Por el contrario, para cualquier otro valor de val, se limpiarán
+	 * los selects/campos dependientes de éste.
+	 *
+	 * El return es utilizado para romper el flujo de la función.
+	 */
 
 	if(val == 'uni')
 		return;
+
+	/*
+	 * Se elimina el select "selUni" presente en cada vista
+	 * donde existe un select que liste las unidades curriculares.
+	 * Luego de eliminarse, se vuelve a crear y se agrega a "divUni".
+	 * Div presente en cada vista donde se utiliza selUni.
+	 */
 
 	if($("#selUni").length > 0){
 		$("#selUni").selectpicker('destroy');
@@ -67,6 +84,16 @@ function limpiarCampos(val){
 	if(val == 'sec')
 		return;
 
+	/*
+	 * Se verifica si existe "sec", campo text para indicar la sección.
+	 * Vista de Agregar/Modificar Curso.
+	 *
+	 * De ser así, se coloca el value del campo en "".
+	 * De no ser así, se eliminar el selSec (select de sección),
+	 * se vuelve a crear y se agrega a divSec (presente en cada vista)
+	 * donde se encuentra selSec
+	 */
+
 	if($("#sec").length > 0){
 		$("#sec").val("");
 	}
@@ -76,6 +103,13 @@ function limpiarCampos(val){
 		$("#divSec").append("<select class='selectpicker' id='selSec' data-live-search='true' data-size='auto'></select>");
 		$("#selSec").selectpicker();
 	}
+
+	/*
+	 * Se elimina el select "selTra" presente en cada vista
+	 * donde existe un select que liste los trayectos.
+	 * Luego de eliminarse, se vuelve a crear y se agrega a "divTra".
+	 * Div presente en cada vista donde se utiliza selTra.
+	 */
 
 	if(val == 'tra')
 		return;
@@ -87,6 +121,13 @@ function limpiarCampos(val){
 		$("#selTra").selectpicker();
 	}
 
+	/*
+	 * Se elimina el select "selPer" presente en cada vista
+	 * donde existe un select que liste los periodos.
+	 * Luego de eliminarse, se vuelve a crear y se agrega a "divPer".
+	 * Div presente en cada vista donde se utiliza selPer.
+	 */
+
 	if(val == 'per')
 		return;
 
@@ -97,6 +138,13 @@ function limpiarCampos(val){
 		$("#selPer").selectpicker();
 	}
 
+	/*
+	 * Se elimina el select "selPen" presente en cada vista
+	 * donde existe un select que liste los pensums del sistema.
+	 * Luego de eliminarse, se vuelve a crear y se agrega a "divPen".
+	 * Div presente en cada vista donde se utiliza selPen.
+	 */
+
 	if(val == 'pen')
 		return;
 
@@ -106,6 +154,13 @@ function limpiarCampos(val){
 		$("#divPen").append("<select class='selectpicker' id='selPen' data-live-search='true' data-size='auto'></select>");
 		$("#selPen").selectpicker();
 	}
+
+	/*
+	 * Se elimina el select "selInst" presente en cada vista
+	 * donde existe un select que liste los institutos del sistema.
+	 * Luego de eliminarse, se vuelve a crear y se agrega a "divInst".
+	 * Div presente en cada vista donde se utiliza selInst.
+	 */
 
 	if(val == 'inst')
 		return;
@@ -499,10 +554,16 @@ function listarCursos(){
 }
 
 /*
+ * Función succListarCursos que recibe data proveniente
+ * de una llamada AJAX. Es encargado de crear una cadena html
+ * con una tabla y los valores pertinentes de los datos que
+ * vienen del AJAX. Luego de crear la cadena, se la agrega al
+ * al div correspondiente. Para realizar esta operación,
+ * se le hace remove al id de la tabla que se crea en esta función
+ * (para no repetir elementos en la vista) y luego se agrega al div.
  *
- *
- *
- *
+ * Si el resultado del AJAX es vacío o null, se muestra un mensaje de error
+ * al usuario.
  *
  */
 
@@ -523,6 +584,11 @@ function succListarCursos(data){
 
 		while(cont < tope){
 			var tra = cur[cont][1];
+
+			/*
+			 * Condicional que permite diferenciar en la vista
+			 * el cambio de Trayectos.
+			 */
 
 			if(it != tra){
 				it = tra;
@@ -620,15 +686,12 @@ function verificarChecks(el){
 	var tra = '';
 
 	for(var i = 0; i < len; i++){
-		if($("#checkbox"+i).is(":checked"))
+		if($("#checkbox"+i).is(":checked")){
 			if(el == 'mod'){
-				if($("#c1"+i).html() != tra){
-					sec = '';
-					if($("#c2"+i).html() != sec){
+				if(($("#c1"+i).html() != tra && $("#c2"+i).html() != sec)||($("#c1"+i).html() == tra && $("#c2"+i).html() != sec)){
 						window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=CrearModificarCurso&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
 						sec = $("#c2"+i).html();
 						tra = $("#c1"+i).html();
-					}
 				}
 			}
 			else if(el == 'le') {
@@ -652,6 +715,7 @@ function verificarChecks(el){
 			else if(el == "elim"){
 				eliminarEstudiante($("#hid"+i).val(),$("#selUni").val()[0]);
 			}
+		}
 	}
 }
 
@@ -701,6 +765,20 @@ function cargarCursosPensum(){
 	}
 
 }
+
+/*
+ * Función succCargarCursosPensum que recibe data proveniente
+ * de una llamada AJAX. Es encargado de crear una cadena html
+ * con una tabla y los valores pertinentes de los datos que
+ * vienen del AJAX. Luego de crear la cadena, se la agrega al
+ * al div correspondiente. Para realizar esta operación,
+ * se le hace remove al id de la tabla que se crea en esta función
+ * (para no repetir elementos en la vista) y luego se agrega al div.
+ *
+ * Si el resultado del AJAX es vacío o null, se muestra un mensaje de error
+ * al usuario.
+ *
+ */
 
 function succCargarCursosPensum(data){
 	var cur = data.cursos;
@@ -756,14 +834,15 @@ function succCargarCursosPensum(data){
 			cad += "<input type='hidden' id='doc"+i+"' value='"+cur[i]['coddocente']+"'>";
 
 			if(cur[i]['fec_inicio'] == null)
-				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstadoCurso("+i+")' id='fecini"+i+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='date' onclick='activarCalCurso(\"fecini"+i+"\")' style='cursor:pointer' onchange='actualizarEstadoCurso("+i+")' id='fecini"+i+"'></td>";
 			else
-				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstadoCurso("+i+")' id='fecini"+i+"' value='"+cur[i]['fec_inicio']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='date' onclick='activarCalCurso(\"fecini"+i+"\")' style='cursor:pointer' onchange='actualizarEstadoCurso("+i+")' id='fecini"+i+"' value='"+cur[i]['fec_inicio']+"'></td>";
 
-			if(cur[i]['fec_final'] == null)
-				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstadoCurso("+i+")' id='fecfin"+i+"'></td>";
-			else
-				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' value='"+cur[i]['fec_final']+"'></td>";
+
+			if(cur[i]['fec_final'] == null){
+				cad += "<td style='text-align:center'><input type='text' class='date' onclick='activarCalCurso(\"fecfin"+i+"\")' style='cursor:pointer' onchange='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' ></td>";
+			}else
+				cad += "<td style='text-align:center'><input type='text' class='date' onclick='activarCalCurso(\"fecfin"+i+"\")' style='cursor:pointer' onchange='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' value='"+cur[i]['fec_final']+"'></td>";
 
 			if(cur[i]['observaciones'] == null)
 				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstadoCurso("+i+")' id='observaciones"+i+"'></td>";
@@ -784,6 +863,19 @@ function succCargarCursosPensum(data){
 	$("#tableCur").remove();
 	$("#btn-b").remove();
 	$("#divTable").append(cad);
+	$('.date').datetimepicker({
+		format: 'DD/MM/YYYY',
+		collapse : false,
+		calendarWeeks : true
+	});
+}
+
+function activarCalCurso(id){
+	$('#'+id).datetimepicker({
+	    format: 'DD/MM/YYYY',
+		collapse : false
+	});
+	$('#'+id).datetimepicker("show");
 }
 
 function actualizarEstadoCurso(i){
@@ -793,6 +885,12 @@ function actualizarEstadoCurso(i){
 	if($("#estado"+i).val() == 'm' && $("#cod"+i).val() == -1)
 		$("#estado"+i).val("n");
 }
+
+/*
+ * Función que hace una llamada AJAX dependiendo del estado del curso
+ * (si se va a agregar o modificar) e invoca a la acción respectiva.
+ *
+ */
 
 function actualizarCursos(){
 	var len = $('#tableCur >tbody >tr').length;
@@ -821,7 +919,7 @@ function actualizarCursos(){
 							"codDocente"		,		$("#doc"+i).val(),
 							"seccion"			,		$("#sec").val(),
 							"fecInicio"			,		$("#fecini"+i).val(),
-							"fecFinal"			,		$("#fecfinal"+i).val(),
+							"fecFinal"			,		$("#fecfin"+i).val(),
 							"capacidad"			,		$("#capacidad"+i).val(),
 							"observaciones"		,		$("#observaciones"+i).val());
 
@@ -841,6 +939,13 @@ function succActualizarCursosM(data){
 	cargarCursosPensum();
 }
 
+/*
+ * Llamada ajax reutilizable que permite listar los estudiantes
+ * de un curso. Recibe como parámetro la función que se realizará
+ * en el success del AJAX y el código del curso de donde se desean
+ * consultar los estudiantes.
+ */
+
 function listarEstudiantes(funsucc,cod){
 	var arr = Array("m_modulo"		,		"estudiante",
 					"m_accion"		,		"listarEstudiantesPorCurso",
@@ -850,6 +955,22 @@ function listarEstudiantes(funsucc,cod){
 	ajaxMVC(arr,funsucc,err);
 
 }
+
+/*
+ * Función succListarEstudiantes que recibe data proveniente
+ * de una llamada AJAX. Es encargado de crear una cadena html
+ * con una tabla y los valores pertinentes de los datos que
+ * vienen del AJAX. Luego de crear la cadena, se la agrega al
+ * al div correspondiente. Para realizar esta operación,
+ * se le hace remove al id de la tabla que se crea en esta función
+ * (para no repetir elementos en la vista) y luego se agrega al div.
+ *
+ * Si el resultado del AJAX es vacío o null, se muestra un mensaje de error
+ * al usuario.
+ *
+ * Este succ es reutilizado por varias llamadas AJAX y es el responsable
+ * (en su mayoría) de mostrar listas de estudiantes.
+ */
 
 function succListarEstudiantes(data){
 
@@ -973,9 +1094,6 @@ function succListarEstudiantes(data){
 			}
 		}
 		cad += "</table>";
-
-
-		// Cálculos de promedio
 	}
 	else {
 		mostrarMensaje("No hay estudiantes inscritos en este curso.",4);
@@ -1065,9 +1183,24 @@ function succCargarNotas(data){
 	}
 }
 
+/*
+ * Función succListarEstudiantesCargarNotas que recibe data proveniente
+ * de una llamada AJAX. Es encargado de crear una cadena html
+ * con una tabla y los valores pertinentes de los datos que
+ * vienen del AJAX. Luego de crear la cadena, se la agrega al
+ * al div correspondiente. Para realizar esta operación,
+ * se le hace remove al id de la tabla que se crea en esta función
+ * (para no repetir elementos en la vista) y luego se agrega al div.
+ *
+ * Si el resultado del AJAX es vacío o null, se muestra un mensaje de error
+ * al usuario.
+ *
+ * A diferencia de la otra función encargada de construir una lista de estudaintes,
+ * esta crea campos text que permitirán cargar notas al usuario.
+ */
 
 function succListarEstudiantesCargarNotas(data){
-	console.log(data);
+
 	var est = data.estudiante;
 	var cad = "";
 	var cad2 = "";
@@ -1111,9 +1244,9 @@ function succListarEstudiantesCargarNotas(data){
 				cad += "<input type='hidden' id='nom"+i+"' value='"+est[i]['nombre1']+" "+est[i]['apellido1']+"'>";
 
 				if(est[i]['nota'] == null)
-					cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='nota"+i+"' size='2' value=''></td>";
+					cad += "<td style='text-align:center'><input type='number' onchange='actualizarEstado("+i+")' id='nota"+i+"' size='2' style='width:50px;' max='20' value=''></td>";
 				else
-					cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='nota"+i+"'  size='2' value='"+est[i]['nota']+"'></td>";
+					cad += "<td style='text-align:center'><input type='number' onchange='actualizarEstado("+i+")' id='nota"+i+"'  size='2' style='width:50px;' max='20' value='"+est[i]['nota']+"'></td>";
 
 				if(est[i]['por_asistencia'] == null)
 					cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='3' value=''></td>";
@@ -1185,48 +1318,57 @@ function succMontarSelects(data){
 
 	var i = 1;
 	if(dat[0]['cod_instituto'] != null){
+		i++;
 		setTimeout(function (){
 			$("#selInst").val(dat[0]['cod_instituto']);
 			cargarPensums();
-		}, 150);
+		}, 150*i);
 	}
 
 	if(dat[0]['cod_pensum'] != null){
+		i++;
 		setTimeout(function (){
 			$("#selPen").val(dat[0]['cod_pensum']);
 			cargarPeriodos();
-		}, 300);
+			i++;
+		}, 150*i);
 	}
 
 	if(dat[0]['codigo'] != null){
+		i++;
 		setTimeout(function (){
 			$("#selPer").val(dat[0]['codigo']);
 			cargarTrayectos();
-		}, 450);
+
+		}, 150*i);
 	}
 
 	if(dat[0]['cod_trayecto'] != null){
+		i++;
 		setTimeout(function (){
 			$("#selTra").val(dat[0]['cod_trayecto']);
 			cargarSeccion();
-		}, 600);
+		}, 150*i);
 	}
 
 	if($("#sec").length != 0)
 		$("#sec").val(dat[0]['seccion']);
 	else if(dat[0]['seccion'] != null){
+		i++;
 		setTimeout(function (){
 			$("#selSec").val(dat[0]['seccion']);
 			cargarUni();
-		}, 750);
+		}, 150*i);
 	}
 
 	if(dat[0]['codigocurso'] != null){
+		i++;
 		setTimeout(function (){
 			$("#selUni").val(dat[0]['codigocurso']);
-		}, 1000);
+		}, 150*i);
 	}
 
+	i++;
 	setTimeout(function (){
 		$(".selectpicker").selectpicker("refresh");
 
@@ -1240,9 +1382,7 @@ function succMontarSelects(data){
 				listarEstudiantes(succListarEstudiantes,$("#selUni").val()[0]);
 			}
 		}
-
-	}, 1200);
-
+	}, 150*i);
 }
 
 
@@ -1319,6 +1459,19 @@ function listarUniEstudiante(){
 	}
 }
 
+/*
+ * Función succCusosInscribir que recibe data proveniente
+ * de una llamada AJAX. Es encargado de crear una cadena html
+ * con una tabla y los valores pertinentes de los datos que
+ * vienen del AJAX. Luego de crear la cadena, se la agrega al
+ * al div correspondiente. Para realizar esta operación,
+ * se le hace remove al id de la tabla que se crea en esta función
+ * (para no repetir elementos en la vista) y luego se agrega al div.
+ *
+ * Si el resultado del AJAX es vacío o null, se muestra un mensaje de error
+ * al usuario.
+ */
+
 function succCursosInscribir(data){
 	var dat = data.cursos;
 
@@ -1338,6 +1491,11 @@ function succCursosInscribir(data){
 		var cod = -1;
 
 		for(var i = 0; i < len; i++){
+
+			/*
+			 * Condicional que permite agrupar las secciones disponibles
+			 * por cada código de unidad curricular.
+			 */
 
 			if(cod != dat[i]['cod_uni_curricular']){
 				cont++;
@@ -1389,6 +1547,10 @@ function succCursosInscribir(data){
 		cad += "</table>";
 
 		cad += "<center><button class='btn btn-dark btn-xs' id='btnCD' onclick='inscribirUC()'>Inscribir Unidades Curriculares</button>";
+
+		$("#btnTicket").remove();
+
+		$("#ticket").append("<button id='btnTicket' class='btn btn-danger btn-xs' onclick='generarTicket()'>Generar Ticket de Inscripción</button>");
 	}
 	else{
 		mostrarMensaje("Este estudiante no tiene cursos disponibles para inscribir",4);
@@ -1446,10 +1608,6 @@ function inscribirUC(){
 			ajaxMVC(arr,succInscribirUC,err);
 		}
 	}
-
-	$("#btnTicket").remove();
-
-	$("#ticket").append("<button id='btnTicket' class='btn btn-danger btn-xs' onclick='generarTicket()'>Generar Ticket de Inscripción</button>");
 }
 
 function generarTicket(){
@@ -1461,6 +1619,19 @@ function succInscribirUC(data){
 	mostrarMensaje(msj,1);
 	listarUniEstudiante();
 }
+
+/*
+ * Función succListarUniestudiante que recibe data proveniente
+ * de una llamada AJAX. Es encargado de crear una cadena html
+ * con una tabla y los valores pertinentes de los datos que
+ * vienen del AJAX. Luego de crear la cadena, se la agrega al
+ * al div correspondiente. Para realizar esta operación,
+ * se le hace remove al id de la tabla que se crea en esta función
+ * (para no repetir elementos en la vista) y luego se agrega al div.
+ *
+ * Si el resultado del AJAX es vacío o null, se muestra un mensaje de error
+ * al usuario.
+ */
 
 function succListarUniEstudiante(data){
 	var dat = data.cursos;
