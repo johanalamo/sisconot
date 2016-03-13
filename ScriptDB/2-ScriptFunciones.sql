@@ -1733,3 +1733,48 @@ $$;
 
 
 ALTER FUNCTION sis.f_persona_sel(p_cursor refcursor) OWNER TO sisconot;
+
+
+
+
+CREATE OR REPLACE FUNCTION sis.f_convalidar_ins(integer, boolean, real, date ,
+						text, 	 integer, integer, integer, text)
+  RETURNS integer AS
+$BODY$
+DECLARE
+	p_codigo integer := 0;
+	p_cod_estudiante ALIAS for $1;
+	p_con_nota ALIAS for $2;
+	p_nota ALIAS for $3;
+	p_fecha ALIAS for $4;
+	p_cod_tip_uni_curricular ALIAS for $5;
+	p_cod_pensum ALIAS for $6;
+	p_cod_trayecto ALIAS for $7;
+	p_cod_uni_curricular ALIAS for $8;
+	p_descripcion ALIAS FOR $9;
+
+BEGIN
+
+  SELECT COALESCE (max(codigo),0) FROM sis.t_convalidacion INTO p_codigo;
+  p_codigo := p_codigo + 1;
+
+  INSERT INTO sis.t_convalidacion(codigo,		cod_estudiante, 	   con_nota,   nota,
+				  fecha,  		cod_tip_uni_curricular,    cod_pensum, cod_trayecto,
+				  cod_uni_curricular,   descripcion )
+				  
+	VALUES (p_codigo,		  p_cod_estudiante, 	       p_con_nota,   p_nota,
+	        p_fecha,  		  p_cod_tip_uni_curricular,    p_cod_pensum, p_cod_trayecto,
+	        p_cod_uni_curricular,     p_descripcion);
+
+  RETURN p_codigo;
+
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_convalidar_ins    (integer, boolean, real , date ,
+					text, 	 integer, integer, integer, text)
+  OWNER TO sisconot;
+
+
+
