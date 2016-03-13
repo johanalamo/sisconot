@@ -923,13 +923,19 @@ Descripción:
 
 				$conexion = Conexion::conectar();
 
-				$lista = implode(",",$lista);
-
-				$lista = "(".$lista.")";
-
 				$consulta = "select 	pre.cod_uni_cur_prelada
 										from sis.t_prelacion pre
-										where pre.cod_uni_curricular IN $lista
+										where true
+										";
+				if($lista != NULL){
+					$lista = implode(",",$lista);
+					$lista = "(".$lista.")";
+
+					$consulta .=" and pre.cod_uni_curricular IN $lista";
+				}
+
+
+				$consulta .= "
 										and cod_pensum = :pensum
 										and cod_instituto = :instituto";
 

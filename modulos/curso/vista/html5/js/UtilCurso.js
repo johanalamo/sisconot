@@ -241,7 +241,7 @@ function cargarPensums(){
 
 	var arr = Array("m_modulo"		,	"pensum",
 					"m_accion"		,	"buscarPorInstituto",
-					"codigo" 		, 	$("#selInst").val()[0]);
+					"codigo" 		, 	$("#selInst").val());
 
 	ajaxMVC(arr,succCargarPensums,err);
 }
@@ -299,7 +299,7 @@ function succCargarPensums(data){
 function cargarPeriodos(){
 	var arr = Array("m_modulo"		,		"periodo",
 					"m_accion"		,		"listarPeriodos",
-					"codPensum"		,		$("#selPen").val()[0]);
+					"codPensum"		,		$("#selPen").val());
 
 	ajaxMVC(arr,succCargarPeriodos,err);
 }
@@ -363,7 +363,7 @@ function succCargarPeriodos(data){
 function cargarTrayectos(){
 	var arr = Array("m_modulo"		,		"pensum",
 					"m_accion"		,		"buscarPorTrayecto",
-					"codigo"		,		$("#selPen").val()[0]);
+					"codigo"		,		$("#selPen").val());
 
 	ajaxMVC(arr,succCargarTrayectos,err);
 }
@@ -424,7 +424,7 @@ function succCargarTrayectos(data){
 function cargarSeccion(){
 	var arr = Array("m_modulo"		,		"curso",
 					"m_accion"		,		"buscarSeccionPorTrayecto",
-					"codTrayecto"	,		$("#selTra").val()[0]);
+					"codTrayecto"	,		$("#selTra").val());
 
 	ajaxMVC(arr,succCargarSeccion,err);
 }
@@ -485,10 +485,10 @@ function succCargarSeccion(data){
 function cargarUni(){
 	var arr = Array("m_modulo"		,		"curso",
 					"m_accion"		,		"listarUniCurricular",
-					"seccion"		,		$("#selSec").val()[0],
-					"pensum"		,		$("#selPen").val()[0],
-					"trayecto"		,		$("#selTra").val()[0],
-					"periodo"		,		$("#selPer").val()[0]);
+					"seccion"		,		$("#selSec").val(),
+					"pensum"		,		$("#selPen").val(),
+					"trayecto"		,		$("#selTra").val(),
+					"periodo"		,		$("#selPer").val());
 
 	ajaxMVC(arr,succCargarUni,err);
 }
@@ -513,7 +513,7 @@ function succCargarUni(data){
 	var uni = data.uni;
 	var cad = "";
 
-	cad += "<select class='selectpicker' id='selUni' data-live-search='true' onchange=\"listarEstudiantes(succListarEstudiantes,$('#selUni').val()[0])\" data-size='auto'>";
+	cad += "<select class='selectpicker' id='selUni' data-live-search='true' onchange=\"listarEstudiantes(succListarEstudiantes,$('#selUni').val())\" data-size='auto'>";
 
 	if(uni){
 		cad += "<option value='-1' disabled selected> Seleccione Unidad Curricular</option>";
@@ -545,9 +545,9 @@ function succCargarUni(data){
 function listarCursos(){
 	var arr = Array("m_modulo"		,		"curso",
 					"m_accion"		,		"listarCursos",
-					"codInstituto"	,		$("#selInst").val()[0],
-					"codPensum"		,		$("#selPen").val()[0],
-					"codPeriodo"	,		$("#selPer").val()[0],
+					"codInstituto"	,		$("#selInst").val(),
+					"codPensum"		,		$("#selPen").val(),
+					"codPeriodo"	,		$("#selPer").val(),
 					"patron"		,		$("#patron").val());
 
 	ajaxMVC(arr,succListarCursos,err)
@@ -710,10 +710,10 @@ function verificarChecks(el){
 				window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=InscribirRetirarEstudiante&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
 			}
 			else if(el == "ret"){
-				retirarEstudiante($("#hid"+i).val(),$("#selUni").val()[0]);
+				retirarEstudiante($("#hid"+i).val(),$("#selUni").val());
 			}
 			else if(el == "elim"){
-				eliminarEstudiante($("#hid"+i).val(),$("#selUni").val()[0]);
+				eliminarEstudiante($("#hid"+i).val(),$("#selUni").val());
 			}
 		}
 	}
@@ -730,7 +730,7 @@ function retirarEstudiante(codigo, uni){
 
 function succRetirarEstudiante(data){
 	mostrarMensaje("Se ha realizado un retiro exitoso.",1);
-	listarEstudiantes(succListarEstudiantes,$('#selUni').val()[0]);
+	listarEstudiantes(succListarEstudiantes,$('#selUni').val());
 }
 
 function eliminarEstudiante(codigo, uni){
@@ -744,7 +744,7 @@ function eliminarEstudiante(codigo, uni){
 
 function succEliminarEstudiante(data){
 	mostrarMensaje("Se ha eliminado al estudiante de la lista.",1);
-	listarEstudiantes(succListarEstudiantes,$('#selUni').val()[0]);
+	listarEstudiantes(succListarEstudiantes,$('#selUni').val());
 }
 
 
@@ -754,8 +754,8 @@ function cargarCursosPensum(){
 		var arr = Array("m_modulo"		,		"curso",
 						"m_accion"		,		"obtenerCursosPensum",
 						"seccion"		,		$("#sec").val().toUpperCase(),
-						"trayecto"		,		$("#selTra").val()[0],
-						"periodo"		,		$("#selPer").val()[0]);
+						"trayecto"		,		$("#selTra").val(),
+						"periodo"		,		$("#selPer").val());
 
 		ajaxMVC(arr,succCargarCursosPensum,err);
 	}
@@ -894,7 +894,7 @@ function actualizarCursos(){
 		if($("#estado"+i).val() == 'n'){
 			var arr = Array("m_modulo"			,		"curso",
 							"m_accion"			,		"agregarCurso",
-							"codPeriodo"		,		$("#selPer").val()[0],
+							"codPeriodo"		,		$("#selPer").val(),
 							"codUniCurricular"	,		$("#uni"+i).val(),
 							"codDocente"		,		$("#doc"+i).val(),
 							"seccion"			,		$("#sec").val(),
@@ -909,7 +909,7 @@ function actualizarCursos(){
 			var arr2 = Array("m_modulo"			,		"curso",
 							"m_accion"			,		"modificarCurso",
 							"codCurso"			,		$("#cod"+i).val(),
-							"codPeriodo"		,		$("#selPer").val()[0],
+							"codPeriodo"		,		$("#selPer").val(),
 							"codUniCurricular"	,		$("#uni"+i).val(),
 							"codDocente"		,		$("#doc"+i).val(),
 							"seccion"			,		$("#sec").val(),
@@ -1294,7 +1294,7 @@ function guardarNotas(i){
 							"codCurso"		,		$("#codigocurso").val(),
 							"codEstudiante"	,		$("#est"+i).val(),
 							"porAsistencia"	,		$("#asis"+i).val(),
-							"codEstado"		,		$("#estado"+i).val()[0],
+							"codEstado"		,		$("#estado"+i).val(),
 							"nota"			,		$("#nota"+i).val(),
 							"observaciones"	,		$("#obser"+i).val(),
 							"nombre"		,		$("#nom"+i).val());
@@ -1374,7 +1374,7 @@ function succMontarSelects(data){
 				listarEstudiantes(succListarEstudiantes,obtenerGet('codigo'));
 			}
 			else {
-				listarEstudiantes(succListarEstudiantes,$("#selUni").val()[0]);
+				listarEstudiantes(succListarEstudiantes,$("#selUni").val());
 			}
 		}
 	}, 150*i);
@@ -1388,10 +1388,10 @@ function montarSelect(sel,val){
 
 function cargarEstudiantes(){
 	var arr = Array("m_modulo"		,		"estudiante",
-					"m_accion"		,		"listarEstudiantePeriodo",
-					"instituto"		,		$("#selInst").val()[0],
-					"pensum"		,		$("#selPen").val()[0],
-					"periodo"		,		$("#selPer").val()[0]);
+									"m_accion"		,		"listarEstudiantePeriodo",
+									"instituto"		,		$("#selInst").val(),
+									"pensum"			,		$("#selPen").val(),
+									"periodo"			,		$("#selPer").val());
 
 	ajaxMVC(arr,succCargarEstudiantes,err);
 }
@@ -1413,6 +1413,7 @@ function cargarEstudiantes(){
  */
 
 function succCargarEstudiantes(data){
+	console.log(data);
 	var dat = data.estudiantes;
 	var cad = "";
 
@@ -1438,17 +1439,18 @@ function listarUniEstudiante(){
 	if(obtenerGet("m_vista") != 'Inscripcion'){
 		var arr = Array("m_modulo"		,		"curso",
 						"m_accion"		,		"obtenerCursosPorEstudiante",
-						"codigo"		,		$("#selEstudiante").val()[0]);
+						"codigo"		,		$("#selEstudiante").val());
+
 
 		ajaxMVC(arr,succListarUniEstudiante,err);
 	}
 	else{
 		var arr = Array("m_modulo"		,		"curso",
 						"m_accion"		,		"obtenerCursosDisponiblesParaInscripcionPorEstudiante",
-						"estudiante"	,		$("#selEstudiante").val()[0],
-						"instituto"		,		$("#selInst").val()[0],
-						"pensum"		,		$("#selPen").val()[0],
-						"periodo"		,		$("#selPer").val()[0]);
+						"estudiante"	,		$("#selEstudiante").val(),
+						"instituto"		,		$("#selInst").val(),
+						"pensum"		,		$("#selPen").val(),
+						"periodo"		,		$("#selPer").val());
 
 		ajaxMVC(arr,succCursosInscribir,err);
 	}
@@ -1594,7 +1596,7 @@ function inscribirUC(){
 		if($("#est"+i).val() != 0){
 			var arr = Array("m_modulo"			,		"curso",
 							"m_accion"			,		"agregarCurEst",
-							"codEstudiante"		,		$("#selEstudiante").val()[0],
+							"codEstudiante"		,		$("#selEstudiante").val(),
 							"codCurso"			,		$("#est"+i).val(),
 							"porAsistencia"		,		"0",
 							"nota"				,		"0",
@@ -1606,7 +1608,7 @@ function inscribirUC(){
 }
 
 function generarTicket(){
-	window.location.assign("index.php?m_modulo=curso&m_formato=pdf&m_vista=ticketInscripcion&m_accion=generarTicketInscripcion&codEstudiante="+$("#selEstudiante").val()[0]+"&codPeriodo="+$("#selPer").val()[0]+"&codPensum="+$("#selPen").val()[0]+"");
+	window.location.assign("index.php?m_modulo=curso&m_formato=pdf&m_vista=ticketInscripcion&m_accion=generarTicketInscripcion&codEstudiante="+$("#selEstudiante").val()+"&codPeriodo="+$("#selPer").val()+"&codPensum="+$("#selPen").val()+"");
 }
 
 function succInscribirUC(data){
@@ -1680,8 +1682,8 @@ function autocompletarDocente(){
 				var a=Array("m_modulo"		,		"empleado",
 							"m_accion"		,		"auto",
 							"patron"		,		request.term,
-							"instituto"		,		$("#selInst").val()[0],
-							"pensum"		,		$("#selPen").val()[0]
+							"instituto"		,		$("#selInst").val(),
+							"pensum"		,		$("#selPen").val()
 							);
 
 				ajaxMVC(a,function(data){

@@ -3988,3 +3988,19 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 268 *****************************
+codigo Error: 268
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at or near ")"
+LINE 3:           where pre.cod_uni_curricular IN ()
+                                                   ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 947
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(947): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(565): CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares(NULL, '1', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(80): CursoControlador::obtenerCursosDisponiblesParaInscripcionPorEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
