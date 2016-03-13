@@ -222,12 +222,8 @@ function compararDatosEmpleados(data){
 
 		setTimeout(function(){
 			verEmpleado();
-<<<<<<< HEAD
 			
 		}, 200);
-=======
-		}, 100);
->>>>>>> 3186db1fb935c749b9e81441593dcb48de63a6e1
 	}
 
 	if(!boolFecha){
