@@ -3932,3 +3932,59 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 265 *****************************
+codigo Error: 265
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  el nuevo registro para la relación «t_curso» viola la restricción «check» «chk_curso_01»
+DETAIL:  La fila que falla contiene (12, 1, 8, 3, A, 01/03/2016, 28/02/2016, 30, a, null).
+CONTEXT:  sentencia SQL: «UPDATE sis.t_curso
+		SET
+			cod_periodo = p_cod_periodo,
+			cod_uni_curricular = p_cod_uni_curricular,
+			cod_docente = p_cod_docente,
+			seccion = p_seccion,
+			fec_inicio = p_fec_inicio,
+			fec_final = p_fec_final,
+			capacidad = p_capacidad,
+			observaciones = p_observaciones
+		WHERE
+			codigo = p_codigo»
+función PL/pgSQL sis.f_curso_mod(integer,integer,integer,integer,text,date,date,integer,text) en la línea 4 en sentencia SQL
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 196
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(196): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(197): CursoServicio::modificarCurso('12', '1', '8', '3', 'A', '01/03/2016', '28/02/2016', '30', 'a')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(58): CursoControlador::modificarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 266 *****************************
+codigo Error: 266
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «null»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 196
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(196): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(197): CursoServicio::modificarCurso('14', '1', '11', 'null', 'A', NULL, '09/04/2016', '30', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(58): CursoControlador::modificarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 267 *****************************
+codigo Error: 267
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «null»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 196
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(196): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(197): CursoServicio::modificarCurso('14', '1', '11', 'null', 'A', '09/04/2016', '07/05/2016', '30', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(58): CursoControlador::modificarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

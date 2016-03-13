@@ -827,22 +827,25 @@ function succCargarCursosPensum(data){
 
 
 			if(cur[i]['nombredocente'] == null)
-				cad += "<td style='text-align:center'><input type='text' class='docente' onclick='autocompletarDocente()' onchange='actualizarEstadoCurso("+i+")' id='"+i+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='docente' onclick='autocompletarDocente()' onchange='actualizarEstadoCurso("+i+")' id='"+i+"' ></td>";
 			else
 				cad += "<td style='text-align:center'><input type='text' class='docente' onclick='autocompletarDocente()' onchange='actualizarEstadoCurso("+i+")' id='"+i+"' value='"+cur[i]['nombredocente']+"'></td>";
 
-			cad += "<input type='hidden' id='doc"+i+"' value='"+cur[i]['coddocente']+"'>";
+			if(cur[i]['coddocete'] == null)
+				cad += "<input type='hidden' id='doc"+i+"' value=''>";
+			else
+				cad += "<input type='hidden' id='doc"+i+"' value='"+cur[i]['coddocente']+"'>";
 
 			if(cur[i]['fec_inicio'] == null)
-				cad += "<td style='text-align:center'><input type='text' class='date' onclick='activarCalCurso(\"fecini"+i+"\")' style='cursor:pointer' onchange='actualizarEstadoCurso("+i+")' id='fecini"+i+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='date' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecini"+i+"'></td>";
 			else
-				cad += "<td style='text-align:center'><input type='text' class='date' onclick='activarCalCurso(\"fecini"+i+"\")' style='cursor:pointer' onchange='actualizarEstadoCurso("+i+")' id='fecini"+i+"' value='"+cur[i]['fec_inicio']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='date' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecini"+i+"' value='"+cur[i]['fec_inicio']+"'></td>";
 
 
 			if(cur[i]['fec_final'] == null){
-				cad += "<td style='text-align:center'><input type='text' class='date' onclick='activarCalCurso(\"fecfin"+i+"\")' style='cursor:pointer' onchange='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' ></td>";
+				cad += "<td style='text-align:center'><input type='text' class='date' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' ></td>";
 			}else
-				cad += "<td style='text-align:center'><input type='text' class='date' onclick='activarCalCurso(\"fecfin"+i+"\")' style='cursor:pointer' onchange='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' value='"+cur[i]['fec_final']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='date' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' value='"+cur[i]['fec_final']+"'></td>";
 
 			if(cur[i]['observaciones'] == null)
 				cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstadoCurso("+i+")' id='observaciones"+i+"'></td>";
@@ -868,14 +871,6 @@ function succCargarCursosPensum(data){
 		collapse : false,
 		calendarWeeks : true
 	});
-}
-
-function activarCalCurso(id){
-	$('#'+id).datetimepicker({
-	    format: 'DD/MM/YYYY',
-		collapse : false
-	});
-	$('#'+id).datetimepicker("show");
 }
 
 function actualizarEstadoCurso(i){

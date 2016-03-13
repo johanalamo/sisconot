@@ -466,6 +466,8 @@ button.ui-button::-moz-focus-inner {
 	margin: 0;
 	padding: 3px 1em 3px .4em;
 	cursor: pointer;
+	background :white;
+	font-size : 9pt;
 	min-height: 0; /* support: IE7 */
 	/* support: IE10, see #8844 */
 	list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
@@ -884,9 +886,9 @@ body .ui-tooltip {
 .ui-widget-content .ui-state-focus,
 .ui-widget-header .ui-state-focus {
 	border: 1px solid #999999;
-	background: #dadada url("images/ui-bg_glass_75_dadada_1x400.png") 50% 50% repeat-x;
+	background:#475072;
 	font-weight: normal;
-	color: #212121;
+	color: white;
 }
 .ui-state-hover a,
 .ui-state-hover a:hover,
