@@ -345,11 +345,11 @@ class PersonaServicio
 			$conexion = Conexion::conectar();
 
 			if($persona==null){
-				$ejecutar = $conexion->prepare("select * from sis.t_est_docente union select * from sis.t_est_estudiante order by nombre;");	
+				$ejecutar = $conexion->prepare("select * from sis.t_est_empleado union select * from sis.t_est_estudiante order by nombre;");	
 				$ejecutar->execute(array());			
 			}
 			elseif($persona=="docente"){
-				$ejecutar = $conexion->prepare("SELECT * FROM sis.t_est_docente;");
+				$ejecutar = $conexion->prepare("SELECT * FROM sis.t_est_empleado;");
 				$ejecutar->execute(array());
 			}
 			elseif ($persona=="estudiante"){
@@ -492,7 +492,7 @@ class PersonaServicio
 				//primera columana codigo
 				$row = $ejecutar->fetchColumn(0);					
 				//var_dump($row);
-				if ($row == 0)
+				if ($row== 0)
 					throw new Exception("No se pudo eliminar a la persona.");
 
 				return $row;	

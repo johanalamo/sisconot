@@ -1,4 +1,4 @@
-/*Script de creación de la base de datos del Sistema de Control de Notas
+﻿/*Script de creación de la base de datos del Sistema de Control de Notas
 --Creado por Johan Alamo y estudiantes de proyecto sociotecnológico
 --Comenzado en 2012
 --Dpto de informática del IUT-RC "Dr. Federico Rivero Palacio"
@@ -222,7 +222,7 @@ COMMENT ON COLUMN sis.t_uni_tra_pensum.cod_tipo IS 'Alguna otra información rel
 CREATE TABLE sis.t_archivo (
     codigo integer NOT NULL,
     tipo character varying(30),
-    archivo varchar(200)
+    archivo oid
 );
 
 
@@ -267,13 +267,13 @@ COMMENT ON COLUMN sis.t_empleado.es_ministerio IS 'Dice si un empelado trabaja e
 COMMENT ON COLUMN sis.t_empleado.es_docente IS 'Dice si un empleado trabaja como docente';
 
 
-CREATE TABLE sis.t_est_docente (
+CREATE TABLE sis.t_est_empleado (
     codigo character(1) NOT NULL,
     nombre character varying(40) NOT NULL
 );
 
 
-ALTER TABLE sis.t_est_docente OWNER TO sisconot;
+ALTER TABLE sis.t_est_empleado OWNER TO sisconot;
 
 CREATE TABLE sis.t_est_estudiante (
     codigo character(1) NOT NULL,
@@ -296,8 +296,8 @@ CREATE TABLE sis.t_estudiante (
     condicion character varying(5),
     fec_fin date,
     observaciones character varying(200),
-    CONSTRAINT chk_docente_01 CHECK ((fec_fin > fec_inicio)),
-    CONSTRAINT chk_docente_02 CHECK ((fec_inicio > '1970-01-01'::date))
+    CONSTRAINT chk_estudiante_01 CHECK ((fec_fin > fec_inicio)),
+    CONSTRAINT chk_estudiante_02 CHECK ((fec_inicio > '1970-01-01'::date))
 );
 
 
@@ -404,12 +404,14 @@ CREATE TABLE sis.t_convalidacion (
     cod_estudiante integer NOT NULL,
     con_nota boolean,
     nota double precision,
+    fecha date NOT NULL,
     cod_tip_uni_curricular character(1),
     cod_pensum integer NOT NULL,
     cod_trayecto integer,
     cod_uni_curricular integer NOT NULL,
     descripcion character varying(300),
-    CONSTRAINT chk_convalidacion_01 CHECK ((nota >= (0)::double precision))
+    CONSTRAINT chk_convalidacion_01 CHECK ((nota >= (0)::double precision)),
+    CONSTRAINT chk_convalidacion_02 CHECK ((fecha > '1970-01-01'::date) and ( fecha <= ('now'::text)::date))
 );
 
 ALTER TABLE sis.t_convalidacion OWNER TO sisconot;
@@ -634,8 +636,8 @@ ALTER TABLE ONLY sis.t_archivo
     ADD CONSTRAINT cp_archivo PRIMARY KEY (codigo);
 ALTER TABLE ONLY sis.t_empleado
     ADD CONSTRAINT cp_empleado PRIMARY KEY (codigo);
-ALTER TABLE ONLY sis.t_est_docente
-    ADD CONSTRAINT cp_est_docente PRIMARY KEY (codigo);
+ALTER TABLE ONLY sis.t_est_empleado
+    ADD CONSTRAINT cp_est_empleado PRIMARY KEY (codigo);
 ALTER TABLE ONLY sis.t_estudiante
     ADD CONSTRAINT cp_estudiante PRIMARY KEY (codigo);
 ALTER TABLE ONLY sis.t_persona
@@ -682,7 +684,7 @@ ALTER TABLE ONLY sis.t_uni_tra_pensum
     ADD CONSTRAINT cf_uni_tra_pensum__uni_curricular FOREIGN KEY (cod_uni_curricular) REFERENCES sis.t_uni_curricular(codigo);
 
 ALTER TABLE ONLY sis.t_empleado
-    ADD CONSTRAINT cf_empleado__est_docente FOREIGN KEY (cod_estado) REFERENCES sis.t_est_docente(codigo);
+    ADD CONSTRAINT cf_empleado_est_empleado FOREIGN KEY (cod_estado) REFERENCES sis.t_est_empleado(codigo);
 ALTER TABLE ONLY sis.t_empleado
     ADD CONSTRAINT cf_empleado__instituto FOREIGN KEY (cod_instituto) REFERENCES sis.t_instituto(codigo);
 ALTER TABLE ONLY sis.t_empleado
@@ -723,7 +725,7 @@ ALTER TABLE ONLY sis.t_cur_estudiante
 ALTER TABLE ONLY sis.t_cur_estudiante
     ADD CONSTRAINT cf_cur_estudiante__estudiante FOREIGN KEY (cod_estudiante) REFERENCES sis.t_persona(codigo);
 ALTER TABLE ONLY sis.t_curso
-    ADD CONSTRAINT cf_curso__docente FOREIGN KEY (cod_docente) REFERENCES sis.t_persona(codigo);
+    ADD CONSTRAINT cf_curso_docente FOREIGN KEY (cod_docente) REFERENCES sis.t_persona(codigo);
 ALTER TABLE ONLY sis.t_curso
     ADD CONSTRAINT cf_curso__periodo FOREIGN KEY (cod_periodo) REFERENCES sis.t_periodo(codigo);
 ALTER TABLE ONLY sis.t_curso

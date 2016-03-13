@@ -32,16 +32,18 @@ Diseñador - Programador /   Fecha   / Descripción del cambio
 $(document).ready(function() {
 
 	verEmpleado();
-	pnf2=null;
+	//pnf2=null;
 
 } );
 
-function verEmpleado (codi=null){
-
+function verEmpleado (codi,codpersona){
+//	alert(codpersona+"xxx");
+	if(!codpersona)
+		codpersona=getVarsUrl().persona;
 
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"listar",
-					"codPersona",	getVarsUrl().persona,
+					"codPersona",	codpersona,
 					"codi"		,	codi
 					);
 
@@ -218,7 +220,10 @@ function compararDatosEmpleados(data){
 		else
 			preDobleGuardar(false);
 
-		verEmpleado();
+		setTimeout(function(){
+			verEmpleado();
+			
+		}, 200);
 	}
 
 	if(!boolFecha){
@@ -231,7 +236,7 @@ function preDobleGuardar(bool=null,boolAux=null,data=null){
 
 	if(boolAux && boolAux){
 		guardarEmpleadoAux(data);
-		guardarEmpleado(bool);
+		guardarEmpleado(bool,data);
 	}
 	else if(bool)
 		guardarEmpleadoAux(data);
@@ -252,7 +257,7 @@ function guardarEmpleadoAux(data){
 		fecha=fecActual();
 
 
-	alert("jpipo"+fecha);
+	//alert("jpipo"+fecha);
 
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"agregar",	
@@ -274,13 +279,15 @@ function guardarEmpleadoAux(data){
 
 }
 
-function guardarEmpleado(bool=null){
+function guardarEmpleado(bool=null,data=null){
 	var fec_ini=$("#fec_ini_empleado").val();
 	var fec_fin=null;
 	
 	if(bool && fec_ini){	
 		if($("#fec_fin_empleado").val())
 			fec_ini=$("#fec_fin_empleado").val();
+		else if(data['fec_inicios']!=fec_ini)
+			fec_ini=$("#fec_ini_empleado").val();
 		else
 			fec_ini=fecActual();		
 	}
@@ -348,8 +355,8 @@ function verInstitutoEm2(instituto=null){
 	
 	if(!instituto){
 		instituto ='';
-	estado='';
-	pnf='';
+		estado='';
+		pnf='';
 		setTimeout(function(){ 
 
 			if($("#empleado #selectInstituto").val()!=null)
@@ -560,29 +567,30 @@ function verEstadoEm2(){
 }
 function segundo (){
 	setTimeout(function(){ 
-	mostrarInformaion2(); 		
-}, 500);
-setTimeout(function(){ 
+		mostrarInformaion2(); 		
+	}, 500);
+
+	setTimeout(function(){ 
 	//alert($("#empleado #selectInstituto").val());
 	
 		var arr = Array("m_modulo"	,	"empleado",
-					"m_accion"	,	"listar",
-					"estado"	,	$("#empleado #selectEstado").val(),
-					"pnf"		,	$("#empleado #selectPNF").val(),
-					"instituto"	,	$("#empleado #selectInstituto").val(),
-					"tipo_persona",	"empleado",
-					"campo",		$("#campo").val(),
-					"empleado2"	,	true
+						"m_accion"	,	"listar",
+						"estado"	,	$("#empleado #selectEstado").val(),
+						"pnf"		,	$("#empleado #selectPNF").val(),
+						"instituto"	,	$("#empleado #selectInstituto").val(),
+						"tipo_persona",	"empleado",
+						"campo",		$("#campo").val(),
+						"empleado2"	,	true
 					);	
 		ajaxMVC(arr,montarSelectPNF,error);
 		
-}, 1100);
-setTimeout(function(){ 
-	if(!pnf2)
-		pnf2=null;
-	$("#empleado #selectPNF").val(pnf2);
-	$('#empleado #selectPNF').selectpicker('refresh');
-}, 1150);
+	}, 1100);
+	setTimeout(function(){ 
+		if(!pnf2)
+			pnf2=null;
+		$("#empleado #selectPNF").val(pnf2);
+		$('#empleado #selectPNF').selectpicker('refresh');
+	}, 1150);
 }
 /**
 * Funcion Java Script que permite mostrar un select con
@@ -631,7 +639,7 @@ function verPersonaEmpleado(){
 function montarPersonaEmpleado(){
 
 	cadena="";
-	cadena+'<tbody id="listarPersonaEmpleado">';
+	cadena+='<tbody id="listarPersonaEmpleado">';
 	for(var x=0; x<data.persona.length; x++)
 	{
 		if(data.persona[x]['apellido2']!=null)
@@ -713,14 +721,10 @@ function succMontarModificarEmpleado (data){
 	$("#es_jef_pensum").prop( "checked",data.empleado[0]['es_jef_pensum']);
 	$("#es_jef_con_estudio").prop( "checked",data.empleado[0]['es_jef_con_estudio']);
 	$("#Docente").prop( "checked",data.empleado[0]['es_docente']);
-
-
-
 }
 
 function NuevoEmpleado (){
 //alert(data.empleado[0]['cod_estado']);
-	
 
 	$("#cod_empleado").val("");
 	//$("#cod_persona").val("");

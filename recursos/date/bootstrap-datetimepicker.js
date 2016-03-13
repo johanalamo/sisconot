@@ -1360,8 +1360,8 @@ THE SOFTWARE.
     $.fn.datetimepicker.defaults = {
         format: false,
         pickDate: true,
-        pickTime: true,
-        useMinutes: true,
+        pickTime: false,
+        useMinutes: false,
         useSeconds: false,
         useCurrent: true,
         calendarWeeks: false,

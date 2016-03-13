@@ -53,9 +53,10 @@
 				self::listar();
 			elseif($accion == 'modificar')
 				self::modificar();
-			elseif($accion == 'agregar'){
+			elseif($accion == 'agregar')
 				self::agregar();
-			}
+			elseif($accion=='eliminar')
+				self::eliminar();
 			else
 				throw new Exception ("'PersonaControlador' La accion $accion no es valida");
 		}
@@ -81,10 +82,10 @@
 				$tipo_persona=PostGet::obtenerPostGet("tipo_persona");
 				$campo=PostGet::obtenerPostGet("campo");
 
-
-				Vista::asignarDato('institutos',$instituto);
+				$campo=strtoupper($campo);
+				/*Vista::asignarDato('institutos',$instituto);
 				Vista::asignarDato('pnfs',$pnf);
-				Vista::asignarDato('estados',$estado);
+				Vista::asignarDato('estados',$estado);*/
 
 				if($pnf=="seleccionar")
 					$pnf=null;
@@ -182,9 +183,6 @@
 					FotografiaServicio::extraerEn($codigo,$ruta);
 				}
 
-			//	$a=stream_get_contents($foto[0]["archivo"]);
-			//	copy($a,"lafoto.jpg");
-
 				if($persona)
 				{	
 					Vista::asignarDato('persona',$persona);
@@ -262,6 +260,7 @@
 				
 				$response=null;
 				$response2=null;
+
 				if(!$codigo){
 					$response=PersonaServicio::agregar($cedula,			$rif,				$nombre1,		
 													 $nombre2,			$apellido1,			$apellido2,		
@@ -275,13 +274,13 @@
 				}
 				else
 					$response2=PersonaServicio::modificar($codigo,			$cedula,			$rif,
-											   $nombre1,		$nombre2,			$apellido1,
-											   $apellido2,		$sexo,				$fecNacimiento,
-											   $tipSangre,		$telefono1,			$telefono2,
-											   $corPersonal,	$corInstitucional,	$direccion,
-											   $discapacidad,	$nacionalidad,		$hijos,
-											   $estCivil,		$observaciones
-											);
+														   $nombre1,		$nombre2,			$apellido1,
+														   $apellido2,		$sexo,				$fecNacimiento,
+														   $tipSangre,		$telefono1,			$telefono2,
+														   $corPersonal,	$corInstitucional,	$direccion,
+														   $discapacidad,	$nacionalidad,		$hijos,
+														   $estCivil,		$observaciones
+														);
 				if($response){
 					if($response>0)
 						Vista::asignarDato('mensaje','Se ha agregado la Persona '.$nombre1.' '.$apellido1.'.');
@@ -316,6 +315,7 @@
 					$arch=pg_escape_string($archivo["tmp_name"]);	
 					if($tipo){
 						$ruta="/var/www/sisconot/temp/".$codigo.".".$tipo[1];
+						unlink($ruta);
 						copy($arch,$ruta);
 						Vista::asignarDato("ruta",$ruta);
 						$foto=FotoControlador::Iniciar();
@@ -384,8 +384,19 @@
 				if(!$codigo)
 					$codigo=null;
 
-				PersonaServicio::eliminar($codigo);
-				Vista::asignarDato('mensaje', 'La persona se ha eliminado correctamente');
+				$response=PersonaServicio::eliminar($codigo);
+				if($response>0){
+					Vista::asignarDato('mensaje', 'La persona se ha eliminado correctamente');
+					Vista::asignarDato('estatus',1);
+					$response=FotografiaServicio::existe($codigo);
+					if($response>0)
+						FotografiaServicio::eliminar($codigo);
+				}
+				else{
+					Vista::asignarDato('mensaje', 'No se pudo eliminar a la persona."');
+					Vista::asignarDato('estatus',0);
+				}
+
 				Vista::mostrar();
 
 			}

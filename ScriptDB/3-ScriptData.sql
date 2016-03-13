@@ -355,15 +355,15 @@ INSERT INTO sis.t_trayecto(
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (1,  1,  1,  1,  'O');
+    VALUES (1,  1,  1,  4,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (2,  1,  1,  2,  'O');
+    VALUES (2,  1,  1,  5,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (3,  1,  1,  3,  'O');
+    VALUES (3,  1,  1,  6,  'O');
 
 
 
@@ -677,10 +677,10 @@ INSERT INTO sis.t_uni_tra_pensum(
 
 
 
-    insert into sis.t_est_docente (codigo,nombre) values ('A','Activo');
-    insert into sis.t_est_docente (codigo,nombre) values ('P','Permiso');
-    insert into sis.t_est_docente (codigo,nombre) values ('I','Inactivo');
-    insert into sis.t_est_docente (codigo,nombre) values ('J','Jubilado');
+    insert into sis.t_est_empleado (codigo,nombre) values ('A','Activo');
+    insert into sis.t_est_empleado (codigo,nombre) values ('P','Permiso');
+    insert into sis.t_est_empleado (codigo,nombre) values ('I','Inactivo');
+    insert into sis.t_est_empleado (codigo,nombre) values ('J','Jubilado');
 
 
     insert into sis.t_est_estudiante (codigo, nombre) values ('A','Activo');
@@ -855,9 +855,8 @@ INSERT INTO sis.t_uni_tra_pensum(
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
     es_docente,observaciones) values(20,20,2,6,'A','12/1/1974',false,false,false,true,'');
 
+    
     insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
-    num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
-    condicion,observaciones) values(1,1,1,1,'111','111','111','A','25/8/1980',01,'sin obersevacion');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
     condicion,observaciones) values(2,21,1,2,'2121','2121','2121','A','27/1/1998',01,'sin obersevacion');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,

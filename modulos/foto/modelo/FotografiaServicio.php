@@ -72,21 +72,25 @@ class FotografiaServicio {
 	Excepciones que lanza: 
 	Exception: si ocurre un error en la conexión a la base de datos.	
 	*/	
-	/*static public function eliminar($codigo){
-		global $gbConectorBD;
-		$sql = "delete from ts_fotografia 
-		         where cast(cod_persona as varchar(10)) = $1;";           
-		$parametros = array($codigo);
-		
-		$result = $gbConectorBD->ejecutarDMLDirecto($sql,$parametros);
-		if ($result === FALSE) 
-		throw new Exception ("no se puede realizar la accion por no poseer conexion a la base de datos ") ;
-		if  ( $result == 0) 
-			return false;
-		else 
-			return true;
-		
-	}*/
+	static public function eliminar($codigo){
+		try{
+
+			$conexion = Conexion::conectar();
+			$consulta = "delete from sis.t_archivo 
+		         where codigo=?";
+
+			$ejecutar=$conexion->prepare($consulta);		
+			$ejecutar-> execute(array($codigo));			
+ 			//var_dump($ejecutar->fetchAll());
+			if($ejecutar->rowCount() != 0)
+				return $ejecutar->fetchAll();
+			else
+				return null;
+		}
+		catch(Exception $e){
+			throw $e;
+		}		
+	}
 
 	/* método público que permite guardar  todos los datos referentes a una fotografía en la base de datos. 
 	Parámetros de entrada: 

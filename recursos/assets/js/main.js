@@ -172,7 +172,7 @@ function crearDialogo(id, titulo, segundoTitulo, size, accion, boton, tipo){
 
 
 function crearConfirm(titulo,boton,tituloBoton){
-	$("<div class='alert alert-black alert-dismissible alert-link fade in' role='alert'>"
+	$("<div class='alert alert-black alert-dismissible alert-link fade in' role='alert' id='confirmationDialoge'>"
 					+ "<button type='button' class='close' data-dismiss='alert'>"
 					+ "<span aria-hidden='true'>&times;</span>"
 					+ "</button>"
@@ -214,7 +214,9 @@ function eliminarNotificacion(noti){
 }
 
 function activarCal(){
-	$('.date').datetimepicker();
+	$('.date').datetimepicker({
+    format: 'DD/MM/YYYY'
+});
 
 }
 

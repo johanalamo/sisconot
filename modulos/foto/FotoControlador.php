@@ -17,7 +17,8 @@ class FotoControlador{
 			$tipo=explode(".",$ruta);
 			//$destino="modulos/persona/vista/html5/imagen/PersonasImg/".$a[1];
 			//copy($ruta,$destino);
-			//unlink($ruta);			
+			//unlink($ruta);
+					
 			return true;
 
 		}

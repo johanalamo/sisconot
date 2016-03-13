@@ -320,6 +320,25 @@ class TrayectoServicio
 			}
 		}
 
+		public static function obtenerTrayectoPensum($codigo=null){
+			try{
+				
+				$conexion = Conexion::conectar();
+				$consulta = "select * from sis.t_trayecto where cod_pensum=?";
+				$ejecutar=$conexion->prepare($consulta);
+
+				$ejecutar-> execute(array($codigo));
+
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
 	
 }
 ?>

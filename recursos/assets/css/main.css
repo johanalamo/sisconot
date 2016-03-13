@@ -37,7 +37,7 @@ td
 }
 
 .espacio-input{
-	padding-right:2%;
+	padding-right:2% !important;
 }
 
 .formuario-persona{
@@ -130,4 +130,17 @@ fieldset.scheduler-border {
 input[readonly] {
   background-color: white !important;
   cursor: text !important;
+}
+
+.separar-arriba{
+  margin-top: 20%;
+
+}
+
+.toLeft{
+  margin-right:-10%;
+}
+
+.subir{
+  margin-top: -10%;
 }
