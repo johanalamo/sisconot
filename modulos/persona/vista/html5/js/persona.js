@@ -619,7 +619,7 @@ function guardarPersona(){
 */
 function modificarPersona(codigo=null){
 
-
+//alert(codigo+" el codigo");
 	if(getVarsUrl().persona)
 		codigo=getVarsUrl().persona;
 	else if(!codigo)
@@ -639,11 +639,8 @@ function mostrarPersona(){
 	window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_formato=html5&persona='+codigo+'&accion=V';
 }
 
-function bloquearCampos(ver=null){	
-		
-	bloquearCamposEstudiante();
-			
-		
+function bloquearCampos(ver=null){			
+	bloquearCamposEstudiante();		
 }
 
 
@@ -661,6 +658,7 @@ function mostrarInformaion(){
 		if(getVarsUrl().accion=='M'){			
 			$("#editar_estudiante").remove();
 			$("#editar_empleado").remove();
+			$("#md_persona").remove();
 
 		}
 		else if(getVarsUrl().accion=='V'){
@@ -689,6 +687,8 @@ function mostrarInformaion(){
 			$("#nv_estudiante").remove();
 			$("#foto").remove();
 			$("#borrar_persona").remove();
+			$("#md_persona").remove();
+			$("#guardarPersona").remove();
 		}
 	//	alert("$$$$$$$"); 	
 		ajaxMVC(arr,succMontarModificarPersona,error);
@@ -779,12 +779,6 @@ function succMontarModificarPersona(data){
 		setTimeout(function(){ succMontarModificarEmpleado(data); }, 400);
 	if(data.estudiante)
 		setTimeout(function(){ succMontarModificarEstudiante(data); }, 400);
-	
-		 
-				
-
-
-	
 
 }
 
@@ -850,6 +844,10 @@ function succAgregarPersona(data){
 	$('#codigoPersona').val(data.codPersona);
 	if(data.codPersona){
 		tabsActivos(); 
+		//modificarPersona(data.codPersona);
+		//alert(data.codPersona+"antes");
+		verEmpleado();
+		verEstudiante();
 		//AgregarEsEm();
 		//$('div.estudiante').fadeIn(700);				
 		$('div.empleado').hide();

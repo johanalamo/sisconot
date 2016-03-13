@@ -183,9 +183,6 @@
 					FotografiaServicio::extraerEn($codigo,$ruta);
 				}
 
-			//	$a=stream_get_contents($foto[0]["archivo"]);
-			//	copy($a,"lafoto.jpg");
-
 				if($persona)
 				{	
 					Vista::asignarDato('persona',$persona);

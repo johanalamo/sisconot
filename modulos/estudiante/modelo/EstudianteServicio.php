@@ -216,9 +216,9 @@ class EstudianteServicio
 	 */
 	public static function listarPersonaEstudiante(	$cod_pensum=null,			$cod_estado=null,	$cod_instituto=null,
 													$campo=null,				$codigo=null,		$cod_esudiante=null,
-													$cod_curso=null,		$cedula=null,		$correo=null,		$nombre1=null,
-													$nombre2=null,		$apellido1=null,	$apellido2=null,
-													$sexo=null
+													$cod_curso=null,			$campo=null, 		$cedula=null,		
+													$correo=null,				$nombre1=null,		$nombre2=null,		
+													$apellido1=null,			$apellido2=null,	$sexo=null
 
 												  )
 	{
@@ -236,12 +236,17 @@ class EstudianteServicio
 						 	where true and p.codigo=es.cod_persona ";
 
 			if(!$cod_curso)
-				$consulta = "select p.*,  p.codigo as cod_persona
+				$consulta = "select p.*,  p.codigo as cod_persona, es.codigo as cod_estudiante
 							from sis.t_persona p, sis.t_estudiante es
 						 	where true and p.codigo=es.cod_persona ";
 
 			if($codigo)
 				$consulta.= " and p.codigo =$codigo ";
+			
+			if($campo){
+				$consulta.=" and CONCAT (cast(p.cedula as varchar),p.nombre1,p.nombre2,apellido1, apellido2) 
+							like '%$campo%' ";
+			}
 
 			if($cedula)
 				$consulta.= " and p.cedula = $cedula ";
@@ -283,7 +288,9 @@ class EstudianteServicio
 			}
 
 			if(!$cod_curso)
-				$consulta.=" group by p.codigo order by p.codigo ";
+				$consulta.=" group by p.codigo, es.codigo order by p.codigo ";
+
+
 
 			$ejecutar=$conexion->prepare($consulta);
 

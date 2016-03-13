@@ -33,15 +33,59 @@ $(document).ready(function() {
 
 	verEmpleado();
 	//pnf2=null;
-
 } );
 
-function verEmpleado (codi=null){
+function antesPreGuardarEmpleado(){
+	var bool=true;
+
+	if($("#empleado #selectInstituto").val()=="seleccionar"){
+		mostrarMensaje("debe de seleccionar un Instituto",2);
+		bool=false;
+	}
+	else if(!validarFecha("#fec_ini_estudiante",true)){
+		mostrarMensaje("debe de seleccionar la fecha de inicio",2);
+		bool=false;
+	}	
+	else if($("#eempleado #selectPNF").val() =="seleccionar"){
+		mostrarMensaje("debe de seleccionar un Pensum",2);
+		bool=false;
+	}	
+	else if($("#empleado #selectEstado").val()=="seleccionar"){
+		mostrarMensaje("debe de seleccionar un estado",2);
+		bool=false;
+	}
+	else if(!validarFecha('#fec_ini_empleado',true)){
+		mostrarMensaje("debe de introducir una fecha valida valida",2);
+		bool=false;
+	}
+	else if(!validarFecha('#fec_fin_empleado',false)){
+		mostrarMensaje("debe de introducir una fecha fin valida",2);
+		bool=false;
+	}
+	else if(!$('#es_ministerio').prop('checked') 
+			&& !$('#es_jef_pensum').prop('checked')
+			&& !$('#es_jef_con_estudio').prop('checked')
+			&& !$('#Docente').prop('checked')){
+		mostrarMensaje("debe de seleccionar un cargo",2);
+		bool=false;
+	}
+
+	if(bool)
+		preGuardarEmpleado();
+}
+
+function verEmpleado (codi,codpersona){
+
+	if(!$("#cod_persona").val())
+		codpersona=getVarsUrl().persona;
+	else
+		codpersona=$("#cod_persona").val();
+
 
 
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"listar",
-					"codPersona",	getVarsUrl().persona,
+					"codPersona",	codpersona,
 					"codi"		,	codi
 					);
 
@@ -206,7 +250,7 @@ function compararDatosEmpleados(data){
 			boolFecha=false;			
 	}
 
-	alert(bool+" ** "+boolAux);
+	//alert(bool+" ** "+boolAux);
 	// bool== true se modifica
 	// bool== false se agrega
 	//boolux== true se agrega y se modifica
@@ -220,7 +264,8 @@ function compararDatosEmpleados(data){
 
 		setTimeout(function(){
 			verEmpleado();
-		}, 100);
+			
+		}, 200);
 	}
 
 	if(!boolFecha){
@@ -292,7 +337,7 @@ function guardarEmpleado(bool=null,data=null){
 	if(!bool)
 		fec_fin=$("#fec_fin_empleado").val();
 	
-	alert("yeah"+fec_ini);
+	//alert("yeah"+fec_ini);
 	//alert(fec_fin+" "+$("#empleado #selectEstado").val()+" ** "+$("#empleado #selectInstituto").val());
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"agregar",	
@@ -636,7 +681,7 @@ function verPersonaEmpleado(){
 function montarPersonaEmpleado(){
 
 	cadena="";
-	cadena+'<tbody id="listarPersonaEmpleado">';
+	cadena+='<tbody id="listarPersonaEmpleado">';
 	for(var x=0; x<data.persona.length; x++)
 	{
 		if(data.persona[x]['apellido2']!=null)

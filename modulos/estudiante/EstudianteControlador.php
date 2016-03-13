@@ -41,6 +41,9 @@ class EstudianteControlador
 			self::listarEstudiantesPorCurso();
 		else if($accion == 'listarEstudiantePeriodo')
 			self::listarEstudiantePeriodo();
+		else if($accion == 'buscarEstudiante'){
+			self::buscarEstudiante();
+		}
 		else
 			throw new Exception ("'EstudianteControlador' La accion $accion no es valida");
 	}
@@ -90,7 +93,7 @@ class EstudianteControlador
 
 			$estudiante=EstudianteServicio::listar(null,null,null,$codigo,$codPersona);
 
-			$personas=EstudianteServicio::listarPersonaEstudiante($pnf,$estado,$instituto);
+			$personas=EstudianteServicio::listarPersonaEstudiante($pnf,$estado,$instituto,null,null,null,null,$campo);
 			vista::asignarDato('persona',$personas);
 
 			if(!$personas)
@@ -283,8 +286,8 @@ class EstudianteControlador
 	public static function listarEstudiantesPorCurso(){
 		try{
 			$codigo = PostGet::obtenerPostGet("codigo");
-
-			Vista::asignarDato("estudiante",EstudianteServicio::listarEstudiantesDeCurso($codigo));
+			if($codigo)
+				Vista::asignarDato("estudiante",EstudianteServicio::listarEstudiantesDeCurso($codigo));
 			
 			$r = CursoServicio::obtenerEstusEstudiante();
 
@@ -304,6 +307,50 @@ class EstudianteControlador
 			$periodo = PostGet::obtenerPostGet("periodo");
 
 			Vista::asignarDato("estudiantes",EstudianteServicio::listarEstudiantePeriodo($instituto,$pensum,$periodo,'A'));
+
+			Vista::mostrar();
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+	public static function buscarEstudiante(){
+		try{
+
+			$patron = PostGet::obtenerPostGet("patron");
+			$pensum = PostGet::obtenerPostGet("pensum");
+			$instituto = PostGet::obtenerPostGet("instituto");
+			$estado = PostGet::obtenerPostGet("estado");
+			$patron=strtoupper($patron);
+			$r = EstudianteServicio::listarPersonaEstudiante($pnf,$estado,$instituto,null,null,null,null,$patron);
+
+
+			$cad = "[";
+			if ($r != null){
+				$c = 0;
+				foreach ($r as $estudiante) {
+					if ($c > 0)
+						$cad .= ",";
+					$cad .= "{";
+					$cad .= '"label": "' . $estudiante['nombre1']. ' ' . $estudiante['apellido1'] . '", ';
+					$cad .= '"value": '.$estudiante['cod_estudiante'].",";
+					$cad .= '"cedula": '.$estudiante['cedula'].",";
+					$cad .= '"nombre": "' . $estudiante['nombre1']. ' '. $estudiante['nombre2']. ' ' . 
+								$estudiante['apellido1']. ' ' . $estudiante['apellido2'] . '" ';
+					$cad .= "}";
+					$c++;
+				}
+			}
+			else{
+				$cad .= "{";
+				$cad .= '"label":"No hay coincidencias", ';
+				$cad .= '"value": "null"';
+				$cad .= "}";
+			}
+			$cad .= "]";
+
+			Vista::asignarDato("auto",$cad);
 
 			Vista::mostrar();
 		}
