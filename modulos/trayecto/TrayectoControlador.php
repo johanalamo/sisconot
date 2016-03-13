@@ -25,7 +25,7 @@
  * @package Controladores
  */
 	require_once("modulos/trayecto/modelo/TrayectoServicio.php");
-	//require_once("negocio/Trayecto.php");
+	require_once("negocio/Trayecto.php");
 
 
 
@@ -61,8 +61,6 @@
 					self::modificar();				
 				else if ($accion == 'eliminarTrayecto')
 					self::eliminar();
-				else if($accion == 'listarTrayectoPensum')
-					self::listarTrayectoPensum();
 				else
 				throw new Exception ("(TrayectoControlador) Accion $accion no es valida");			
 		}
@@ -287,18 +285,6 @@
 				}catch(Exception $e){
 					throw $e;
 				}
-		}
-
-		public static function listarTrayectoPensum(){
-			try{
-				
-				$r=TrayectoServicio::obtenerTrayectoPensum(PostGet::obtenerPostGet('codigo'));
-				Vista::asignarDato("trayecto",$r);
-				Vista::mostrar();
-			}
-			catch(Exception $e){
-				throw $e;
-			}
 		}
 
 	}

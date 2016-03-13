@@ -82,15 +82,6 @@ Descripción:
 					self::agregarCurEst();
 				else if($accion == "generarTicketInscripcion")
 					self::generarTicketInscripcion();
-				else if($accion == "tipoUniCurrilular")
-					self::tipoUniCurrilular();
-				else if($accion == "insertarElectiva")
-					self::insertarElectiva();
-				else if($accion == "convalidaciones")
-					self::convalidaciones();
-				else if($accion == "buscarConvalidacionCodigo")
-					self::buscarConvalidacionCodigo();
-							
 				else
 					throw new Exception ("No se pudo resolver la acción $accion");
 			}
@@ -605,73 +596,6 @@ Descripción:
 			}
 		}
 
-		public static function tipoUniCurrilular(){
-			try{
-				$r=CursoServicio::listarTipoUnicurricuar();
-				Vista::asignarDato("tipUniCurrilular",$r);
-				Vista::mostrar();
-			}
-			catch(Exception $e){
-				throw $e;
-			}
-		}
 
-		public static function insertarElectiva(){
-
-			try{
-				$cod_estudiante=PostGet::obtenerPostGet('cod_estudiante');
-				$con_nota=PostGet::obtenerPostGet('con_nota');
-				$nota=PostGet::obtenerPostGet('nota');
-				$fecha=PostGet::obtenerPostGet('fecha');
-				$cod_tip_uni_curricular=PostGet::obtenerPostGet('cod_tip_uni_curricular');
-				$cod_pensum=PostGet::obtenerPostGet('cod_pensum');
-				$cod_trayecto=PostGet::obtenerPostGet('cod_trayecto');
-				$cod_uni_curricular=PostGet::obtenerPostGet('cod_uni_curricular');
-				$descripcion=PostGet::obtenerPostGet('descripcion');
-
-				$r=CursoServicio::agregarElectiva($cod_estudiante, 	   $con_nota,  $nota,  	    
-												   $fecha,  			   $cod_tip_uni_curricular,    
-												   $cod_pensum, 		   $cod_trayecto, 		   $cod_uni_curricular,   
-												   $descripcion );
-
-				if($r>0){					
-					Vista::asignarDato("estatus",1);
-					Vista::asignarDato("mensaje","Se ha hecho la convalidacion");
-				}
-				else
-					Vista::asignarDato("mensaje","NO se hizo la convalidacion");
-				
-				Vista::mostrar();
-
-			}
-			catch(Exception $e){
-				throw $e;
-			}
-		}
-
-		public static function convalidaciones(){
-			try{
-
-				$codigo=PostGet::obtenerPostGet("codigo");
-				$r=CursoServicio::buscarConvalidacionEstudiante($codigo);
-				Vista::asignarDato("convalidaciones",$r);
-				Vista::mostrar();
-			}
-			catch(Exception $e){
-				throw $e;
-			}
-		}
-
-		public static function buscarConvalidacionCodigo(){
-			try{
-				$codigo=PostGet::obtenerPostGet("codigo");
-				$r=CursoServicio::BuscarConvalidacionPorCodigo($codigo);
-				Vista::asignarDato("convalidacion",$r);
-				Vista::mostrar();
-			}
-			catch(Exception $e){
-				throw $e;
-			}
-		}
 	}
 ?>

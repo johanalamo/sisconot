@@ -36,14 +36,12 @@ $(document).ready(function() {
 
 } );
 
-function verEmpleado (codi,codpersona){
-//	alert(codpersona+"xxx");
-	if(!codpersona)
-		codpersona=getVarsUrl().persona;
+function verEmpleado (codi=null){
+
 
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"listar",
-					"codPersona",	codpersona,
+					"codPersona",	getVarsUrl().persona,
 					"codi"		,	codi
 					);
 
@@ -222,8 +220,7 @@ function compararDatosEmpleados(data){
 
 		setTimeout(function(){
 			verEmpleado();
-			
-		}, 200);
+		}, 100);
 	}
 
 	if(!boolFecha){
@@ -639,7 +636,7 @@ function verPersonaEmpleado(){
 function montarPersonaEmpleado(){
 
 	cadena="";
-	cadena+='<tbody id="listarPersonaEmpleado">';
+	cadena+'<tbody id="listarPersonaEmpleado">';
 	for(var x=0; x<data.persona.length; x++)
 	{
 		if(data.persona[x]['apellido2']!=null)

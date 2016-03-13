@@ -37,9 +37,6 @@ $(document).ready(function() {
 
 function verEstudiante (cod_estudiante=null,cod_persona=null){
 
-	/*if(!cod_persona)
-		cod_persona=getVarsUrl().persona;*/
-
 	var arr = Array("m_modulo"	,	"estudiante",
 					"m_accion"	,	"listar",
 					"codPersona",	getVarsUrl().persona,
@@ -217,14 +214,11 @@ function guardarEstudiante (){
 function succAgregarEstudiante(data){
 	//alert('adding student');
 	//alert("sas");
-	alert(data.mensaje);
 	if(data.estatus>0){
-		//alert(data.codEstudiante);
-		
+		alert(data.codEstudiante);
 		if(data.codEstudiante)
 			$("#cod_estudiante").val(data.codEstudiante);
 		mostrarMensaje(data.mensaje, 1);
-		console.log(data);
 		verEstudiante();
 	}			
 	else
@@ -522,7 +516,7 @@ function succMontarEliminarEstudiante (data){
 	if(data.estatus>0){
 		$("#cod_estudiante").val('');
 		mostrarMensaje(data.mensaje, 1);
-		verEstudiante(data.codEstudiante);
+		verEstudiante();
 	}
 	else
 		mostrarMensaje(data.mensaje,2);

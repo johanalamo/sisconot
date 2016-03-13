@@ -617,9 +617,9 @@ function guardarPersona(){
 * que lugo se modifique su informacionde la base de datos. Los Datos son enviados
 * por ajax.
 */
-function modificarPersona(codigo){
+function modificarPersona(codigo=null){
 
-alert(codigo+" el codigo");
+
 	if(getVarsUrl().persona)
 		codigo=getVarsUrl().persona;
 	else if(!codigo)
@@ -639,8 +639,11 @@ function mostrarPersona(){
 	window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_formato=html5&persona='+codigo+'&accion=V';
 }
 
-function bloquearCampos(ver=null){			
-	bloquearCamposEstudiante();		
+function bloquearCampos(ver=null){	
+		
+	bloquearCamposEstudiante();
+			
+		
 }
 
 
@@ -658,7 +661,6 @@ function mostrarInformaion(){
 		if(getVarsUrl().accion=='M'){			
 			$("#editar_estudiante").remove();
 			$("#editar_empleado").remove();
-			$("#md_persona").remove();
 
 		}
 		else if(getVarsUrl().accion=='V'){
@@ -687,8 +689,6 @@ function mostrarInformaion(){
 			$("#nv_estudiante").remove();
 			$("#foto").remove();
 			$("#borrar_persona").remove();
-			$("#md_persona").remove();
-			$("#guardarPersona").remove();
 		}
 	//	alert("$$$$$$$"); 	
 		ajaxMVC(arr,succMontarModificarPersona,error);
@@ -779,6 +779,12 @@ function succMontarModificarPersona(data){
 		setTimeout(function(){ succMontarModificarEmpleado(data); }, 400);
 	if(data.estudiante)
 		setTimeout(function(){ succMontarModificarEstudiante(data); }, 400);
+	
+		 
+				
+
+
+	
 
 }
 
@@ -844,12 +850,6 @@ function succAgregarPersona(data){
 	$('#codigoPersona').val(data.codPersona);
 	if(data.codPersona){
 		tabsActivos(); 
-			//window.location.assign("index.php?m_modulo=persona&m_formato=ods&m_vista=ListarPersona&m_accion=listar&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selectInstituto").val());
-
-		//modificarPersona(data.codPersona);
-		//alert(data.codPersona+"antes");
-		/*verEmpleado(null,data.codPersona);
-		verEstudiante(null,data.codPersona);*/
 		//AgregarEsEm();
 		//$('div.estudiante').fadeIn(700);				
 		$('div.empleado').hide();

@@ -598,7 +598,7 @@ Descripción:
 									tra.num_trayecto numtrayecto,
 									uni.nombre nombreuni,
 									per.nombre nombreperiodo,
-									pers.nombre1 || ' ' || pers.apellido2 as nombredocente
+									pers.nombre1 || ' ' || pers.apellido1 as nombredocente
 									from sis.t_curso cur
 									inner join sis.t_periodo per
 										on per.codigo = cur.cod_periodo
@@ -923,13 +923,19 @@ Descripción:
 
 				$conexion = Conexion::conectar();
 
-				$lista = implode(",",$lista);
-
-				$lista = "(".$lista.")";
-
 				$consulta = "select 	pre.cod_uni_cur_prelada
 										from sis.t_prelacion pre
-										where pre.cod_uni_curricular IN $lista
+										where true
+										";
+				if($lista != NULL){
+					$lista = implode(",",$lista);
+					$lista = "(".$lista.")";
+
+					$consulta .=" and pre.cod_uni_curricular IN $lista";
+				}
+
+
+				$consulta .= "
 										and cod_pensum = :pensum
 										and cod_instituto = :instituto";
 
@@ -1146,10 +1152,16 @@ Descripción:
 									coalesce(per2.nombre1 || ' ' || per2.apellido1,'No asignado') as nombredoc,
 									cur.codigo codcurso,
 									cur.seccion,
-									(select count(codigo)
-										from sis.t_cur_estudiante
-										where cod_curso = cur.codigo
-										and cod_estado = 'C')
+									cur.capacidad,
+									(select  	count(codigo)
+												from sis.t_cur_estudiante
+												where  cod_estado = 'C'
+												and cod_curso = cur.codigo
+												and codigo < (select codigo
+												from sis.t_cur_estudiante
+												where cod_estudiante = est.codigo
+												and cod_estado = 'C'
+												and cod_curso = cur.codigo) + 1)
 									as orden
 									from sis.t_estudiante est
 									inner join sis.t_persona per
@@ -1188,117 +1200,6 @@ Descripción:
 						return $results;
 					else
 						return null;
-			}
-			catch(Exception $e){
-				throw $e;
-			}
-		}
-
-		public static function listarTipoUnicurricuar(){
-			try{
-				
-				$conexion = Conexion::conectar();
-				$consulta = "select * from sis.t_tip_uni_curricular;";
-
-				$ejecutar=$conexion->prepare($consulta);
-
-				$ejecutar-> execute(array());
-
-				if($ejecutar->rowCount() != 0)
-					return $ejecutar->fetchAll();
-				else
-					return null;
-			}
-			catch(Exception $e){
-				throw $e;
-			}
-		}
-
-		public static function agregarElectiva($cod_estudiante, 	   $con_nota,  $nota,  	    
-											   $fecha,  			   $cod_tip_uni_curricular,    
-											   $cod_pensum, 		   $cod_trayecto, 		   $cod_uni_curricular,   
-											   $descripcion )
-		{
-			try{
-
-				$conexion = Conexion::conectar();
-
-				$consulta = "select sis.f_convalidar_ins(
-														:cod_estudiante, 	   :con_nota,  :nota,  	    
-												   		:fecha,  			   :cod_tip_uni_curricular,    
-												   		:cod_pensum, 		   :cod_trayecto, 		   :cod_uni_curricular,   
-												   		:descripcion 
-													);";
-				$ejecutar = $conexion->prepare($consulta);
-
-				$ejecutar->bindParam(':cod_estudiante',$cod_estudiante, PDO::PARAM_STR);
-				$ejecutar->bindParam(':con_nota',$con_nota, PDO::PARAM_STR);
-				$ejecutar->bindParam(':nota',$nota, PDO::PARAM_STR);
-				$ejecutar->bindParam(':fecha',$fecha, PDO::PARAM_STR);
-				$ejecutar->bindParam(':cod_tip_uni_curricular',$cod_tip_uni_curricular, PDO::PARAM_STR);
-				$ejecutar->bindParam(':cod_pensum',$cod_pensum, PDO::PARAM_STR);
-				$ejecutar->bindParam(':cod_trayecto',$cod_trayecto, PDO::PARAM_STR);
-				$ejecutar->bindParam(':cod_uni_curricular',$cod_uni_curricular, PDO::PARAM_STR);
-				$ejecutar->bindParam(':descripcion',$descripcion , PDO::PARAM_STR);
-				
-				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-
-				$ejecutar->execute();
-				$codigo=$ejecutar->fetchColumn(0);
-				return $codigo;
-			}
-			catch(Exception $e){
-				throw $e;
-			}
-		}
-
-		public static function buscarConvalidacionEstudiante ($codigo=null){
-			try{
-				$conexion = Conexion::conectar();
-				$consulta = "select c.codigo,c.cod_estudiante,c.con_nota, c.nota, p.nom_corto,
-								c.fecha,c.descripcion, tuc.nombre as tipo, t.num_trayecto, uc.nombre
-							from sis.t_tip_uni_curricular tuc, sis.t_convalidacion c, sis.t_trayecto t, 
-								sis.t_pensum p, sis.t_uni_curricular uc
-							where c.cod_estudiante=? and c.cod_trayecto=t.codigo
-								and p.codigo=c.cod_pensum and tuc.codigo=c.cod_tip_uni_curricular 
-								and uc.codigo=c.cod_uni_curricular
-							order by c.fecha desc,c.codigo";
-
-				$ejecutar=$conexion->prepare($consulta);
-
-				$ejecutar-> execute(array($codigo));
-
-				if($ejecutar->rowCount() != 0)
-					return $ejecutar->fetchAll();
-				else
-					return null;
-			}
-			catch(Exception $e){
-				throw $e;
-			}
-		}
-
-		public static function BuscarConvalidacionPorCodigo ($codigo=null){
-			try{
-
-				$conexion = Conexion::conectar();
-
-				$consulta = "select c.*, uc.nombre, 
-								p.nombre1 || ' ' || p.nombre2 || ' ' || p.apellido1 || ' ' || 
-								p.apellido2 as nomPersona, p.cedula
-							from sis.t_convalidacion c, sis.t_uni_curricular uc, 
-								sis.t_persona p, sis.t_estudiante e
-							where c.codigo=? and c.cod_uni_curricular=uc.codigo 
-								and p.codigo = e.cod_persona and e.codigo=c.cod_estudiante;";
-
-				$ejecutar=$conexion->prepare($consulta);
-
-				$ejecutar-> execute(array($codigo));
-
-				if($ejecutar->rowCount() != 0)
-					return $ejecutar->fetchAll();
-				else
-					return null;
 			}
 			catch(Exception $e){
 				throw $e;

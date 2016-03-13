@@ -34,7 +34,7 @@
         $pdf->Cell(20,5,'Docente',1,0,'C',true);
         $pdf->Cell(15,5,'Cod Curso',1,0,'C',true);
         $pdf->Cell(15,5,'Sección',1,0,'C',true);
-        $pdf->Cell(30,5,'Orden de Inscripción',1,0,'C',true);
+        $pdf->Cell(30,5,'Orden/Capacidad',1,0,'C',true);
         $pdf->Ln();
 
         $pdf->SetFont('Arial','',7);
@@ -46,7 +46,7 @@
             $pdf->Cell(20,5,$info[$i]['nombredoc'],1,0,'C',true);
             $pdf->Cell(15,5,$info[$i]['codcurso'],1,0,'C',true);
             $pdf->Cell(15,5,$info[$i]['seccion'],1,0,'C',true);
-            $pdf->Cell(30,5,$info[$i]['orden'],1,0,'C',true);
+            $pdf->Cell(30,5,$info[$i]['orden']."/".$info[$i]['capacidad'],1,0,'C',true);
             $pdf->Ln();
         }
 
