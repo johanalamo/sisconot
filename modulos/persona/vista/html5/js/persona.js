@@ -844,7 +844,9 @@ function succAgregarPersona(data){
 	$('#codigoPersona').val(data.codPersona);
 	if(data.codPersona){
 		tabsActivos(); 
-		modificarPersona(data.codPersona);
+			//window.location.assign("index.php?m_modulo=persona&m_formato=ods&m_vista=ListarPersona&m_accion=listar&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selectInstituto").val());
+
+		//modificarPersona(data.codPersona);
 		//alert(data.codPersona+"antes");
 		/*verEmpleado(null,data.codPersona);
 		verEstudiante(null,data.codPersona);*/
