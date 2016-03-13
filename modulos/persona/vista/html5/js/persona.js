@@ -687,8 +687,11 @@ function mostrarInformaion(){
 			$("#nv_estudiante").remove();
 			$("#foto").remove();
 			$("#borrar_persona").remove();
+<<<<<<< HEAD
 			$("#md_persona").remove();
 			$("#guardarPersona").remove();
+=======
+>>>>>>> 3186db1fb935c749b9e81441593dcb48de63a6e1
 		}
 	//	alert("$$$$$$$"); 	
 		ajaxMVC(arr,succMontarModificarPersona,error);
