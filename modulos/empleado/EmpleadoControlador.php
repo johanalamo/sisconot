@@ -91,7 +91,7 @@ class EmpleadoControlador
 			if(!$codigo)
 				$codigo=null;
 
-	
+
 
 			$personas=EmpleadoServicio::listarPersonaEmpleado($pnf,$estado,$instituto);
 			$empleado=EmpleadoServicio::listar(null,null,null,$codigo,$codPersona);
@@ -325,7 +325,7 @@ class EmpleadoControlador
 					if ($c > 0)
 						$cad .= ",";
 					$cad .= "{";
-					$cad .= '"label": "' . $docente['nombre1']. ' ' . $docente['apellido1'] . '", ';
+					$cad .= '"label":"'.$docente['nombre1'].' '.$docente['apellido1'].' ('.$docente['nacionalidad'].'-'.$docente['cedula'].')", ';
 					$cad .= '"value": '.$docente['codigo'];
 					$cad .= "}";
 					$c++;

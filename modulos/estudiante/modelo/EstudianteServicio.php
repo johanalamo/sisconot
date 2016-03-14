@@ -123,7 +123,7 @@ class EstudianteServicio
 	 * @throws Exception 					Si se producen errores en operaciones con la base de datos.
 	 */
 	public static function listar (	$pnf=null, 			$estado=null,		$instituto=null,
-									$codigo=null, 		$cod_persona=null, 	$num_carnet=null, 	
+									$codigo=null, 		$cod_persona=null, 	$num_carnet=null,
 									$num_expediente=null,$cod_rusnies=null,	$fec_inicio=null,
 									$fec_fin=null
 									)
@@ -216,8 +216,8 @@ class EstudianteServicio
 	 */
 	public static function listarPersonaEstudiante(	$cod_pensum=null,			$cod_estado=null,	$cod_instituto=null,
 													$campo=null,				$codigo=null,		$cod_esudiante=null,
-													$cod_curso=null,			$campo=null, 		$cedula=null,		
-													$correo=null,				$nombre1=null,		$nombre2=null,		
+													$cod_curso=null,			$campo=null, 		$cedula=null,
+													$correo=null,				$nombre1=null,		$nombre2=null,
 													$apellido1=null,			$apellido2=null,	$sexo=null
 
 												  )
@@ -242,9 +242,9 @@ class EstudianteServicio
 
 			if($codigo)
 				$consulta.= " and p.codigo =$codigo ";
-			
+
 			if($campo){
-				$consulta.=" and CONCAT (cast(p.cedula as varchar),p.nombre1,p.nombre2,apellido1, apellido2) 
+				$consulta.=" and CONCAT (cast(p.cedula as varchar),p.nombre1,p.nombre2,apellido1, apellido2)
 							like '%$campo%' ";
 			}
 
@@ -315,17 +315,18 @@ class EstudianteServicio
 		try{
 			$conexion = Conexion::conectar();
 
-			$consulta="select 	est.codigo,	
+			$consulta="select 	est.codigo,
 								per.cedula ,
-								per.apellido1 || ' ' || per.nombre1 as nombrecompleto
-								from sis.t_estudiante as est 
+								per.apellido1 || ' ' || per.nombre1 as nombrecompleto,
+								per.nacionalidad
+								from sis.t_estudiante as est
 								inner join sis.t_persona as per
-									on per.codigo = est.cod_persona 
+									on per.codigo = est.cod_persona
 								inner join sis.t_periodo as pdo
 									on pdo.cod_pensum = est.cod_pensum
-								where est.cod_instituto = $cod_instituto 
+								where est.cod_instituto = $cod_instituto
 								and est.cod_pensum = $cod_pensum
-								and pdo.codigo = $cod_periodo 
+								and pdo.codigo = $cod_periodo
 								and est.cod_estado = '$cod_estado'
 								order by
 									per.apellido1,
@@ -475,7 +476,7 @@ class EstudianteServicio
 									inner join sis.t_est_cur_estudiante ece
 										on ce.cod_estado = ece.codigo
 									where ce.cod_curso = :codigo
-									order by 
+									order by
 										ce.cod_estado,
 										per.apellido1";
 
