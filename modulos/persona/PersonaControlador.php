@@ -178,8 +178,10 @@
 				$foto=FotografiaServicio::existe($codigo);
 				//var_dump($persona);
 
-				if($foto){					
-					$ruta="/var/www/sisconot/temp/".$codigo.".".$foto[0]["tipo"];
+				if($foto){		
+
+					$ruta=$_SERVER['DOCUMENT_ROOT']."/sisconot/temp/".$codigo.".".$foto[0]["tipo"];
+					//echo $ruta;
 					FotografiaServicio::extraerEn($codigo,$ruta);
 				}
 
@@ -189,7 +191,8 @@
 					Vista::asignarDato('estudiante',$estudiante);
 					Vista::asignarDato('empleado',$empleado);
 					if($foto)
-						Vista::asignarDato('foto',"temp/".$codigo.".".$foto[0]["tipo"]);
+						$ruta="temp/".$codigo.".".$foto[0]["tipo"];
+						Vista::asignarDato('foto',$ruta);
 					//var_dump($foto[0]["archivo"]);
 
 					Vista::asignarDato('estatus',1);
@@ -256,6 +259,8 @@
 					$codigo=null;
 				if(!$archivo)
 					$archivo=null;
+				if(!$fecNacimiento)
+					$fecNacimiento=null;
 
 				
 				$response=null;
@@ -314,9 +319,11 @@
 					$tipo=explode(".",$archivo["name"]);
 					$arch=pg_escape_string($archivo["tmp_name"]);	
 					if($tipo){
-						$ruta="/var/www/sisconot/temp/".$codigo.".".$tipo[1];
+						$ruta=$_SERVER['DOCUMENT_ROOT']."/sisconot/temp/".$codigo.".".$tipo[1];
 						unlink($ruta);
 						copy($arch,$ruta);
+						//$ruta="/temp/".$codigo.".".$tipo[1];
+						
 						Vista::asignarDato("ruta",$ruta);
 						$foto=FotoControlador::Iniciar();
 
@@ -328,11 +335,14 @@
 					$tipo=explode(".",$archivo["name"]);	
 					$arch=pg_escape_string($archivo["tmp_name"]);
 					//PersonaServicio::modificarFoto($codigo,$arch,$a[1],$archivo["name"]);
-					if($tipo){						
-						$ruta="/var/www/sisconot/temp/".$codigo.".".$tipo[1];
+					if($tipo){			
+
+						$ruta=$_SERVER['DOCUMENT_ROOT']."/sisconot/temp/".$codigo.".".$tipo[1];
+
 						unlink($ruta);
 						copy($arch,$ruta);
 						//var_dump($ruta);
+						//$ruta="/temp/".$codigo.".".$tipo[1];
 						Vista::asignarDato("ruta",$ruta);
 						$foto=FotoControlador::Iniciar();
 						//FotografiaServicio::extraerEn($persona[0]["cod_persona"],"/var/www/proyecto/GitHub/sisconot/".$persona[0]["cod_persona"].".".$a[1]);
@@ -348,11 +358,13 @@
 				}
 				if($foto===true && ($response>0 || $response2>0)){
 					FotografiaServicio::guardar($codigo,$tipo[count($tipo)-1],$ruta);
+					
 				}
 				unlink($ruta);
 				
+				
 
-				if($foto!=2 && $foto==true){
+				if($foto!='2' && $foto==true){
 					Vista::asignarDato("foto",$ruta);
 				}
 				else if($foto==='2'){
