@@ -124,7 +124,7 @@ function modificar(){
 		var a=Array("m_modulo","instituto","m_accion","modificar",
 					"m_vista","Modificar","nombre",$("#nombreI").val(),"nombreC",$("#nombreCI").val(),
 					"direccion",$("#direccionI").val(),"codigo",$("#codigoI").val() );
-		alert(a)
+		//alert(a)
 		ajaxMVC(a,succModificar,error);	
 	}
 	
@@ -162,11 +162,12 @@ function succObtener(data){
 * viene del servdor.
  * */
 
-function eliminar(){
-	var a=Array("m_modulo","instituto","m_accion","eliminar",
-					"m_vista","Eliminar","codigo",$("#codigoI").val());
-		ajaxMVC(a,succEliminar,error);	
-	
+function eliminar(Codigo){
+	if (confirm("¿Desea Eliminar este Instituto ?")){
+		var a=Array("m_modulo","instituto","m_accion","eliminar",
+						"m_vista","Eliminar","codigo",Codigo);
+			ajaxMVC(a,succEliminar,error);	
+	}
 }
 /*fucion que arma ua peticion ajax para traer la lista de institutos de la base de datas
  * para cargarlos a la pagina dinamicamente..
@@ -217,7 +218,7 @@ function succListar(data){
 			cadena+="</td>";
 			cadena+="<td>"
 		
-			cadena+="<button type='button' class='btn btn-xs btn-danger' onClick='eliminarInstituto("+data.institutos[i]['codigo']+")' data-toggle='modal' data-target='#dialogoInstituto' title='Eliminar Instituto'>"
+			cadena+="<button type='button' class='btn btn-xs btn-danger' onClick='eliminar("+data.institutos[i]['codigo']+")' title='Eliminar Instituto'>"
 			cadena+="<i class='icon-trash'></i>"
 			cadena+="</button>";
 		
@@ -242,7 +243,7 @@ function succEliminar(data){
 	if(data.estatus>0){
 		mostrarMensaje(data.mensaje,1);
 		actualizar();
-		$("#dialogoInstituto").modal('hide');
+	
 
 	}
 	else 

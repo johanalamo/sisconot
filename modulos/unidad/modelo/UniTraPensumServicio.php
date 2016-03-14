@@ -27,25 +27,27 @@ class UniTraPensumServicio
 
 
 	/**
-		 * Función que permite agregar un UniTraPen.
-		 * 
-		 * Permite agrega un UniTraPen a la base de datos.
-		 * 
-		 * @param objet $UniTraPen 			  	Objeto UniTraPen a agregar.
-		 *
-		 * @throws Exception 					Si no se puede agregar el UniTraPen.
-		 */	
-	public static function agregarUniTraPenObjetc($UniTraPen){
+	 * Función que permite agregar un UniTraPen.
+	 * 
+	 * Permite agrega un UniTraPen a la base de datos.
+	 * 
+	 * @param objet $UniTraPen 			  	Objeto UniTraPen a agregar.
+	 *
+	 * @throws Exception 					Si no se puede agregar el UniTraPen.
+	 */	
+	public static function agregarUniTraPenObjetc($codigoPen,$trayecto,$unidad,$tipo){
+			//var_dump($trayecto);
+			//var_dump($tipo);
 		try{
 			$conexion=Conexion::conectar();
-			$consulta="select sis.f_prelacion_insertar(:cod_pensum, :cod_instituto, :cod_uni_curricular, :cod_uni_cur_prelada)";								
+			$consulta="select sis.f_uni_tra_pensu_insertar(:cod_pensum, :cod_trayecto, :cod_uni_curricular, :tipo)";								
 			$ejecutar=$conexion->prepare($consulta);
 			// indica
 			// como se indica en parametro y el tipo de parametro que se envia 			
-			$ejecutar->bindParam(':cod_pensum',$UniTraPen->obtenerNombre(), PDO::PARAM_INT);
-			$ejecutar->bindParam(':cod_instituto',$UniTraPen->obtenerNombreCorto(), PDO::PARAM_INT);
-			$ejecutar->bindParam(':cod_uni_curricular',$UniTraPen->obtenerObservaciones(), PDO::PARAM_INT);
-			$ejecutar->bindParam(':cod_uni_cur_prelada',$UniTraPen->obtenerMinCanElectiva(), PDO::PARAM_INT);
+			$ejecutar->bindParam(':cod_pensum',$codigoPen, PDO::PARAM_INT);
+			$ejecutar->bindParam(':cod_trayecto',$trayecto, PDO::PARAM_INT);
+			$ejecutar->bindParam(':cod_uni_curricular',$unidad, PDO::PARAM_INT);
+			$ejecutar->bindParam(':tipo', $tipo , PDO::PARAM_STR);
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 			//ejecuta				
 			$ejecutar->execute();
@@ -59,82 +61,7 @@ class UniTraPensumServicio
 		} 		
 	}
 
-	/**
-		 * Función que permite agregar un UniTraPen.
-		 * 
-		 * Permite agrega un UniTraPen a la base de datos.
-		 * 
-		 * @param nombre $nombre 			  	variable UniTraPen a agregar.
-		 * @param nomCorto $nomCorto 			  	variable UniTraPen a agregar.
-		 * @param direccion $direccion 			  	variable UniTraPen a agregar.
-		 * @param min_can_elect $min_can_elect 			  	variable UniTraPen a agregar.
-		 * @param min_cre_elect $min_cre_elect 			  	variable UniTraPen a agregar.
-		 * @param min_cre_obligat $min_cre_obligat 			  	variable UniTraPen a agregar.
-		 * @param fec_creac $fec_creac 			  	variable UniTraPen a agregar.
-		 *
-		 * @throws Exception 					Si no se puede agregar el UniTraPen.
-		*/
-	public static function agregarPrelacionParametro($codPensum, $codInstituto, $codUniCurricular, $codUniCurPrelada){
-		try{
-			$conexion=Conexion::conectar();
-			$consulta="select sis.f_instituto_insertar(:cod_pensum, :cod_instituto, :cod_uni_curricular, :cod_uni_cur_prelada)";
-			$ejecutar=$conexion->prepare($consulta);
-			// indica
-			// como se indica en parametro y el tipo de parametro que se envia
-			$ejecutar->bindParam(':cod_pensum',$codPensum, PDO::PARAM_INT);
-			$ejecutar->bindParam(':cod_instituto',$codInstituto, PDO::PARAM_INT);
-			$ejecutar->bindParam(':cod_uni_curricular',$codUniCurricular, PDO::PARAM_INT);
-			$ejecutar->bindParam(':cod_uni_cur_prelada',$codUniCurPrelada, PDO::PARAM_INT);
-			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-			//ejecuta				
-			$ejecutar->execute();
-			//primera columana codigo
-			$codigo = $ejecutar->fetchColumn(0);	
-			unset($ejecutar);	
-			unset($conexion);			
-			return $codigo;
 
-		}catch(Exception $e){
-			throw $e;
-		}	 
-	}	
-
-	/**
-		 * Función que permite modificar un UniTraPen.
-		 * 
-		 * Permite modificar un UniTraPen a la base de datos.
-		 * 
-		 * @param objet $UniTraPen 			  	Objeto UniTraPen a modificar.
-		 *
-		 * @throws Exception 					Si no se puede modificar el UniTraPen.
-		 */
-	public static function modificarPrelacionObject($UniTraPen){
-		try{
-			$conexion=Conexion::conectar();
-			$consulta="select sis.f_prelacion_actualizar(:codigo, :cod_pensum, :cod_instituto, :cod_uni_curricular, :cod_uni_cur_prelada)";
-			$ejecutar=$conexion->prepare($consulta);
-			// indica
-			// como se indica en parametro y el tipo de parametro que se envia
-			$ejecutar->bindParam(':codigo',$prelacion->obtenerCodigo(), PDO::PARAM_INT);
-			$ejecutar->bindParam(':cod_pensum',$codPensum, PDO::PARAM_INT);
-			$ejecutar->bindParam(':cod_instituto',$codInstituto, PDO::PARAM_INT);
-			$ejecutar->bindParam(':cod_uni_curricular',$codUniCurricular, PDO::PARAM_INT);
-			$ejecutar->bindParam(':cod_uni_cur_prelada',$codUniCurPrelada, PDO::PARAM_INT);
-			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-			//ejecuta				
-			$ejecutar->execute();
-			//primera columana codigo
-			$row = $ejecutar->fetchColumn(0);					
-			// recomendad null a este objeto						
-			unset($ejecutar);
-			// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
-			unset($conexion);
-			if ($row == 0)
-				throw new Exception("No se puede modificar la UniTraPen");	
-		}catch(Exception $e){
-			throw $e;
-		}	 
-	}
 
 	/**
 		 * Función que permite modificar un UniTraPen.
@@ -155,7 +82,7 @@ class UniTraPensumServicio
 		public static function modificarPrelacionParametro($codigo, $codPensum, $codInstituto, $codUniCurricular, $codUniCurPrelada){
 			try{
 				$conexion=Conexion::conectar();
-				$consulta="select sis.f_prelacion_actualizar(:codigo, :cod_pensum, :cod_instituto, :cod_uni_curricular, :cod_uni_cur_prelada)";
+				$consulta="select sis.f_uni_tra_pensu_actualizar(:codigo, :cod_pensum, :cod_instituto, :cod_uni_curricular, :cod_uni_cur_prelada)";
 			    $ejecutar=$conexion->prepare($consulta);
 				// indica
 				// como se indica en parametro y el tipo de parametro que se envia
@@ -194,7 +121,7 @@ class UniTraPensumServicio
 		public static function eliminar($codigo){
 		try{
 				$conexion=Conexion::conectar();
-				$consulta="select sis.f_prelacion_eliminar(:codigo)";								
+				$consulta="select sis.f_uni_tra_pensu_eliminar(:codigo)";								
 				$ejecutar=$conexion->prepare($consulta);
 				// indica
 				// como se indica en parametro y el tipo de parametro que se envia
@@ -204,7 +131,7 @@ class UniTraPensumServicio
 				$ejecutar->execute();
 				//primera columana codigo
 				$row = $ejecutar->fetchColumn(0);					
-				var_dump($row);
+				
 				// recomendad null a este objeto	
 				unset($ejecutar);
 				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
@@ -230,7 +157,7 @@ class UniTraPensumServicio
 		public static function obtener($codigo){
 			try{
 				$conexion=Conexion::conectar();				
-				$consulta= "select sis.f_prelacion_por_codigo_seleccionar('pcursor',:codigo)";
+				$consulta= "select sis.f_uni_tra_pensu_por_codigo_seleccionar('pcursor',:codigo)";
 							
 				$ejecutar= $conexion->prepare($consulta);
 				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);	
@@ -262,5 +189,9 @@ class UniTraPensumServicio
 				throw $e;
 			}
 		}
+
+
+
+
 }
 ?>

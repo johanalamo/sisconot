@@ -18,11 +18,7 @@
 	                        <a class="btn btn-circle show-tooltip" title="Agregar Instituto" href="#"  onClick="abrirDialogoInstituto('dialogoInstituto','Agregar Instituto','agregarInstituto()')" data-toggle="modal" data-target="#dialogoInstituto"><i class="icon-plus"></i></a>
 	                   
 	                    </div>
-	                    <div class="btn-group">
-	                        <a class="btn btn-circle show-tooltip" title="Print" href="#"><i class="icon-print"></i></a>
-	                        <a class="btn btn-circle show-tooltip" title="Export to PDF" href="#"><i class="icon-file-text-alt"></i></a>
-	                        <a class="btn btn-circle show-tooltip" title="Export to Exel" href="#"><i class="icon-table"></i></a>
-	                    </div>	                  
+	                                  
 	                   <!-- <div class="btn-group">
 	                    	<button type="button" onClick="abrirDialogoInstituto('dialogoInstituto','Agregar Instituto','agregarInstituto()')" class="btn btn-success" data-toggle="modal" data-target="#dialogoInstituto">
 									Agregar Instituto
@@ -73,7 +69,7 @@
 										</td>
 										<td>
 
-										<button type="button" class='btn btn-xs btn-danger'  onClick="eliminarInstituto({{instituto.codigo}});sleep();" data-toggle="modal" data-target="#dialogoInstituto" title="Eliminar Instituto">
+										<button type="button" class='btn btn-xs btn-danger'  onClick="eliminar({{instituto.codigo}});"  title="Eliminar Instituto">
 													<i class="icon-trash"></i>
 											</button>
 

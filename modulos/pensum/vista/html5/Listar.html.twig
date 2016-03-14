@@ -1,5 +1,12 @@
 {% extends 'Pensum.html.twig' %}
 
+{% block headVista %}
+
+ <!-- -------------- CSS - allcp forms -------------- -->
+  
+ <link rel="stylesheet" type="text/css" href="modulos/pensum/vista/html5/ccs/alert.css">
+{% endblock %}
+
 {% block contenido %}
 
 
@@ -16,7 +23,7 @@
                 <div class="btn-toolbar pull-right clearfix">
                     <div class="btn-group">
                         <a class="btn btn-circle show-tooltip" title="Agregar Instituto" href="index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=Agregar"  ><i class="icon-plus"></i></a>
-                   		<a id="bottonPlus" class="btn btn-circle show-tooltip" title="Agregar Instituto" href="#"  onclick="administrarPensum()" data-target="#preagregarpensum" data-toggle="modal" disabled="true"><i class="icon-plus-sign"></i></a>
+                   		
                     </div>
                     <div class="btn-group">
                         <a class="btn btn-circle show-tooltip" title="Print" href="#"><i class="icon-print"></i></a>
@@ -46,12 +53,12 @@
 										<td><a href="#"  onmouseover="verDetalle({{pensums.codigo}})">{{pensums.nombre}}</a></td>
 										<td><a href="#"  onmouseover="verDetalle({{pensums.codigo}})">{{pensums.nom_corto}}</a></td>
 										<td>										
-											<button class="btn btn-info" title="Informacion del Pensum" onclick="agregarInfPen({{pensums.codigo}})">
+											<button class="btn btn-xs btn-info" title="Informacion del Pensum" onclick="redirectEdit({{pensums.codigo}})">
 												<i class="icon-pencil"></i>
 											</button>
 										</td>	
 										<td>
-										<button class="btn btn-danger" title="Eliminar Pensum" onclick="eliminarPensum({{pensums.codigo}});" data-toggle="modal" data-target="#dialogoPensum" title="Eliminar Instituto">
+										<button class="btn  btn-xs btn-danger" title="Eliminar Pensum" onclick="eliminarPensum({{pensums.codigo}});" data-toggle="modal" data-target="#dialogoPensum" title="Eliminar Instituto">
 												<i class="icon-remove"></i>
 											</button>
 										</td>	
@@ -98,14 +105,14 @@
 
 			               
 
-			                	<div class="alert alert-primary" style="margin-top: 22px;"> Detalle de Pensum selecionado:                           
+			                	<div class="cuadro cuadro-negro" style="margin-top: 22px;  position: unset;"> Detalle de Pensum selecionado:                           
 	                       		 </div>
 
 	                       	<div id="detallePen" class="third">
 
 			                	
 
-			                	<div class="alert alert-alert" style="margin-top: 22px;"> No ha selecionado ningún Pensum
+			                	<div class="cuadro cuadro-amarillo"  style="margin-top: 22px;  position: unset;"> No ha selecionado ningún Pensum
 	                       		 </div>
 
 		                	</div>

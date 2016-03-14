@@ -353,10 +353,11 @@
 		public static function preModif(){
 			try
 			{
-				$r=PensumServicio::obtener(PostGet::obtenerPostGet('codigo'));
+				$r=PensumServicio::obtener(PostGet::obtenerPostGet('codigoPensum'));
 			//	var_dump($r);
 				$mensaje="Pensum";
 				Vista::asignarDato('pensum',$r);
+			//	var_dump($r);
 				Vista::asignarDato('estatus',1);
 				Vista::asignarDato('mensaje',$mensaje);
 				Vista::mostrar();

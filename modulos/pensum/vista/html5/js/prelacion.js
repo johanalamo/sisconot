@@ -32,6 +32,15 @@ function cargarUnidadCurricular(){
 	ajaxMVC(arr,ssccCargaUnidadesC,err);
 }
 
+function cargarUnidadCurricular(){
+		var arr = Array("m_modulo"		,		"unidad",
+					"m_accion"		,		"buscarUniCurricularPorPensum",
+					"codigo" 		, 	$("#codigoPensum").val()
+					);
+
+	ajaxMVC(arr,succCargarListT,errorLista);
+}
+
 function ssccCargaUnidadesC(data){
 
 	var ins = data.unidades;
@@ -116,8 +125,29 @@ function ObtenerIDPensum(){
 	//     console.log(a);
 	     $("#codigoPensum").val(a);
 	//     alert( $("#codigoPensum").val());
+			return true;
 	   }else{
 	   	alert('No posee codigo Pensum en url');
+	   		return false;
 	   }
 }
 
+function agregarPrelacion(){
+		var arr = Array ("m_modulo","unidad",
+	 					 "m_accion","agregarPrelacion",
+	 					 "cod_instituto",$("#selInst").val(),
+	 					 "cod_pensum",$("#codigoPensum").val(),
+	 					 "cod_uni_curricular",$("#codigoUnidadC".val),
+	 					 "cod_uni_cur_prelada",$("#codigoUnidadCP").val()
+	 					  );
+	ajaxMVC(arr,succAgregarPrelacion,errorAgregar); 
+}
+
+
+function succAgregarPrelacion(data){
+
+}
+
+function errorAgregar(){
+
+}
