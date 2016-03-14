@@ -215,8 +215,8 @@ class EstudianteServicio
 	 * @throws Exception 					Si se producen errores en operaciones con la base de datos.
 	 */
 	public static function listarPersonaEstudiante(	$cod_pensum=null,			$cod_estado=null,	$cod_instituto=null,
-													$campo=null,				$codigo=null,		$cod_esudiante=null,
-													$cod_curso=null,			$campo=null, 		$cedula=null,		
+													$campo,						$codigo=null,		$cod_esudiante=null,
+													$cod_curso=null,					$cedula=null,		
 													$correo=null,				$nombre1=null,		$nombre2=null,		
 													$apellido1=null,			$apellido2=null,	$sexo=null
 

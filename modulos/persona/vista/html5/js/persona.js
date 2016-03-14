@@ -102,11 +102,11 @@ function getVarsUrl(){
 
 
 function nuevoPersonaEstudiante (){	
-	window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_formato=html5'; 
+	window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_formato=html5&accion=N&persona=-1'; 
 }
 
 function nuevoPersonaEmpleado (){	
-	window.location.href = 'index.php?m_modulo=persona&m_vista=Agregar&m_formato=html5'; 
+	window.location.href = 'index.php?m_modulo=persona&m_vista=Agregar&m_formato=html5&accion=N&persona=-1'; 
 }
 function foto(data){
 
@@ -208,13 +208,17 @@ function montarSelectInstituto(data){
 * los resultados en la funcion montarSelectPNF().
 */
 function verPNF(){
-	//alert($("#selectInstituto").val());
+	if($("#selectInstituto").val()){
+		if($("#selectInstituto").val()=="seleccionar")
+			$("#selectPNF").val('seleccionar');
+			verPersona();
+	}
 	var arr = Array("m_modulo"	,	"persona",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"campo",		$("#campo").val(),
+					"campo"		,	$("#campo").val(),
 					"tipo_persona", "ambos"						
 					);
 		
@@ -332,9 +336,16 @@ function montarSelectEstado(data){
 * los resultados en la funcion montarPersona().
 */
 function verPersona(codi=null){
-	$("#tipoPersona").val("ambos");
-	$("#campo").val("");
-	var arr = Array("m_modulo"	,	"persona",
+	var modulo="";
+	if($("#tipoPersona").val() && $("#tipoPersona").val()=="ambos")
+	 	modulo="persona"
+	else if($("#tipoPersona").val())
+		modulo=$("#tipoPersona").val();
+	else
+		modulo="persona";
+	
+
+	var arr = Array("m_modulo"	,	modulo,
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
@@ -343,9 +354,13 @@ function verPersona(codi=null){
 					"tipo_persona", "ambos",
 					"codi"		,	codi
 					);
+	//$("#tipoPersona").val("ambos");
 	ajaxMVC(arr,montarPersona,error);
 }
 
+function asignarAmbos(){
+	$("#tipoPersona").val("ambos");
+}
 function buscarPorCampo(){
 
 	var arr = Array("m_modulo"	,	"persona",
@@ -368,14 +383,15 @@ function buscarPorCampo(){
 */
 function verPersonaEmpleado(codi=null){
 	$("#tipoPersona").val("empleado");
-	$("#campo").val("");
+
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
 					"tipo_persona",	"empleado",
-					"codi"		,	codi
+					"codi"		,	codi,
+					"campo"		,   $("#campo").val()
 					);
 		
 	ajaxMVC(arr,montarPersona,error);
@@ -391,14 +407,14 @@ function verPersonaEmpleado(codi=null){
 */
 function verPersonaEstudiante(codi=null){
 	$("#tipoPersona").val("estudiante");
-	$("#campo").val("");
 	var arr = Array("m_modulo"	,	"estudiante",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
 					"tipo_persona",	"estudiante",
-					"codi"		,	codi
+					"codi"		,	codi,
+					"campo"		,   $("#campo").val()
 					);
 	//alert(codi);
 	ajaxMVC(arr,montarPersona,error);
@@ -518,11 +534,11 @@ function montarModificarPersona(data){
 function preGuardarPersona(){
 	var bool=true;
 	if(!validarSoloNumeros('#ced_persona',6,8,true)){
-		mostrarMensaje("Debe de introducir una cedula",2);
+		mostrarMensaje("Debes introducir una cedula",2);
 		bool=false;
 	}
 	else if(!validarSoloTexto('#nombre1',2,20,true)){
-		mostrarMensaje("Debe de introducir el primer nombre",2);
+		mostrarMensaje("Debes introducir el primer nombre",2);
 		bool=false;
 	}
 	else if (!validarSoloTexto('#nombre2',2,20,false)){
@@ -530,7 +546,7 @@ function preGuardarPersona(){
 		bool=false;
 	}
 	else if (!validarSoloTexto('#apellido1',2,20,true)){
-		mostrarMensaje("Debe de introducir el primer apellido",2);
+		mostrarMensaje("Debes introducir el primer apellido",2);
 		bool=false;
 	}
 	else if(!validarSoloTexto('#apellido2',2,20,false)){
@@ -554,15 +570,15 @@ function preGuardarPersona(){
 		}		
 	}
 	else if(!validarTelefono('#telefono1',7,15,false)){
-		mostrarMensaje("debes de introducir un numero telefonico",2);
+		mostrarMensaje("debes introducir un número telefónico valido",2);
 		bool=false;
 	}
 	else if(!validarTelefono('#telefono2',7,15,false)){
-		mostrarMensaje("ingresa un numero telefonico valido",2);
+		mostrarMensaje("debes introducir un número telefónico valido",2);
 		bool=false;
 	}
 	else if(!validarEmail('#cor_personal',10,50,false)){
-		mostrarMensaje("introduzca un E-mail",2);
+		mostrarMensaje("introduzca un E-mail valido",2);
 		bool=false;
 	}
 	else if(!validarEmail('#cor_institucional',10,50,false)){
@@ -661,50 +677,56 @@ function bloquearCampos(ver=null){
 function mostrarInformaion(){
 	$("#historico").hide();
 
-	if(getVarsUrl().persona){
-		var arr = Array("m_modulo"	,"persona",
-					"m_accion"	,	"modificar",					
-					"codPersona",  getVarsUrl().persona								
-					);
+	
+	var arr = Array("m_modulo"	,"persona",
+				"m_accion"	,	"modificar",					
+				"codPersona",  getVarsUrl().persona								
+				);
+	
+	if(getVarsUrl().accion=='M'){			
+		$("#editar_estudiante").remove();
+		$("#editar_empleado").remove();
+		$("#md_persona").remove();
 
-		if(getVarsUrl().accion=='M'){			
-			$("#editar_estudiante").remove();
-			$("#editar_empleado").remove();
-			$("#md_persona").remove();
-
-		}
-		else if(getVarsUrl().accion=='V'){
-			$("#md_estudiante").remove();
-			$("#md_empleado").remove();
-			$("#borrar_estudiante").remove();
-			$("#borrar_empleado").remove();
-			$("#guardarPersona").remove();
-			$("#nv_estudiante").remove();
-			$("#nv_empleado").remove();
-			$("#nuevo_empleado").remove();
-			$("#nuevo_estudiante").remove();
-			$("#fotoSpan").remove();
-			$("#borrar_persona").remove();
-		}
-		else {
-			$("#md_estudiante").remove();
-			$("#md_empleado").remove();
-			$("#borrar_estudiante").remove();
-			$("#borrar_empleado").remove();
-			$("#editar_estudiante").remove();
-			$("#editar_empleado").remove();
-			$("#nuevo_estudiante").remove();
-			$("#nuevo_empleado").remove();
-			$("#nv_empleado").remove();
-			$("#nv_estudiante").remove();
-			$("#foto").remove();
-			$("#borrar_persona").remove();
-			$("#md_persona").remove();
-			$("#guardarPersona").remove();
-		}
-	//	alert("$$$$$$$"); 	
-		ajaxMVC(arr,succMontarModificarPersona,error);
 	}
+	else if(getVarsUrl().accion=='V'){
+		$("#md_estudiante").remove();
+		$("#md_empleado").remove();
+		$("#borrar_estudiante").remove();
+		$("#borrar_empleado").remove();
+		$("#guardarPersona").remove();
+		$("#nv_estudiante").remove();
+		$("#nv_empleado").remove();
+		$("#nuevo_empleado").remove();
+		$("#nuevo_estudiante").remove();
+		$("#fotoSpan").remove();
+		$("#borrar_persona").remove();
+	}
+	else if(getVarsUrl().accion=='N'){
+		$("#borrar_persona").remove();
+		$("#md_persona").remove();
+		$("#nuevo_empleado").remove();
+	}
+	else {
+		$("#md_estudiante").remove();
+		$("#md_empleado").remove();
+		$("#borrar_estudiante").remove();
+		$("#borrar_empleado").remove();
+		$("#editar_estudiante").remove();
+		$("#editar_empleado").remove();
+		$("#nuevo_estudiante").remove();
+		$("#nuevo_empleado").remove();
+		$("#nv_empleado").remove();
+		$("#nv_estudiante").remove();
+		$("#foto").remove();
+		$("#borrar_persona").remove();
+		$("#md_persona").remove();
+		$("#guardarPersona").remove();
+		$("#nuevo_empleado").remove();
+	}
+	if(getVarsUrl().persona!="-1")
+		ajaxMVC(arr,succMontarModificarPersona,error);
+
 	
 	
 }

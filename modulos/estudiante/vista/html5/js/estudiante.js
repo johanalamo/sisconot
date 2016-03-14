@@ -374,7 +374,7 @@ function verEstadoEs(){
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
 					"tipo_persona",	"estudiante",
-					"campo",		$("#campo").val(),
+					"campo"		,	$("#campo").val(),
 					"codi"		,	$("#cod_estudiante").val()
 					);	
 
