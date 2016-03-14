@@ -4004,3 +4004,564 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 269 *****************************
+codigo Error: 269
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(107): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 270 *****************************
+codigo Error: 270
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(107): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 271 *****************************
+codigo Error: 271
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(107): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 272 *****************************
+codigo Error: 272
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(107): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 273 *****************************
+codigo Error: 273
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_persona" violates check constraint "chk_persona_01"
+DETAIL:  Failing row contains (41, 16148116, SLÑKADSFJASDJFÑASDLÑ, JOHAN, , ALAMO, avILAN, M, 08/04/2016, A-, 3948-3948394, , SDF@SDK.DDF, null, ksflksflksflkañfdlkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkksflksflksflk..., FASDLÑJFÑLKASJDFLKJSADFLASJDÑLFAJSksflksflksflkañf, V, 0, S, ksflksflksflkañfdlkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkksflksflksflk..., null).
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('16148116', 'SL\xC3\x91KADSFJASDJF...', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '08/04/2016', 'A-', '3948-3948394', '', 'SDF@SDK.DDF', NULL, 'ksflksflksflka\xC3...', 'FASDL\xC3\x91JF\xC3\x91LKAS...', 'V', '0', 'S', 'ksflksflksflka\xC3...')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 274 *****************************
+codigo Error: 274
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_persona" violates check constraint "chk_persona_01"
+DETAIL:  Failing row contains (41, 16148116, SLÑKADSFJASDJFÑASDLÑ, JOHAN, , ALAMO, avILAN, M, 08/04/2016, A-, 3948-3948394, , SDF@SDK.DDF, null, ksflksflksflkañfdlkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkksflksflksflk..., FASDLÑJFÑLKASJDFLKJSADFLASJDÑLFAJSksflksflksflkañf, V, 0, S, ksflksflksflkañfdlkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkksflksflksflk..., null).
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('16148116', 'SL\xC3\x91KADSFJASDJF...', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '08/04/2016', 'A-', '3948-3948394', '', 'SDF@SDK.DDF', NULL, 'ksflksflksflka\xC3...', 'FASDL\xC3\x91JF\xC3\x91LKAS...', 'V', '0', 'S', 'ksflksflksflka\xC3...')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 275 *****************************
+codigo Error: 275
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_persona" violates check constraint "chk_persona_01"
+DETAIL:  Failing row contains (41, 16148116, SLÑKADSFJASDJFÑASDLÑ, JOHAN, , ALAMO, avILAN, M, 08/04/2016, A-, 3948-3948394, , SDF@SDK.DDF, null, , , V, 0, S, , null).
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('16148116', 'SL\xC3\x91KADSFJASDJF...', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '08/04/2016', 'A-', '3948-3948394', '', 'SDF@SDK.DDF', NULL, '', '', 'V', '0', 'S', '')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 276 *****************************
+codigo Error: 276
+Mensaje error: SQLSTATE[22001]: String data, right truncated: 7 ERROR:  value too long for type character varying(150)
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('16148116', 'SL\xC3\x91KADSFJASDJF...', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '08/04/2016', 'A-', '3948-3948394', '', 'SDF@SDK.DDF', NULL, 'Acomodar los pl...', 'Acomodar los pl...', 'V', '0', 'S', 'Acomodar los pl...')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 277 *****************************
+codigo Error: 277
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_persona" violates check constraint "chk_persona_01"
+DETAIL:  Failing row contains (41, 16148116, SLÑKADSFJASDJFÑASDLÑ, JOHAN, , ALAMO, avILAN, M, 08/04/2016, A-, 3948-3948394, , SDF@SDK.DDF, null, , , V, 0, S, , null).
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('16148116', 'SL\xC3\x91KADSFJASDJF...', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '08/04/2016', 'A-', '3948-3948394', '', 'SDF@SDK.DDF', NULL, '', '', 'V', '0', 'S', '')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 278 *****************************
+codigo Error: 278
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_persona" violates check constraint "chk_persona_01"
+DETAIL:  Failing row contains (41, 16148116, SD, JOHAN, , ALAMO, avILAN, M, 08/04/2016, A-, 3948-3948394, , SDF@SDK.DDF, null, , , V, 0, S, , null).
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('16148116', 'SD', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '08/04/2016', 'A-', '3948-3948394', '', 'SDF@SDK.DDF', NULL, '', '', 'V', '0', 'S', '')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 279 *****************************
+codigo Error: 279
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 461
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(461): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(405): CursoServicio::listarSeccionPorTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(60): CursoControlador::buscarSeccionPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 280 *****************************
+codigo Error: 280
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_persona" violates check constraint "chk_persona_01"
+DETAIL:  Failing row contains (41, 16148116, SD, JOHAN, , ALAMO, avILAN, M, 08/04/2016, A-, 3948-3948394, , SDF@SDK.DDF, null, , , V, 0, S, , null).
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('16148116', 'SD', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '08/04/2016', 'A-', '3948-3948394', '', 'SDF@SDK.DDF', NULL, '', '', 'V', '0', 'S', '')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 281 *****************************
+codigo Error: 281
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_persona" violates check constraint "chk_persona_01"
+DETAIL:  Failing row contains (41, 16148116, SD, JOHAN, , ALAMO, avILAN, M, 08/04/2016, A-, 3948-3948394, , SDF@SDK.DDF, null, , , V, 0, S, , null).
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('16148116', 'SD', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '08/04/2016', 'A-', '3948-3948394', '', 'SDF@SDK.DDF', NULL, '', '', 'V', '0', 'S', '')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 282 *****************************
+codigo Error: 282
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_persona" violates check constraint "chk_persona_01"
+DETAIL:  Failing row contains (41, 16148116, SD, JOHAN, , ALAMO, avILAN, M, 08/04/2016, A-, 3948-3948394, , SDF@SDK.DDF, null, ASDASD, DADSAD, V, 0, S, SADSA, null).
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('16148116', 'SD', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '08/04/2016', 'A-', '3948-3948394', '', 'SDF@SDK.DDF', NULL, 'ASDASD', 'DADSAD', 'V', '0', 'S', 'SADSA')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 283 *****************************
+codigo Error: 283
+Mensaje error: SQLSTATE[22001]: String data, right truncated: 7 ERROR:  value too long for type character varying(200)
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('1614811', 'SD', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '08/04/2016', 'A-', '3948-3948397', '', 'SDLLF@SDK.DDF', NULL, 'ASDASD', 'DADSAD', 'V', '0', 'S', 'responseText:"\t...')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 284 *****************************
+codigo Error: 284
+Mensaje error: SQLSTATE[22001]: String data, right truncated: 7 ERROR:  value too long for type character varying(200)
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('1614811', 'SD', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '06/10/2014', 'A-', '3948-3948397', '', 'SDLLF@SDK.DDF', NULL, 'ASDASD', 'DADSAD', 'V', '0', 'S', 'responseText:"\t...')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 285 *****************************
+codigo Error: 285
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_persona_01"
+DETAIL:  Key (cedula)=(1614811) already exists.
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('1614811', 'SD', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '06/10/2014', 'A-', '3948-3948397', '', 'SDLLF@SDK.DDF', NULL, 'ASDASD', 'DADSAD', 'V', '0', 'S', 'responseText:"\t...')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 286 *****************************
+codigo Error: 286
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_persona_01"
+DETAIL:  Key (cedula)=(1614811) already exists.
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('1614811', 'SD', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '06/10/2014', 'A-', '3948-3948397', '', 'SDLLF@SDK.DDF', NULL, 'ASDASD', 'DADSAD', 'V', '0', 'S', '')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 287 *****************************
+codigo Error: 287
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_persona_02"
+DETAIL:  Key (rif)=(SD) already exists.
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('16148565', 'SD', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '06/10/2014', 'A-', '3948-3958397', '', 'SDLLJKJF@SDK.DD...', NULL, 'ASDASD', 'DADSAD', 'V', '0', 'S', '')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 288 *****************************
+codigo Error: 288
+Mensaje error: SQLSTATE[22001]: String data, right truncated: 7 ERROR:  value too long for type character varying(200)
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(272): PersonaServicio::agregar('16148565', 'SDDSD', 'JOHAN', '', 'ALAMO', 'avILAN', 'M', '06/10/2014', 'A-', '3948-3958397', '', 'SDLLJKJF@SDK.DD...', NULL, 'ASDASD', 'DADSAD', 'V', '0', 'S', 'responseText:"\t...')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

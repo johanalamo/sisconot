@@ -25,33 +25,6 @@ class PrelacionServicio
 {
 
 	
-	/**
-		 * Función que permite agregar un prelacion.
-		 * 
-		 * Permite agrega un prelacion a la base de datos.
-		 * 
-		 * @param objet $prelacion 			  	Objeto prelacion a agregar.
-		 *
-		 * @throws Exception 					Si no se puede agregar el prelacion.
-		 */	
-	public static function agregar()
-	{
-		try{
-				$nArg=func_num_args();
-				if ($nArg==1){
-				$p=func_get_arg(0);
-				if ((is_object($p)) && (get_class($p)=='Pensum'))
-				self::agregarPrelacionObjetc($p);
-				}else{
-				if ($nArg!=2)
-					throw new Exception ('Cantidad de parámetros incorrecta');
-				else
-					self::agregarD(func_get_arg(0),func_get_arg(1),func_get_arg(2));
-				}
-			}catch (Exception $e){
-			throw $e;
-			}
-	}
 
 	/**
 		 * Función que permite agregar un prelacion.
@@ -62,7 +35,7 @@ class PrelacionServicio
 		 *
 		 * @throws Exception 					Si no se puede agregar el prelacion.
 		 */	
-	public static function agregarPrelacionObjetc($prelacion){
+		public static function agregarPrelacionObjetc($prelacion){
 		try{
 			$conexion=Conexion::conectar();
 			$consulta="select sis.f_prelacion_insertar(:cod_pensum, :cod_instituto, :cod_uni_curricular, :cod_uni_cur_prelada)";								
@@ -91,13 +64,10 @@ class PrelacionServicio
 		 * 
 		 * Permite agrega un prelacion a la base de datos.
 		 * 
-		 * @param nombre $nombre 			  	variable prelacion a agregar.
-		 * @param nomCorto $nomCorto 			  	variable prelacion a agregar.
-		 * @param direccion $direccion 			  	variable prelacion a agregar.
-		 * @param min_can_elect $min_can_elect 			  	variable prelacion a agregar.
-		 * @param min_cre_elect $min_cre_elect 			  	variable prelacion a agregar.
-		 * @param min_cre_obligat $min_cre_obligat 			  	variable prelacion a agregar.
-		 * @param fec_creac $fec_creac 			  	variable prelacion a agregar.
+		 * @param nombre $codPensum 			  	variable prelacion a agregar.
+		 * @param nomCorto $codInstituto 			  	variable prelacion a agregar.
+		 * @param direccion $codUniCurricular 			  	variable prelacion a agregar.
+		 * @param min_can_elect $codUniCurPrelada 			  	variable prelacion a agregar.	
 		 *
 		 * @throws Exception 					Si no se puede agregar el prelacion.
 		*/
@@ -169,13 +139,10 @@ class PrelacionServicio
 		 * Permite modificar un prelacion a la base de datos.
 		 * 
 		 * @param codigo $codigo 			  	variable prelacion a modificar.
-		 * @param nombre $nombre 			  	variable prelacion a modificar.
-		 * @param nomCorto $nomCorto 			  	variable prelacion a modificar.
-		 * @param direccion $direccion 			  	variable prelacion a modificar.
-		 * @param min_can_elect $min_can_elect 			  	variable prelacion a modificar.
-		 * @param min_cre_elect $min_cre_elect 			  	variable prelacion a modificar.
-		 * @param min_cre_obligat $min_cre_obligat 			  	variable prelacion a modificar.
-		 * @param fec_creac $fec_creac 			  	variable prelacion a modificar.
+		 * @param nombre $codPensum 			  	variable prelacion a agregar.
+		 * @param nomCorto $codInstituto 			  	variable prelacion a agregar.
+		 * @param direccion $codUniCurricular 			  	variable prelacion a agregar.
+		 * @param min_can_elect $codUniCurPrelada 			  	variable prelacion a agregar.	
 		 *
 		 * @throws Exception 					Si no se puede modificar el prelacion.
 		*/

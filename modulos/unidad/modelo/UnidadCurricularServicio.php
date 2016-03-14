@@ -247,6 +247,53 @@ class UnidadServicio
 			}
 		}
 
+		/**
+		 * Función que permite obtener un UnidadCurricular.
+		 * 
+		 * Permite obtener eun UnidadCurricular de la base de datos.
+		 * 
+		 * @return objet				Objeto istituto obtenido en la base de datos.
+		 * 
+		 * @throws Exception 			si no existe el UnidadCurricular.
+		 * 
+		 */
+		public static function obtenerPensumUsado($codigo){
+			try{
+				$conexion=Conexion::conectar();				
+				$consulta= "select sis.f_unicurricular_por_pen_usado('pcursor',:codigo)";
+							
+				$ejecutar= $conexion->prepare($consulta);
+				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);	
+				// inicia transaccion
+				$conexion->beginTransaction();   
+				$ejecutar->execute();			 
+				$cursors = $ejecutar->fetchAll();
+				// cierra cursor
+				$ejecutar->closeCursor();         
+				// array para almacenar resultado del cursor
+				$results = array();				
+				// ejecutar otro query para leer el cursor
+				$ejecutar = $conexion->query('FETCH ALL IN pcursor;');
+				$results = $ejecutar->fetchAll();
+				$ejecutar->closeCursor();
+				// cierra cursor			
+				$conexion->commit();	
+				// recomendad null a este objeto						
+				unset($ejecutar);
+				// PDO cierrar auntomaticamenta la seccion de db cuando el objeto es null
+				unset($conexion);	
+
+				if(count($results) > 0)					
+					return $results;
+				else								
+					return null;
+
+			}catch (Exception $e ){
+				throw $e;
+			}
+		}
+
+
 
 		/**
 		 * Función que permite obtener un UnidadCurricular.

@@ -563,3 +563,7 @@ function modificarURL(codigoPensum, formulario){
 	}
 };
 
+function redirectEdit(codigo){
+	  window.location="index.php?m_modulo=pensum&m_formato=html5&m_accion=preModif&m_vista=Agregar&codigoPensum="+codigo;
+}
+
