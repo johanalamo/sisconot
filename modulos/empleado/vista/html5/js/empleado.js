@@ -138,8 +138,15 @@ function montarEmpleado(data){
 			else
 				cadena+='<td id="Docente" title="Docente">NO</td>';
 
-			if(data.empleado[x]['observaciones'])
-				cadena+='<td id="Observaciones">'+data.empleado[x]['observaciones']+'</td>';
+			if(data.empleado[x]['observaciones']){
+				if(data.empleado[x]['observaciones'].length>25){
+					var info = data.empleado[x]['observaciones'].slice(0,25)+"...";
+					
+					cadena+='<td id="Observaciones">'+info+'</td>';
+				}
+				else
+					cadena+='<td id="Observaciones">'+data.empleado[x]['observaciones']+'</td>';
+			}
 			else
 				cadena+='<td> - </td> ';
 			cadena+='</a></tr>';

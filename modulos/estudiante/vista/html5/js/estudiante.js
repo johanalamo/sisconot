@@ -79,7 +79,12 @@ function montarEstudiante(data){
 				cadena+='<td> - </td>';
 
 			if(data.estudiante[x]['observaciones'])
-				cadena+='<td>'+data.estudiante[x]['observaciones']+'</td>';
+				if(data.estudiante[x]['observaciones'].length>25){
+					var info=data.estudiante[x]['observaciones'].slice(0,25)+"...";
+					cadena+='<td>'+info+'</td>';
+				}
+				else
+					cadena+='<td>'+data.estudiante[x]['observaciones']+'</td>';
 			else
 				cadena+='<td> - </td>';
 			cadena+='</tr>';

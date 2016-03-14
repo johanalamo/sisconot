@@ -83,6 +83,7 @@ $(document).ready(function() {
 	removerEsEm();
 	mostrarInformaion();
 	activarCal();
+	TodosFocus();
 	//activarFecha(".date");
 
 } );
@@ -136,6 +137,38 @@ function foto(data){
 	});
 	
 }
+function estudianteFocus(){
+	var boton='';
+	boton ='<button type="button" id="bTodos1" class="btn btn-info boton-focus" style="background-color: #4FD8B0;" title="Solo Empleados" onclick="empleadoFocus(); verPersonaEmpleado(); verEstadoEm(); ">  <b>Empleados</b>	</button>';
+	boton +='<button type="button" id="bTodos2" class="btn btn-info boton-focus"style="background-color: #209472;"  title="Solo Estudiantes" onclick="estudianteFocus(); verPersonaEstudiante(); verEstadoEs(); "><b>Estudiantes<b></button>';
+	boton +='<button type="button" id="bTodos3"  class="btn btn-info boton-focus" style="background-color: #4FD8B0;"title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstado(); "><b>Todos<b></button>';
+	$("#bTodos1").remove();
+	$("#bTodos2").remove();
+	$("#bTodos3").remove();
+	$(boton).appendTo("#botones");
+}
+function empleadoFocus(){
+	var boton='';
+	boton ='<button type="button" id="bTodos1" class="btn btn-info boton-focus" style="background-color: #209472;"title="Solo Empleados" onclick="empleadoFocus(); verPersonaEmpleado(); verEstadoEm(); ">  <b>Empleados</b>	</button>';
+	boton +='<button type="button" id="bTodos2" class="btn btn-info boton-focus" style="background-color: #4FD8B0;" title="Solo Estudiantes" onclick="estudianteFocus(); verPersonaEstudiante(); verEstadoEs(); "><b>Estudiantes<b></button>';
+	boton +='<button type="button" id="bTodos3" class="btn btn-info boton-focus" style="background-color: #4FD8B0;"  title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstado(); "><b>Todos<b></button>';
+	$("#bTodos1").remove();
+	$("#bTodos2").remove();
+	$("#bTodos3").remove();
+	$(boton).appendTo("#botones");
+}
+function TodosFocus(){
+	var boton='';
+
+	boton ='<button type="button" id="bTodos1" class="btn btn-info boton-focus" style="background-color: #4FD8B0;" title="Solo Empleados" onclick="empleadoFocus(); verPersonaEmpleado(); verEstadoEm(); ">  <b>Empleados</b>	</button>';
+	boton +='<button type="button" id="bTodos2" class="btn btn-info boton-focus" style="background-color: #4FD8B0;" title="Solo Estudiantes" onclick="estudianteFocus(); verPersonaEstudiante(); verEstadoEs(); "><b>Estudiantes<b></button>';
+	boton +='<button type="button" id="bTodos3" style="background-color: #209472;" class="btn btn-info boton-focus" title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstado(); "><b>Todos<b></button>';
+	$("#bTodos1").remove();
+	$("#bTodos2").remove();
+	$("#bTodos3").remove();
+	$(boton).appendTo("#botones");
+}
+
 /**
 * Funcion Java Script que permite listar Todos los institutos
 * para que luego sea mostado en un select. los datos son enviados
