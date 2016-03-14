@@ -72,7 +72,7 @@ class EmpleadoControlador
 
 
 
-			if($pnf=="seleccionar")
+			if($pnf=="seleccionar" )
 				$pnf=null;
 
 			if($estado=="seleccionar")
@@ -91,7 +91,7 @@ class EmpleadoControlador
 			if(!$codigo)
 				$codigo=null;
 
-
+	
 
 			$personas=EmpleadoServicio::listarPersonaEmpleado($pnf,$estado,$instituto);
 			$empleado=EmpleadoServicio::listar(null,null,null,$codigo,$codPersona);
@@ -206,7 +206,7 @@ class EmpleadoControlador
 			if($response!=null){
 				$empleado=EmpleadoServicio::listar($codPensum, 			 $codEstado,	 $codInstituto,
 													null,				 $codPersona,	 $es_jef_pensum,
-											   		$es_jef_con_estudio, $es_ministerio, $es_docente,
+											   		$es_jef_con_estudio, $es_ministerio, $Docente,
 											   		$fecInicio	);
 				Vista::asignarDato("codEmpleado",$empleado[0]['codigo']);
 				Vista::asignarDato('estatus', $response);

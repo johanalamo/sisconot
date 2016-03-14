@@ -78,8 +78,10 @@ function verEmpleado (codi,codpersona){
 
 	if(!$("#cod_persona").val())
 		codpersona=getVarsUrl().persona;
-	else
+
+	else if($("#cod_persona").val())
 		codpersona=$("#cod_persona").val();
+
 
 
 
@@ -88,7 +90,7 @@ function verEmpleado (codi,codpersona){
 					"codPersona",	codpersona,
 					"codi"		,	codi
 					);
-
+	
 	ajaxMVC(arr,montarEmpleado,error);
 
 }
