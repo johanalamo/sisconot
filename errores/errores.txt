@@ -4585,3 +4585,652 @@ Trayecto:
 		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
 		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#3 {main}
+**************************** Error n° 291 *****************************
+codigo Error: 291
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 292 *****************************
+codigo Error: 292
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 293 *****************************
+codigo Error: 293
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 294 *****************************
+codigo Error: 294
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 295 *****************************
+codigo Error: 295
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 296 *****************************
+codigo Error: 296
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 297 *****************************
+codigo Error: 297
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 298 *****************************
+codigo Error: 298
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 299 *****************************
+codigo Error: 299
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 300 *****************************
+codigo Error: 300
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 301 *****************************
+codigo Error: 301
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 302 *****************************
+codigo Error: 302
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 303 *****************************
+codigo Error: 303
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 304 *****************************
+codigo Error: 304
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_instituto"
+DETAIL:  Key (nom_corto)=(cultca) already exists.
+CONTEXT:  SQL statement "INSERT INTO sis.t_instituto(
+		    codigo, nom_corto, nombre, direccion)
+	    VALUES (codigoInstituto, v_nom_corto, v_nombre, v_direccion)"
+PL/pgSQL function sis.f_instituto_insertar(text,text,text) line 19 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 87
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(87): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(89): InstitutoServicio::agregar(Object(Instituto))
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(57): InstitutoControlador::agregarInstituto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 305 *****************************
+codigo Error: 305
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_uni_curricular" violates foreign key constraint "cf_uni_tra_pensum__uni_curricular" on table "t_uni_tra_pensum"
+DETAIL:  Key (codigo)=(37) is still referenced from table "t_uni_tra_pensum".
+CONTEXT:  SQL statement "DELETE FROM sis.t_uni_curricular
+  WHERE t_uni_curricular.codigo = v_codigo"
+PL/pgSQL function sis.f_unicurricular_eliminar(integer) line 7 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 187
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(187): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(198): UnidadServicio::eliminar('37')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(49): UnidadControlador::eliminarUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 306 *****************************
+codigo Error: 306
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_uni_curricular" violates foreign key constraint "cf_uni_tra_pensum__uni_curricular" on table "t_uni_tra_pensum"
+DETAIL:  Key (codigo)=(35) is still referenced from table "t_uni_tra_pensum".
+CONTEXT:  SQL statement "DELETE FROM sis.t_uni_curricular
+  WHERE t_uni_curricular.codigo = v_codigo"
+PL/pgSQL function sis.f_unicurricular_eliminar(integer) line 7 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 187
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(187): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(198): UnidadServicio::eliminar('35')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(49): UnidadControlador::eliminarUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 307 *****************************
+codigo Error: 307
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_uni_curricular" violates foreign key constraint "cf_uni_tra_pensum__uni_curricular" on table "t_uni_tra_pensum"
+DETAIL:  Key (codigo)=(31) is still referenced from table "t_uni_tra_pensum".
+CONTEXT:  SQL statement "DELETE FROM sis.t_uni_curricular
+  WHERE t_uni_curricular.codigo = v_codigo"
+PL/pgSQL function sis.f_unicurricular_eliminar(integer) line 7 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 187
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(187): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(198): UnidadServicio::eliminar('31')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(49): UnidadControlador::eliminarUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 308 *****************************
+codigo Error: 308
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_uni_curricular" violates foreign key constraint "cf_uni_tra_pensum__uni_curricular" on table "t_uni_tra_pensum"
+DETAIL:  Key (codigo)=(68) is still referenced from table "t_uni_tra_pensum".
+CONTEXT:  SQL statement "DELETE FROM sis.t_uni_curricular
+  WHERE t_uni_curricular.codigo = v_codigo"
+PL/pgSQL function sis.f_unicurricular_eliminar(integer) line 7 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 187
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(187): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(198): UnidadServicio::eliminar('68')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(49): UnidadControlador::eliminarUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 309 *****************************
+codigo Error: 309
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_uni_curricular" violates check constraint "chk_uni_curricular_07"
+DETAIL:  Failing row contains (69, blabla, electronica, 23, 34, 3, 44, 12, 10, ñlsajfñlsadjflasjflñkasjdflkasjfljflkjsadflajfljasf salñsldf..., ñlasjdfñlsajdfñljsafljslfjs, kjsdfñlasjdfñljasfñlasfñljsfldjsñalfsaldfñasjdlfjsldfjlsdj...).
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 310 *****************************
+codigo Error: 310
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_uni_curricular" violates check constraint "chk_uni_curricular_07"
+DETAIL:  Failing row contains (69, blabla, electronica, 23, 34, 3, 44, 12, 10, ñlsajfñlsadjflasjflñkasjdflkasjfljflkjsadflajfljasf salñsldf..., ñlasjdfñlsajdfñljsafljslfjs, kjsdfñlasjdfñljasfñlasfñljsfldjsñalfsaldfñasjdlfjsldfjlsdj...).
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 311 *****************************
+codigo Error: 311
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_uni_curricular" violates check constraint "chk_uni_curricular_07"
+DETAIL:  Failing row contains (69, blabla, electronica, 23, 34, 3, 44, 12, 10, ñlsajfñlsadjflasjflñkas, ñlasjdfñlsajdfñljsafljslfjs, kjsdfñlasjdfñljasfñlasfñljsfldjsñalfsaldfñasjdlfjsldfjlsdj...).
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 312 *****************************
+codigo Error: 312
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_uni_curricular" violates check constraint "chk_uni_curricular_07"
+DETAIL:  Failing row contains (69, blabla, electronica, 23, 34, 3, 44, 12, 10, ñlsajfñlsadjflasjflñkas, ñlasjdfñlsajdfñljsafljslfjs, 
+kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk...).
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 313 *****************************
+codigo Error: 313
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_uni_curricular" violates check constraint "chk_uni_curricular_07"
+DETAIL:  Failing row contains (69, blabla, electronica, 23, 34, 3, 44, 12, 10, ñlsajfñlsadjflasjflñkas, ñlasjdfñlsajdfñljsafljslfjs, ).
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 314 *****************************
+codigo Error: 314
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_uni_curricular" violates check constraint "chk_uni_curricular_07"
+DETAIL:  Failing row contains (69, blabla, electronica, 23, 34, 3, 44, 12, 10, ñlsajfñlsadjflasjflñkas, ñlasjdfñlsajdfñljsafljslfjs, ).
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 315 *****************************
+codigo Error: 315
+Mensaje error: SQLSTATE[23514]: Check violation: 7 ERROR:  new row for relation "t_uni_curricular" violates check constraint "chk_uni_curricular_07"
+DETAIL:  Failing row contains (69, blabla, electronica, 23, 34, 3, 44, 12, 10, ñlsajfñlsadjflasjflñkas, ñlasjdfñlsajdfñljsafljslfjs, ).
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 316 *****************************
+codigo Error: 316
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_uni_curricular"
+DETAIL:  Key (cod_uni_ministerio)=(blabla) already exists.
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 317 *****************************
+codigo Error: 317
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_uni_curricular"
+DETAIL:  Key (cod_uni_ministerio)=(blabla) already exists.
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 318 *****************************
+codigo Error: 318
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_uni_curricular"
+DETAIL:  Key (cod_uni_ministerio)=(blabla) already exists.
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 319 *****************************
+codigo Error: 319
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_uni_curricular"
+DETAIL:  Key (cod_uni_ministerio)=(blabla) already exists.
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 320 *****************************
+codigo Error: 320
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_uni_curricular"
+DETAIL:  Key (cod_uni_ministerio)=(blabla) already exists.
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 321 *****************************
+codigo Error: 321
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_uni_curricular"
+DETAIL:  Key (cod_uni_ministerio)=(blabla) already exists.
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 322 *****************************
+codigo Error: 322
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_uni_curricular"
+DETAIL:  Key (cod_uni_ministerio)=(blabla) already exists.
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 323 *****************************
+codigo Error: 323
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_uni_curricular"
+DETAIL:  Key (cod_uni_ministerio)=(blabla) already exists.
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 324 *****************************
+codigo Error: 324
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_uni_curricular"
+DETAIL:  Key (cod_uni_ministerio)=(blabla) already exists.
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 325 *****************************
+codigo Error: 325
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_uni_curricular"
+DETAIL:  Key (cod_uni_ministerio)=(blabla2) already exists.
+CONTEXT:  SQL statement "INSERT INTO sis.t_uni_curricular(codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas, not_min_aprobatoria, not_maxima, descripcion, observacion, contenido)
+            VALUES (codigoUniCurricular, v_cod_uni_ministerio, v_nombre, v_hta, v_hti, v_uni_credito, v_dur_semanas, v_not_min_aprobatoria, v_not_maxima, v_descripcion, v_observacion, v_contenido)"
+PL/pgSQL function sis.f_unicurricular_insertar(text,text,integer,integer,integer,integer,integer,integer,text,text,text) line 21 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 108
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(108): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(247): UnidadServicio::agregarUniCurricularObjetc(Object(UniCurricular))
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(154): UnidadControlador::agregarUnidadCurricular(Object(UniCurricular))
+		#3 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(53): UnidadControlador::preAgregModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
