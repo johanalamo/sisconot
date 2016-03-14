@@ -1227,9 +1227,7 @@ Descripción:
 
 				$result = $ejecutar->fetchAll();
 
-				if($result[0][0] > 0)
-					return false;
-				return true;
+				return $result[0][0];
 			}
 			catch(Exception $e){
 				throw $e;

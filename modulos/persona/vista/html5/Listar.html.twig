@@ -34,7 +34,7 @@
 						</div>
 
 						<br>
-						<div class="selectPensum">
+						<div class="selectPensum2">
 						<!--	<div id='selectPensuma'> Pensum 
 								<select onchange='verPersona(); verPNF();' class='selectpicker' id='selectPNF' title='Pensum' data-live-search='true' data-size='auto' data-max-options='12' >
 									<option value='seleccionar' >Seleccionar</option>
@@ -55,7 +55,7 @@
 						<input type='text' name='campo' id='campo' placeholder='Nombre/Apellido/Cedula' onkeyup='buscarPorCampo();' class="form-control">
 						
 					</div>
-					<div class="text-left">
+					<div class="text-left" id="botones">
 					<!--<div id="example_wrapper" class="dataTables_wrapper">
 						<div id="example_filter" class="dataTables_filter">
 							<label><input type="search" arial-controls="example" placeholder="buscador" class="form-control" ></input></label>
@@ -63,15 +63,15 @@
 					</div> -->
 						<br>
 						
-							<button type="button" class="btn btn-info boton-focus" title="Solo Empleados" onclick="verPersonaEmpleado(); verEstadoEm(); ">
+							<button type="button" id="bTodos1" class="btn btn-info boton-focus" title="Solo Empleados" onclick="empleadoFocus(); verPersonaEmpleado(); verEstadoEm(); ">
 							  <b>Empleados</b>
 							</button>
 
-							<button type="button" class="btn btn-info boton-focus" title="Solo Estudiantes" onclick="verPersonaEstudiante(); verEstadoEs(); ">
+							<button type="button" id="bTodos2" class="btn btn-info boton-focus" title="Solo Estudiantes" onclick="estudianteFocus(); verPersonaEstudiante(); verEstadoEs(); ">
 								<b>Estudiantes<b>
 							</button>
 
-							<button type="button" class="btn btn-info boton-focus" title="todos" onclick="asignarAmbos(); verPersona(); verEstado(); ">
+							<button type="button" class="btn btn-info boton-focus" title="todos" id="bTodos3" onclick=" TodosFocus(); asignarAmbos(); verPersona(); verEstado(); ">
 								<b>Todos<b>
 							</button><!--antes se llamaba ambos-->	
 

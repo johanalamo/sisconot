@@ -57,6 +57,8 @@
 				self::agregar();
 			elseif($accion=='eliminar')
 				self::eliminar();
+			else if($accion == 'listarSelects')
+				self::listarSelects();
 			else
 				throw new Exception ("'PersonaControlador' La accion $accion no es valida");
 		}
@@ -86,18 +88,16 @@
 				/*Vista::asignarDato('institutos',$instituto);
 				Vista::asignarDato('pnfs',$pnf);
 				Vista::asignarDato('estados',$estado);*/
-
-				if($pnf=="seleccionar")
+				
+				$ruta=null;
+				if($pnf=="seleccionar" || $pnf== 'undefined')
 					$pnf=null;
 				
-				if($estado=="seleccionar")
+				if($estado=="seleccionar" || $estado== 'undefined')
 					$estado=null;
 								
-				if($instituto=="seleccionar")
+				if($instituto=="seleccionar" || $instituto == 'undefined')
 					$instituto=null;
-
-				
-
 
 				if(!$campo)
 					$campo=null;
@@ -155,7 +155,39 @@
 				throw $e;
 			}
 		}
+		
+		public static function listarSelects(){
+			try{
+				
+				$pnf=PostGet::obtenerPostGet("pnf");
+				$estado=PostGet::obtenerPostGet("estado");
+				$instituto=PostGet::obtenerPostGet("instituto");
 
+				
+				if($pnf=="seleccionar" )
+					$pnf=null;
+
+				if($estado=="seleccionar")
+					$estado=null;
+
+
+				if($instituto=="seleccionar" || !$instituto || $instituto == 'undefined')
+					$instituto=null;
+				
+				$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
+				$instituto=InstitutoServicio::listarInstitutos();
+				$estado=PersonaServicio::listarEstado("docente");
+				Vista::asignarDato('instituto',$instituto);
+				Vista::asignarDato('pnf',$pnf);
+				Vista::asignarDato('estado',$estado);
+				Vista::Mostrar();
+
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+			
+	}
 
 		/**
 		 * Función pública y estática que permite modificar la informaacion de una persona
@@ -190,11 +222,11 @@
 					Vista::asignarDato('persona',$persona);
 					Vista::asignarDato('estudiante',$estudiante);
 					Vista::asignarDato('empleado',$empleado);
-					if($foto)
+		/*			if($foto)
 						$ruta="temp/".$codigo.".".$foto[0]["tipo"];
 						Vista::asignarDato('foto',$ruta);
 					//var_dump($foto[0]["archivo"]);
-
+*/
 					Vista::asignarDato('estatus',1);
 				}
 				else

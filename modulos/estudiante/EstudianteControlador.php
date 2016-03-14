@@ -41,9 +41,8 @@ class EstudianteControlador
 			self::listarEstudiantesPorCurso();
 		else if($accion == 'listarEstudiantePeriodo')
 			self::listarEstudiantePeriodo();
-		else if($accion == 'buscarEstudiante'){
+		else if($accion == 'buscarEstudiante')
 			self::buscarEstudiante();
-		}
 		else
 			throw new Exception ("'EstudianteControlador' La accion $accion no es valida");
 	}
@@ -73,14 +72,13 @@ class EstudianteControlador
 			$codigo=PostGet::obtenerPostGet("codEstudiante");
 
 
-			if($pnf=="seleccionar")
-				$pnf=null;
-
-			if($estado=="seleccionar")
+			if($pnf=="seleccionar" || $pnf== 'undefined')
+					$pnf=null;
+				
+			if($estado=="seleccionar" || $estado== 'undefined')
 				$estado=null;
-
-
-			if($instituto=="seleccionar")
+							
+			if($instituto=="seleccionar" || $instituto == 'undefined')
 				$instituto=null;
 
 			if(!$campo)
@@ -171,7 +169,7 @@ class EstudianteControlador
 
 			$response=null;
 			$response2=null;
-
+	//echo "	$codInstituto, 	$codPensum, $codEstado,";
 			if(!$codigo)
 				$response=EstudianteServicio::agregar($codPersona, 	$codInstituto, 	$codPensum,
 											$numCarnet, 	$numExpediente,	$codRusnies,

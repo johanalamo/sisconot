@@ -222,8 +222,10 @@ Descripción:
 			try{
 				$codigo = PostGet::obtenerPostGet("codCurso");
 
-				if(CursoServicio::verificarEstudiantesCurso($codigo)){
-					$r = CursoServicio::eliminarCurso($codigo);
+				$cont = CursoServicio::verificarEstudiantesCurso($codigo);
+
+				if($cont == 0){
+					CursoServicio::eliminarCurso($codigo);
 
 					if($r != 0){
 						Vista::asignarDato("estatus","1");
@@ -236,7 +238,7 @@ Descripción:
 					}
 				}
 				else{
-					Vista::asignarDato("mensaje","No se pudo eliminar el curso $codigo. Verifique si tiene estudiantes inscritos.");
+					Vista::asignarDato("mensaje","No se pudo eliminar el curso $codigo. Tiene $cont estudiante(s) inscritos.");
 					Vista::mostrar();
 				}
 

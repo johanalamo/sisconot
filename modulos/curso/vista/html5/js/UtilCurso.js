@@ -851,15 +851,15 @@ function succCargarCursosPensum(data){
 			cad += "<input type='hidden' value='"+cur[i]['nombre']+"' id='nb"+i+"'>";
 
 			if(cur[i]['capacidad'] == null)
-				cad += "<td style='text-align:center'><input type='text'  "+val+" onchange='actualizarEstadoCurso("+i+")' id='capacidad"+i+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='form-control' "+val+" onchange='actualizarEstadoCurso("+i+")' id='capacidad"+i+"'></td>";
 			else
-				cad += "<td style='text-align:center'><input type='text'  "+val+" onchange='actualizarEstadoCurso("+i+")' id='capacidad"+i+"' value='"+cur[i]['capacidad']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='form-control' "+val+" onchange='actualizarEstadoCurso("+i+")' id='capacidad"+i+"' value='"+cur[i]['capacidad']+"'></td>";
 
 
 			if(cur[i]['nombredocente'] == null)
-				cad += "<td style='text-align:center'><input type='text'  "+val+" class='docente' onfocus='autocompletarDocente()' onchange='limpiarDoc("+i+");actualizarEstadoCurso("+i+")' id='"+i+"' ></td>";
+				cad += "<td style='text-align:center'><input type='text' "+val+" class='docente form-control' onfocus='autocompletarDocente()' onchange='limpiarDoc("+i+");actualizarEstadoCurso("+i+")' id='"+i+"' ></td>";
 			else
-				cad += "<td style='text-align:center'><input type='text'  "+val+" class='docente' onfocus='autocompletarDocente()' onchange='limpiarDoc("+i+");actualizarEstadoCurso("+i+")' id='"+i+"' value='"+cur[i]['nombredocente']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' "+val+" class='docente form-control' onfocus='autocompletarDocente()' onchange='limpiarDoc("+i+");actualizarEstadoCurso("+i+")' id='"+i+"' value='"+cur[i]['nombredocente']+"'></td>";
 
 			if(cur[i]['coddocente'] == null)
 				cad += "<input type='hidden' id='doc"+i+"' value=''>";
@@ -867,20 +867,20 @@ function succCargarCursosPensum(data){
 				cad += "<input type='hidden' id='doc"+i+"' value='"+cur[i]['coddocente']+"'>";
 
 			if(cur[i]['fec_inicio'] == null)
-				cad += "<td style='text-align:center'><input type='text' "+val+" class='date' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecini"+i+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' "+val+" class='date form-control' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecini"+i+"'></td>";
 			else
-				cad += "<td style='text-align:center'><input type='text' "+val+" class='date' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecini"+i+"' value='"+cur[i]['fec_inicio']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' "+val+" class='date form-control' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecini"+i+"' value='"+cur[i]['fec_inicio']+"'></td>";
 
 
 			if(cur[i]['fec_final'] == null){
-				cad += "<td style='text-align:center'><input type='text' "+val+" class='date' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' ></td>";
+				cad += "<td style='text-align:center'><input type='text' "+val+" class='date form-control' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' ></td>";
 			}else
-				cad += "<td style='text-align:center'><input type='text' "+val+" class='date' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' value='"+cur[i]['fec_final']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' "+val+" class='date form-control' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' value='"+cur[i]['fec_final']+"'></td>";
 
 			if(cur[i]['observaciones'] == null)
-				cad += "<td style='text-align:center'><input type='text' "+val+" onchange='actualizarEstadoCurso("+i+")' id='observaciones"+i+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='form-control' "+val+" onchange='actualizarEstadoCurso("+i+")' id='observaciones"+i+"'></td>";
 			else
-				cad += "<td style='text-align:center'><input type='text' "+val+" onchange='actualizarEstadoCurso("+i+")' id='observaciones"+i+"' value='"+cur[i]['observaciones']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='form-control' "+val+" onchange='actualizarEstadoCurso("+i+")' id='observaciones"+i+"' value='"+cur[i]['observaciones']+"'></td>";
 
 			cad += "</tr>";
 		}
@@ -896,6 +896,8 @@ function succCargarCursosPensum(data){
 	$("#tableCur").remove();
 	$("#btn-b").remove();
 	$("#divTable").append(cad);
+	$(".form-control").css("font-size",10);
+	$(".form-control").css("height","25px");
 	$('.date').datetimepicker({
 		format: 'DD/MM/YYYY',
 		collapse : false,
@@ -1322,16 +1324,16 @@ function succListarEstudiantesCargarNotas(data){
 				cad += "<input type='hidden' id='nom"+i+"' value='"+est[i]['nombre1']+" "+est[i]['apellido1']+"'>";
 
 				if(est[i]['nota'] == null)
-					cad += "<td style='text-align:center'><input type='number' onchange='actualizarEstado("+i+")' id='nota"+i+"' size='2' style='width:50px;' max='20' value=''></td>";
+					cad += "<td style='text-align:center'><center><input class='form-control' type='text' onchange='actualizarEstado("+i+")' id='nota"+i+"' size='4' style='width:50px;' value=''></td>";
 				else
-					cad += "<td style='text-align:center'><input type='number' onchange='actualizarEstado("+i+")' id='nota"+i+"'  size='2' style='width:50px;' max='20' value='"+est[i]['nota']+"'></td>";
+					cad += "<td style='text-align:center'><center><input class='form-control' type='text' onchange='actualizarEstado("+i+")' id='nota"+i+"'  size='4' style='width:50px;' value='"+est[i]['nota']+"'></td>";
 
 				if(est[i]['por_asistencia'] == null)
-					cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='3' value=''></td>";
+					cad += "<td style='text-align:center'><center><input class='form-control' type='text' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='4' style='width:50px;' value=''></td>";
 				else
-					cad += "<td style='text-align:center'><input type='text' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='3' value='"+est[i]['por_asistencia']+"'></td>";
+					cad += "<td style='text-align:center'><center><input class='form-control' type='text' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='4' style='width:50px;' value='"+est[i]['por_asistencia']+"'></td>";
 
-				cad += "<td style='text-align:center'><select class='selectpicker' onchange='actualizarEstado("+i+")' data-live-search='true' data-size='auto' id='estado"+i+"'>"+cad2+"</select></td>";
+				cad += "<td style='text-align:center'><select class='selectpicker' onchange='actualizarEstado("+i+")' data-live-search='true' data-size='auto' data-width='200px' id='estado"+i+"'>"+cad2+"</select></td>";
 
 				if(est[i]['observaciones'] == null)
 					cad += "<td style='text-align:center'><input type='text' class='form-control' onchange='actualizarEstado("+i+")' id='obser"+i+"' value=''></td>";
@@ -1352,7 +1354,8 @@ function succListarEstudiantesCargarNotas(data){
 
 	$("#table-Est").remove();
 	$("#tableEst").append(cad);
-
+	$(".form-control").css("font-size",10);
+	$(".form-control").css("height","25px");
 	for(var i = 0; i < est.length; i++){
 		$("#estado"+i).val(est[i]['cod_estado']);
 	}

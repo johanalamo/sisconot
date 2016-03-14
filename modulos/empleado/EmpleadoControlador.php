@@ -39,7 +39,7 @@ class EmpleadoControlador
 		else if($accion == 'eliminar')
 			self::eliminar();
 		else if($accion == 'auto')
-			self::buscarEmpleado();
+			self::buscarEmpleado();		
 		else
 			throw new Exception ("'EmpleadoControlador' La accion $accion no es valida");
 	}
@@ -79,7 +79,7 @@ class EmpleadoControlador
 				$estado=null;
 
 
-			if($instituto=="seleccionar")
+			if($instituto=="seleccionar" || !$instituto || $instituto == 'undefined')
 				$instituto=null;
 
 			if(!$campo)
@@ -91,8 +91,6 @@ class EmpleadoControlador
 			if(!$codigo)
 				$codigo=null;
 
-
-
 			$personas=EmpleadoServicio::listarPersonaEmpleado($pnf,$estado,$instituto,null,$campo);
 			$empleado=EmpleadoServicio::listar(null,null,null,$codigo,$codPersona);
 
@@ -103,6 +101,7 @@ class EmpleadoControlador
 
 			if(!$codPersona)
 				Vista::asignarDato('empleado',null);
+				
 
 			$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
 			$instituto=InstitutoServicio::listarInstitutos();
@@ -127,6 +126,8 @@ class EmpleadoControlador
 			throw $e;
 		}
 	}
+	
+	
 
 	/**
 	 * Función pública y estática que permite almacenar la informacion de un empleado en la DB
@@ -328,7 +329,7 @@ class EmpleadoControlador
 					if ($c > 0)
 						$cad .= ",";
 					$cad .= "{";
-					$cad .= '"label":"'.$docente['nombre1'].' '.$docente['apellido1'].' ('.$docente['nacionalidad'].'-'.$docente['cedula'].')", ';
+					$cad .= '"label": "' . $docente['nombre1']. ' ' . $docente['apellido1'] . '", ';
 					$cad .= '"value": '.$docente['codigo'];
 					$cad .= "}";
 					$c++;

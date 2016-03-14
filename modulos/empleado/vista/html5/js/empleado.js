@@ -138,8 +138,15 @@ function montarEmpleado(data){
 			else
 				cadena+='<td id="Docente" title="Docente">NO</td>';
 
-			if(data.empleado[x]['observaciones'])
-				cadena+='<td id="Observaciones">'+data.empleado[x]['observaciones']+'</td>';
+			if(data.empleado[x]['observaciones']){
+				if(data.empleado[x]['observaciones'].length>25){
+					var info = data.empleado[x]['observaciones'].slice(0,25)+"...";
+					
+					cadena+='<td id="Observaciones">'+info+'</td>';
+				}
+				else
+					cadena+='<td id="Observaciones">'+data.empleado[x]['observaciones']+'</td>';
+			}
 			else
 				cadena+='<td> - </td> ';
 			cadena+='</a></tr>';
@@ -391,7 +398,8 @@ function verInstitutoEm(){
 					"tipo_persona",	"empleado",
 					"campo",		$("#campo").val()
 					);
-		
+	if(!$("#selectInstituto").val())
+			alert($("#selectInstituto").val());
 	ajaxMVC(arr,montarSelectInstituto,error);
 }
 
@@ -481,7 +489,8 @@ function verPNFEm(){
 					"tipo_persona",	"empleado",
 					"campo",		$("#campo").val()											
 					);
-		
+												
+				
 	ajaxMVC(arr,montarSelectPNF,error);
 }
 
@@ -491,7 +500,7 @@ function verPNFEm2(){
 	estado='';
 	pnf='';
 	setTimeout(function(){ 
-
+/*
 		if($("#empleado #selectInstituto").val()!=null)
 			instituto=$("#empleado #selectInstituto").val();
 		else
@@ -501,8 +510,8 @@ function verPNFEm2(){
 			estado=$("#empleado #selectEstado").val();
 		else
 			estado=$("#selectEstado").val();
-
-		if($("#empleado #selectPNF").val()!=null)
+*/
+		if($("#empleado #selectPNF").val())
 			pnf=$("#empleado #selectPNF").val();
 		else
 			pnf=$("#selectPNF").val();
@@ -510,7 +519,7 @@ function verPNFEm2(){
 	}, 500);
 
 	setTimeout(function(){ 
-
+	
 		var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#empleado #selectEstado").val(),

@@ -35,7 +35,7 @@ $(document).ready(function() {
 
 } );
 
-function verEstudiante (cod_estudiante=null,cod_persona=null){
+function verEstudiante (cod_estudiante,cod_persona){
 
 	if(!$("#cod_persona").val())
 		cod_persona=getVarsUrl().persona;
@@ -47,7 +47,7 @@ function verEstudiante (cod_estudiante=null,cod_persona=null){
 					"codPersona",	cod_persona,
 					"codi"		,	cod_estudiante
 					);
-
+	
 	ajaxMVC(arr,montarEstudiante,error);
 
 }
@@ -79,7 +79,12 @@ function montarEstudiante(data){
 				cadena+='<td> - </td>';
 
 			if(data.estudiante[x]['observaciones'])
-				cadena+='<td>'+data.estudiante[x]['observaciones']+'</td>';
+				if(data.estudiante[x]['observaciones'].length>25){
+					var info=data.estudiante[x]['observaciones'].slice(0,25)+"...";
+					cadena+='<td>'+info+'</td>';
+				}
+				else
+					cadena+='<td>'+data.estudiante[x]['observaciones']+'</td>';
 			else
 				cadena+='<td> - </td>';
 			cadena+='</tr>';
@@ -296,7 +301,7 @@ function verPNFEs(){
 					"campo",		$("#campo").val(),
 					"codi"		,	$("#cod_estudiante").val()				
 					);
-		
+	
 	ajaxMVC(arr,montarSelectPNF,error);
 }
 
