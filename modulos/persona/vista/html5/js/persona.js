@@ -72,13 +72,15 @@ $(function()
 });
 
 $(document).ready(function() {
-	verInstituto();
+	verInstitutoListar();
+	//verInstituto();
 	//verPNF();
-//	verPNFListar();
-	verEstado();
-	verInstitutoEm2();
-	verPNFEm2();
-	verEstadoEm2();
+	//verPNFListar();
+	verEstadolistar();
+	//verEstado();
+	//verInstitutoEm2();
+	//verPNFEm2();
+	//verEstadoEm2();
 	verPersona();
 	tabsBloqueados();
 	removerEsEm();
@@ -142,7 +144,7 @@ function estudianteFocus(){
 	var boton='';
 	boton ='<button type="button" id="bTodos1" class="btn btn-info boton-focus" style="background-color: #4FD8B0;" title="Solo Empleados" onclick="empleadoFocus(); verPersonaEmpleado(); verEstadoEm(); ">  <b>Empleados</b>	</button>';
 	boton +='<button type="button" id="bTodos2" class="btn btn-info boton-focus"style="background-color: #209472;"  title="Solo Estudiantes" onclick="estudianteFocus(); verPersonaEstudiante(); verEstadoEs(); "><b>Estudiantes<b></button>';
-	boton +='<button type="button" id="bTodos3"  class="btn btn-info boton-focus" style="background-color: #4FD8B0;"title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstado(); "><b>Todos<b></button>';
+	boton +='<button type="button" id="bTodos3"  class="btn btn-info boton-focus" style="background-color: #4FD8B0;"title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstadoListar(); "><b>Todos<b></button>';
 	$("#bTodos1").remove();
 	$("#bTodos2").remove();
 	$("#bTodos3").remove();
@@ -152,7 +154,7 @@ function empleadoFocus(){
 	var boton='';
 	boton ='<button type="button" id="bTodos1" class="btn btn-info boton-focus" style="background-color: #209472;"title="Solo Empleados" onclick="empleadoFocus(); verPersonaEmpleado(); verEstadoEm(); ">  <b>Empleados</b>	</button>';
 	boton +='<button type="button" id="bTodos2" class="btn btn-info boton-focus" style="background-color: #4FD8B0;" title="Solo Estudiantes" onclick="estudianteFocus(); verPersonaEstudiante(); verEstadoEs(); "><b>Estudiantes<b></button>';
-	boton +='<button type="button" id="bTodos3" class="btn btn-info boton-focus" style="background-color: #4FD8B0;"  title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstado(); "><b>Todos<b></button>';
+	boton +='<button type="button" id="bTodos3" class="btn btn-info boton-focus" style="background-color: #4FD8B0;"  title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstadoListar(); "><b>Todos<b></button>';
 	$("#bTodos1").remove();
 	$("#bTodos2").remove();
 	$("#bTodos3").remove();
@@ -163,7 +165,7 @@ function TodosFocus(){
 
 	boton ='<button type="button" id="bTodos1" class="btn btn-info boton-focus" style="background-color: #4FD8B0;" title="Solo Empleados" onclick="empleadoFocus(); verPersonaEmpleado(); verEstadoEm(); ">  <b>Empleados</b>	</button>';
 	boton +='<button type="button" id="bTodos2" class="btn btn-info boton-focus" style="background-color: #4FD8B0;" title="Solo Estudiantes" onclick="estudianteFocus(); verPersonaEstudiante(); verEstadoEs(); "><b>Estudiantes<b></button>';
-	boton +='<button type="button" id="bTodos3" style="background-color: #209472;" class="btn btn-info boton-focus" title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstado(); "><b>Todos<b></button>';
+	boton +='<button type="button" id="bTodos3" style="background-color: #209472;" class="btn btn-info boton-focus" title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstadoListar(); "><b>Todos<b></button>';
 	$("#bTodos1").remove();
 	$("#bTodos2").remove();
 	$("#bTodos3").remove();
@@ -177,7 +179,7 @@ function TodosFocus(){
 * los resultados en la funcion montarSelectInstituto().
 */
 
-function verInstituto(){
+function verInstitutoListar(){
 	var arr = Array("m_modulo"	,	"persona",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
@@ -187,15 +189,26 @@ function verInstituto(){
 					"tipo_persona", "ambos"
 					);
 		
-	ajaxMVC(arr,montarSelectInstituto,error);
+	ajaxMVC(arr,montarSelectInstitutoPersona,error);
 }
 
+function verInstituto(){
+		
+	var arr = Array("m_modulo"	,	"persona",
+					"m_accion"	,	"listarSelects",
+					"estado"	,	$("#selectEstado").val(),
+					"pnf"		,	$("#selectPNF").val(),
+					"instituto"	,	$("#selectInstituto").val()
+					);
+		
+	ajaxMVC(arr,montarSelectInstituto,error);
+}
 /**
 * Funcion Java Script que permite mostrar un select con
 * los institutos y es concatenado a un  div en la vista HTML
 */
 
-function montarSelectInstituto(data){
+function montarSelectInstitutoPersona(data){
 	var cadena = "";
 
 	//if(!data.empleado2){
@@ -217,7 +230,32 @@ function montarSelectInstituto(data){
 		cadena += "<select onchange='verPersonaEmpleado(); verPNFEm2();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >";
 	*/
 	else
-		cadena += "<select onchange='verPersona(); verPNF();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
+		cadena += "<select onchange='verPersona(); verPNFListar();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
+	cadena += "<option value='seleccionar' >Seleccionar</option>";
+	if(data.instituto){
+		for(var x=0; x<data.instituto.length;x++)
+		{
+			cadena += '<option value="'+data.instituto[x]["codigo"]+'">'+data.instituto[x]["nom_corto"]+'</option>';
+		}
+	}
+	cadena +="</select>";
+	//if(!data.empleado2){
+		$(cadena).appendTo('#selectInstitutos2');
+		$(cadena).appendTo('.selectInstituto2');
+/*	}
+	else
+		$(cadena).appendTo('.selectInstitutoEm');*/
+	activarSelect();	
+
+}
+
+function montarSelectInstituto(data){
+	var cadena = "";
+
+	$("#selectIns").remove();
+	cadena+="<div id='selectIns'> institutos ";
+	
+	cadena += "<select onchange='verPNF();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar' >Seleccionar</option>";
 	if(data.instituto)
 	for(var x=0; x<data.instituto.length;x++)
@@ -241,12 +279,11 @@ function montarSelectInstituto(data){
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarSelectPNF().
 */
-function verPNF(){
+function verPNFListar(){
 	/*if($("#selectInstituto").val()){
 		if($("#selectInstituto").val()=="seleccionar")
 			$("#selectPNF").val('seleccionar');
 		verPersona();
-
 	}*/
 	var arr = Array("m_modulo"	,	"persona",
 					"m_accion"	,	"listar",
@@ -260,19 +297,17 @@ function verPNF(){
 	ajaxMVC(arr,montarSelectPNFPersona,error);
 }
 
-function verPNFListar(){
-	if($("#selectInstituto").val()){
+function verPNF(){
+	/*if($("#selectInstituto").val()){
 		if($("#selectInstituto").val()=="seleccionar")
 			$("#selectPNF").val('seleccionar');
 		verPersona();
-
-	}
+	}*/
 	var arr = Array("m_modulo"	,	"persona",
 					"m_accion"	,	"listarSelects",
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val()
-				
+					"instituto"	,	$("#selectInstituto").val()				
 					);
 		
 	ajaxMVC(arr,montarSelectPNF,error);
@@ -284,7 +319,8 @@ function verPNFListar(){
 * los PNF y es concatenado a un  div en la vista HTML
 */
 function montarSelectPNFPersona(data){
-console.log(data);
+
+	console.log(data);
 	var cadena = "";
 	//if(!data.empleado2){
 		$("#selectPensuma").remove();//	$("#selectPensuma").remove();
@@ -324,7 +360,7 @@ console.log(data);
 
 function montarSelectPNF(data){
 console.log(data);
-alert();
+
 	var cadena = "";
 	//if(!data.empleado2){
 		$("#selectPensuma").remove();//	$("#selectPensuma").remove();
@@ -357,6 +393,17 @@ alert();
 function verEstado(){
 
 	var arr = Array("m_modulo"	,	"persona",
+					"m_accion"	,	"listarSelects",
+					"estado"	,	$("#selectEstado").val(),
+					"pnf"		,	$("#selectPNF").val(),
+					"instituto"	,	$("#selectInstituto").val()
+					);		
+	ajaxMVC(arr,montarSelectEstado,error);
+}
+
+function verEstadolistar(){
+	
+	var arr = Array("m_modulo"	,	"persona",
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
@@ -364,14 +411,15 @@ function verEstado(){
 					"campo",		$("#campo").val(),
 					"tipo_persona", "ambos"		
 					);		
-	ajaxMVC(arr,montarSelectEstado,error);
+	ajaxMVC(arr,montarSelectEstadoPersona,error);
+	
 }
 
 /**
 * Funcion Java Script que permite mostrar un select con
 * los estados y es concatenado a un  div en la vista HTML
 */
-function montarSelectEstado(data){
+function montarSelectEstadoPersona(data){
 
 	console.log(data);
 	var cadena = "";
@@ -393,6 +441,31 @@ function montarSelectEstado(data){
 		cadena += "<select onchange='verPersonaEmpleado();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	*/else
 		cadena += "<select onchange='verPersona();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
+	cadena += "<option value='seleccionar'>Seleccionar</option>";
+	if(data.estado){
+		for(var x=0; x<data.estado.length;x++)
+		{
+			cadena += '<option value="'+data.estado[x]["codigo"]+'">'+data.estado[x]["nombre"]+'</option>';
+		}
+	}
+	cadena +="</select></div>";
+	if(!data.empleado2)
+		$(cadena).appendTo('.selectEstado2');
+	else
+		$(cadena).appendTo('.selectEstadoEm');
+	activarSelect();	
+				
+}
+
+function montarSelectEstado(data){
+
+	console.log(data);
+	var cadena = "";
+	$("#selectEstados").remove();
+
+	cadena+="<div id='selectEstados'> Estado ";
+
+	cadena += "<select name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar'>Seleccionar</option>";
 	if(data.estado){
 		for(var x=0; x<data.estado.length;x++)

@@ -257,6 +257,19 @@ function verInstitutoEs(){
 					"codi"		,	$("#cod_estudiante").val()											
 					);
 		
+	ajaxMVC(arr,montarSelectInstitutoPersona,error);
+}
+
+function verInstitutoEsPrincipal(){
+
+	var arr = Array("m_modulo"	,	"persona",
+					"m_accion"	,	"listarSelects",
+					"estado"	,	$("#selectEstado").val(),
+					"pnf"		,	$("#selectPNF").val(),
+					"instituto"	,	$("#selectInstituto").val(),
+					"tipo_persona",	"estudiante"									
+					);
+		
 	ajaxMVC(arr,montarSelectInstituto,error);
 }
 
@@ -302,9 +315,21 @@ function verPNFEs(){
 					"codi"		,	$("#cod_estudiante").val()				
 					);
 	
-	ajaxMVC(arr,montarSelectPNF,error);
+	ajaxMVC(arr,montarSelectPNFPersona,error);
 }
 
+function verPNFEsPrincipal(){
+
+	var arr = Array("m_modulo"	,	"persona",
+					"m_accion"	,	"listarSelects",
+					"estado"	,	$("#selectEstado").val(),
+					"pnf"		,	$("#selectPNF").val(),
+					"instituto"	,	$("#selectInstituto").val(),
+					"tipo_persona",	"estudiante"	
+					);
+	
+	ajaxMVC(arr,montarSelectPNF,error);
+}
 
 /**
 * Funcion Java Script que permite mostrar un select con
@@ -381,6 +406,19 @@ function verEstadoEs(){
 					"tipo_persona",	"estudiante",
 					"campo"		,	$("#campo").val(),
 					"codi"		,	$("#cod_estudiante").val()
+					);	
+
+	ajaxMVC(arr,montarSelectEstadoPersona,error);
+}
+
+function verEstadoEsPrincipal(){
+
+	var arr = Array("m_modulo"	,	"persona",
+					"m_accion"	,	"listarSelects",
+					"estado"	,	$("#selectEstado").val(),
+					"pnf"		,	$("#selectPNF").val(),
+					"instituto"	,	$("#selectInstituto").val(),
+					"tipo_persona",	"estudiante"
 					);	
 
 	ajaxMVC(arr,montarSelectEstado,error);
@@ -461,7 +499,7 @@ function segundoLlamado(){
  */
 function succMontarModificarEstudiante (data){
 	//console.log(data);
-	verPNFEs(); verInstitutoEs(); verEstadoEs();
+	//verPNFEsPrincipal(); verInstitutoEsPrincipal(); verEstadoEsPrincipal();
 	setTimeout(function(){ 
 		$("#cod_estudiante").val(data.estudiante[0]['codigo']);
 		$("#codPersona").val(data.estudiante[0]['cod_persona']);

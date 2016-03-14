@@ -400,7 +400,7 @@ function verInstitutoEm(){
 					);
 	if(!$("#selectInstituto").val())
 			alert($("#selectInstituto").val());
-	ajaxMVC(arr,montarSelectInstituto,error);
+	ajaxMVC(arr,montarSelectInstitutoPersona,error);
 }
 
 function verInstitutoEm2(instituto=null){
@@ -491,7 +491,7 @@ function verPNFEm(){
 					);
 												
 				
-	ajaxMVC(arr,montarSelectPNF,error);
+	ajaxMVC(arr,montarSelectPNFPersona,error);
 }
 
 function verPNFEm2(){
@@ -577,16 +577,16 @@ function verEstadoEm(){
 					"tipo_persona",	"empleado",
 					"campo",		$("#campo").val()	
 					);		
-	ajaxMVC(arr,montarSelectEstado,error);
+	ajaxMVC(arr,montarSelectEstadoPersona,error);
 }
 
 function verEstadoEm2(){
 	instituto ='';
 	estado='';
 	pnf='';
-	setTimeout(function(){ 
+	//setTimeout(function(){ 
 
-		if($("#empleado #selectInstituto").val()!=null)
+	/*	if($("#empleado #selectInstituto").val()!=null)
 			instituto=$("#empleado #selectInstituto").val();
 		else
 			instituto=$("#selectInstituto").val();	
@@ -599,23 +599,23 @@ function verEstadoEm2(){
 		if($("#empleado #selectEstado").val()!=null)
 			pnf=$("#empleado #selectPNF").val();
 		else
-			pnf=$("#selectPNF").val();
+			pnf=$("#selectPNF").val();*/
 
-	}, 500);
+	/*}, 500);
 
-	setTimeout(function(){ 
+	setTimeout(function(){ */
 
 		var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"listar",
 					"estado"	,	estado,
 					"pnf"		,	pnf,
 					"instituto"	,	instituto,
-					"tipo_persona",	"empleado",
-					"campo",		$("#campo").val(),
-					"empleado2"	,	true
+					"tipo_persona",	"empleado"
+					/*"campo",		$("#campo").val(),
+					"empleado2"	,	true*/
 					);	
-		ajaxMVC(arr,montarSelectEstadoEm,error);
-	}, 500);
+		ajaxMVC(arr,montarSelectEstadoPersona,error);
+	//}, 500);
 	
 }
 function segundo (){

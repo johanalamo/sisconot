@@ -7789,3 +7789,297 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 490 *****************************
+codigo Error: 490
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 491 *****************************
+codigo Error: 491
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 492 *****************************
+codigo Error: 492
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 493 *****************************
+codigo Error: 493
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 494 *****************************
+codigo Error: 494
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 495 *****************************
+codigo Error: 495
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 496 *****************************
+codigo Error: 496
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 497 *****************************
+codigo Error: 497
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 498 *****************************
+codigo Error: 498
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 499 *****************************
+codigo Error: 499
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 500 *****************************
+codigo Error: 500
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 501 *****************************
+codigo Error: 501
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 502 *****************************
+codigo Error: 502
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 503 *****************************
+codigo Error: 503
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 504 *****************************
+codigo Error: 504
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 505 *****************************
+codigo Error: 505
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 506 *****************************
+codigo Error: 506
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 507 *****************************
+codigo Error: 507
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 508 *****************************
+codigo Error: 508
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 509 *****************************
+codigo Error: 509
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 510 *****************************
+codigo Error: 510
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

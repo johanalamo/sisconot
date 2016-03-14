@@ -176,7 +176,7 @@
 				
 				$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
 				$instituto=InstitutoServicio::listarInstitutos();
-				$estado=PersonaServicio::listarEstado("docente");
+				$estado=PersonaServicio::listarEstado(PostGet::obtenerPostGet("tipo_persona"));
 				Vista::asignarDato('instituto',$instituto);
 				Vista::asignarDato('pnf',$pnf);
 				Vista::asignarDato('estado',$estado);
