@@ -17,7 +17,7 @@
 				<link href="recursos/select/bootstrap-select.css" rel="stylesheet">
 				<link href="recursos/date/bootstrap-datetimepicker.css" rel="stylesheet">
 				<link rel="stylesheet" href="recursos/assets/css/font-awesome.min.css">
-
+				
 				<link rel="stylesheet" href="recursos/assets/css/main.css">
 
 				<link href="modulos/principal/vista/html5/css/estilo.css" rel="stylesheet">
@@ -26,9 +26,9 @@
 				   function sleep() {
 					  $('#table').DataTable();
 					}
-
-					{{ permisos.obtenerEnJavaScript() }}
-				</script>
+					
+					{{ permisos.obtenerEnJavaScript() }} 
+				</script>	
 				<script src="modulos/login/vista/html5/javascript/Login.js"> </script>
 
 
@@ -211,10 +211,10 @@
 	                        <li>
 	                        	<a href="index.php?m_accion=listar&m_modulo=persona&m_vista=Listar&m_formato=html5">
 	                                <span class="fa fa-eye"></span>Búsqueda</a>
-
+	                            
 	                        </li>
 	                        <li>
-	                            <a href="index.php?m_modulo=persona&m_vista=Principal&m_formato=html5">
+	                            <a href="index.php?m_modulo=persona&m_vista=Principal&m_formato=html5&accion=N&persona=-1">
 	                            <span class="fa fa-user"></span>Agregar</a>
 	                        </li>
 	                    </ul>
@@ -265,8 +265,17 @@
 	                            <a href="index.php?m_vista=Acreditables&m_formato=html5&m_modulo=curso&m_accion=mostrar">
 	                                <span class="fa fa-warning"></span>Actividades Acreditables</a>
 	                        </li>
+	                        <li>
+	                            <a href="index.php?m_vista=CrearModificarCursoEspecial&m_formato=html5&m_modulo=curso&m_accion=mostrar">
+	                                <span class="fa fa-warning"></span>Crear/Modificar Electiva</a>
+	                        </li>
+	                        <li>
+	                            <a href="index.php?m_vista=Convalidaciones&m_formato=html5&m_modulo=curso&m_accion=mostrar">
+	                                <span class="fa fa-warning"></span>Convalidaciones</a>
+	                        </li>
 	                    </ul>
 	                </li>
+	                
 					 <li class="sidebar-label pt30">Configuración</li>
 	                <li>
 	                    <a href="#">
@@ -341,10 +350,10 @@
 	<div class="alerts">
 
 	</div>
-
+		
 
 	{% block contenido %}
-
+	
 	{% endblock %}
 
 

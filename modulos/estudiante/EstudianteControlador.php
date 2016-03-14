@@ -72,6 +72,7 @@ class EstudianteControlador
 			$codPersona=PostGet::obtenerPostGet("codPersona");
 			$codigo=PostGet::obtenerPostGet("codEstudiante");
 
+
 			if($pnf=="seleccionar")
 				$pnf=null;
 
@@ -93,7 +94,8 @@ class EstudianteControlador
 
 			$estudiante=EstudianteServicio::listar(null,null,null,$codigo,$codPersona);
 
-			$personas=EstudianteServicio::listarPersonaEstudiante($pnf,$estado,$instituto,null,null,null,null,$campo);
+			$personas=EstudianteServicio::listarPersonaEstudiante($pnf,$estado,$instituto,$campo);
+			
 			vista::asignarDato('persona',$personas);
 
 			if(!$personas)
@@ -109,6 +111,9 @@ class EstudianteControlador
 			Vista::asignarDato('estudiante',$estudiante);
 			Vista::asignarDato('codi',PostGet::obtenerPostGet("codi"));
 
+			if(!$personas)
+				Vista::asignarDato('mensaje','No hay personas para mostrar');
+				
 			Vista::Mostrar();
 
 		}

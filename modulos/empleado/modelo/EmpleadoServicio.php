@@ -293,9 +293,10 @@ class EmpleadoServicio
 	 *
 	 * @throws Exception 					Si se producen errores en operaciones con la base de datos.
 	 */
-
+//si da algun error revisar los parametros
 	public static function listarPersonaEmpleado (	$cod_pensum=null,	$cod_estado=null,	$cod_instituto=null,
-													$codigo=null,		$cedula=null,		$correo=null,
+													$codigo=null,		$campo=null,		$cedula=null,
+													$correo=null,
 												  	$nombre1=null,		$nombre2=null,		$apellido1=null,
 												  	$apellido2=null,	$sexo=null
 											)
@@ -338,6 +339,10 @@ class EmpleadoServicio
 			if($cod_pensum)
 				$consulta.= " and em.cod_pensum=$cod_pensum";
 
+			if($campo)
+				$consulta.=" and CONCAT (cast(p.cedula as varchar),p.nombre1,p.nombre2,apellido1, apellido2) 
+							like '%$campo%' ";
+							
 			if($cod_estado)
 				$consulta.= " and em.cod_estado = '$cod_estado'";
 

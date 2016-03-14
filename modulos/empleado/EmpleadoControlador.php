@@ -93,7 +93,7 @@ class EmpleadoControlador
 
 
 
-			$personas=EmpleadoServicio::listarPersonaEmpleado($pnf,$estado,$instituto);
+			$personas=EmpleadoServicio::listarPersonaEmpleado($pnf,$estado,$instituto,null,$campo);
 			$empleado=EmpleadoServicio::listar(null,null,null,$codigo,$codPersona);
 
 			vista::asignarDato('persona',$personas);
@@ -116,6 +116,9 @@ class EmpleadoControlador
 			Vista::asignarDato('empleado2',PostGet::obtenerPostGet("empleado2"));
 			Vista::asignarDato('codi',PostGet::obtenerPostGet("codi"));
 
+			if(!$personas)
+				Vista::asignarDato('mensaje','No hay personas para mostrar');
+			
 			Vista::Mostrar();
 
 

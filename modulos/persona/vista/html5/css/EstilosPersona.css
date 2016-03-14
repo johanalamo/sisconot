@@ -137,3 +137,7 @@ input[readonly] {
   background-color: black;
 
 }
+
+.boton-focus:focus{
+  background-color: #209472;
+}
