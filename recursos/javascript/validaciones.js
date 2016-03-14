@@ -9,7 +9,7 @@ function validarSoloTexto(id, min, max, req = false){
 			return false;
 		}
 		else{
-			if(!(validarMatch(cad,val))){				
+			if(!(validarMatch(cad,val))){
 				detonarAdvertencia(id, "El campo no es correcto. Sólo letras.");
 				return false;
 			}
@@ -46,7 +46,6 @@ function validarSoloTextoYCaracteres(id, min, max, req = false){
 		}
 		else{
 			if(!(validarMatch(cad,val))){
-				alert("entro");
 				detonarAdvertencia(id, "El campo no es correcto. Sólo letras.");
 				return false;
 			}
@@ -111,18 +110,18 @@ function validarSoloNumeros(id,min,max,req){
 function validarFecha(id,req){
 	$(".popover").hide();
 	var cad = $(id).val();
-	
+
 	console.log("12/04/2015" == $(id).val());
-	
-	
+
+
 	var val = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
-	
+
 	console.log(cad.match(val));
-	
+
 	if(req){
 		if(cad.length == 0){
 			detonarAdvertencia(id,"Este campo es requerido.");
-			return false;	
+			return false;
 		}
 		else{
 			if(!(validarMatch(cad,val))){

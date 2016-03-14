@@ -133,7 +133,7 @@ Descripción:
 		public static function insertarCurso($codPeriodo, $codUniCurricular, $codDocente, $seccion, $fecInicio, $fecFinal, $capacidad, $observaciones){
 			try{
 				$conexion=Conexion::conectar();
-				$consulta="select sis.f_curso_ins(:p_cod_periodo, :p_cod_uni_curricular, :p_cod_docente, :p_seccion, :p_fec_inicio, :p_fec_final, :p_capacidad, :p_observaciones)";
+				$consulta="select sis.f_curso_ins(:p_cod_periodo, :p_cod_uni_curricular, :p_cod_docente, upper(:p_seccion), :p_fec_inicio, :p_fec_final, :p_capacidad, :p_observaciones)";
 				$ejecutar=$conexion->prepare($consulta);
 
 				$ejecutar->bindParam(':p_cod_periodo',$codPeriodo, PDO::PARAM_INT);
@@ -225,6 +225,8 @@ Descripción:
 
 				if ($row == 0)
 					throw new Exception("No se pudo eliminar el curso.");
+
+				return $row;
 			}
 			catch(Exception $e){
 				throw $e;
@@ -524,7 +526,8 @@ Descripción:
 									t1.t c,
 									cur.capacidad,
 									cur.fec_inicio,
-									cur.fec_final
+									cur.fec_final,
+									uni.cod_uni_ministerio
 									from sis.t_uni_tra_pensum utp
 									inner join sis.t_curso cur
 										on cur.cod_uni_curricular = utp.cod_uni_curricular
@@ -541,8 +544,8 @@ Descripción:
 									where (per.cod_instituto = ?)
 									and (per.cod_pensum = ?)
 									and (per.codigo = ?)
-									and (upper(uni.nombre) like upper(?) or upper(pers.nombre1) like upper(?) or upper(pers.nombre2) like upper(?)
-									or upper(pers.apellido1) like upper(?) or upper(pers.apellido2) like upper(?))
+									and (sis.utf(uni.nombre) ilike sis.utf(?) or sis.utf(pers.nombre1) ilike sis.utf(?) or sis.utf(pers.nombre2) ilike sis.utf(?)
+									or sis.utf(pers.apellido1) ilike sis.utf(?) or sis.utf(pers.apellido2) ilike sis.utf(?))
 									group by
 										t1.t,
 										cur.codigo,
@@ -552,7 +555,8 @@ Descripción:
 										pers.nombre1 || ' ' || pers.apellido1,
 										cur.capacidad,
 										cur.fec_inicio,
-										cur.fec_final
+										cur.fec_final,
+										uni.cod_uni_ministerio
 									order by
 										tra.num_trayecto,
 										cur.seccion,
@@ -740,7 +744,8 @@ Descripción:
 										per.apellido1 || ' ' || per.nombre1 as nombredoc,
 										cur.seccion,
 										edo.nombre edonom,
-										tra.num_trayecto
+										tra.num_trayecto,
+										uni.cod_uni_ministerio
 										from sis.t_cur_estudiante as curest
 										inner join sis.t_curso as cur
 											on cur.codigo = curest.cod_curso
@@ -973,7 +978,8 @@ Descripción:
 										uni.uni_credito,
 										cur.seccion,
 										coalesce(cantc.t,0) cantidad,
-										cur.capacidad
+										cur.capacidad,
+										uni.cod_uni_ministerio
 								from sis.t_estudiante est
 										inner join sis.t_uni_tra_pensum utp
 											on utp.cod_pensum = est.cod_pensum
@@ -1029,7 +1035,8 @@ Descripción:
 											uni.uni_credito,
 											cur.seccion,
 											cantc.t,
-											cur.capacidad
+											cur.capacidad,
+											uni.cod_uni_ministerio
 										order by
 											utp.cod_trayecto,
 											utp.cod_uni_curricular,
@@ -1200,6 +1207,29 @@ Descripción:
 						return $results;
 					else
 						return null;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function verificarEstudiantesCurso($codigo){
+			try{
+				$conexion = Conexion::conectar();
+
+				$consulta = "select count(codigo)
+											from sis.t_cur_estudiante
+											where cod_curso = $codigo";
+
+				$ejecutar = $conexion->prepare($consulta);
+
+				$ejecutar->execute();
+
+				$result = $ejecutar->fetchAll();
+
+				if($result[0][0] > 0)
+					return false;
+				return true;
 			}
 			catch(Exception $e){
 				throw $e;

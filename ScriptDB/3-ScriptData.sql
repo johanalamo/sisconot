@@ -9,16 +9,12 @@ insert into sis.t_tip_uni_curricular(codigo,nombre) values ('A','Acreditable');
 insert into sis.t_est_periodo(codigo,nombre) values ('A', 'Abierto');
 insert into sis.t_est_periodo(codigo,nombre) values ('C', 'Cerrado');
 
-
-insert into sis.t_est_cur_estudiante(codigo,nombre) values ('P','Preinscrito');
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('I','Inscrito');
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('C','Cursando');
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('E','Reprobado por Inasistencia');
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('X','Retirado');
-
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('A','Aprobado');
 insert into sis.t_est_cur_estudiante(codigo,nombre) values ('R','Reprobado');
-insert into sis.t_est_cur_estudiante(codigo,nombre) values ('N','Reprobado por inasistencia');
 
 INSERT INTO sis.t_instituto(codigo, nom_corto, nombre, direccion) VALUES (1, 'IUTFRP', 'IUT Federico Rivero Palacio', 'k8 de la panamericana');
 INSERT INTO sis.t_instituto(codigo, nom_corto, nombre, direccion) VALUES (2, 'CULCA', 'CU CECILIO ACOSTA', 'LOS TEQUES');
@@ -27,7 +23,7 @@ INSERT INTO sis.t_instituto(codigo, nom_corto, nombre, direccion) VALUES (3, 'CU
 INSERT INTO sis.t_pensum(codigo, nombre, nom_corto, observaciones, min_can_electiva, min_cre_electiva,min_cre_obligatoria, fec_creacion) VALUES (1,	'Programa Nacional de Formación Informática',	'PNFI',	'PNFI 2008' ,	2,	1,	2,	'2008-01-01');
 INSERT INTO sis.t_pensum(codigo, nombre, nom_corto, observaciones, min_can_electiva, min_cre_electiva,min_cre_obligatoria, fec_creacion) VALUES (2,	'Programa Nacional de Formación MECANICA',	'PNFM',	'PNFM 2008' ,	2,	1,	2,	'2008-01-01');
 INSERT INTO sis.t_pensum(codigo, nombre, nom_corto, observaciones, min_can_electiva, min_cre_electiva,min_cre_obligatoria, fec_creacion) VALUES (3,	'Programa Nacional de Formación QUIMICA',	'PNFQ',	'PNFQ 2008' ,	2,	1,	2,	'2008-01-01');
-INSERT INTO sis.t_pensum(codigo, nombre, nom_corto, observaciones, min_can_electiva, min_cre_electiva,min_cre_obligatoria, fec_creacion) VALUES (4,	'Programa Nacional de Formación TELECOMINICACIONES','PNFT','PNFT 2008' ,	2,	1,	2,	'2008-01-01');					
+INSERT INTO sis.t_pensum(codigo, nombre, nom_corto, observaciones, min_can_electiva, min_cre_electiva,min_cre_obligatoria, fec_creacion) VALUES (4,	'Programa Nacional de Formación TELECOMINICACIONES','PNFT','PNFT 2008' ,	2,	1,	2,	'2008-01-01');
 INSERT INTO sis.t_pensum(codigo, nombre, nom_corto, observaciones, min_can_electiva, min_cre_electiva,min_cre_obligatoria, fec_creacion) VALUES (5,	'Programa Nacional de Formación ELECTRONICA',	'PNFE',	'PNFE 2008' ,	2,	1,	2,	'2008-01-01');
 INSERT INTO sis.t_pensum(codigo, nombre, nom_corto, observaciones, min_can_electiva, min_cre_electiva,min_cre_obligatoria, fec_creacion) VALUES (6,	'Programa Nacional de Formación ADMINISTRACION','PNFA',	'PNFA 2008' ,	2,	1,	2,	'2008-01-01');
 
@@ -364,21 +360,6 @@ INSERT INTO sis.t_uni_tra_pensum(
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
     VALUES (3,  1,  1,  6,  'O');
-
-
-
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (4,  1,  2,  4,  'O');
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (5,  1,  2,  5,  'O');
-
-INSERT INTO sis.t_uni_tra_pensum(
-            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
-    VALUES (6,  1,  2,  6,  'O');
 
 INSERT INTO sis.t_uni_tra_pensum(
             codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
@@ -855,7 +836,7 @@ INSERT INTO sis.t_uni_tra_pensum(
     cod_estado, fec_inicio, es_jef_pensum,es_jef_con_estudio, es_ministerio,
     es_docente,observaciones) values(20,20,2,6,'A','12/1/1974',false,false,false,true,'');
 
-    
+
     insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,
     num_carnet,num_expediente,cod_rusnies,cod_estado, fec_inicio,
     condicion,observaciones) values(2,21,1,2,'2121','2121','2121','A','27/1/1998',01,'sin obersevacion');insert into sis.t_estudiante (codigo,cod_persona,cod_instituto,cod_pensum,

@@ -333,13 +333,27 @@ CREATE FUNCTION sis.f_pensum_por_instituto_seleccionar(refcursor, integer) RETUR
 BEGIN
 
 	IF $2 < 1 THEN/* todos los pensum de de todos los instituto */
-	  OPEN $1 FOR select *
+	  OPEN $1 FOR select  distinct(pen.codigo),
+                        pen.nombre,
+                        pen.nom_corto,
+                        pen.observaciones,
+                        pen.min_can_electiva,
+                        pen.min_cre_electiva,
+                        pen.min_cre_obligatoria,
+                        pen.fec_creacion
 		from sis.t_pensum  pen
 		inner join sis.t_periodo per on pen.codigo = cod_pensum
 		left join sis.t_instituto ins on per.cod_instituto = ins.codigo;
 
 	  ELSE  /* todos los pensum de un instituto */
-	  OPEN $1 FOR select *
+	  OPEN $1 FOR select distinct(pen.codigo),
+                        pen.nombre,
+                        pen.nom_corto,
+                        pen.observaciones,
+                        pen.min_can_electiva,
+                        pen.min_cre_electiva,
+                        pen.min_cre_obligatoria,
+                        pen.fec_creacion
 		from sis.t_pensum  pen
 		inner join sis.t_periodo per on pen.codigo = cod_pensum
 		left join sis.t_instituto ins on per.cod_instituto = ins.codigo
@@ -361,11 +375,19 @@ CREATE FUNCTION sis.f_pensum_por_trayecto_seleccionar(refcursor, integer) RETURN
     AS $_$
 
 BEGIN
-
+/*todos los trayectos de de todos los pensum pensum */
 	IF $2 < 1 THEN
-	  OPEN $1 FOR select * /*todos los trayectos de de todos los pensum pensum */
+	  OPEN $1 FOR select  tra.codigo,
+                        tra.cod_pensum,
+                        tra.num_trayecto,
+                        tra.certificado,
+                        tra.min_cre_obligatoria,
+                        tra.min_cre_electiva,
+                        tra.min_cre_acreditable,
+                        tra.min_can_electiva
 		from sis.t_pensum  pen
-		inner join sis.t_trayecto tra on pen.codigo = tra.cod_pensum;
+		inner join sis.t_trayecto tra on pen.codigo = tra.cod_pensum
+    order by tra.num_trayecto;
 
 	  ELSE
     OPEN $1 FOR select  tra.codigo,
@@ -375,7 +397,9 @@ BEGIN
                           where tra.cod_pensum = $2
                           group by
                             tra.codigo,
-                            tra.num_trayecto, tra.certificado;
+                            tra.num_trayecto, tra.certificado
+                          order by
+                            tra.num_trayecto;
 
   END IF;
  RETURN $1;
@@ -636,10 +660,10 @@ BEGIN
   OPEN $1 FOR select tra.codigo,
       tra.num_trayecto,
         tra.certificado
-        from  sis.t_trayecto tra                            
-      where tra.cod_pensum = $2 and 
+        from  sis.t_trayecto tra
+      where tra.cod_pensum = $2 and
   upper(tra.certificado) like upper('%'||$3||'%');
-  
+
 
  RETURN $1;
 
@@ -1761,7 +1785,7 @@ BEGIN
   INSERT INTO sis.t_convalidacion(codigo,		cod_estudiante, 	   con_nota,   nota,
 				  fecha,  		cod_tip_uni_curricular,    cod_pensum, cod_trayecto,
 				  cod_uni_curricular,   descripcion )
-				  
+
 	VALUES (p_codigo,		  p_cod_estudiante, 	       p_con_nota,   p_nota,
 	        p_fecha,  		  p_cod_tip_uni_curricular,    p_cod_pensum, p_cod_trayecto,
 	        p_cod_uni_curricular,     p_descripcion);
@@ -1778,3 +1802,19 @@ ALTER FUNCTION sis.f_convalidar_ins    (integer, boolean, real , date ,
 
 
 
+
+
+
+
+CREATE OR REPLACE FUNCTION sis.utf(character varying)
+  RETURNS text AS
+  $BODY$
+    SELECT TRANSLATE
+    ($1,
+    'áàâãäéèêëíìïóòôõöúùûüÁÀÂÃÄÉÈÊËÍÌÏÓÒÔÕÖÚÙÛÜçÇ',
+    'aaaaaeeeeiiiooooouuuuAAAAAEEEEIIIOOOOOUUUUcC');
+  $BODY$
+  LANGUAGE 'sql'
+  COST 100;
+
+ALTER FUNCTION sis.utf(character varying)  OWNER TO sisconot;;

@@ -6254,3 +6254,654 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 385 *****************************
+codigo Error: 385
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 427
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(427): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(286): PensumServicio::ObtenerPensumTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(63): PensumControlador::buscarPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 386 *****************************
+codigo Error: 386
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 461
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(461): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(405): CursoServicio::listarSeccionPorTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(60): CursoControlador::buscarSeccionPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 387 *****************************
+codigo Error: 387
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 427
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(427): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(286): PensumServicio::ObtenerPensumTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(63): PensumControlador::buscarPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 388 *****************************
+codigo Error: 388
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 461
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(461): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(405): CursoServicio::listarSeccionPorTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(60): CursoControlador::buscarSeccionPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 389 *****************************
+codigo Error: 389
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 427
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(427): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(286): PensumServicio::ObtenerPensumTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(63): PensumControlador::buscarPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 390 *****************************
+codigo Error: 390
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 461
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(461): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(405): CursoServicio::listarSeccionPorTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(60): CursoControlador::buscarSeccionPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 391 *****************************
+codigo Error: 391
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 427
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(427): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(286): PensumServicio::ObtenerPensumTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(63): PensumControlador::buscarPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 392 *****************************
+codigo Error: 392
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 461
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(461): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(405): CursoServicio::listarSeccionPorTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(60): CursoControlador::buscarSeccionPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 393 *****************************
+codigo Error: 393
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 427
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(427): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(286): PensumServicio::ObtenerPensumTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(63): PensumControlador::buscarPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 394 *****************************
+codigo Error: 394
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 461
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(461): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(405): CursoServicio::listarSeccionPorTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(60): CursoControlador::buscarSeccionPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 395 *****************************
+codigo Error: 395
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 427
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(427): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(286): PensumServicio::ObtenerPensumTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(63): PensumControlador::buscarPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 396 *****************************
+codigo Error: 396
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 461
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(461): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(405): CursoServicio::listarSeccionPorTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(60): CursoControlador::buscarSeccionPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 397 *****************************
+codigo Error: 397
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 427
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(427): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(286): PensumServicio::ObtenerPensumTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(63): PensumControlador::buscarPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 398 *****************************
+codigo Error: 398
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 461
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(461): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(405): CursoServicio::listarSeccionPorTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(60): CursoControlador::buscarSeccionPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 399 *****************************
+codigo Error: 399
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 461
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(461): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(405): CursoServicio::listarSeccionPorTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(60): CursoControlador::buscarSeccionPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 400 *****************************
+codigo Error: 400
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 427
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(427): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(286): PensumServicio::ObtenerPensumTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(63): PensumControlador::buscarPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 401 *****************************
+codigo Error: 401
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 461
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(461): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(405): CursoServicio::listarSeccionPorTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(60): CursoControlador::buscarSeccionPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 402 *****************************
+codigo Error: 402
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 461
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(461): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(405): CursoServicio::listarSeccionPorTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(60): CursoControlador::buscarSeccionPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 403 *****************************
+codigo Error: 403
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 674
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(674): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(439): CursoServicio::obtenerCursosPensum('A', '', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(64): CursoControlador::obtenerCursosPensum()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 404 *****************************
+codigo Error: 404
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(257): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 405 *****************************
+codigo Error: 405
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 427
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(427): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(286): PensumServicio::ObtenerPensumTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(63): PensumControlador::buscarPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 406 *****************************
+codigo Error: 406
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  column uni.cod_ministerio does not exist
+LINE 10:          uni.cod_ministerio
+                  ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 570
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(570): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(112): CursoServicio::listarCursos('1', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(52): CursoControlador::listarCursos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 407 *****************************
+codigo Error: 407
+Mensaje error: SQLSTATE[42803]: Grouping error: 7 ERROR:  column "uni.cod_uni_ministerio" must appear in the GROUP BY clause or be used in an aggregate function
+LINE 10:          uni.cod_uni_ministerio
+                  ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 570
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(570): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(112): CursoServicio::listarCursos('1', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(52): CursoControlador::listarCursos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 408 *****************************
+codigo Error: 408
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_curso" violates foreign key constraint "cf_cur_estudiante__curso" on table "t_cur_estudiante"
+DETAIL:  Key (codigo)=(7) is still referenced from table "t_cur_estudiante".
+CONTEXT:  SQL statement "DELETE FROM sis.t_curso WHERE codigo = p_codigo"
+PL/pgSQL function sis.f_curso_del(integer) line 5 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 222
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(222): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(225): CursoServicio::eliminarCurso('7')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(86): CursoControlador::eliminarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 409 *****************************
+codigo Error: 409
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_curso" violates foreign key constraint "cf_cur_estudiante__curso" on table "t_cur_estudiante"
+DETAIL:  Key (codigo)=(7) is still referenced from table "t_cur_estudiante".
+CONTEXT:  SQL statement "DELETE FROM sis.t_curso WHERE codigo = p_codigo"
+PL/pgSQL function sis.f_curso_del(integer) line 5 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 222
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(222): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(225): CursoServicio::eliminarCurso('7')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(86): CursoControlador::eliminarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 410 *****************************
+codigo Error: 410
+Mensaje error: PRUEBA
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/CursoControlador.php
+Linea Error: 229
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(86): CursoControlador::eliminarCurso()
+		#1 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#2 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#3 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#5 {main}
+**************************** Error n° 411 *****************************
+codigo Error: 411
+Mensaje error: Ya esta posicion posee información, se recomienda cambiar el nombre de la posición:estatus
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 185
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(241): Vista::asignarDato('estatus', '-No se pudo eli...')
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(86): CursoControlador::eliminarCurso()
+		#2 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 412 *****************************
+codigo Error: 412
+Mensaje error: Ya esta posicion posee información, se recomienda cambiar el nombre de la posición:estatus
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 185
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(241): Vista::asignarDato('estatus', '-No se pudo eli...')
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(86): CursoControlador::eliminarCurso()
+		#2 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 413 *****************************
+codigo Error: 413
+Mensaje error: Ya esta posicion posee información, se recomienda cambiar el nombre de la posición:estatus
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 185
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(241): Vista::asignarDato('estatus', '-No se pudo eli...')
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(86): CursoControlador::eliminarCurso()
+		#2 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 414 *****************************
+codigo Error: 414
+Mensaje error: Ya esta posicion posee información, se recomienda cambiar el nombre de la posición:estatus
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 185
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(241): Vista::asignarDato('estatus', '-No se pudo eli...')
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(86): CursoControlador::eliminarCurso()
+		#2 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 415 *****************************
+codigo Error: 415
+Mensaje error: Ya esta posicion posee información, se recomienda cambiar el nombre de la posición:estatus
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 185
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(241): Vista::asignarDato('estatus', '-No se pudo eli...')
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(86): CursoControlador::eliminarCurso()
+		#2 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 416 *****************************
+codigo Error: 416
+Mensaje error: Ya esta posicion posee información, se recomienda cambiar el nombre de la posición:estatus
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 185
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(236): Vista::asignarDato('estatus', 'No se pudo elim...')
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(86): CursoControlador::eliminarCurso()
+		#2 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 417 *****************************
+codigo Error: 417
+Mensaje error: SQLSTATE[42702]: Ambiguous column: 7 ERROR:  column reference "codigo" is ambiguous
+LINE 1: select distinct(codigo),*
+                        ^
+QUERY:  select distinct(codigo),*
+		from sis.t_pensum  pen
+		inner join sis.t_periodo per on pen.codigo = cod_pensum
+		left join sis.t_instituto ins on per.cod_instituto = ins.codigo
+		where ins.codigo = $2
+CONTEXT:  PL/pgSQL function sis.f_pensum_por_instituto_seleccionar(refcursor,integer) line 12 at OPEN
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 381
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(381): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(257): PensumServicio::ObtenerPensumInsituto('1')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 418 *****************************
+codigo Error: 418
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 850
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(850): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(569): CursoServicio::obtenerUnidadesCurricularesDelPensumPorEstudiante('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(80): CursoControlador::obtenerCursosDisponiblesParaInscripcionPorEstudiante()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 419 *****************************
+codigo Error: 419
+Mensaje error: SQLSTATE[0A000]: Feature not supported: 7 ERROR:  encoding conversion from UTF8 to ASCII not supported
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 573
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(573): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(114): CursoServicio::listarCursos('1', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(52): CursoControlador::listarCursos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 420 *****************************
+codigo Error: 420
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at or near "TO_ASCII"
+LINE 27: ...bre1) like TO_ASCII($5) or TO_ASCII(pers.nombre2) TO_ASCII T...
+                                                              ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 573
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(573): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(114): CursoServicio::listarCursos('1', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(52): CursoControlador::listarCursos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 421 *****************************
+codigo Error: 421
+Mensaje error: SQLSTATE[0A000]: Feature not supported: 7 ERROR:  encoding conversion from UTF8 to ASCII not supported
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 573
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(573): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(114): CursoServicio::listarCursos('1', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(52): CursoControlador::listarCursos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 422 *****************************
+codigo Error: 422
+Mensaje error: SQLSTATE[0A000]: Feature not supported: 7 ERROR:  encoding conversion from UTF8 to ASCII not supported
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 573
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(573): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(114): CursoServicio::listarCursos('1', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(52): CursoControlador::listarCursos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 423 *****************************
+codigo Error: 423
+Mensaje error: SQLSTATE[0A000]: Feature not supported: 7 ERROR:  encoding conversion from UTF8 to ASCII not supported
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 573
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(573): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(114): CursoServicio::listarCursos('1', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(52): CursoControlador::listarCursos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 424 *****************************
+codigo Error: 424
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at or near ")"
+LINE 27: ...bre) like $4 or prs.nombre1) like $5 or prs.nombre2) like $6
+                                                               ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 573
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(573): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(114): CursoServicio::listarCursos('1', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(52): CursoControlador::listarCursos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 425 *****************************
+codigo Error: 425
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at or near ")"
+LINE 27: ...mbre like $4 or prs.nombre1) like $5 or prs.nombre2) like $6
+                                                               ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 573
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(573): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(114): CursoServicio::listarCursos('1', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(52): CursoControlador::listarCursos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 426 *****************************
+codigo Error: 426
+Mensaje error: SQLSTATE[42P01]: Undefined table: 7 ERROR:  missing FROM-clause entry for table "prs"
+LINE 27:          and (uni.nombre like $4 or prs.nombre1 like $5 or p...
+                                             ^
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 573
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(573): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(114): CursoServicio::listarCursos('1', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(52): CursoControlador::listarCursos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 427 *****************************
+codigo Error: 427
+Mensaje error: SQLSTATE[0A000]: Feature not supported: 7 ERROR:  encoding conversion from UTF8 to ASCII not supported
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 573
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(573): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(114): CursoServicio::listarCursos('1', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(52): CursoControlador::listarCursos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 428 *****************************
+codigo Error: 428
+Mensaje error: SQLSTATE[0A000]: Feature not supported: 7 ERROR:  encoding conversion from UTF8 to ASCII not supported
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 573
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(573): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(114): CursoServicio::listarCursos('1', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(52): CursoControlador::listarCursos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 429 *****************************
+codigo Error: 429
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function utf(character varying) does not exist
+LINE 27:          and (utf(uni.nombre) ilike utf($4) or utf(pers.nomb...
+                       ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 573
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(573): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(114): CursoServicio::listarCursos('1', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(52): CursoControlador::listarCursos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

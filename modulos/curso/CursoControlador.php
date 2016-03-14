@@ -82,6 +82,8 @@ Descripción:
 					self::agregarCurEst();
 				else if($accion == "generarTicketInscripcion")
 					self::generarTicketInscripcion();
+				else if($accion == "eliminarCurso")
+					self::eliminarCurso();
 				else
 					throw new Exception ("No se pudo resolver la acción $accion");
 			}
@@ -220,9 +222,25 @@ Descripción:
 			try{
 				$codigo = PostGet::obtenerPostGet("codCurso");
 
-				CursoServicio::eliminarCurso($codigo);
+				if(CursoServicio::verificarEstudiantesCurso($codigo)){
+					$r = CursoServicio::eliminarCurso($codigo);
 
-				Vista::mostrar();
+					if($r != 0){
+						Vista::asignarDato("estatus","1");
+						Vista::asignarDato("mensaje","Se ha eliminado el curso $codigo con éxito.");
+						Vista::mostrar();
+					}
+					else{
+						Vista::asignarDato("mensaje","No se pudo eliminar el curso $codigo.");
+						Vista::mostrar();
+					}
+				}
+				else{
+					Vista::asignarDato("mensaje","No se pudo eliminar el curso $codigo. Verifique si tiene estudiantes inscritos.");
+					Vista::mostrar();
+				}
+
+
 			}
 			catch(Exception $e){
 				throw $e;

@@ -67,7 +67,7 @@ function mostrarMensaje(mensaje, tipo){
 	}
 	else if(tipo==4){
 		cad = 'dark';
-		cad2 = '¡Información!';
+		cad2 = 'Información';
 	}
 
 	var cont = $("<div class='alert alert-" + cad + " alert-dismissible' id='"+$(".alert").length+"' style='bottom:"+cont+"px' role='alert'>"
