@@ -675,17 +675,21 @@ ALTER FUNCTION sis.f_trayecto_por_patron_seleccionar(refcursor, integer, text)
   OWNER TO sisconot;
 
 
-
-CREATE FUNCTION sis.f_uni_tra_pensu_actualizar(integer, integer, integer, integer, integer) RETURNS integer
-    LANGUAGE plpgsql
-    AS $_$
+CREATE OR REPLACE FUNCTION sis.f_uni_tra_pensu_actualizar(
+    integer,
+    integer,
+    integer,
+    integer,
+    text)
+  RETURNS integer AS
+$BODY$
 DECLARE
-	v_operacion integer := 0;
-	v_codigo ALIAS for $1;
-	v_cod_pensum ALIAS for $2;
-	v_cod_trayecto ALIAS for $3;
-	v_cod_uni_curri ALIAS for $4;
-	v_cod_tipo ALIAS for $5;
+  v_operacion integer := 0;
+  v_codigo ALIAS for $1;
+  v_cod_pensum ALIAS for $2;
+  v_cod_trayecto ALIAS for $3;
+  v_cod_uni_curri ALIAS for $4;
+  v_cod_tipo ALIAS for $5;
 BEGIN
 
 UPDATE sis.t_uni_tra_pensum
@@ -693,16 +697,17 @@ UPDATE sis.t_uni_tra_pensum
  WHERE sis.t_uni_tra_pensum.codigo = v_codigo;
 
    IF found THEN
-	v_operacion :=1;
+  v_operacion :=1;
    END IF;
 
  RETURN v_operacion;
 
 END;
-$_$;
-
-
-ALTER FUNCTION sis.f_uni_tra_pensu_actualizar(integer, integer, integer, integer, integer) OWNER TO sisconot;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_uni_tra_pensu_actualizar(integer, integer, integer, integer, text)
+  OWNER TO sisconot;
 
 
 CREATE FUNCTION sis.f_uni_tra_pensu_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) RETURNS integer
@@ -759,15 +764,20 @@ $_$;
 
 ALTER FUNCTION sis.f_uni_tra_pensu_eliminar(integer) OWNER TO sisconot;
 
-CREATE FUNCTION sis.f_uni_tra_pensu_insertar(integer, integer, integer, integer) RETURNS integer
-    LANGUAGE plpgsql
-    AS $_$
+
+CREATE OR REPLACE FUNCTION sis.f_uni_tra_pensu_insertar(
+    integer,
+    integer,
+    integer,
+    text)
+  RETURNS integer AS
+$BODY$
 DECLARE
-	codigoUniTraPen integer := 0;
-	v_cod_pensum ALIAS for $1;
-	v_trayecto ALIAS for $2;
-	v_cod_uni_curri ALIAS for $3;
-	v_cod_tipo ALIAS for $4;
+  codigoUniTraPen integer := 0;
+  v_cod_pensum ALIAS for $1;
+  v_trayecto ALIAS for $2;
+  v_cod_uni_curri ALIAS for $3;
+  v_cod_tipo ALIAS for $4;
 BEGIN
 
   SELECT COALESCE (max(codigo),0) FROM sis.t_uni_tra_pensum INTO codigoUniTraPen;
@@ -779,27 +789,39 @@ BEGIN
   RETURN codigoUniTraPen;
 
 END;
-$_$;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_uni_tra_pensu_insertar(integer, integer, integer, text)
+  OWNER TO sisconot;
 
 
-ALTER FUNCTION sis.f_uni_tra_pensu_insertar(integer, integer, integer, integer) OWNER TO sisconot;
 
 
-CREATE FUNCTION sis.f_uni_tra_pensu_por_codigo_seleccionar(refcursor, integer) RETURNS refcursor
-    LANGUAGE plpgsql
-    AS $_$
+
+CREATE OR REPLACE FUNCTION sis.f_uni_tra_pensu_por_codigo_seleccionar(
+    refcursor,
+    integer)
+  RETURNS refcursor AS
+$BODY$
 BEGIN
 
-  OPEN $1 FOR SELECT codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo
-  FROM sis.t_uni_tra_pensum where codigo = $2;
+  OPEN $1 FOR SELECT utp.codigo, utp.cod_pensum, utp.cod_trayecto, utp.cod_uni_curricular, utp.cod_tipo,
+  uni.descripcion
+  FROM sis.t_uni_tra_pensum as utp
+  left join sis.t_uni_curricular uni on utp.cod_uni_curricular = uni.codigo
+  where utp.codigo = $2;
 
  RETURN $1;
 
 END;
-$_$;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_uni_tra_pensu_por_codigo_seleccionar(refcursor, integer)
+  OWNER TO sisconot;
 
 
-ALTER FUNCTION sis.f_uni_tra_pensu_por_codigo_seleccionar(refcursor, integer) OWNER TO sisconot;
 
 CREATE FUNCTION sis.f_unicurricular_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) RETURNS integer
     LANGUAGE plpgsql
@@ -931,6 +953,29 @@ $_$;
 
 ALTER FUNCTION sis.f_unicurricular_por_patron_seleccionar(refcursor, text) OWNER TO sisconot;
 
+
+CREATE OR REPLACE FUNCTION sis.f_unicurricular_por_pen_usado(
+    refcursor,
+    integer)
+  RETURNS refcursor AS
+$BODY$
+BEGIN
+
+  OPEN $1 FOR select distinct (p.nom_corto) as nomcorto from sis.t_uni_tra_pensum v left join sis.t_pensum p on v.cod_pensum = p.codigo
+  where cod_uni_curricular = $2 GROUP BY  p.nom_corto;
+  
+ RETURN $1;
+
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_unicurricular_por_pen_usado(refcursor, integer)
+  OWNER TO sisconot;
+
+
+
+
 CREATE FUNCTION sis.f_unicurricular_por_pen_y_tray_seleccionar(refcursor, integer, integer) RETURNS refcursor
     LANGUAGE plpgsql
     AS $_$
@@ -982,25 +1027,27 @@ $_$;
 ALTER FUNCTION sis.f_unicurricular_por_pensum_seleccionar(refcursor, integer) OWNER TO sisconot;
 
 
-CREATE FUNCTION sis.f_unicurricular_seleccionar(refcursor) RETURNS refcursor
-    LANGUAGE plpgsql
-    AS $_$
+
+CREATE OR REPLACE FUNCTION sis.f_unicurricular_seleccionar(refcursor)
+  RETURNS refcursor AS
+$BODY$
 
 BEGIN
 
   OPEN $1 FOR SELECT codigo, cod_uni_ministerio, nombre, hta, hti, uni_credito, dur_semanas,
        not_min_aprobatoria, not_maxima, descripcion, observacion, contenido
-  FROM sis.t_uni_curricular;
+  FROM sis.t_uni_curricular ORDER BY codigo ASC;
 
 
 
  RETURN $1;
 
 END;
-$_$;
-
-
-ALTER FUNCTION sis.f_unicurricular_seleccionar(refcursor) OWNER TO sisconot;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_unicurricular_seleccionar(refcursor)
+  OWNER TO sisconot;
 
 
 
