@@ -36,48 +36,56 @@ return datepicker.regional['es'];
 }));
 
 $(document).ready(function() {
-	$.datepicker.setDefaults($.datepicker.regional["es"]);	
-	
+	$.datepicker.setDefaults($.datepicker.regional["es"]);
+
 });
 
 function activarFecha(elemento){
-	
+
 	$(elemento).datepicker();
 	$(elemento).datepicker( "show" );
 }
 
 function mostrarMensaje(mensaje, tipo){
-	
+	var len = $(".alert").height();
+
+	len += len/2;
+
+	var cont = $(".alert").length * len;
+
 	if(tipo==1){
-		cad = 'info'; 
+		cad = 'info';
 		cad2 = '¡Éxito!';
 	}
-	else if(tipo==2){ 
+	else if(tipo==2){
 		cad = 'danger';
-		cad2 = '¡Error!' 
+		cad2 = '¡Error!'
 	}
-	else if(tipo==3){ 
+	else if(tipo==3){
 		cad = 'warning';
 		cad2 = '¡Advertencia!';
 	}
-	else if(tipo==4){ 
+	else if(tipo==4){
 		cad = 'dark';
-		cad2 = '¡Información!'; 
+		cad2 = '¡Información!';
 	}
 
-	var cont = $("<div class='alert alert-" + cad + " alert-dismissible' role='alert'>"
+	var cont = $("<div class='alert alert-" + cad + " alert-dismissible' id='"+$(".alert").length+"' style='bottom:"+cont+"px' role='alert'>"
 					+ "<button type='button' class='close' data-dismiss='alert'>"
 					+ "<span aria-hidden='true'>&times;</span>"
 					+ "</button>"
 					+ "<strong>"+ cad2 + "</strong> "+ mensaje+ ""
 					+ "</div>");
-	
+
 	$(cont).appendTo(".alerts");
 
+	setTimeout(function(){
+		$("#"+($(".alert").length - 1)).remove();
+	},5000);
 }
 
 
-function crearDialogo(id, titulo, segundoTitulo, size, accion, boton = 'Aceptar', tipo = true){
+function crearDialogo(id, titulo, segundoTitulo, size, accion, boton, tipo){
 	if($('.modal').length==0){
 		if(size==1)
 			cad = '<div class="modal-dialog" data-backdrop="static">';
@@ -85,7 +93,7 @@ function crearDialogo(id, titulo, segundoTitulo, size, accion, boton = 'Aceptar'
 			cad = '<div class="modal-lg" >';
 		else
 			cad = '<div class="modal-dialog" style="width:'+size+'px;">';
-		
+
 		if(tipo==true)
 			cad2 = '<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>';
 		else
@@ -109,7 +117,7 @@ function crearDialogo(id, titulo, segundoTitulo, size, accion, boton = 'Aceptar'
 						'<h4 class="modal-title" id="myModalLabel"><div id="segtitulo">'+segundoTitulo+'</div></h4>'+
 					'</div>'+
 					'<div class="modal-body">'+
-					
+
 
 					'</div>'+
 					'<div class="modal-footer">'+
@@ -148,7 +156,7 @@ function crearDialogo(id, titulo, segundoTitulo, size, accion, boton = 'Aceptar'
 						'<h4 class="modal-title" id="myModalLabel">'+segundoTitulo+'</h4>'+
 					'</div>'+
 					'<div class="modal-body">'+
-					
+
 
 					'</div>'+
 					'<div class="modal-footer">'+
@@ -164,7 +172,7 @@ function crearDialogo(id, titulo, segundoTitulo, size, accion, boton = 'Aceptar'
 
 
 function crearConfirm(titulo,boton,tituloBoton){
-	$("<div class='alert alert-black alert-dismissible alert-link fade in' role='alert'>"
+	$("<div class='alert alert-black alert-dismissible alert-link fade in' role='alert' id='confirmationDialoge'>"
 					+ "<button type='button' class='close' data-dismiss='alert'>"
 					+ "<span aria-hidden='true'>&times;</span>"
 					+ "</button>"
@@ -182,14 +190,14 @@ function cancelConfirm(){
 }
 
 function agregarNotificacion(error,tipo){
-	
+
 		var elementos = parseInt($("#notificaciones").html());
 
 	if($('#notificaciones').length)
 		$('#notificaciones').html(elementos+1);
 	else
 		$('<div id="notificaciones">1</div>').appendTo('#notificacion');
-	
+
 
 	if(tipo===1)
 		$('<li><a href="#" id="noti'+elementos+'" style="color:green"> <i class="icon-ok"></i> '+error+'</a></li>').appendTo('#notMensaje');
@@ -206,8 +214,10 @@ function eliminarNotificacion(noti){
 }
 
 function activarCal(){
-	$('.date').datetimepicker();
-          
+	$('.date').datetimepicker({
+    format: 'DD/MM/YYYY'
+});
+
 }
 
 function obtenerMenu(opcion){
@@ -227,6 +237,6 @@ function obtenerMenu(opcion){
 			$("#menuIA").remove();
 	}
 	else if(opcion == 'I'){
-		
+
 	}
 }
