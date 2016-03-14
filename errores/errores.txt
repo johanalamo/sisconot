@@ -4565,3 +4565,23 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 289 *****************************
+codigo Error: 289
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/pensum/vista/html5/agregar.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('pensum:html5:ag...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 290 *****************************
+codigo Error: 290
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/pensum/vista/html5/agregar.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('pensum:html5:ag...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
