@@ -180,6 +180,7 @@
 				Vista::asignarDato('instituto',$instituto);
 				Vista::asignarDato('pnf',$pnf);
 				Vista::asignarDato('estado',$estado);
+				Vista::asignarDato('empleado2',PostGet::obtenerPostGet("empleado2"));
 				Vista::Mostrar();
 
 			}

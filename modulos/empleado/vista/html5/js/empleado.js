@@ -403,9 +403,9 @@ function verInstitutoEm(){
 	ajaxMVC(arr,montarSelectInstitutoPersona,error);
 }
 
-function verInstitutoEm2(instituto=null){
+function verInstitutoEm2(){
 	
-	if(!instituto){
+	/*if(!instituto){
 		instituto ='';
 		estado='';
 		pnf='';
@@ -429,20 +429,21 @@ function verInstitutoEm2(instituto=null){
 		}, 500);
 	}
 	//alert(instituto+"***");
-	setTimeout(function(){ 
-
-		var arr = Array("m_modulo"	,	"empleado",
-					"m_accion"	,	"listar",
-					"estado"	,	estado,
-					"pnf"		,	pnf,
-					"instituto"	,	instituto,
+	//setTimeout(function(){ 
+*/
+		var arr = Array("m_modulo"	,	"persona",
+					"m_accion"	,	"listarSelects",
+					"estado"	,	$("#empleado #selectEstado").val(),
+					"pnf"		,	$("#empleado #selectPNF").val(),
+					"instituto"	,	$("#empleado #selectInstituto").val(),
 					"tipo_persona",	"empleado",
-					"campo",		$("#campo").val(),
+					//"campo",		$("#campo").val(),
 					"empleado2"	,	true
-					);	
-		ajaxMVC(arr,montarSelectInstitutoE,error);	
+					);
+		ajaxMVC(arr,montarSelectInstituto,error);
+	
 
-	}, 700);
+	//}, 700);
 	
 }
 
@@ -496,11 +497,11 @@ function verPNFEm(){
 
 function verPNFEm2(){
 
-	instituto ='';
+/*	instituto ='';
 	estado='';
 	pnf='';
 	setTimeout(function(){ 
-/*
+
 		if($("#empleado #selectInstituto").val()!=null)
 			instituto=$("#empleado #selectInstituto").val();
 		else
@@ -510,27 +511,27 @@ function verPNFEm2(){
 			estado=$("#empleado #selectEstado").val();
 		else
 			estado=$("#selectEstado").val();
-*/
+
 		if($("#empleado #selectPNF").val())
 			pnf=$("#empleado #selectPNF").val();
 		else
 			pnf=$("#selectPNF").val();
 
-	}, 500);
+	}, 500);*/
 
-	setTimeout(function(){ 
+	//setTimeout(function(){ 
 	
-		var arr = Array("m_modulo"	,	"empleado",
-					"m_accion"	,	"listar",
+		var arr = Array("m_modulo"	,	"persona",
+					"m_accion"	,	"listarSelects",
 					"estado"	,	$("#empleado #selectEstado").val(),
-					"pnf"		,	pnf,
+					"pnf"		,	$("#empleado #selectPNF").val(),
 					"instituto"	,	$("#empleado #selectInstituto").val(),
 					"tipo_persona",	"empleado",
-					"campo",		$("#campo").val(),
+					//"campo",		$("#campo").val(),
 					"empleado2"	,	true
-					)
+					);
 		ajaxMVC(arr,montarSelectPNFE,error);
-	}, 600);
+	/*}, 600);*/
 		
 	
 }
@@ -581,9 +582,9 @@ function verEstadoEm(){
 }
 
 function verEstadoEm2(){
-	instituto ='';
+	/*instituto ='';
 	estado='';
-	pnf='';
+	pnf='';*/
 	//setTimeout(function(){ 
 
 	/*	if($("#empleado #selectInstituto").val()!=null)
@@ -605,19 +606,20 @@ function verEstadoEm2(){
 
 	setTimeout(function(){ */
 
-		var arr = Array("m_modulo"	,	"empleado",
-					"m_accion"	,	"listar",
-					"estado"	,	estado,
-					"pnf"		,	pnf,
-					"instituto"	,	instituto,
-					"tipo_persona",	"empleado"
-					/*"campo",		$("#campo").val(),
-					"empleado2"	,	true*/
+		var arr = Array("m_modulo"	,"persona",
+					"m_accion"	,	"listarSelects",
+					"estado"	,	$("#empleado #selectEstado").val(),
+					"pnf"		,	$("#empleado #selectPNF").val(),
+					"instituto"	,	$("#empleado #selectInstituto").val(),
+					"tipo_persona",	"empleado",
+					///*"campo",		$("#campo").val(),
+					"empleado2"	,	true
 					);	
-		ajaxMVC(arr,montarSelectEstadoPersona,error);
+		
+		ajaxMVC(arr,montarSelectEstado,error);
 	//}, 500);
 	
-}
+}/*
 function segundo (){
 	setTimeout(function(){ 
 		mostrarInformaion2(); 		
@@ -644,7 +646,7 @@ function segundo (){
 		$("#empleado #selectPNF").val(pnf2);
 		$('#empleado #selectPNF').selectpicker('refresh');
 	}, 1150);
-}
+}*/
 /**
 * Funcion Java Script que permite mostrar un select con
 * los estados y es concatenado a un  div en la vista HTML
@@ -759,7 +761,7 @@ function succMontarModificarEmpleado (data){
 	$("#empleado #selectEstado").selectpicker('refresh');
 	$("#empleado #selectInstituto").val(data.empleado[0]['cod_instituto']);	
 	$('#empleado #selectInstituto').selectpicker('refresh');
-	verPNFEm2();
+	//verPNFEm2();
 	setTimeout(function(){ 
 		$("#empleado #selectPNF").val(data.empleado[0]['cod_pensum']);
 		$('#empleado #selectPNF').selectpicker('refresh');  

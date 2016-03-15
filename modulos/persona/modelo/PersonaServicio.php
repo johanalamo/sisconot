@@ -348,7 +348,7 @@ class PersonaServicio
 				$ejecutar = $conexion->prepare("select * from sis.t_est_empleado union select * from sis.t_est_estudiante order by nombre;");	
 				$ejecutar->execute(array());			
 			}
-			elseif($persona=="docente"){
+			elseif($persona=="empleado"){
 				$ejecutar = $conexion->prepare("SELECT * FROM sis.t_est_empleado;");
 				$ejecutar->execute(array());
 			}

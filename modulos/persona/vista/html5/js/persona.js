@@ -239,12 +239,13 @@ function montarSelectInstitutoPersona(data){
 		}
 	}
 	cadena +="</select>";
+	alert(data.empleado2);
 	//if(!data.empleado2){
 		$(cadena).appendTo('#selectInstitutos2');
 		$(cadena).appendTo('.selectInstituto2');
-/*	}
-	else
-		$(cadena).appendTo('.selectInstitutoEm');*/
+	//}
+	//else
+	//	$(cadena).appendTo('.selectInstitutoEm');
 	activarSelect();	
 
 }
@@ -476,8 +477,10 @@ function montarSelectEstado(data){
 	cadena +="</select></div>";
 	if(!data.empleado2)
 		$(cadena).appendTo('.selectEstado');
-	else
+	else{
 		$(cadena).appendTo('.selectEstadoEm');
+		
+	}
 	activarSelect();	
 				
 }
