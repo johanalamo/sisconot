@@ -8083,3 +8083,796 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 511 *****************************
+codigo Error: 511
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('5')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 512 *****************************
+codigo Error: 512
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('4')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 513 *****************************
+codigo Error: 513
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('5')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 514 *****************************
+codigo Error: 514
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('6')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 515 *****************************
+codigo Error: 515
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('9')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 516 *****************************
+codigo Error: 516
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('16')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 517 *****************************
+codigo Error: 517
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('13')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 518 *****************************
+codigo Error: 518
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('12')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 519 *****************************
+codigo Error: 519
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('11')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 520 *****************************
+codigo Error: 520
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('10')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 521 *****************************
+codigo Error: 521
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('9')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 522 *****************************
+codigo Error: 522
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('8')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 523 *****************************
+codigo Error: 523
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('6')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 524 *****************************
+codigo Error: 524
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('6')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 525 *****************************
+codigo Error: 525
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('7')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 526 *****************************
+codigo Error: 526
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('8')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 527 *****************************
+codigo Error: 527
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('9')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 528 *****************************
+codigo Error: 528
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('11')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 529 *****************************
+codigo Error: 529
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('12')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 530 *****************************
+codigo Error: 530
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('13')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 531 *****************************
+codigo Error: 531
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('13')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 532 *****************************
+codigo Error: 532
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('12')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 533 *****************************
+codigo Error: 533
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('11')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 534 *****************************
+codigo Error: 534
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('10')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 535 *****************************
+codigo Error: 535
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('8')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 536 *****************************
+codigo Error: 536
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('10')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 537 *****************************
+codigo Error: 537
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('13')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 538 *****************************
+codigo Error: 538
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('10')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 539 *****************************
+codigo Error: 539
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('9')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 540 *****************************
+codigo Error: 540
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('9')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 541 *****************************
+codigo Error: 541
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('10')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 542 *****************************
+codigo Error: 542
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('13')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 543 *****************************
+codigo Error: 543
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('21')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 544 *****************************
+codigo Error: 544
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('21')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 545 *****************************
+codigo Error: 545
+Mensaje error: SQLSTATE[42883]: Undefined function: 7 ERROR:  function sis.f_unicurricular_por_pen_usado(unknown, unknown) does not exist
+LINE 1: select sis.f_unicurricular_por_pen_usado('pcursor',$1)
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(269): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(281): UnidadServicio::obtenerPensumUsado('26')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(60): UnidadControlador::buscarCodigoUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 546 *****************************
+codigo Error: 546
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_instituto" violates foreign key constraint "cf_prelacion__instituto" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_instituto
+	WHERE t_instituto.codigo = p_codigo"
+PL/pgSQL function sis.f_instituto_eliminar(integer) line 6 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 236
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(236): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(161): InstitutoServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(61): InstitutoControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 547 *****************************
+codigo Error: 547
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  duplicate key value violates unique constraint "ca_instituto"
+DETAIL:  Key (nom_corto)=(CULTCA) already exists.
+CONTEXT:  SQL statement "INSERT INTO sis.t_instituto(
+		    codigo, nom_corto, nombre, direccion)
+	    VALUES (codigoInstituto, v_nom_corto, v_nombre, v_direccion)"
+PL/pgSQL function sis.f_instituto_insertar(text,text,text) line 19 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 87
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(87): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(89): InstitutoServicio::agregar(Object(Instituto))
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(57): InstitutoControlador::agregarInstituto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 548 *****************************
+codigo Error: 548
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_uni_curricular" violates foreign key constraint "cf_uni_tra_pensum__uni_curricular" on table "t_uni_tra_pensum"
+DETAIL:  Key (codigo)=(7) is still referenced from table "t_uni_tra_pensum".
+CONTEXT:  SQL statement "DELETE FROM sis.t_uni_curricular
+  WHERE t_uni_curricular.codigo = v_codigo"
+PL/pgSQL function sis.f_unicurricular_eliminar(integer) line 7 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 187
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(187): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(204): UnidadServicio::eliminar('7')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(49): UnidadControlador::eliminarUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 549 *****************************
+codigo Error: 549
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_uni_curricular" violates foreign key constraint "cf_uni_tra_pensum__uni_curricular" on table "t_uni_tra_pensum"
+DETAIL:  Key (codigo)=(9) is still referenced from table "t_uni_tra_pensum".
+CONTEXT:  SQL statement "DELETE FROM sis.t_uni_curricular
+  WHERE t_uni_curricular.codigo = v_codigo"
+PL/pgSQL function sis.f_unicurricular_eliminar(integer) line 7 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 187
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(187): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(204): UnidadServicio::eliminar('9')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(49): UnidadControlador::eliminarUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 550 *****************************
+codigo Error: 550
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_uni_curricular" violates foreign key constraint "cf_uni_tra_pensum__uni_curricular" on table "t_uni_tra_pensum"
+DETAIL:  Key (codigo)=(4) is still referenced from table "t_uni_tra_pensum".
+CONTEXT:  SQL statement "DELETE FROM sis.t_uni_curricular
+  WHERE t_uni_curricular.codigo = v_codigo"
+PL/pgSQL function sis.f_unicurricular_eliminar(integer) line 7 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 187
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(187): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(204): UnidadServicio::eliminar('4')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(49): UnidadControlador::eliminarUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 551 *****************************
+codigo Error: 551
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_pensum" violates foreign key constraint "cf_prelacion__pensum" on table "t_prelacion"
+DETAIL:  Key (codigo)=(1) is still referenced from table "t_prelacion".
+CONTEXT:  SQL statement "DELETE FROM sis.t_pensum
+	WHERE t_pensum.codigo = v_codigo"
+PL/pgSQL function sis.f_pensum_eliminar(integer) line 7 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 301
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(301): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(200): PensumServicio::eliminar('1')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(67): PensumControlador::eliminar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 552 *****************************
+codigo Error: 552
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_uni_curricular" violates foreign key constraint "cf_uni_tra_pensum__uni_curricular" on table "t_uni_tra_pensum"
+DETAIL:  Key (codigo)=(6) is still referenced from table "t_uni_tra_pensum".
+CONTEXT:  SQL statement "DELETE FROM sis.t_uni_curricular
+  WHERE t_uni_curricular.codigo = v_codigo"
+PL/pgSQL function sis.f_unicurricular_eliminar(integer) line 7 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 187
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(187): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(204): UnidadServicio::eliminar('6')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(49): UnidadControlador::eliminarUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 553 *****************************
+codigo Error: 553
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_uni_curricular" violates foreign key constraint "cf_uni_tra_pensum__uni_curricular" on table "t_uni_tra_pensum"
+DETAIL:  Key (codigo)=(8) is still referenced from table "t_uni_tra_pensum".
+CONTEXT:  SQL statement "DELETE FROM sis.t_uni_curricular
+  WHERE t_uni_curricular.codigo = v_codigo"
+PL/pgSQL function sis.f_unicurricular_eliminar(integer) line 7 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 187
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(187): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(204): UnidadServicio::eliminar('8')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(49): UnidadControlador::eliminarUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 554 *****************************
+codigo Error: 554
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update or delete on table "t_uni_curricular" violates foreign key constraint "cf_uni_tra_pensum__uni_curricular" on table "t_uni_tra_pensum"
+DETAIL:  Key (codigo)=(4) is still referenced from table "t_uni_tra_pensum".
+CONTEXT:  SQL statement "DELETE FROM sis.t_uni_curricular
+  WHERE t_uni_curricular.codigo = v_codigo"
+PL/pgSQL function sis.f_unicurricular_eliminar(integer) line 7 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php
+Linea Error: 187
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/unidad/modelo/UnidadCurricularServicio.php(187): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(204): UnidadServicio::eliminar('4')
+		#2 /var/www/html/github/sisconot/modulos/unidad/UnidadControlador.php(49): UnidadControlador::eliminarUnidadCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(65): UnidadControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 555 *****************************
+codigo Error: 555
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/pensum/vista/html5/agregar.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('pensum:html5:ag...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 556 *****************************
+codigo Error: 556
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/pensum/vista/html5/agregar.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(126): Vista::iniciar('pensum:html5:ag...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(68): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 557 *****************************
+codigo Error: 557
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/trayecto/modelo/TrayectoServicio.php
+Linea Error: 100
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/trayecto/modelo/TrayectoServicio.php(100): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/trayecto/TrayectoControlador.php(145): TrayectoServicio::agregarTrayectoObjetc(Object(Trayecto))
+		#2 /var/www/html/github/sisconot/modulos/trayecto/TrayectoControlador.php(100): TrayectoControlador::agregar(Object(Trayecto))
+		#3 /var/www/html/github/sisconot/modulos/trayecto/TrayectoControlador.php(53): TrayectoControlador::preAgreModif()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(61): TrayectoControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
