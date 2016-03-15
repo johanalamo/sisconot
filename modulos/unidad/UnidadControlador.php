@@ -29,7 +29,7 @@
 
 	require_once("negocio/UniCurricular.php");
 	require_once("negocio/Prelacion.php");
-	require_once("negocio/TipUniCurricular.php");
+
 
 	class  UnidadControlador
 	{
@@ -60,18 +60,12 @@
 					self::buscarCodigoUnidadCurricular();
 				else if ($accion =='buscarUniPorCoincidencia')
 					self::buscarUniPorCoincidencia();	
-
 				else if ($accion =='buscarUniCurricularPorPensum')
 					self::buscarUniCurricularPorPensum();				
 				else if ($accion =='buscarUniCurriPorPenYTra')
-					self::buscarUniCurriPorPenYTra();				
+					self::buscarUniCurriPorPenYTra();			
 	
-
-
-
 				// servicio de prelacion
-				else if ($accion =='listarPrelacion')
-					self::listarPrelacion();
 				else if ($accion == 'agregarPrelacion')					
 					self::agregarPrelacion();
 				else if ($accion == 'ModificarPrelacion')				
@@ -81,6 +75,18 @@
 				else if ($accion =='eliminarPrelacion')
 					self::eliminarPrelacion();
 			
+				// agregar Unidad a Pesum
+
+				else if ($accion =='AgregarUniTraPen')
+					self::AgregarUniTraPen();
+				else if ($accion == 'ModificarUniTraPen')					
+					self::ModificarUniTraPen();
+				else if ($accion == 'obtenerUniTraPen')				
+					self::obtenerUniTraPen();			
+				else if ($accion =='eliminarUniTraPen')
+					self::eliminarUniTraPen();
+
+
 				else
 				throw new Exception ("(PensumControlador) Accion $accion no es valida");	
 		}
@@ -272,8 +278,10 @@
 			try
 			{
 				$r=UnidadServicio::obtener(PostGet::obtenerPostGet('codigo'));
+				$a=UnidadServicio::obtenerPensumUsado(PostGet::obtenerPostGet('codigo'));
 				$mensaje="Codigo";
 				Vista::asignarDato('unidad',$r);
+				Vista::asignarDato('usada',$a);
 				Vista::asignarDato('mensaje',$mensaje);
 				Vista::asignarDato('estatus',1);
 				Vista::mostrar();
@@ -282,6 +290,8 @@
 				throw $e;
 			}
 		}
+
+
 
 
 	/**
@@ -299,7 +309,8 @@
 		public static function buscarUniPorCoincidencia(){
 			try
 			{
-				$r=UnidadServicio::obtenerPorCoincidencia(PostGet::obtenerPostGet('patron'));
+				$r=UnidadServicio::obtenerPorCoincidencia(PostGet::obtenerPostGet('patron'),
+						   								  PostGet::obtenerPostGet('accion'));
 				$mensaje="Unidades Por Patron";
 				Vista::asignarDato('unidades',$r);
 				Vista::asignarDato('mensaje',$mensaje);
@@ -408,7 +419,9 @@
 		}
 
 
-
+		/**
+		prelaciones
+		*/
 
 		public static function agregarPrelacion(){
 			try{
@@ -429,7 +442,6 @@
 				throw $e;
 			}
 		}
-
 		
 		public static function buscarPrelacionUnidadCurricular()
 		{
@@ -470,6 +482,152 @@
 			}
 			catch (Exception $e) {throw $e;}
 		}
+		/**
+		// UNIDAD TRAN PESUM
+		*/	
+		/**
+		 * Función Permite Agregar UnidadCurricular.
+		 * 
+		 * Permite manejar  el agregar un UnidadCurricular, recibe los parámetros desde 
+		 * la vista (arreglo PostGet) y llama a UnidadCurricular servicio que permite
+		 * comunicarse con la base de datos,y este último retorna el resultado
+	     * ya sea éxito o fracaso,
+		 * 
+		 * valores muy interpetativos
+		 * @param string $codMinisterio 			  		 
+		 * @param int $nombreUC 			   nombre de la unidada de credito		 
+		 * @param int $hta 			  	
+		 * @param int $hti 	 
+  		 *	
+		 *
+		 * @throws Exception 					Si no se puede hacer la acion.
+		 */	
+		public static function AgregarUniTraPen(){
+			try{
+				
+				if (PostGet::obtenerPostGet('trayecto') == null) 
+					$trayecto = null;
+				else
+					$trayecto = PostGet::obtenerPostGet('trayecto');			
+
+				$r=UniTraPensumServicio::agregarUniTraPenObjetc(
+					PostGet::obtenerPostGet('pensum'),
+					$trayecto,
+					PostGet::obtenerPostGet('codigoUnidad'),
+					PostGet::obtenerPostGet('tipo')
+					);
+				$mensaje="Unidad Curricular Agregada";
+				Vista::asignarDato('UnidadR',$r);
+				Vista::asignarDato('mensaje',$mensaje);
+				Vista::asignarDato('estatus',1);
+				Vista::mostrar();
+			}
+			catch (Exception $e) {
+				throw $e;
+			}
+		}
+	
+		
+			/**
+		 * Función Permite Agregar UnidadCurricular.
+		 * 
+		 * Permite manejar  el agregar un UnidadCurricular, recibe los parámetros desde 
+		 * la vista (arreglo PostGet) y llama a UnidadCurricular servicio que permite
+		 * comunicarse con la base de datos,y este último retorna el resultado
+	     * ya sea éxito o fracaso,
+		 * 
+		 * valores muy interpetativos
+		 * @param string $codMinisterio 			  		 
+		 * @param int $nombreUC 			   nombre de la unidada de credito		 
+		 * @param int $hta 			  	
+		 * @param int $hti 	 
+  		 *	
+		 *
+		 * @throws Exception 					Si no se puede hacer la acion.
+		 */	
+		public static function ModificarUniTraPen(){
+			try{
+				
+				if (PostGet::obtenerPostGet('trayecto') == null) 
+					$trayecto = null;
+				else
+					$trayecto = PostGet::obtenerPostGet('trayecto');			
+
+				$r=UniTraPensumServicio::modificarPrelacionParametro(PostGet::obtenerPostGet('codigo'),
+					PostGet::obtenerPostGet('pensum'),
+					$trayecto,
+					PostGet::obtenerPostGet('codigoUnidad'),
+					PostGet::obtenerPostGet('tipo')
+					);
+				$mensaje="Unidad Curricular Agregada";
+				Vista::asignarDato('UnidadR',$r);
+				Vista::asignarDato('mensaje',$mensaje);
+				Vista::asignarDato('estatus',1);
+				Vista::mostrar();
+			}
+			catch (Exception $e) {
+				throw $e;
+			}
+		}
+
+
+	/**
+	 * Función que permite obtener un pensum.
+	 *
+	 *Permite obtener un pensum, recibe los parámetros desde 
+	 * la vista (arreglo PostGet) y llama a pensum servicio que permite
+	 * comunicarse con la base de datos,y este último retorna el resultado
+     * ya sea éxito o fracaso.
+	 * 
+	 * @param string $codigo 			  		codigo codigo pensum.
+	 *
+	 * @throws Exception 					Si no se puede hacer la acion.
+	 */		
+		public static function obtenerUniTraPen()
+		{
+			try
+			{
+				$r=UniTraPensumServicio::obtener(PostGet::obtenerPostGet('codigo'));
+			//	var_dump($r);
+				$mensaje="Pensum";
+				Vista::asignarDato('UnidadR',$r);
+				Vista::asignarDato('estatus',1);
+				Vista::asignarDato('mensaje',$mensaje);
+				Vista::mostrar();
+			}
+			catch (Exception $e){
+				throw $e;
+			}
+		}
+
+	/**
+	 * Función que permite eliminar un UnidadCurricular.
+	 *
+	 *Permite eliminar un UnidadCurricular, recibe los parámetros desde 
+	 * la vista (arreglo PostGet) y llama a UnidadCurricular servicio que permite
+	 * comunicarse con la base de datos,y este último retorna el resultado
+     * ya sea éxito o fracaso.
+	 * 
+	 * @param string $codigo 			  		codigo codigo UnidadCurricular.
+	 *
+	 * @throws Exception 					Si no se puede hacer la acion.
+	 */		
+		public static function eliminarUniTraPen()
+		{
+			try
+			{
+				$r=UniTraPensumServicio::eliminar(PostGet::obtenerPostGet('codigo'));
+				$mensaje="Unidad Curricular Eliminada";
+				Vista::asignarDato('unidad',$r);
+				Vista::asignarDato('mensaje',$mensaje);
+				Vista::asignarDato('estatus',1);
+				Vista::mostrar();
+			}catch (Exception $e){
+				throw $e;
+			}
+		}
+
+
 
 	}
 ?>

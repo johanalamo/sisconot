@@ -25,10 +25,8 @@
                         <a class="btn btn-circle show-tooltip" title="Agregar Instituto" href="index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=Agregar"  ><i class="icon-plus"></i></a>
                    		
                     </div>
-                    <div class="btn-group">
-                        <a class="btn btn-circle show-tooltip" title="Print" href="#"><i class="icon-print"></i></a>
-                        <a class="btn btn-circle show-tooltip" title="Export to PDF" href="#"><i class="icon-file-text-alt"></i></a>
-                        <a class="btn btn-circle show-tooltip" title="Export to Exel" href="#"><i class="icon-table"></i></a>
+                    <div class="btn-group">                
+                        <a class="btn btn-circle show-tooltip" title="Export to PDF" href="#"><i class="icon-file-text-alt"></i></a>                      
                     </div>	                  
                        </div>
 	 			<div class="clearfix"></div>
@@ -53,12 +51,12 @@
 										<td><a href="#"  onmouseover="verDetalle({{pensums.codigo}})">{{pensums.nombre}}</a></td>
 										<td><a href="#"  onmouseover="verDetalle({{pensums.codigo}})">{{pensums.nom_corto}}</a></td>
 										<td>										
-											<button class="btn btn-xs btn-info" title="Informacion del Pensum" onclick="redirectEdit({{pensums.codigo}})">
+											<button class="btn btn-xs btn-info" title="Modificar el Pensum" onclick="redirectEdit({{pensums.codigo}})">
 												<i class="icon-pencil"></i>
 											</button>
 										</td>	
 										<td>
-										<button class="btn  btn-xs btn-danger" title="Eliminar Pensum" onclick="eliminarPensum({{pensums.codigo}});" data-toggle="modal" data-target="#dialogoPensum" title="Eliminar Instituto">
+										<button class="btn  btn-xs btn-danger" title="Eliminar el Pensum" onclick="eliminarPensum({{pensums.codigo}});" >
 												<i class="icon-remove"></i>
 											</button>
 										</td>	
@@ -94,10 +92,8 @@
 
 	        				 <div class="btn-toolbar pull-right clearfix">
 			                   
-			                    <div class="btn-group">
-			                        <a class="btn btn-circle show-tooltip" title="Print" href="#"><i class="fa fa-eraser"></i></a>
-			                        <a class="btn btn-circle show-tooltip" title="Export to PDF" href="#"><i class="icon-file-text-alt"></i></a>
-			                        <a class="btn btn-circle show-tooltip" title="Export to Exel" href="#"><i class="icon-table"></i></a>
+			                    <div class="btn-group">			                  
+			                        <a class="btn btn-circle show-tooltip" title="Export to PDF" href="#"><i class="icon-file-text-alt"></i></a>                   
 			                    </div>	                  
 			       
 

@@ -12,10 +12,12 @@
     <script type="text/javascript">
     jQuery(document).ready(function () {          
 
-                
+                        activarCal();
+
                        var a = ObtenerIDPensum();
                          if (a != 'not'){                           
                             modificarURL(a,'info');
+
                          }
 
                 });
@@ -33,23 +35,23 @@
                     <form method="post" id="form-wizard" novalidate="novalidate">
                         <div class="wizard steps-bg clearfix steps-show-icons steps-tabs steps-left" id="steps-uid-0">
                     	<div class="steps clearfix">
-                    		<li role="tab" class="first current" >
-                            	<a id="steps-uid-0-t-I" href="#" >
+                    		<li role="tab" class="first current " >
+                            	<a id="steps-uid-0-t-I" href="" class="inactivoA" >
                                 	<i class="icon-sitemap"></i> Información General
                                 </a>
                             </li>        
-                            <li role="tab" class="last done" >
-                            	<a id="steps-uid-0-t-T" href="index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=Trayecto">
+                            <li role="tab" class="last done " >
+                            	<a id="steps-uid-0-t-T" href="" class="inactivoA">
                                 	<i class="icon-sitemap"></i>Trayectos
                                 </a>
                             </li>
-                            <li role="tab" class="last done" >
-                            	<a id="steps-uid-0-t-U" href="index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=UnidadesCurricular" >
+                            <li role="tab" class="last done " >
+                            	<a id="steps-uid-0-t-U" href="" class="inactivoA">
                   			    	<i class="icon-hdd"></i> Unidades Curriculares 
                   			    </a>
                   			</li>
-                  			<li role="tab" class="last done">
-                  				<a id="steps-uid-0-t-P" href="index.php?m_modulo=pensum&m_formato=html5&m_accion=mostrar&m_vista=Prelacion" >             
+                  			<li role="tab" class="last done ">
+                  				<a id="steps-uid-0-t-P" href="" class="inactivoA">             
                                 	<i class="fa fa-file-text pr5"></i> Prelaciones 
                             	</a>
                             </li>
@@ -57,7 +59,7 @@
      
                         <div class="col-md-12">
 
-				    		<div class="panel" style="padding-left: 20px;">
+				    		<div class="panel" >
 				                    <div class="panel-heading">                       
 				                         <h3><i class="icon-table"></i> Agregar/Modificar Información del Pensum</h3>    
 				                         <span class="panel-title">Campos para agregar/modificar Pensum</span>
@@ -126,7 +128,7 @@
                                             <div class="col-md-12 col-md-offset-0">     
                                                 <div class="input-group">                                   
                                                         <span class="input-group-addon">Fecha:</span>
-                                                        <input type='text' name='fecha' id='fecha' maxlength='25' class='form-control'  placeholder='Fecha'>
+                                                        <input type='text' name='fecha' id='fecha' maxlength='25' class='date form-control'  placeholder='Fecha'>
                                                     </div>
                                                 </div>
                                     </div><br><br>
@@ -207,7 +209,7 @@
                                             <div class="col-md-12 col-md-offset-0">     
                                                 <div class="input-group">                                   
                                                         <span class="input-group-addon">Fecha:</span>
-                                                        <input type='text' name='fecha' id='fecha' maxlength='25' class='form-control'  placeholder='Fecha' value="{{uni.fec_creacion}}">
+                                                        <input type='text' name='fecha' id='fecha' maxlength='25' class='date form-control'  placeholder='Fecha' value="{{uni.fec_creacion}}">
                                                     </div> 
                                                 </div>
                                     </div><br><br>

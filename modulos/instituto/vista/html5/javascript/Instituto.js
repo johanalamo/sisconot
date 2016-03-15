@@ -45,10 +45,12 @@ function validarAgregarPensum(){
 function agregarInstituto(){
 	
 	if (validarCampos()){
+		var nombreCorto = $("#nombreCI").val();
+		nombreCorto = nombreCorto.toUpperCase();
 		var a=Array("m_modulo","instituto","m_accion","agregar",
-					"m_vista","Agregar","nombre",$("#nombreI").val(),"nombreC",$("#nombreCI").val(),
+					"m_vista","Agregar","nombre",$("#nombreI").val(),"nombreC",nombreCorto,
 					"direccion",$("#direccionI").val() );
-		ajaxMVC(a,succAgregar,error);	
+		ajaxMVC(a,succAgregar,errorAgregando);	
 	}
 }
 /*fucion cuando el agregar por ajax es exitoso, esta funcion
@@ -72,6 +74,8 @@ function succAgregar(data){
 function error(data){
 		mostrarMensaje("error error: " + data.responseText,2);
 }
+
+
 /*funcion que valia los campos del formulario de instituto para no 
  * posser error al momento de agregarla, esta funcion obtiene los value de los
  * imput.
@@ -98,7 +102,7 @@ function modificarInstituto(codigo){
 	
 	var a=Array("m_modulo","instituto","m_accion","obtener",
 					"m_vista","Obtener","codigo",codigo);
-	ajaxMVC(a,succObtener,error);
+	ajaxMVC(a,succObtener,errorModificando);
 	
 }
 /*Funcion que arma y ejecuta la peticion ajax para eliminar un instituto 
@@ -112,7 +116,7 @@ function eliminarInstituto(codigo){
 	
 	var a=Array("m_modulo","instituto","m_accion","obtener",
 					"m_vista","Obtener","codigo",codigo);
-	ajaxMVC(a,succObtenerE,error);
+	ajaxMVC(a,succObtenerE,errorEliminar);
 	
 }
 /*Funcion que arma y ejecuta la peticion ajax para modificar un instituto 
@@ -121,11 +125,13 @@ function eliminarInstituto(codigo){
  * */
 function modificar(){
 	if (validarCampos()){
+		var nombreCorto = $("#nombreCI").val();
+		nombreCorto = nombreCorto.toUpperCase();
 		var a=Array("m_modulo","instituto","m_accion","modificar",
-					"m_vista","Modificar","nombre",$("#nombreI").val(),"nombreC",$("#nombreCI").val(),
+					"m_vista","Modificar","nombre",$("#nombreI").val(),"nombreC", nombreCorto,
 					"direccion",$("#direccionI").val(),"codigo",$("#codigoI").val() );
 		//alert(a)
-		ajaxMVC(a,succModificar,error);	
+		ajaxMVC(a,succModificar,errorModificando);	
 	}
 	
 }
@@ -166,8 +172,18 @@ function eliminar(Codigo){
 	if (confirm("¿Desea Eliminar este Instituto ?")){
 		var a=Array("m_modulo","instituto","m_accion","eliminar",
 						"m_vista","Eliminar","codigo",Codigo);
-			ajaxMVC(a,succEliminar,error);	
+			ajaxMVC(a,succEliminar,errorEliminar);	
 	}
+}
+
+function errorEliminar(data){	
+		mensajeErrorDB(data,"Tratando de eliminar instituto");
+}
+function errorAgregando(data){	
+		mensajeErrorDB(data,"Tratando de Agregar instituto");
+}
+function errorModificando(data){	
+		mensajeErrorDB(data,"Tratando de Modificar instituto");
 }
 /*fucion que arma ua peticion ajax para traer la lista de institutos de la base de datas
  * para cargarlos a la pagina dinamicamente..
@@ -271,5 +287,25 @@ function succObtenerE(data){
 }
 
 
+function mensajeErrorDB(cadena,mensaje){
+	var data = cadena.responseText;
+	console.log(data)
+	  var ClaveForenea = data.search("23503");
+	  if (ClaveForenea != -1){
+	  	mostrarMensaje("Violacion de Clave Foranea "+mensaje,2);
+	  }
+	  var ClaveUnica = data.search("23505");
+	  if(ClaveUnica != -1){
+	  	mostrarMensaje("Violacion de Clave Unica Violada "+mensaje,2);
+	  }
+	  var ValorNoNULL = data.search("23502");
+	  if(ValorNoNULL != -1){
+	  	mostrarMensaje("Violacion de No Null"+mensaje,2);
+	  }
+	  var ViolacionCheke = data.search("23514");
+	  if(ViolacionCheke != -1){
+	  	mostrarMensaje("Violacion de una check_violation "+mensaje,2);
+	  }
 
+}
 

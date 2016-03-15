@@ -75,12 +75,28 @@ function consultarDetalleUni(data) {
 }
 
 
-function verCoincidencia(){
+function verCoincidencia(busqueda){
 	
+	if (busqueda == 'Ministerio'){
 	var arr = Array ("m_modulo","unidad",
 	 				 "m_accion","buscarUniPorCoincidencia",
-	 				 "patron",$("#codigoMinisterio").val());
+	 				 "patron",$("#codigoMinisterio").val(),
+	 				 "accion", "0");
+	}else if (busqueda == 'Descripcion'){
 
+	var arr = Array ("m_modulo","unidad",
+	 				 "m_accion","buscarUniPorCoincidencia",
+	 				 "patron",$("#descripcion").val(),
+	 				 "accion", "0");
+	}else if (busqueda == 'Nombre'){
+
+	var arr = Array ("m_modulo","unidad",
+	 				 "m_accion","buscarUniPorCoincidencia",
+	 				 "patron",$("#nombre").val(),
+	 				 "accion", "0");
+	}
+
+		console.log(arr.toString())
 	ajaxMVC(arr,verConsultarPatronUni,errorBuscarPatron); 
 }
 
@@ -89,6 +105,8 @@ function errorBuscarPatron(){mostrarMensaje("No Puede mostar Coincidencias unida
 
 function verConsultarPatronUni(data){
 	var cadena="";
+
+	console.log(data)
 	
 	var unidades = data["unidades"];
 	
@@ -104,11 +122,17 @@ function verConsultarPatronUni(data){
 		$("div.trow").replaceWith(cadena);
 
 	//console.log(data["unidades"].length)
-	}//else{
-		///cadena=" Hola mundo";
+	}else{
+		cadena+=" <div class='trow' style='width:auto; height:200px; overflow:auto;'>";		                			
+		cadena+="<table class='table table-hover mbn'><thead><tr class='active'><th># Código</th> <th>Código Ministerio</th><th>Nombre</th><th>Descripción</th></tr></thead>";
+	    cadena+="<tbody> ";
+		cadena+="<tr class='cuadro' style='background-color: rgb(255, 199, 52); position: initial;''>";
+		cadena+="<td colspan='4'>NO HAY COINCIDENCIA</td>";
+		cadena+="</tr>";
+	    cadena+="</tbody></table></div>";
 
-		//$("div.trow").replaceWith(cadena);
-	//}
+		$("div.trow").replaceWith(cadena);
+	}
 }
 
 function verDetalleYCampos(codigo){
@@ -164,24 +188,26 @@ function agregarModificar(){
 	if (validarFrom()){
 		if ($("#codigo").val() != ''){
 			if (confirm("¿Desea modificar la unidad curricular ?")){
-			var arr = Array (
-			"m_modulo","unidad",
-			"m_accion","preAgregModif",
-			"codigo",$("#codigo").val(),
-			"codMinisterio",$("#codigoMinisterio").val(),
-			"nombre",$("#nombre").val(),
-			"unidadesCredito",$("#unidadCredito").val(),
-			"descripcion",$("#descripcion").val(),
-			"hta",$("#hta").val(),
-			"hti",$("#hti").val(),
-			"duracionSemanas",$("#semanas").val(),
-			"notaMinima",$("#notaMin").val(),
-			"notaMaxima",$("#notMaxima").val(),
-			"contenido",$("#contenido").val(),
-			"observacion",$("#observacion").val()
-			);	 
-		}
-		console.log(arr.toString())
+				var arr = Array (
+				"m_modulo","unidad",
+				"m_accion","preAgregModif",
+				"codigo",$("#codigo").val(),
+				"codMinisterio",$("#codigoMinisterio").val(),
+				"nombre",$("#nombre").val(),
+				"unidadesCredito",$("#unidadCredito").val(),
+				"descripcion",$("#descripcion").val(),
+				"hta",$("#hta").val(),
+				"hti",$("#hti").val(),
+				"duracionSemanas",$("#semanas").val(),
+				"notaMinima",$("#notaMin").val(),
+				"notaMaxima",$("#notMaxima").val(),
+				"contenido",$("#contenido").val(),
+				"observacion",$("#observacion").val()
+				);	
+				console.log(arr.toString())
+				ajaxMVC(arr,succModificar,errorModifUnidad);	 
+			}
+		
 	 	}else{
 	 		
 	 		var arr = Array (
@@ -201,10 +227,10 @@ function agregarModificar(){
 			);	
 
 			console.log(arr.toString()) 
-			
+			ajaxMVC(arr,succAgregar,errorAgregandoUnidad);
 	 	}
 		
-		ajaxMVC(arr,succAgregarModifUnidad,errorAgregarModifUnidad);
+	
 		
 	}else{
 		errorCamposInvalidos();
@@ -233,24 +259,45 @@ function validarFrom(){
 			return false;
 		if(!validarSoloNumeros('#notMaxima', 1, 3, true))
 			return false;
-		if(!validarRangos('#observacion', 0, 100, true))
+		if(!validarRangos('#observacion', 0, 100, false))
+			return false;
+		if(!validarRangosNotaMaxima())
 			return false;
 
 	return result;
 }
 // mensaje de agregar o modificar exito
-function succAgregarModifUnidad(data){
+function succAgregar(data){
 	console.log(data)
 	if (data.estatus>0){
+		$("#codigo").val(data.Unidad);
 		//mostrarMensaje("No se puede realizar operacion fallo del servicio", 3);
-		mostrarMensaje("El pensum ha sido agregado satisfactoriamente!",1);	
+		mostrarMensaje("la unidad a sido agregada exitosamente",1);	
 	//	mostrarMensaje("El pensum ha sido agregado satisfactoriamente!",1);
-		//alert()		
+		
+	}else{
+		mostrarMensaje("No se puede realizar operacion fallo del servicio", 3);
 	}
 }
 
-function errorAgregarModifUnidad(){
-	mostrarMensaje("No se puede realizar operacion fallo del servicio", 3);
+function succModificar(data){
+	console.log(data)
+	if (data.estatus>0){
+		//mostrarMensaje("No se puede realizar operacion fallo del servicio", 3);
+		mostrarMensaje("la unidad a sido modificada exitosamente",1);	
+	//	mostrarMensaje("El pensum ha sido agregado satisfactoriamente!",1);
+		//alert()		
+	}else{
+		mostrarMensaje("No se puede realizar operacion fallo del servicio", 3);
+	}
+}
+
+function errorAgregandoUnidad(data){
+	mensajeErrorDB(data,"Agregando Unidad Curricular");
+}
+
+function errorModifUnidad(data){
+	mensajeErrorDB(data,"Modificando Unidad Curricular");
 }
 
 function errorCamposInvalidos(){mostrarMensaje("No se puede hacer el cambio Campos Invalidos",2);}
@@ -323,7 +370,8 @@ function verCoincidenciaLista(){
 	
 	var arr = Array ("m_modulo","unidad",
 	 				 "m_accion","buscarUniPorCoincidencia",
-	 				 "patron",$("#nombreLista").val());
+	 				 "patron",$("#nombreLista").val(),
+	 				 "accion","2");
 
 	ajaxMVC(arr,actualizarLista,errorLista); 
 }
@@ -337,35 +385,31 @@ function actualizarLista(data){
 
 		cadena="<table class='table table-hover mbn' id='tableTT'>";
 		cadena+="<thead>";
-	    cadena+="<tr>";
-    	cadena+="<th>N° Código</th>";
-        cadena+="<th>Nombre Unidad Curricular</th>";
-        cadena+="<th>Descripcion</th>";
-        cadena+="<th>Modificar</th>";
-	    cadena+="<th>Eliminar</th>";
+	    cadena+="<tr class='active'>";
+    	cadena+="<th>N° Cod </th>";
+        cadena+="<th>Nombre Unidad </th>";       
+	    cadena+="<th>  </th>";
 	    cadena+="</tr></thead>";
 		cadena+="<tbody>";
 		if ( data.unidades != null ){
 			for (i=0;i<data.unidades.length;i++){
 				cadena+="<tr >";
-					cadena+="<td><a href='#' onclick='verDetalle("+data.unidades[i]["codigo"]+")'>"+data.unidades[i]["codigo"]+"</a></td>";
-					cadena+="<td><a href='#' onclick='verDetalle("+data.unidades[i]["codigo"]+")'>"+data.unidades[i]["nombre"]+" ("+data.unidades[i]["cod_uni_ministerio"]+")</a></td>";
-					cadena+="<td><a href='#' onclick='verDetalle("+data.unidades[i]["codigo"]+")'>"+data.unidades[i]["descripcion"]+"</a></td>";
-					cadena+="<td>";
-					cadena+="<button class='btn btn-xs btn-info' title='Modificar la Unidada Curricular' onclick='redirectEdit("+data.unidades[i]["codigo"]+")'>";
-					cadena+="<i class='icon-pencil'></i>";
-					cadena+="</button>";
-					cadena+="</td>";
-					cadena+="<td>";
-					cadena+="<button class='btn btn-xs btn-danger' title='Eliminar Unidad' onclick='eliminar("+data.unidades[i]["codigo"]+")' data-toggle='modal' data-target='#dialogoUnidad' title='Eliminar Unidad'>";
-					cadena+="<i class='icon-remove'></i>";
-					cadena+="</button>";
+					cadena+="<td><a href='#' onmouseover='verDetalle("+data.unidades[i]["codigo"]+")'>"+data.unidades[i]["codigo"]+"</a></td>";
+					cadena+="<td><a href='#' onmouseover='verDetalle("+data.unidades[i]["codigo"]+")'>"+data.unidades[i]["nombre"]+" ("+data.unidades[i]["cod_uni_ministerio"]+")</a></td>";				
+					
+					cadena+="<td style='padding-left: 0px; padding-right: 0px; min-width: 54px;'>";
+						cadena+="<button class='btn btn-xs btn-info' title='Modificar la Unidada Curricular' onclick='redirectEdit("+data.unidades[i]["codigo"]+")'>";
+							cadena+="<i class='icon-pencil'></i>";
+						cadena+="</button>";
+						cadena+="<button class='btn btn-xs btn-danger' title='Eliminar Unidad' onclick='eliminar("+data.unidades[i]["codigo"]+")' title='Eliminar Unidad'>";
+							cadena+="<i class='icon-remove'></i>";
+						cadena+="</button>";
 					cadena+="</td>";
 				cadena+="</tr>";
 			}
 		}else{
 				cadena+="<tr >";
-				cadena+="<td colspan='5'> No hay Coincidencias de Unidad</td>";
+				cadena+="<td colspan='3'> No hay Coincidencias de Unidad</td>";
 			
 			cadena+="</tr>";
 		}
@@ -397,6 +441,46 @@ function actualizarLista(data){
 	
 	}
 }
+
+
+
+
+function mensajeErrorDB(cadena,mensaje){
+	var data = cadena.responseText;
+	console.log(data)
+	  var ClaveForenea = data.search("23503");
+	  if (ClaveForenea != -1){
+	  	mostrarMensaje("Violacion de Clave Foranea "+mensaje,2);
+	  }
+	  var ClaveUnica = data.search("23505");
+	  if(ClaveUnica != -1){
+	  	mostrarMensaje("Violacion de Clave Unica Violada "+mensaje,2);
+	  }
+	  var ValorNoNULL = data.search("23502");
+	  if(ValorNoNULL != -1){
+	  	mostrarMensaje("Violacion de No Null"+mensaje,2);
+	  }
+	  var ViolacionCheke = data.search("23514");
+	  if(ViolacionCheke != -1){
+	  	mostrarMensaje("Violacion de una check_violation "+mensaje,2);
+	  }
+
+}
+
+
+function validarRangosNotaMaxima(){
+	$(".popover").hide();
+	var min = $("#notaMin").val();
+	var max = $("#notMaxima").val();
+
+	if(min > max){
+		detonarAdvertencia("#notaMin","la nota minima no puede ser mayor (>) a nota maxima .");
+		return false;
+	}
+
+	return true;
+}
+
 
 
 
