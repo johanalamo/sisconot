@@ -935,24 +935,49 @@ $_$;
 
 ALTER FUNCTION sis.f_unicurricular_por_codigo_seleccionar(refcursor, integer) OWNER TO sisconot;
 
-CREATE FUNCTION sis.f_unicurricular_por_patron_seleccionar(refcursor, text) RETURNS refcursor
-    LANGUAGE plpgsql
-    AS $_$
+CREATE OR REPLACE FUNCTION sis.f_unicurricular_por_patron_seleccionar(
+    refcursor,
+    text,
+    text)
+  RETURNS refcursor AS
+$BODY$
 BEGIN
+  -- buscar por 
 
+  if ($3 = '0') then
   OPEN $1 FOR SELECT codigo, cod_uni_ministerio, nombre, descripcion
   FROM sis.t_uni_curricular where
-		upper(cod_uni_ministerio) like upper('%'||$2||'%')
-		or	upper(nombre) like upper('%'||$2||'%');
+     sis.utf(cod_uni_ministerio) ilike sis.utf('%'||$2||'%') or 
+     sis.utf(nombre) ilike sis.utf('%'||$2||'%') or
+     sis.utf(descripcion) ilike sis.utf('%'||$2||'%')
+     ;
+  end if;
+  
+  if ($3 = '1') then
+  OPEN $1 FOR SELECT codigo, cod_uni_ministerio, nombre, descripcion
+  FROM sis.t_uni_curricular where
+    upper(sis.utf(cod_uni_ministerio)) ilike upper(sis.utf('%'||$2||'%'));
+  end if;
 
+   if ($3 = '2') then
+   OPEN $1 FOR SELECT codigo, cod_uni_ministerio, nombre, descripcion
+    FROM sis.t_uni_curricular where upper(sis.utf(nombre)) ilike upper(sis.utf('%'||$2||'%'));
+   end if;  
+
+     if ($3 = '3') then
+   OPEN $1 FOR SELECT codigo, cod_uni_ministerio, nombre, descripcion
+    FROM sis.t_uni_curricular where upper(sis.utf(descripcion)) ilike upper(sis.utf('%'||$2||'%'));
+   end if;  
+    
+  
  RETURN $1;
 
 END;
-$_$;
-
-
-ALTER FUNCTION sis.f_unicurricular_por_patron_seleccionar(refcursor, text) OWNER TO sisconot;
-
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_unicurricular_por_patron_seleccionar(refcursor, text, text)
+  OWNER TO sisconot;
 
 CREATE OR REPLACE FUNCTION sis.f_unicurricular_por_pen_usado(
     refcursor,
