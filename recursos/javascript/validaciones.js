@@ -14,7 +14,7 @@ function validarSoloTexto(id, min, max, req = false){
 				return false;
 			}
 			if(validarRango(cad,min,max)){
-				detonarAdvertencia(id,"El campo debe tener entre "+min+"-"+max+" caracteres.1");
+				detonarAdvertencia(id,"El campo debe tener entre "+min+"-"+max+" caracteres.");
 				return false;
 			}
 		}
@@ -26,7 +26,7 @@ function validarSoloTexto(id, min, max, req = false){
 				return false;
 			}
 			if(validarRango(cad,min,max)){
-				detonarAdvertencia(id,"El campo debe tener entre "+min+"-"+max+" caracteres.2");
+				detonarAdvertencia(id,"El campo debe tener entre "+min+"-"+max+" caracteres.");
 				return false;
 			}
 		}
