@@ -381,10 +381,10 @@ console.log(data);
 	
 	cadena +="</select></div>";
 
-	//if(!data.empleado2)
+	if(!data.empleado2)
 		$(cadena).appendTo('.selectPensum');
-	/*else
-		$(cadena).appendTo('.selectPensumEm');*/
+	else
+		$(cadena).appendTo('.selectPensumEm');
 	activarSelect();					
 }
 /**

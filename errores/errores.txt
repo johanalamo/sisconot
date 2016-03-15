@@ -8876,3 +8876,207 @@ Trayecto:
 		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
 		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#8 {main}
+**************************** Error n° 558 *****************************
+codigo Error: 558
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 559 *****************************
+codigo Error: 559
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 560 *****************************
+codigo Error: 560
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 561 *****************************
+codigo Error: 561
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 562 *****************************
+codigo Error: 562
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 563 *****************************
+codigo Error: 563
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: "undefined"
+Archivo Error: /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 86
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(86): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(192): EmpleadoServicio::agregar('43', '1', 'undefined', 'A', '16/03/2016', '29/04/2016', 'true', 'false', 'false', 'false', '')
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(36): EmpleadoControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 564 *****************************
+codigo Error: 564
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(102): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(35): EstudianteControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 565 *****************************
+codigo Error: 565
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "undefined" does not exist
+LINE 3: ...persona  and em.cod_instituto=2 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', NULL, '2', NULL, NULL)
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 566 *****************************
+codigo Error: 566
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: "undefined"
+Archivo Error: /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 86
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(86): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(192): EmpleadoServicio::agregar('44', '2', 'undefined', 'A', '08/03/2016', NULL, 'true', 'false', 'false', 'false', '')
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(36): EmpleadoControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 567 *****************************
+codigo Error: 567
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: "undefined"
+Archivo Error: /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 86
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(86): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(192): EmpleadoServicio::agregar('44', '2', 'undefined', 'A', '08/03/2016', NULL, 'true', 'false', 'false', 'false', '')
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(36): EmpleadoControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 568 *****************************
+codigo Error: 568
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "undefined" does not exist
+LINE 3: ...persona  and em.cod_instituto=1 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', NULL, '1', NULL, NULL)
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 569 *****************************
+codigo Error: 569
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "undefined" does not exist
+LINE 3: ...persona  and em.cod_instituto=1 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', NULL, '1', NULL, NULL)
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 570 *****************************
+codigo Error: 570
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: "undefined"
+Archivo Error: /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 86
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(86): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(192): EmpleadoServicio::agregar('45', '1', 'undefined', 'P', '15/03/2016', NULL, 'true', 'false', 'false', 'false', '')
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(36): EmpleadoControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 571 *****************************
+codigo Error: 571
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  column "undefined" does not exist
+LINE 3: ...persona  and em.cod_instituto=3 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', 'P', '3', NULL, NULL)
+		#2 /var/www/html/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(140): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
