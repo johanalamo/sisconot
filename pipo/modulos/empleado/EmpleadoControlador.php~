@@ -1,0 +1,267 @@
+<?php
+require_once("base/clases/utilitarias/UtilBdd.clase.php");
+require_once("modulos/empleado/modelo/EmpleadoServicio.php");
+require_once("negocio/Estudiante.clase.php");
+require_once("modulos/pensum/modelo/PensumServicio.php");
+require_once("modulos/persona/modelo/PersonaServicio.php");
+require_once("modulos/instituto/modelo/InstitutoServicio.php");
+class EmpleadoControlador
+{
+	/**
+	 * Función pública y estática que permite manejar el requerimiento
+	 * (o acción) indicado por el usuario.
+	 * 
+	 * Todas las acciones de este módulo trabajan en conjunto con la clase Vista para 
+     * mostrar el resultado de la petición del usuario y dicha interacción con la base de datos.
+     * Para más información de esta clase, visite:
+	 *
+	 * @link /base/clases/vista/Vista.php 	Clase Vista.	
+     *
+	 * @var string $accion 					Acción requerida por el usuario.
+	 *
+	 * @throws Exception 					Si la acción no coincide con las predefinidas del módulo.
+	 *
+	 */
+	public static function manejarRequerimiento()
+	{
+		
+		$accion = PostGet::obtenerPostGet('m_accion');		
+
+		//si $accion viene null se tomara por defecto la accion de listar
+		if(!$accion)
+			$accion = 'listar';
+
+		if($accion == 'listar')
+			self::listar();
+		else if($accion == 'agregar')
+			self::agregar();
+		else if($accion == 'modificar')
+			self::modificar();
+		else if($accion == 'eliminar')
+			self::eliminar();
+		else
+			throw new Exception ("'EmpleadoControlador' La accion $accion no es valida");
+	}
+
+
+	/**
+	 * Función pública y estática que permite listar a un empleado que esta registrado en la DB.
+	 * 
+	 *
+	 * se obtiene el estudiante, y se lista la informacion obtenida
+	 * 
+	 * 		
+	 *
+	 * @throws Exception 		Si es capturada alguna excepción en el servicio.
+	 */
+	public static function listar()
+	{
+		try
+		{
+			$pnf=PostGet::obtenerPostGet("pnf");
+			$estado=PostGet::obtenerPostGet("estado");
+			$instituto=PostGet::obtenerPostGet("instituto");
+			$tipo_persona=PostGet::obtenerPostGet("tipo_persona");
+			$campo=PostGet::obtenerPostGet("campo");
+			$codPersona=PostGet::obtenerPostGet("codPersona");
+			$codigo=PostGet::obtenerPostGet("codEmpleado");
+
+			if($pnf=="seleccionar")
+				$pnf=null;
+			
+			if($estado=="seleccionar")
+				$estado=null;
+							
+				
+			if($instituto=="seleccionar")
+				$instituto=null;
+
+			if(!$campo)
+				$campo=null;
+
+			if(!$codPersona)
+				$codPersona=null;
+
+			if(!$codigo)
+				$codigo=null;
+
+
+			$personas=EmpleadoServicio::listarPersonaEmpleado($pnf,$estado,$instituto);
+			$empleado=EmpleadoServicio::listar(null,null,null,$codigo,$codPersona);
+			vista::asignarDato('persona',$personas);
+
+			if(!$personas)					
+				Vista::asignarDato('persona',null);
+
+			if(!$codPersona)
+				Vista::asignarDato('empleado',null);
+			
+
+			$instituto=InstitutoServicio::listarInstitutos();					
+			$pnf=PensumServicio::listarPNF();
+			$estado=PersonaServicio::listarEstado("docente");
+			Vista::asignarDato('instituto',$instituto);
+			Vista::asignarDato('pnf',$pnf);
+			Vista::asignarDato('estado',$estado);
+			Vista::asignarDato('tipo_persona',$tipo_persona);			
+			Vista::asignarDato('empleado',$empleado);
+			Vista::asignarDato('codPersona',$codPersona);
+
+			Vista::Mostrar();
+
+			
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+	/**
+	 * Función pública y estática que permite almacenar la informacion de un empleado en la DB
+	 *  
+	 * se determina si el estado de la operacion, si es N se va agregar un nuevo  empleado a 
+	 * la base de datos, si es M se va a modificar dicha informacion. Luego de determianar
+	 * el estado se llamara al servicio correspondiente.
+	 *
+	 * @throws Exception 		Si es capturada alguna excepción en el servicio.
+	 */
+	public static function agregar()
+	{	
+		try
+		{
+			$codPersona=PostGet::obtenerPostGet("codPersona");
+			$codigo=PostGet::obtenerPostGet("codEmpleado");
+			$codInstituto =PostGet::obtenerPostGet("codInstituto");
+			$codPensum = PostGet::obtenerPostGet("codPensum");
+			$codEstado= PostGet::obtenerPostGet("codEstado");
+			$fecInicio= PostGet::obtenerPostGet("fecInicio");
+			$fecFin= PostGet::obtenerPostGet("fecFin");
+			$observaciones= PostGet::obtenerPostGet("observaciones");
+			$es_jef_con_estudio=PostGet::obtenerPostGet("es_jef_con_estudio");
+			$es_ministerio=PostGet::obtenerPostGet("es_ministerio");
+			$es_jef_pensum=PostGet::obtenerPostGet("es_jef_pensum");
+			$Docente=PostGet::obtenerPostGet("Docente");
+			
+			$response=null;
+			$response2=null;
+
+			if(!$codigo)
+				$codigo=null;
+			if(!$fecFin)
+				$fecFin=null;
+
+			if(!$codigo)
+				$response = EmpleadoServicio::agregar($codPersona, 	$codInstituto, 			$codPensum, 	
+											$codEstado,		$fecInicio, 		$fecFin, 
+											$es_jef_pensum, $es_jef_con_estudio,$es_ministerio,
+											$Docente,		$observaciones
+										);
+			else
+				$response2= EmpleadoServicio::modificar($codigo,		$codPersona, 	$codInstituto, 			$codPensum, 	
+											$codEstado,		$fecInicio, 		$fecFin, 
+											$es_jef_pensum, $es_jef_con_estudio,$es_ministerio,
+											$Docente,		$observaciones
+										);
+			//var_dump($response);
+			if($response!=null){
+				Vista::asignarDato('estatus', $response);
+				if($response>0)
+					Vista::asignarDato('mensaje',"La informacion del empleado fue almacenada con exito.");
+				else
+					Vista::asignarDato('mensaje',"No se pudo agregar al empleado.");
+			}
+
+			elseif($response2!=null){
+				Vista::asignarDato('estatus', $response2);
+				if($response2>0)
+					Vista::asignarDato('mensaje',"La informacion del empleado ha sido modificada con exito.");
+				else
+					Vista::asignarDato('mensaje',"No se pudo modificar al empleado.");
+			}
+			
+
+			Vista::mostrar();
+
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+
+
+	/**
+	 * Función pública y estática que permite modificar la informacion de un empleado
+	 * que estan registradas en la DB. 
+	 *
+	 * Se envia el codigo de la persona a la cual se desea modificar a informacion,
+	 * se lista toda la informacion de la persona.
+	 *
+	 * @throws Exception 		Si es capturada alguna excepción en el servicio.
+	 */
+		/*public static function modificar()
+		{
+			try
+			{		
+
+				$cod_persona=PostGet::obtenerPostGet("codPersona");
+				$codigo=PostGet::obtenerPostGet("codEmpleado");
+
+				if(!$codPersona)
+				$codPersona=null;
+
+				if(!$codigo)
+					$codigo=null;
+
+				$empleado=EmpleadoServicio::listar(null,null,null,$codigo,$codPersona);
+				//self::listar();
+
+				if($empleado)
+				{					
+					Vista::asignarDato('empleado',$empleado);
+					Vista::asignarDato('estatus',1);
+				}
+				else
+				{
+					Vista::asignarDatos('mensaje','No se puede modificar el empleado');
+					Vista::asignarDato('estatus',-1);
+				}
+
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}*/
+
+	/**
+	 * Función pública y estática que permite eliminar a un empleado de la base de datos
+	 * de manera permanente. 
+	 *
+	 * Se envia el codigo del empleado al servicio, a la cual se desea eliminar..
+	 *
+	 * @throws Exception 		Si es capturada alguna excepción en el servicio.
+	 */
+	public static function eliminar ()
+	{
+		try
+		{
+			$codigo=PostGet::obtenerPostGet("codEmpleado");
+			if(!$codigo)
+				$codigo=null;
+
+			$response=EmpleadoServicio::eliminar($codigo);
+			Vista::asignarDato('estatus', 1);
+			if($response>0)
+				Vista::asignarDato('mensaje',"El empleado fue eliminado de manera Exitosa");
+			else
+				Vista::asignarDato('mensaje',"No se pudo eliminar el empleado.");
+
+			Vista::mostrar();
+
+		}
+		catch (Exception $e){
+			throw $e;
+		}
+	}
+}
+?>

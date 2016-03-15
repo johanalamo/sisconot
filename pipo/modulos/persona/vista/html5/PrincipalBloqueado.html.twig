@@ -1,0 +1,153 @@
+
+
+				<fieldset class="scheduler-border" id="disable">
+					<legend class="scheduler-border">Edicion</legend>
+					
+					<div class="estudiante_empleado_agregar">
+				
+
+				<div class="estudiante" id="estudiante" >
+
+					<div class="form-inline formuario-persona col-md-12">
+						Codigo
+						<div class="form-group espacio-input">
+							 <input type="text" name="cod_estudiante" id="cod_estudiante" class="form-control" placeholder="00000" maxlength="7" disabled>
+						</div>
+						 Codigo Rusnies
+						<div class="form-group espacio-input">
+							 <input type="text" name="cod_rusnies" id="cod_rusnies" class="form-control" placeholder="2323132" maxlength="20" disabled>
+						</div>		
+
+						<div class="form-group espacio-input" id="selectInstitutos">
+							 
+						</div>			
+					</div>
+
+					<div class="form-inline formuario-persona col-md-12">
+						
+						
+						
+					
+						<div class="form-group espacio-input selectPensum">
+							 
+						</div>	
+
+						N° Carnet
+						<div class="form-group espacio-input">
+							 <input type="text" name="num_carnet" id="num_carnet" class="form-control" placeholder="autogenerado" maxlength="25" disabled>
+						</div>
+
+						Expediente
+						<div class="form-group espacio-input">
+							 <input type="text" name="expediente" id="expediente" class="form-control" placeholder="autogenerado" maxlength="25" disabled>
+						</div>					
+					</div>
+
+					<div class="form-inline formuario-persona col-md-12">
+												
+						
+						<div class="form-group espacio-input selectEstado">
+							 
+						</div>	
+
+						fecha de Inicio
+						<div class="form-group espacio-input">
+							 <input type="date" name="fec_ini_estudiante" id="fec_ini_estudiante" class="form-control" placeholder="fecha actual" disabled>
+						</div>
+
+						fecha fin
+						<div class="form-group espacio-input">
+							 <input type="date" name="fec_fin_estudiante" id="fec_fin_estudiante" class="form-control" placeholder="fecha actual" disabled>
+						</div>
+
+						Condicion
+						<div class="form-group espacio-input col-md-12">
+							 <input type="text" name="condicion" id="condicion" class="form-control" placeholder="la condicion" maxlength="5" disabled>
+						</div>					
+					</div>
+
+					<div class="formuario-persona col-md-12">
+						Condicion
+						<div class="form-group espacio-input">
+							 <input type="text" name="condicion" id="condicion" class="form-control" placeholder="la condicion" maxlength="5" disabled>
+						</div>	
+					</div>
+					<div class="formuario-persona col-md-12">
+						
+						Observaciones
+						<div class="form-group espacio-input">
+							 <textarea  name="obs_estudiante" id="obs_estudiante" class="form-control" maxlength="200" disabled></textarea>
+						</div>
+								<div class="text-right formuario-persona form-inline">
+									Estado
+									<div class="form-group espacio-input">	
+										<input class="form-control" type="text" value="M" disabled>
+									</div>
+									<button type="button" name="nv_estudiante" class="btn btn-primary" onclick="nuevoPersonaEstudiante();"><b>Nuevo</b></button>				
+									<button type="button" name="md_estudiante" class="btn btn-success"><b>Guardar</b></button>								
+								</div>
+							</div>
+
+						</div>
+
+					
+						<div class="empleado" id="empleado">
+					<div class="form-inline formuario-persona col-md-12 ">
+						Codigo
+						<div class="form-group espacio-input">
+							 <input type="text" name="cod_empleado" id="cod_empleado" class="form-control" placeholder="00000" maxlength="7" disabled>
+						</div>				
+					</div>
+
+					<div class="form-inline formuario-persona col-md-12">
+						<div class="form-group espacio-input selectInstituto" id="selectInstitutos" >
+							 
+						</div>
+						
+						<div class="form-group espacio-input selectPensum" id="selPensumEm">
+							 
+						</div>	
+
+						fecha de Inicio
+						<div class="form-group espacio-input">
+							 <input type="date" name="fec_ini_empleado" id="fec_ini_empleado" class="form-control" placeholder="fecha actual" disabled>
+						</div>										
+					</div>
+
+					<div class="form-inline formuario-persona col-md-12" id='formu'>
+					
+						<div class="form-group espacio-input selectEstado" id="selEstadoEm">
+						
+						</div>
+
+						Jefe de Pensum <input type="checkbox" name="es_jef_pensum" value="es_jef_pensum" id='es_jef_pensum' disabled>
+
+						&nbsp; Jefe de Control de Estudio <input type="checkbox" name="es_jef_con_estudio" id='es_jef_con_estudio' value="es_jef_con_estudio">
+
+						&nbsp; Personal Ministerio <input type="checkbox" id="es_ministerio" name="es_ministerio" value="es_ministerio" disabled>
+
+						&nbsp; Docente <input type="checkbox" name="Docente" value="Docente" id='Docente' disabled>				
+					</div>
+
+					<div class="formuario-persona col-md-12">
+				
+						Observaciones
+						<div class="form-group espacio-input">
+							 <textarea  name="obs_empleado" id="obs_empleado" class="form-control" maxlength="200" disabled></textarea>
+						</div>
+								<div class="text-right formuario-persona form-inline">
+									Estado
+									<div class="form-group espacio-input">	
+										<input class="form-control" type="text" value="M" disabled>
+									</div>
+									<button type="button" name="nv_empleado" class="btn btn-primary" btn-primary" onclick="nuevoPersonaEmpleado();"><b>Nuevo</b></button>
+									<button type="button" name="md_empleado" class="btn btn-success"><b>Guardar</b></button>								
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+				</fieldset>
+			
