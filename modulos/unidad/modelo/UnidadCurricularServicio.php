@@ -305,13 +305,14 @@ class UnidadServicio
 		 * @throws Exception 			si no existe el UnidadCurricular.
 		 * 
 		 */
-		public static function obtenerPorCoincidencia($patron){
+		public static function obtenerPorCoincidencia($patron,$accion){
 			try{
 				$conexion=Conexion::conectar();				
-				$consulta= "select sis.f_unicurricular_por_patron_seleccionar('pcursor',:patron)";
+				$consulta= "select sis.f_unicurricular_por_patron_seleccionar('pcursor',:patron, :accion)";
 							
 				$ejecutar= $conexion->prepare($consulta);
-				$ejecutar->bindParam(':patron',$patron, PDO::PARAM_STR);	
+				$ejecutar->bindParam(':patron',$patron, PDO::PARAM_STR);
+				$ejecutar->bindParam(':accion',$accion, PDO::PARAM_STR);		
 				// inicia transaccion
 				$conexion->beginTransaction();   
 				$ejecutar->execute();			 

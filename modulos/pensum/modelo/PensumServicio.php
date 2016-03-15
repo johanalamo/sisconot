@@ -122,8 +122,8 @@ class PensumServicio
 			$ejecutar->bindParam(':min_can_elect',$pensum->obtenerMinCanElectiva(), PDO::PARAM_INT);
 			$ejecutar->bindParam(':min_cre_elect',$pensum->obtenerMinCreElectiva(), PDO::PARAM_INT);
 			$ejecutar->bindParam(':min_cre_obligat',$pensum->obtenerMinCreObligatorio(), PDO::PARAM_INT);
-		
-			$ejecutar->bindParam(':fec_creac', date ("d-m-Y", strtotime(str_replace('-', '/', $pensum->obtenerFechaCreacion()))), PDO::PARAM_STR);
+			$ejecutar->bindParam(':fec_creac', $pensum->obtenerFechaCreacion() , PDO::PARAM_STR);
+			//$ejecutar->bindParam(':fec_creac', date ("d-m-Y", strtotime(str_replace('-', '/', $pensum->obtenerFechaCreacion()))), PDO::PARAM_STR);
 		
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 			//ejecuta				
@@ -173,7 +173,7 @@ class PensumServicio
 
 			$ejecutar->bindParam(':min_cre_obligat',$min_cre_obligat, PDO::PARAM_INT);
 
-			$ejecutar->bindParam(':fec_creac', strtotime(date ("d-m-Y", $fec_creac)), PDO::PARAM_STR);
+			$ejecutar->bindParam(':fec_creac', $pensum->obtenerFechaCreacion() , PDO::PARAM_STR);
 			
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 			//ejecuta				
@@ -212,7 +212,8 @@ class PensumServicio
 			$ejecutar->bindParam(':min_can_elect',$pensum->obtenerMinCanElectiva(), PDO::PARAM_INT);
 			$ejecutar->bindParam(':min_cre_elect',$pensum->obtenerMinCreElectiva(), PDO::PARAM_INT);
 			$ejecutar->bindParam(':min_cre_obligat',$pensum->obtenerMinCreObligatorio(), PDO::PARAM_INT);
-			$ejecutar->bindParam(':fec_creac', date ("d-m-Y", strtotime(str_replace('-', '/', $pensum->obtenerFechaCreacion()))), PDO::PARAM_STR);
+			var_dump($pensum->obtenerFechaCreacion());
+			$ejecutar->bindParam(':fec_creac', $pensum->obtenerFechaCreacion() , PDO::PARAM_STR);
 
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 			//ejecuta				

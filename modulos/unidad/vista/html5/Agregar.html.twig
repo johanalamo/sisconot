@@ -20,8 +20,8 @@
 
     		<div class="panel">
                     <div class="panel-heading">                       
-                         <h3><i class="icon-table"></i> Agregar/Modificar Unidad Curricular</h3>    
-                         <span class="panel-title">Campos para agregar/modificar Unidad</span>
+                         <h4><i class="icon-table"></i> Agregar/Modificar Unidad Curricular</h4>    
+                         
                     </div>
                     <div class="panel-body" style="min-height: 447px;">
 
@@ -37,7 +37,7 @@
                                     <div class="col-md-12 col-md-offset-0">     
                                         <div class="input-group">                                   
                                                 <span class="input-group-addon">Código:</span>                                            
-                                    			<input type="text" id="codigo" name="codigo" class="form-control" placeholder="código.." disabled>
+                                    			<input type="text" id="codigo" name="codigo" class="form-control"  disabled>
 	                                      
                                         </div>
                                     </div>
@@ -47,7 +47,7 @@
                                     <div class="col-md-12 col-md-offset-0">     
                                         <div class="input-group"> 
 	                                  	   <span class="input-group-addon">Código Ministerio</span>	                                                                      
-	                                            <input type="text" id="codigoMinisterio" name="codigoMinisterio" class="form-control" onkeyup="verCoincidencia(); validarRangos('#codigoMinisterio', 1, 40, true);" placeholder="Código Ministerio...">
+	                                            <input type="text" id="codigoMinisterio" name="codigoMinisterio" class="form-control" onkeyup="verCoincidencia('Ministerio'); validarRangos('#codigoMinisterio', 1, 40, true);" placeholder="Código Ministerio...">
 	                                      
 	                                    </div>
 	                                </div>
@@ -61,7 +61,7 @@
 		                                     <span class="input-group-addon">Nombre:</span>
 		                                  
 		                                     
-		                                            <input type="text" class="form-control"  id="nombre" name="nombre" placeholder="Nombre..." onkeyup="verCoincidencia(); validarRangos('#nombre', 1, 60, true);">
+		                                            <input type="text" class="form-control"  id="nombre" name="nombre" placeholder="Nombre..." onkeyup="verCoincidencia('Nombre'); validarRangos('#nombre', 1, 60, true);">
 		                                      
 		                                    </div>
 		                                </div>
@@ -85,7 +85,7 @@
 		                                     <span class="input-group-addon">Descripción:</span>
 		                                   
 		                                       
-		                                            <input type="text" id="descripcion" name="descripcion" class="form-control" placeholder="Descripción..." onkeyup="verCoincidencia(); validarRangos('#descripcion', 0, 100, true);">
+		                                            <input type="text" id="descripcion" name="descripcion" class="form-control" placeholder="Descripción..." onkeyup="verCoincidencia('Descripcion'); validarRangos('#descripcion', 0, 100, true);">
 		                                    
 		                                    </div>
 		                                </div>
@@ -150,7 +150,7 @@
                                     <div class="col-md-12 col-md-offset-0">     
                                         <div class="input-group"> 
 	                                    <span class="input-group-addon">Observación:</span>	                                                  
-	                                            <textarea class="form-control" id="observacion" name="observacion" rows="3" onkeyup="validarRangos('#observacion', 0, 100, true)" placeholder="Observación..."></textarea>                                        
+	                                            <textarea class="form-control" id="observacion" name="observacion" rows="3" onkeyup="validarRangos('#observacion', 0, 100, false)" placeholder="Observación..."></textarea>                                        
 	                                    </div>
 	                                </div>
 	                            </div>
@@ -184,7 +184,7 @@
                                     <div class="col-md-12 col-md-offset-0">     
                                         <div class="input-group">                                   
                                                 <span class="input-group-addon">Código:</span>                                            
-                                    			<input type="text" id="codigo" value="{{uni.codigo}}" name="codigo" class="form-control" placeholder="código.." disabled >
+                                    			<input type="text" id="codigo" value="{{uni.codigo}}" name="codigo" class="form-control" disabled >
 	                                    
 	                                      
                                         </div>
@@ -195,7 +195,7 @@
                                     <div class="col-md-12 col-md-offset-0">     
                                         <div class="input-group"> 
 	                                  	   <span class="input-group-addon">Código Ministerio</span>	                                                                      
-	                                             <input type="text" id="codigoMinisterio" value="{{uni.cod_uni_ministerio}}" name="codigoMinisterio" class="form-control" onkeyup="verCoincidencia(); validarRangos('#codigoMinisterio', 1, 40, true);" placeholder="Código ministerio...">
+	                                             <input type="text" id="codigoMinisterio" value="{{uni.cod_uni_ministerio}}" name="codigoMinisterio" class="form-control" onkeyup="verCoincidencia('Ministerio'); validarRangos('#codigoMinisterio', 1, 40, true);" placeholder="Código ministerio...">
 	                                    </div>
 	                                </div>
                             	</div>
@@ -208,7 +208,7 @@
 		                                     <span class="input-group-addon">Nombre:</span>
 		                                  
 		                                     
-		                                               <input type="text" class="form-control"   onkeyup="verCoincidencia(); validarRangos('#nombre', 1, 60, true);" value="{{uni.nombre}}"  id="nombre" name="nombre" placeholder="Nombre...">
+		                                               <input type="text" class="form-control"   onkeyup="verCoincidencia('Nombre'); validarRangos('#nombre', 1, 60, true);" value="{{uni.nombre}}"  id="nombre" name="nombre" placeholder="Nombre...">
 		                                      
 		                                    </div>
 		                                </div>
@@ -232,7 +232,7 @@
 		                                     <span class="input-group-addon">Descripción:</span>
 		                                   
 		                                       
-		                                            <input type="text" id="descripcion" name="descripcion"  onkeyup="validarRangos('#descripcion', 0, 100, true);" value="{{uni.descripcion}}"  placeholder="Descripción..."class="form-control" placeholder="Descripcion...">
+		                                            <input type="text" id="descripcion" name="descripcion"  onkeyup="verCoincidencia('Descripcion'); validarRangos('#descripcion', 0, 100, true);" value="{{uni.descripcion}}"  placeholder="Descripción..."class="form-control" placeholder="Descripcion...">
 		                                    
 		                                    </div>
 		                                </div>
@@ -298,7 +298,7 @@
                                         <div class="input-group"> 
 	                                    <span class="input-group-addon">Observación:</span>
 	                                                  
-	                                              <textarea class="form-control" id="observacion" onkeyup="validarRangos('#observacion', 0, 100, true)" name="observacion" value="" rows="3" placeholder="Observación...">{{uni.observacion}}</textarea>                                        
+	                                              <textarea class="form-control" id="observacion" onkeyup="validarRangos('#observacion', 0, 100, false)" name="observacion" value="" rows="3" placeholder="Observación...">{{uni.observacion}}</textarea>                                        
 	                                    </div>
 	                                </div>
 	                            </div>
@@ -357,7 +357,7 @@
 			                    <div class="btn-group">
 			                        <a class="btn btn-circle show-tooltip" title="Print" onclick="llenarCamposForm()" href="#"><i class="icon-pencil"></i></a>
 			                        <a class="btn btn-circle show-tooltip" title="Export to PDF" href="#"><i class="icon-file-text-alt"></i></a>
-			                        <a class="btn btn-circle show-tooltip" title="Export to Exel" href="#"><i class="icon-table"></i></a>
+			                        
 			                    </div>	                  
 			       
 
