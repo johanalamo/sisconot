@@ -75,7 +75,41 @@ class LoginServicio{
 			}	
 		}
 		
-		
+	public static function obtenerDatosPersona($codigo){
+		try{
+			$conexion = Conexion::conectar();
+			
+			$consulta = "select 	per.nombre1 || ' ' || per.apellido1 as nombre,
+									per.codigo,
+									emp.es_jef_pensum,
+									emp.es_jef_con_estudio,
+									emp.es_ministerio,
+									emp.es_docente,
+									emp.cod_instituto emp_inst,
+									emp.cod_pensum emp_pensum,
+									emp.cod_estado emp_estado,
+									est.cod_instituto est_inst,
+									est.cod_pensum est_pensum,
+									est.cod_estado est_estado
+									from sis.t_persona per
+									left join sis.t_empleado as emp
+										on emp.cod_persona = per.codigo
+									left join sis.t_estudiante as est
+										on est.cod_persona = per.codigo
+									where per.codigo = $codigo";
+									
+			$ejecutar = $conexion->prepare($consulta);
+			$ejecutar->execute(Array());
+			$r = $ejecutar->fetchAll();
+			
+			if($r)
+				return $r;
+			return null;
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
 
 }
 

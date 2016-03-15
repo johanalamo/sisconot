@@ -15,10 +15,10 @@ específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
 
  * * * * * * * * * * ARCHIVO * * * * * * * * * * * * * * * * * * * * *
 
-Nombre: Login.clase.php
-Diseñador: Geraldine Castillo
-Programador: Geraldin Castillo 
-Fecha: enero 2014
+Nombre: Login.php
+Diseñador: Geraldine Castillo, Jhonny Vielma
+Programador: Geraldin Castillo , Jhonny Vielma
+Fecha: julio 2015
 Descripción:  
 	Esta clase permite contener los datos de logueo de un usuario en un objeto tipo login.
 
@@ -29,89 +29,31 @@ Diseñador - Programador /   Fecha   / Descripción del cambio
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
 class Login{ 
-	public $nombre; // Atributos de la clase
+	public $usuario; // Atributos de la clase
 	public $codigo;
 	public $tipo;
-	public $apellido;
-	public $usuario;
 	private $pass;
-	public $nomInstituto;
-	public $codInstituto;
-	public $nomDepartamento;
-	public $codDepartamento;
-	public $codPensum;
-	
+	public $campo1;
+	public $campo2;
+	public $campo3;
 	/* Este es el constructor de la clase que permite inicializar los atributos
 	   privados: nombre, codigo, tipo y el apellido con los valores pasados por
 	   parámetros. Cada parámetro tiene el 	valor null por omisión, es decir, algunos
 	   se pueden omitir.
 	 * */
 	
-	public function __construct($nombre=NULL,$apellido=NULL,$tipo=NULL,$codigo=NULL,$usuario=null,$pass=null,$nombreInstituto=null,
-								$codInstituto=null,$nombreDepartamento=null,$codDepartamento=null,$codPensum=null){
-		$this->asignarNombre($nombre);
-		$this->asignarApellido($apellido);
+	public function __construct($usuario=NULL,$codigo=NULL,$tipo=NULL,$pass=NULL,$campo1=null,$campo2=null,$campo3=null){
 		$this->asignarTipo($tipo);
 		$this->asignarCodigo($codigo);
 		$this->asignarUsuario($usuario);
 		$this->asignarPass($pass);
-		$this->asignarNombreInstituto($nombreInstituto);
-		$this->asignarCodigoInstituto($codInstituto);
-		$this->asignarNombreDepartamento($nombreDepartamento);
-		$this->asignarCodigoDepartamento($codDepartamento);
-		$this->asignarCodigoPensum($codPensum);
-		
+		$this->asignarCampo1($campo1);
+		$this->asignarCampo2($campo2);
+		$this->asignarCampo3($campo3);
 	}
 	
 //Asignar y obtener de cada atributo
-	public function asignarNombre($nombre){
-		$this->nombre = $nombre;
-	}
-	public function asignarNombreInstituto($nomInstituto){
-		$this->nomInstituto = $nomInstituto;
-	}
-	public function asignarCodigoInstituto($codInstituto){
-		$this->codInstituto = $codInstituto;
-	}
-	public function asignarNombreDepartamento($nomDepartamento){
-		$this->nomDepartamento = $nomDepartamento;
-	}
-	public function asignarCodigoDepartamento($codDepartamento){
-		$this->codDepartamento = $codDepartamento;
-	}
-	public function asignarCodigoPensum($codPensum){
-		$this->codPensum = $codPensum;
-	}
 
-	public function obtenerNombreInstituto(){
-		return $this->nomInstituto;
-	}
-	public function obtenerCodigoInstituto(){
-		return $this->codInstituto;
-	}
-	public function obtenerNombreDepartamento(){
-		return $this->nomDepartamento;
-	}
-	public function obtenerCodigoDepartamento(){
-		return $this->codDepartamento;
-	}
-	public function obtenerCodigoPensum(){
-		return $this->codPensum;
-	}
-
-
-
-
-
-
-
-
-
-
-
-	public function obtenerNombre(){
-		return $this->nombre;
-	}
 
 	public function asignarUsuario($usuario){
 		$this->usuario = $usuario;
@@ -125,12 +67,6 @@ class Login{
 	public function obtenerPass(){
 		return $this->pass;
 	}
-	public function asignarApellido($apellido){
-		$this->apellido = $apellido;
-	}
-	public function obtenerApellido(){
-		return $this->apellido;
-	}
 	public function asignarCodigo($codigo){
 		$this->codigo = $codigo;
 	}
@@ -142,6 +78,24 @@ class Login{
 	}
 	public function obtenerTipo(){
 		return $this->tipo;
+	}
+	public function asignarCampo1($campo1){
+		$this->campo1= $campo1;
+	}
+	public function obtenerCampo1(){
+		return $this->campo1;
+	}
+	public function asignarCampo2($campo2){
+		$this->campo2= $campo2;
+	}
+	public function obtenerCampo2(){
+		return $this->campo2;
+	}
+	public function asignarCampo3($campo3){
+		$this->campo3= $campo3;
+	}
+	public function obtenerCampo3(){
+		return $this->campo3;
 	}
 	
 }

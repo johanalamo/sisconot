@@ -37,7 +37,26 @@
 <br>
 <div class="row">
 	<div class="col-md-12" id="divLis">
-		<div class="col-md-4"><a href="index.php?m_vista=CrearModificarCurso&m_formato=html5&m_modulo=curso&m_accion=mostrar"><button class="btn btn-success btn-xs">Agregar Curso</button></a></div><div id="panelB" hidden class='col-md-8'><button class="btn btn-warning btn-xs" onclick="verificarChecks('mod')">Modificar Curso</button> <button class="btn btn-info btn-xs" onclick="verificarChecks('le')">Lista de Estudiantes</button> <button class="btn btn-info btn-xs" onclick="verificarChecks('cn')">Cargar Notas</button> <button class="btn btn-info btn-xs" onclick="verificarChecks('ri')">Retirar Estudiante</button></div>
+	<div class="col-md-4">
+	{% if (login.obtenerPermiso('CursoAgregar')) %}
+		<a href="index.php?m_vista=CrearModificarCurso&m_formato=html5&m_modulo=curso&m_accion=mostrar"><button class="btn btn-success btn-xs">Agregar Curso</button></a>
+	{% endif %}
+	</div>
+		<div id="panelB" hidden class='col-md-8'>
+		{% if (login.obtenerPermiso('CursoAgregar')) %}
+			<button class="btn btn-warning btn-xs" onclick="verificarChecks('mod')">Modificar Curso</button>
+		{% endif %}
+		{% if (login.obtenerPermiso('CurEstudianteListar')) %}
+			<button class="btn btn-info btn-xs" onclick="verificarChecks('le')">Lista de Estudiantes</button>
+		{% endif %}
+		{% if (login.obtenerPermiso('CurEstudianteModificar')) %}
+			<button class="btn btn-info btn-xs" onclick="verificarChecks('cn')">Cargar Notas</button>
+		{% endif %}.
+		{% if (login.obtenerPermiso('CurEstudianteModificar')) %}
+			<button class="btn btn-info btn-xs" onclick="verificarChecks('ri')">Retirar Estudiante</button>
+		{% endif %}
+		</div>
+
 		<br><br>
 	</div>
 </div>

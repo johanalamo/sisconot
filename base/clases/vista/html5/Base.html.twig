@@ -1,3 +1,4 @@
+{% block base %}
 <!DOCTYPE html>
 <html lang="es">
 		<head>
@@ -17,7 +18,7 @@
 				<link href="recursos/select/bootstrap-select.css" rel="stylesheet">
 				<link href="recursos/date/bootstrap-datetimepicker.css" rel="stylesheet">
 				<link rel="stylesheet" href="recursos/assets/css/font-awesome.min.css">
-				
+
 				<link rel="stylesheet" href="recursos/assets/css/main.css">
 
 				<link href="modulos/principal/vista/html5/css/estilo.css" rel="stylesheet">
@@ -26,9 +27,8 @@
 				   function sleep() {
 					  $('#table').DataTable();
 					}
-					
-					{{ permisos.obtenerEnJavaScript() }} 
-				</script>	
+
+				</script>
 				<script src="modulos/login/vista/html5/javascript/Login.js"> </script>
 
 
@@ -89,9 +89,14 @@
 	        <ul class="nav navbar-nav navbar-right">
 	            <li class="dropdown dropdown-fuse">
 	                <a href="#" class="dropdown-toggle fw600" data-toggle="dropdown">
-	                    <span class="hidden-xs"><name>Usuario</name> </span>
-	                    <span class="fa fa-caret-down hidden-xs mr15"></span>
-	                    <img src="profile_avatar.png" alt="avatar" class="mw55">
+	                    <span class="hidden-xs">
+							<div id='datUsuario'>
+								<span id='nombreUsuario'>{{ datos[0][0] }}</span>
+								<img src="profile_avatar.png" alt="avatar" class="mw55">
+							</div>
+						</span>
+
+
 	                </a>
 
 	            </li>
@@ -116,9 +121,9 @@
 
 	                        <div class="media-body">
 	                            <div class="media-links">
-	                                <a href="#" class="sidebar-menu-toggle">Menu -</a> <a href="utility-login.html">Desconectar</a>
+	                                <a href="#" class="sidebar-menu-toggle">Menu -</a> <a href="javascript:cerrarSesion()">Desconectar</a>
 	                            </div>
-	                            <div class="media-author">Usuario</div>
+	                            <div class="media-author">{{ datos[0][0] }}</div>
 	                        </div>
 	                    </div>
 	                </div>
@@ -153,7 +158,7 @@
 
 	                    </ul>
 	                </li>
-	               
+
 
 	               <li>
 	                    <a class="accordion-toggle" href="#">
@@ -201,7 +206,7 @@
 	                        <li>
 	                        	<a href="index.php?m_accion=listar&m_modulo=persona&m_vista=Listar&m_formato=html5">
 	                                <span class="fa fa-eye"></span>Búsqueda</a>
-	                            
+
 	                        </li>
 	                        <li>
 	                            <a href="index.php?m_modulo=persona&m_vista=Principal&m_formato=html5&accion=N&persona=-1">
@@ -219,34 +224,46 @@
 	                        <span class="caret"></span>
 	                    </a>
 	                    <ul class="nav sub-nav">
+	                    {% if (login.obtenerPermiso('CursoListar')) %}
 	                        <li>
 	                            <a href="index.php?m_modulo=curso&m_accion=mostrar&m_vista=ListarCursos&m_formato=html5">
 	                                <span class="fa fa-warning"></span>Lista de Cursos</a>
 	                        </li>
+	                     {% endif %}
+	                     {% if (login.obtenerPermiso('CursoAgregar')) or (login.obtenerPermiso('CursoModificar')) %}
 	                        <li>
 	                            <a href="index.php?m_modulo=curso&m_formato=html5&m_accion=mostrar&m_vista=CrearModificarCurso">
 	                                <span class="fa fa-warning"></span>Crear/Modificar Curso</a>
 	                        </li>
+	                      {% endif %}
+	                      {% if (login.obtenerPermiso('CurEstudianteAgregar')) %}
 	                        <li>
 	                            <a href="index.php?m_modulo=curso&m_formato=html5&m_accion=mostrar&m_vista=Inscripcion">
 	                                <span class="fa fa-warning"></span>Inscripción</a>
 	                        </li>
+	                       {% endif %}
 	                         <li>
 	                            <a href="index.php?m_modulo=periodo&m_accion=mostrar&m_vista=AdministrarPeriodos&m_formato=html5">
 	                                <span class="fa fa-warning"></span>Periodos</a>
 	                        </li>
+	                        {% if (login.obtenerPermiso('CurEstudianteListar')) %}
 	                         <li>
 	                            <a href="index.php?m_vista=ListarEstudiantes&m_formato=html5&m_modulo=curso&m_accion=mostrar">
 	                                <span class="fa fa-warning"></span>Lista de Estudiantes</a>
 	                        </li>
+	                        {% endif %}
+	                        {% if (login.obtenerPermiso('CurEstudianteModificar')) %}
 	                        <li>
 	                            <a href="index.php?m_modulo=curso&m_formato=html5&m_accion=mostrar&m_vista=InscribirRetirarEstudiante">
 	                                <span class="fa fa-warning"></span>Retirar Estudiante</a>
 	                        </li>
+	                        {% endif %}
+	                        {% if (login.obtenerPermiso('CurEstudianteModificar')) %}
 	                        <li>
 	                            <a href="index.php?m_vista=RetirarUnidadCurricular&m_formato=html5&m_modulo=curso&m_accion=mostrar">
 	                                <span class="fa fa-warning"></span>Retirar Unidad Curricular</a>
 	                        </li>
+	                        {% endif %}
 	                        <li>
 	                            <a href="index.php?m_vista=ValidacionElectivas&m_formato=html5&m_modulo=curso&m_accion=mostrar">
 	                                <span class="fa fa-warning"></span>Validar Electivas</a>
@@ -265,7 +282,7 @@
 	                        </li>
 	                    </ul>
 	                </li>
-	                
+
 					 <li class="sidebar-label pt30">Configuración</li>
 	                <li>
 	                    <a href="#">
@@ -340,10 +357,10 @@
 	<div class="alerts">
 
 	</div>
-		
+
 
 	{% block contenido %}
-	
+
 	{% endblock %}
 
 
@@ -425,3 +442,4 @@
 	</body>
 
 	</html>
+{% endblock %}

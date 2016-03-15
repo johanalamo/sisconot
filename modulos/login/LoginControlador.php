@@ -42,6 +42,7 @@ class LoginControlador {
 	public static function manejarRequerimiento(){
 		
 		$accion = PostGet::obtenerPostGet('m_accion');
+	
 		//permite colocar una acción predefinida en caso de no colocarla
 		if (!$accion)
 			$accion = 'mostrar';
@@ -70,30 +71,39 @@ class LoginControlador {
 		 * 
 		 */
 	public static function iniciarLogin(){
-	try{	
-		$usuario      = PostGet::obtenerPostGet('usuario');
-		$password     = PostGet::obtenerPostGet('pass');
-		$instalacion= new Instalacion();
-		$instalacion->obtenerInstalacionIni();
-		if ($instalacion->obtenerUsuBD()=='false'){
-			$usu =LoginServicio::obtenerLogin($usuario,$password,false);
-		}else{
-			$usu =LoginServicio::obtenerLogin($usuario,$password);
+		try{				
+			$usuario      = PostGet::obtenerPostGet('usuario');
+			$password     = PostGet::obtenerPostGet('pass');
+			$instalacion= new Instalacion();
+			$instalacion->obtenerInstalacionIni();
+			if ($instalacion->obtenerUsuBD()=='false'){
+				$usu =LoginServicio::obtenerLogin($usuario,$password,false);
+			}else{
+				$usu =LoginServicio::obtenerLogin($usuario,$password);
+			}
+			$permisos= usuarioServicio::obtenerAccionesUsuarios($usuario);
+			
+			$usu->asignarPermisos($permisos);
+
+			if($usu->obtenerCampo1() != ''){
+				$datos = LoginServicio::obtenerDatosPersona($usu->obtenerCampo1());
+				Vista::asignarDato("datos",$datos);
+				Sesion::asignarDatosUsuario($datos);
+			}
+			
+			Sesion::iniciar($usu);
+			
+
+			Vista::asignarDato("mensaje", "Bienvenido ".$usu->obtenerUsuario()." al ".$instalacion->obtenerNombreAplicacion());
+			Vista::asignarDato("estatus", 1);
+			Vista::asignarDato("login",$usu);
+			
+
+			
+			Vista::mostrar();
+		}catch(Exception $e){
+				throw $e;
 		}
-		$permisos= usuarioServicio::obtenerAccionesUsuarios($usuario);
-		
-		$usu->asignarPermisos($permisos);
-
-		Sesion::iniciar($usu);
-		Vista::asignarDato("mensaje", "Bienvenido ".$usu->obtenerUsuario()." al ".$instalacion->obtenerNombreAplicacion());
-		Vista::asignarDato("estatus", 1);
-		Vista::asignarDato("login",$usu);
-
-		
-		Vista::mostrar();
-	}catch(Exception $e){
-			throw $e;
-	}
 	}
 	public static function restaurarPermisos(){
 	try{	

@@ -37,7 +37,7 @@ class Sesion{
 	public static function iniciar($usuario){
 		try{	
 			if ((is_object($usuario)) && (get_class($usuario)=='Usuario')){
-			Sesion::asignarLogin($usuario);
+				Sesion::asignarLogin($usuario);
 			}else
 				throw new exception("El primer parametro de la funcion debe ser un objeto tipo Usuario");
 		}catch (Exception $e){
@@ -100,6 +100,15 @@ class Sesion{
 			return Sesion::hayUsuarioLogueado();
 	}
 
+	public static function asignarDatosUsuario($arr){
+		$_SESSION['datos'] = $arr;
+	}
+	
+	public static function obtenerDatosUsuario(){
+		if(isset($_SESSION['datos']))
+			return $_SESSION['datos'];
+		return null;
+	}
 
 }
 

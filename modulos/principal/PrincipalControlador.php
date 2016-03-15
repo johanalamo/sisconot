@@ -40,6 +40,7 @@ Johan Alamo  - Geraldine Castillo /  diciembre del 2013  /se modificó la config
 
 //objeto que contendrá el arreglo con la información de $_POST y $GET
 //estará disponible como un objeto global a toda la aplicación
+require_once 'modulos/login/LoginControlador.php';
 require_once 'base/clases/utilitarias/PostGet.clase.php';
 require_once 'base/clases/utilitarias/Util.clase.php';
 require_once 'negocio/Sesion.php';
@@ -49,6 +50,9 @@ require_once 'negocio/Sesion.php';
 require_once 'base/clases/basededatos/Conexion.php';
 //require_once 'modulos/login/modelo/Sesion.clase.php';
 
+require_once 'negocio/Sesion.php';
+require_once 'negocio/Usuario.php';
+require_once'negocio/Instalacion.php';
 
 
 //Clase que permite mostrar la vista cuando se esté trabajando desde
@@ -64,7 +68,6 @@ class PrincipalControlador {
 	*/
 
 	public static function iniciar(){
-
 		self::configurar();
 		self::manejarRequerimiento();
 	}
@@ -81,50 +84,78 @@ class PrincipalControlador {
 	*/
 
 	private static function configurar(){
-		//~ Sesion::iniciarSesion();
 		//colocar todas las claves de los arreglos $_POST y $_GET en
-		//minúscula
+		Sesion::iniciarSesion();
 
-		PostGet::colocarIndicesMinuscula();
+		//~ if (!Sesion::hayUsuarioLogueado()){
+			//~ $_POST['m_modulo'] = 'login';
+			//~ $_POST['m_accion'] = 'mostrar';
+			//~ $_POST['m_formato'] = 'html5';
+			//~ $_POST['m_vista'] = 'Inicio';
+		//~ }
 
-	//	var_dump(Sesion::obtenerLogin());
-
-		if (!Sesion::hayUsuarioLogueado()){
-			if (is_null(PostGet::obtenerPostGet('m_modulo'))){
+		if(!Sesion::hayUsuarioLogueado()){
+			if(PostGet::obtenerPostGet('m_modulo') != 'login'){
 				$_POST['m_modulo'] = 'login';
 				$_POST['m_accion'] = 'mostrar';
 				$_POST['m_formato'] = 'html5';
 				$_POST['m_vista'] = 'Inicio';
 			}
-
-		}else{
-			Permisos::asignarPermisos();
-			//Permisos::asignarPermiso(Conexion::obtenerPermisos(usuario));
-			//Sesion::asignarPermisos(Permisos);
-			Vista::asignarDato("login",Sesion::obtenerLogin());
-			Vista::asignarDato("permisos",Sesion::obtenerPermisos());
 		}
-
-		if(PostGet::obtenerPostGet('m_modulo')== null){
-				 $_POST['m_modulo'] = 'principal';
-				 $_POST['m_accion'] = 'inicio';
+		else{
+			if (is_null(PostGet::obtenerPostGet('m_modulo'))){
+				$_POST['m_modulo'] = 'principal';
+				$_POST['m_accion'] = 'inicio';
+				$_POST['m_formato'] = 'html5';
+				$_POST['m_vista'] = 'Inicio';
+			}
+		}
+		if ((manejoErrores::existeArchivo("config.ini")!=true) &&(PostGet::obtenerPostGet('m_modulo')!="instalacion")){
+				$_POST['m_modulo'] = 'instalacion';
+				 $_POST['m_accion'] = 'comInstalacion';
 				 $_POST['m_formato'] = 'html5';
-				 $_POST['m_vista'] = 'Inicio';
+				 $_POST['m_vista'] = 'Instalar';
+				 Sesion::cerrarSesion();
 		}
 
+		if (manejoErrores::existeArchivo("config.ini")==true){
+			global $instalacion;
+			$instalacion= new Instalacion();
+			$instalacion->obtenerInstalacionIni();
 
-		$modulo = PostGet::obtenerPostGet('m_modulo');
-		$accion = PostGet::obtenerPostGet('m_accion');
-		$formato = PostGet::obtenerPostGet('m_formato');
-		$vista = PostGet::obtenerPostGet('m_vista');
-		//if ((PostGet::obtenerPostGet('m_modulo')=="login")&&(PostGet::obtenerPostGet('m_accion')=="iniciar"))
-			Conexion::iniciar("localhost","bd_sisconot","5432","sisconot","123");
-		//else
-		//	Conexion::iniciar("localhost","bd_scnfinal","5432","postgres","5455");
-			//Conexion::iniciar("localhost","bd_scnfinal","5432",Sesion::obtenerUsuario(),Sesion::obtenerPass());
+			vista::asignarDato("instalacion",$instalacion);
+		}
+
+		PostGet::colocarIndicesMinuscula();
+		$modulo=PostGet::obtenerPostGet('m_modulo');
+		$formato=PostGet::obtenerPostGet('m_formato');
+		$vista=PostGet::obtenerPostGet('m_vista');
+
+		if (Sesion::hayUsuarioLogueado()){
+			if ($instalacion->obtenerUsuBD()=="false")
+				Conexion::iniciar($instalacion->obtenerServidor(),$instalacion->obtenerNombreBD(),$instalacion->obtenerPuerto(),$instalacion->obtenerUsuarioAdmin(),$instalacion->obtenerPassAdmin());
+			else{
+				$login=Sesion::obtenerLogin();
+				Conexion::iniciar($instalacion->obtenerServidor(),$instalacion->obtenerNombreBD(),$instalacion->obtenerPuerto(),$login->obtenerUsuario(),$login->obtenerClave());
+			}
+
+			LoginControlador::restaurarPermisos();
+			vista::asignarDato("login",Sesion::obtenerLogin());
+			vista::asignarDato("datos",Sesion::obtenerDatosUsuario());
+			Vista::asignarDato("usuBD",$instalacion->obtenerUsuBD());
+
+		}
+		else{
+			if ((PostGet::obtenerPostGet('m_modulo')=="login")&&(PostGet::obtenerPostGet('m_accion')=="iniciar")){
+				if ($instalacion->obtenerUsuBD()=="false")
+					Conexion::iniciar($instalacion->obtenerServidor(),$instalacion->obtenerNombreBD(),$instalacion->obtenerPuerto(),$instalacion->obtenerUsuarioAdmin(),$instalacion->obtenerPassAdmin());
+				else
+					Conexion::iniciar($instalacion->obtenerServidor(),$instalacion->obtenerNombreBD(),$instalacion->obtenerPuerto(),PostGet::obtenerPostGet('usuario'),PostGet::obtenerPostGet('pass'));
+			}
+		}
 
 		Vista::iniciar($modulo.":".$formato.":".$vista);
-			//Conexion::iniciar("localhost","bd_scnfinal","5432","postgres","12345");
+
 	}
 
 
@@ -134,10 +165,12 @@ class PrincipalControlador {
 		//se obtiene el modulo a trabajar del arreglo POST y/o GET
 		// y convertirlo a minuscula
 		try {
-		$modulo = strtolower(PostGet::obtenerPostGet('m_modulo'));
-		//var_dump($modulo);
+			$modulo = strtolower(PostGet::obtenerPostGet('m_modulo'));
 
-		require_once("Bloque.php");
+			//var_dump($modulo);
+
+			require_once("Bloque.php");
+
 
 		}catch (Exception $e){
 				throw $e;
@@ -169,7 +202,9 @@ class PrincipalControlador {
 	}
 
 	public static function inicio(){
+
 		Vista::mostrar();
+
 	}
 }
 

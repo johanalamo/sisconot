@@ -9080,3 +9080,915 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(69): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 572 *****************************
+codigo Error: 572
+Mensaje error: Archivo config.ini no existe
+Archivo Error: /var/www/html/github/sisconot/negocio/Instalacion.php
+Linea Error: 679
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(78): Instalacion->obtenerInstalacionIni()
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#2 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(144): require_once('/var/www/html/g...')
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 573 *****************************
+codigo Error: 573
+Mensaje error: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "per.t_usuario" does not exist
+LINE 1: select * from per.t_usuario where usuario=$1
+                      ^
+Archivo Error: /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php
+Linea Error: 59
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php(59): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(82): LoginServicio::obtenerLogin('aafssdfs', '123123')
+		#2 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(144): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 574 *****************************
+codigo Error: 574
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/html/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php(49): Conexion::conectar()
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(82): LoginServicio::obtenerLogin('aafssdfs', '123123')
+		#2 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(159): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 575 *****************************
+codigo Error: 575
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/principal/vista/html5/Inicio.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(148): Vista::iniciar('principal:html5...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 576 *****************************
+codigo Error: 576
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/principal/vista/html5/Inicio.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(148): Vista::iniciar('principal:html5...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 577 *****************************
+codigo Error: 577
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/principal/vista/html5/Inicio.html.twig
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(148): Vista::iniciar('principal:html5...')
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::configurar()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 578 *****************************
+codigo Error: 578
+Mensaje error: (PrincipalControlador) Módulo inválido: $modulo
+Archivo Error: /var/www/html/github/sisconot/modulos/principal/Bloque.php
+Linea Error: 68
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(162): require_once()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(73): PrincipalControlador::manejarRequerimiento()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 579 *****************************
+codigo Error: 579
+Mensaje error: (PrincipalControlador) Módulo inválido: $modulo
+Archivo Error: /var/www/html/github/sisconot/modulos/principal/Bloque.php
+Linea Error: 68
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(162): require_once()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(73): PrincipalControlador::manejarRequerimiento()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 580 *****************************
+codigo Error: 580
+Mensaje error: (PrincipalControlador) Módulo inválido: $modulo
+Archivo Error: /var/www/html/github/sisconot/modulos/principal/Bloque.php
+Linea Error: 68
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(162): require_once()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(73): PrincipalControlador::manejarRequerimiento()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 581 *****************************
+codigo Error: 581
+Mensaje error: (PrincipalControlador) Módulo inválido: $modulo
+Archivo Error: /var/www/html/github/sisconot/modulos/principal/Bloque.php
+Linea Error: 68
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(162): require_once()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(73): PrincipalControlador::manejarRequerimiento()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 582 *****************************
+codigo Error: 582
+Mensaje error: (PrincipalControlador) Módulo inválido: $modulo
+Archivo Error: /var/www/html/github/sisconot/modulos/principal/Bloque.php
+Linea Error: 68
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(162): require_once()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(73): PrincipalControlador::manejarRequerimiento()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 583 *****************************
+codigo Error: 583
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for relation t_persona
+Archivo Error: /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php
+Linea Error: 102
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php(102): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(88): LoginServicio::obtenerDatosPersona(1)
+		#2 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(162): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(73): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 584 *****************************
+codigo Error: 584
+Mensaje error: Ya esta posicion posee información, se recomienda cambiar el nombre de la posición:login
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 185
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(97): Vista::asignarDato('login', Object(Usuario))
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#2 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(162): require_once('/var/www/html/g...')
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(73): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 585 *****************************
+codigo Error: 585
+Mensaje error: (PrincipalControlador) Módulo inválido: $modulo
+Archivo Error: /var/www/html/github/sisconot/modulos/principal/Bloque.php
+Linea Error: 68
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(162): require_once()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(73): PrincipalControlador::manejarRequerimiento()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 586 *****************************
+codigo Error: 586
+Mensaje error: Ya esta posicion posee información, se recomienda cambiar el nombre de la posición:login
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 185
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(95): Vista::asignarDato('login', Object(Usuario))
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#2 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(162): require_once('/var/www/html/g...')
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(73): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 587 *****************************
+codigo Error: 587
+Mensaje error: (PrincipalControlador) Módulo inválido: $modulo
+Archivo Error: /var/www/html/github/sisconot/modulos/principal/Bloque.php
+Linea Error: 68
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(162): require_once()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(73): PrincipalControlador::manejarRequerimiento()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 588 *****************************
+codigo Error: 588
+Mensaje error: (PrincipalControlador) Módulo inválido: $modulo
+Archivo Error: /var/www/html/github/sisconot/modulos/principal/Bloque.php
+Linea Error: 68
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(162): require_once()
+		#1 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(73): PrincipalControlador::manejarRequerimiento()
+		#2 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
+**************************** Error n° 589 *****************************
+codigo Error: 589
+Mensaje error: Ya esta posicion posee información, se recomienda cambiar el nombre de la posición:login
+Archivo Error: /var/www/html/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 185
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(95): Vista::asignarDato('login', Object(Usuario))
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#2 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 590 *****************************
+codigo Error: 590
+Mensaje error: Unexpected tag name "endblock" (expecting closing tag for the "if" tag defined near line 224) in "Base.html.twig" at line 338
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php
+Linea Error: 168
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/If.php(40): Twig_Parser->subparse(Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_If->parse(Object(Twig_Token))
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/Block.php(47): Twig_Parser->subparse(Array, true)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_Block->parse(Object(Twig_Token))
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/Block.php(47): Twig_Parser->subparse(Array, true)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_Block->parse(Object(Twig_Token))
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/Block.php(47): Twig_Parser->subparse(Array, true)
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_Block->parse(Object(Twig_Token))
+		#8 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(98): Twig_Parser->subparse(NULL, false)
+		#9 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(479): Twig_Parser->parse(Object(Twig_TokenStream))
+		#10 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(529): Twig_Environment->parse(Object(Twig_TokenStream))
+		#11 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320): Twig_Environment->compileSource('{% block base %...', 'Base.html.twig')
+		#12 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(10): Twig_Environment->loadTemplate('Base.html.twig')
+		#13 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(334): __TwigTemplate_61cacd96ffe45f788357bd8f712ee312->__construct(Object(Twig_Environment))
+		#14 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Environment->loadTemplate('Inicio.html.twi...')
+		#15 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('Inicio.html.twi...', Array)
+		#16 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#17 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(204): Vista::mostrar()
+		#18 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PrincipalControlador::inicio()
+		#19 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#20 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#21 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#22 {main}
+**************************** Error n° 591 *****************************
+codigo Error: 591
+Mensaje error: Unexpected tag name "endblock" (expecting closing tag for the "if" tag defined near line 224) in "Base.html.twig" at line 228
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php
+Linea Error: 168
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/If.php(40): Twig_Parser->subparse(Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_If->parse(Object(Twig_Token))
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/Block.php(47): Twig_Parser->subparse(Array, true)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_Block->parse(Object(Twig_Token))
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/Block.php(47): Twig_Parser->subparse(Array, true)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_Block->parse(Object(Twig_Token))
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/Block.php(47): Twig_Parser->subparse(Array, true)
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_Block->parse(Object(Twig_Token))
+		#8 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(98): Twig_Parser->subparse(NULL, false)
+		#9 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(479): Twig_Parser->parse(Object(Twig_TokenStream))
+		#10 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(529): Twig_Environment->parse(Object(Twig_TokenStream))
+		#11 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320): Twig_Environment->compileSource('{% block base %...', 'Base.html.twig')
+		#12 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(10): Twig_Environment->loadTemplate('Base.html.twig')
+		#13 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(334): __TwigTemplate_61cacd96ffe45f788357bd8f712ee312->__construct(Object(Twig_Environment))
+		#14 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Environment->loadTemplate('Inicio.html.twi...')
+		#15 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('Inicio.html.twi...', Array)
+		#16 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#17 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(204): Vista::mostrar()
+		#18 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PrincipalControlador::inicio()
+		#19 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#20 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#21 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#22 {main}
+**************************** Error n° 592 *****************************
+codigo Error: 592
+Mensaje error: An exception has been thrown during the rendering of a template ("No se puede obtener informacion de dicha acción o permiso, ya que la acción: CurEstudianteAgregar no existe.") in "Base.html.twig" at line 236.
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(24): Twig_Template->display(Array, Array)
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_61cacd96ffe45f788357bd8f712ee312->doDisplay(Array, Array)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Template->display(Array)
+		#5 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('Inicio.html.twi...', Array)
+		#6 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#7 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(204): Vista::mostrar()
+		#8 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PrincipalControlador::inicio()
+		#9 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#10 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#11 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#12 {main}
+**************************** Error n° 593 *****************************
+codigo Error: 593
+Mensaje error: An exception has been thrown during the rendering of a template ("No se puede obtener informacion de dicha acción o permiso, ya que la acción: CurEstudianteAgregar no existe.") in "Base.html.twig" at line 236.
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(24): Twig_Template->display(Array, Array)
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_61cacd96ffe45f788357bd8f712ee312->doDisplay(Array, Array)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Template->display(Array)
+		#5 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('Inicio.html.twi...', Array)
+		#6 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#7 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(204): Vista::mostrar()
+		#8 /var/www/html/github/sisconot/modulos/principal/Bloque.php(49): PrincipalControlador::inicio()
+		#9 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#10 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#11 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#12 {main}
+**************************** Error n° 594 *****************************
+codigo Error: 594
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for relation t_instituto
+CONTEXT:  PL/pgSQL function sis.f_instituto_seleccionar(refcursor) line 5 at OPEN
+Archivo Error: /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php
+Linea Error: 41
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(41): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(176): InstitutoServicio::listarInstitutos()
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(55): InstitutoControlador::listarInstitutos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(25): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 595 *****************************
+codigo Error: 595
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for sequence s_curso
+CONTEXT:  SQL statement "select nextval('sis.s_curso')"
+PL/pgSQL function sis.f_curso_ins(integer,integer,integer,text,date,date,integer,text) line 4 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 148
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(148): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(156): CursoServicio::insertarCurso('1', '4', NULL, 'A', NULL, NULL, '31', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(56): CursoControlador::agregarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 596 *****************************
+codigo Error: 596
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(410): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 597 *****************************
+codigo Error: 597
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for relation t_est_cur_estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 705
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(705): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(295): CursoServicio::obtenerEstusEstudiante()
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(41): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 598 *****************************
+codigo Error: 598
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(410): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 599 *****************************
+codigo Error: 599
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for relation t_est_cur_estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 705
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(705): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(295): CursoServicio::obtenerEstusEstudiante()
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(41): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 600 *****************************
+codigo Error: 600
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/html/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(590): Conexion::conectar()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(410): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 601 *****************************
+codigo Error: 601
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/html/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(694): Conexion::conectar()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(295): CursoServicio::obtenerEstusEstudiante()
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(41): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 602 *****************************
+codigo Error: 602
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at end of input
+LINE 18:          where per.codigo = 
+                                     ^
+Archivo Error: /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php
+Linea Error: 102
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php(102): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(88): LoginServicio::obtenerDatosPersona(NULL)
+		#2 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 603 *****************************
+codigo Error: 603
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at end of input
+LINE 18:          where per.codigo = 
+                                     ^
+Archivo Error: /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php
+Linea Error: 102
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php(102): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(88): LoginServicio::obtenerDatosPersona(NULL)
+		#2 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 604 *****************************
+codigo Error: 604
+Mensaje error: SQLSTATE[42601]: Syntax error: 7 ERROR:  syntax error at end of input
+LINE 18:          where per.codigo = 
+                                     ^
+Archivo Error: /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php
+Linea Error: 102
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php(102): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(88): LoginServicio::obtenerDatosPersona(NULL)
+		#2 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 605 *****************************
+codigo Error: 605
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/html/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(36): Conexion::conectar()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(176): InstitutoServicio::listarInstitutos()
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(55): InstitutoControlador::listarInstitutos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(25): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 606 *****************************
+codigo Error: 606
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/html/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(36): Conexion::conectar()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(176): InstitutoServicio::listarInstitutos()
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(55): InstitutoControlador::listarInstitutos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(25): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 607 *****************************
+codigo Error: 607
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/html/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(36): Conexion::conectar()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(176): InstitutoServicio::listarInstitutos()
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(55): InstitutoControlador::listarInstitutos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(25): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 608 *****************************
+codigo Error: 608
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/html/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/instituto/modelo/InstitutoServicio.php(36): Conexion::conectar()
+		#1 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(176): InstitutoServicio::listarInstitutos()
+		#2 /var/www/html/github/sisconot/modulos/instituto/InstitutoControlador.php(55): InstitutoControlador::listarInstitutos()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(25): InstitutoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(170): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 609 *****************************
+codigo Error: 609
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for sequence s_curso
+CONTEXT:  SQL statement "select nextval('sis.s_curso')"
+PL/pgSQL function sis.f_curso_ins(integer,integer,integer,text,date,date,integer,text) line 4 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 148
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(148): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(156): CursoServicio::insertarCurso('1', '4', NULL, 'A', NULL, NULL, '12', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(56): CursoControlador::agregarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(171): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 610 *****************************
+codigo Error: 610
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/html/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php(49): Conexion::conectar()
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(82): LoginServicio::obtenerLogin('asdasd', 'asdasd')
+		#2 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(171): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 611 *****************************
+codigo Error: 611
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for sequence s_curso
+CONTEXT:  SQL statement "select nextval('sis.s_curso')"
+PL/pgSQL function sis.f_curso_ins(integer,integer,integer,text,date,date,integer,text) line 4 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 148
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(148): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(156): CursoServicio::insertarCurso('1', '4', NULL, 'A', NULL, NULL, '12', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(56): CursoControlador::agregarCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(171): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 612 *****************************
+codigo Error: 612
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(410): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(171): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 613 *****************************
+codigo Error: 613
+Mensaje error: Unexpected token "operator" of value ">" in "Base.html.twig" at line 31
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/ExpressionParser.php
+Linea Error: 161
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/ExpressionParser.php(85): Twig_ExpressionParser->parsePrimaryExpression()
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/ExpressionParser.php(42): Twig_ExpressionParser->getPrimary()
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/ExpressionParser.php(51): Twig_ExpressionParser->parseExpression(31)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(140): Twig_ExpressionParser->parseExpression()
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/Block.php(47): Twig_Parser->subparse(Array, true)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_Block->parse(Object(Twig_Token))
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/Block.php(47): Twig_Parser->subparse(Array, true)
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_Block->parse(Object(Twig_Token))
+		#8 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/Block.php(47): Twig_Parser->subparse(Array, true)
+		#9 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_Block->parse(Object(Twig_Token))
+		#10 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(98): Twig_Parser->subparse(NULL, false)
+		#11 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(479): Twig_Parser->parse(Object(Twig_TokenStream))
+		#12 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(529): Twig_Environment->parse(Object(Twig_TokenStream))
+		#13 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320): Twig_Environment->compileSource('{% block base %...', 'Base.html.twig')
+		#14 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(10): Twig_Environment->loadTemplate('Base.html.twig')
+		#15 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(334): __TwigTemplate_5e2257dac4eb595cb530f83012440086->__construct(Object(Twig_Environment))
+		#16 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(10): Twig_Environment->loadTemplate('Curso.html.twig')
+		#17 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(334): __TwigTemplate_ff1ea9610a97ca198da30122dba78c32->__construct(Object(Twig_Environment))
+		#18 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Environment->loadTemplate('ListarCursos.ht...')
+		#19 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#20 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#21 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#22 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#23 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#24 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(175): require_once('/var/www/html/g...')
+		#25 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#26 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#27 {main}
+**************************** Error n° 614 *****************************
+codigo Error: 614
+Mensaje error: Unexpected token "punctuation" of value "|" ("name" expected) in "ListarCursos.html.twig" at line 50
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenStream.php
+Linea Error: 77
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/ExpressionParser.php(396): Twig_TokenStream->expect(5)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/ExpressionParser.php(390): Twig_ExpressionParser->parseFilterExpressionRaw(Object(Twig_Node_Expression_GetAttr))
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/ExpressionParser.php(276): Twig_ExpressionParser->parseFilterExpression(Object(Twig_Node_Expression_GetAttr))
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/ExpressionParser.php(82): Twig_ExpressionParser->parsePostfixExpression(Object(Twig_Node_Expression_GetAttr))
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/ExpressionParser.php(42): Twig_ExpressionParser->getPrimary()
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/If.php(38): Twig_ExpressionParser->parseExpression()
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_If->parse(Object(Twig_Token))
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/Block.php(47): Twig_Parser->subparse(Array, true)
+		#8 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_Block->parse(Object(Twig_Token))
+		#9 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(98): Twig_Parser->subparse(NULL, false)
+		#10 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(479): Twig_Parser->parse(Object(Twig_TokenStream))
+		#11 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(529): Twig_Environment->parse(Object(Twig_TokenStream))
+		#12 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320): Twig_Environment->compileSource('{% extends 'Cur...', 'ListarCursos.ht...')
+		#13 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Environment->loadTemplate('ListarCursos.ht...')
+		#14 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#15 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#16 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#17 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#18 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#19 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#20 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#21 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#22 {main}
+**************************** Error n° 615 *****************************
+codigo Error: 615
+Mensaje error: Unexpected tag name "endblock" (expecting closing tag for the "if" tag defined near line 51) in "ListarCursos.html.twig" at line 59
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php
+Linea Error: 168
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/If.php(40): Twig_Parser->subparse(Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_If->parse(Object(Twig_Token))
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/TokenParser/Block.php(47): Twig_Parser->subparse(Array, true)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(181): Twig_TokenParser_Block->parse(Object(Twig_Token))
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Parser.php(98): Twig_Parser->subparse(NULL, false)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(479): Twig_Parser->parse(Object(Twig_TokenStream))
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(529): Twig_Environment->parse(Object(Twig_TokenStream))
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320): Twig_Environment->compileSource('{% extends 'Cur...', 'ListarCursos.ht...')
+		#8 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Environment->loadTemplate('ListarCursos.ht...')
+		#9 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#10 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#11 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#12 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#13 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#14 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#15 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#16 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#17 {main}
+**************************** Error n° 616 *****************************
+codigo Error: 616
+Mensaje error: An exception has been thrown during the rendering of a template ("No se puede obtener informacion de dicha acción o permiso, ya que la acción: CurEstModificar no existe.") in "Base.html.twig" at line 52.
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(25): Twig_Template->display(Array, Array)
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_5e2257dac4eb595cb530f83012440086->doDisplay(Array, Array)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(24): Twig_Template->display(Array, Array)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_ff1ea9610a97ca198da30122dba78c32->doDisplay(Array, Array)
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Template->display(Array)
+		#8 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#9 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#10 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#11 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#12 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#13 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#14 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#15 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#16 {main}
+**************************** Error n° 617 *****************************
+codigo Error: 617
+Mensaje error: An exception has been thrown during the rendering of a template ("No se puede obtener informacion de dicha acción o permiso, ya que la acción: CurEstModificar no existe.") in "Base.html.twig" at line 52.
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(25): Twig_Template->display(Array, Array)
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_5e2257dac4eb595cb530f83012440086->doDisplay(Array, Array)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(24): Twig_Template->display(Array, Array)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_ff1ea9610a97ca198da30122dba78c32->doDisplay(Array, Array)
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Template->display(Array)
+		#8 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#9 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#10 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#11 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#12 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#13 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#14 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#15 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#16 {main}
+**************************** Error n° 618 *****************************
+codigo Error: 618
+Mensaje error: An exception has been thrown during the rendering of a template ("No se puede obtener informacion de dicha acción o permiso, ya que la acción: CurEstModificar no existe.") in "Base.html.twig" at line 52.
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(25): Twig_Template->display(Array, Array)
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_5e2257dac4eb595cb530f83012440086->doDisplay(Array, Array)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(24): Twig_Template->display(Array, Array)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_ff1ea9610a97ca198da30122dba78c32->doDisplay(Array, Array)
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Template->display(Array)
+		#8 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#9 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#10 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#11 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#12 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#13 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#14 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#15 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#16 {main}
+**************************** Error n° 619 *****************************
+codigo Error: 619
+Mensaje error: An exception has been thrown during the rendering of a template ("No se puede obtener informacion de dicha acción o permiso, ya que la acción: CurEstModificar no existe.") in "Base.html.twig" at line 52.
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(25): Twig_Template->display(Array, Array)
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_5e2257dac4eb595cb530f83012440086->doDisplay(Array, Array)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(24): Twig_Template->display(Array, Array)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_ff1ea9610a97ca198da30122dba78c32->doDisplay(Array, Array)
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Template->display(Array)
+		#8 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#9 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#10 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#11 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#12 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#13 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#14 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#15 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#16 {main}
+**************************** Error n° 620 *****************************
+codigo Error: 620
+Mensaje error: An exception has been thrown during the rendering of a template ("No se puede obtener informacion de dicha acción o permiso, ya que la acción: CurEstModificar no existe.") in "Base.html.twig" at line 52.
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(25): Twig_Template->display(Array, Array)
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_5e2257dac4eb595cb530f83012440086->doDisplay(Array, Array)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(24): Twig_Template->display(Array, Array)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_ff1ea9610a97ca198da30122dba78c32->doDisplay(Array, Array)
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Template->display(Array)
+		#8 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#9 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#10 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#11 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#12 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#13 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#14 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#15 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#16 {main}
+**************************** Error n° 621 *****************************
+codigo Error: 621
+Mensaje error: An exception has been thrown during the rendering of a template ("No se puede obtener informacion de dicha acción o permiso, ya que la acción: CurEstModificar no existe.") in "Base.html.twig" at line 52.
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(25): Twig_Template->display(Array, Array)
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_5e2257dac4eb595cb530f83012440086->doDisplay(Array, Array)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(24): Twig_Template->display(Array, Array)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_ff1ea9610a97ca198da30122dba78c32->doDisplay(Array, Array)
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Template->display(Array)
+		#8 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#9 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#10 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#11 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#12 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#13 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#14 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#15 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#16 {main}
+**************************** Error n° 622 *****************************
+codigo Error: 622
+Mensaje error: An exception has been thrown during the rendering of a template ("No se puede obtener informacion de dicha acción o permiso, ya que la acción: CurEstModificar no existe.") in "Base.html.twig" at line 52.
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(25): Twig_Template->display(Array, Array)
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_5e2257dac4eb595cb530f83012440086->doDisplay(Array, Array)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(24): Twig_Template->display(Array, Array)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_ff1ea9610a97ca198da30122dba78c32->doDisplay(Array, Array)
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Template->display(Array)
+		#8 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#9 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#10 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#11 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#12 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#13 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#14 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#15 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#16 {main}
+**************************** Error n° 623 *****************************
+codigo Error: 623
+Mensaje error: An exception has been thrown during the rendering of a template ("No se puede obtener informacion de dicha acción o permiso, ya que la acción: CurEstModificar no existe.") in "Base.html.twig" at line 52.
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(25): Twig_Template->display(Array, Array)
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_5e2257dac4eb595cb530f83012440086->doDisplay(Array, Array)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(24): Twig_Template->display(Array, Array)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_ff1ea9610a97ca198da30122dba78c32->doDisplay(Array, Array)
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Template->display(Array)
+		#8 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#9 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#10 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#11 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#12 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#13 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#14 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#15 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#16 {main}
+**************************** Error n° 624 *****************************
+codigo Error: 624
+Mensaje error: An exception has been thrown during the rendering of a template ("No se puede obtener informacion de dicha acción o permiso, ya que la acción: CurEstModificar no existe.") in "Base.html.twig" at line 52.
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(25): Twig_Template->display(Array, Array)
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_5e2257dac4eb595cb530f83012440086->doDisplay(Array, Array)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(24): Twig_Template->display(Array, Array)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_ff1ea9610a97ca198da30122dba78c32->doDisplay(Array, Array)
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Template->display(Array)
+		#8 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#9 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#10 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#11 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#12 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#13 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#14 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#15 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#16 {main}
+**************************** Error n° 625 *****************************
+codigo Error: 625
+Mensaje error: An exception has been thrown during the rendering of a template ("No se puede obtener informacion de dicha acción o permiso, ya que la acción: CurEstModificar no existe.") in "Base.html.twig" at line 52.
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php
+Linea Error: 269
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(25): Twig_Template->display(Array, Array)
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_5e2257dac4eb595cb530f83012440086->doDisplay(Array, Array)
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(24): Twig_Template->display(Array, Array)
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(265): __TwigTemplate_ff1ea9610a97ca198da30122dba78c32->doDisplay(Array, Array)
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Template.php(239): Twig_Template->displayWithErrorHandling(Array, Array)
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Template->display(Array)
+		#8 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#9 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#10 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#11 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#12 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#13 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#14 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#15 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#16 {main}
+**************************** Error n° 626 *****************************
+codigo Error: 626
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for relation t_est_cur_estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 490
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(490): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(293): EstudianteServicio::listarEstudiantesDeCurso('1')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(41): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

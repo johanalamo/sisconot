@@ -16,10 +16,6 @@ else if($modulo == 'estudiante'){
 	require_once 'modulos/estudiante/EstudianteControlador.php';
 	EstudianteControlador::manejarRequerimiento();
 }
-else if($modulo == 'estudiante.old'){
-	require_once 'modulos/estudiante.old/Estudiante.oldControlador.php';
-	Estudiante.oldControlador::manejarRequerimiento();
-}
 else if($modulo == 'foto'){
 	require_once 'modulos/foto/FotoControlador.php';
 	FotoControlador::manejarRequerimiento();
@@ -48,13 +44,13 @@ else if($modulo == 'persona'){
 	require_once 'modulos/persona/PersonaControlador.php';
 	PersonaControlador::manejarRequerimiento();
 }
-else if($modulo == 'prelacion'){
-	require_once 'modulos/prelacion/PrelacionControlador.php';
-	PrelacionControlador::manejarRequerimiento();
-}
 else if($modulo == 'principal'){
-	require_once 'modulos/principal/PrincipalControlador.php';
-	PrincipalControlador::manejarRequerimiento();
+	if(PostGet::obtenerPostGet("m_accion") == 'inicio')
+		self::inicio();
+	else{
+		require_once 'modulos/principal/PrincipalControlador.php';
+		PrincipalControlador::manejarRequerimiento();
+	}
 }
 else if($modulo == 'trayecto'){
 	require_once 'modulos/trayecto/TrayectoControlador.php';

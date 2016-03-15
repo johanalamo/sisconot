@@ -209,6 +209,10 @@ class Usuario{
 		return $this->permisos->obtenerPermiso($accion);
 
 	}
+	public function obtenerPermisosJavascript($nombreVar){
+		return $this->permisos->obtenerJavascript($nombreVar);
+
+	}
 
 	public function obtenerPermisos(){
 		return $this->permisos;

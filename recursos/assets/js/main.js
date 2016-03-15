@@ -70,18 +70,32 @@ function mostrarMensaje(mensaje, tipo){
 		cad2 = 'Información';
 	}
 
-	var cont = $("<div class='alert alert-" + cad + " alert-dismissible' id='"+$(".alert").length+"' style='bottom:"+cont+"px' role='alert'>"
-					+ "<button type='button' class='close' data-dismiss='alert'>"
-					+ "<span aria-hidden='true'>&times;</span>"
-					+ "</button>"
-					+ "<strong>"+ cad2 + "</strong> "+ mensaje+ ""
-					+ "</div>");
+	if(tipo == 5){
+		var cont = $("<div class='alert alert-default pastel alert-dismissible' id='"+$(".alert").length+"' style='top:0' role='alert'>"
+						+ "<button type='button' class='close' data-dismiss='alert'>"
+						+ "<span aria-hidden='true'>&times;</span>"
+						+ "</button>"
+						+ "<strong><center>"+mensaje+"</center></strong>"
+						+ "</div>");
+	}
+	else{
+		var cont = $("<div class='alert alert-" + cad + " alert-dismissible' id='"+$(".alert").length+"' style='bottom:"+cont+"px' role='alert'>"
+						+ "<button type='button' class='close' data-dismiss='alert'>"
+						+ "<span aria-hidden='true'>&times;</span>"
+						+ "</button>"
+						+ "<strong>"+ cad2 + "</strong> "+ mensaje+ ""
+						+ "</div>");
+	}
+
 
 	$(cont).appendTo(".alerts");
 
-	setTimeout(function(){
-		$("#"+($(".alert").length - 1)).remove();
-	},5000);
+	if(tipo != 5){
+		setTimeout(function(){
+			$("#"+($(".alert").length - 1)).remove();
+		},5000);
+	}
+
 }
 
 

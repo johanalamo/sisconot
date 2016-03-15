@@ -27,7 +27,6 @@ elementos visuales dinámicos.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 */
 
-
 function succ(data){
 	alert("succ");
 	console.log(data);
@@ -226,7 +225,6 @@ function cargarInstitutos(){
  */
 
 function succCargarInstitutos(data){
-
 	var ins = data.institutos;
 	var cad = "";
 	cad += "<select class='selectpicker' id='selInst' onchange='cargarPensums()' data-live-search='true' data-size='auto'>";
