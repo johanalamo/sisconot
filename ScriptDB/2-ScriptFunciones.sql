@@ -1750,6 +1750,9 @@ BEGIN
 				 hijos=p_hijos,				est_civil=p_est_civil,
 				 observaciones=p_observaciones
 			     WHERE codigo=p_codigo;
+
+        update sis.t_persona set nombre1 = upper(nombre1), nombre2 = upper(nombre2), apellido1 = upper(apellido1), apellido2 = upper(apellido2);
+
 	IF found THEN
 		r_operacion := 1;
 	END IF;
@@ -1806,6 +1809,7 @@ BEGIN
 				  p_discapacidad, 	p_nacionalidad,		p_hijos,
 				  p_est_civil,		p_observaciones
 				);
+  update sis.t_persona set nombre1 = upper(nombre1), nombre2 = upper(nombre2), apellido1 = upper(apellido1), apellido2 = upper(apellido2);
 
   RETURN cod_persona;
 END;
