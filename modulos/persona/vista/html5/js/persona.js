@@ -715,22 +715,6 @@ function preGuardarPersona(){
 		mostrarMensaje("para los campos apellido solo se permiten letras",2);
 		bool=false;
 	}
-	else if($("#fec_nac").val()){
-		if(validarFecha('#fec_nac',false)){
-			var fecha=$("#fec_nac").val().split("/");
-			var actual= fecActual().split("/");
-			//alert(actual[2]-fecha[2]);
-			if(actual[2]-fecha[2]<=15){
-				mostrarMensaje("la persona tiene que tener almenos 15 años",2);
-				bool=false;
-			}
-			if(!validarFecha('#fec_nac',false)){
-				mostrarMensaje("debe de introducir una fecha valida",2);
-				bool=false;
-			}
-
-		}		
-	}
 	else if(!validarTelefono('#telefono1',7,15,false)){
 		mostrarMensaje("debes introducir un número telefónico valido",2);
 		bool=false;
@@ -746,6 +730,22 @@ function preGuardarPersona(){
 	else if(!validarEmail('#cor_institucional',10,50,false)){
 		mostrarMensaje("introduzca un E-mail valido",2);
 		bool=false;
+	}
+	else if($("#fec_nac").val()){
+		if(validarFecha('#fec_nac',false)){
+			var fecha=$("#fec_nac").val().split("/");
+			var actual= fecActual().split("/");
+			//alert(actual[2]-fecha[2]);
+			if(actual[2]-fecha[2]<=15){
+				mostrarMensaje("la persona tiene que tener almenos 15 años",2);
+				bool=false;
+			}
+			if(!validarFecha('#fec_nac',false)){
+				mostrarMensaje("debe de introducir una fecha valida",2);
+				bool=false;
+			}
+
+		}		
 	}
 
 	if(bool)

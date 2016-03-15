@@ -259,7 +259,7 @@ function compararDatosEmpleados(data){
 			boolFecha=false;			
 	}
 
-	//alert(bool+" ** "+boolAux);
+	alert(bool+" ** "+boolAux);
 	// bool== true se modifica
 	// bool== false se agrega
 	//boolux== true se agrega y se modifica
@@ -308,7 +308,7 @@ function guardarEmpleadoAux(data){
 		fecha=fecActual();
 
 
-	//alert("jpipo"+fecha);
+	alert("jpipo"+fecha);
 
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"agregar",	
@@ -346,7 +346,7 @@ function guardarEmpleado(bool=null,data=null){
 	if(!bool)
 		fec_fin=$("#fec_fin_empleado").val();
 	
-	//alert("yeah"+fec_ini);
+	alert("yeah"+fec_ini);
 	//alert(fec_fin+" "+$("#empleado #selectEstado").val()+" ** "+$("#empleado #selectInstituto").val());
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"agregar",	
@@ -765,7 +765,7 @@ function succMontarModificarEmpleado (data){
 	setTimeout(function(){ 
 		$("#empleado #selectPNF").val(data.empleado[0]['cod_pensum']);
 		$('.selectpicker').selectpicker('refresh');  
-	}, 200);
+	}, 300);
 	$("#fec_ini_empleado").val(data.empleado[0]['fec_inicios']);
 	if(data.empleado[0]['fec_final'])
 		$("#fec_fin_empleado").val(data.empleado[0]['fec_final']);

@@ -518,7 +518,7 @@ function succMontarModificarEstudiante (data){
 		setTimeout(function(){ 
 			$("#selectPNF").val(data.estudiante[0]['cod_pensum']);
 			$('.selectpicker').selectpicker('refresh');
-		}, 250);
+		}, 350);
 	
 	
 	//alert($("#selectEstado").val());
