@@ -239,7 +239,7 @@ function montarSelectInstitutoPersona(data){
 		}
 	}
 	cadena +="</select>";
-	alert(data.empleado2);
+	//alert(data.empleado2);
 	//if(!data.empleado2){
 		$(cadena).appendTo('#selectInstitutos2');
 		$(cadena).appendTo('.selectInstituto2');
@@ -252,24 +252,27 @@ function montarSelectInstitutoPersona(data){
 
 function montarSelectInstituto(data){
 	var cadena = "";
-
+	//alert(JSON.stringify(data));
 	$("#selectIns").remove();
 	cadena+="<div id='selectIns'> institutos ";
-	
-	cadena += "<select onchange='verPNF();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
+	if(!data.empleado2)
+		cadena += "<select onchange='verPNF();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
+	else
+		cadena += "<select onchange='verPNFEm2();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
+
 	cadena += "<option value='seleccionar' >Seleccionar</option>";
 	if(data.instituto)
 	for(var x=0; x<data.instituto.length;x++)
-	{
+	{	
 		cadena += '<option value="'+data.instituto[x]["codigo"]+'">'+data.instituto[x]["nom_corto"]+'</option>';
 	}
 	cadena +="</select>";
-	//if(!data.empleado2){
+	if(!data.empleado2){
 		$(cadena).appendTo('#selectInstitutos');
 		$(cadena).appendTo('.selectInstituto');
-/*	}
+	}
 	else
-		$(cadena).appendTo('.selectInstitutoEm');*/
+		$(cadena).appendTo('.selectInstitutoEm');
 	activarSelect();	
 
 }

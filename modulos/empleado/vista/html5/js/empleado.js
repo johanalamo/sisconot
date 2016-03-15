@@ -432,14 +432,14 @@ function verInstitutoEm2(){
 	//setTimeout(function(){ 
 */
 		var arr = Array("m_modulo"	,	"persona",
-					"m_accion"	,	"listarSelects",
-					"estado"	,	$("#empleado #selectEstado").val(),
-					"pnf"		,	$("#empleado #selectPNF").val(),
-					"instituto"	,	$("#empleado #selectInstituto").val(),
-					"tipo_persona",	"empleado",
-					//"campo",		$("#campo").val(),
-					"empleado2"	,	true
-					);
+						"m_accion"	,	"listarSelects",
+						"estado"	,	$("#empleado #selectEstado").val(),
+						"pnf"		,	$("#empleado #selectPNF").val(),
+						"instituto"	,	$("#empleado #selectInstituto").val(),
+						"tipo_persona",	"empleado",
+						//"campo",		$("#campo").val(),
+						"empleado2"	,	true
+						);
 		ajaxMVC(arr,montarSelectInstituto,error);
 	
 
@@ -761,11 +761,11 @@ function succMontarModificarEmpleado (data){
 	$("#empleado #selectEstado").selectpicker('refresh');
 	$("#empleado #selectInstituto").val(data.empleado[0]['cod_instituto']);	
 	$('#empleado #selectInstituto').selectpicker('refresh');
-	//verPNFEm2();
+	verPNFEm2();
 	setTimeout(function(){ 
 		$("#empleado #selectPNF").val(data.empleado[0]['cod_pensum']);
 		$('#empleado #selectPNF').selectpicker('refresh');  
-	}, 850);
+	}, 200);
 	$("#fec_ini_empleado").val(data.empleado[0]['fec_inicios']);
 	if(data.empleado[0]['fec_final'])
 		$("#fec_fin_empleado").val(data.empleado[0]['fec_final']);
