@@ -758,13 +758,13 @@ function succMontarModificarEmpleado (data){
 	$("#cod_empleado").val(data.empleado[0]['codigo']);
 	$("#cod_persona").val(data.empleado[0]['cod_persona']);
 	$("#empleado #selectEstado").val(data.empleado[0]['cod_estado']);
-	$("#empleado #selectEstado").selectpicker('refresh');
+//	$("#empleado #selectEstado").selectpicker('refresh');
 	$("#empleado #selectInstituto").val(data.empleado[0]['cod_instituto']);	
-	$('#empleado #selectInstituto').selectpicker('refresh');
+	//$('#empleado #selectInstituto').selectpicker('refresh');
 	verPNFEm2();
 	setTimeout(function(){ 
 		$("#empleado #selectPNF").val(data.empleado[0]['cod_pensum']);
-		$('#empleado #selectPNF').selectpicker('refresh');  
+		$('.selectpicker').selectpicker('refresh');  
 	}, 200);
 	$("#fec_ini_empleado").val(data.empleado[0]['fec_inicios']);
 	if(data.empleado[0]['fec_final'])
