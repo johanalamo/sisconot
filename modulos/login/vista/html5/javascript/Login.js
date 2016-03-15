@@ -348,7 +348,7 @@ function error(data){
 
 			setTimeout(function(){
 				window.location.assign("index.php");
-			},5000);
+			},3000);
 
 		}
 		else

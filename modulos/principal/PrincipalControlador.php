@@ -153,6 +153,7 @@ class PrincipalControlador {
 					Conexion::iniciar($instalacion->obtenerServidor(),$instalacion->obtenerNombreBD(),$instalacion->obtenerPuerto(),PostGet::obtenerPostGet('usuario'),PostGet::obtenerPostGet('pass'));
 			}
 		}
+		
 
 		Vista::iniciar($modulo.":".$formato.":".$vista);
 

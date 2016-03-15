@@ -27,7 +27,6 @@
 				   function sleep() {
 					  $('#table').DataTable();
 					}
-
 				</script>
 				<script src="modulos/login/vista/html5/javascript/Login.js"> </script>
 
@@ -402,6 +401,8 @@
 				<script src="recursos/javascript/LibreriaMVC.js"></script>
 				<script src="recursos/javascript/validaciones.js"></script>
 
+				<script type="text/javascript"> {{login.obtenerPermisosJavascript('per')}} </script>
+
 				<!-- -------------- HighCharts Plugin -------------- -->
 				<script src="recursos/flaty/assets/highcharts.js"></script>
 
@@ -432,7 +433,6 @@
 
 					{% block JavaScriptInit %}
 					{% endblock %}
-
 
 
 	{% endblock %}

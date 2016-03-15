@@ -1102,6 +1102,6 @@ function removerEsEm(){
 * Funcion Java Script que permite mostrar un mensaje de error.
 */
 function error(data){	
-	console.log(data);
+	console.log(data.responseText);
 	mostrarMensaje("Error de comunicación con el servidor.",2);
 }

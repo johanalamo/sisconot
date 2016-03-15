@@ -1,3 +1,9 @@
+if(per.CursoAgregar)
+	alert("tiene permiso");
+else
+	alert("no tiene permiso");
+
+
 /**
  * * * * * * * * * * LICENCIA * * * * * * * * * * * * * * * * * * * * *
 
@@ -281,6 +287,7 @@ function cargarPensums(){
  */
 
 function succCargarPensums(data){
+	
 	var pen = data.pensum;
 	var cad = "";
 

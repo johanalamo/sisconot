@@ -9992,3 +9992,269 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 627 *****************************
+codigo Error: 627
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/html/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php(49): Conexion::conectar()
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(82): LoginServicio::obtenerLogin('sosajaen', '123')
+		#2 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 628 *****************************
+codigo Error: 628
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for relation t_usuario
+Archivo Error: /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php
+Linea Error: 59
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php(59): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(82): LoginServicio::obtenerLogin('sisconot', '123')
+		#2 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 629 *****************************
+codigo Error: 629
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/html/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php(49): Conexion::conectar()
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(82): LoginServicio::obtenerLogin('postgres', '123')
+		#2 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 630 *****************************
+codigo Error: 630
+Mensaje error: Datos de autentificación incorrectos
+Archivo Error: /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php
+Linea Error: 72
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(82): LoginServicio::obtenerLogin('postgres', '12345')
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#2 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#3 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 631 *****************************
+codigo Error: 631
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/html/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php(49): Conexion::conectar()
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(82): LoginServicio::obtenerLogin('sosjean', '12345')
+		#2 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 632 *****************************
+codigo Error: 632
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/html/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/login/modelo/LoginServicio.php(49): Conexion::conectar()
+		#1 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(82): LoginServicio::obtenerLogin('sosjean', '1234')
+		#2 /var/www/html/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 633 *****************************
+codigo Error: 633
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for relation t_persona
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(311): PersonaServicio::agregar('567456', 's', 'sdgsdg', '', 'sdg', '', 'M', '31/01/1990', 'A+', '3454354543', '', NULL, NULL, '', '', 'V', '0', 'S', '')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 634 *****************************
+codigo Error: 634
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for relation t_persona
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(311): PersonaServicio::agregar('567456', 's', 'sdgsdg', '', 'sdg', '', 'M', '31/01/1990', 'A+', '34543545434', '', NULL, NULL, '', '', 'V', '0', 'S', '')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 635 *****************************
+codigo Error: 635
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permission denied for relation t_persona
+CONTEXT:  SQL statement "insert into sis.t_persona (codigo,		cedula,			rif,
+				   nombre1,		nombre2,		apellido1,
+				   apellido2,   	sexo,			fec_nacimiento,
+				   tip_sangre,		telefono1,		telefono2,
+				   cor_personal,	cor_institucional,	direccion,
+				   discapacidad,	nacionalidad,		hijos,
+				   est_civil,		observaciones
+				)
+
+		          values (cod_persona,		p_cedula,		p_rif,
+				  p_nombre1,		p_nombre2,		p_apellido1,
+				  p_apellido2,		p_sexo,			p_fec_nacimiento,
+				  p_tip_sangre,		p_telefono1,		p_telefono2,
+				  p_cor_personal,	p_cor_institucional,	p_direccion,
+				  p_discapacidad, 	p_nacionalidad,		p_hijos,
+				  p_est_civil,		p_observaciones
+				)"
+PL/pgSQL function sis.f_persona_ins(integer,text,text,text,text,text,text,date,text,text,text,text,text,text,text,text,integer,text,text) line 8 at SQL statement
+Archivo Error: /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 114
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/persona/modelo/PersonaServicio.php(114): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(311): PersonaServicio::agregar('567456', 's', 'sdgsdg', '', 'sdg', '', 'M', '31/01/1990', 'A+', '3454354544', '', NULL, NULL, '', '', 'V', '0', 'S', '')
+		#2 /var/www/html/github/sisconot/modulos/persona/PersonaControlador.php(57): PersonaControlador::agregar()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 636 *****************************
+codigo Error: 636
+Mensaje error: The function "alert" does not exist in "Base.html.twig" at line 31
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Node/Expression/Function.php
+Linea Error: 28
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Compiler.php(87): Twig_Node_Expression_Function->compile(Object(Twig_Compiler))
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Node/Expression/Filter.php(50): Twig_Compiler->subcompile(Object(Twig_Node_Expression_Function))
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Node/Expression/Filter.php(32): Twig_Node_Expression_Filter->compileFilter(Object(Twig_Compiler), Object(Twig_Filter_Function))
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Compiler.php(87): Twig_Node_Expression_Filter->compile(Object(Twig_Compiler))
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Node/Print.php(36): Twig_Compiler->subcompile(Object(Twig_Node_Expression_Filter))
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Node.php(106): Twig_Node_Print->compile(Object(Twig_Compiler))
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Compiler.php(87): Twig_Node->compile(Object(Twig_Compiler))
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Node/Block.php(40): Twig_Compiler->subcompile(Object(Twig_Node))
+		#8 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Node.php(106): Twig_Node_Block->compile(Object(Twig_Compiler))
+		#9 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Node.php(106): Twig_Node->compile(Object(Twig_Compiler))
+		#10 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Compiler.php(87): Twig_Node->compile(Object(Twig_Compiler))
+		#11 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Node/Module.php(66): Twig_Compiler->subcompile(Object(Twig_Node))
+		#12 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Node/Module.php(39): Twig_Node_Module->compileTemplate(Object(Twig_Compiler))
+		#13 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Compiler.php(76): Twig_Node_Module->compile(Object(Twig_Compiler))
+		#14 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(515): Twig_Compiler->compile(Object(Twig_Node_Module))
+		#15 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(529): Twig_Environment->compile(Object(Twig_Node_Module))
+		#16 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320): Twig_Environment->compileSource('{% block base %...', 'Base.html.twig')
+		#17 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(10): Twig_Environment->loadTemplate('Base.html.twig')
+		#18 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(334): __TwigTemplate_5e2257dac4eb595cb530f83012440086->__construct(Object(Twig_Environment))
+		#19 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(10): Twig_Environment->loadTemplate('Curso.html.twig')
+		#20 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(334): __TwigTemplate_ff1ea9610a97ca198da30122dba78c32->__construct(Object(Twig_Environment))
+		#21 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Environment->loadTemplate('ListarCursos.ht...')
+		#22 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#23 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#24 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#25 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#26 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#27 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(172): require_once('/var/www/html/g...')
+		#28 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#29 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#30 {main}
+**************************** Error n° 637 *****************************
+codigo Error: 637
+Mensaje error: Unexpected character "$" in "Base.html.twig" at line 31
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Lexer.php
+Linea Error: 283
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Lexer.php(215): Twig_Lexer->lexExpression()
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Lexer.php(116): Twig_Lexer->lexVar()
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(443): Twig_Lexer->tokenize('{% block base %...', 'Base.html.twig')
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(529): Twig_Environment->tokenize('{% block base %...', 'Base.html.twig')
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320): Twig_Environment->compileSource('{% block base %...', 'Base.html.twig')
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(10): Twig_Environment->loadTemplate('Base.html.twig')
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(334): __TwigTemplate_5e2257dac4eb595cb530f83012440086->__construct(Object(Twig_Environment))
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(10): Twig_Environment->loadTemplate('Curso.html.twig')
+		#8 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(334): __TwigTemplate_ff1ea9610a97ca198da30122dba78c32->__construct(Object(Twig_Environment))
+		#9 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Environment->loadTemplate('ListarCursos.ht...')
+		#10 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarCursos.ht...', Array)
+		#11 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#12 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#13 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#14 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#15 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(174): require_once('/var/www/html/g...')
+		#16 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#17 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#18 {main}
+**************************** Error n° 638 *****************************
+codigo Error: 638
+Mensaje error: Unexpected character ";" in "Base.html.twig" at line 404
+Archivo Error: /var/www/html/github/sisconot/recursos/twig/lib/Twig/Lexer.php
+Linea Error: 283
+Trayecto:
+		#0 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Lexer.php(215): Twig_Lexer->lexExpression()
+		#1 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Lexer.php(116): Twig_Lexer->lexVar()
+		#2 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(443): Twig_Lexer->tokenize('{% block base %...', 'Base.html.twig')
+		#3 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(529): Twig_Environment->tokenize('{% block base %...', 'Base.html.twig')
+		#4 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320): Twig_Environment->compileSource('{% block base %...', 'Base.html.twig')
+		#5 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(10): Twig_Environment->loadTemplate('Base.html.twig')
+		#6 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(334): __TwigTemplate_5e2257dac4eb595cb530f83012440086->__construct(Object(Twig_Environment))
+		#7 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(320) : eval()'d code(10): Twig_Environment->loadTemplate('Curso.html.twig')
+		#8 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(334): __TwigTemplate_d8e44fb4c9ed2f943df28619c9c039ce->__construct(Object(Twig_Environment))
+		#9 /var/www/html/github/sisconot/recursos/twig/lib/Twig/Environment.php(299): Twig_Environment->loadTemplate('ListarEstudiant...')
+		#10 /var/www/html/github/sisconot/base/clases/vista/Vista.php(286): Twig_Environment->display('ListarEstudiant...', Array)
+		#11 /var/www/html/github/sisconot/base/clases/vista/Vista.php(231): Vista::mostrarHtml5()
+		#12 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(383): Vista::mostrar()
+		#13 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(54): CursoControlador::mostrarVista()
+		#14 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#15 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/html/g...')
+		#16 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#17 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#18 {main}
