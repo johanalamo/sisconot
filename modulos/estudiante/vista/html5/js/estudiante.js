@@ -500,27 +500,26 @@ function segundoLlamado(){
 function succMontarModificarEstudiante (data){
 	//console.log(data);
 	//verPNFEsPrincipal(); verInstitutoEsPrincipal(); verEstadoEsPrincipal();
-	setTimeout(function(){ 
+		$("#selectInstituto").val(data.estudiante[0]['cod_instituto']);	
+		verPNFEsPrincipal(); 
 		$("#cod_estudiante").val(data.estudiante[0]['codigo']);
-		$("#codPersona").val(data.estudiante[0]['cod_persona']);
-		
+		$("#codPersona").val(data.estudiante[0]['cod_persona']);		
 		$("#num_carnet").val(data.estudiante[0]['num_carnet']);
 		$("#expediente").val(data.estudiante[0]['num_expediente']);
 		$("#cod_rusnies").val(data.estudiante[0]['cod_rusnies']);
 		$("#selectEstado").val(data.estudiante[0]['cod_estado']);
-		$('#selectEstado').selectpicker('refresh');
+		//$('#selectEstado').selectpicker('refresh');
 		$("#fec_ini_estudiante").val(data.estudiante[0]['fec_inicios']);
 		$("#fec_fin_estudiante").val(data.estudiante[0]['fec_final']);
 		$("#condicion").val(data.estudiante[0]['condicion']);
 		$("#obs_estudiante").val(data.estudiante[0]['observaciones']);										
-		$("#estadoEs").val(data.estudiante[0]['cod_estado']);
-		$("#selectInstituto").val(data.estudiante[0]['cod_instituto']);	
-		$('#selectInstituto').selectpicker('refresh');	
+		$("#estadoEs").val(data.estudiante[0]['cod_estado']);		
+		//$('#selectInstituto').selectpicker('refresh');		
 		setTimeout(function(){ 
 			$("#selectPNF").val(data.estudiante[0]['cod_pensum']);
-			$('#selectPNF').selectpicker('refresh');
-		}, 500);
-	}, 600);
+			$('.selectpicker').selectpicker('refresh');
+		}, 250);
+	
 	
 	//alert($("#selectEstado").val());
 }
