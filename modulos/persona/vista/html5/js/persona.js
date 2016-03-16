@@ -347,7 +347,7 @@ function montarSelectPNFPersona(data){
 	if(data.pnf){
 		for(var x=0; x<data.pnf.length;x++)
 		{	
-			cadena += '<option value="'+data.pnf[x]["codigo"]+'">'+data.pnf[x][2]+'</option>';
+			cadena += '<option value="'+data.pnf[x]["cod_pensum"]+'">'+data.pnf[x][2]+'</option>';
 		}
 	}
 	
@@ -375,16 +375,16 @@ console.log(data);
 	if(data.pnf){
 		for(var x=0; x<data.pnf.length;x++)
 		{	
-			cadena += '<option value="'+data.pnf[x]["codigo"]+'">'+data.pnf[x][2]+'</option>';
+			cadena += '<option value="'+data.pnf[x]["cod_pensum"]+'">'+data.pnf[x][2]+'</option>';
 		}
 	}
 	
 	cadena +="</select></div>";
 
-	if(!data.empleado2)
+	//if(!data.empleado2)
 		$(cadena).appendTo('.selectPensum');
-	else
-		$(cadena).appendTo('.selectPensumEm');
+	/*else
+		$(cadena).appendTo('.selectPensumEm');*/
 	activarSelect();					
 }
 /**

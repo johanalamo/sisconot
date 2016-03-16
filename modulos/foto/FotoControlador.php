@@ -10,6 +10,7 @@ class FotoControlador{
 	public static function iniciar(){
 		$codigo=Vista::obtenerDato("codPersona");
 		$ruta=Vista::obtenerDato("ruta");
+
 		$dimensionesMinimas=self::validar_dimensiones_minimas ($ruta);
 		if(!self::validar_dimensiones ($ruta)){
 			$dimensiones=self::get_dimensiones ($ruta);
@@ -23,6 +24,7 @@ class FotoControlador{
 
 		}
 		elseif(!$dimensionesMinimas){
+
 			return '2';
 		}
 		else
@@ -65,7 +67,8 @@ class FotoControlador{
 	}
 
 	public static function validar_dimensiones_minimas ($ruta)
-	{
+	{	
+
 		$a=explode("|",self::get_dimensiones($ruta));
 		if($a[0]<=250 or $a[1]<=250)	{return false;}
 		else 							{return true;}

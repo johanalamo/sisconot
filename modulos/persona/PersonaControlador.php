@@ -163,12 +163,11 @@
 				$estado=PostGet::obtenerPostGet("estado");
 				$instituto=PostGet::obtenerPostGet("instituto");
 
-
 				
-				if($pnf=="seleccionar" || $pnf== 'undefined')
+				if($pnf=="seleccionar" )
 					$pnf=null;
-				
-				if($estado=="seleccionar" || $estado== 'undefined')
+
+				if($estado=="seleccionar")
 					$estado=null;
 
 

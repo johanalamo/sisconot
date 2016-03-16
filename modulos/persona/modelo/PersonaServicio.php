@@ -218,7 +218,7 @@ class PersonaServicio
 			if($campo){
 				$bool=true;
 				$consulta.=" and CONCAT (cast(p.cedula as varchar),p.nombre1,p.nombre2,apellido1, apellido2) 
-							ilike '%$campo%' ";
+							like '%$campo%' ";
 			}
 			if($codigo){
 				$consulta.= " and p.codigo = $codigo ";

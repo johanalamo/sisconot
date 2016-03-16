@@ -530,7 +530,7 @@ function verPNFEm2(){
 					//"campo",		$("#campo").val(),
 					"empleado2"	,	true
 					);
-		ajaxMVC(arr,montarSelectPNF,error);
+		ajaxMVC(arr,montarSelectPNFE,error);
 	/*}, 600);*/
 		
 	
