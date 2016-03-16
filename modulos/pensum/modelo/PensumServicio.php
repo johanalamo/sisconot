@@ -451,6 +451,30 @@ class PensumServicio
 				throw $e;
 			}
 		}
+
+		public static function pensumConEstActivo ($codigo=null){
+			try{
+
+				$conexion = Conexion::conectar();
+				$consulta = "select e.*, p.*, p.codigo as pensum_codigo 
+							 from sis.t_pensum p, sis.t_estudiante e 
+							 where e.cod_estado='A' and e.cod_pensum=p.codigo 
+								and e.cod_persona=?";
+
+
+				$ejecutar=$conexion->prepare($consulta);
+
+				$ejecutar-> execute(array($codigo));
+
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
 	
 }
 ?>

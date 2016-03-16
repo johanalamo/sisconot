@@ -67,6 +67,8 @@
 					self::eliminar();
 				else if ($accion == 'mostrar')
 					self::mostrar();
+				else if($accion == 'pensumEstActivo')
+					self::pensumEstActivo();
 				else
 				throw new Exception ("(PensumControlador) Accion $accion no es valida");
 			
@@ -363,6 +365,22 @@
 				Vista::mostrar();
 			}
 			catch (Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function pensumEstActivo(){
+
+			try{				
+				$r=PensumServicio::pensumConEstActivo(PostGet::obtenerPostGet('codigo'));
+					
+				Vista::asignarDato('pensum',$r);
+				//var_dump($r);
+				
+				self::mostrar();
+
+			}
+			catch(Exception $e){
 				throw $e;
 			}
 		}	
