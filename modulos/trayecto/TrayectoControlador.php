@@ -25,7 +25,7 @@
  * @package Controladores
  */
 	require_once("modulos/trayecto/modelo/TrayectoServicio.php");
-	require_once("negocio/Trayecto.php");
+	//require_once("negocio/Trayecto.php");
 
 
 

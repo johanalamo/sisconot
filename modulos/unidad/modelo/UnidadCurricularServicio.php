@@ -19,12 +19,12 @@
  *  clase TrayectoServicio 
  */
 
-
+/*
 require_once "negocio/Pensum.php";
 require_once "negocio/Trayecto.php";
 require_once "negocio/UniCurricular.php";
 
-
+*/
 class UnidadServicio
 {
 

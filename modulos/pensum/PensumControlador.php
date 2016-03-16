@@ -24,7 +24,7 @@
  * @package Controladores
  */
 	require_once("modulos/pensum/modelo/PensumServicio.php");
-	require_once("negocio/Pensum.php");	
+	//require_once("negocio/Pensum.php");	
 
 
 	class  PensumControlador

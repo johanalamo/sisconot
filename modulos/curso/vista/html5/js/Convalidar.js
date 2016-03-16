@@ -2,6 +2,7 @@ $( document ).ready(function() {
 	verTipUniCurricular();
 	$("#nota").hide();
 	activarCal();
+	borrarCampos();
 });
 
 function verTipUniCurricular(){
@@ -37,7 +38,7 @@ function verPensum(codigo=null){
 				  "m_accion"	,		"pensumEstActivo",
 				  "codigo"		,		codigo
 				);
-	ajaxMVC(arr,succPensumEst,errAjax)
+	ajaxMVC(arr,succPensumEst,errAjax);
 
 }
 
@@ -89,8 +90,8 @@ function succTrayecto (data){
 function guardarConvalidacion (){
 	
 	var arr=Array(	"m_modulo"	,		"curso",
-				  	"m_accion"	,		"insertarElectiva",
-				  	"cod_estudiante",		$("#codigoEstudiante").val(),
+				  	"m_accion"	,		"insertarConvalidacion",
+				  	"cod_persona",			$("#codigoPersona").val(),
 				  	"con_nota"		,		$('input:radio[name=nota]:checked').val(),
 					"nota"			,		$("#nota").val(),
 					"fecha"			,		$("#fecha").val(),
@@ -98,17 +99,70 @@ function guardarConvalidacion (){
 					"cod_pensum"	,		$("#pensumEst").val(),
 					"cod_trayecto"	,		$("#trayectoEst").val(),
 					"cod_uni_curricular",	$("#codUni").val(),
-					"descripcion"	,		$("#descripcionText").val()
+					"descripcion"	,		$("#descripcionText").val(),
+					"codigo"		,		$("#codConvalidacion").val()
 				);
-	ajaxMVC(arr,succGuardarConvalidacion,errAjax)
+
+	//alert($("#codUni").val());
+	ajaxMVC(arr,succGuardarConvalidacion,errAjax);
+	setTimeout(function(){
+		verConvalidadasEstudiante($("#codigoPersona").val());
+	 },300);
 }
 
 function succGuardarConvalidacion(data){
 	
 	console.log(data);
-	//alert(data.mensaje);
-	if(data.estatus>0)
+
+	if(data.estatus>0){
+		if(data.codigo)
+			$("#codConvalidacion").val(data.codigo);
 		mostrarMensaje(data.mensaje,1);
+	}
+	else
+		mostrarMensaje(data.mensaje,2);
+}
+
+function borrarCampos(){
+	$("#codigoPersona").val("");
+	$("#no").prop("checked",false);
+	$("#si").prop("checked",false);
+	$("#nota").val("");
+	$("#nota").hide();
+	$("#trayectoEst").val("");
+	$("#codUni").val("");
+	$("#descripcionText").val("");
+	$("#codConvalidacion").val("");
+	$("#nombre").val("");
+	$("#cedula").val("");
+	$("#estudiante").val("");
+	$("#selectTipoUni").val("-1");
+	$("#selectTipoUni").selectpicker("refresh");
+	$("#IdPensumEst").remove();
+	$("#IdTrayecto").remove();
+	$("#unidadCurricular").val("");
+	$("#fecha").val("");
+	$("#detallePen").remove();
+	$("#convalida").remove();
+}
+
+function borrarConvalidacion(){
+	var arr=Array(	"m_modulo"	,		"curso",
+				  	"m_accion"	,		"eliminarConvalidacion",
+				  	"codigo"		,	$("#codConvalidacion").val()				  	
+				);
+
+	ajaxMVC(arr,succBorrarConvalidacion,errAjax);
+	setTimeout(function(){
+		verConvalidadasEstudiante($("#codigoPersona").val());
+	 },300);
+}
+
+function succBorrarConvalidacion(data){
+	if(data.estatus>0){
+		$("#codConvalidacion").val("");
+		mostrarMensaje(data.mensaje,1);
+	}
 	else
 		mostrarMensaje(data.mensaje,2);
 }
@@ -148,7 +202,7 @@ function autoCompletarEstudiante(estado){
 					$(this).val(ui.item.label);
 					event.preventDefault();
 					$("#doc"+$(this).attr("id")).val(ui.item.value);
-					$("#codigoEstudiante").val(ui.item.value);
+					$("#codigoPersona").val(ui.item.value);
 					$("#nombre").val(ui.item.nombre);
 					$("#cedula").val(ui.item.cedula);
 					//alert(ui.item.value+"---");				
@@ -168,7 +222,7 @@ function autoCompletarEstudiante(estado){
 					$(this).val(ui.item.label);
 					event.preventDefault();
 					$("#doc"+$(this).attr("id")).val(ui.item.value);
-					$("#codigoEstudiante").val(ui.item.value);
+					$("#codigoPersona").val(ui.item.value);
 					$("#nombre").val(ui.item.nombre);
 					$("#cedula").val(ui.item.cedula);
 				}
@@ -237,18 +291,21 @@ function autoCompletarUniCurricular(){
 	});
 }
 
-function verConvalidadasEstudiante(codigo=null){
+function verConvalidadasEstudiante(codigo,codConvalidacion){
 	var arr= Array(
 					"m_modulo" , "curso",
 					"m_accion" , "convalidaciones",
-					"codigo"   , codigo
+					"codigo"   , codigo,
+					"codConvalidacion", codConvalidacion
 					);
+
 	ajaxMVC(arr,succConvalidadas,errAjax); 
 }
 
 function succConvalidadas(data){
 	var cadena="";
-	
+	//alert(data.codConvalidacion);
+	var codConvalidacion=data.codConvalidacion;
 	if(data.convalidaciones){
 		$("#convalida").remove();
 		var dat=data.convalidaciones;
@@ -267,8 +324,14 @@ function succConvalidadas(data){
 				nota=data['nota'];
 			else
 				nota=" - ";
-			
-			cad+="	<tr id="+data['codigo']+" onclick='buscarConvalidacion("+data['codigo']+");'>";
+
+			if(codConvalidacion!=data['codigo'])
+				cad+="	<tr id="+data['codigo']+" onclick='buscarConvalidacion("+data['codigo']+"); verConvalidadasEstudiante("+$("#codigoPersona").val()+","+data['codigo']+");'>";
+			else{
+				
+				cad+="	<tr id="+data['codigo']+" onclick='buscarConvalidacion("+data['codigo']+"); 'style='background-color:#E5EAEE;'>";			
+			}
+
 			cad+="	  <td>"+x+"</td>";
 			cad+="	  <td>"+data['codigo']+"</td>";
 			cad+="	  <td>"+data['nom_corto']+"</td>";
@@ -294,11 +357,11 @@ function buscarConvalidacion(codigo=null){
 }
 
 function succBuscarConvalidacion (data){
-	//alert(JSON.stringify(data));
+
 	if(data.convalidacion){
 		dat=data.convalidacion[0];
-		$("#nombre").val(dat['nomPersona']);
-		$("#codigoEstudiante").val(dat['cod_estudiante']);
+		$("#nombre").val(dat['nompersona']);
+		$("#codigoPersona").val(dat['cod_persona']);
 		$("#cedula").val(dat['cedula']);
 		$("#codConvalidacion").val(dat['codigo']);
 		$("#selectTipoUni").val(dat['cod_tip_uni_curricular']);
@@ -306,14 +369,22 @@ function succBuscarConvalidacion (data){
 		if(dat['con_nota']==true){
 			$("#si").prop("checked", true);
 			$("#nota").val(dat['nota']);
+			$("#nota").show();
+
 		}
 		else
-			$("#no").prop("checked", true);
-
-		$("#trayectoEst").val(dat['cod_trayecto']);
+			$("#no").prop("checked", true);		
 		$("#pensumEst").val(dat['cod_pensum']);
 		$("#unidadCurricular").val(dat['nombre']);
 		$("#descripcionText").val(dat['descripcion']);
+		$("#codUni").val(dat['cod_uni_curricular']);
+		verTrayecto();
+		setTimeout(function(){			
+			$("#trayectoEst").val(dat['cod_trayecto']);
+			$(".selectpicker").selectpicker("refresh");
+	 	},200);
+		
+
 		verDetalle(dat['cod_uni_curricular']);
 	}
 }

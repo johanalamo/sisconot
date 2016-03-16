@@ -27,9 +27,9 @@
 	require_once("modulos/unidad/modelo/UniTraPensumServicio.php");
 	require_once("modulos/unidad/modelo/PrelacionServicio.php");
 
-	require_once("negocio/UniCurricular.php");
+	/*require_once("negocio/UniCurricular.php");
 	require_once("negocio/Prelacion.php");
-
+*/
 
 	class  UnidadControlador
 	{
