@@ -84,6 +84,16 @@ Descripción:
 					self::generarTicketInscripcion();
 				else if($accion == "eliminarCurso")
 					self::eliminarCurso();
+				else if($accion == "tipoUniCurrilular")
+					self::tipoUniCurrilular();
+				else if($accion == "insertarConvalidacion")
+					self::insertarConvalidacion();
+				else if($accion == "convalidaciones")
+					self::convalidaciones();
+				else if($accion == "buscarConvalidacionCodigo")
+					self::buscarConvalidacionCodigo();
+				else if($accion == "eliminarConvalidacion")
+					self::eliminarConvalidacion();
 				else
 					throw new Exception ("No se pudo resolver la acción $accion");
 			}
@@ -615,6 +625,137 @@ Descripción:
 				throw $e;
 			}
 		}
+
+		
+		public static function tipoUniCurrilular(){
+			try{
+				$r=CursoServicio::listarTipoUnicurricuar();
+				Vista::asignarDato("tipUniCurrilular",$r);
+				Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function insertarConvalidacion(){
+
+			try{
+				$cod_persona=PostGet::obtenerPostGet('cod_persona');
+				$con_nota=PostGet::obtenerPostGet('con_nota');
+				$nota=PostGet::obtenerPostGet('nota');
+				$fecha=PostGet::obtenerPostGet('fecha');
+				$cod_tip_uni_curricular=PostGet::obtenerPostGet('cod_tip_uni_curricular');
+				$cod_pensum=PostGet::obtenerPostGet('cod_pensum');
+				$cod_trayecto=PostGet::obtenerPostGet('cod_trayecto');
+				$cod_uni_curricular=PostGet::obtenerPostGet('cod_uni_curricular');
+				$descripcion=PostGet::obtenerPostGet('descripcion');
+				$codigo=PostGet::obtenerPostGet("codigo");
+				
+				if(!$nota)
+					$nota=null;
+				
+				if(!$codigo){
+					$r=CursoServicio::agregarConvalidacion($cod_persona, 	   $con_nota,  $nota,  	    
+														   $fecha,  			   $cod_tip_uni_curricular,    
+														   $cod_pensum, 		   $cod_trayecto, 		   $cod_uni_curricular,   
+														   $descripcion );
+				}
+				else{
+					$r2=CursoServicio::modificarConvalidacion($codigo,$descripcion);
+				}
+				//echo $r."---".$r2;
+				if($r2>0 || $r>0){
+
+					if($r>0){
+						if(!$codigo){					
+							Vista::asignarDato("estatus",1);
+							vista::asignarDato("codigo",$r);
+							//Vista::asignarDato("ruta",dirname(__FILE__));
+							Vista::asignarDato("mensaje","Se ha hecho la convalidacion");
+						}
+						else
+							Vista::asignarDato("mensaje","NO se hizo la convalidacion");
+					}
+
+					if($r2>0){
+						if($codigo){
+							Vista::asignarDato("estatus",1);
+							Vista::asignarDato("mensaje","Se han guardado los cambios de la convalidacion");
+						}
+						else
+							Vista::asignarDato("mensaje","NO se hizo la convalidacion");
+					}
+				}
+				
+				Vista::mostrar();
+
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function convalidaciones(){
+			try{
+
+				$codigo=PostGet::obtenerPostGet("codigo");
+				$r=CursoServicio::buscarConvalidacionEstudiante($codigo);
+				Vista::asignarDato("convalidaciones",$r);
+				Vista::asignarDato("codConvalidacion",PostGet::obtenerPostGet("codConvalidacion"));
+				Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function buscarConvalidacionCodigo(){
+			try{
+				$codigo=PostGet::obtenerPostGet("codigo");
+				$r=CursoServicio::BuscarConvalidacionPorCodigo($codigo);
+				Vista::asignarDato("convalidacion",$r);
+				Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function modificarConvalidacion(){
+			try{
+				$codigo=PostGet::obtenerPostGet("codigo");
+				$observaciones=PostGet::obtenerPostGet("observaciones");
+				$r=CursoServicio::modificarConvalidacion($codigo,$observaciones);
+
+				if($r>0)
+					Vista::asignarDato("estatus",1);
+
+				Vista::mostrar();
+			}	
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function eliminarConvalidacion(){
+			try{
+
+				$r=CursoServicio::borrarConvalidacion(PostGet::obtenerPostGet("codigo"));
+				if($r>0){
+					Vista::asignarDato("mensaje","La convalidacion ha sido eliminada");
+					Vista::asignarDato("estatus",1);
+				}
+				else
+					Vista::asignarDato("Hubo un error al eliminar la convalidacion");
+
+				Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
 
 
 	}
