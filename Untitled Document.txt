@@ -1,2 +1,0 @@
-main.js
-bootstrap-datetimepicker.js
