@@ -131,7 +131,7 @@ class Pensum {
 		return $this->fechaCreacion;
 	}
 
-	public function toArray(){
+/*	public function toArray(){
 		$arr =  array(
 			'codigo' => !empty($this->obtenerCodigo())?$this->obtenerCodigo():'',	
 			'nombre' => !empty($this->obtenerNombre())?$this->obtenerNombre():'',	
@@ -143,7 +143,7 @@ class Pensum {
 			'fechaCreacion' => !empty($this->obtenerFechaCreacion())?$this->obtenerFechaCreacion():''
 		 );	
 		return $arr;
-	}
+	}*/
 
 }
 
