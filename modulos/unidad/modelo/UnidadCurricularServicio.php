@@ -436,6 +436,39 @@ class UnidadServicio
 			}
 		}
 
+		public static function ObtenerUnidadesPorPenTraPatron($codigoTra,$codigoPen,$patron){
+			try{
+
+				$conexion = Conexion::conectar();
+				$patron=strtoupper($patron);
+				$cad="";
+				if($codigoTra)
+					$cad=" and t.codigo=$codigoTra and t.cod_pensum=p.codigo and utp.cod_trayecto=t.codigo";
+				if($codigoPen)
+					$cad.=" and p.codigo=$codigoPen and utp.cod_pensum=p.codigo ";
+				
+				
+				$consulta="select u.* from sis.t_uni_curricular u, sis.t_trayecto t, 
+								sis.t_pensum p, sis.t_uni_tra_pensum utp
+							where true $cad
+								and utp.cod_uni_curricular=u.codigo and u.nombre like '%$patron%' 
+								group by u.codigo order by codigo;";
+
+				$ejecutar=$conexion->prepare($consulta);
+				
+				$ejecutar-> execute(array());
+			
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
 
 }
 ?>

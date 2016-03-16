@@ -86,6 +86,9 @@
 				else if ($accion =='eliminarUniTraPen')
 					self::eliminarUniTraPen();
 
+				else if ($accion == "ListarUnidadesPorPenTraPatron")
+					self::ListarUnidadesPorPenTraPatron();
+
 
 				else
 				throw new Exception ("(PensumControlador) Accion $accion no es valida");	
@@ -626,6 +629,49 @@
 				throw $e;
 			}
 		}
+
+		public static function ListarUnidadesPorPenTraPatron(){
+
+			try{
+				//echo "dfdsssf";
+				$codTrayecto=PostGet::obtenerPostGet('trayecto');
+				$codPensum=PostGet::obtenerPostGet('pensum');
+				$patron=PostGet::obtenerPostGet('patron');
+
+				$r=UnidadServicio::ObtenerUnidadesPorPenTraPatron($codTrayecto,$codPensum,$patron);
+				//var_dump($r);
+				$cad = "[";
+				if ($r != null){
+					$c = 0;
+					foreach ($r as $unidad) {
+						if ($c > 0)
+							$cad .= ",";
+						$cad .= "{";
+						$cad .= '"label": "' . $unidad['nombre']. '", ';
+						$cad .= '"value": '.$unidad['codigo'];
+						$cad .= "}";
+						$c++;
+					}
+				}
+				else{
+					$cad .= "{";
+					$cad .= '"label":"No hay coincidencias", ';
+					$cad .= '"value": "null"';
+					$cad .= "}";
+				}
+				$cad .= "]";
+
+				Vista::asignarDato("auto",$cad);
+
+				Vista::asignarDato("detalleUnidad",$r);
+				Vista::asignarDato("estatus",1);
+				Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
 
 
 
