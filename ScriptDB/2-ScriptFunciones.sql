@@ -1835,53 +1835,6 @@ $$;
 ALTER FUNCTION sis.f_persona_sel(p_cursor refcursor) OWNER TO sisconot;
 
 
-
-
-CREATE OR REPLACE FUNCTION sis.f_convalidar_ins(integer, boolean, real, date ,
-						text, 	 integer, integer, integer, text)
-  RETURNS integer AS
-$BODY$
-DECLARE
-	p_codigo integer := 0;
-	p_cod_estudiante ALIAS for $1;
-	p_con_nota ALIAS for $2;
-	p_nota ALIAS for $3;
-	p_fecha ALIAS for $4;
-	p_cod_tip_uni_curricular ALIAS for $5;
-	p_cod_pensum ALIAS for $6;
-	p_cod_trayecto ALIAS for $7;
-	p_cod_uni_curricular ALIAS for $8;
-	p_descripcion ALIAS FOR $9;
-
-BEGIN
-
-  SELECT COALESCE (max(codigo),0) FROM sis.t_convalidacion INTO p_codigo;
-  p_codigo := p_codigo + 1;
-
-  INSERT INTO sis.t_convalidacion(codigo,		cod_estudiante, 	   con_nota,   nota,
-				  fecha,  		cod_tip_uni_curricular,    cod_pensum, cod_trayecto,
-				  cod_uni_curricular,   descripcion )
-
-	VALUES (p_codigo,		  p_cod_estudiante, 	       p_con_nota,   p_nota,
-	        p_fecha,  		  p_cod_tip_uni_curricular,    p_cod_pensum, p_cod_trayecto,
-	        p_cod_uni_curricular,     p_descripcion);
-
-  RETURN p_codigo;
-
-END;
-$BODY$
-  LANGUAGE plpgsql VOLATILE
-  COST 100;
-ALTER FUNCTION sis.f_convalidar_ins    (integer, boolean, real , date ,
-					text, 	 integer, integer, integer, text)
-  OWNER TO sisconot;
-
-
-
-
-
-
-
 CREATE OR REPLACE FUNCTION sis.utf(character varying)
   RETURNS text AS
   $BODY$
@@ -1893,4 +1846,97 @@ CREATE OR REPLACE FUNCTION sis.utf(character varying)
   LANGUAGE 'sql'
   COST 100;
 
-ALTER FUNCTION sis.utf(character varying)  OWNER TO sisconot;;
+ALTER FUNCTION sis.utf(character varying)  OWNER TO sisconot;
+
+CREATE OR REPLACE FUNCTION sis.f_convalidar_ins(integer, boolean, real, date, text, integer, integer, integer, text)
+  RETURNS integer AS
+$BODY$
+DECLARE
+  p_codigo integer := 0;
+  p_cod_estudiante integer:=0;
+  p_cod_persona ALIAS for $1;
+  p_con_nota ALIAS for $2;
+  p_nota ALIAS for $3;
+  p_fecha ALIAS for $4;
+  p_cod_tip_uni_curricular ALIAS for $5;
+  p_cod_pensum ALIAS for $6;
+  p_cod_trayecto ALIAS for $7;
+  p_cod_uni_curricular ALIAS for $8;
+  p_descripcion ALIAS FOR $9;
+
+BEGIN
+
+  SELECT COALESCE (max(codigo),0) FROM sis.t_convalidacion INTO p_codigo;
+  p_codigo := p_codigo + 1;
+  SELECT codigo from sis.t_estudiante where cod_pensum=p_cod_pensum and cod_estado='A' and cod_persona=p_cod_persona INTO p_cod_estudiante;
+  INSERT INTO sis.t_convalidacion(codigo,   cod_estudiante,      con_nota,   nota,
+          fecha,      cod_tip_uni_curricular,    cod_pensum, cod_trayecto,
+          cod_uni_curricular,   descripcion )
+          
+  VALUES (p_codigo,     p_cod_estudiante,          p_con_nota,   p_nota,
+          p_fecha,        p_cod_tip_uni_curricular,    p_cod_pensum, p_cod_trayecto,
+          p_cod_uni_curricular,     p_descripcion);
+
+  RETURN p_codigo;
+
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_convalidar_ins(integer, boolean, real, date, text, integer, integer, integer, text)
+  OWNER TO sisconot;
+
+
+
+
+CREATE OR REPLACE FUNCTION sis.f_convalidar_mod(integer, text)
+  RETURNS integer AS
+$BODY$
+DECLARE
+  r_operacion integer := 0;
+  p_codigo  ALIAS FOR $1;
+  p_descripcion ALIAS FOR $2;
+
+BEGIN
+
+
+  UPDATE sis.t_convalidacion  SET descripcion=p_descripcion  WHERE codigo=p_codigo;
+
+  IF found THEN
+  r_operacion := 1;
+  END IF;
+
+
+  RETURN r_operacion;
+
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_convalidar_mod(integer, text)
+  OWNER TO sisconot;
+
+
+
+CREATE OR REPLACE FUNCTION sis.f_convalidacion_eli(integer)
+  RETURNS integer AS
+$BODY$
+  DECLARE r_operacion integer := 0;
+  p_codigo ALIAS for $1;
+BEGIN
+
+  DELETE FROM sis.t_convalidacion WHERE codigo = p_codigo;
+
+  IF found THEN
+    r_operacion := 1;
+  END IF;
+
+  RETURN r_operacion;
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_convalidacion_eli(integer)
+  OWNER TO sisconot;
+
+
