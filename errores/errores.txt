@@ -10809,3 +10809,191 @@ Trayecto:
 		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 678 *****************************
+codigo Error: 678
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «undefined»
+LINE 3: ...persona  and em.cod_instituto=1 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', NULL, '1', NULL, 'jean')
+		#2 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 679 *****************************
+codigo Error: 679
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «undefined»
+LINE 3: ...persona  and em.cod_instituto=1 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', NULL, '1', NULL, 'jean')
+		#2 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 680 *****************************
+codigo Error: 680
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «undefined»
+LINE 3: ...persona  and em.cod_instituto=1 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', NULL, '1', NULL, 'jean')
+		#2 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 681 *****************************
+codigo Error: 681
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «undefined»
+LINE 3: ...persona  and em.cod_instituto=1 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', NULL, '1', NULL, 'jean')
+		#2 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 682 *****************************
+codigo Error: 682
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «undefined»
+LINE 3: ...persona  and em.cod_instituto=1 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', NULL, '1', NULL, 'jean')
+		#2 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 683 *****************************
+codigo Error: 683
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «undefined»
+LINE 3: ...persona  and em.cod_instituto=1 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', NULL, '1', NULL, 'jean')
+		#2 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 684 *****************************
+codigo Error: 684
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «undefined»
+LINE 3: ...persona  and em.cod_instituto=1 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', NULL, '1', NULL, NULL)
+		#2 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 685 *****************************
+codigo Error: 685
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «undefined»
+LINE 3: ...persona  and em.cod_instituto=1 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', NULL, '1', NULL, NULL)
+		#2 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 686 *****************************
+codigo Error: 686
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «undefined»
+LINE 3: ...persona  and em.cod_instituto=1 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', 'A', '1', NULL, NULL)
+		#2 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 687 *****************************
+codigo Error: 687
+Mensaje error: SQLSTATE[42703]: Undefined column: 7 ERROR:  no existe la columna «undefined»
+LINE 3: ...persona  and em.cod_instituto=1 and em.cod_pensum=undefined ...
+                                                             ^
+Archivo Error: /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php
+Linea Error: 353
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/empleado/modelo/EmpleadoServicio.php(353): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(94): EmpleadoServicio::listarPersonaEmpleado('undefined', 'A', '1', NULL, NULL)
+		#2 /var/www/github/sisconot/modulos/empleado/EmpleadoControlador.php(34): EmpleadoControlador::listar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(9): EmpleadoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 688 *****************************
+codigo Error: 688
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/curso/CursoControlador.php(420): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 689 *****************************
+codigo Error: 689
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/curso/CursoControlador.php(420): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
