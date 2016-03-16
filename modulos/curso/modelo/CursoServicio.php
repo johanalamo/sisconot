@@ -1234,5 +1234,165 @@ Descripción:
 			}
 		}
 
+		public static function listarTipoUnicurricuar(){
+			try{
+				
+				$conexion = Conexion::conectar();
+				$consulta = "select * from sis.t_tip_uni_curricular;";
+
+				$ejecutar=$conexion->prepare($consulta);
+
+				$ejecutar-> execute(array());
+
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function agregarConvalidacion($cod_persona, 	   $con_nota,  $nota,  	    
+												   $fecha,  			   $cod_tip_uni_curricular,    
+												   $cod_pensum, 		   $cod_trayecto, 		   $cod_uni_curricular,   
+												   $descripcion )
+		{
+			try{
+
+				$conexion = Conexion::conectar();
+
+				$consulta = "select sis.f_convalidar_ins(
+														:cod_persona, 	   :con_nota,  :nota,  	    
+												   		:fecha,  			   :cod_tip_uni_curricular,    
+												   		:cod_pensum, 		   :cod_trayecto, 		   :cod_uni_curricular,   
+												   		:descripcion 
+													);";
+				$ejecutar = $conexion->prepare($consulta);
+
+				$ejecutar->bindParam(':cod_persona',$cod_persona, PDO::PARAM_STR);
+				$ejecutar->bindParam(':con_nota',$con_nota, PDO::PARAM_STR);
+				$ejecutar->bindParam(':nota',$nota, PDO::PARAM_STR);
+				$ejecutar->bindParam(':fecha',$fecha, PDO::PARAM_STR);
+				$ejecutar->bindParam(':cod_tip_uni_curricular',$cod_tip_uni_curricular, PDO::PARAM_STR);
+				$ejecutar->bindParam(':cod_pensum',$cod_pensum, PDO::PARAM_STR);
+				$ejecutar->bindParam(':cod_trayecto',$cod_trayecto, PDO::PARAM_STR);
+				$ejecutar->bindParam(':cod_uni_curricular',$cod_uni_curricular, PDO::PARAM_STR);
+				$ejecutar->bindParam(':descripcion',$descripcion , PDO::PARAM_STR);
+				
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+
+				$ejecutar->execute();
+				$codigo=$ejecutar->fetchColumn(0);
+				return $codigo;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function buscarConvalidacionEstudiante ($codigo=null){
+			try{
+				$conexion = Conexion::conectar();
+				$consulta = "select c.codigo,c.cod_estudiante,c.con_nota, c.nota, p.nom_corto,
+								c.fecha,c.descripcion, tuc.nombre as tipo, t.num_trayecto, uc.nombre
+							from sis.t_tip_uni_curricular tuc, sis.t_convalidacion c, sis.t_trayecto t, 
+								sis.t_pensum p, sis.t_uni_curricular uc, sis.t_estudiante est
+							where c.cod_estudiante=est.codigo and c.cod_trayecto=t.codigo
+								and p.codigo=c.cod_pensum and tuc.codigo=c.cod_tip_uni_curricular 
+								and uc.codigo=c.cod_uni_curricular and est.cod_persona=?
+							order by c.fecha desc,c.codigo";
+
+				$ejecutar=$conexion->prepare($consulta);
+
+				$ejecutar-> execute(array($codigo));
+
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function BuscarConvalidacionPorCodigo ($codigo=null){
+			try{
+
+				$conexion = Conexion::conectar();
+
+				$consulta = "select c.*, uc.nombre, 
+								p.nombre1 || ' ' || p.nombre2 || ' ' || p.apellido1 || ' ' || 
+								p.apellido2 as nomPersona, p.cedula
+							from sis.t_convalidacion c, sis.t_uni_curricular uc, 
+								sis.t_persona p, sis.t_estudiante e
+							where c.codigo=? and c.cod_uni_curricular=uc.codigo 
+								and p.codigo = e.cod_persona and e.codigo=c.cod_estudiante;";
+
+				$ejecutar=$conexion->prepare($consulta);
+
+				$ejecutar-> execute(array($codigo));
+
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function modificarConvalidacion($codigo,$descripcion){
+			try{
+				$conexion = Conexion::conectar();
+
+				$consulta="select sis.f_convalidar_mod(:codigo,:descripcion)";								
+					
+				$ejecutar=$conexion->prepare($consulta);
+
+				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_STR);
+				$ejecutar->bindParam(':descripcion',$descripcion, PDO::PARAM_STR);
+
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+					//ejecuta				
+				$ejecutar->execute();
+					//primera columana codigo
+				$row = $ejecutar->fetchColumn(0);
+				
+				return $row;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function borrarConvalidacion($codigo=null){
+			try{
+
+				$conexion = Conexion::conectar();
+				$consulta="select sis.f_convalidacion_eli(:codigo)";
+				$ejecutar=$conexion->prepare($consulta);
+
+				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_STR);						
+				
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				//ejecuta			
+
+				$ejecutar->execute();
+				//primera columana codigo
+				$row = $ejecutar->fetchColumn(0);					
+				//var_dump($row);
+
+				return $row;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+
 	}
 ?>
