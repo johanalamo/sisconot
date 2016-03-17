@@ -215,7 +215,7 @@ function guardarEstudiante (){
 					//"estadoEs",  $("#selectEstado").val(),
 					"codPensum", $("#estudiante #selectPNF").val()
 					);
-	//alert($("#estudiante #selectPNF").val());
+	//alert($("#fec_fin_estudiante").val());
 	ajaxMVC(arr,succAgregarEstudiante,error);
 }
 
@@ -279,7 +279,6 @@ function verInstitutoEsPrincipal(){
 * Funcion Java Script que permite mostrar un select con
 * los institutos y es concatenado a un  div en la vista HTML
 */
-/*
 function montarSelectInstitutoE(data){
 	console.log(data);
 	var cadena = "";
@@ -297,7 +296,6 @@ function montarSelectInstitutoE(data){
 	activarSelect();					
 }
 
-*/
 
 /**
 * Funcion Java Script que permite listar Todos los PNF

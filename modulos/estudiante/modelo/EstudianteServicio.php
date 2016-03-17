@@ -137,8 +137,7 @@ class EstudianteServicio
 			$consulta= "select es.*, p.nom_corto as nom_pensum, i.nom_corto as nom_instituto, e.nombre,
 							p.nombre as nom_pen_largo, i.nombre as nom_ins_largo,
 							(select to_char(es.fec_inicio,'DD/MM/YYYY')) as fec_inicios,
-							(select to_char(es.fec_fin,'DD/MM/YYYY')) as fec_final,
-							count(*) as total_filas
+							(select to_char(es.fec_fin,'DD/MM/YYYY')) as fec_final
 						from sis.t_estudiante es,  sis.t_instituto i,
 							sis.t_est_estudiante e, sis.t_pensum p where true ";
 
@@ -173,8 +172,7 @@ class EstudianteServicio
 				$consulta.= " and es.fec_fin='$fec_fin' ";
 
 			$consulta.=" and i.codigo=es.cod_instituto and e.codigo=es.cod_estado
-						 and p.codigo=es.cod_pensum 
-						 group by es.codigo, p.codigo, i.codigo,e.codigo";
+				and p.codigo=es.cod_pensum ";
 
 			$ejecutar= $conexion->prepare($consulta);
 
@@ -242,7 +240,7 @@ class EstudianteServicio
 						 	where true and p.codigo=es.cod_persona ";
 
 			if(!$cod_curso)
-				$consulta = "select p.*,  p.codigo as cod_persona 
+				$consulta = "select p.*,  p.codigo as cod_persona, es.codigo as cod_estudiante
 							from sis.t_persona p, sis.t_estudiante es
 						 	where true and p.codigo=es.cod_persona ";
 
@@ -294,7 +292,7 @@ class EstudianteServicio
 			}
 
 			if(!$cod_curso)
-				$consulta.=" group by p.codigo order by p.codigo ";
+				$consulta.=" group by p.codigo, es.codigo order by p.codigo ";
 
 
 
@@ -315,7 +313,7 @@ class EstudianteServicio
 	}
 
 	public static function listarEstudiantePeriodo($cod_instituto=null,$cod_pensum=null,$cod_periodo=null,
-													$cod_estado=null)
+									$cod_estado=null)
 	{
 
 		try{

@@ -133,7 +133,10 @@ input[readonly] {
     margin-left:-7%;
 }*/
 
+#confirmationDialoge{
+  background-color: black;
 
+}
 
 .boton-focus:focus{
   background-color: #209472;

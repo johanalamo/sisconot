@@ -10997,3 +10997,13 @@ Trayecto:
 		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 690 *****************************
+codigo Error: 690
+Mensaje error: Ruta no existente verifique dicha ruta: modulos/persona/vista/html5/Principal.html.twig
+Archivo Error: /var/www/github/sisconot/base/clases/vista/Vista.php
+Linea Error: 65
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(158): Vista::iniciar('persona:html5:P...')
+		#1 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(71): PrincipalControlador::configurar()
+		#2 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#3 {main}
