@@ -179,7 +179,7 @@ Descripción:
 		public static function modificarCurso($codigo, $codPeriodo, $codUniCurricular, $codDocente, $seccion, $fecInicio, $fecFinal, $capacidad, $observaciones){
 			try{
 				$conexion=Conexion::conectar();
-				$consulta="select sis.f_curso_mod(:codigo, :p_cod_periodo, :p_cod_uni_curricular, :p_cod_docente, :p_seccion, :p_fec_inicio, :p_fec_final, :p_capacidad, :p_observaciones)";
+				$consulta="select sis.f_curso_mod(:codigo, :p_cod_periodo, :p_cod_uni_curricular, :p_cod_docente, upper(:p_seccion), :p_fec_inicio, :p_fec_final, :p_capacidad, :p_observaciones)";
 				$ejecutar=$conexion->prepare($consulta);
 
 				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
@@ -1236,7 +1236,7 @@ Descripción:
 
 		public static function listarTipoUnicurricuar(){
 			try{
-				
+
 				$conexion = Conexion::conectar();
 				$consulta = "select * from sis.t_tip_uni_curricular;";
 
@@ -1254,9 +1254,9 @@ Descripción:
 			}
 		}
 
-		public static function agregarConvalidacion($cod_persona, 	   $con_nota,  $nota,  	    
-												   $fecha,  			   $cod_tip_uni_curricular,    
-												   $cod_pensum, 		   $cod_trayecto, 		   $cod_uni_curricular,   
+		public static function agregarConvalidacion($cod_persona, 	   $con_nota,  $nota,
+												   $fecha,  			   $cod_tip_uni_curricular,
+												   $cod_pensum, 		   $cod_trayecto, 		   $cod_uni_curricular,
 												   $descripcion )
 		{
 			try{
@@ -1264,10 +1264,10 @@ Descripción:
 				$conexion = Conexion::conectar();
 
 				$consulta = "select sis.f_convalidar_ins(
-														:cod_persona, 	   :con_nota,  :nota,  	    
-												   		:fecha,  			   :cod_tip_uni_curricular,    
-												   		:cod_pensum, 		   :cod_trayecto, 		   :cod_uni_curricular,   
-												   		:descripcion 
+														:cod_persona, 	   :con_nota,  :nota,
+												   		:fecha,  			   :cod_tip_uni_curricular,
+												   		:cod_pensum, 		   :cod_trayecto, 		   :cod_uni_curricular,
+												   		:descripcion
 													);";
 				$ejecutar = $conexion->prepare($consulta);
 
@@ -1280,7 +1280,7 @@ Descripción:
 				$ejecutar->bindParam(':cod_trayecto',$cod_trayecto, PDO::PARAM_STR);
 				$ejecutar->bindParam(':cod_uni_curricular',$cod_uni_curricular, PDO::PARAM_STR);
 				$ejecutar->bindParam(':descripcion',$descripcion , PDO::PARAM_STR);
-				
+
 				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 
 				$ejecutar->execute();
@@ -1297,10 +1297,10 @@ Descripción:
 				$conexion = Conexion::conectar();
 				$consulta = "select c.codigo,c.cod_estudiante,c.con_nota, c.nota, p.nom_corto,
 								c.fecha,c.descripcion, tuc.nombre as tipo, t.num_trayecto, uc.nombre
-							from sis.t_tip_uni_curricular tuc, sis.t_convalidacion c, sis.t_trayecto t, 
+							from sis.t_tip_uni_curricular tuc, sis.t_convalidacion c, sis.t_trayecto t,
 								sis.t_pensum p, sis.t_uni_curricular uc, sis.t_estudiante est
 							where c.cod_estudiante=est.codigo and c.cod_trayecto=t.codigo
-								and p.codigo=c.cod_pensum and tuc.codigo=c.cod_tip_uni_curricular 
+								and p.codigo=c.cod_pensum and tuc.codigo=c.cod_tip_uni_curricular
 								and uc.codigo=c.cod_uni_curricular and est.cod_persona=?
 							order by c.fecha desc,c.codigo";
 
@@ -1323,12 +1323,12 @@ Descripción:
 
 				$conexion = Conexion::conectar();
 
-				$consulta = "select c.*, uc.nombre, 
-								p.nombre1 || ' ' || p.nombre2 || ' ' || p.apellido1 || ' ' || 
+				$consulta = "select c.*, uc.nombre,
+								p.nombre1 || ' ' || p.nombre2 || ' ' || p.apellido1 || ' ' ||
 								p.apellido2 as nomPersona, p.cedula
-							from sis.t_convalidacion c, sis.t_uni_curricular uc, 
+							from sis.t_convalidacion c, sis.t_uni_curricular uc,
 								sis.t_persona p, sis.t_estudiante e
-							where c.codigo=? and c.cod_uni_curricular=uc.codigo 
+							where c.codigo=? and c.cod_uni_curricular=uc.codigo
 								and p.codigo = e.cod_persona and e.codigo=c.cod_estudiante;";
 
 				$ejecutar=$conexion->prepare($consulta);
@@ -1349,19 +1349,19 @@ Descripción:
 			try{
 				$conexion = Conexion::conectar();
 
-				$consulta="select sis.f_convalidar_mod(:codigo,:descripcion)";								
-					
+				$consulta="select sis.f_convalidar_mod(:codigo,:descripcion)";
+
 				$ejecutar=$conexion->prepare($consulta);
 
 				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_STR);
 				$ejecutar->bindParam(':descripcion',$descripcion, PDO::PARAM_STR);
 
 				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-					//ejecuta				
+					//ejecuta
 				$ejecutar->execute();
 					//primera columana codigo
 				$row = $ejecutar->fetchColumn(0);
-				
+
 				return $row;
 			}
 			catch(Exception $e){
@@ -1376,14 +1376,14 @@ Descripción:
 				$consulta="select sis.f_convalidacion_eli(:codigo)";
 				$ejecutar=$conexion->prepare($consulta);
 
-				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_STR);						
-				
+				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_STR);
+
 				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-				//ejecuta			
+				//ejecuta
 
 				$ejecutar->execute();
 				//primera columana codigo
-				$row = $ejecutar->fetchColumn(0);					
+				$row = $ejecutar->fetchColumn(0);
 				//var_dump($row);
 
 				return $row;

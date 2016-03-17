@@ -11007,3 +11007,31 @@ Trayecto:
 		#1 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(71): PrincipalControlador::configurar()
 		#2 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#3 {main}
+**************************** Error n° 691 *****************************
+codigo Error: 691
+Mensaje error: SQLSTATE[22007]: Invalid datetime format: 7 ERROR:  la sintaxis de entrada no es válida para tipo date: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 149
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(149): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(118): PeriodoServicio::insertarPeriodo('2017', '1', '1', '', '', '', 'A')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(56): PeriodoControlador::agregarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 692 *****************************
+codigo Error: 692
+Mensaje error: SQLSTATE[22007]: Invalid datetime format: 7 ERROR:  la sintaxis de entrada no es válida para tipo date: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php
+Linea Error: 149
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/periodo/modelo/PeriodoServicio.php(149): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(118): PeriodoServicio::insertarPeriodo('2017', '1', '1', '01/01/2017', '', '', 'A')
+		#2 /var/www/html/github/sisconot/modulos/periodo/PeriodoControlador.php(56): PeriodoControlador::agregarPeriodo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(37): PeriodoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

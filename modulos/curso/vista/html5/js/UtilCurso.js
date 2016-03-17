@@ -1,8 +1,5 @@
-if(per.CursoAgregar)
-	alert("tiene permiso");
-else
-	alert("no tiene permiso");
 
+var datos = null;
 
 /**
  * * * * * * * * * * LICENCIA * * * * * * * * * * * * * * * * * * * * *
@@ -230,8 +227,11 @@ function cargarInstitutos(){
  * limpiarCampos para que limpie los elementos dependientes de este.
  */
 
+
 function succCargarInstitutos(data){
+
 	var ins = data.institutos;
+
 	var cad = "";
 	cad += "<select class='selectpicker' id='selInst' onchange='cargarPensums()' data-live-search='true' data-size='auto'>";
 
@@ -249,7 +249,13 @@ function succCargarInstitutos(data){
 	$("#selInst").selectpicker("destroy");
 	$("#divInst").append(cad);
 	$("#selInst").selectpicker();
+
 	limpiarCampos('inst');
+
+	datos = data.datos;
+
+	if(datos != null)
+		montarSelectUsuario();
 }
 
 /*
@@ -287,7 +293,7 @@ function cargarPensums(){
  */
 
 function succCargarPensums(data){
-	
+
 	var pen = data.pensum;
 	var cad = "";
 
@@ -892,7 +898,8 @@ function succCargarCursosPensum(data){
 
 		cad += "</table>";
 
-		cad += "<button id='btn-b' class='btn btn-dark btn-xs' onclick='actualizarCursos()'>Guardar Cambios</button>";
+		if(per.CursoAgregar || per.CursoModificar)
+			cad += "<button id='btn-b' class='btn btn-dark btn-xs' onclick='actualizarCursos()'>Guardar Cambios</button>";
 	}
 	else{
 		mostrarMensaje("No hay cursos disponibles en la base de datos",2);
@@ -974,8 +981,11 @@ function actualizarCursos(){
 							"fecFinal"			,		$("#fecfinal"+i).val(),
 							"capacidad"			,		$("#capacidad"+i).val(),
 							"observaciones"		,		$("#observaciones"+i).val());
-
-			ajaxMVC(arr,succActualizarCursosA,err);
+			if(per.CursoAgregar)
+				ajaxMVC(arr,succActualizarCursosA,err);
+			else {
+				mostrarMensaje("Se ha detectado que no posee los permisos necesarios. No se pudo realizar la acción.",3);
+			}
 		}
 		else if($("#estado"+i).val() == 'm'){
 			var arr2 = Array("m_modulo"			,		"curso",
@@ -984,20 +994,24 @@ function actualizarCursos(){
 							"codPeriodo"		,		$("#selPer").val(),
 							"codUniCurricular"	,		$("#uni"+i).val(),
 							"codDocente"		,		$("#doc"+i).val(),
-							"seccion"			,		$("#sec").val(),
+							"seccion"			,		$("#sec").val().toUpperCase(),
 							"fecInicio"			,		$("#fecini"+i).val(),
 							"fecFinal"			,		$("#fecfin"+i).val(),
 							"capacidad"			,		$("#capacidad"+i).val(),
 							"observaciones"		,		$("#observaciones"+i).val());
-
-			ajaxMVC(arr2,succActualizarCursosM,err);
+			if(per.CursoModificar)
+				ajaxMVC(arr2,succActualizarCursosM,err);
+			else
+				mostrarMensaje("Se ha detectado que no posee los permisos necesarios. No se pudo realizar la acción.",3);
 		}
 		else if($("#estado"+i).val() == 'e'){
 			var arr3 = Array("m_modulo"		,			"curso",
 											"m_accion"		,			"eliminarCurso",
 											"codCurso"		,			$("#cod"+i).val());
-			if(confirm("¿Está seguro que desea eliminar el curso "+$("#nb"+i).val()+"?"))
-				ajaxMVC(arr3,succEliminarCurso,err);
+
+			if(per.CursoEliminar)
+				if(confirm("¿Está seguro que desea eliminar el curso "+$("#nb"+i).val()+"?"))
+					ajaxMVC(arr3,succEliminarCurso,err);
 		}
 	}
 }
@@ -1202,6 +1216,48 @@ $( document ).ready(function() {
 if(obtenerGet('codigo') != null && obtenerGet('m_vista') != 'CargarNotas')
 	montarSelects();
 
+if(obtenerGet('codigo') != null)
+	montarSelects();
+else if(datos != null){
+	montarSelectUsuario();
+}
+
+function montarSelectUsuario(){
+	datos = datos[0];
+
+	if(datos.emp_inst != null){
+		$("#selInst").val(datos.emp_inst);
+		$("#selInst").selectpicker("refresh");
+		$("#selInst").attr('disabled',true);
+		cargarPensums();
+	}
+	else if(datos.est_inst != null){
+		$("#selInst").val(datos.est_inst);
+		$("#selInst").selectpicker("refresh");
+		$("#selInst").attr('disabled',true);
+		cargarPensums();
+	}
+
+	setTimeout(function(){
+		if(datos.emp_pensum != null){
+			$("#selPen").val(datos.emp_pensum);
+			$("#selPen").selectpicker("refresh");
+			$("#selPen").prop("disabled",true);
+			$("#selInst").css("cursor","not-allowed");
+			cargarPeriodos();
+		}
+		else if(datos.est_pensum != null){
+			$("#selPen").val(datos.est_pensum);
+			$("#selPen").selectpicker("refresh");
+			$("#selPen").prop("disabled",true);
+			$("#selInst").css("cursor","not-allowed");
+			cargarPeriodos();
+		}
+	},150);
+
+
+}
+
 function obtenerGet(indice){
 	var $_GET = {};
 
@@ -1351,7 +1407,8 @@ function succListarEstudiantesCargarNotas(data){
 
 		cad += "</table>";
 
-		cad += "<br><br><center><button class='btn btn-dark btn-xs' onclick='guardarNotas()'>Cargar Notas</button></center>";
+		if(per.CurEstudianteModificar)
+			cad += "<br><br><center><button class='btn btn-dark btn-xs' onclick='guardarNotas()'>Cargar Notas</button></center>";
 	}
 	else {
 		mostrarMensaje("No hay resultados para los criterios de búsqueda",3);
@@ -1504,7 +1561,7 @@ function cargarEstudiantes(){
  */
 
 function succCargarEstudiantes(data){
-	console.log(data);
+
 	var dat = data.estudiantes;
 	var cad = "";
 
@@ -1770,7 +1827,7 @@ function succListarUniEstudiante(data){
 
 function autocompletarDocente(){
 	$(".docente").autocomplete({
-			delay: 200,  //milisegundos
+			delay: 0,  //milisegundos
 			minLength: 1,
 			source: function( request, response ) {
 				var a=Array("m_modulo"		,		"empleado",

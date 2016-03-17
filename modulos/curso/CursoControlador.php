@@ -235,7 +235,7 @@ Descripción:
 				$cont = CursoServicio::verificarEstudiantesCurso($codigo);
 
 				if($cont == 0){
-					CursoServicio::eliminarCurso($codigo);
+					$r = CursoServicio::eliminarCurso($codigo);
 
 					if($r != 0){
 						Vista::asignarDato("estatus","1");
@@ -626,7 +626,7 @@ Descripción:
 			}
 		}
 
-		
+
 		public static function tipoUniCurrilular(){
 			try{
 				$r=CursoServicio::listarTipoUnicurricuar();
@@ -651,14 +651,14 @@ Descripción:
 				$cod_uni_curricular=PostGet::obtenerPostGet('cod_uni_curricular');
 				$descripcion=PostGet::obtenerPostGet('descripcion');
 				$codigo=PostGet::obtenerPostGet("codigo");
-				
+
 				if(!$nota)
 					$nota=null;
-				
+
 				if(!$codigo){
-					$r=CursoServicio::agregarConvalidacion($cod_persona, 	   $con_nota,  $nota,  	    
-														   $fecha,  			   $cod_tip_uni_curricular,    
-														   $cod_pensum, 		   $cod_trayecto, 		   $cod_uni_curricular,   
+					$r=CursoServicio::agregarConvalidacion($cod_persona, 	   $con_nota,  $nota,
+														   $fecha,  			   $cod_tip_uni_curricular,
+														   $cod_pensum, 		   $cod_trayecto, 		   $cod_uni_curricular,
 														   $descripcion );
 				}
 				else{
@@ -668,7 +668,7 @@ Descripción:
 				if($r2>0 || $r>0){
 
 					if($r>0){
-						if(!$codigo){					
+						if(!$codigo){
 							Vista::asignarDato("estatus",1);
 							vista::asignarDato("codigo",$r);
 							//Vista::asignarDato("ruta",dirname(__FILE__));
@@ -687,7 +687,7 @@ Descripción:
 							Vista::asignarDato("mensaje","NO se hizo la convalidacion");
 					}
 				}
-				
+
 				Vista::mostrar();
 
 			}
@@ -732,7 +732,7 @@ Descripción:
 					Vista::asignarDato("estatus",1);
 
 				Vista::mostrar();
-			}	
+			}
 			catch(Exception $e){
 				throw $e;
 			}
