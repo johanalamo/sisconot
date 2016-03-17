@@ -86,6 +86,91 @@ function succTrayecto (data){
 	$(cad).appendTo('#trayecto');
 	activarSelect();
 }
+function preGuardarConvalidacion(){
+
+	var bool=true;
+
+	if(!$("#codigoPersona").val()){
+		mostrarMensaje("Debes elegir una persona.",2);
+		bool=false;
+	}
+	else if(!validarSoloTexto('#estudiante', '0', '80', true)){
+		mostrarMensaje("Debes elegir una persona.",2);
+		bool=false;
+	}
+	else if($("#selectTipoUni").val()=='-1'){
+		mostrarMensaje("Debes Seleccionar un tipo de unidad curricular.",2);
+		bool=false;
+	}
+	else if(!validarFecha("#fecha",true)){
+		mostrarMensaje("Debes de seleccionar una fecha",2);
+		bool=false;
+	}
+	else if(!$('input:radio[id=si]:checked').val() && !$('input:radio[id=no]:checked').val()){
+		mostrarMensaje("Debes seleccionar si la convalidacion posee nota",2);
+		bool=false;
+	}
+	else if($("#pensumEst").val()=='-1'){
+		mostrarMensaje("Debes seleccionar pensum para convalidar",2);
+		bool=false;
+	}
+	else if($("#trayectoEst").val()=='-1'){
+		mostrarMensaje("Debes seleccionar trayecto para convalidar",2);
+		bool=false;
+	}
+	else if(!$("#trayectoEst").val() || !$("#codUni").val()){
+		mostrarMensaje("Debes seleccionar una unidadCurricular para convalidar",2);
+		bool=false;
+	}
+	else if(validarFecha("#fecha",true)){
+		var fecha=$("#fecha").val().split("/");
+		var actual= fecActual().split("/");
+		//alert(actual[2]-fecha[2]);
+		if(actual[2]-fecha[2]<0){
+			mostrarMensaje("debe de seleccionar una fecha menor o igual a la actual",2);
+			bool=false;
+		}
+		else if(actual[2]-fecha[2]>=0 && actual[1]-fecha[1]<0){
+			mostrarMensaje("debe de seleccionar una fecha menor o igual a la actual",2);
+			bool=false;
+		}
+		else if(actual[2]-fecha[2]>=0 && actual[1]-fecha[1]>=0 
+				&& actual[0]-fecha[0]<0){
+			mostrarMensaje("debe de seleccionar una fecha menor o igual a la actual",2);
+			bool=false;
+		}
+	}
+	bool2=true;
+	if($('input:radio[id=si]:checked').val()
+		 && $("#nota").val()){
+		if(!validarSoloNumeros("#nota",'1','2',true)){
+			mostrarMensaje("En el campo nota solo se permiten numeros",2);
+			bool2=false;
+		}
+		else if($("#nota").val()<$("#notaMinima").val()){
+			var cad="";
+			cad="Esta materia no puede ser convalidada,";
+			cad+=" ya que la nota es infirmerior a la minima aceptada";
+			mostrarMensaje(cad,2);
+			bool2=false;
+		}
+		else if($("#nota").val()>$("#notaMaxima").val()){
+			var cad="";
+			cad=" Esta materia no puede ser convalidada,";
+			cad+=" ya que la nota es superior a la maxima aceptada";
+			mostrarMensaje(cad,2);
+			bool2=false;
+		}
+	}
+	else if($('input:radio[id=si]:checked').val()
+			&& !validarSoloNumeros("#nota",'1','2',true) ){
+			mostrarMensaje("Debes introducir la nota",2);
+			bool2=false;
+	}
+
+	if(bool && bool2)
+		guardarConvalidacion ();
+}
 
 function guardarConvalidacion (){
 	
@@ -207,6 +292,7 @@ function autoCompletarEstudiante(estado){
 					$("#cedula").val(ui.item.cedula);
 					//alert(ui.item.value+"---");				
 					verPensum(ui.item.value);
+					$("#codigoPersona").val(ui.item.value);
 					verConvalidadasEstudiante(ui.item.value);
 				}
 
@@ -247,7 +333,7 @@ function autoCompletarUniCurricular(){
 							);
 
 				ajaxMVC(a,function(data){
-							return response(data);
+							return response(data);							
 						  },
 						  function(data){
 						  	console.log(data);
@@ -262,6 +348,9 @@ function autoCompletarUniCurricular(){
 					$(this).val("");
 					event.preventDefault();
 					$("#doc"+$(this).attr("id")).val("");
+					$("#codUni").val('');
+					$("#detallePen").remove();
+
 				}
 				else{
 					$(this).val(ui.item.label);
@@ -279,12 +368,16 @@ function autoCompletarUniCurricular(){
 					$(this).val("");
 					event.preventDefault();
 					$("#doc"+$(this).attr("id")).val("");
+					$("#codUni").val('');
+					$("#detallePen").remove();
+
 				}
 				else{
 					$(this).val(ui.item.label);
 					event.preventDefault();
 					$("#doc"+$(this).attr("id")).val(ui.item.value);
 					var codigo =ui.item.value;
+					$("#codUni").val(codigo);
 					verDetalle(codigo);
 				}
 			}
@@ -307,6 +400,7 @@ function succConvalidadas(data){
 	//alert(data.codConvalidacion);
 	var codConvalidacion=data.codConvalidacion;
 	if(data.convalidaciones){
+		$("#codigoPersona").val(data.codPersona);
 		$("#convalida").remove();
 		var dat=data.convalidaciones;
 		var conNota="";
@@ -328,7 +422,6 @@ function succConvalidadas(data){
 			if(codConvalidacion!=data['codigo'])
 				cad+="	<tr id="+data['codigo']+" onclick='buscarConvalidacion("+data['codigo']+"); verConvalidadasEstudiante("+$("#codigoPersona").val()+","+data['codigo']+");'>";
 			else{
-				
 				cad+="	<tr id="+data['codigo']+" onclick='buscarConvalidacion("+data['codigo']+"); 'style='background-color:#E5EAEE;'>";			
 			}
 
@@ -449,6 +542,9 @@ function consultarDetalleUni(data) {
 		cadena+="</tbody></table></div>";
 	//	$("#detallePen").html(cadena);
 	//	alert(cadena);
+		$("#notaMinima").val(unidad[7]);
+		$("#notaMaxima").val(unidad[8]);
+
 		$(cadena).appendTo('#detalle');
 		//$("detallePen").replaceWith(cadena);
 	}

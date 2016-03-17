@@ -703,6 +703,7 @@ Descripción:
 				$r=CursoServicio::buscarConvalidacionEstudiante($codigo);
 				Vista::asignarDato("convalidaciones",$r);
 				Vista::asignarDato("codConvalidacion",PostGet::obtenerPostGet("codConvalidacion"));
+				Vista::asignarDato("codPersona",$codigo);
 				Vista::mostrar();
 			}
 			catch(Exception $e){
