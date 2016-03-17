@@ -200,15 +200,6 @@ function compararDatosEmpleados(data){
 				boolNada=false;				
 				break;						
 			}
-			else if(data.empleado[x]['fec_inicios'] == $("#fec_ini_empleado").val()
-					&& data.empleado[x]['codigo'] != $("#cod_empleado").val()){
-				mensaje+="Ya esta modificacion se realizo anteriormente. Si desea afectuarla puede";
-				mensaje+=" eliminar la informacion que se encuentra en la fila N° "+acu+" o cambie la fecha"; 
-				mensaje+=" de inicio.";	
-				mostrarMensaje(mensaje,2);	
-				boolNada=false;
-				break;			
-			}
 			else if( data.empleado[x]['es_jef_con_estudio'] == $('#es_jef_con_estudio').prop('checked')
 					&& data.empleado[x]['es_ministerio'] == $('#es_ministerio').prop('checked')
 					&& data.empleado[x]['es_jef_pensum'] == $('#es_jef_pensum').prop('checked')
@@ -222,7 +213,7 @@ function compararDatosEmpleados(data){
 					||	data.empleado[x]['observaciones']!=$("#obs_empleado").val())){
 						bool=true;
 						break;
-			}			
+					}			
 			else if(/*data.empleado[x]['fec_final']==null						
 						&&*/( data.empleado[x]['cod_estado'] != $("#empleado  #selectEstado").val()
 						|| data.empleado[x]['es_jef_con_estudio'] != $('#es_jef_con_estudio').prop('checked')
@@ -236,14 +227,21 @@ function compararDatosEmpleados(data){
 				boolAux=true; 
 				break;	
 			}
-			else if((data.empleado[x]['cod_instituto'] != $("#empleado #selectInstituto").val()
+			else if(data.empleado[x]['cod_instituto'] != $("#empleado #selectInstituto").val()
 					|| data.empleado[x]['cod_pensum'] != $("#empleado  #selectPNF").val()
-					|| data.empleado[x]['fec_inicios'] != $("#fec_ini_empleado").val() )	
-					&& data.empleado[x]['codigo'] == $("#cod_empleado").val()){
-					alert("hhh");
+					|| data.empleado[x]['fec_inicios'] != $("#fec_ini_empleado").val() 	
+					|| data.empleado[x]['codigo'] == $("#cod_empleado").val()){
 					bool=false;
 					break;
-			}			
+				}
+			else if(data.empleado[x]['fec_inicios'] == $("#fec_ini_empleado").val()){
+				mensaje+="Ya esta modificacion se realizo anteriormente. Si desea afectuarla puede";
+				mensaje+=" eliminar la informacion que se encuentra en la fila N° "+acu+" o cambie la fecha"; 
+				mensaje+=" de inicio.";	
+				mostrarMensaje(mensaje,2);	
+				boolNada=false;
+				break;			
+			}
 			else 
 				bool=false;
 		}
@@ -553,7 +551,7 @@ function montarSelectPNFE(data){
 	if(data.pnf){
 		for(var x=0; x<data.pnf.length;x++)
 		{
-			cadena += '<option value="'+data.pnf[x]["codigo"]+'">'+data.pnf[x][2]+'</option>';
+			cadena += '<option value="'+data.pnf[x]["cod_pensum"]+'">'+data.pnf[x][2]+'</option>';
 		}
 	}
 	cadena +="</select></div>";
@@ -656,7 +654,7 @@ function montarSelectEstadoEm(data){
 	var cadena = "";
 	$("#empleado #selectEstadosEm").remove();
 	cadena+="<div id='selectEstadosEm'> Estado";
-	cadena += "<select name='selectEstado' class='selectpicker' id='selectEstado' title='Estado' data-live-search='true' data-size='auto' data-max-options='12' >"; 
+	cadena += "<select name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar'>Seleccionar</option>";
 	for(var x=0; x<data.estado.length;x++)
 	{		
@@ -764,18 +762,18 @@ function succMontarModificarEmpleado (data){
 		$("#empleado #selectInstituto").val(data.empleado[0]['cod_instituto']);	
 	//$('#empleado #selectInstituto').selectpicker('refresh');
 	verPNFEm2();
-	}, 500);
+	}, 250);
 //$('#empleado #selectInstituto').selectpicker('refresh');
 	verPNFEm2();
 	setTimeout(function(){ 
 		$("#empleado #selectPNF").val(data.empleado[0]['cod_pensum']);
 		$('.selectpicker').selectpicker('refresh');  
-	}, 900);
+	}, 600);
 	$("#fec_ini_empleado").val(data.empleado[0]['fec_inicios']);
 	if(data.empleado[0]['fec_final'])
 		$("#fec_fin_empleado").val(data.empleado[0]['fec_final']);
 	else 
-		$("#fec_fin_empleado").val("");
+		$("#fec_fin_empleado").val(fecActual());
 	$("#obs_empleado").val(data.empleado[0]['observaciones']);	
 	$("#es_ministerio").prop( "checked",data.empleado[0]['es_ministerio']);
 	$("#es_jef_pensum").prop( "checked",data.empleado[0]['es_jef_pensum']);

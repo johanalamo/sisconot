@@ -464,7 +464,6 @@ function montarSelectEstadoPersona(data){
 function montarSelectEstado(data){
 
 	console.log(data);
-	//alert(JSON.stringify(data.estado))
 	var cadena = "";
 	$("#selectEstados").remove();
 
@@ -979,10 +978,6 @@ function succMontarModificarPersona(data){
 
 	if(data.estudiante)
 		setTimeout(function(){ succMontarModificarEstudiante(data); }, 400);
-	else{
-		verEstadoEsPrincipal();  verInstitutoEsPrincipal(); verPNFEsPrincipal();
-	}
-
 
 }
 
