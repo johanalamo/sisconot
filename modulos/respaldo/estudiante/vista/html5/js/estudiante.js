@@ -503,10 +503,10 @@ function succMontarModificarEstudiante (data){
 		
 		verEstadoEsPrincipal();  verInstitutoEsPrincipal();
 		setTimeout(function(){ 
-			$("#estudiante #selectInstituto").val(data.estudiante[0]['cod_instituto']);	
-			$("#estudiante #selectEstado").val(data.estudiante[0]['cod_estado']);
+			$("#selectInstituto").val(data.estudiante[0]['cod_instituto']);	
+			$("#selectEstado").val(data.estudiante[0]['cod_estado']);
 			verPNFEsPrincipal();
-		}, 800);
+		}, 300);
 
 		$("#cod_estudiante").val(data.estudiante[0]['codigo']);
 		$("#codPersona").val(data.estudiante[0]['cod_persona']);		
@@ -522,9 +522,9 @@ function succMontarModificarEstudiante (data){
 		$("#estadoEs").val(data.estudiante[0]['cod_estado']);		
 		//$('#selectInstituto').selectpicker('refresh');		
 		setTimeout(function(){ 
-			$("#estudiante #selectPNF").val(data.estudiante[0]['cod_pensum']);
+			$("#selectPNF").val(data.estudiante[0]['cod_pensum']);
 			$('.selectpicker').selectpicker('refresh');
-		}, 1200);
+		}, 600);
 	
 	
 	//alert($("#selectEstado").val());

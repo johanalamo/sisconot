@@ -169,23 +169,16 @@ class EstudianteControlador
 
 			$response=null;
 			$response2=null;
-			$existe=null;
-
-			if($codEstado=='A')
-				$existe=EstudianteServicio::listar($codPensum,'A',null,null,$codPersona);
-
-			
-			if(!$codigo && !$existe)
+	//echo "	$codInstituto, 	$codPensum, $codEstado,";
+			if(!$codigo)
 				$response=EstudianteServicio::agregar($codPersona, 	$codInstituto, 	$codPensum,
-														$numCarnet, 	$numExpediente,	$codRusnies,
-														$codEstado,		$fecInicio, 	$fecFin,
-														$condicion, 	$observaciones
-													);
+											$numCarnet, 	$numExpediente,	$codRusnies,
+											$codEstado,		$fecInicio, 	$fecFin,
+											$condicion, 	$observaciones
+										);
 
 
-			else if(!$existe[0]['total_filas'] 
-					||($existe[0]['total_filas'] 
-					&& $existe[0]['codigo']==$codigo) )
+			else
 				$response2=EstudianteServicio::modificar($codigo,		$codPersona, 	$codInstituto, 	$codPensum,
 														$numCarnet, 	$numExpediente,	$codRusnies,
 														$codEstado,		$fecInicio, 	$fecFin,
@@ -206,7 +199,7 @@ class EstudianteControlador
 					Vista::asignarDato('mensaje','El empleado no pudo ser Agregado');
 				Vista::asignarDato('estatus',$response);
 			}
-		
+
 			elseif($response2){
 				if($response2>0)
 					Vista::asignarDato('mensaje','El la informacion del estudiante fue modificada con exito');
@@ -214,15 +207,13 @@ class EstudianteControlador
 					Vista::asignarDato('mensaje','La informacion del estudiante no pudo ser modificada');
 				Vista::asignarDato('estatus',$response2);
 			}
-			
-			else if((!$response && !$response2 )){
-				Vista::asignarDato('mensaje','El estudiante ya se encuentra activo en este pensum');
-				Vista::asignarDato('estatus',$response2);
-			}
+
 
 			//Vista::asignarDato('mensaje','No se pudo agregar a la Persona '.$nombre1.' '.$apellido1.'.');
-			
-			Vista::mostrar();
+
+
+
+				Vista::mostrar();
 
 		}
 		catch(Exception $e){
@@ -335,7 +326,7 @@ class EstudianteControlador
 			$instituto = PostGet::obtenerPostGet("instituto");
 			$estado = PostGet::obtenerPostGet("estado");
 			$patron=strtoupper($patron);
-			$r = EstudianteServicio::listarPersonaEstudiante($pnf,$estado,$instituto,$patron);
+			$r = EstudianteServicio::listarPersonaEstudiante($pnf,$estado,$instituto,null,null,null,null,$patron);
 
 
 			$cad = "[";
@@ -345,8 +336,8 @@ class EstudianteControlador
 					if ($c > 0)
 						$cad .= ",";
 					$cad .= "{";
-					$cad .= '"label": "' . $estudiante['nombre1']. ' ' . $estudiante['nombre2']. ' ' . $estudiante['apellido1']. ' ' . $estudiante['apellido2']. '", ';
-					$cad .= '"value": '.$estudiante['cod_persona'].",";
+					$cad .= '"label": "' . $estudiante['nombre1']. ' ' . $estudiante['apellido1'] . '", ';
+					$cad .= '"value": '.$estudiante['cod_estudiante'].",";
 					$cad .= '"cedula": '.$estudiante['cedula'].",";
 					$cad .= '"nombre": "' . $estudiante['nombre1']. ' '. $estudiante['nombre2']. ' ' . 
 								$estudiante['apellido1']. ' ' . $estudiante['apellido2'] . '" ';

@@ -217,9 +217,8 @@ class PersonaServicio
 
 			if($campo){
 				$bool=true;
-				$consulta.=" and CONCAT(cast(p.cedula as varchar),nombre1 || ' ' ||nombre2 || ' ' ||apellido1 || ' '||apellido2)  
-							ilike '%$campo%' or CONCAT (cast(p.cedula as varchar),nombre1 || ' ' ||apellido1 || ' '||apellido2) 
-							ilike '%$campo%'";
+				$consulta.=" and CONCAT (cast(p.cedula as varchar),p.nombre1,p.nombre2,apellido1, apellido2) 
+							ilike '%$campo%' ";
 			}
 			if($codigo){
 				$consulta.= " and p.codigo = $codigo ";
@@ -282,10 +281,8 @@ class PersonaServicio
 				if(!$bool)
 				$consulta.=" and p.codigo=es.cod_persona or p.codigo=em.cod_persona ";
 			}
-
 			$consulta.=" group by p.codigo  order by p.codigo ";
 			$consulta = $consulta2.$consulta;
-			//echo $consulta;
 			$ejecutar=$conexion->prepare($consulta);
 
 			
