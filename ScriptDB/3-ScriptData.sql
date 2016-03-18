@@ -997,6 +997,33 @@ INSERT INTO sis.t_uni_tra_pensum(
 
 /*--------------------Electiva---------------------*/
 
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (132,  101,  102,  132,  'E');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (133,  101,  102,  133,  'E');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (134,  101,  103,  134,  'E');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (135,  101,  103,  135,  'E');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (136,  101,  104,  136,  'E');
+
+INSERT INTO sis.t_uni_tra_pensum(
+            codigo, cod_pensum, cod_trayecto, cod_uni_curricular, cod_tipo)
+    VALUES (137,  101,  104,  137,  'E');
+
+
+
+
 
     insert into sis.t_est_empleado (codigo,nombre) values ('A','Activo');
     insert into sis.t_est_empleado (codigo,nombre) values ('P','Permiso');
