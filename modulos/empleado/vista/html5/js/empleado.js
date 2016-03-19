@@ -30,9 +30,7 @@ Diseñador - Programador /   Fecha   / Descripción del cambio
 */
 
 $(document).ready(function() {
-
 	verEmpleado();
-	//pnf2=null;
 } );
 
 function antesPreGuardarEmpleado(){
@@ -96,7 +94,6 @@ function verEmpleado (codi,codpersona){
 }
 
 function montarEmpleado(data){
-	console.log(data);
 	var acu=0;
 	cadena="";
 	cadena+='<tbody id="listarEmpleado">';
@@ -179,7 +176,6 @@ function compararDatosEmpleados(data){
 
 	var bool= true;
 	var boolAux=false;
-	//var boolCom=false;
 	var boolNada=true;
 	var boolFecha=true;
 	var acu=0;
@@ -223,14 +219,11 @@ function compararDatosEmpleados(data){
 						bool=true;
 						break;
 			}			
-			else if(/*data.empleado[x]['fec_final']==null						
-						&&*/( data.empleado[x]['cod_estado'] != $("#empleado  #selectEstado").val()
+			else if((data.empleado[x]['cod_estado'] != $("#empleado  #selectEstado").val()
 						|| data.empleado[x]['es_jef_con_estudio'] != $('#es_jef_con_estudio').prop('checked')
 						|| data.empleado[x]['es_ministerio'] != $('#es_ministerio').prop('checked')
 						|| data.empleado[x]['es_jef_pensum'] != $('#es_jef_pensum').prop('checked')
-						|| data.empleado[x]['es_docente'] != $('#Docente').prop('checked'))
-						//|| data.empleado[x]['cod_instituto'] != $("#empleado #selectInstituto").val()
-						//|| data.empleado[x]['cod_pensum'] != $("#empleado #selectPNF").val()						
+						|| data.empleado[x]['es_docente'] != $('#Docente').prop('checked'))					
 						&& data.empleado[x]['codigo'] == $("#cod_empleado").val()){
 				bool=true;				
 				boolAux=true; 
@@ -240,14 +233,12 @@ function compararDatosEmpleados(data){
 					|| data.empleado[x]['cod_pensum'] != $("#empleado  #selectPNF").val()
 					|| data.empleado[x]['fec_inicios'] != $("#fec_ini_empleado").val() )	
 					&& data.empleado[x]['codigo'] == $("#cod_empleado").val()){
-					alert("hhh");
 					bool=false;
 					break;
 			}			
 			else 
 				bool=false;
 		}
-		//setTimeout(function(){verEmpleado ();}, 300);
 	}
 	else
 		bool=false;		
@@ -262,9 +253,7 @@ function compararDatosEmpleados(data){
 	}
 
 	alert(bool+" ** "+boolAux);
-	// bool== true se modifica
-	// bool== false se agrega
-	//boolux== true se agrega y se modifica
+
 	if(boolNada && boolFecha){
 		if(boolAux && data.empleado)
 			preDobleGuardar(bool,boolAux,data.empleado[i]);
@@ -274,8 +263,7 @@ function compararDatosEmpleados(data){
 			preDobleGuardar(false);
 
 		setTimeout(function(){
-			verEmpleado();
-			
+			verEmpleado();			
 		}, 200);
 	}
 
@@ -288,29 +276,25 @@ function compararDatosEmpleados(data){
 function preDobleGuardar(bool=null,boolAux=null,data=null){
 
 	if(boolAux && boolAux){
-		guardarEmpleadoAux(data);
+		guardarEmpleadoAux(data,boolAux);
 		guardarEmpleado(bool,data);
 	}
 	else if(bool)
-		guardarEmpleadoAux(data);
+		guardarEmpleadoAux(data,boolAux);
 	else
 		guardarEmpleado(bool);
-
-
-
 }
 
-function guardarEmpleadoAux(data){
+function guardarEmpleadoAux(data,boolAux){
 	
 	var fecha='';
 	
-	if($("#fec_fin_empleado").val())
-		fecha=$("#fec_fin_empleado").val();
-	else
-		fecha=fecActual();
-
-
-	alert("jpipo"+fecha);
+		if($("#fec_fin_empleado").val() || !boolAux) //el boolaux se puso nuevo
+			fecha=$("#fec_fin_empleado").val();
+		else
+			fecha=fecActual();
+	
+	
 
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"agregar",	
@@ -319,8 +303,8 @@ function guardarEmpleadoAux(data){
 					"codEmpleado",  data['codigo'],
 					"codInstituto", data['cod_instituto'],
 					"codPensum", data['cod_pensum'],
-					"fecInicio", data['fec_inicios'],///'7/2/2015',//fecActual(),
-					"fecFin", fecha,///'7/2/2015',//fecActual(),
+					"fecInicio", data['fec_inicios'],
+					"fecFin", fecha,
 					"observaciones", $("#obs_empleado").val(),
 					"es_jef_con_estudio",data['es_jef_con_estudio'],
 					"es_ministerio",	data['es_ministerio'],
@@ -347,27 +331,22 @@ function guardarEmpleado(bool=null,data=null){
 
 	if(!bool)
 		fec_fin=$("#fec_fin_empleado").val();
-	
-	alert("yeah"+fec_ini);
-	//alert(fec_fin+" "+$("#empleado #selectEstado").val()+" ** "+$("#empleado #selectInstituto").val());
+
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"agregar",	
 					"codPersona",  $("#codigoPersona").val(),
 					"codEstado", $("#empleado #selectEstado").val(),
-					//"codEmpleado",  codigo,
 					"codInstituto", $("#empleado #selectInstituto").val(),
 					"codPensum", $("#empleado #selectPNF").val(),
-					"fecInicio", fec_ini,///'7/2/2015',//fecActual(),
-					"fecFin", fec_fin,///'7/2/2015',//fecActual(),
+					"fecInicio", fec_ini,
+					"fecFin", fec_fin,
 					"observaciones", $("#obs_empleado").val(),
 					"es_jef_con_estudio",$('#es_jef_con_estudio').prop('checked'),
 					"es_ministerio",	$('#es_ministerio').prop('checked'),
 					"es_jef_pensum",	$('#es_jef_pensum').prop('checked'),
 					"Docente",			$('#Docente').prop('checked')
 				);
-	//alert($("#empleado #selectInstituto").val());
-	//alert($("#codigoPersona").val()+"<<<"+$("#empleado #selEstadoEm #selectEstado").val()+"<<<"+$("#empleado  #selectInstitutos #selectInstituto").val()+"<<"+$("#empleado  #selPensumEm #selectPNF").val()+"<<"+$("#obs_empleado").val()+"<<<");
-	alert($("#empleado #selectPNF").val());
+
 	ajaxMVC(arr,succAgregarEmpleado,error);
 	
 }
@@ -377,7 +356,7 @@ function succAgregarEmpleado(data){
 	if(data.estatus>0){
 		if(data.codEmpleado)
 			$("#cod_empleado").val(data.codEmpleado);
-		alert(data.codEmpleado);
+
 		mostrarMensaje(data.mensaje,1);
 	}
 	else
@@ -390,63 +369,13 @@ function succAgregarEmpleado(data){
 * para que luego sea mostado en un select. los datos son enviados
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarSelectInstituto().
-*//*
-function verInstitutoEm(){
-
-	var arr = Array("m_modulo"	,	"empleado",
-					"m_accion"	,	"listar",
-					"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"empleado",
-					"campo",		$("#campo").val()
-					);
-
-	ajaxMVC(arr,montarSelectInstitutoPersona,error);
-}*/
-
-function verInstitutoEm2(){
-	
-	/*if(!instituto){
-		instituto ='';
-		estado='';
-		pnf='';
-		setTimeout(function(){ 
-
-			if($("#empleado #selectInstituto").val()!=null)
-				instituto=$("#empleado #selectInstituto").val();
-			else
-				instituto=$("#selectInstituto").val();	
-
-			if($("#empleado #selectEstado").val()!=null)
-				estado=$("#empleado #selectEstado").val();
-			else
-				estado=$("#selectEstado").val();
-
-			if($("#empleado #selectEstado").val()!=null)
-				pnf=$("#empleado #selectPNF").val();
-			else
-				pnf=$("#selectPNF").val();
-
-		}, 500);
-	}
-	//alert(instituto+"***");
-	//setTimeout(function(){ 
 */
-		var arr = Array("m_modulo"	,	"instituto",
-						"m_accion"	,	"listar"
-						/*"estado"	,	$("#empleado #selectEstado").val(),
-						"pnf"		,	$("#empleado #selectPNF").val(),
-						"instituto"	,	$("#empleado #selectInstituto").val(),
-						"tipo_persona",	"empleado",
-						//"campo",		$("#campo").val(),
-						"empleado2"	,	true*/
-						);
-		ajaxMVC(arr,montarSelectInstitutoE,error);
-	
+function verInstitutoEm2(){
 
-	//}, 700);
-	
+	var arr = Array("m_modulo"	,	"instituto",
+					"m_accion"	,	"listar"
+					);
+	ajaxMVC(arr,montarSelectInstitutoE,error);	
 }
 
 
@@ -473,71 +402,14 @@ function montarSelectInstitutoE(data){
 	activarSelect();					
 }
 
-
-/**
-* Funcion Java Script que permite listar Todos los PNF
-* para que luego sea mostado en un select. los datos son enviados
-* por ajax para que se haga la consulta a la base de datos y mostrar 
-* los resultados en la funcion montarSelectPNF().
-*//*
-function verPNFEm(){
-
-	var arr = Array("m_modulo"	,	"empleado",
-					"m_accion"	,	"listar",
-					"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"empleado",
-					"campo",		$("#campo").val()											
-					);
-												
-				
-	ajaxMVC(arr,montarSelectPNFPersona,error);
-}
-*/
 function verPNFEm2(){
-
-/*	instituto ='';
-	estado='';
-	pnf='';
-	setTimeout(function(){ 
-
-		if($("#empleado #selectInstituto").val()!=null)
-			instituto=$("#empleado #selectInstituto").val();
-		else
-			instituto=$("#selectInstituto").val();	
-
-		if($("#empleado #selectEstado").val()!=null)
-			estado=$("#empleado #selectEstado").val();
-		else
-			estado=$("#selectEstado").val();
-
-		if($("#empleado #selectPNF").val())
-			pnf=$("#empleado #selectPNF").val();
-		else
-			pnf=$("#selectPNF").val();
-
-	}, 500);*/
-
-	//setTimeout(function(){ 
 	
 		var arr = Array("m_modulo"	,	"pensum",
 						"m_accion"	,	"buscarPorInstituto",
 						"codigo"	,	$("#empleado #selectInstituto").val()
-				/*	"estado"	,	$("#empleado #selectEstado").val(),
-					"pnf"		,	$("#empleado #selectPNF").val(),
-					"instituto"	,	$("#empleado #selectInstituto").val(),
-					"tipo_persona",	"empleado",
-					//"campo",		$("#campo").val(),
-					"empleado2"	,	true*/
-					);
-		ajaxMVC(arr,montarSelectPNFE,error);
-	/*}, 600);*/
-		
-	
+						);
+		ajaxMVC(arr,montarSelectPNFE,error);	
 }
-
-
 
 
 /**
@@ -545,7 +417,6 @@ function verPNFEm2(){
 * los PNF y es concatenado a un  div en la vista HTML
 */
 function montarSelectPNFE(data){
-	//alert(JSON.stringify(data.pensum));
 	var cadena = "";
 	$("#empleado #selectPensumaEm").remove();
 	cadena+="<div id='selectPensumaEm'> Pensum ";
@@ -558,7 +429,6 @@ function montarSelectPNFE(data){
 		}
 	}
 	cadena +="</select></div>";
-	//alert(cadena);
 	$(cadena).appendTo('.selectPensumEm');
 	activarSelect();					
 }
@@ -583,71 +453,14 @@ function verEstadoEm(){
 }
 
 function verEstadoEm2(){
-	/*instituto ='';
-	estado='';
-	pnf='';*/
-	//setTimeout(function(){ 
 
-	/*	if($("#empleado #selectInstituto").val()!=null)
-			instituto=$("#empleado #selectInstituto").val();
-		else
-			instituto=$("#selectInstituto").val();	
-
-		if($("#empleado #selectEstado").val()!=null)
-			estado=$("#empleado #selectEstado").val();
-		else
-			estado=$("#selectEstado").val();
-
-		if($("#empleado #selectEstado").val()!=null)
-			pnf=$("#empleado #selectPNF").val();
-		else
-			pnf=$("#selectPNF").val();*/
-
-	/*}, 500);
-
-	setTimeout(function(){ */
-
-		var arr = Array("m_modulo"	,"empleado",
-						"m_accion"	,"listarEstado"
-					/*"estado"	,	$("#empleado #selectEstado").val(),
-					"pnf"		,	$("#empleado #selectPNF").val(),
-					"instituto"	,	$("#empleado #selectInstituto").val(),
-					"tipo_persona",	"empleado",
-					///*"campo",		$("#campo").val(),
-					"empleado2"	,	true*/
-					);	
-		
-		ajaxMVC(arr,montarSelectEstadoEm,error);
-	//}, 500);
+	var arr = Array("m_modulo"	,"empleado",
+					"m_accion"	,"listarEstado"
+				);	
 	
-}/*
-function segundo (){
-	setTimeout(function(){ 
-		mostrarInformaion2(); 		
-	}, 500);
+	ajaxMVC(arr,montarSelectEstadoEm,error);	
+}
 
-	setTimeout(function(){ 
-	//alert($("#empleado #selectInstituto").val());
-	
-		var arr = Array("m_modulo"	,	"empleado",
-						"m_accion"	,	"listar",
-						"estado"	,	$("#empleado #selectEstado").val(),
-						"pnf"		,	$("#empleado #selectPNF").val(),
-						"instituto"	,	$("#empleado #selectInstituto").val(),
-						"tipo_persona",	"empleado",
-						"campo",		$("#campo").val(),
-						"empleado2"	,	true
-					);	
-		ajaxMVC(arr,montarSelectPNF,error);
-		
-	}, 1100);
-	setTimeout(function(){ 
-		if(!pnf2)
-			pnf2=null;
-		$("#empleado #selectPNF").val(pnf2);
-		$('#empleado #selectPNF').selectpicker('refresh');
-	}, 1150);
-}*/
 /**
 * Funcion Java Script que permite mostrar un select con
 * los estados y es concatenado a un  div en la vista HTML
@@ -668,22 +481,6 @@ function montarSelectEstadoEm(data){
 	$(cadena).appendTo('.selectEstadoEm');
 	activarSelect();					
 }
-
-
-/** 
-* Funcion Java Script que permite listar Todas las personas de tipo empleado
-* para que luego sean mostradas. los datos son enviados
-* por ajax para que se haga la consulta a la base de datos y mostrar 
-* los resultados en la funcion montarPersona().
-*//*
-function verPersonaEmpleado(){
-
-	var arr = Array("m_modulo"	,	"persona",
-					"m_accion"	,	"listar",
-					"tipo_persona", $("tipo_persona").val()				
-					);		
-	ajaxMVC(arr,montarPersonaEmpleado,error);
-}*
 
 
 /**
@@ -751,23 +548,17 @@ function modificarEmpleado(cod_empleado=null,cod_persona=null){
  * de esta manera el usuario podra modificar los datos de la empleado
  */
 function succMontarModificarEmpleado (data){
-//alert(data.empleado[0]['cod_estado']);
-	//se inicializa la variable global.
 
 	verInstitutoEm2(); verEstadoEm2(); 
-	//pnf2=data.empleado[0]['cod_pensum'];
 	console.log(data.empleado);
 	$("#cod_empleado").val(data.empleado[0]['codigo']);
 	$("#cod_persona").val(data.empleado[0]['cod_persona']);
 	setTimeout(function(){
 		$("#empleado #selectEstado").val(data.empleado[0]['cod_estado']);
-	//	$("#empleado #selectEstado").selectpicker('refresh');
 		$("#empleado #selectInstituto").val(data.empleado[0]['cod_instituto']);	
-	//$('#empleado #selectInstituto').selectpicker('refresh');
+
 	verPNFEm2();
 	}, 500);
-//$('#empleado #selectInstituto').selectpicker('refresh');
-	verPNFEm2();
 	setTimeout(function(){ 
 		$("#empleado #selectPNF").val(data.empleado[0]['cod_pensum']);
 		$('.selectpicker').selectpicker('refresh');  
@@ -785,10 +576,8 @@ function succMontarModificarEmpleado (data){
 }
 
 function NuevoEmpleado (){
-//alert(data.empleado[0]['cod_estado']);
 
 	$("#cod_empleado").val("");
-	//$("#cod_persona").val("");
 	$("#empleado #selectPNF").val("seleccionar");
 	$('#empleado #selectPNF').selectpicker('refresh');
 	$("#empleado #selectEstado").val("seleccionar");
@@ -802,7 +591,6 @@ function NuevoEmpleado (){
 	$("#es_jef_pensum").prop( "checked",false);
 	$("#es_jef_con_estudio").prop( "checked",false);
 	$("#Docente").prop( "checked",false);
-	//alert(data.empleado[0]['cod_estado']);
 }
 
 /**

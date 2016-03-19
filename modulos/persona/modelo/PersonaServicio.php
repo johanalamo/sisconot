@@ -89,8 +89,7 @@ class PersonaServicio
 			$ejecutar=$conexion->prepare($consulta);
 
 			$ejecutar->bindParam(':cedula',$cedula, PDO::PARAM_STR);
-			$ejecutar->bindParam(':rif',$rif, PDO::PARAM_STR);
-			//$ejecutar->bindParam(':cod_foto',$cod_foto, PDO::PARAM_STR);			
+			$ejecutar->bindParam(':rif',$rif, PDO::PARAM_STR);			
 			$ejecutar->bindParam(':nombre1',$nombre1, PDO::PARAM_STR);
 			$ejecutar->bindParam(':nombre2',$nombre2, PDO::PARAM_STR);
 			$ejecutar->bindParam(':apellido1',$apellido1, PDO::PARAM_STR);
@@ -157,46 +156,11 @@ class PersonaServicio
 		{	
 			$conexion = Conexion::conectar();
 
-			/*if(!$pnf && !$estado && !$instituto)
-				$consulta="select p.*,em.*,es.*, p.codigo as cod_persona, 
-								  es.codigo as cod_estudiante, em.codigo as cod_empleado
-							from sis.t_persona p,sis.t_estudiante es, sis.t_empleado em
-							where true and p.codigo=es.cod_persona or p.codigo=em.cod_persona ";
-			elseif($pnf && $estado && $instituto)
-				$consulta="select p.*,em.*,es.*, p.codigo as cod_persona,es.codigo as cod_estudiante,   em.codigo as cod_empleado 
-								from sis.t_persona p left join sis.t_estudiante es 
-									on (p.codigo=es.cod_persona and es.cod_instituto=$instituto and es.cod_pensum=$pnf and es.cod_estado='$estado')
-								left join sis.t_empleado em 
-									on (em.cod_persona=p.codigo and em.cod_instituto =$instituto and  em.cod_pensum =$pnf  and em.cod_estado='$estado')
-									where true ";*/
 			$bool=false;
 			$con_empleado="";
 			$con_estudiante="";
 			$consulta="	where true ";
 			
-			/*elseif(!$pnf && $estado && $instituto)
-				$consulta="select p.*,em.*,es.*, p.codigo as cod_persona,es.codigo as cod_estudiante,em.codigo as cod_empleado 
-								from sis.t_persona p left join sis.t_estudiante es 
-									on p.codigo=es.cod_persona and es.cod_instituto=$instituto and es.cod_estado='$estado'
-								left join sis.t_empleado em 
-									on em.cod_persona=p.codigo and em.cod_instituto =$instituto  and em.cod_estado='$estado'
-								where true";
-
-			elseif($pnf && !$estado && $instituto)
-				$consulta="select p.*,em.*,es.*, p.codigo as cod_persona,es.codigo as cod_estudiante,   em.codigo as cod_empleado 
-								from sis.t_persona p left join sis.t_estudiante es 
-								on p.codigo=es.cod_persona and es.cod_instituto=$instituto and es.cod_pensum=$pnf
-								left join sis.t_empleado em 
-								on em.cod_persona=p.codigo and em.cod_instituto =$instituto and  em.cod_pensum = $pnf
-							where true";
-
-			elseif($pnf && $estado && !$instituto)
-					$consulta="select p.*,em.*,es.*, p.codigo as cod_persona,es.codigo as cod_estudiante,   em.codigo as cod_empleado 
-									from sis.t_persona p left join sis.t_estudiante es on p.codigo=es.cod_persona  and es.cod_pensum= $pensum and es.cod_estado='$estado'
-									left join sis.t_empleado em on em.cod_persona=p.codigo  and  em.cod_pensum = $pensum and em.cod_estado='$estado'
-								where true";*/
-
-
 			if($pnf){
 				$consulta.= "and (em.cod_pensum = $pnf or es.cod_pensum = $pnf) ";
 				$con_estudiante.=" and es.cod_pensum = $pnf";
@@ -228,69 +192,51 @@ class PersonaServicio
 
 			if($cedula){
 				$consulta.= "and p.cedula = $cedula ";
-				/*$con_empleado.=" ";
-				$con_estudiante.="";*/
 			}
 
 			if($correo){
 				$consulta.= "and p.cor_personal like '%$correo%' ";
-				/*$con_empleado.="";
-				$con_estudiante.="";*/
 			}
 
 			if($nombre1){
 				$consulta.= "and p.nombre1 like '%$nombre1%' ";
-				/*$con_empleado.="";
-				$con_estudiante.="";*/
 			}
 
 			if($nombre2){
 				$consulta.= "and p.nombre2 like '%$nombre2%' ";
-				/*$con_empleado.="";
-				$con_estudiante.="";*/
 			}
 
 			if($apellido1){
 				$consulta.= "and p.apellido1 like '%$apellido1%' ";
-				/*$con_empleado.="";
-				$con_estudiante.="";*/
 			}
 
 			if($apellido2){
 				$consulta.= "and p.apellido2 like '%$apellido2%' ";
-				/*$con_empleado.="";
-				$con_estudiante.="";*/
 			}
 
 			if($sexo){
 				$consulta.= "and p.sexo like '%$sexo%' ";
-				/*$con_empleado.="";
-				$con_estudiante.="";*/
 			}
 
 			if(!$pnf && !$estado && !$instituto){
 				$consulta2="select p.*,p.codigo as cod_persona from sis.t_persona p ";
 			}
 			else{
-				$consulta2=" select p.*/*,em.*,es.*, p.codigo as cod_persona,es.codigo as cod_estudiante, em.codigo as cod_empleado,
-							es.fec_inicio as fec_inicio_es, es.fec_fin as fec_fin_es, em.fec_inicio as fec_inicio_em,
-							em.fec_fin as fec_fin_em */, p.codigo as cod_persona
+				$consulta2=" select p.*, p.codigo as cod_persona
 							from  sis.t_persona p left join sis.t_estudiante es 
 							on true and p.codigo=es.cod_persona  $con_estudiante
 							left join sis.t_empleado em 
 							on true and em.cod_persona=p.codigo  $con_empleado ";
 				if(!$bool)
-				$consulta.=" and p.codigo=es.cod_persona or p.codigo=em.cod_persona ";
+					$consulta.=" and p.codigo=es.cod_persona or p.codigo=em.cod_persona ";
 			}
 
 			$consulta.=" group by p.codigo  order by p.codigo ";
 			$consulta = $consulta2.$consulta;
-			//echo $consulta;
-			$ejecutar=$conexion->prepare($consulta);
 
+			$ejecutar=$conexion->prepare($consulta);
 			
-			$ejecutar-> execute(array());
- 			
+			$ejecutar-> execute(array()); 			
  		
 			if($ejecutar->rowCount() != 0)
 				return $ejecutar->fetchAll();
@@ -312,8 +258,7 @@ class PersonaServicio
 
 			$ejecutar=$conexion->prepare($consulta);
 			$cursor='fcursorinst';
-			$ejecutar->bindParam(':cursor',$cursor, PDO::PARAM_STR);	
-
+			$ejecutar->bindParam(':cursor',$cursor, PDO::PARAM_STR);
 			
 			$conexion->beginTransaction();
 				$ejecutar->execute();			
@@ -341,25 +286,14 @@ class PersonaServicio
 		}
 	}
 
-	public static function listarEstado(/*$persona=null*/)
+	public static function listarEstado()
 	{
 		try
 		{
 			$conexion = Conexion::conectar();
 
-		///	if($persona==null){
-				$ejecutar = $conexion->prepare("select * from sis.t_est_empleado union select * from sis.t_est_estudiante order by nombre;");	
-				$ejecutar->execute(array());			
-			//}
-			/*elseif($persona=="empleado"){
-				$ejecutar = $conexion->prepare("SELECT * FROM sis.t_est_empleado;");
-				$ejecutar->execute(array());
-			}
-			elseif ($persona=="estudiante"){
-				$ejecutar = $conexion->prepare("SELECT * FROM sis.t_est_estudiante;");
-				$ejecutar->execute(array());
-			}*/
-
+			$ejecutar = $conexion->prepare("select * from sis.t_est_empleado union select * from sis.t_est_estudiante order by nombre;");	
+			$ejecutar->execute(array());			
 			
 			if($ejecutar->rowCount()!= 0)
 				return $ejecutar->fetchAll();
@@ -449,7 +383,6 @@ class PersonaServicio
 			$ejecutar->bindParam(':est_civil',$est_civil, PDO::PARAM_STR);
 			$ejecutar->bindParam(':observaciones',$observaciones, PDO::PARAM_STR);
 
-
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 				//ejecuta				
 				$ejecutar->execute();
@@ -490,28 +423,19 @@ class PersonaServicio
 			$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_STR);						
 			
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-				//ejecuta				
-				$ejecutar->execute();
-				//primera columana codigo
-				$row = $ejecutar->fetchColumn(0);					
-				//var_dump($row);
-				if ($row== 0)
-					throw new Exception("No se pudo eliminar a la persona.");
+			//ejecuta				
+			$ejecutar->execute();
+			//primera columana codigo
+			$row = $ejecutar->fetchColumn(0);					
 
-				return $row;	
+			if ($row== 0)
+				throw new Exception("No se pudo eliminar a la persona.");
+
+			return $row;	
 		}
 		catch(Exception $e){
 			throw $e;
 		}
 	}
-
-
-	
-	
-
-
-
-
-
 }
 ?>

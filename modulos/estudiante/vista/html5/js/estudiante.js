@@ -96,78 +96,6 @@ function montarEstudiante(data){
 	$(cadena).appendTo('#tablaEstudiante');
 }
 
-/*
-function preGuardarEstudiante(){
-
-	var arr = Array("m_modulo"	,	"estudiante",
-					"m_accion"	,	"listar",
-					"codPersona",	getVarsUrl().persona
-					);
-
-	ajaxMVC(arr,compararDatosEstudiante,error);
-
-}
-*/
-/*
-function compararDatosEstudiante (){
-
-	var bool= true;
-	var acu=0;
-	var mensaje="";		
- /*
-  CONSTRAINT ca_estudiante UNIQUE (cod_persona , cod_instituto , cod_pensum , fec_inicio ),
-  CONSTRAINT ca_estudiante_01 UNIQUE (num_carnet ),
-  CONSTRAINT ca_estudiante_02 UNIQUE (num_expediente ),
-  CONSTRAINT ca_estudiante_03 UNIQUE (cod_rusnies ),*/
-
-/*	if(data.estudiante){
-		for(var x=0; x<data.estudiante.length; x++){
-			acu=x+1;
-			if((ddata.estudiante[x]['cod_persona'] == data.codPersona 
-				&& data.estudiante[x]['cod_instituto'] == $("#estudiante #selectInstituto").val()
-				&& data.estudiante[x]['cod_pensum'] == $("#estudiante  #selectPNF").val()
-				&& data.estudiante[x]['fec_inicios'] == $("#fec_ini_estudiante").val() )	
-				&& (data.estudiante[x]['codigo'] != $("#cod_estudiante").val())		
-			){		
-
-				mensaje+=" Ya esta modificacion se realizo anteriormente. Si desea afectuarla puede";
-				mensaje+=" eliminar la informacion que se encuentra en la fila N° "+acu+" o puede esperar hasta"; 
-				mensaje+=" el dia siguiente.";		
-				mostrarMensaje(mensaje,2);	
-				bool=false;
-				break;						
-			}
-			else if( data.empleado[x]['es_jef_con_estudio'] == $('#es_jef_con_estudio').prop('checked')
-					&& data.empleado[x]['es_ministerio'] == $('#es_ministerio').prop('checked')
-					&& data.empleado[x]['es_jef_pensum'] == $('#es_jef_pensum').prop('checked')
-					&& data.empleado[x]['es_docente'] == $('#Docente').prop('checked')
-					&& data.empleado[x]['cod_estado'] == $("#estudiante #selectEstado").val()
-					&& (data.empleado[x]['codigo'] == $("#cod_empleado").val())){
-				bool=true;
-				break;				
-			}
-			else if(data.empleado[x]['fec_inicios'] == $("#fec_ini_empleado").val()){
-				mensaje+="Ya esta modificacion se realizo anteriormente. Si desea afectuarla puede";
-				mensaje+=" eliminar la informacion que se encuentra en la fila N° "+acu+" o puede esperar hasta"; 
-				mensaje+=" el dia siguiente.";	
-				mostrarMensaje(mensaje,2);	
-				bool=false;				
-			}
-			else
-				bool=false;
-		}
-		setTimeout(function(){verEstudiante ();}, 300);
-	}
-
-	if(bool)
-		guardarEstudiante($("#cod_estudiante").val());
-	else
-		guardarEstudiante(null);
-
-
-}
-*/
-
 function preGuardarEstudiante(){
 	var bool=true;
 	if($("#estudiante #selectInstituto").val()=="seleccionar"){
@@ -191,13 +119,13 @@ function preGuardarEstudiante(){
 		guardarEstudiante ();
 
 }
+
 /**
 * Funcion Java Script que permite guardar los datos de a un estudiante
 * para que luego sean almacenados en la base de datos. Los Datos son enviados
 * por ajax.
 */
 function guardarEstudiante (){
-//	alert( $("#codigoPersona").val()+'<<< persona codigo');
 	
 	var arr = Array("m_modulo"	,	"estudiante",
 					"m_accion"	,	"agregar",
@@ -212,21 +140,16 @@ function guardarEstudiante (){
 					"fecFin",  $("#fec_fin_estudiante").val(),
 					"condicion",  $("#condicion").val(),
 					"obsEstudiante",  $("#obs_estudiante").val(),										
-					//"estadoEs",  $("#selectEstado").val(),
 					"codPensum", $("#estudiante #selectPNF").val()
 					);
-	//alert($("#fec_fin_estudiante").val());
 	ajaxMVC(arr,succAgregarEstudiante,error);
 }
 
 
 
 function succAgregarEstudiante(data){
-	//alert('adding student');
-	//alert("sas");
-//	alert(data.mensaje);
+
 	if(data.estatus>0){
-		//alert(data.codEstudiante);
 		
 		if(data.codEstudiante)
 			$("#cod_estudiante").val(data.codEstudiante);
@@ -239,156 +162,26 @@ function succAgregarEstudiante(data){
 }
 
 
-/**
-* Funcion Java Script que permite listar Todos los institutos
-* para que luego sea mostado en un select. los datos son enviados
-* por ajax para que se haga la consulta a la base de datos y mostrar 
-* los resultados en la funcion montarSelectInstituto().
-*//*
-function verInstitutoEs(){
-
-	var arr = Array("m_modulo"	,	"estudiante",
-					"m_accion"	,	"listar",
-					"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"estudiante",
-					"campo",		$("#campo").val(),
-					"codi"		,	$("#cod_estudiante").val()											
-					);
-		
-	ajaxMVC(arr,montarSelectInstitutoPersona,error);
-}*/
-
 function verInstitutoEsPrincipal(){
 
 	var arr = Array("m_modulo"	,	"instituto",
-					"m_accion"	,	"listar"
-					/*"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"estudiante"		*/							
+					"m_accion"	,	"listar"							
 					);
 		
 	ajaxMVC(arr,montarSelectInstituto,error);
 }
 
 
-
-/**
-* Funcion Java Script que permite mostrar un select con
-* los institutos y es concatenado a un  div en la vista HTML
-*//*
-function montarSelectInstitutoE(data){
-	console.log(data);
-	var cadena = "";
-	cadena += "<select  class='selectpicker' name='ins_estudiante' id='ins_estudiante' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	for(var x=0; x<data.instituto.length;x++)
-	{
-	 	if(data.instituto[x]['codigo']!=11)
-	 		cadena += '<option value="'+data.instituto[x]["codigo"]+'">'+data.instituto[x]["nom_corto"]+'</option>';
-	 	else
-	 		cadena += '<option selected="selected" value="'+data.instituto[x]["codigo"]+'">'+data.instituto[x]["nom_corto"]+'</option>';
-	}
-	cadena+="</select>";
-
-	$(cadena).appendTo('.ins_estudiante');
-	activarSelect();					
-}*/
-
-
-/**
-* Funcion Java Script que permite listar Todos los PNF
-* para que luego sea mostado en un select. los datos son enviados
-* por ajax para que se haga la consulta a la base de datos y mostrar 
-* los resultados en la funcion montarSelectPNF().
-*//*
-function verPNFEs(){
-
-	var arr = Array("m_modulo"	,	"estudiante",
-					"m_accion"	,	"listar",
-					"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"estudiante",
-					"campo",		$("#campo").val(),
-					"codi"		,	$("#cod_estudiante").val()				
-					);
-	
-	ajaxMVC(arr,montarSelectPNFPersona,error);
-}*/
-
 function verPNFEsPrincipal(){
 
 	var arr = Array("m_modulo"	,	"pensum",
 					"m_accion"	,	"buscarPorInstituto",
 					"codigo"	,	$("#selectInstituto").val()
-					/*"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"estudiante"	*/
 					);
 	
 	ajaxMVC(arr,montarSelectPNF,error);
 }
 
-/**
-* Funcion Java Script que permite mostrar un select con
-* los PNF y es concatenado a un  div en la vista HTML
-*//*
-function montarSelectPNFE(data){
-
-	var cadena = "";
-	cadena += "<select  class='selectpicker' id='selectPNF' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	cadena += "<option value='seleccionar'>Seleccionar</option>";
-	for(var x=0; x<data.pnf.length;x++)
-	{
-		cadena += '<option value="'+data.pnf[x]["codigo"]+'">'+data.pnf[x]["nom_corto"]+'</option>';
-	}
-	cadena +="</select>";
-
-	$(cadena).appendTo('.selectPensumEs');
-	activarSelect();					
-}
-*/
-
-/**
-* Funcion Java Script que permite mostrar un select con
-* los estados y es concatenado a un  div en la vista HTML
-*/ /*
-function montarSelectEstadoE(data){
-	
-	var cadena = "";
-	cadena += "<select  class='selectpicker' onchange='verPersona();' id='selectEstado' title='estado' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	cadena += "<option value='seleccionar'>Seleccionar</option>";
-	for(var x=0; x<data.estado.length;x++)
-	{		
-		cadena += '<option value="'+data.estado[x]["codigo"]+'">'+data.estado[x]["nombre"]+'</option>';
-	}
-	cadena +="</select>";
-
-	$(cadena).appendTo('.selectEstado');
-	activarSelect();					
-}
-*/
-
-/** 
-* Funcion Java Script que permite listar Todas las personas de tipo estudiante
-* para que luego sean mostradas. los datos son enviados
-* por ajax para que se haga la consulta a la base de datos y mostrar 
-* los resultados en la funcion montarPersona().
-*//*
-function verPersonaEstudiante(){
-	alert("asdasd");
-	var arr = Array("m_modulo"	,	"persona",
-					"m_accion"	,	"listar",
-					"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val()	
-					"tipo_persona", 'estudiante'			
-					);		
-	ajaxMVC(arr,montarPersonaEstudiante,error);
-}*/
 
 /**
 * Funcion Java Script que permite listar Todos los estados que posee un actor
@@ -401,12 +194,6 @@ function verEstadoEs(){
 
 	var arr = Array("m_modulo"	,	"estudiante",
 					"m_accion"	,	"listarEstado"
-					/*"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"estudiante",
-					"campo"		,	$("#campo").val(),
-					"codi"		,	$("#cod_estudiante").val()*/
 					);	
 
 	ajaxMVC(arr,montarSelectEstadoPersona,error);
@@ -416,53 +203,11 @@ function verEstadoEsPrincipal(){
 
 	var arr = Array("m_modulo"	,	"estudiante",
 					"m_accion"	,	"listarEstado"
-					/*"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"estudiante"*/
 					);	
 
 	ajaxMVC(arr,montarSelectEstado,error);
 }
 
-
-
-/**
-* Funcion Java Script que permite listar Todos los estudiantes
-* para que luego sean mostradas. los datos son enviados
-* por ajax para que se haga la consulta a la base de datos y mostrar 
-* los resultados en la funcion montarPersona().
-*//*
-function montarPersonaEstudiante(data){
-
-	cadena="";
-	cadena+'<tbody id="listarPersonaEstudiante">';
-	if(data.persona!=null){
-		for(var x=0; x<data.persona.length; x++)
-		{
-			if(data.persona[x]['apellido2']!=null)
-				var nombre=data.persona[x]['apellido2'];
-			else
-				var nombre="";
-
-			if(data.persona[x]['nombre2']!=null)
-				var apellido=data.persona[x]['nombre2'];
-			else
-				var apellido="";
-			cadena+="<tr>";
-			cadena+="<td><input id='cod_persona' type='radio' name='cod_persona' value='"+data.persona[x]['codigo']+"'>"+data.persona[x]['codigo']+"</td>";
-			cadena+="<td>"+data.persona[x]['cedula']+"</td>";
-			cadena+="<td>"+data.persona[x]['apellido1']+" "+nombre+"</td>";
-			cadena+="<td>"+data.persona[x]['nombre1']+" "+apellido+"</td>";
-			cadena+="<td>"+data.persona[x]['cor_personal']+"</td>";
-		}
-	}
-	cadena+"</tbody>";
-
-	$("#listarPersona").remove();
-	$(cadena).appendTo('#primeraTabla');
-}
-*/
 /**
 * Funcion Java Script que permite listar a un estudiante en el HTML para
 * que lugo se modifique su informacionde la base de datos. Los Datos son enviados
@@ -486,53 +231,41 @@ function modificarEstudiante(cod_estudiante=null,cod_persona=null){
 	ajaxMVC(arr,succMontarModificarEstudiante,error);
 
 }
-function segundoLlamado(){
-	//verPNFEs(); verInstitutoEs(); verEstadoEs();
-	
 
-		//mostrarInformaion();
-	
-}
 /**
  * esta funcion JavaScript permite signar los datos obtenido en la
  * consuta  la base de datos y colocarlos en la vista HTML
  * de esta manera el usuario podra modificar los datos del estudiante
  */
 function succMontarModificarEstudiante (data){
-	//console.log(data);
-	//verPNFEsPrincipal(); verInstitutoEsPrincipal(); verEstadoEsPrincipal();
-		
-		verEstadoEsPrincipal();  verInstitutoEsPrincipal();
-		setTimeout(function(){ 
-			$("#estudiante #selectInstituto").val(data.estudiante[0]['cod_instituto']);	
-			$("#estudiante #selectEstado").val(data.estudiante[0]['cod_estado']);
-			verPNFEsPrincipal();
-		}, 800);
 
-		$("#cod_estudiante").val(data.estudiante[0]['codigo']);
-		$("#codPersona").val(data.estudiante[0]['cod_persona']);		
-		$("#num_carnet").val(data.estudiante[0]['num_carnet']);
-		$("#expediente").val(data.estudiante[0]['num_expediente']);
-		$("#cod_rusnies").val(data.estudiante[0]['cod_rusnies']);
-		
-		//$('#selectEstado').selectpicker('refresh');
-		$("#fec_ini_estudiante").val(data.estudiante[0]['fec_inicios']);
-		$("#fec_fin_estudiante").val(data.estudiante[0]['fec_final']);
-		$("#condicion").val(data.estudiante[0]['condicion']);
-		$("#obs_estudiante").val(data.estudiante[0]['observaciones']);										
-		$("#estadoEs").val(data.estudiante[0]['cod_estado']);		
-		//$('#selectInstituto').selectpicker('refresh');		
-		setTimeout(function(){ 
-			$("#estudiante #selectPNF").val(data.estudiante[0]['cod_pensum']);
-			$('.selectpicker').selectpicker('refresh');
-		}, 1200);
+	verEstadoEsPrincipal();  verInstitutoEsPrincipal();
+	setTimeout(function(){ 
+		$("#estudiante #selectInstituto").val(data.estudiante[0]['cod_instituto']);	
+		$("#estudiante #selectEstado").val(data.estudiante[0]['cod_estado']);
+		verPNFEsPrincipal();
+	}, 800);
+
+	$("#cod_estudiante").val(data.estudiante[0]['codigo']);
+	$("#codPersona").val(data.estudiante[0]['cod_persona']);		
+	$("#num_carnet").val(data.estudiante[0]['num_carnet']);
+	$("#expediente").val(data.estudiante[0]['num_expediente']);
+	$("#cod_rusnies").val(data.estudiante[0]['cod_rusnies']);
 	
+	$("#fec_ini_estudiante").val(data.estudiante[0]['fec_inicios']);
+	$("#fec_fin_estudiante").val(data.estudiante[0]['fec_final']);
+	$("#condicion").val(data.estudiante[0]['condicion']);
+	$("#obs_estudiante").val(data.estudiante[0]['observaciones']);										
+	$("#estadoEs").val(data.estudiante[0]['cod_estado']);		
 	
-	//alert($("#selectEstado").val());
+	setTimeout(function(){ 
+		$("#estudiante #selectPNF").val(data.estudiante[0]['cod_pensum']);
+		$('.selectpicker').selectpicker('refresh');
+	}, 1200);
 }
 
 function nuevoEstudiante (){
-	//console.log(data);
+
 	$("#cod_estudiante").val("");
 	$("#codPersona").val("");
 	$("#selectPNF").val("seleccionar");
@@ -546,10 +279,10 @@ function nuevoEstudiante (){
 	$("#fec_fin_estudiante").val("");
 	$("#condicion").val("");
 	$("#obs_estudiante").val("");										
-	//$("#estadoEs").val("seleccionar");
+
 	$("#selectInstituto").val("seleccionar");	
 	$('#selectInstituto').selectpicker('refresh');
-	//alert($("#selectEstado").val());
+
 }
 	
 /**
@@ -577,7 +310,6 @@ function succMontarEliminarEstudiante (data){
 	}
 	else
 		mostrarMensaje(data.mensaje,2);
-
 }
 
 

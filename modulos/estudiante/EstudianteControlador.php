@@ -211,7 +211,6 @@ class EstudianteControlador
 															null, 				$codPersona, 	null,
 															$numExpediente,     $codRusnies,	$fecInicio
 															);
-					//var_dump($estudiante);
 					Vista::asignarDato("codEstudiante",$estudiante[0]['codigo']);
 					Vista::asignarDato('mensaje','El estudiante fue agregado exitosamente');
 				}

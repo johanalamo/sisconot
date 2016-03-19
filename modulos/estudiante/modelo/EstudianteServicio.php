@@ -82,7 +82,7 @@ class EstudianteServicio
 			$ejecutar->bindParam(':observaciones',$observaciones, PDO::PARAM_STR);
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 			$ejecutar->execute();
-			//primera columana codigo
+			
 			$codigo = $ejecutar->fetchColumn(0);
 
 
@@ -432,9 +432,6 @@ class EstudianteServicio
 			//primera columana codigo
 			$row = $ejecutar->fetchColumn(0);
 
-			/*if ($row == 0)
-				throw new Exception("No se logro modificar la informacion del estudiante.");
-			*/
 			return $row;
 		}
 		catch(Exception $e){
@@ -468,9 +465,6 @@ class EstudianteServicio
 			//primera columana codigo
 			$row = $ejecutar->fetchColumn(0);
 
-			/*if ($row == 0)
-				throw new Exception("No se pudo eliminar al estudiante.");
-			*/
 			return $row;
 		}
 		catch(Exception $e){

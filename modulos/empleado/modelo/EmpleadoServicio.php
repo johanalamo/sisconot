@@ -85,17 +85,8 @@ class EmpleadoServicio
 
 			$ejecutar->execute();
 
-		/*	if($ejecutar->fetchColumn(0) == 0)
-					throw new Exception("No se pudo agregar al empleado.");
-			else{
-				$codigo = $ejecutar->fetchColumn(0);
-		*/
-				$codigo=$ejecutar->fetchColumn(0);
-				return $codigo;
-		//	}
-
-
-
+			$codigo=$ejecutar->fetchColumn(0);
+			return $codigo;
 		}
 		catch(Exception $e){
 			throw $e;
@@ -161,9 +152,7 @@ class EmpleadoServicio
 			$ejecutar->execute();
 
 			$row = $ejecutar->fetchColumn(0);
-			/*if($ejecutar->rowCount()==0)
-				throw new Exception("No se logro modificar la informacion del empleado.");
-*/
+
 			return $row;
 		}
 		catch(Exception $e){
@@ -252,9 +241,6 @@ class EmpleadoServicio
 
 
 			$ejecutar=$conexion->prepare($consulta);
-/*
-			if($codigo);
-				var_dump($consulta);*/
 
 			$ejecutar-> execute(array());
 
@@ -296,10 +282,9 @@ class EmpleadoServicio
 //si da algun error revisar los parametros
 	public static function listarPersonaEmpleado (	$cod_pensum=null,	$cod_estado=null,	$cod_instituto=null,
 													$codigo=null,		$campo=null,		$cedula=null,
-													$correo=null,
-												  	$nombre1=null,		$nombre2=null,		$apellido1=null,
-												  	$apellido2=null,	$sexo=null
-											)
+													$correo=null,	  	$nombre1=null,		$nombre2=null,	
+													$apellido1=null,  	$apellido2=null,	$sexo=null
+												)
 	{
 
 		try
@@ -428,14 +413,11 @@ class EmpleadoServicio
 			//primera columana codigo
 			$row = $ejecutar->fetchColumn(0);
 
-
-		/*	if ($row == 0)
-				throw new Exception("No se pudo eliminar el empleado.");
-*/
 			return $row;
-		}catch(Exception $e){
+		}
+		catch(Exception $e){
 			throw $e;
-		 }
+		}
 	}
 
 	public static function buscarDocentes($patron,$pensum,$instituto){

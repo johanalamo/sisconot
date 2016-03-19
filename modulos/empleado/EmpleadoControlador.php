@@ -1,7 +1,7 @@
 <?php
 //require_once("base/clases/utilitarias/UtilBdd.clase.php");
 require_once("modulos/empleado/modelo/EmpleadoServicio.php");
-require_once("negocio/Estudiante.clase.php");
+//require_once("negocio/Estudiante.clase.php");
 require_once("modulos/pensum/modelo/PensumServicio.php");
 require_once("modulos/persona/modelo/PersonaServicio.php");
 require_once("modulos/instituto/modelo/InstitutoServicio.php");
@@ -71,9 +71,6 @@ class EmpleadoControlador
 			$codigo=PostGet::obtenerPostGet("codEmpleado");
 
 
-
-
-
 			if($pnf=="seleccionar" || $pnf== 'undefined')
 				$pnf=null;
 				
@@ -106,7 +103,7 @@ class EmpleadoControlador
 
 			$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
 			$instituto=InstitutoServicio::listarInstitutos();
-			$estado=PersonaServicio::listarEstado("empleado");
+			$estado=EmpleadoServicio::listarEstado();
 			Vista::asignarDato('instituto',$instituto);
 			Vista::asignarDato('pnf',$pnf);
 			Vista::asignarDato('estado',$estado);
@@ -180,10 +177,8 @@ class EmpleadoControlador
 			$Docente=trim($Docente);
 
 
-
 			if($es_jef_con_estudio=="")
 				$es_jef_con_estudio='false';
-
 
 			if($es_ministerio=="")
 				$es_ministerio='false';
@@ -193,7 +188,6 @@ class EmpleadoControlador
 
 			if($Docente=="")
 				$Docente='false';
-
 
 			if(!$codigo)
 				$response = EmpleadoServicio::agregar($codPersona, 	$codInstituto, 			$codPensum,
@@ -240,7 +234,6 @@ class EmpleadoControlador
 					Vista::asignarDato('mensaje',"No se pudo modificar al empleado.");
 			}
 
-
 			Vista::mostrar();
 
 		}
@@ -249,50 +242,6 @@ class EmpleadoControlador
 		}
 	}
 
-
-
-	/**
-	 * Función pública y estática que permite modificar la informacion de un empleado
-	 * que estan registradas en la DB.
-	 *
-	 * Se envia el codigo de la persona a la cual se desea modificar a informacion,
-	 * se lista toda la informacion de la persona.
-	 *
-	 * @throws Exception 		Si es capturada alguna excepción en el servicio.
-	 */
-		/*public static function modificar()
-		{
-			try
-			{
-
-				$cod_persona=PostGet::obtenerPostGet("codPersona");
-				$codigo=PostGet::obtenerPostGet("codEmpleado");
-
-				if(!$codPersona)
-				$codPersona=null;
-
-				if(!$codigo)
-					$codigo=null;
-
-				$empleado=EmpleadoServicio::listar(null,null,null,$codigo,$codPersona);
-				//self::listar();
-
-				if($empleado)
-				{
-					Vista::asignarDato('empleado',$empleado);
-					Vista::asignarDato('estatus',1);
-				}
-				else
-				{
-					Vista::asignarDatos('mensaje','No se puede modificar el empleado');
-					Vista::asignarDato('estatus',-1);
-				}
-
-			}
-			catch(Exception $e){
-				throw $e;
-			}
-		}*/
 
 	/**
 	 * Función pública y estática que permite eliminar a un empleado de la base de datos

@@ -257,7 +257,6 @@
 			try
 			{
 				$r=PensumServicio::ObtenerPensumInsituto(PostGet::obtenerPostGet('codigo'));
-			//	var_dump($r);
 				$mensaje="Pensum";
 				Vista::asignarDato('pensum',$r);
 				Vista::asignarDato('estatus',1);

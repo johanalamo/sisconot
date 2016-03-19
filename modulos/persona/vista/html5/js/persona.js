@@ -33,7 +33,6 @@ Diseñador - Programador /   Fecha   / Descripción del cambio
 
 $(document).ready(function() {
 
-
 	$('div.infoPersona').fadeIn(700);
     $('div.estudiantes').hide();				
 	$('div.empleados').hide();
@@ -75,22 +74,17 @@ $(document).ready(function() {
 	limpiarCamposPersona();
 	nuevoEstudiante ();
 	NuevoEmpleado ();
+
 	verInstitutoListar();
-	//verInstituto();
-	//verPNF();
-	//verPNFListar();
 	verEstadolistar();
-	//verEstado();
-	//verInstitutoEm2();
-	//verPNFEm2();
-	//verEstadoEm2();
 	verPersona();
+
 	tabsBloqueados();
 	removerEsEm();
 	mostrarInformaion();
 	activarCal();
 	TodosFocus();
-	//activarFecha(".date");
+
 
 } );
 
@@ -115,6 +109,7 @@ function nuevoPersonaEstudiante (){
 function nuevoPersonaEmpleado (){	
 	window.location.href = 'index.php?m_modulo=persona&m_vista=Agregar&m_formato=html5&accion=N&persona=-1'; 
 }
+
 function foto(data){
 
 	$("#foto").on("change", function(){
@@ -141,13 +136,13 @@ function foto(data){
 		$("#superImagen").append(cadena);
 
 	});
-	
 }
+
 function estudianteFocus(){
 	var boton='';
 	boton ='<button type="button" id="bTodos1" class="btn btn-info boton-focus" style="background-color: #4FD8B0;" title="Solo Empleados" onclick="empleadoFocus(); verPersonaEmpleado(); verEstadoEm(); ">  <b>Empleados</b>	</button>';
 	boton +='<button type="button" id="bTodos2" class="btn btn-info boton-focus"style="background-color: #209472;"  title="Solo Estudiantes" onclick="estudianteFocus(); verPersonaEstudiante(); verEstadoEs(); "><b>Estudiantes<b></button>';
-	boton +='<button type="button" id="bTodos3"  class="btn btn-info boton-focus" style="background-color: #4FD8B0;"title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstadoListar(); "><b>Todos<b></button>';
+	boton +='<button type="button" id="bTodos3"  class="btn btn-info boton-focus" style="background-color: #4FD8B0;"title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstadolistar(); "><b>Todos<b></button>';
 	$("#bTodos1").remove();
 	$("#bTodos2").remove();
 	$("#bTodos3").remove();
@@ -157,7 +152,7 @@ function empleadoFocus(){
 	var boton='';
 	boton ='<button type="button" id="bTodos1" class="btn btn-info boton-focus" style="background-color: #209472;"title="Solo Empleados" onclick="empleadoFocus(); verPersonaEmpleado(); verEstadoEm(); ">  <b>Empleados</b>	</button>';
 	boton +='<button type="button" id="bTodos2" class="btn btn-info boton-focus" style="background-color: #4FD8B0;" title="Solo Estudiantes" onclick="estudianteFocus(); verPersonaEstudiante(); verEstadoEs(); "><b>Estudiantes<b></button>';
-	boton +='<button type="button" id="bTodos3" class="btn btn-info boton-focus" style="background-color: #4FD8B0;"  title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstadoListar(); "><b>Todos<b></button>';
+	boton +='<button type="button" id="bTodos3" class="btn btn-info boton-focus" style="background-color: #4FD8B0;"  title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstadolistar(); "><b>Todos<b></button>';
 	$("#bTodos1").remove();
 	$("#bTodos2").remove();
 	$("#bTodos3").remove();
@@ -168,7 +163,7 @@ function TodosFocus(){
 
 	boton ='<button type="button" id="bTodos1" class="btn btn-info boton-focus" style="background-color: #4FD8B0;" title="Solo Empleados" onclick="empleadoFocus(); verPersonaEmpleado(); verEstadoEm(); ">  <b>Empleados</b>	</button>';
 	boton +='<button type="button" id="bTodos2" class="btn btn-info boton-focus" style="background-color: #4FD8B0;" title="Solo Estudiantes" onclick="estudianteFocus(); verPersonaEstudiante(); verEstadoEs(); "><b>Estudiantes<b></button>';
-	boton +='<button type="button" id="bTodos3" style="background-color: #209472;" class="btn btn-info boton-focus" title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstadoListar(); "><b>Todos<b></button>';
+	boton +='<button type="button" id="bTodos3" style="background-color: #209472;" class="btn btn-info boton-focus" title="todos" onclick="TodosFocus(); asignarAmbos(); verPersona(); verEstadolistar(); "><b>Todos<b></button>';
 	$("#bTodos1").remove();
 	$("#bTodos2").remove();
 	$("#bTodos3").remove();
@@ -185,27 +180,11 @@ function TodosFocus(){
 function verInstitutoListar(){
 	var arr = Array("m_modulo"	,	"instituto",
 					"m_accion"	,	"listar"
-					/*"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val(),
-					"campo",		$("#campo").val(),
-					"tipo_persona", "ambos"*/
 					);
 		
 	ajaxMVC(arr,montarSelectInstitutoPersona,error);
 }
-/*
-function verInstituto(){
-		
-	var arr = Array("m_modulo"	,	"instituto",
-					"m_accion"	,	"listar"
-					/*"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val()
-					);
-		
-	ajaxMVC(arr,montarSelectInstituto,error);
-}*/
+
 /**
 * Funcion Java Script que permite mostrar un select con
 * los institutos y es concatenado a un  div en la vista HTML
@@ -214,24 +193,14 @@ function verInstituto(){
 function montarSelectInstitutoPersona(data){
 	var cadena = "";
 
-	//if(!data.empleado2){
-		//$("#selectEstados").remove();	
 	$("#selectIns").remove();
 	cadena+="<div id='selectIns'> institutos ";
-	/*}
-	else{
-		$("#selectInsEm").remove();
-		cadena+="<div id='selectInsEm'> institutos ";
-	}*/
-
 	
 	if(data.tipo_persona=='estudiante')
 		cadena += "<select onchange='verPersonaEstudiante(); verPNFEs();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	else if(data.tipo_persona=='empleado')
 		cadena += "<select onchange='verPersonaEmpleado(); verPNFEm();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	/*else if(data.tipo_persona=='empleado' && data.empleado2)
-		cadena += "<select onchange='verPersonaEmpleado(); verPNFEm2();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >";
-	*/
+
 	else
 		cadena += "<select onchange='verPersona(); verPNFListar();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar' >Seleccionar</option>";
@@ -243,27 +212,22 @@ function montarSelectInstitutoPersona(data){
 	}
 
 	cadena +="</select>";
-	//alert(data.empleado2);
-	//if(!data.empleado2){
+
 	$(cadena).appendTo('#selectInstitutos2');
 	$(cadena).appendTo('.selectInstituto2');
-	//}
-	//else
-	//	$(cadena).appendTo('.selectInstitutoEm');
+
 	activarSelect();	
 
 }
 
 function montarSelectInstituto(data){
 	var cadena = "";
-	//alert(JSON.stringify(data));
+
 	$("#selectIns").remove();
 	cadena+="<div id='selectIns'> institutos ";
 	if(!data.empleado2)
 		cadena += "<select onchange='verPNFEsPrincipal();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	/*else
-		cadena += "<select onchange='verPNFEm2();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	*/
+
 	cadena += "<option value='seleccionar' >Seleccionar</option>";
 	if(data.institutos)
 	for(var x=0; x<data.institutos.length;x++)
@@ -271,12 +235,10 @@ function montarSelectInstituto(data){
 		cadena += '<option value="'+data.institutos[x]["codigo"]+'">'+data.institutos[x]["nom_corto"]+'</option>';
 	}
 	cadena +="</select>";
-	//if(!data.empleado2){
-		$(cadena).appendTo('#selectInstitutos');
-		$(cadena).appendTo('.selectInstituto');
-	/*}
-	else*/
-		//$(cadena).appendTo('.selectInstitutoEm');
+
+	$(cadena).appendTo('#selectInstitutos');
+	$(cadena).appendTo('.selectInstituto');
+
 	activarSelect();	
 
 }
@@ -288,40 +250,14 @@ function montarSelectInstituto(data){
 * los resultados en la funcion montarSelectPNF().
 */
 function verPNFListar(){
-	/*if($("#selectInstituto").val()){
-		if($("#selectInstituto").val()=="seleccionar")
-			$("#selectPNF").val('seleccionar');
-		verPersona();
-	}*/
+
 	var arr = Array("m_modulo"	,	"pensum",
 					"m_accion"	,	"buscarPorInstituto",
-					"codigo"	,	$("#selectInstituto").val()
-					/*"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val(),
-					"campo"		,	$("#campo").val(),
-					"tipo_persona", "ambos"	*/					
+					"codigo"	,	$("#selectInstituto").val()				
 					);
 		
 	ajaxMVC(arr,montarSelectPNFPersona,error);
 }
-
-/*function verPNF(){
-	/*if($("#selectInstituto").val()){
-		if($("#selectInstituto").val()=="seleccionar")
-			$("#selectPNF").val('seleccionar');
-		verPersona();
-	}*/
-	/*var arr = Array("m_modulo"	,	"persona",
-					"m_accion"	,	"listarSelects",
-					"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val()				
-					);
-		
-	ajaxMVC(arr,montarSelectPNF,error);
-}*/
-
 
 /**
 * Funcion Java Script que permite mostrar un select con
@@ -331,16 +267,9 @@ function montarSelectPNFPersona(data){
 
 	console.log(data);
 	var cadena = "";
-	//if(!data.empleado2){
-		$("#selectPensuma").remove();//	$("#selectPensuma").remove();
-		cadena+="<div id='selectPensuma'> Pensum ";
-	/*}		
-	else{
-		$("#selectPensumaEm").remove();
-		cadena+="<div id='selectPensumaEm'> Pensum ";
-	}*/
 
-
+	$("#selectPensuma").remove();
+	cadena+="<div id='selectPensuma'> Pensum ";
 	
 	if(data.tipo_persona=='estudiante')
 		cadena += "<select onchange='verPersonaEstudiante();' class='selectpicker' id='selectPNF' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
@@ -349,6 +278,7 @@ function montarSelectPNFPersona(data){
 	else
 		cadena += "<select onchange='verPersona();' class='selectpicker' id='selectPNF' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar'>Seleccionar</option>";
+	
 	if(data.pensum){
 		for(var x=0; x<data.pensum.length;x++)
 		{	
@@ -358,10 +288,8 @@ function montarSelectPNFPersona(data){
 	
 	cadena +="</select></div>";
 
-	//if(!data.empleado2)
-		$(cadena).appendTo('.selectPensum2');
-	/*else
-		$(cadena).appendTo('.selectPensumEm');*/
+	$(cadena).appendTo('.selectPensum2');
+
 	activarSelect();					
 }
 
@@ -369,12 +297,13 @@ function montarSelectPNFPersona(data){
 
 function montarSelectPNF(data){
 	var cadena = "";
-	//if(!data.empleado2){
-	$("#selectPensuma").remove();//	$("#selectPensuma").remove();
+
+	$("#selectPensuma").remove();
 		cadena+="<div id='selectPensuma'> Pensum ";
 
 	cadena += "<select class='selectpicker' id='selectPNF' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar'>Seleccionar</option>";
+	
 	if(data.pensum){
 		for(var x=0; x<data.pensum.length;x++)
 		{	
@@ -384,10 +313,8 @@ function montarSelectPNF(data){
 	
 	cadena +="</select></div>";
 
-	//if(!data.empleado2)
-		$(cadena).appendTo('.selectPensum');
-	//else
-		//$(cadena).appendTo('.selectPensumEm');
+	$(cadena).appendTo('.selectPensum');
+
 	activarSelect();					
 }
 /**
@@ -398,29 +325,12 @@ function montarSelectPNF(data){
 */
 
 function verEstadolistar(){
-
 	var arr = Array("m_modulo"	,	"persona",
 					"m_accion"	,	"listarEstadoEstudianteEmpleado"
-					/*"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val()*/
 					);		
 	ajaxMVC(arr,montarSelectEstadoPersona,error);
 }
-/*
-function verEstado(){
-	
-	var arr = Array("m_modulo"	,	"persona",
-					"m_accion"	,	"listarEstadoEstudianteEmpleado"
-					/*"estado"	,	$("#selectEstado").val(),
-					"pnf"		,	$("#selectPNF").val(),
-					"instituto"	,	$("#selectInstituto").val(),
-					"campo",		$("#campo").val(),
-					"tipo_persona", "ambos"		
-					);		
-	ajaxMVC(arr,montarSelectEstado,error);
-	
-}*/
+
 
 /**
 * Funcion Java Script que permite mostrar un select con
@@ -428,25 +338,16 @@ function verEstado(){
 */
 function montarSelectEstadoPersona(data){
 
-	console.log(data);
 	var cadena = "";
 	$("#selectEstados").remove();
-	/*if(data.empleado2){
-		$("#selectEstadosEm").remove();$("#selectEstadosEm").remove();//$("#selectEstados").remove();	
-	}*/
-	//alert(data.empleado2);
-	//if(!data.empleado2)
-		cadena+="<div id='selectEstados'> Estado ";
-	/*else
-		cadena+="<div id='selectEstadosEm'> Estado";
-	*/
+
+	cadena+="<div id='selectEstados'> Estado ";
+
 	if(data.tipo_persona=='estudiante')
 		cadena += "<select onchange='verPersonaEstudiante();' name='selectEstado' id='selectEstado' class='selectpicker'  title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	else if(data.tipo_persona=='empleado' )
 		cadena += "<select onchange='verPersonaEmpleado();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	/*else if(data.tipo_persona=="empleado" && data.empleado2==true)
-		cadena += "<select onchange='verPersonaEmpleado();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
-	*/else
+	else
 		cadena += "<select onchange='verPersona();' name='selectEstado' class='selectpicker' id='selectEstado' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar'>Seleccionar</option>";
 	if(data.estado){
@@ -456,18 +357,14 @@ function montarSelectEstadoPersona(data){
 		}
 	}
 	cadena +="</select></div>";
-	//if(!data.empleado2)
-		$(cadena).appendTo('.selectEstado2');
-	/*else
-		$(cadena).appendTo('.selectEstadoEm');*/
+
+	$(cadena).appendTo('.selectEstado2');
 	activarSelect();	
 				
 }
 
 function montarSelectEstado(data){
 
-	console.log(data);
-	//alert(JSON.stringify(data.estado))
 	var cadena = "";
 	$("#selectEstados").remove();
 
@@ -482,12 +379,9 @@ function montarSelectEstado(data){
 		}
 	}
 	cadena +="</select></div>";
-	//if(!data.empleado2)
+
 	$(cadena).appendTo('.selectEstado');
-	//else{
-		//$(cadena).appendTo('.selectEstadoEm');
-		
-	//}
+
 	activarSelect();	
 				
 }
@@ -519,14 +413,14 @@ function verPersona(codi=null){
 					"codi"		,	codi
 					);
 		
-		ajaxMVC(arr,montarPersona,error);
-	
-		
+		ajaxMVC(arr,montarPersona,error);		
 }
+
 
 function asignarAmbos(){
 	$("#tipoPersona").val("ambos");
 }
+
 function buscarPorCampo(){
 
 	var arr = Array("m_modulo"	,	"persona",
@@ -582,7 +476,6 @@ function verPersonaEstudiante(codi=null){
 					"codi"		,	codi,
 					"campo"		,   $("#campo").val()
 					);
-	//alert(codi);
 	ajaxMVC(arr,montarPersona,error);
 }
 
@@ -631,8 +524,6 @@ function montarPersona(data){
 						cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+");'>";
 					else if(data.tipo_persona=="ambos")
 						cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");' >";
-
-					//cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");'>";
 				}
 			}
 			else{
@@ -643,8 +534,6 @@ function montarPersona(data){
 					cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+");'>";
 				else if($("#tipoPersona").val()=="ambos")
 					cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");' >";
-
-				//cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");'>";
 			}
 			cadena+="<td>"+data.persona[x]['cod_persona']+"</td>";
 			cadena+="<td>"+data.persona[x]['cedula']+"</td>";
@@ -660,42 +549,8 @@ function montarPersona(data){
 
 	$("#listarPersona").remove();
 	$(cadena).appendTo('#primeraTabla');
-
 }
 
-
-
-/**
-* Funcion Java Script que permite modificar la informacion
-* de una persona de la base de datos. Los Datos son enviados
-* por ajax.
-*//*
-function modificarPersonas(){
-	var arr = Array("m_modulo"	,	"persona",
-					"m_accion"	,	"modificar",
-					"codPersona", $('input:radio[name=cod_persona]:checked').val()
-					);	
-
-		ajaxMVC(arr,succMontarModificarPerson,error);
-
-}
-
-function succMontarModificarPerson(data)
-{
-	alert("lol");
-	/*if(data.estatus>0)
-		montarModificarPersona(data);
-	else
-		mostrarMensaje(data.mensaje,4);
-}
-
-function montarModificarPersona(data){
-
-	alert("hola");
-	//document.location.href = "index.php?m_modulo=persona&m_formato=html5&m_accion=listar&m_vista=Agregar";
-	
-}
-*/
 
 function preGuardarPersona(){
 	var bool=true;
@@ -739,7 +594,6 @@ function preGuardarPersona(){
 		if(validarFecha('#fec_nac',false)){
 			var fecha=$("#fec_nac").val().split("/");
 			var actual= fecActual().split("/");
-			//alert(actual[2]-fecha[2]);
 			if(actual[2]-fecha[2]<=15){
 				mostrarMensaje("la persona tiene que tener almenos 15 años",2);
 				bool=false;
@@ -764,19 +618,15 @@ function preGuardarPersona(){
 */
 function guardarPersona(){
 
-//	var data = new FormData();
 	var a="archivo";
 	var b="";
 	jQuery.each(jQuery('#foto')[0].files, function(i, file) {
-	   // data.append('file-'+i, file);
 	   a='archivo';
 	   b=file;
 	});
 
 	var arr= Array( "m_modulo"	,	"persona",
 					"m_accion"	,	"agregar",
-					//"m_modulo"	,	"persona",
-					//"m_accion"	,	"agregar",
 					"cedPersona",	$("#ced_persona").val(),
 					"rifPersona",	$("#rif_persona").val(),
 					"nombre1"	,	$("#nombre1").val(),
@@ -800,10 +650,8 @@ function guardarPersona(){
 					"estado",		$('#estado').val(),
 					a 		,		b
 				);
-	console.log(arr);
+
 	setTimeout(function(){ ajaxMVC(arr,succAgregarPersona,error); }, 300);
-	
-	//ajaxMVC(arr,succAgregarPersona,error);
 }
 
 /**
@@ -813,7 +661,6 @@ function guardarPersona(){
 */
 function modificarPersona(codigo=null){
 
-//alert(codigo+" el codigo");
 	if(getVarsUrl().persona)
 		codigo=getVarsUrl().persona;
 	else if(!codigo)
@@ -833,16 +680,14 @@ function mostrarPersona(){
 	window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_formato=html5&persona='+codigo+'&accion=V';
 }
 
-function bloquearCampos(ver=null){			
+
+function bloquearCampos(){			
 	bloquearCamposEstudiante();		
 }
 
 
-
-
 function mostrarInformaion(){
 	$("#historico").hide();
-
 	
 	var arr = Array("m_modulo"	,"persona",
 				"m_accion"	,	"modificar",					
@@ -902,43 +747,25 @@ function mostrarInformaion2(){
 						);		
 
 		ajaxMVC(arr,succMontarModificarPersona2,error);
-	}
-	
-	
+	}	
 }
 
 function succMontarModificarPersona2(data){
 	if(data.empleado){
 		setTimeout(function(){ succMontarModificarEmpleado(data); }, 300);
 	}
-
-
 }
+
 /**
  * esta funcion JavaScript permite signar los datos obtenido en la
  * consuta  la base de datos y colocarlos en la vista HTML
  * de esta manera el usuario podra modificar los datos de la persona
  */
-/*
-function succMontarModificarPersona (data){
-	console.log(data);
-	window.location.href = 'index.php?m_modulo=persona&m_vista=Agregar&m_formato=html5&persona='+data.persona[0]['cod_persona'];
-		
-	//ajaxMVC(arr,succMontarModificarPersona2,error);
-	
-}*/
-
 
 function succMontarModificarPersona(data){
-	/*console.log(data.persona);
-	console.log(data.persona);*/
-
-
-	//verEstadoEs();	
+	
 	tabsActivos(); 
 	
-	//$("#estudiante").show();
-	//$("#historico").hide();
 	$("#ced_persona").val(data.persona[0]['cedula']);
 	$("#rif_persona").val(data.persona[0]['rif']);
 	$("#nombre1").val(data.persona[0]['nombre1']);
@@ -960,7 +787,7 @@ function succMontarModificarPersona(data){
 	$('#fecNacimiento').val(data.persona[0]['fec_nacimiento']);
 	$('#cod_persona').val(data.persona[0]['codigo']);
 	$('#codigoPersona').val(data.persona[0]['codigo']);
-	//setTimeout(function(){ 
+
 	if(data.foto){
 		$("#imagen").remove();
 		var cadena ="";
@@ -970,9 +797,6 @@ function succMontarModificarPersona(data){
 		
 		$("#superImagen").append(cadena);
 	}
-	
-	//}, 400);
-	//alert(data.foto);
 	
 	if(data.empleado)
 		setTimeout(function(){ succMontarModificarEmpleado(data); }, 400);
@@ -1019,7 +843,7 @@ function limpiarCamposPersona(){
 * de la base de datos. Los Datos son enviados
 * por ajax.
 */
-function borrarPersona(){ //activoo controlador.
+function borrarPersona(){ 
 	var arr = Array("m_modulo"	,	"persona",
 					"m_accion"	,	"eliminar",
 					"cod_persona",  $("#cod_persona").val()									
@@ -1039,16 +863,11 @@ function succMontarEliminarPersona (data){
 	}
 	else
 		mostrarMensaje(data.mensaje,2);
-
 }
 
 
 
 function succAgregarPersona(data){
-	//aqui se agrega el codigo de persona en el hiden
-	//console.log(data);
-//alert(data.mensaje);
-	//alert(data.codPersona);
 
 	if(data.estatus>0)
 		mostrarMensaje(data.mensaje, 1);
@@ -1059,18 +878,13 @@ function succAgregarPersona(data){
 	$('#codigoPersona').val(data.codPersona);
 	if(data.codPersona){
 		tabsActivos(); 
-		//modificarPersona(data.codPersona);
-		//alert(data.codPersona+"antes");
 		verEmpleado();
-		verEstudiante();
-		//AgregarEsEm();
-		//$('div.estudiante').fadeIn(700);				
+		verEstudiante();				
 		$('div.empleado').hide();
 		$("#historico").hide();
 		$('#fec_ini_estudiante').val(fecActual());
 		
 		if(data.foto){
-			//alert(data.foto);
 			$("#imagen").remove();
 			var cadena ="";
 			cadena+="<div id='imagen'>";
@@ -1082,11 +896,11 @@ function succAgregarPersona(data){
 			modificarPersona(data.codPersona); 
 		}
 		if(data.mensajeFoto)
-			mostrarMensaje(data.mensajeFoto,2);		
-
+			mostrarMensaje(data.mensajeFoto,2);	
 	}
-
 }
+
+
 
 function exportarODS(){
 
@@ -1094,7 +908,6 @@ function exportarODS(){
 }
 
 function exportarPDF(){
-	//verPersona();
 	window.location.assign("index.php?m_modulo=persona&m_formato=pdf&m_vista=ListarPersona&m_accion=listar&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selectInstituto").val());
 }
 
@@ -1105,7 +918,7 @@ function exportarODT(){
 
 function tabsBloqueados(){
 	
-	$("#tabsBloqueado").hide();
+	//$("#tabsBloqueado").hide();
 	$("#tabsActivo").hide();
 	$("#historico").hide();
 }

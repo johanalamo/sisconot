@@ -5,7 +5,6 @@
 	require_once("modulos/empleado/modelo/EmpleadoServicio.php");
 	require_once("modulos/pensum/modelo/PensumServicio.php");
 	require_once("modulos/instituto/modelo/InstitutoServicio.php");
-	require_once("modulos/foto/FotoControlador.php");
 	require_once("modulos/foto/modelo/FotografiaServicio.php");
 /**
  * @copyright 2015 - Instituto Universtiario de Tecnología Dr. Federico Rivero Palacio
@@ -87,9 +86,6 @@
 				$campo=PostGet::obtenerPostGet("campo");
 
 				$campo=strtoupper($campo);
-				/*Vista::asignarDato('institutos',$instituto);
-				Vista::asignarDato('pnfs',$pnf);
-				Vista::asignarDato('estados',$estado);*/
 				
 				$ruta=null;
 				if($pnf=="seleccionar" || $pnf== 'undefined')
@@ -113,17 +109,6 @@
 				if(!$tipo_persona || $tipo_persona=="ambos")			
 					$personas=PersonaServicio::listar($pnf,$estado,$instituto,$campo);
 			
-				/*if(!$instituto)
-					$instituto=null;
-				
-
-				$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
-				$instituto=InstitutoServicio::listarInstitutos();	
-				
-				$estado=PersonaServicio::listarEstado();
-				Vista::asignarDato('instituto',$instituto);
-				Vista::asignarDato('pnf',$pnf);
-				Vista::asignarDato('estado',$estado);*/
 				Vista::asignarDato('persona',$personas);
 				Vista::asignarDato('tipo_persona',$tipo_persona);
 				Vista::asignarDato('codi',PostGet::obtenerPostGet("codi"));
@@ -155,41 +140,6 @@
 				throw $e;
 			}
 		}
-		
-	/*	public static function listarSelects(){
-			try{
-				
-				$pnf=PostGet::obtenerPostGet("pnf");
-				$estado=PostGet::obtenerPostGet("estado");
-				$instituto=PostGet::obtenerPostGet("instituto");
-
-
-				
-				if($pnf=="seleccionar" || $pnf== 'undefined')
-					$pnf=null;
-				
-				if($estado=="seleccionar" || $estado== 'undefined')
-					$estado=null;
-
-
-				if($instituto=="seleccionar" || !$instituto || $instituto == 'undefined')
-					$instituto=null;
-				
-				$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
-				$instituto=InstitutoServicio::listarInstitutos();
-				$estado=PersonaServicio::listarEstado(PostGet::obtenerPostGet("tipo_persona"));
-				Vista::asignarDato('instituto',$instituto);
-				Vista::asignarDato('pnf',$pnf);
-				Vista::asignarDato('estado',$estado);
-				Vista::asignarDato('empleado2',PostGet::obtenerPostGet("empleado2"));
-				Vista::Mostrar();
-
-			}
-			catch(Exception $e){
-				throw $e;
-			}
-			
-	}*/
 
 		/**
 		 * Función pública y estática que permite modificar la informaacion de una persona
@@ -447,7 +397,6 @@
 				}
 
 				Vista::mostrar();
-
 			}
 			catch (Exception $e){
 				throw $e;
