@@ -130,11 +130,11 @@ function preGuardarConvalidacion(){
 			mostrarMensaje("debe de seleccionar una fecha menor o igual a la actual",2);
 			bool=false;
 		}
-		else if(actual[2]-fecha[2]>=0 && actual[1]-fecha[1]<0){
+		else if(actual[2]-fecha[2]==0 && actual[1]-fecha[1]<0){
 			mostrarMensaje("debe de seleccionar una fecha menor o igual a la actual",2);
 			bool=false;
 		}
-		else if(actual[2]-fecha[2]>=0 && actual[1]-fecha[1]>=0 
+		else if(actual[2]-fecha[2]==0 && actual[1]-fecha[1]==0 
 				&& actual[0]-fecha[0]<0){
 			mostrarMensaje("debe de seleccionar una fecha menor o igual a la actual",2);
 			bool=false;
@@ -281,6 +281,7 @@ function autoCompletarEstudiante(estado){
 					$(this).val("");
 					event.preventDefault();
 					$("#doc"+$(this).attr("id")).val("");
+					borrarCampos();
 					//verConvalidadasEstudiante();
 				}
 				else{
@@ -303,6 +304,7 @@ function autoCompletarEstudiante(estado){
 					$(this).val("");
 					event.preventDefault();
 					$("#doc"+$(this).attr("id")).val("");
+					borrarCampos();
 				}
 				else{
 					$(this).val(ui.item.label);
@@ -463,7 +465,6 @@ function succBuscarConvalidacion (data){
 			$("#si").prop("checked", true);
 			$("#nota").val(dat['nota']);
 			$("#nota").show();
-
 		}
 		else
 			$("#no").prop("checked", true);		

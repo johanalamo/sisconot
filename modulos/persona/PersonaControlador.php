@@ -59,6 +59,8 @@
 				self::eliminar();
 			else if($accion == 'listarSelects')
 				self::listarSelects();
+			else if($accion == 'listarEstadoEstudianteEmpleado')
+				self::listarEstadoEstudianteEmpleado();
 			else
 				throw new Exception ("'PersonaControlador' La accion $accion no es valida");
 		}
@@ -110,19 +112,9 @@
 				
 				if(!$tipo_persona || $tipo_persona=="ambos")			
 					$personas=PersonaServicio::listar($pnf,$estado,$instituto,$campo);
-								
-			/*	elseif($tipo_persona=="estudiante"){
-					$personas=EstudianteServicio::listarPersonaEstudiante($pnf,$estado,$instituto,null,null,null,null,null);
-				}
 			
-				elseif($tipo_persona=="empleado")
-					$personas=EmpleadoServicio::listarPersonaEmpleado($pnf,$estado,$instituto);
-				*/
-
-			
-				if(!$instituto)
+				/*if(!$instituto)
 					$instituto=null;
-
 				
 
 				$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
@@ -131,23 +123,19 @@
 				$estado=PersonaServicio::listarEstado();
 				Vista::asignarDato('instituto',$instituto);
 				Vista::asignarDato('pnf',$pnf);
-				Vista::asignarDato('estado',$estado);
+				Vista::asignarDato('estado',$estado);*/
 				Vista::asignarDato('persona',$personas);
 				Vista::asignarDato('tipo_persona',$tipo_persona);
 				Vista::asignarDato('codi',PostGet::obtenerPostGet("codi"));
 
-				if(!$personas){					
+				if(!$personas)			
 					Vista::asignarDato('persona',null);
-				}
 
-
-				Vista::asignarDato('estatus',1);
-					
+				Vista::asignarDato('estatus',1);					
 				
 				if(!$personas)
-				{
 					Vista::asignarDato('mensaje','No hay personas para mostrar');
-				}
+				
 				Vista::Mostrar();
 			}
 			catch(Exception $e)
@@ -155,8 +143,20 @@
 				throw $e;
 			}
 		}
+
+		public static function listarEstadoEstudianteEmpleado(){
+			try{
+			
+				Vista::asignarDato('estado',PersonaServicio::listarEstado());
+				Vista::asignarDato('estatus',1);
+				Vista::Mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
 		
-		public static function listarSelects(){
+	/*	public static function listarSelects(){
 			try{
 				
 				$pnf=PostGet::obtenerPostGet("pnf");
@@ -189,7 +189,7 @@
 				throw $e;
 			}
 			
-	}
+	}*/
 
 		/**
 		 * Función pública y estática que permite modificar la informaacion de una persona

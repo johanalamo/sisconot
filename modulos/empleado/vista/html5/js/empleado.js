@@ -390,7 +390,7 @@ function succAgregarEmpleado(data){
 * para que luego sea mostado en un select. los datos son enviados
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarSelectInstituto().
-*/
+*//*
 function verInstitutoEm(){
 
 	var arr = Array("m_modulo"	,	"empleado",
@@ -403,7 +403,7 @@ function verInstitutoEm(){
 					);
 
 	ajaxMVC(arr,montarSelectInstitutoPersona,error);
-}
+}*/
 
 function verInstitutoEm2(){
 	
@@ -433,14 +433,14 @@ function verInstitutoEm2(){
 	//alert(instituto+"***");
 	//setTimeout(function(){ 
 */
-		var arr = Array("m_modulo"	,	"persona",
-						"m_accion"	,	"listarSelects",
-						"estado"	,	$("#empleado #selectEstado").val(),
+		var arr = Array("m_modulo"	,	"instituto",
+						"m_accion"	,	"listar"
+						/*"estado"	,	$("#empleado #selectEstado").val(),
 						"pnf"		,	$("#empleado #selectPNF").val(),
 						"instituto"	,	$("#empleado #selectInstituto").val(),
 						"tipo_persona",	"empleado",
 						//"campo",		$("#campo").val(),
-						"empleado2"	,	true
+						"empleado2"	,	true*/
 						);
 		ajaxMVC(arr,montarSelectInstitutoE,error);
 	
@@ -463,9 +463,9 @@ function montarSelectInstitutoE(data){
 		cadena+="<div id='selectInsEm'> institutos ";
 		cadena += "<select onchange='verPNFEm2();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 		cadena += "<option value='seleccionar' >Seleccionar</option>";
-	for(var x=0; x<data.instituto.length;x++)
+	for(var x=0; x<data.institutos.length;x++)
 	{
-		cadena += '<option value="'+data.instituto[x]["codigo"]+'">'+data.instituto[x]["nom_corto"]+'</option>';
+		cadena += '<option value="'+data.institutos[x]["codigo"]+'">'+data.institutos[x]["nom_corto"]+'</option>';
 	}
 	cadena+="</select></div>";
 
@@ -479,7 +479,7 @@ function montarSelectInstitutoE(data){
 * para que luego sea mostado en un select. los datos son enviados
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarSelectPNF().
-*/
+*//*
 function verPNFEm(){
 
 	var arr = Array("m_modulo"	,	"empleado",
@@ -494,7 +494,7 @@ function verPNFEm(){
 				
 	ajaxMVC(arr,montarSelectPNFPersona,error);
 }
-
+*/
 function verPNFEm2(){
 
 /*	instituto ='';
@@ -521,14 +521,15 @@ function verPNFEm2(){
 
 	//setTimeout(function(){ 
 	
-		var arr = Array("m_modulo"	,	"persona",
-					"m_accion"	,	"listarSelects",
-					"estado"	,	$("#empleado #selectEstado").val(),
+		var arr = Array("m_modulo"	,	"pensum",
+						"m_accion"	,	"buscarPorInstituto",
+						"codigo"	,	$("#empleado #selectInstituto").val()
+				/*	"estado"	,	$("#empleado #selectEstado").val(),
 					"pnf"		,	$("#empleado #selectPNF").val(),
 					"instituto"	,	$("#empleado #selectInstituto").val(),
 					"tipo_persona",	"empleado",
 					//"campo",		$("#campo").val(),
-					"empleado2"	,	true
+					"empleado2"	,	true*/
 					);
 		ajaxMVC(arr,montarSelectPNFE,error);
 	/*}, 600);*/
@@ -544,16 +545,16 @@ function verPNFEm2(){
 * los PNF y es concatenado a un  div en la vista HTML
 */
 function montarSelectPNFE(data){
-
+	//alert(JSON.stringify(data.pensum));
 	var cadena = "";
 	$("#empleado #selectPensumaEm").remove();
 	cadena+="<div id='selectPensumaEm'> Pensum ";
 	cadena += "<select class='selectpicker' id='selectPNF' title='pensum' data-live-search='true' data-size='auto' data-max-options='12' >"; 
 	cadena += "<option value='seleccionar'>Seleccionar</option>";
-	if(data.pnf){
-		for(var x=0; x<data.pnf.length;x++)
+	if(data.pensum){
+		for(var x=0; x<data.pensum.length;x++)
 		{
-			cadena += '<option value="'+data.pnf[x]["codigo"]+'">'+data.pnf[x][2]+'</option>';
+			cadena += '<option value="'+data.pensum[x]["codigo"]+'">'+data.pensum[x][2]+'</option>';
 		}
 	}
 	cadena +="</select></div>";
@@ -606,14 +607,14 @@ function verEstadoEm2(){
 
 	setTimeout(function(){ */
 
-		var arr = Array("m_modulo"	,"persona",
-					"m_accion"	,	"listarSelects",
-					"estado"	,	$("#empleado #selectEstado").val(),
+		var arr = Array("m_modulo"	,"empleado",
+						"m_accion"	,"listarEstado"
+					/*"estado"	,	$("#empleado #selectEstado").val(),
 					"pnf"		,	$("#empleado #selectPNF").val(),
 					"instituto"	,	$("#empleado #selectInstituto").val(),
 					"tipo_persona",	"empleado",
 					///*"campo",		$("#campo").val(),
-					"empleado2"	,	true
+					"empleado2"	,	true*/
 					);	
 		
 		ajaxMVC(arr,montarSelectEstadoEm,error);

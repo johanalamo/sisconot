@@ -478,5 +478,24 @@ class EmpleadoServicio
 			throw $e;
 		}
 	}
+
+	public static function listarEstado()
+	{
+		try
+		{
+			$conexion = Conexion::conectar();
+
+			$ejecutar = $conexion->prepare("SELECT * FROM sis.t_est_empleado;");
+			$ejecutar->execute(array());
+			
+			if($ejecutar->rowCount()!= 0)
+				return $ejecutar->fetchAll();
+			else
+				return null;
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
 }
 ?>

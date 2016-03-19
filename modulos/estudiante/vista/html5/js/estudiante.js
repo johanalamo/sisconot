@@ -244,7 +244,7 @@ function succAgregarEstudiante(data){
 * para que luego sea mostado en un select. los datos son enviados
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarSelectInstituto().
-*/
+*//*
 function verInstitutoEs(){
 
 	var arr = Array("m_modulo"	,	"estudiante",
@@ -258,16 +258,16 @@ function verInstitutoEs(){
 					);
 		
 	ajaxMVC(arr,montarSelectInstitutoPersona,error);
-}
+}*/
 
 function verInstitutoEsPrincipal(){
 
-	var arr = Array("m_modulo"	,	"persona",
-					"m_accion"	,	"listarSelects",
-					"estado"	,	$("#selectEstado").val(),
+	var arr = Array("m_modulo"	,	"instituto",
+					"m_accion"	,	"listar"
+					/*"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"estudiante"									
+					"tipo_persona",	"estudiante"		*/							
 					);
 		
 	ajaxMVC(arr,montarSelectInstituto,error);
@@ -278,7 +278,7 @@ function verInstitutoEsPrincipal(){
 /**
 * Funcion Java Script que permite mostrar un select con
 * los institutos y es concatenado a un  div en la vista HTML
-*/
+*//*
 function montarSelectInstitutoE(data){
 	console.log(data);
 	var cadena = "";
@@ -294,7 +294,7 @@ function montarSelectInstitutoE(data){
 
 	$(cadena).appendTo('.ins_estudiante');
 	activarSelect();					
-}
+}*/
 
 
 /**
@@ -302,7 +302,7 @@ function montarSelectInstitutoE(data){
 * para que luego sea mostado en un select. los datos son enviados
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarSelectPNF().
-*/
+*//*
 function verPNFEs(){
 
 	var arr = Array("m_modulo"	,	"estudiante",
@@ -316,16 +316,17 @@ function verPNFEs(){
 					);
 	
 	ajaxMVC(arr,montarSelectPNFPersona,error);
-}
+}*/
 
 function verPNFEsPrincipal(){
 
-	var arr = Array("m_modulo"	,	"persona",
-					"m_accion"	,	"listarSelects",
-					"estado"	,	$("#selectEstado").val(),
+	var arr = Array("m_modulo"	,	"pensum",
+					"m_accion"	,	"buscarPorInstituto",
+					"codigo"	,	$("#selectInstituto").val()
+					/*"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"estudiante"	
+					"tipo_persona",	"estudiante"	*/
 					);
 	
 	ajaxMVC(arr,montarSelectPNF,error);
@@ -399,13 +400,13 @@ function verPersonaEstudiante(){
 function verEstadoEs(){
 
 	var arr = Array("m_modulo"	,	"estudiante",
-					"m_accion"	,	"listar",
-					"estado"	,	$("#selectEstado").val(),
+					"m_accion"	,	"listarEstado"
+					/*"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
 					"tipo_persona",	"estudiante",
 					"campo"		,	$("#campo").val(),
-					"codi"		,	$("#cod_estudiante").val()
+					"codi"		,	$("#cod_estudiante").val()*/
 					);	
 
 	ajaxMVC(arr,montarSelectEstadoPersona,error);
@@ -413,12 +414,12 @@ function verEstadoEs(){
 
 function verEstadoEsPrincipal(){
 
-	var arr = Array("m_modulo"	,	"persona",
-					"m_accion"	,	"listarSelects",
-					"estado"	,	$("#selectEstado").val(),
+	var arr = Array("m_modulo"	,	"estudiante",
+					"m_accion"	,	"listarEstado"
+					/*"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
 					"instituto"	,	$("#selectInstituto").val(),
-					"tipo_persona",	"estudiante"
+					"tipo_persona",	"estudiante"*/
 					);	
 
 	ajaxMVC(arr,montarSelectEstado,error);

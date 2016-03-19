@@ -43,6 +43,8 @@ class EstudianteControlador
 			self::listarEstudiantePeriodo();
 		else if($accion == 'buscarEstudiante')
 			self::buscarEstudiante();
+		else if($accion == 'listarEstado')
+			self::listarEstado();
 		else
 			throw new Exception ("'EstudianteControlador' La accion $accion no es valida");
 	}
@@ -62,7 +64,6 @@ class EstudianteControlador
 	{
 		try
 		{
-
 			$pnf=PostGet::obtenerPostGet("pnf");
 			$estado=PostGet::obtenerPostGet("estado");
 			$instituto=PostGet::obtenerPostGet("instituto");
@@ -114,6 +115,18 @@ class EstudianteControlador
 				
 			Vista::Mostrar();
 
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+	public static function listarEstado(){
+		try{
+
+			Vista::asignarDato('estado',EstudianteServicio::listarEstado());
+			Vista::asignarDato('estatus',1);
+			Vista::Mostrar();
 		}
 		catch(Exception $e){
 			throw $e;

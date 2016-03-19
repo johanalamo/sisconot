@@ -39,7 +39,9 @@ class EmpleadoControlador
 		else if($accion == 'eliminar')
 			self::eliminar();
 		else if($accion == 'auto')
-			self::buscarEmpleado();		
+			self::buscarEmpleado();	
+		else if ($accion == 'listarEstado') 
+			self::listarEstado();	
 		else
 			throw new Exception ("'EmpleadoControlador' La accion $accion no es valida");
 	}
@@ -111,7 +113,7 @@ class EmpleadoControlador
 			Vista::asignarDato('tipo_persona',$tipo_persona);
 			Vista::asignarDato('empleado',$empleado);
 			Vista::asignarDato('codPersona',$codPersona);
-			Vista::asignarDato('empleado2',PostGet::obtenerPostGet("empleado2"));
+			//Vista::asignarDato('empleado2',PostGet::obtenerPostGet("empleado2"));
 			Vista::asignarDato('codi',PostGet::obtenerPostGet("codi"));
 
 			if(!$personas)
@@ -126,7 +128,17 @@ class EmpleadoControlador
 		}
 	}
 	
-	
+	public static function listarEstado(){
+		try{
+
+			Vista::asignarDato('estado',EmpleadoServicio::listarEstado());
+			Vista::asignarDato('estatus',1);
+			Vista::Mostrar();
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
 
 	/**
 	 * Función pública y estática que permite almacenar la informacion de un empleado en la DB

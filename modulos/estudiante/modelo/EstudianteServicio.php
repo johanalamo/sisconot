@@ -98,6 +98,24 @@ class EstudianteServicio
 		}
 	}
 
+	public static function listarEstado()
+	{
+		try
+		{
+			$conexion = Conexion::conectar();
+
+			$ejecutar = $conexion->prepare("SELECT * FROM sis.t_est_estudiante;");
+			$ejecutar->execute(array());
+			
+			if($ejecutar->rowCount()!= 0)
+				return $ejecutar->fetchAll();
+			else
+				return null;
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
 
 	/**
 	 * Función que permite listar todos los empleados almacenados en la base de datos.

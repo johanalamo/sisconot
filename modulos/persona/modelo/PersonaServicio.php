@@ -341,24 +341,24 @@ class PersonaServicio
 		}
 	}
 
-	public static function listarEstado($persona=null)
+	public static function listarEstado(/*$persona=null*/)
 	{
 		try
 		{
 			$conexion = Conexion::conectar();
 
-			if($persona==null){
+		///	if($persona==null){
 				$ejecutar = $conexion->prepare("select * from sis.t_est_empleado union select * from sis.t_est_estudiante order by nombre;");	
 				$ejecutar->execute(array());			
-			}
-			elseif($persona=="empleado"){
+			//}
+			/*elseif($persona=="empleado"){
 				$ejecutar = $conexion->prepare("SELECT * FROM sis.t_est_empleado;");
 				$ejecutar->execute(array());
 			}
 			elseif ($persona=="estudiante"){
 				$ejecutar = $conexion->prepare("SELECT * FROM sis.t_est_estudiante;");
 				$ejecutar->execute(array());
-			}
+			}*/
 
 			
 			if($ejecutar->rowCount()!= 0)
