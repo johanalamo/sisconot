@@ -71,19 +71,34 @@ $(function()
 });
 
 $(document).ready(function() {
-	limpiarCamposPersona();
-	nuevoEstudiante ();
-	NuevoEmpleado ();
 
-	verInstitutoListar();
-	verEstadolistar();
-	verPersona();
+	if($('#pantalla').val()=="principal"){
+		limpiarCamposPersona();
 
-	tabsBloqueados();
-	removerEsEm();
-	mostrarInformaion();
-	activarCal();
-	TodosFocus();
+		nuevoEstudiante ();
+		NuevoEmpleado ();
+
+		tabsBloqueados();
+		removerEsEm();
+
+		verEstadoEsPrincipal();  
+		verInstitutoEsPrincipal(); 
+		verPNFEsPrincipal();
+		verInstitutoEm2(); 
+		verEstadoEm2(); 
+		verPNFEm2();
+
+		mostrarInformaion();
+		activarCal();
+	}
+	else{	
+
+		verInstitutoListar();
+		verEstadolistar();
+		verPersona();			
+		
+		TodosFocus();
+	}
 
 
 } );
@@ -676,7 +691,7 @@ function modificarPersona(codigo=null){
 		codigo=getVarsUrl().persona;
 	else if(!codigo)
 		codigo=$('#cod_persona').val();
-	if(!codigo)	
+	if(!codigo || codigo=='null')
 		mostrarMensaje("Debes seleccionar a una persona.",2);
 	else
 		window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_accion=listar&m_formato=html5&persona='+codigo+'&accion=M';
@@ -689,7 +704,8 @@ function mostrarPersona(){
 		codigo=getVarsUrl().persona;
 	else
 		codigo=$('#cod_persona').val();
-	if(!codigo)	
+
+	if(!codigo || codigo=='null')	
 		mostrarMensaje("Debes seleccionar a una persona.",2);
 	else
 		window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_formato=html5&persona='+codigo+'&accion=V';
@@ -731,7 +747,6 @@ function mostrarInformaion(){
 	else if(getVarsUrl().accion=='N'){
 		$("#borrar_persona").remove();
 		$("#md_persona").remove();
-		$("#nuevo_empleado").remove();
 	}
 	else {
 		$("#md_estudiante").remove();
@@ -748,7 +763,7 @@ function mostrarInformaion(){
 		$("#borrar_persona").remove();
 		$("#md_persona").remove();
 		$("#guardarPersona").remove();
-		$("#nuevo_empleado").remove();
+		$("#nuevo_persona").remove();
 	}
 	if(getVarsUrl().persona!="-1" && getVarsUrl().persona)
 		ajaxMVC(arr,succMontarModificarPersona,error);
@@ -799,7 +814,7 @@ function succMontarModificarPersona(data){
 	$('#hijo').val(data.persona[0]['hijos']);
 	$('#est_civil').val(data.persona[0]['est_civil']);
 	$('#nacionalidad').val(data.persona[0]['nacionalidad']);
-	$('#fec_nac').val(data.persona[0]['fec_nacimiento']);
+	$('#fec_nac').val(data.persona[0]['fec_nacimientos']);
 	$('#cod_persona').val(data.persona[0]['codigo']);
 	$('#codigoPersona').val(data.persona[0]['codigo']);
 	$('.selectpicker').selectpicker('refresh');
@@ -823,13 +838,13 @@ function succMontarModificarPersona(data){
 	if(data.empleado)
 		setTimeout(function(){ succMontarModificarEmpleado(data); }, 400);
 	else{
-		verInstitutoEm2(); verEstadoEm2(); verPNFEm2();
+	//	verInstitutoEm2(); verEstadoEm2(); verPNFEm2();
 	}
 
 	if(data.estudiante)
 		setTimeout(function(){ succMontarModificarEstudiante(data); }, 400);
 	else{
-		verEstadoEsPrincipal();  verInstitutoEsPrincipal(); verPNFEsPrincipal();
+	///	verEstadoEsPrincipal();  verInstitutoEsPrincipal(); verPNFEsPrincipal();
 	}
 }
 
@@ -950,13 +965,16 @@ function succAgregarPersona(data){
 		
 		if(data.foto){
 			$("#imagen").remove();
+			$("#imagenEm").remove();
+			$("#imagenEs").remove();
 			var cadena ="";
 			cadena+="<div id='imagen'>";
-			cadena+="<img src="+data.foto+" width='400' height='400'>";
+			cadena+="<img src="+data.foto+" >";
 			cadena+="</div>";
 			
 			$("#superImagen").append(cadena);
-			$("#imagen").remove();
+			$("#superImagenEm").append(cadena);
+			$("#superImagenEs").append(cadena);
 			modificarPersona(data.codPersona); 
 			borrarFoto(data.foto);
 		}

@@ -239,12 +239,12 @@ function modificarEstudiante(cod_estudiante=null,cod_persona=null){
  */
 function succMontarModificarEstudiante (data){
 
-	verEstadoEsPrincipal();  verInstitutoEsPrincipal();
+	//verEstadoEsPrincipal();  verInstitutoEsPrincipal();
 	setTimeout(function(){ 
 		$("#estudiante #selectInstituto").val(data.estudiante[0]['cod_instituto']);	
 		$("#estudiante #selectEstado").val(data.estudiante[0]['cod_estado']);
 		verPNFEsPrincipal();
-	}, 800);
+	}, 150);
 
 	$("#cod_estudiante").val(data.estudiante[0]['codigo']);
 	$("#codPersona").val(data.estudiante[0]['cod_persona']);		
@@ -261,7 +261,7 @@ function succMontarModificarEstudiante (data){
 	setTimeout(function(){ 
 		$("#estudiante #selectPNF").val(data.estudiante[0]['cod_pensum']);
 		$('.selectpicker').selectpicker('refresh');
-	}, 1200);
+	}, 450);
 }
 
 function nuevoEstudiante (){

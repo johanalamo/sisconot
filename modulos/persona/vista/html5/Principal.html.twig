@@ -31,7 +31,7 @@
 	
 {% endblock %}
 {% block contenido %}
-	
+	<input type="hidden" name="pantalla" id="pantalla" value="principal">
 	<div class="contenedor">
 		<div class="col-md-12">
 
@@ -255,7 +255,7 @@
 							<div class="text-right formuario-persona form-group">
 								<button type="button" name="md_persona" id="md_persona" class="btn btn-info" onclick="modificarPersona();"><b>Modificar</b></button>
 								<button type="button" name="grd_persona" id="guardarPersona" class="btn btn-success" onclick="preGuardarPersona();"><b>Guardar</b></button>
-								<button class="btn btn-primary btn-primary" onclick="nuevoPersonaEstudiante();" title="Agregar una nueva persona" type="button" id="nuevo_empleado">
+								<button class="btn btn-primary btn-primary" onclick="nuevoPersonaEstudiante();" title="Agregar una nueva persona" type="button" id="nuevo_persona">
 									Nuevo
 								</button>
 							

@@ -227,10 +227,11 @@ class PersonaServicio
 			}
 
 			if(!$pnf && !$estado && !$instituto){
-				$consulta2="select p.*,p.codigo as cod_persona from sis.t_persona p ";
+				$consulta2="select p.*,p.codigo as cod_persona, (select to_char(fec_nacimiento,'DD/MM/YYYY')) as fec_nacimientos
+							 from sis.t_persona p ";
 			}
 			else{
-				$consulta2=" select p.*, p.codigo as cod_persona
+				$consulta2=" select p.*, p.codigo as cod_persona,(select to_char(fec_nacimiento,'DD/MM/YYYY')) as fec_nacimientos
 							from  sis.t_persona p left join sis.t_estudiante es 
 							on true and p.codigo=es.cod_persona  $con_estudiante
 							left join sis.t_empleado em 
