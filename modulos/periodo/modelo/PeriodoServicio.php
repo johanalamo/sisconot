@@ -181,7 +181,7 @@ Descripción:
 				$row = $ejecutar->fetchColumn(0);
 
 				if ($row == 0)
-					throw new Exception("No se pudo eliminar el Periodo.");	
+					throw new Exception("No se pudo eliminar el Periodo.");
 			}
 			catch(Exception $e){
 				throw $e;
@@ -283,7 +283,9 @@ Descripción:
 									where upper(ins.nom_corto) like upper('%$patron%')
 									or upper(pen.nom_corto) like upper('%$patron%')
 									or upper(per.nombre) like upper('%$patron%')
-									or upper(est.nombre) like upper('%$patron%');";
+									or upper(est.nombre) like upper('%$patron%')
+									order by 	per.cod_estado,
+												ins.nom_corto;";
 
 				$ejecutar=$conexion->prepare($consulta);
 				$conexion->beginTransaction();

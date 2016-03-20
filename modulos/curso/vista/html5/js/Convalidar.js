@@ -6,7 +6,7 @@ $( document ).ready(function() {
 });
 
 function verTipUniCurricular(){
-	
+
 	var arr=Array("m_modulo"	,		"curso",
 				  "m_accion"	,		"tipoUniCurrilular"
 				);
@@ -18,7 +18,7 @@ function succTipUniCurricular (data){
 	var cad ='';
 	$("#IdSelectTipoUni").remove();
 
-	cad="<div id='IdSelectTipoUni'> Tipo";	
+	cad="<div id='IdSelectTipoUni'> Tipo";
 	cad+= "<select class='selectpicker' id='selectTipoUni' title='tipo unidad curricular' data-live-search='true' data-size='auto' data-max-options='12' >";
 	cad+= "<option value='-1' >Seleccionar</option>";
 	if(data.tipUniCurrilular){
@@ -32,7 +32,7 @@ function succTipUniCurricular (data){
 	activarSelect();
 }
 
-function verPensum(codigo=null){
+function verPensum(codigo){
 
 	var arr=Array("m_modulo"	,		"pensum",
 				  "m_accion"	,		"pensumEstActivo",
@@ -45,7 +45,7 @@ function verPensum(codigo=null){
 function succPensumEst (data){
 	var cad ='';
 	$("#IdPensumEst").remove();
-	cad="<div id='IdPensumEst'> Pensum";	
+	cad="<div id='IdPensumEst'> Pensum";
 	cad+= "<select onchange='verTrayecto();'class='selectpicker' id='pensumEst' title='tipo unidad curricular' data-live-search='true' data-size='auto' data-max-options='12' >";
 	cad+= "<option value='-1' >Seleccionar</option>";
 	if(data.pensum){
@@ -56,7 +56,7 @@ function succPensumEst (data){
 	cad+="</select>";
 	cad+="</div>";
 	$(cad).appendTo('#pensum');
-	activarSelect();	
+	activarSelect();
 }
 
 function verTrayecto(){
@@ -73,7 +73,7 @@ function succTrayecto (data){
 	var cad ='';
 	$("#IdTrayecto").remove();
 
-	cad="<div id='IdTrayecto'> Trayecto";	
+	cad="<div id='IdTrayecto'> Trayecto";
 	cad+= "<select class='selectpicker' id='trayectoEst' title='tipo unidad curricular' data-live-search='true' data-size='auto' data-max-options='12' >";
 	cad+= "<option value='-1' >Seleccionar</option>";
 	if(data.trayecto){
@@ -134,7 +134,7 @@ function preGuardarConvalidacion(){
 			mostrarMensaje("debe de seleccionar una fecha menor o igual a la actual",2);
 			bool=false;
 		}
-		else if(actual[2]-fecha[2]==0 && actual[1]-fecha[1]==0 
+		else if(actual[2]-fecha[2]==0 && actual[1]-fecha[1]==0
 				&& actual[0]-fecha[0]<0){
 			mostrarMensaje("debe de seleccionar una fecha menor o igual a la actual",2);
 			bool=false;
@@ -173,7 +173,7 @@ function preGuardarConvalidacion(){
 }
 
 function guardarConvalidacion (){
-	
+
 	var arr=Array(	"m_modulo"	,		"curso",
 				  	"m_accion"	,		"insertarConvalidacion",
 				  	"cod_persona",			$("#codigoPersona").val(),
@@ -196,7 +196,7 @@ function guardarConvalidacion (){
 }
 
 function succGuardarConvalidacion(data){
-	
+
 	console.log(data);
 
 	if(data.estatus>0){
@@ -234,7 +234,7 @@ function borrarCampos(){
 function borrarConvalidacion(){
 	var arr=Array(	"m_modulo"	,		"curso",
 				  	"m_accion"	,		"eliminarConvalidacion",
-				  	"codigo"		,	$("#codConvalidacion").val()				  	
+				  	"codigo"		,	$("#codConvalidacion").val()
 				);
 
 	ajaxMVC(arr,succBorrarConvalidacion,errAjax);
@@ -291,7 +291,7 @@ function autoCompletarEstudiante(estado){
 					$("#codigoPersona").val(ui.item.value);
 					$("#nombre").val(ui.item.nombre);
 					$("#cedula").val(ui.item.cedula);
-					//alert(ui.item.value+"---");				
+					//alert(ui.item.value+"---");
 					verPensum(ui.item.value);
 					$("#codigoPersona").val(ui.item.value);
 					verConvalidadasEstudiante(ui.item.value);
@@ -335,7 +335,7 @@ function autoCompletarUniCurricular(){
 							);
 
 				ajaxMVC(a,function(data){
-							return response(data);							
+							return response(data);
 						  },
 						  function(data){
 						  	console.log(data);
@@ -394,7 +394,7 @@ function verConvalidadasEstudiante(codigo,codConvalidacion){
 					"codConvalidacion", codConvalidacion
 					);
 
-	ajaxMVC(arr,succConvalidadas,errAjax); 
+	ajaxMVC(arr,succConvalidadas,errAjax);
 }
 
 function succConvalidadas(data){
@@ -424,7 +424,7 @@ function succConvalidadas(data){
 			if(codConvalidacion!=data['codigo'])
 				cad+="	<tr id="+data['codigo']+" onclick='buscarConvalidacion("+data['codigo']+"); verConvalidadasEstudiante("+$("#codigoPersona").val()+","+data['codigo']+");'>";
 			else{
-				cad+="	<tr id="+data['codigo']+" onclick='buscarConvalidacion("+data['codigo']+"); 'style='background-color:#E5EAEE;'>";			
+				cad+="	<tr id="+data['codigo']+" onclick='buscarConvalidacion("+data['codigo']+"); 'style='background-color:#E5EAEE;'>";
 			}
 
 			cad+="	  <td>"+x+"</td>";
@@ -442,13 +442,13 @@ function succConvalidadas(data){
 	$(cad).appendTo('#tablaConvalidaciones');
 }
 
-function buscarConvalidacion(codigo=null){
+function buscarConvalidacion(codigo){
 	var arr= Array(
 					"m_modulo" , "curso",
 					"m_accion" , "buscarConvalidacionCodigo",
-					"codigo"   , codigo 
+					"codigo"   , codigo
 					);
-	ajaxMVC(arr,succBuscarConvalidacion,errAjax); 
+	ajaxMVC(arr,succBuscarConvalidacion,errAjax);
 }
 
 function succBuscarConvalidacion (data){
@@ -467,17 +467,17 @@ function succBuscarConvalidacion (data){
 			$("#nota").show();
 		}
 		else
-			$("#no").prop("checked", true);		
+			$("#no").prop("checked", true);
 		$("#pensumEst").val(dat['cod_pensum']);
 		$("#unidadCurricular").val(dat['nombre']);
 		$("#descripcionText").val(dat['descripcion']);
 		$("#codUni").val(dat['cod_uni_curricular']);
 		verTrayecto();
-		setTimeout(function(){			
+		setTimeout(function(){
 			$("#trayectoEst").val(dat['cod_trayecto']);
 			$(".selectpicker").selectpicker("refresh");
 	 	},200);
-		
+
 
 		verDetalle(dat['cod_uni_curricular']);
 	}
@@ -499,12 +499,12 @@ function errAjax(data){
 
 
 
-function verDetalle(codigo){	
+function verDetalle(codigo){
 	var arr = Array ("m_modulo","unidad",
 	 				 "m_accion","buscarCodigoUnidadCurricular",
 	 				 "codigo",codigo
 	 				 );
-	ajaxMVC(arr,consultarDetalleUni,errAjax); 
+	ajaxMVC(arr,consultarDetalleUni,errAjax);
 }
 
 function consultarDetalleUni(data) {
@@ -521,17 +521,17 @@ function consultarDetalleUni(data) {
 		cadena+="<tr><td>Código de Ministerio:</td><td>";
 		cadena+="<a href='#'' >"+unidad[1]+"</a></td></tr>";
 		cadena+="<tr><td>Nombre:</td><td>";
-		cadena+="<a href='#'' >"+unidad[2]+"</a></td></tr>";		
+		cadena+="<a href='#'' >"+unidad[2]+"</a></td></tr>";
 		cadena+="<tr><td>Horas de Trabajo Acompañadas (HTA):</td><td>";
 		cadena+="<a href='#'' >"+unidad[3]+"</a></td></tr>";
 		cadena+="<tr><td>Horas de Trabajo Independiente (HTI):</td><td>";
-		cadena+="<a href='#'' >"+unidad[4]+"</a></td></tr>";	
+		cadena+="<a href='#'' >"+unidad[4]+"</a></td></tr>";
 		cadena+="<tr><td>Unidades de Crédito:</td><td>";
-		cadena+="<a href='#'' >"+unidad[5]+"</a></td></tr>";	
+		cadena+="<a href='#'' >"+unidad[5]+"</a></td></tr>";
 		cadena+="<tr><td>Duración de Semanas:</td><td>";
 		cadena+="<a href='#'' >"+unidad[6]+"</a></td></tr>";
 		cadena+="<tr><td>Nota Mínima Aprobatoria:</td><td>";
-		cadena+="<a href='#'' >"+unidad[7]+"</a></td></tr>";	
+		cadena+="<a href='#'' >"+unidad[7]+"</a></td></tr>";
 		cadena+="<tr><td>Nota Máxima:</td><td>";
 		cadena+="<a href='#'' >"+unidad[8]+"</a></td></tr>";
 		cadena+="<tr><td>Descripción:</td><td>";
@@ -550,8 +550,3 @@ function consultarDetalleUni(data) {
 		//$("detallePen").replaceWith(cadena);
 	}
 }
-
-
-
-
-

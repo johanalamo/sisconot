@@ -196,6 +196,7 @@ Descripción:
 				$fecFinal = PostGet::obtenerPostGet("fecFinal");
 				$capacidad = PostGet::obtenerPostGet("capacidad");
 				$observaciones = PostGet::obtenerPostGet("observaciones");
+			
 
 				if($codDocente == '')
 					$codDocente = NULL;

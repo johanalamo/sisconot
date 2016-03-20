@@ -1,5 +1,5 @@
 
-function validarSoloTexto(id, min, max, req = false){
+function validarSoloTexto(id, min, max, req){
 	$(".popover").hide();
 	var cad = $(id).val();
 	var val=/^[A-Za-z ÁÉÍÓÚáéíóúñÑ]{0,5000}$/;
@@ -35,7 +35,7 @@ function validarSoloTexto(id, min, max, req = false){
 }
 
 
-function validarSoloTextoYCaracteres(id, min, max, req = false){
+function validarSoloTextoYCaracteres(id, min, max, req){
 	$(".popover").hide();
 	var cad = $(id).val();
 	var val=/^[A-Za-z ÁÉÍÓÚáéí".óúñÑ]{0,5000}$/;
@@ -69,7 +69,6 @@ function validarSoloTextoYCaracteres(id, min, max, req = false){
 	}
 	return true;
 }
-
 
 function validarSoloNumeros(id,min,max,req){
 	$(".popover").hide();
@@ -107,16 +106,28 @@ function validarSoloNumeros(id,min,max,req){
 	return true;
 }
 
+function validarDosFechas(idmenor,idmayor){
+	$(".popover").hide();
+
+	valuesStart = $(idmenor).val().split("/");
+	valuesEnd = $(idmayor).val().split("/");
+
+	var dateStart= new Date(valuesStart[2],(valuesStart[1]-1),valuesStart[0]);
+	var dateEnd = new Date(valuesEnd[2],(valuesEnd[1]-1),valuesEnd[0]);
+
+	if(dateStart >= dateEnd){
+		detonarAdvertencia(idmenor,"Esta fecha es mayor a la fecha referente.");
+		return false;
+	}
+	$(idmenor).popover();
+	return true;
+}
+
 function validarFecha(id,req){
 	$(".popover").hide();
 	var cad = $(id).val();
 
-	console.log("12/04/2015" == $(id).val());
-
-
 	var val = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
-
-	console.log(cad.match(val));
 
 	if(req){
 		if(cad.length == 0){
@@ -142,7 +153,7 @@ function validarFecha(id,req){
 	return true;
 }
 
-function validarEmail(id,min = 5 ,max = 30, req = false){
+function validarEmail(id,min,max, req){
 	$(".popover").hide();
 	var cad = $(id).val();
 	var val = /[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;

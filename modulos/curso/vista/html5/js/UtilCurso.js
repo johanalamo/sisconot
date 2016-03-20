@@ -542,6 +542,8 @@ function cargarUni(){
  */
 
 function succCargarUni(data){
+	console.log(data);
+
 	var uni = data.uni;
 	var cad = "";
 
@@ -622,6 +624,9 @@ function succListarCursos(data){
 			 */
 
 			if(it != tra){
+				sec = '';
+				p = 'info';
+
 				it = tra;
 				cad += "<tr>";
 				cad+="<th style='text-align:center' class='dark' colspan='10'>Trayecto "+cur[cont][1]+"</th>";
@@ -721,26 +726,49 @@ function verificarChecks(el){
 	for(var i = 0; i < len; i++){
 		if($("#checkbox"+i).is(":checked")){
 			if(el == 'mod'){
-				if(($("#c1"+i).html() != tra && $("#c2"+i).html() != sec)||($("#c1"+i).html() == tra && $("#c2"+i).html() != sec)){
+				if(per.CursoModificar || per.CursoAgregar){
+					if((sec+tra) != ($("#c2"+i).html()+$("#c1"+i).html())){
 						window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=CrearModificarCurso&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
 						sec = $("#c2"+i).html();
 						tra = $("#c1"+i).html();
+					}
+				}
+				else{
+					mostrarMensaje("Se ha detectado que no posee permisos para crear/modificar cursos.",4);
 				}
 			}
 			else if(el == 'le') {
-				if($("#cant"+i).html() != '0')
-					window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=ListarEstudiantes&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
-				else
-					mostrarMensaje("No se puede generar la lista de estudiantes para este curso porque no posee estudiantes inscritos",3);
+				if(per.CurEstudianteListar){
+					if($("#cant"+i).html() != '0')
+						window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=ListarEstudiantes&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
+					else
+						mostrarMensaje("No se puede generar la lista de estudiantes para este curso porque no posee estudiantes inscritos.",3);
+				}
+				else {
+
+				}
 			}
 			else if(el == 'cn'){
-				if($("#cant"+i).html() != '0')
-					window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=CargarNotas&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
-				else
-					mostrarMensaje("No se puede abrir la pestaña de cargar notas para este curso porque no posee estudiantes inscritos",3);
+				if(per.CurEstudianteModificar){
+					if($("#cant"+i).html() != '0')
+						window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=CargarNotas&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
+					else
+						mostrarMensaje("No se puede abrir la pestaña de cargar notas para este curso porque no posee estudiantes inscritos.",3);
+				}
+				else{
+					mostrarMensaje("Se ha detectado que no posee permisos para cargar notas.",4);
+				}
 			}
 			else if(el == 'ri'){
-				window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=InscribirRetirarEstudiante&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
+				if(per.CurEstudianteModificar){
+					if($("#cant"+i).html() != '0')
+							window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=InscribirRetirarEstudiante&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
+					else
+						mostrarMensaje("No se puede abrir la pestaña de retirar estudiante para este curso porque no posee estudiantes inscritos.",3);
+				}
+				else{
+					mostrarMensaje("Se ha detectado que no posee permisos para retirar estudiantes del curso.",4);
+				}
 			}
 			else if(el == "ret"){
 				retirarEstudiante($("#hid"+i).val(),$("#selUni").val());
@@ -782,11 +810,10 @@ function succEliminarEstudiante(data){
 
 
 function cargarCursosPensum(){
-	if($("#sec").val() != ''){
-
+	if($("#sec").val().trim() != '' && validarRangos("#sec",1,5,true)){
 		var arr = Array("m_modulo"		,		"curso",
 						"m_accion"						,		"obtenerCursosPensum",
-						"seccion"							,		$("#sec").val().toUpperCase(),
+						"seccion"							,		$("#sec").val().trim().toUpperCase(),
 						"trayecto"						,		$("#selTra").val(),
 						"periodo"							,		$("#selPer").val());
 
@@ -825,8 +852,8 @@ function succCargarCursosPensum(data){
 		cad += "<th style='text-align:center' class='dark'>Unidad Curricular</th>";
 		cad += "<th style='text-align:center' class='dark'>Capacidad</th>";
 		cad += "<th style='text-align:center' class='dark'>Docente</th>";
-		cad += "<th style='text-align:center' class='dark'>Fecha de Inicio</th>";
-		cad += "<th style='text-align:center' class='dark'>Fecha de Fin</th>";
+		cad += "<th style='text-align:center' class='dark'>Fecha Inicio</th>";
+		cad += "<th style='text-align:center' class='dark'>Fecha Fin</th>";
 		cad += "<th style='text-align:center' class='dark'>Observaciones</th>";
 
 		var val = '';
@@ -862,9 +889,9 @@ function succCargarCursosPensum(data){
 			cad += "<input type='hidden' value='"+cur[i]['nombre']+"' id='nb"+i+"'>";
 
 			if(cur[i]['capacidad'] == null)
-				cad += "<td style='text-align:center'><input type='text' class='form-control' "+val+" onchange='actualizarEstadoCurso("+i+")' id='capacidad"+i+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='form-control' size='2' "+val+" onkeyup='validarSoloNumeros(\"#capacidad"+i+"\",1,3,true)' onchange='actualizarEstadoCurso("+i+")' id='capacidad"+i+"'></td>";
 			else
-				cad += "<td style='text-align:center'><input type='text' class='form-control' "+val+" onchange='actualizarEstadoCurso("+i+")' id='capacidad"+i+"' value='"+cur[i]['capacidad']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='form-control' size='2' "+val+" onkeyup='validarSoloNumeros(\"#capacidad"+i+"\",1,3,true)' onchange='actualizarEstadoCurso("+i+")' id='capacidad"+i+"' value='"+cur[i]['capacidad']+"'></td>";
 
 
 			if(cur[i]['nombredocente'] == null)
@@ -878,20 +905,20 @@ function succCargarCursosPensum(data){
 				cad += "<input type='hidden' id='doc"+i+"' value='"+cur[i]['coddocente']+"'>";
 
 			if(cur[i]['fec_inicio'] == null)
-				cad += "<td style='text-align:center'><input type='text' "+val+" class='date form-control' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecini"+i+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' "+val+"  onclick='actualizarEstadoCurso("+i+")' class='date form-control' style='cursor:pointer'  id='fecini"+i+"' size='3'></td>";
 			else
-				cad += "<td style='text-align:center'><input type='text' "+val+" class='date form-control' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecini"+i+"' value='"+cur[i]['fec_inicio']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' "+val+"  onclick='actualizarEstadoCurso("+i+")' class='date form-control' style='cursor:pointer'  id='fecini"+i+"' value='"+cur[i]['fec_inicio']+"' size='3'></td>";
 
 
 			if(cur[i]['fec_final'] == null){
-				cad += "<td style='text-align:center'><input type='text' "+val+" class='date form-control' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' ></td>";
+				cad += "<td style='text-align:center'><input type='text' "+val+" size='5' class='date form-control' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' ></td>";
 			}else
-				cad += "<td style='text-align:center'><input type='text' "+val+" class='date form-control' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' value='"+cur[i]['fec_final']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' "+val+" size='5' class='date form-control' style='cursor:pointer' onclick='actualizarEstadoCurso("+i+")' id='fecfin"+i+"' value='"+cur[i]['fec_final']+"'></td>";
 
 			if(cur[i]['observaciones'] == null)
-				cad += "<td style='text-align:center'><input type='text' class='form-control' "+val+" onchange='actualizarEstadoCurso("+i+")' id='observaciones"+i+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='form-control' "+val+" onchange='actualizarEstadoCurso("+i+")' id='observaciones"+i+"' maxlength='50'></td>";
 			else
-				cad += "<td style='text-align:center'><input type='text' class='form-control' "+val+" onchange='actualizarEstadoCurso("+i+")' id='observaciones"+i+"' value='"+cur[i]['observaciones']+"'></td>";
+				cad += "<td style='text-align:center'><input type='text' class='form-control' "+val+" onchange='actualizarEstadoCurso("+i+")' id='observaciones"+i+"' value='"+cur[i]['observaciones']+"' maxlength='50'></td>";
 
 			cad += "</tr>";
 		}
@@ -976,13 +1003,18 @@ function actualizarCursos(){
 							"codPeriodo"		,		$("#selPer").val(),
 							"codUniCurricular"	,		$("#uni"+i).val(),
 							"codDocente"		,		$("#doc"+i).val(),
-							"seccion"			,		$("#sec").val().toUpperCase(),
+							"seccion"			,		$("#sec").val().toUpperCase().trim(),
 							"fecInicio"			,		$("#fecini"+i).val(),
-							"fecFinal"			,		$("#fecfinal"+i).val(),
+							"fecFinal"			,		$("#fecfin"+i).val(),
 							"capacidad"			,		$("#capacidad"+i).val(),
 							"observaciones"		,		$("#observaciones"+i).val());
-			if(per.CursoAgregar)
-				ajaxMVC(arr,succActualizarCursosA,err);
+
+			if(per.CursoAgregar){
+				if(validarDosFechas("#fecini"+i,"#fecfin"+i) && validarSoloNumeros("#capacidad"+i,2,3,true)){
+
+					ajaxMVC(arr,succActualizarCursosA,err);
+				}
+			}
 			else {
 				mostrarMensaje("Se ha detectado que no posee los permisos necesarios. No se pudo realizar la acción.",3);
 			}
@@ -994,13 +1026,19 @@ function actualizarCursos(){
 							"codPeriodo"		,		$("#selPer").val(),
 							"codUniCurricular"	,		$("#uni"+i).val(),
 							"codDocente"		,		$("#doc"+i).val(),
-							"seccion"			,		$("#sec").val().toUpperCase(),
+							"seccion"			,		$("#sec").val().toUpperCase().trim(),
 							"fecInicio"			,		$("#fecini"+i).val(),
 							"fecFinal"			,		$("#fecfin"+i).val(),
 							"capacidad"			,		$("#capacidad"+i).val(),
 							"observaciones"		,		$("#observaciones"+i).val());
-			if(per.CursoModificar)
-				ajaxMVC(arr2,succActualizarCursosM,err);
+
+			if($("#capacidad"+i).val() == '0')
+				detonarAdvertencia("#capacidad"+i,"La capacidad no puede ser 0.");
+			else if(per.CursoModificar){
+				if(validarDosFechas("#fecini"+i,"#fecfin"+i) && validarSoloNumeros("#capacidad"+i,1,3,true)){
+					ajaxMVC(arr2,succActualizarCursosM,err);
+				}
+			}
 			else
 				mostrarMensaje("Se ha detectado que no posee los permisos necesarios. No se pudo realizar la acción.",3);
 		}
@@ -1072,6 +1110,7 @@ function listarEstudiantes(funsucc,cod){
  */
 
 function succListarEstudiantes(data){
+	console.log(data);
 
 	var est = data.estudiante;
 	var cad = "";
@@ -1106,7 +1145,7 @@ function succListarEstudiantes(data){
 
 					cad += "<td style='text-align:center'>"+(i+1)+"</td>";
 
-				cad += "<td style='text-align:center'>"+est[i]['cedula']+"</td>";
+				cad += "<td style='text-align:center'>"+est[i]['nacionalidad']+"-"+est[i]['cedula']+"</td>";
 
 				cad += "<td style='text-align:center'>"+est[i]['apellido1']+"</td>";
 
@@ -1213,47 +1252,45 @@ $( document ).ready(function() {
 });
 
 
-if(obtenerGet('codigo') != null && obtenerGet('m_vista') != 'CargarNotas')
+//~ if(obtenerGet('codigo') != null && obtenerGet('m_vista') != 'CargarNotas')
+	//~ montarSelects();
+if((obtenerGet('m_vista') != 'CargarNotas')&&(obtenerGet('codigo') != null))
 	montarSelects();
-
-if(obtenerGet('codigo') != null)
-	montarSelects();
-else if(datos != null){
+else if(datos != null)
 	montarSelectUsuario();
-}
+
 
 function montarSelectUsuario(){
+
 	datos = datos[0];
 
 	if(datos.emp_inst != null){
 		$("#selInst").val(datos.emp_inst);
-		$("#selInst").selectpicker("refresh");
 		$("#selInst").attr('disabled',true);
+		$("#selInst").selectpicker("refresh");
 		cargarPensums();
 	}
 	else if(datos.est_inst != null){
 		$("#selInst").val(datos.est_inst);
-		$("#selInst").selectpicker("refresh");
 		$("#selInst").attr('disabled',true);
+		$("#selInst").selectpicker("refresh");
 		cargarPensums();
 	}
 
 	setTimeout(function(){
 		if(datos.emp_pensum != null){
 			$("#selPen").val(datos.emp_pensum);
-			$("#selPen").selectpicker("refresh");
 			$("#selPen").prop("disabled",true);
-			$("#selInst").css("cursor","not-allowed");
+			$("#selPen").selectpicker("refresh");
 			cargarPeriodos();
 		}
 		else if(datos.est_pensum != null){
 			$("#selPen").val(datos.est_pensum);
-			$("#selPen").selectpicker("refresh");
 			$("#selPen").prop("disabled",true);
-			$("#selInst").css("cursor","not-allowed");
+			$("#selPen").selectpicker("refresh");
 			cargarPeriodos();
 		}
-	},150);
+	},250);
 
 
 }
@@ -1376,7 +1413,7 @@ function succListarEstudiantesCargarNotas(data){
 				cad += "<input type='hidden' id='curest"+i+"' value='"+est[i]['cod_curest']+"'></td>";
 				cad += "<input type='hidden' id='est"+i+"' value='"+est[i]['codigo']+"'></td>";
 
-				cad += "<td style='text-align:center'>"+est[i]['cedula']+"</td>";
+				cad += "<td style='text-align:center'>"+est[i]['nacionalidad']+"-"+est[i]['cedula']+"</td>";
 
 				cad += "<td style='text-align:center'>"+est[i]['apellido1']+"</td>";
 
@@ -1385,21 +1422,22 @@ function succListarEstudiantesCargarNotas(data){
 				cad += "<input type='hidden' id='nom"+i+"' value='"+est[i]['nombre1']+" "+est[i]['apellido1']+"'>";
 
 				if(est[i]['nota'] == null)
-					cad += "<td style='text-align:center'><center><input class='form-control' type='text' onchange='actualizarEstado("+i+")' id='nota"+i+"' size='4' style='width:50px;' value=''></td>";
+					cad += "<td style='text-align:center'><center><input class='form-control' type='text' onkeyup='validarSoloNumeros(\"#nota"+i+"\",1,2,false)' onchange='actualizarEstado("+i+")' id='nota"+i+"' size='4' style='width:50px;' value=''></td>";
 				else
-					cad += "<td style='text-align:center'><center><input class='form-control' type='text' onchange='actualizarEstado("+i+")' id='nota"+i+"'  size='4' style='width:50px;' value='"+est[i]['nota']+"'></td>";
+					cad += "<td style='text-align:center'><center><input class='form-control' type='text' onkeyup='validarSoloNumeros(\"#nota"+i+"\",1,2,false)' onchange='actualizarEstado("+i+")' id='nota"+i+"'  size='4' style='width:50px;' value='"+est[i]['nota']+"'></td>";
 
 				if(est[i]['por_asistencia'] == null)
-					cad += "<td style='text-align:center'><center><input class='form-control' type='text' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='4' style='width:50px;' value=''></td>";
+					cad += "<td style='text-align:center'><center><input class='form-control' type='text' onkeyup='validarSoloNumeros(\"#asis"+i+"\",1,3,false)' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='4' style='width:50px;' value=''></td>";
 				else
-					cad += "<td style='text-align:center'><center><input class='form-control' type='text' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='4' style='width:50px;' value='"+est[i]['por_asistencia']+"'></td>";
+					cad += "<td style='text-align:center'><center><input class='form-control' type='text' onkeyup='validarSoloNumeros(\"#asis"+i+"\",1,3,false)' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='4' style='width:50px;' value='"+est[i]['por_asistencia']+"'></td>";
 
-				cad += "<td style='text-align:center'><select class='selectpicker' onchange='actualizarEstado("+i+")' data-live-search='true' data-size='auto' data-width='200px' id='estado"+i+"'>"+cad2+"</select></td>";
+				cad += "<td style='text-align:center'><select class='selectpicker' onchange='actualizarEstado("+i+")' data-live-search='true' data-width='150px' id='estado"+i+"'>"+cad2+"</select></td>";
+
 
 				if(est[i]['observaciones'] == null)
-					cad += "<td style='text-align:center'><input type='text' class='form-control' onchange='actualizarEstado("+i+")' id='obser"+i+"' value=''></td>";
+					cad += "<td style='text-align:center'><input type='text' class='form-control' onchange='actualizarEstado("+i+")' id='obser"+i+"' value='' maxlength='50'></td>";
 				else
-					cad += "<td style='text-align:center'><input type='text' class='form-control' onchange='actualizarEstado("+i+")' id='obser"+i+"' value='"+est[i]['observaciones']+"'></td>";
+					cad += "<td style='text-align:center'><input type='text' class='form-control' onchange='actualizarEstado("+i+")' id='obser"+i+"' value='"+est[i]['observaciones']+"' maxlength='50'></td>";
 
 				cad += "</tr>";
 			}
@@ -1447,7 +1485,11 @@ function guardarNotas(i){
 							"observaciones"	,		$("#obser"+i).val(),
 							"nombre"		,		$("#nom"+i).val());
 
-			ajaxMVC(arr,succGuardarNotas,err);
+			if(validarSoloNumeros("#nota"+i,1,2,false) && validarSoloNumeros("#asis"+i,1,3,false))
+				ajaxMVC(arr,succGuardarNotas,err);
+			else {
+				mostrarMensaje("Ocurrió un error en la validación de campos. Por favor, verifique la información",4);
+			}
 		}
 	}
 }
@@ -1457,9 +1499,10 @@ function succGuardarNotas(data){
 }
 
 function succMontarSelects(data){
+
 	var dat = data.cursoInfoMontar;
 
-	var i = 1;
+	var i = 2;
 	if(dat[0]['cod_instituto'] != null){
 		i++;
 		setTimeout(function (){
@@ -1472,6 +1515,12 @@ function succMontarSelects(data){
 		i++;
 		setTimeout(function (){
 			$("#selPen").val(dat[0]['cod_pensum']);
+			if(datos != null){
+				if(datos.est_pensum != null || datos.emp_pensum != null){
+					$("#selPen").prop("disabled",true);
+				}
+			}
+
 			cargarPeriodos();
 			i++;
 		}, 150*i);
@@ -1490,26 +1539,37 @@ function succMontarSelects(data){
 		i++;
 		setTimeout(function (){
 			$("#selTra").val(dat[0]['cod_trayecto']);
-			cargarSeccion();
+
+			if($("#selSec").length > 0)
+				cargarSeccion();
 		}, 150*i);
 	}
 
-	if($("#sec").length != 0)
-		$("#sec").val(dat[0]['seccion']);
+	if($("#sec").length > 0){
+		i++;
+		setTimeout(function (){
+			$("#sec").val(dat[0]['seccion']);
+		}, 150*i);
+	}
 	else if(dat[0]['seccion'] != null){
 		i++;
 		setTimeout(function (){
 			$("#selSec").val(dat[0]['seccion']);
-			cargarUni();
+
+			if($("#selUni").length > 0)
+				cargarUni();
 		}, 150*i);
 	}
 
-	if(dat[0]['codigocurso'] != null){
-		i++;
-		setTimeout(function (){
-			$("#selUni").val(dat[0]['codigocurso']);
-		}, 150*i);
+	if($("#selUni").length > 0){
+		if(dat[0]['codigocurso'] != null){
+			i++;
+			setTimeout(function (){
+				$("#selUni").val(dat[0]['codigocurso']);
+			}, 150*i);
+		}
 	}
+
 
 	i++;
 	setTimeout(function (){
