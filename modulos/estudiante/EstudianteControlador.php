@@ -99,7 +99,7 @@ class EstudianteControlador
 
 			if(!$personas)
 				Vista::asignarDato('persona',null);
-
+			
 			$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
 			$instituto=InstitutoServicio::listarInstitutos();
 			$estado=PersonaServicio::listarEstado("estudiante");
