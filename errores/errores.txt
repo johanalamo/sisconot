@@ -1248,3 +1248,759 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 76 *****************************
+codigo Error: 76
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 53
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(53): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/foto/FotoControlador.php(158): FotografiaServicio::existe('')
+		#2 /var/www/github/sisconot/modulos/foto/FotoControlador.php(17): FotoControlador::buscarFoto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(21): FotoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 77 *****************************
+codigo Error: 77
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 78 *****************************
+codigo Error: 78
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 53
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(53): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/foto/FotoControlador.php(158): FotografiaServicio::existe('')
+		#2 /var/www/github/sisconot/modulos/foto/FotoControlador.php(17): FotoControlador::buscarFoto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(21): FotoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 79 *****************************
+codigo Error: 79
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 53
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(53): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/foto/FotoControlador.php(158): FotografiaServicio::existe('')
+		#2 /var/www/github/sisconot/modulos/foto/FotoControlador.php(17): FotoControlador::buscarFoto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(21): FotoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 80 *****************************
+codigo Error: 80
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 53
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(53): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/foto/FotoControlador.php(158): FotografiaServicio::existe('')
+		#2 /var/www/github/sisconot/modulos/foto/FotoControlador.php(17): FotoControlador::buscarFoto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(21): FotoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 81 *****************************
+codigo Error: 81
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 82 *****************************
+codigo Error: 82
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 53
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(53): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/foto/FotoControlador.php(158): FotografiaServicio::existe('')
+		#2 /var/www/github/sisconot/modulos/foto/FotoControlador.php(17): FotoControlador::buscarFoto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(21): FotoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 83 *****************************
+codigo Error: 83
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 53
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(53): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/foto/FotoControlador.php(158): FotografiaServicio::existe('')
+		#2 /var/www/github/sisconot/modulos/foto/FotoControlador.php(17): FotoControlador::buscarFoto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(21): FotoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 84 *****************************
+codigo Error: 84
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 85 *****************************
+codigo Error: 85
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 53
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(53): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/foto/FotoControlador.php(158): FotografiaServicio::existe('')
+		#2 /var/www/github/sisconot/modulos/foto/FotoControlador.php(17): FotoControlador::buscarFoto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(21): FotoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 86 *****************************
+codigo Error: 86
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 87 *****************************
+codigo Error: 87
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 53
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(53): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/foto/FotoControlador.php(158): FotografiaServicio::existe('')
+		#2 /var/www/github/sisconot/modulos/foto/FotoControlador.php(17): FotoControlador::buscarFoto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(21): FotoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 88 *****************************
+codigo Error: 88
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «seleccionar»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('seleccionar')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 89 *****************************
+codigo Error: 89
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 90 *****************************
+codigo Error: 90
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 91 *****************************
+codigo Error: 91
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 53
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(53): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/foto/FotoControlador.php(158): FotografiaServicio::existe('')
+		#2 /var/www/github/sisconot/modulos/foto/FotoControlador.php(17): FotoControlador::buscarFoto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(21): FotoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 92 *****************************
+codigo Error: 92
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 93 *****************************
+codigo Error: 93
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 94 *****************************
+codigo Error: 94
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 95 *****************************
+codigo Error: 95
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 96 *****************************
+codigo Error: 96
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 97 *****************************
+codigo Error: 97
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 98 *****************************
+codigo Error: 98
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 99 *****************************
+codigo Error: 99
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 100 *****************************
+codigo Error: 100
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 101 *****************************
+codigo Error: 101
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 102 *****************************
+codigo Error: 102
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 103 *****************************
+codigo Error: 103
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 104 *****************************
+codigo Error: 104
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 105 *****************************
+codigo Error: 105
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 53
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(53): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/foto/FotoControlador.php(158): FotografiaServicio::existe('')
+		#2 /var/www/github/sisconot/modulos/foto/FotoControlador.php(17): FotoControlador::buscarFoto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(21): FotoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 106 *****************************
+codigo Error: 106
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 107 *****************************
+codigo Error: 107
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 108 *****************************
+codigo Error: 108
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 109 *****************************
+codigo Error: 109
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 110 *****************************
+codigo Error: 110
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 111 *****************************
+codigo Error: 111
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 112 *****************************
+codigo Error: 112
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 113 *****************************
+codigo Error: 113
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 114 *****************************
+codigo Error: 114
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 115 *****************************
+codigo Error: 115
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 116 *****************************
+codigo Error: 116
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 117 *****************************
+codigo Error: 117
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 118 *****************************
+codigo Error: 118
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 119 *****************************
+codigo Error: 119
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 120 *****************************
+codigo Error: 120
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 121 *****************************
+codigo Error: 121
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 122 *****************************
+codigo Error: 122
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 123 *****************************
+codigo Error: 123
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 124 *****************************
+codigo Error: 124
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 125 *****************************
+codigo Error: 125
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 126 *****************************
+codigo Error: 126
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 127 *****************************
+codigo Error: 127
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 128 *****************************
+codigo Error: 128
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 129 *****************************
+codigo Error: 129
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
