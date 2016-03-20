@@ -1940,3 +1940,53 @@ ALTER FUNCTION sis.f_convalidacion_eli(integer)
   OWNER TO sisconot;
 
 
+
+
+CREATE OR REPLACE FUNCTION sis.f_archivo_ins(text,text)
+  RETURNS integer AS
+$BODY$
+DECLARE 
+	cod_archivo integer := 0;
+	p_tipo ALIAS for $1;
+	p_archivo ALIAS for $2;
+BEGIN
+	select coalesce(max(codigo),0) from sis.t_archivo into cod_archivo;
+
+	cod_archivo:=cod_archivo+1;
+
+	INSERT INTO sis.t_archivo (codigo,	tipo,	archivo	 )
+			    VALUES (cod_archivo,p_tipo,	lo_import(p_archivo) );
+
+  RETURN cod_archivo;
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_archivo_ins(text, text)
+  OWNER TO sisconot;
+
+
+CREATE OR REPLACE FUNCTION sis.f_archivo_mod(integer,text,text)
+  RETURNS integer AS
+$BODY$
+DECLARE 
+	r_operacion integer := 0;
+	p_codigo ALIAS for $1;
+	p_tipo ALIAS for $2;
+	p_archivo ALIAS for $3;
+BEGIN
+
+  UPDATE sis.t_archivo SET archivo = lo_import(p_archivo),tipo=p_tipo WHERE codigo= p_codigo;
+
+  IF found THEN
+  r_operacion := 1;
+  END IF;
+
+  RETURN cod_archivo;
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_archivo_mod(integer,text, text)
+  OWNER TO sisconot;
+
