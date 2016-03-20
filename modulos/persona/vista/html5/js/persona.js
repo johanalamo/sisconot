@@ -422,8 +422,15 @@ function asignarAmbos(){
 }
 
 function buscarPorCampo(){
+	var modulo="";
+	if($("#tipoPersona").val() && $("#tipoPersona").val()=="ambos")
+	 	modulo="persona"
+	else if($("#tipoPersona").val())
+		modulo=$("#tipoPersona").val();
+	else
+		modulo="persona";
 
-	var arr = Array("m_modulo"	,	"persona",
+	var arr = Array("m_modulo"	,	modulo,
 					"m_accion"	,	"listar",
 					"estado"	,	$("#selectEstado").val(),
 					"pnf"		,	$("#selectPNF").val(),
@@ -509,31 +516,31 @@ function montarPersona(data){
 					$("#cod_persona").val(data.persona[x]['cod_persona']);
 
 					if(data.tipo_persona=="estudiante"){
-						cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
+						cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
 					}
 					else if(data.tipo_persona=="empleado")
-						cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
+						cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
 					else if(data.tipo_persona=="ambos")
-						cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
+						cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
 
 				}
 				else{
 					if(data.tipo_persona=="estudiante")
-						cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+");'>";
+						cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");'>";
 					else if(data.tipo_persona=="empleado")
-						cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+");'>";
+						cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");'>";
 					else if(data.tipo_persona=="ambos")
-						cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");' >";
+						cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' >";
 				}
 			}
 			else{
 
 				if($("#tipoPersona").val()=="estudiante")
-					cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+");'>";
+					cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");'>";
 				else if($("#tipoPersona").val()=="empleado")
-					cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+");'>";
+					cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");'>";
 				else if($("#tipoPersona").val()=="ambos")
-					cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+");' >";
+					cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' >";
 			}
 			cadena+="<td>"+data.persona[x]['cod_persona']+"</td>";
 			cadena+="<td>"+data.persona[x]['cedula']+"</td>";
@@ -665,8 +672,10 @@ function modificarPersona(codigo=null){
 		codigo=getVarsUrl().persona;
 	else if(!codigo)
 		codigo=$('#cod_persona').val();
-
-	window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_accion=listar&m_formato=html5&persona='+codigo+'&accion=M';
+	if(!codigo)	
+		mostrarMensaje("Debes seleccionar a una persona.",2);
+	else
+		window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_accion=listar&m_formato=html5&persona='+codigo+'&accion=M';
 }
 
 function mostrarPersona(){
@@ -676,8 +685,10 @@ function mostrarPersona(){
 		codigo=getVarsUrl().persona;
 	else
 		codigo=$('#cod_persona').val();
-	
-	window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_formato=html5&persona='+codigo+'&accion=V';
+	if(!codigo)	
+		mostrarMensaje("Debes seleccionar a una persona.",2);
+	else
+		window.location.href = 'index.php?m_modulo=persona&m_vista=Principal&m_formato=html5&persona='+codigo+'&accion=V';
 }
 
 
@@ -790,12 +801,18 @@ function succMontarModificarPersona(data){
 
 	if(data.foto){
 		$("#imagen").remove();
+		$("#imagenEm").remove();
+		$("#imagenEs").remove();
 		var cadena ="";
 		cadena+="<div id='imagen'>";
 		cadena+="<img src="+data.foto+" >";
 		cadena+="</div>";
 		
 		$("#superImagen").append(cadena);
+		$("#superImagenEm").append(cadena);
+		$("#superImagenEs").append(cadena);
+		borrarFoto(data.foto);
+	 
 	}
 	
 	if(data.empleado)
@@ -809,8 +826,13 @@ function succMontarModificarPersona(data){
 	else{
 		verEstadoEsPrincipal();  verInstitutoEsPrincipal(); verPNFEsPrincipal();
 	}
+}
 
-
+function borrarFoto(ruta){
+	arr = Array("m_modulo","foto",
+				"m_accion","borrar",
+				"ruta"	,	ruta);
+	ajaxMVC(arr,null,error);
 }
 
 function limpiarCamposPersona(){
@@ -837,6 +859,41 @@ function limpiarCamposPersona(){
 	$('#cod_persona').val('');
 	$('#codigoPersona').val('');
 	$('.selectpicker').selectpicker('refresh');
+}
+
+function buscarFoto(codigo,codPersona){
+
+	var arr = Array("m_modulo"	,	"foto",
+					"m_accion"	,	"buscarFoto",
+					"codigo"	,  	codigo,
+					"codPersona",	codPersona								
+					);
+		
+	ajaxMVC(arr,succBuscarFoto,error);
+
+}
+
+function succBuscarFoto(data){
+	if(data.foto){
+		$("#imagen").remove();
+		var cadena ="";		
+		cadena+="<div id='imagen'>";
+		cadena+="<img src="+data.foto+" width='300' height='300'>";
+		cadena+="</div>";
+		
+		$("#superImagen").append(cadena);		
+		borrarFoto(data.foto);
+	}
+	else{
+		var cadena ="";
+		$("#imagen").remove();		
+		cadena+="<div id='imagen'>";
+		cadena+="<img src='modulos/persona/vista/html5/imagen/foto.png' width='300' height='300'>";
+		cadena+="</div>";
+		
+		$("#superImagen").append(cadena);	
+	}
+
 }
 /**
 * Funcion Java Script que permite borrar a una persona
@@ -888,12 +945,13 @@ function succAgregarPersona(data){
 			$("#imagen").remove();
 			var cadena ="";
 			cadena+="<div id='imagen'>";
-			cadena+="<img src="+data.foto+" width='200' height='200'>";
+			cadena+="<img src="+data.foto+" width='400' height='400'>";
 			cadena+="</div>";
 			
 			$("#superImagen").append(cadena);
 			$("#imagen").remove();
 			modificarPersona(data.codPersona); 
+			borrarFoto(data.foto);
 		}
 		if(data.mensajeFoto)
 			mostrarMensaje(data.mensajeFoto,2);	
@@ -904,16 +962,42 @@ function succAgregarPersona(data){
 
 function exportarODS(){
 
-	window.location.assign("index.php?m_modulo=persona&m_formato=ods&m_vista=ListarPersona&m_accion=listar&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selectInstituto").val());
+	var modulo="";
+	if($("#tipoPersona").val() && $("#tipoPersona").val()=="ambos")
+	 	modulo="persona"
+	else if($("#tipoPersona").val())
+		modulo=$("#tipoPersona").val();
+	else
+		modulo="persona";
+
+	window.location.assign("index.php?m_modulo="+modulo+"&m_formato=ods&m_vista=ListarPersona&m_accion=listar&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selectInstituto").val()+"&campo="+$("#campo").va());
 }
 
 function exportarPDF(){
-	window.location.assign("index.php?m_modulo=persona&m_formato=pdf&m_vista=ListarPersona&m_accion=listar&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selectInstituto").val());
+
+	var modulo="";
+	if($("#tipoPersona").val() && $("#tipoPersona").val()=="ambos")
+	 	modulo="persona"
+	else if($("#tipoPersona").val())
+		modulo=$("#tipoPersona").val();
+	else
+		modulo="persona";
+
+	window.location.assign("index.php?m_modulo="+modulo+"&m_formato=pdf&m_vista=ListarPersona&m_accion=listar&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selectInstituto").val()+"&campo="+$("#campo").val());
 }
 
 function exportarODT(){
 
-	window.location.assign("index.php?m_modulo=persona&m_formato=odt&m_vista=ListarPersona&m_accion=listar&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selectInstituto").val());
+	var modulo="";
+	if($("#tipoPersona").val() && $("#tipoPersona").val()=="ambos")
+	 	modulo="persona"
+	else if($("#tipoPersona").val())
+		modulo=$("#tipoPersona").val();
+	else
+		modulo="persona";
+
+	
+	window.location.assign("index.php?m_modulo="+modulo+"&m_formato=odt&m_vista=ListarPersona&m_accion=listar&pnf="+$("#selectPNF").val()+"&estado="+$("#selectEstado").val()+"&instituto="+$("#selectInstituto").val()+"&campo="+$("#campo").val());
 }
 
 function tabsBloqueados(){

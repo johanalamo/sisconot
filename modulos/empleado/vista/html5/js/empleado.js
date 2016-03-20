@@ -292,9 +292,7 @@ function guardarEmpleadoAux(data,boolAux){
 		if($("#fec_fin_empleado").val() || !boolAux) //el boolaux se puso nuevo
 			fecha=$("#fec_fin_empleado").val();
 		else
-			fecha=fecActual();
-	
-	
+			fecha=fecActual();	
 
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"agregar",	
@@ -361,7 +359,6 @@ function succAgregarEmpleado(data){
 	}
 	else
 		mostrarMensaje(data.mensaje,2);
-
 }
 
 /**

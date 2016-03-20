@@ -181,9 +181,17 @@ class PersonaServicio
 
 			if($campo){
 				$bool=true;
-				$consulta.=" and CONCAT(cast(p.cedula as varchar),nombre1 || ' ' ||nombre2 || ' ' ||apellido1 || ' '||apellido2)  
-							ilike '%$campo%' or CONCAT (cast(p.cedula as varchar),nombre1 || ' ' ||apellido1 || ' '||apellido2) 
-							ilike '%$campo%'";
+				$consulta.=" and (CONCAT(cast(p.cedula as varchar),nombre1 || ' ' ||nombre2 || ' ' ||apellido1 || ' '||apellido2)  
+								ilike '%$campo%' 
+								OR
+								CONCAT(cast(p.cedula as varchar),nombre1 || ' ' ||apellido1)  
+								ilike '%$campo%' 
+								OR
+								CONCAT(cast(p.cedula as varchar),nombre1  || ' ' || nombre2 ||' ' ||apellido1)  
+								ilike '%$campo%' 
+								OR
+								CONCAT(cast(p.cedula as varchar),nombre1  || ' ' || apellido1 ||' ' ||apellido2)  
+								ilike '%$campo%') ";
 			}
 			if($codigo){
 				$consulta.= " and p.codigo = $codigo ";
@@ -432,6 +440,22 @@ class PersonaServicio
 				throw new Exception("No se pudo eliminar a la persona.");
 
 			return $row;	
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+	public static function AgregarFoto ($codigo,$codFoto){
+		try{
+			$conexion = Conexion::conectar();
+			$ejecutar = $conexion->prepare("update sis.t_persona set cod_foto=?  where codigo=?;");	
+			$ejecutar->execute(array($codFoto,$codigo));			
+			
+			if($ejecutar->rowCount()!= 0)
+				return $ejecutar->fetchAll();
+			else
+				return null;
 		}
 		catch(Exception $e){
 			throw $e;

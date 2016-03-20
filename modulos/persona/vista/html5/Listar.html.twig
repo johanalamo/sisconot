@@ -23,14 +23,10 @@
 			<div class="posion-fieldset">
 				<fieldset class="scheduler-border">
 					<legend class="scheduler-border">personalizacion de busqueda </legend>
-					<div class="selectListar text-center">
+					<div class="col-md-6">
+					<div class="selectListar text-center ">
 						<div class="selectInstituto2"> 
-						<!--	<div id='selectIns' onmouseover="verInstituto();"> institutos
-								<select onchange='verPersona(); verPNF();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >
-									<option value='seleccionar' >Seleccionar</option>
-								</select>
-							</div>-->
-
+						
 						</div>
 
 						<br>
@@ -44,23 +40,16 @@
 						<br>
 
 						<div class="selectEstado2" > 
-							<!--<div id='selectEstados' onmouseover="verEstado();"> Estado
-								<select onchange='verPersona(); verEstado();' class='selectpicker' id='selectEstado' title='Estados' data-live-search='true' data-size='auto' data-max-options='12' >
-									<option value='seleccionar' >Seleccionar</option>
-								</select>
-							</div>-->
+							
 						</div>
 						<br>
 						
 						<input type='text' name='campo' id='campo' placeholder='Nombre/Apellido/Cedula' onkeyup='buscarPorCampo();' class="form-control">
 						
 					</div>
+
 					<div class="text-left" id="botones">
-					<!--<div id="example_wrapper" class="dataTables_wrapper">
-						<div id="example_filter" class="dataTables_filter">
-							<label><input type="search" arial-controls="example" placeholder="buscador" class="form-control" ></input></label>
-						</div>
-					</div> -->
+					
 						<br>
 						
 							<button type="button" id="bTodos1" class="btn btn-info boton-focus" title="Solo Empleados" onclick="empleadoFocus(); verPersonaEmpleado(); verEstadoEm(); ">
@@ -75,7 +64,17 @@
 								<b>Todos<b>
 							</button><!--antes se llamaba ambos-->	
 
+
 					</div>
+					</div>
+					<div clss="col-md-6 " >
+						<div class="text-left" id="superImagen">
+							<div id="imagen">
+						      <img src="modulos/persona/vista/html5/imagen/foto.png" width='300' height='300'>
+						   	</div>					 			   
+						</div>
+					</div>
+					
 				</fieldset>
 
 				<fieldset class="scheduler-border">

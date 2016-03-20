@@ -6,6 +6,7 @@
 	require_once("modulos/pensum/modelo/PensumServicio.php");
 	require_once("modulos/instituto/modelo/InstitutoServicio.php");
 	require_once("modulos/foto/modelo/FotografiaServicio.php");
+	require_once("modulos/foto/FotoControlador.php");
 /**
  * @copyright 2015 - Instituto Universtiario de Tecnología Dr. Federico Rivero Palacio
  * @license GPLv3
@@ -112,7 +113,7 @@
 				Vista::asignarDato('persona',$personas);
 				Vista::asignarDato('tipo_persona',$tipo_persona);
 				Vista::asignarDato('codi',PostGet::obtenerPostGet("codi"));
-
+				
 				if(!$personas)			
 					Vista::asignarDato('persona',null);
 
@@ -154,19 +155,34 @@
 		{
 			try
 			{		
+				$a=explode("/", (__DIR__));
+				$path="";
+				$x=0;
+				while($a[$x]!="sisconot"){
+					if($x!=1)
+						$path.="/".$a[$x];
+					else
+						$path.=$a[$x];
+					$x++;
+				}
+
+				$path.="/".$a[$x];
+				
+				$ruta=$path."/temp/".$codigo.".".$foto[0]["tipo"]; 
+
 				$codigo=PostGet::obtenerPostGet("codPersona");
 				
 				$persona=PersonaServicio::listar(null,null,null,null,$codigo);	
 				$estudiante=EstudianteServicio::listar(null,null,null,null,$codigo);
 				$empleado=EmpleadoServicio::listar(null,null,null,null,$codigo);
-				$foto=FotografiaServicio::existe($codigo);
-				//var_dump($persona);
+				$foto=FotografiaServicio::existe($persona[0]['cod_foto']);
 
 				if($foto){		
-
-					$ruta=$_SERVER['DOCUMENT_ROOT']."/sisconot/temp/".$codigo.".".$foto[0]["tipo"];
-					//echo $ruta;
-				//	FotografiaServicio::extraerEn($codigo,$ruta);
+			
+					$ruta=$path."/temp/".$codigo.".".$foto[0]["tipo"];
+					
+					FotografiaServicio::extraerEn($persona[0]['cod_foto'],$ruta);
+					
 				}
 
 				if($persona)
@@ -174,11 +190,12 @@
 					Vista::asignarDato('persona',$persona);
 					Vista::asignarDato('estudiante',$estudiante);
 					Vista::asignarDato('empleado',$empleado);
-		/*			if($foto)
+					if($foto){
 						$ruta="temp/".$codigo.".".$foto[0]["tipo"];
 						Vista::asignarDato('foto',$ruta);
+					}
 					//var_dump($foto[0]["archivo"]);
-*/
+
 					Vista::asignarDato('estatus',1);
 				}
 				else
@@ -187,8 +204,7 @@
 					Vista::asignarDato('estatus',-1);
 				}
 				
-				Vista::Mostrar();
-		
+				Vista::Mostrar();	
 
 			}
 			catch(Exception $e){
@@ -246,6 +262,19 @@
 				if(!$fecNacimiento)
 					$fecNacimiento=null;
 
+				$a=explode("/", (__DIR__));
+				$path="";
+				$x=0;
+				while($a[$x]!="sisconot"){
+					if($x!=1)
+						$path.="/".$a[$x];
+					else
+						$path.=$a[$x];
+					$x++;
+				}
+
+				$path.="/".$a[$x];
+
 				
 				$response=null;
 				$response2=null;
@@ -287,7 +316,7 @@
 						
 					Vista::asignarDato('estatus',$response2);
 				}
-				
+					
 				if($response2>0 || $response>0){
 					$persona="";					
 					$persona=PersonaServicio::listar(null,null,null,null,null,$cedula);
@@ -297,66 +326,50 @@
 				}
 
 				$foto="";
-				if($archivo && !$codigo){
-					$codigo=$persona[0]["cod_persona"];
+				if($archivo){
+					if(!$codigo)
+						$codigo=$persona[0]["cod_persona"];
+				
 					$tipo="";
 					$tipo=explode(".",$archivo["name"]);
 					$arch=pg_escape_string($archivo["tmp_name"]);	
 					if($tipo){
-						$ruta=$_SERVER['DOCUMENT_ROOT']."/github/sisconot/temp/".$codigo.".".$tipo[1];
-					//	if(file_exists($ruta))
-					//		unlink($ruta);
-					//	copy($arch,$ruta);
-						//$ruta="/temp/".$codigo.".".$tipo[1];
+						$ruta=$path."/temp/".$codigo.".".$tipo[1];
+						if(file_exists($ruta))
+							unlink($ruta);
 						
-				//		Vista::asignarDato("ruta",$ruta);
-			//			$foto=FotoControlador::Iniciar();
+						copy($arch,$ruta);
+						$ruta="temp/".$codigo.".".$tipo[1];
+						
+						Vista::asignarDato("ruta",$ruta);
 
-					}					
-					
+						$foto=FotoControlador::Iniciar();
+					}	
+
 				}
-				elseif($archivo && $codigo){
-					$tipo="";
-					$tipo=explode(".",$archivo["name"]);	
-					$arch=pg_escape_string($archivo["tmp_name"]);
-					//PersonaServicio::modificarFoto($codigo,$arch,$a[1],$archivo["name"]);
-					if($tipo){			
-
-						$ruta=$_SERVER['DOCUMENT_ROOT']."/github/sisconot/temp/".$codigo.".".$tipo[1];
-					//	if(file_exists($ruta))
-					//		unlink($ruta);
-					//	copy($arch,$ruta);
-						//var_dump($ruta);
-						//$ruta="/temp/".$codigo.".".$tipo[1];
-				//		Vista::asignarDato("ruta",$ruta);
-						//$foto=FotoControlador::Iniciar();
-						//FotografiaServicio::extraerEn($persona[0]["cod_persona"],"/var/www/proyecto/GitHub/sisconot/".$persona[0]["cod_persona"].".".$a[1]);
-
+				
+				
+				if($foto===true && ($response>0 || $response2>0)){
+					$tipo=$tipo[count($tipo)-1];
+					$codigo=FotografiaServicio::guardar($persona[0]["cod_foto"],$tipo,$path."/temp/".$codigo.".".$tipo);
+					
+					if($codigo[0][0]==true){
+						PersonaServicio::AgregarFoto(Vista::obtenerDato("codPersona"),$codigo[0][0]);
 					}
-					
-					//$response=PersonaServicio::listarFoto($codigo);
-					/*if($response)
-						PersonaServicio::modificarFoto($persona[0]["cod_persona"],$foto,$a[1]);
-					else
-						PersonaServicio::agregarFoto($persona[0]["cod_persona"],$foto,$a[1]);
-					*/				
 				}
-			//	if($foto===true && ($response>0 || $response2>0)){
-			//		FotografiaServicio::guardar($codigo,$tipo[count($tipo)-1],$ruta);
-					
-		//		}
-			//	if(isset($ruta)){
-			//		if(file_exists($ruta))
-			//			unlink($ruta);
-			//	}
+
+				if(isset($ruta)){
+					if(file_exists($ruta))
+						unlink($ruta);
+				}
 				
 
-			/*	if($foto!='2' && $foto==true){
+				if($foto!='2' && $foto==true){
 					Vista::asignarDato("foto",$ruta);
 				}
 				else if($foto==='2'){
 					Vista::asignarDato("mensajeFoto","la imagen NO posee el tamaño minimo para almacernarse");
-				}*/
+				}
 				
 					
 

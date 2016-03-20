@@ -6,6 +6,19 @@ class FotoControlador{
 	private static $ancho_limite=300;		//Se establece el limite de pixeles de ancho que va a obtener la imagen despues de ser modificada.
 	private static $altura_limite=300;		//Se establece el limite de pixeles de alto que va a obtener la imagen despues de ser modificada.
 
+	public static function manejarRequerimiento(){
+		$accion = PostGet::obtenerPostGet("m_accion");
+		if(!$accion)
+			$accion="";
+
+		if($accion=="borrar")
+			self::borrar();
+		else if($accion == "buscarFoto")
+			self::buscarFoto();
+		else
+			throw new Exception ("'FotoControlador' La accion $accion no es valida");
+	}
+		
 
 	public static function iniciar(){
 		$codigo=Vista::obtenerDato("codPersona");
@@ -70,6 +83,7 @@ class FotoControlador{
 	{	
 
 		$a=explode("|",self::get_dimensiones($ruta));
+		
 		if($a[0]<=250 or $a[1]<=250)	{return false;}
 		else 							{return true;}
 	}
@@ -106,6 +120,61 @@ class FotoControlador{
 	{
 		$a=explode("|", $dimensiones);	//obtiene las dimensiones de la imagen 
 		return imagecreatetruecolor($a[0],$a[1]); //se crea una imagen en blanco para guardar los cambios q se efectue
+	}
+
+	public static function borrar(){
+		try{
+			$ruta=PostGet::obtenerPostGet("ruta");
+			//echo $ruta;
+			if(isset($ruta)){
+				if(file_exists($ruta))
+					unlink($ruta);
+			} 
+
+			Vista::Mostrar();
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+	public static function buscarFoto(){
+		try{
+			$a=explode("/", (__DIR__));
+			$path="";
+			$x=0;
+			while($a[$x]!="sisconot"){
+				if($x!=1)
+					$path.="/".$a[$x];
+				else
+					$path.=$a[$x];
+				$x++;
+			}
+
+			$path.="/".$a[$x];
+
+			$codigo=PostGet::obtenerPostGet("codigo");
+			$codPersona=PostGet::obtenerPostGet("codPersona");
+			$foto=FotografiaServicio::existe($codigo);
+
+			$ruta=$path."/temp/".$codPersona.".".$foto[0]["tipo"];
+			$ruta2="temp/".$codPersona.".".$foto[0]["tipo"];
+
+			if($foto)
+				$foto=FotografiaServicio::extraerEn($codigo,$ruta);
+
+
+
+			if($foto)
+				Vista::asignarDato("foto",$ruta2);
+			else
+				Vista::asignarDato("foto",null);
+
+			Vista::Mostrar();
+		}
+		catch(Exception $e){
+			throw $e;
+		}
 	}
 }
 ?>

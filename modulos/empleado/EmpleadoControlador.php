@@ -91,7 +91,7 @@ class EmpleadoControlador
 
 			$personas=EmpleadoServicio::listarPersonaEmpleado($pnf,$estado,$instituto,null,$campo);
 			$empleado=EmpleadoServicio::listar(null,null,null,$codigo,$codPersona);
-
+			
 			vista::asignarDato('persona',$personas);
 
 			if(!$personas)
@@ -100,7 +100,7 @@ class EmpleadoControlador
 			if(!$codPersona)
 				Vista::asignarDato('empleado',null);
 				
-
+			
 			$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
 			$instituto=InstitutoServicio::listarInstitutos();
 			$estado=EmpleadoServicio::listarEstado();

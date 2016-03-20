@@ -286,7 +286,6 @@ class EmpleadoServicio
 													$apellido1=null,  	$apellido2=null,	$sexo=null
 												)
 	{
-
 		try
 		{
 			$conexion = Conexion::conectar();
@@ -324,9 +323,20 @@ class EmpleadoServicio
 			if($cod_pensum)
 				$consulta.= " and em.cod_pensum=$cod_pensum";
 
-			if($campo)
-				$consulta.=" and CONCAT (cast(p.cedula as varchar),p.nombre1,p.nombre2,apellido1, apellido2) 
-							like '%$campo%' ";
+			if($campo){
+				$campo=strtoupper($campo);
+				$consulta.=" and (CONCAT(cast(p.cedula as varchar),nombre1 || ' ' ||nombre2 || ' ' ||apellido1 || ' '||apellido2)  
+								ilike '%$campo%' 
+								OR
+								CONCAT(cast(p.cedula as varchar),nombre1 || ' ' ||apellido1)  
+								ilike '%$campo%' 
+								OR
+								CONCAT(cast(p.cedula as varchar),nombre1  || ' ' || nombre2 ||' ' ||apellido1)  
+								ilike '%$campo%' 
+								OR
+								CONCAT(cast(p.cedula as varchar),nombre1  || ' ' || apellido1 ||' ' ||apellido2)  
+								ilike '%$campo%') ";
+			}
 							
 			if($cod_estado)
 				$consulta.= " and em.cod_estado = '$cod_estado'";
@@ -334,7 +344,7 @@ class EmpleadoServicio
 			$consulta.=" group by p.codigo order by p.codigo ";
 
 			$ejecutar=$conexion->prepare($consulta);
-
+		//	echo $consulta;
 			$ejecutar-> execute(array());
 
 			if($ejecutar->rowCount() != 0)
