@@ -531,36 +531,36 @@ function montarPersona(data){
 					$("#cod_persona").val(data.persona[x]['cod_persona']);
 
 					if(data.tipo_persona=="estudiante"){
-						cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
+						cadena+="<tr class='pointer' onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
 					}
 					else if(data.tipo_persona=="empleado")
-						cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
+						cadena+="<tr class='pointer' onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
 					else if(data.tipo_persona=="ambos")
-						cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
+						cadena+="<tr class='pointer' onclick='verPersona("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' style='background-color:#E5EAEE;'>";
 
 				}
 				else{
 					if(data.tipo_persona=="estudiante")
-						cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");'>";
+						cadena+="<tr class='pointer' onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");'>";
 					else if(data.tipo_persona=="empleado")
-						cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");'>";
+						cadena+="<tr class='pointer' onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");'>";
 					else if(data.tipo_persona=="ambos")
-						cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' >";
+						cadena+="<tr class='pointer' onclick='verPersona("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' >";
 				}
 			}
 			else{
 
 				if($("#tipoPersona").val()=="estudiante")
-					cadena+="<tr onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");'>";
+					cadena+="<tr class='pointer' onclick='verPersonaEstudiante("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");'>";
 				else if($("#tipoPersona").val()=="empleado")
-					cadena+="<tr onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");'>";
+					cadena+="<tr class='pointer' onclick='verPersonaEmpleado("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");'>";
 				else if($("#tipoPersona").val()=="ambos")
-					cadena+="<tr onclick='verPersona("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' >";
+					cadena+="<tr class='pointer' onclick='verPersona("+data.persona[x]['cod_persona']+"); buscarFoto("+data.persona[x]['cod_foto']+","+data.persona[x]['cod_persona']+");' >";
 			}
 			cadena+="<td>"+data.persona[x]['cod_persona']+"</td>";
 			cadena+="<td>"+data.persona[x]['cedula']+"</td>";
-			cadena+="<td>"+data.persona[x]['apellido1']+" "+nombre+"</td>";
 			cadena+="<td>"+data.persona[x]['nombre1']+" "+apellido+"</td>";
+			cadena+="<td>"+data.persona[x]['apellido1']+" "+nombre+"</td>";
 			if(data.persona[x]['cor_personal'])
 				cadena+="<td>"+data.persona[x]['cor_personal']+"</td>";
 			else
@@ -928,7 +928,7 @@ function borrarPersona(){
 					"cod_persona",  $("#cod_persona").val()									
 					);
 		
-	ajaxMVC(arr,succMontarEliminarPersona,error);
+	ajaxMVC(arr,succMontarEliminarPersona,errors);
 
 }
 
@@ -1049,7 +1049,8 @@ function removerEsEm(){
 /**
 * Funcion Java Script que permite mostrar un mensaje de error.
 */
-function error(data){	
+function errors(data){	
 	console.log(data);
+	alert(data.mensaje);
 	mostrarMensaje("Error de comunicación con el servidor.",2);
 }

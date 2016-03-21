@@ -437,13 +437,10 @@ class PersonaServicio
 			//primera columana codigo
 			$row = $ejecutar->fetchColumn(0);					
 
-			if ($row== 0)
-				throw new Exception("No se pudo eliminar a la persona.");
-
 			return $row;	
 		}
 		catch(Exception $e){
-			throw $e;
+			throw new Exception("No se pudo eliminar es posible que ya este registrada como un estudiante o empleado");
 		}
 	}
 

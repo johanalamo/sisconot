@@ -60,9 +60,9 @@ function montarEstudiante(data){
 		for(var x=0; x<data.estudiante.length; x++)
 		{
 			if(data.codi==data.estudiante[x]['codigo'])
-				cadena+='<tr onclick="modificarEstudiante('+data.estudiante[x]['codigo']+'); verEstudiante('+data.estudiante[x]['codigo']+');" style="background-color:#E5EAEE;">';
+				cadena+='<tr class="pointer" onclick="modificarEstudiante('+data.estudiante[x]['codigo']+'); verEstudiante('+data.estudiante[x]['codigo']+');" style="background-color:#E5EAEE;">';
 			else
-				cadena+='<tr onclick="modificarEstudiante('+data.estudiante[x]['codigo']+'); verEstudiante('+data.estudiante[x]['codigo']+');">';
+				cadena+='<tr class="pointer" onclick="modificarEstudiante('+data.estudiante[x]['codigo']+'); verEstudiante('+data.estudiante[x]['codigo']+');">';
 			cadena+='<td>'+data.estudiante[x]['codigo']+'</td>';
 			cadena+='<td>'+data.estudiante[x]['fec_inicios']+'</td>';
 			if(data.estudiante[x]['fec_fin'])
@@ -126,9 +126,35 @@ function preGuardarEstudiante(){
 	}
 	
 	if(bool)
-		guardarEstudiante ();
+		antesGuardarEstudiante();
 
 }
+
+function antesGuardarEstudiante(){
+	arr= Array("m_modulo", "estudiante",
+			   "m_accion", "listar",
+			   "codPersona",$("#cod_persona").val()
+			   );
+
+	ajaxMVC(arr,succAntesGuardarEstudiante,error);
+}
+
+function succAntesGuardarEstudiante(data){
+	var bool=true;
+	if(data.estudiante){
+		for(var x=0;x<data.estudiante.length;x++){
+			if(data.estudiante[0]['fec_inicios']==$("#fec_ini_estudiante").val()){
+				bool=false;
+				break;
+			}
+		}			
+	}
+
+	if(bool)
+		guardarEstudiante();
+	else
+		mostrarMensaje("No puedes inscribir al estudiante con dos fecha de inicio iguales",2);
+}	
 
 /**
 * Funcion Java Script que permite guardar los datos de a un estudiante

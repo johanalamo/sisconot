@@ -426,7 +426,9 @@ class EmpleadoServicio
 			return $row;
 		}
 		catch(Exception $e){
-			throw $e;
+			throw new Exception ("El empleado NO pudo ser eliminado, es posible que tenga registro en otro lugar");
+
+			
 		}
 	}
 

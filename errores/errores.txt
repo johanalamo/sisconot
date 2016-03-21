@@ -4648,3 +4648,1009 @@ Trayecto:
 		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 313 *****************************
+codigo Error: 313
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 53
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(53): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/foto/FotoControlador.php(158): FotografiaServicio::existe('')
+		#2 /var/www/github/sisconot/modulos/foto/FotoControlador.php(17): FotoControlador::buscarFoto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(21): FotoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 314 *****************************
+codigo Error: 314
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/curso/CursoControlador.php(421): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 315 *****************************
+codigo Error: 315
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php
+Linea Error: 53
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/foto/modelo/FotografiaServicio.php(53): PDOStatement->execute(Array)
+		#1 /var/www/github/sisconot/modulos/foto/FotoControlador.php(158): FotografiaServicio::existe('')
+		#2 /var/www/github/sisconot/modulos/foto/FotoControlador.php(17): FotoControlador::buscarFoto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(21): FotoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 316 *****************************
+codigo Error: 316
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 317 *****************************
+codigo Error: 317
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 318 *****************************
+codigo Error: 318
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 319 *****************************
+codigo Error: 319
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 320 *****************************
+codigo Error: 320
+Mensaje error: SQLSTATE[23505]: Unique violation: 7 ERROR:  llave duplicada viola restricción de unicidad «ca_estudiante»
+DETAIL:  Ya existe la llave (cod_persona, cod_instituto, cod_pensum, fec_inicio)=(2, 1, 1, 2016-03-20).
+CONTEXT:  sentencia SQL: «insert into sis.t_estudiante (	codigo, 		cod_persona, 		cod_instituto,
+					cod_pensum, 		num_carnet, 		num_expediente,
+					cod_rusnies, 		cod_estado,		fec_inicio,
+					fec_fin, 		condicion,		observaciones
+				     )
+			     values (	cod_estudiante, 	p_cod_persona, 		p_cod_instituto,
+					p_cod_pensum, 		p_num_carnet,		p_num_expediente,
+					p_cod_rusnies, 		p_cod_estado, 		p_fec_inicio,
+					p_fec_fin, 		p_condicion, 		p_observaciones
+				    )»
+PL/pgSQL function "f_estudiante_ins" line 8 at sentencia SQL
+Archivo Error: /var/www/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 84
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(84): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/estudiante/EstudianteControlador.php(196): EstudianteServicio::agregar('2', '1', '1', NULL, NULL, NULL, 'A', '20/03/2016', NULL, NULL, '')
+		#2 /var/www/github/sisconot/modulos/estudiante/EstudianteControlador.php(37): EstudianteControlador::agregar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 321 *****************************
+codigo Error: 321
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 322 *****************************
+codigo Error: 322
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 323 *****************************
+codigo Error: 323
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 324 *****************************
+codigo Error: 324
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 325 *****************************
+codigo Error: 325
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 326 *****************************
+codigo Error: 326
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 327 *****************************
+codigo Error: 327
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 328 *****************************
+codigo Error: 328
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 329 *****************************
+codigo Error: 329
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 330 *****************************
+codigo Error: 330
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 331 *****************************
+codigo Error: 331
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 332 *****************************
+codigo Error: 332
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 333 *****************************
+codigo Error: 333
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update o delete en «t_persona» viola la llave foránea «cf_empleado__persona» en la tabla «t_empleado»
+DETAIL:  La llave (codigo)=(2) todavía es referida desde la tabla «t_empleado».
+CONTEXT:  sentencia SQL: «DELETE FROM sis.t_persona WHERE codigo = p_codigo»
+PL/pgSQL function "f_persona_eli" line 5 at sentencia SQL
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 436
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php(436): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#2 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 334 *****************************
+codigo Error: 334
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 335 *****************************
+codigo Error: 335
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 336 *****************************
+codigo Error: 336
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update o delete en «t_persona» viola la llave foránea «cf_empleado__persona» en la tabla «t_empleado»
+DETAIL:  La llave (codigo)=(2) todavía es referida desde la tabla «t_empleado».
+CONTEXT:  sentencia SQL: «DELETE FROM sis.t_persona WHERE codigo = p_codigo»
+PL/pgSQL function "f_persona_eli" line 5 at sentencia SQL
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 436
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php(436): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#2 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 337 *****************************
+codigo Error: 337
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 338 *****************************
+codigo Error: 338
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 339 *****************************
+codigo Error: 339
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update o delete en «t_persona» viola la llave foránea «cf_empleado__persona» en la tabla «t_empleado»
+DETAIL:  La llave (codigo)=(2) todavía es referida desde la tabla «t_empleado».
+CONTEXT:  sentencia SQL: «DELETE FROM sis.t_persona WHERE codigo = p_codigo»
+PL/pgSQL function "f_persona_eli" line 5 at sentencia SQL
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 436
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php(436): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#2 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 340 *****************************
+codigo Error: 340
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 341 *****************************
+codigo Error: 341
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 342 *****************************
+codigo Error: 342
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update o delete en «t_persona» viola la llave foránea «cf_empleado__persona» en la tabla «t_empleado»
+DETAIL:  La llave (codigo)=(2) todavía es referida desde la tabla «t_empleado».
+CONTEXT:  sentencia SQL: «DELETE FROM sis.t_persona WHERE codigo = p_codigo»
+PL/pgSQL function "f_persona_eli" line 5 at sentencia SQL
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 436
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php(436): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#2 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 343 *****************************
+codigo Error: 343
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 344 *****************************
+codigo Error: 344
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 345 *****************************
+codigo Error: 345
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update o delete en «t_persona» viola la llave foránea «cf_empleado__persona» en la tabla «t_empleado»
+DETAIL:  La llave (codigo)=(2) todavía es referida desde la tabla «t_empleado».
+CONTEXT:  sentencia SQL: «DELETE FROM sis.t_persona WHERE codigo = p_codigo»
+PL/pgSQL function "f_persona_eli" line 5 at sentencia SQL
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 436
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php(436): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#2 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 346 *****************************
+codigo Error: 346
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 347 *****************************
+codigo Error: 347
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 348 *****************************
+codigo Error: 348
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update o delete en «t_persona» viola la llave foránea «cf_empleado__persona» en la tabla «t_empleado»
+DETAIL:  La llave (codigo)=(2) todavía es referida desde la tabla «t_empleado».
+CONTEXT:  sentencia SQL: «DELETE FROM sis.t_persona WHERE codigo = p_codigo»
+PL/pgSQL function "f_persona_eli" line 5 at sentencia SQL
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 436
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php(436): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#2 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 349 *****************************
+codigo Error: 349
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 350 *****************************
+codigo Error: 350
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 351 *****************************
+codigo Error: 351
+Mensaje error: SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update o delete en «t_persona» viola la llave foránea «cf_empleado__persona» en la tabla «t_empleado»
+DETAIL:  La llave (codigo)=(2) todavía es referida desde la tabla «t_empleado».
+CONTEXT:  sentencia SQL: «DELETE FROM sis.t_persona WHERE codigo = p_codigo»
+PL/pgSQL function "f_persona_eli" line 5 at sentencia SQL
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 436
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php(436): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#2 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 352 *****************************
+codigo Error: 352
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 353 *****************************
+codigo Error: 353
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 354 *****************************
+codigo Error: 354
+Mensaje error: No se pudo eliminar a la persona.
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 446
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#2 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#3 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 355 *****************************
+codigo Error: 355
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 356 *****************************
+codigo Error: 356
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 357 *****************************
+codigo Error: 357
+Mensaje error: No se pudo eliminar es posible que ya 
+								este registrada como un estudiante o empleado
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 443
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#2 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#3 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 358 *****************************
+codigo Error: 358
+Mensaje error: No se pudo eliminar es posible que ya 
+								este registrada como un estudiante o empleado
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 443
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#2 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#3 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 359 *****************************
+codigo Error: 359
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 360 *****************************
+codigo Error: 360
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 361 *****************************
+codigo Error: 361
+Mensaje error: No se pudo eliminar es posible que ya 
+								este registrada como un estudiante o empleado
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 443
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#2 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#3 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 362 *****************************
+codigo Error: 362
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 363 *****************************
+codigo Error: 363
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 364 *****************************
+codigo Error: 364
+Mensaje error: No se pudo eliminar es posible que ya este registrada como un estudiante o empleado
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 443
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#2 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#3 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 365 *****************************
+codigo Error: 365
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 366 *****************************
+codigo Error: 366
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 367 *****************************
+codigo Error: 367
+Mensaje error: No se pudo eliminar es posible que ya este registrada como un estudiante o empleado
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 443
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#2 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#3 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 368 *****************************
+codigo Error: 368
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 369 *****************************
+codigo Error: 369
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 370 *****************************
+codigo Error: 370
+Mensaje error: No se pudo eliminar es posible que ya este registrada como un estudiante o empleado exception 'PDOException' with message 'SQLSTATE[23503]: Foreign key violation: 7 ERROR:  update o delete en «t_persona» viola la llave foránea «cf_empleado__persona» en la tabla «t_empleado»
+DETAIL:  La llave (codigo)=(2) todavía es referida desde la tabla «t_empleado».
+CONTEXT:  sentencia SQL: «DELETE FROM sis.t_persona WHERE codigo = p_codigo»
+PL/pgSQL function "f_persona_eli" line 5 at sentencia SQL' in /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php:436
+Stack trace:
+#0 /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php(436): PDOStatement->execute()
+#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+#2 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+#3 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+#7 {main}
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 443
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#2 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#3 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 371 *****************************
+codigo Error: 371
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 372 *****************************
+codigo Error: 372
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 373 *****************************
+codigo Error: 373
+Mensaje error: No se pudo eliminar es posible que ya este registrada como un estudiante o empleado
+Archivo Error: /var/www/github/sisconot/modulos/persona/modelo/PersonaServicio.php
+Linea Error: 443
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(399): PersonaServicio::eliminar('2')
+		#1 /var/www/github/sisconot/modulos/persona/PersonaControlador.php(59): PersonaControlador::eliminar()
+		#2 /var/www/github/sisconot/modulos/principal/Bloque.php(45): PersonaControlador::manejarRequerimiento()
+		#3 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#5 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#6 {main}
+**************************** Error n° 374 *****************************
+codigo Error: 374
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 375 *****************************
+codigo Error: 375
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 376 *****************************
+codigo Error: 376
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/curso/CursoControlador.php(421): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 377 *****************************
+codigo Error: 377
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/curso/CursoControlador.php(421): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 378 *****************************
+codigo Error: 378
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/curso/CursoControlador.php(421): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 379 *****************************
+codigo Error: 379
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/curso/CursoControlador.php(421): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 380 *****************************
+codigo Error: 380
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/curso/CursoControlador.php(421): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 381 *****************************
+codigo Error: 381
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/github/sisconot/modulos/curso/CursoControlador.php(421): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

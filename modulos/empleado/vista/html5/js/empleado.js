@@ -114,9 +114,9 @@ function montarEmpleado(data){
 		{
 			acu=x+1;
 			if(data.codi==data.empleado[x]['codigo'])
-				cadena+='<tr onclick="modificarEmpleado('+data.empleado[x]['codigo']+'); verEmpleado('+data.empleado[x]['codigo']+'); "  id="'+data.empleado[x]['codigo']+'" style="background-color:#E5EAEE;">';
+				cadena+='<tr class="pointer" onclick="modificarEmpleado('+data.empleado[x]['codigo']+'); verEmpleado('+data.empleado[x]['codigo']+'); "  id="'+data.empleado[x]['codigo']+'" style="background-color:#E5EAEE;">';
 			else
-								cadena+='<tr onclick="modificarEmpleado('+data.empleado[x]['codigo']+'); verEmpleado('+data.empleado[x]['codigo']+'); "  id="'+data.empleado[x]['codigo']+'">';
+				cadena+='<tr class="pointer" onclick="modificarEmpleado('+data.empleado[x]['codigo']+'); verEmpleado('+data.empleado[x]['codigo']+'); "  id="'+data.empleado[x]['codigo']+'">';
 			cadena+='<a href="#"><td>'+acu+'</td>';
 			cadena+='<td>'+data.empleado[x]['codigo']+'</td>';
 			cadena+='<td>'+data.empleado[x]['fec_inicios']+'</td>';

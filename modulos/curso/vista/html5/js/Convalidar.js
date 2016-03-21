@@ -200,8 +200,13 @@ function succGuardarConvalidacion(data){
 	console.log(data);
 
 	if(data.estatus>0){
-		if(data.codigo)
+		if(data.codigo){
 			$("#codConvalidacion").val(data.codigo);
+			var cad="";
+			cad='<button class="btn btn-primary form-group" ';
+			cad+='onclick="borrarCampos();">Nuevo</button>';
+			$(cad).appendTo('#nuevo');
+		}
 		mostrarMensaje(data.mensaje,1);
 	}
 	else
@@ -422,9 +427,9 @@ function succConvalidadas(data){
 				nota=" - ";
 
 			if(codConvalidacion!=data['codigo'])
-				cad+="	<tr id="+data['codigo']+" onclick='buscarConvalidacion("+data['codigo']+"); verConvalidadasEstudiante("+$("#codigoPersona").val()+","+data['codigo']+");'>";
+				cad+="	<tr class='pointer' id="+data['codigo']+" onclick='buscarConvalidacion("+data['codigo']+"); verConvalidadasEstudiante("+$("#codigoPersona").val()+","+data['codigo']+");'>";
 			else{
-				cad+="	<tr id="+data['codigo']+" onclick='buscarConvalidacion("+data['codigo']+"); 'style='background-color:#E5EAEE;'>";
+				cad+="	<tr class='pointer' id="+data['codigo']+" onclick='buscarConvalidacion("+data['codigo']+"); 'style='background-color:#E5EAEE;'>";
 			}
 
 			cad+="	  <td>"+x+"</td>";
@@ -434,7 +439,12 @@ function succConvalidadas(data){
 			cad+="	  <td>"+data['tipo']+"</td>";
 			cad+="	  <td>"+data['nombre']+"</td>";
 			cad+="	  <td>"+conNota+" "+nota+"</td>";
-			cad+="	  <td>"+data['descripcion']+"</td>";
+			if(data['descripcion'].length>25){
+				var info=data['descripcion'].slice(0,25)+"...";
+				cad+="	  <td>"+info+"</td>";
+			}
+			else
+				cad+="	  <td>"+data['descripcion']+"</td>";
 			cad+="	</tr>";
 		}
 	}

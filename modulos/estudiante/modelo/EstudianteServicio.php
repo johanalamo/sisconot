@@ -474,7 +474,7 @@ class EstudianteServicio
 			return $row;
 		}
 		catch(Exception $e){
-			throw $e;
+			throw new Exception ("El estudiante NO pudo ser eliminado, es posible que ya este registrado en un curso");
 		}
 	}
 

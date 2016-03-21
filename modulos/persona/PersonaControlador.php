@@ -405,7 +405,6 @@
 					//	FotografiaServicio::eliminar($codigo);
 				}
 				else{
-					Vista::asignarDato('mensaje', 'No se pudo eliminar a la persona."');
 					Vista::asignarDato('estatus',0);
 				}
 
