@@ -33,6 +33,8 @@ $(document).ready(function() {
 	verEmpleado();
 } );
 
+
+
 function antesPreGuardarEmpleado(){
 	var bool=true;
 
@@ -66,6 +68,16 @@ function antesPreGuardarEmpleado(){
 			&& !$('#Docente').prop('checked')){
 		mostrarMensaje("debe de seleccionar un cargo",2);
 		bool=false;
+	}
+	else if($("#fec_fin_empleado").val()){
+		var fecha =$("#fec_ini_empleado").val().split("/");
+		var fechFin=$("#fec_fin_empleado").val().split("/");
+		fechFin=new Date (fechFin[2],fechFin[1],fechFin[0]);
+		fecha= new Date(fecha[2],fecha[1],fecha[0]);
+		if(fechFin<=fecha){
+			bool=false;	
+			mostrarMensaje("La fecha de inicio no puede ser mayor a la fecha fin.",2);
+		}
 	}
 
 	if(bool)
@@ -163,9 +175,18 @@ function montarEmpleado(data){
 
 function preGuardarEmpleado(){
 
+	var codigo="";
+
+	if($("#cod_persona").val() && getVarsUrl().persona == '-1')
+		codigo=$("#cod_persona").val();
+	else if(getVarsUrl().persona != '-1')
+		codigo=getVarsUrl().persona;
+	else
+		ccodigo=$("#cod_persona").val();
+
 	var arr = Array("m_modulo"	,	"empleado",
 					"m_accion"	,	"listar",
-					"codPersona",	getVarsUrl().persona
+					"codPersona",	codigo
 					);
 
 	ajaxMVC(arr,compararDatosEmpleados,error);
@@ -177,7 +198,6 @@ function compararDatosEmpleados(data){
 	var bool= true;
 	var boolAux=false;
 	var boolNada=true;
-	var boolFecha=true;
 	var acu=0;
 	var mensaje="";
 	var i=0;		
@@ -190,14 +210,16 @@ function compararDatosEmpleados(data){
 				&& data.empleado[x]['fec_inicios'] == $("#fec_ini_empleado").val() )	
 				&& (data.empleado[x]['codigo'] != $("#cod_empleado").val())		
 			){		
-					mensaje+="Ya esta modificacion se realizo anteriormente. Si desea afectuarla puede";
-					mensaje+=" eliminar la informacion que se encuentra en la fila N° "+acu+"."; 		
+				
+				mensaje+="Ya esta modificacion se realizo anteriormente. Si desea afectuarla puede";
+				mensaje+=" eliminar la informacion que se encuentra en la fila N° "+acu+"."; 		
 				mostrarMensaje(mensaje,2);	
 				boolNada=false;				
 				break;						
 			}
 			else if(data.empleado[x]['fec_inicios'] == $("#fec_ini_empleado").val()
 					&& data.empleado[x]['codigo'] != $("#cod_empleado").val()){
+				
 				mensaje+="Ya esta modificacion se realizo anteriormente. Si desea afectuarla puede";
 				mensaje+=" eliminar la informacion que se encuentra en la fila N° "+acu+" o cambie la fecha"; 
 				mensaje+=" de inicio.";	
@@ -243,18 +265,9 @@ function compararDatosEmpleados(data){
 	else
 		bool=false;		
 
-	var fecha =$("#fec_ini_empleado").val().split("/");
-	if($("#fec_fin_empleado").val()){
-		var fechFin=$("#fec_fin_empleado").val().split("/");
-		fechFin=new Date (fechFin[2],fechFin[1],fechFin[0]);
-		fecha= new Date(fecha[2],fecha[1],fecha[0]);
-		if(fechFin<=fecha)
-			boolFecha=false;			
-	}
-
 	alert(bool+" ** "+boolAux);
 
-	if(boolNada && boolFecha){
+	if(boolNada){
 		if(boolAux && data.empleado)
 			preDobleGuardar(bool,boolAux,data.empleado[i]);
 		else if(data.empleado && bool)
@@ -266,10 +279,6 @@ function compararDatosEmpleados(data){
 			verEmpleado();			
 		}, 200);
 	}
-
-	if(!boolFecha){
-		mostrarMensaje("La fecha de inicio no puede ser mayor a la fecha fin.",2);
-	}	
 }
 
 

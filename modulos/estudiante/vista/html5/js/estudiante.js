@@ -114,6 +114,16 @@ function preGuardarEstudiante(){
 		mostrarMensaje("debe de seleccionar un estado",2);
 		bool=false;
 	}
+	else if($("#fec_fin_estudiante").val()){
+		var fecha =$("#fec_ini_estudiante").val().split("/");
+		var fechFin=$("#fec_fin_estudiante").val().split("/");
+		fechFin=new Date (fechFin[2],fechFin[1],fechFin[0]);
+		fecha= new Date(fecha[2],fecha[1],fecha[0]);
+		if(fechFin<=fecha){
+			bool=false;	
+			mostrarMensaje("La fecha de inicio no puede ser mayor a la fecha de culminacion.",2);
+		}
+	}
 	
 	if(bool)
 		guardarEstudiante ();

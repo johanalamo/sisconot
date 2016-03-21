@@ -962,7 +962,6 @@ function succAgregarPersona(data){
 		$('div.empleado').hide();
 		$("#historico").hide();
 		$('#fec_ini_estudiante').val(fecActual());
-		
 		if(data.foto){
 			$("#imagen").remove();
 			$("#imagenEm").remove();
@@ -975,8 +974,10 @@ function succAgregarPersona(data){
 			$("#superImagen").append(cadena);
 			$("#superImagenEm").append(cadena);
 			$("#superImagenEs").append(cadena);
-			modificarPersona(data.codPersona); 
-			borrarFoto(data.foto);
+			//modificarPersona(data.codPersona); 
+			setTimeout(function(){	
+				borrarFoto(data.foto);
+			}, 1000);
 		}
 		if(data.mensajeFoto)
 			mostrarMensaje(data.mensajeFoto,2);	

@@ -358,13 +358,13 @@
 					}
 				}
 
-				if(isset($ruta)){
+				/*if(isset($ruta)){
 					if(file_exists($ruta))
 						unlink($ruta);
-				}
+				}*/
 				
-
-				if($foto!='2' && $foto==true){
+				
+				if($foto!=='2' && $foto===true){
 					Vista::asignarDato("foto",$ruta);
 				}
 				else if($foto==='2'){

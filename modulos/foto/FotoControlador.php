@@ -37,7 +37,7 @@ class FotoControlador{
 
 		}
 		elseif(!$dimensionesMinimas){
-
+			unlink($ruta);
 			return '2';
 		}
 		else
