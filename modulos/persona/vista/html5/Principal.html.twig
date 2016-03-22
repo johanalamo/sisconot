@@ -39,9 +39,24 @@
 
 				<div id="tabsActivo">
 					<ul class="uk-tab" data-uk-tab>
-						<li class="uk-active"><a href="" class="infoPersona" >Persona</a></li>
-					    <li><a href="" class="estudiantes" onclick="">Estudiante</a></li>
-					    <li><a href="" class="empleados" onclick="  ">Empleado</a></li>				    
+
+					{% if (login.obtenerPermiso('PersonaListar')) %}
+						<li class="uk-active">
+							<a href="" class="infoPersona" >Persona</a>
+						</li>
+					{% endif %}
+
+					{% if (login.obtenerPermiso('EstudianteListar')) %}
+					    <li>
+					    	<a href="" class="estudiantes" onclick="">Estudiante</a>
+					    </li>
+					{% endif %}
+
+					{% if (login.obtenerPermiso('EmpleadoListar')) %}
+					    <li>
+					    	<a href="" class="empleados" onclick="  ">Empleado</a>
+					    </li>	
+					{% endif %}			    
 					  <!--  <li class="uk-disabled"><a  >Bloqueado</a></li>-->
 					</ul>					
 				</div>
@@ -95,9 +110,14 @@
 								<div id="imagen">
 							      <img src="modulos/persona/vista/html5/imagen/foto.png" alt="..." >
 							   	</div>
-							   	<span class="file-input btn btn-primary btn-file" id="fotoSpan">
-                					Cargar&hellip; <input name="foto" class="form-group btn" type="file" id="foto" onfocus="foto();">
+							   	
+                		{% if (login.obtenerPermiso('PersonaModificar') 
+							or	login.obtenerPermiso('PersonaAgregar') ) %} 
+								<span class="file-input btn btn-primary btn-file" id="fotoSpan">
+                					Cargar&hellip;
+								<input name="foto" class="form-group btn" type="file" id="foto" onfocus="foto();">
             					</span>
+            			{% endif %} 
 							   
 							</div>
 						</div>
@@ -250,18 +270,39 @@
 							<div class="form-group espacio-input">
 								 <textarea  name="obs_persona" id="obs_persona" class="form-control" maxlength="198"></textarea>
 							</div>
-							<!--<input type="text" value="N" name="estado" id='estado'>-->
+							
+
 							<input type="hidden" name="codigoPersona" id="codigoPersona">
+
+
 							<div class="text-right formuario-persona form-group">
+
+							{% if (login.obtenerPermiso('PersonaModificar')) %}
+
 								<button type="button" name="md_persona" id="md_persona" class="btn btn-info" onclick="modificarPersona();"><b>Modificar</b></button>
+
+							{% endif  %}
+
+							{% if (login.obtenerPermiso('PersonaModificar') 
+							or	login.obtenerPermiso('PersonaAgregar') ) %}
+
 								<button type="button" name="grd_persona" id="guardarPersona" class="btn btn-success" onclick="preGuardarPersona();"><b>Guardar</b></button>
+
+							{% endif  %}
+
+							{% if (login.obtenerPermiso('PersonaAgregar') ) %}
 								<button class="btn btn-primary btn-primary" onclick="nuevoPersonaEstudiante();" title="Agregar una nueva persona" type="button" id="nuevo_persona">
 									Nuevo
 								</button>
-							
+							{% endif  %}
+
+							{% if (login.obtenerPermiso('PersonaEliminar') ) %}
+
 								<button class="btn btn-danger" id="borrar_persona"onclick="crearConfirm('¿Estas de acuerdo en borrar a esta persona?','borrarPersona()','Aceptar');" title="Eliminar una persona" type="button">
 									Eliminar
 								</button>
+
+							{% endif  %}
 							</div>
 							
 						</div>
@@ -379,11 +420,16 @@
 						<div class="form-group espacio-input">
 							 <textarea  name="obs_estudiante" id="obs_estudiante" class="form-control" maxlength="200"></textarea>
 						</div>
-								<div class="text-right formuario-persona form-inline">								
-									<button type="button" name="nv_estudiante" id="nv_estudiante" class="btn btn-primary" onclick="nuevoEstudiante();"><b>Nuevo</b></button>		
+								<div class="text-right formuario-persona form-inline">					
+							{% if (login.obtenerPermiso('EstudianteAgregar') ) %}	
+									<button type="button" name="nv_estudiante" id="nv_estudiante" class="btn btn-primary" onclick="nuevoEstudiante();"><b>Nuevo</b></button>
+							{% endif %}		
+
+							{% if (login.obtenerPermiso('EstudianteModificar') or login.obtenerPermiso('EstudianteAgregar')) %}
 									<div id="md_estudiante" class="form-group">	
 										<button type="button" name="md_estudiante" class="btn btn-success" onclick="preGuardarEstudiante();"><b>Guardar</b></button>	
-									</div>							
+									</div>
+							{% endif %}								
 								</div>
 							</div>
 
@@ -478,11 +524,19 @@
 							 <textarea  name="obs_empleado" id="obs_empleado" class="form-control" maxlength="200"></textarea>
 						</div>
 								<div class="text-right formuario-persona form-inline">
-									
+								
+								{% if (login.obtenerPermiso('EmpleadoAgregar')) %}
 									<button type="button" name="nv_empleado" id="nv_empleado" class="btn btn-primary btn-primary" onclick="NuevoEmpleado();"><b>Nuevo</b></button>
+								{% endif %}
+
+								{% if (login.obtenerPermiso('EmpleadoAgregar')
+								or login.obtenerPermiso('EmpleadoModificar')) %}
 									<div id="md_empleado" class="form-group">	
 										<button type="button" name="md_empleado" class="btn btn-success" onclick="antesPreGuardarEmpleado();"><b>Guardar</b></button>	
-									</div>							
+									</div>
+								{% endif %}
+
+
 								</div>
 							</div>
 
@@ -514,12 +568,20 @@
 						<div class="estudiantes" >
 							<div class="text-right form-inline">
 
+							{% if (login.obtenerPermiso('EstudianteAgregar')) %}
 								<button type="button" name="nuevo_estudiante" id="nuevo_estudiante" class="btn btn-primary" onclick="nuevoEstudiante();" ><span class="fa fa-plus" ></span></button>
+							{% endif %}
+
+							{% if (login.obtenerPermiso('EstudianteEliminar')) %}
 								<div id="borrar_estudiante" class="form-group ">
 									<button type="button" name="borrar_estudiante" class="btn btn-danger" onclick="crearConfirm('¿Estas de acuerdo en borrar a este estudiante?',
 									'borrarEstudiante()','Aceptar');"><span class="fa fa-times" ></span></button>
 								</div>
+							{% endif %}
+
+						{% if (login.obtenerPermiso('EstudianteModificar') or login.obtenerPermiso('EstudianteAgregar')) %}
 								<button type="button" name="editar_estudiante" id="editar_estudiante" class="btn btn-info" onclick="modificarPersona();"><span class="fa fa-pencil" ></span></button>
+						{% endif %}
 								
 							</div>
 							<table class="table table-hover" id="tablaEstudiante">
@@ -562,12 +624,21 @@
 							<table class="table table-stdiped table-hover">
 								<div class="text-right form-inline">
 
+							{% if (login.obtenerPermiso('EmpleadoAgregar')) %}
 								<button type="button" name="nuevo_empleado" id="nuevo_empleado" class="btn btn-primary" onclick="NuevoEmpleado();"><span class="fa fa-plus" ></span></button>
+							{% endif %}
+
+							{% if (login.obtenerPermiso('EmpleadoEliminar')) %}
 								<div id="borrar_empleado" class="form-group ">
 									<button type="button" name="borrar_empleado" class="btn btn-danger" onclick="crearConfirm('¿Estas de acuerdo en borrar a este empleado?',
 									'borrarEmpleado()','Aceptar');"><span class="fa fa-times" ></span></button>
 								</div>
+							{% endif %}
+
+							{% if (login.obtenerPermiso('EmpleadoAgregar')
+								or login.obtenerPermiso('EmpleadoModificar')) %}
 								<button type="button" name="editar_empleado" id="editar_empleado" class="btn btn-info" onclick="modificarPersona();"><span class="fa fa-pencil" ></span></button>
+							{% endif %}
 								
 							</div>
 							<table class="table table-hover" id='tablaEmpleado'>

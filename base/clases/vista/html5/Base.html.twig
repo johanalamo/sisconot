@@ -192,7 +192,8 @@
 	                        </li>
 	                    </ul>
 	                </li>
-
+	                
+	            {% if (login.obtenerPermiso('PersonaListar')) %}
 	                 <li>
 	                    <a class="accordion-toggle" href="#">
 	                        <span class="fa fa-group"></span>
@@ -205,12 +206,15 @@
 	                                <span class="fa fa-eye"></span>Búsqueda</a>
 
 	                        </li>
+	                    {% if (login.obtenerPermiso('PersonaAgregar')) %}
 	                        <li>
 	                            <a href="index.php?m_modulo=persona&m_vista=Principal&m_formato=html5&accion=N&persona=-1">
 	                            <span class="fa fa-user"></span>Agregar</a>
 	                        </li>
+	                    {% endif %}
 	                    </ul>
 	                </li>
+	            {% endif %}
 <!--
 	                <li class="sidebar-label pt30">Académico</li>
 -->
@@ -273,10 +277,12 @@
 	                            <a href="index.php?m_vista=CrearModificarCursoEspecial&m_formato=html5&m_modulo=curso&m_accion=mostrar">
 	                                <span class="fa fa-warning"></span>Crear/Modificar Electiva</a>
 	                        </li>
+	                        {% if (login.obtenerPermiso('convalidar')) %}
 	                        <li>
 	                            <a href="index.php?m_vista=Convalidaciones&m_formato=html5&m_modulo=curso&m_accion=mostrar">
 	                                <span class="fa fa-warning"></span>Convalidaciones</a>
 	                        </li>
+	                        {% endif %}
 	                    </ul>
 	                </li>
 

@@ -109,10 +109,14 @@ class PersonaServicio
 			$ejecutar->bindParam(':observaciones',$observaciones, PDO::PARAM_STR);
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 			
-				
-			$ejecutar->execute();
-			$codigo = $ejecutar->fetchColumn(0);					
-				return $codigo;		
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('PersonaAgregar')){
+				$ejecutar->execute();
+				$codigo = $ejecutar->fetchColumn(0);					
+					return $codigo;	
+			}	
+			else
+				throw new Exception ("No tienes permiso para Agregar a una persona");
 		}
 		catch(Exception $e){
 			throw $e;
@@ -243,14 +247,21 @@ class PersonaServicio
 			$consulta.=" group by p.codigo  order by p.codigo ";
 			$consulta = $consulta2.$consulta;
 
-			$ejecutar=$conexion->prepare($consulta);
-			
-			$ejecutar-> execute(array()); 			
- 		
-			if($ejecutar->rowCount() != 0)
-				return $ejecutar->fetchAll();
+ 
+
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('PersonaListar')){
+				$ejecutar=$conexion->prepare($consulta);			
+				$ejecutar-> execute(array());
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null; 			
+			}
 			else
-				return null;
+				throw new Exception ("NO tienes permiso para listar a una persona");				
+ 		
+			
 			
 		}
 		catch(Exception $e){
@@ -393,13 +404,21 @@ class PersonaServicio
 			$ejecutar->bindParam(':observaciones',$observaciones, PDO::PARAM_STR);
 
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-				//ejecuta				
+			$login=Vista::obtenerDato('login');
+
+			$row=-2;
+			if($login->obtenerPermiso('PersonaModificar')){
 				$ejecutar->execute();
-				//primera columana codigo
-				$row = $ejecutar->fetchColumn(0);
+				$row = $ejecutar->fetchColumn(0);				
+			}							
+				
+
 			if ($row == 0)
 					throw new Exception("No se puedo modificar la informacion de la persona.");	
 			
+			if ($row == -2)
+				throw new Exception("No tienes permiso para modificar la informacion de persona.");	
+
 			return $row;
 		}
 		catch(Exception $e){
@@ -431,13 +450,18 @@ class PersonaServicio
 			$ejecutar=$conexion->prepare($consulta);
 			$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_STR);						
 			
-			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-			//ejecuta				
-			$ejecutar->execute();
-			//primera columana codigo
-			$row = $ejecutar->fetchColumn(0);					
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('PersonaEliminar')){
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				//ejecuta				
+				$ejecutar->execute();
+				//primera columana codigo
+				$row = $ejecutar->fetchColumn(0);					
 
-			return $row;	
+				return $row;	
+			}
+			else
+				throw new Exception ("NO tienes permiso para eliminar a una persona");
 		}
 		catch(Exception $e){
 			throw new Exception("No se pudo eliminar es posible que ya este registrada como un estudiante o empleado");
@@ -448,12 +472,18 @@ class PersonaServicio
 		try{
 			$conexion = Conexion::conectar();
 			$ejecutar = $conexion->prepare("update sis.t_persona set cod_foto=?  where codigo=?;");	
-			$ejecutar->execute(array($codFoto,$codigo));			
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('GestionarArchivo')){
+				$ejecutar->execute(array($codFoto,$codigo));			
 			
-			if($ejecutar->rowCount()!= 0)
-				return $ejecutar->fetchAll();
+				if($ejecutar->rowCount()!= 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
 			else
-				return null;
+				throw new Exception("NO tienes permiso para Agregar una foto");
+				
 		}
 		catch(Exception $e){
 			throw $e;

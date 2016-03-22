@@ -1281,11 +1281,17 @@ Descripción:
 				$ejecutar->bindParam(':cod_uni_curricular',$cod_uni_curricular, PDO::PARAM_STR);
 				$ejecutar->bindParam(':descripcion',$descripcion , PDO::PARAM_STR);
 
-				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				$login=Vista::obtenerDato('login');
+				if($login->obtenerPermiso('convalidar')){	
+					$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 
-				$ejecutar->execute();
-				$codigo=$ejecutar->fetchColumn(0);
-				return $codigo;
+					$ejecutar->execute();
+					$codigo=$ejecutar->fetchColumn(0);
+					return $codigo;
+				}
+				else
+					throw new Exception("No tienes permiso para agregar una convalidacion");
+					
 			}
 			catch(Exception $e){
 				throw $e;
@@ -1355,14 +1361,20 @@ Descripción:
 
 				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_STR);
 				$ejecutar->bindParam(':descripcion',$descripcion, PDO::PARAM_STR);
+				
+				$login=Vista::obtenerDato('login');
+				if($login->obtenerPermiso('convalidar')){	
+					$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+						//ejecuta
+					$ejecutar->execute();
+						//primera columana codigo
+					$row = $ejecutar->fetchColumn(0);
 
-				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-					//ejecuta
-				$ejecutar->execute();
-					//primera columana codigo
-				$row = $ejecutar->fetchColumn(0);
-
-				return $row;
+					return $row;
+				}
+				else
+					throw new Exception("NO tienes permiso para modificar una convalidacion");
+					
 			}
 			catch(Exception $e){
 				throw $e;
@@ -1377,16 +1389,21 @@ Descripción:
 				$ejecutar=$conexion->prepare($consulta);
 
 				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_STR);
+				$login=Vista::obtenerDato('login');
+				if($login->obtenerPermiso('convalidar')){	
+					$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+					//ejecuta
 
-				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-				//ejecuta
+					$ejecutar->execute();
+					//primera columana codigo
+					$row = $ejecutar->fetchColumn(0);
+					//var_dump($row);
 
-				$ejecutar->execute();
-				//primera columana codigo
-				$row = $ejecutar->fetchColumn(0);
-				//var_dump($row);
-
-				return $row;
+					return $row;
+				}
+				else
+					throw new Exception("NO tienes permiso para eliminar una convalidacon");
+					
 			}
 			catch(Exception $e){
 				throw $e;

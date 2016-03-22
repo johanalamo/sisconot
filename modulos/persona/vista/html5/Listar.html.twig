@@ -80,18 +80,24 @@
 				<fieldset class="scheduler-border">
 					<legend class="scheduler-border">Resultados</legend>
 						<div class="text-right">
-							
+						
+						{% if (login.obtenerPermiso('PersonaAgregar')) %}
 							<button type="button" class="btn btn-info" title="Agregar una nueva persona" onclick="nuevoPersonaEstudiante();">
 							  <span class="fa fa-plus"></span>
 							</button>
-
+						{% endif %}
+							
+						{% if (login.obtenerPermiso('PersonaListar')) %}
 							<button type="button" class="btn btn-info" title="Ver persona" onclick="mostrarPersona();" id="btnVerPersona">
 							  <span class="fa fa-search "></span>
 							</button>
+						{% endif %}
 
+						{% if (login.obtenerPermiso('PersonaModificar')) %}
 							<button type="button" class="btn btn-info" title="Editar persona" onclick="modificarPersona();" id="btnModificarPersona">
 							  <span class="fa fa-pencil"></span>
 							</button>
+						{% endif %}
 							<button type="button" name="ods" class="btn btn-warning" title="Exportar en formato documento" onclick="exportarODT();"><b>ODT</b></button>
 
 						<a type="button" name="pdf" class="btn btn-warning" title="Exportar en formato PDF" onclick="exportarPDF(); "><b>PDF</b></a>

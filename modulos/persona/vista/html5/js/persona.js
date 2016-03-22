@@ -947,7 +947,7 @@ function succMontarEliminarPersona (data){
 
 
 function succAgregarPersona(data){
-
+	console.log(data);
 	if(data.estatus>0)
 		mostrarMensaje(data.mensaje, 1);
 	else

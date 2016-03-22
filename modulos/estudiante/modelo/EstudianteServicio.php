@@ -81,15 +81,21 @@ class EstudianteServicio
 			$ejecutar->bindParam(':condicion',$condicion, PDO::PARAM_STR);
 			$ejecutar->bindParam(':observaciones',$observaciones, PDO::PARAM_STR);
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-			$ejecutar->execute();
-			
-			$codigo = $ejecutar->fetchColumn(0);
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EstudianteAgregar')){
+				$ejecutar->execute();
+				
+				$codigo = $ejecutar->fetchColumn(0);
 
 
-			if($ejecutar->rowCount() == 0)
-				throw new Exception("No se pudo inscribir al estudiante.");
+				if($ejecutar->rowCount() == 0)
+					throw new Exception("No se pudo inscribir al estudiante.");
 
-			return $codigo;
+				return $codigo;
+			}
+			else
+				throw new Exception("NO tienes permiso para agregar a un estudiant");
+				
 		}
 
 
@@ -194,14 +200,21 @@ class EstudianteServicio
 						 and p.codigo=es.cod_pensum 
 						 group by es.codigo, p.codigo, i.codigo,e.codigo";
 
-			$ejecutar= $conexion->prepare($consulta);
 
-			$ejecutar-> execute(array());
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EstudianteListar')){
+				$ejecutar= $conexion->prepare($consulta);
 
-			if($ejecutar->rowCount() != 0)
-				return $ejecutar->fetchAll();
+				$ejecutar-> execute(array());
+
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
 			else
-				return null;
+				throw new Exception("NO tienes permiso para listar estudiantes");
+				
 
 
 		}
@@ -432,13 +445,19 @@ class EstudianteServicio
 			$ejecutar->bindParam(':condicion',$condicion, PDO::PARAM_STR);
 			$ejecutar->bindParam(':observaciones',$observaciones, PDO::PARAM_STR);
 
-			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-			//ejecuta
-			$ejecutar->execute();
-			//primera columana codigo
-			$row = $ejecutar->fetchColumn(0);
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EstudianteModificar')){
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				//ejecuta
+				$ejecutar->execute();
+				//primera columana codigo
+				$row = $ejecutar->fetchColumn(0);
 
-			return $row;
+				return $row;
+			}
+			else
+				throw new Exception("NO tienes permiso para modificar a un estudiante");
+				
 		}
 		catch(Exception $e){
 			throw $e;
@@ -465,13 +484,18 @@ class EstudianteServicio
 			// indica
 			// como se indica en parametro y el tipo de parametro que se envia
 			$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
-			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-			//ejecuta
-			$ejecutar->execute();
-			//primera columana codigo
-			$row = $ejecutar->fetchColumn(0);
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EstudianteEliminar')){
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				//ejecuta
+				$ejecutar->execute();
+				//primera columana codigo
+				$row = $ejecutar->fetchColumn(0);
 
-			return $row;
+				return $row;
+			}
+			else
+				throw new Exception ("NO tienes permiso para eliminar a un estudiante");
 		}
 		catch(Exception $e){
 			throw new Exception ("El estudiante NO pudo ser eliminado, es posible que ya este registrado en un curso");

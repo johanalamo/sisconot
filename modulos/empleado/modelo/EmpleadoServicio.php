@@ -80,13 +80,19 @@ class EmpleadoServicio
 			$ejecutar->bindParam(':es_ministerio',$es_ministerio, PDO::PARAM_STR);
 			$ejecutar->bindParam(':es_docente',$es_docente, PDO::PARAM_STR);
 			$ejecutar->bindParam(':observaciones',$observaciones, PDO::PARAM_STR);
+			
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EmpleadoAgregar')){
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 
-			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				$ejecutar->execute();
 
-			$ejecutar->execute();
-
-			$codigo=$ejecutar->fetchColumn(0);
-			return $codigo;
+				$codigo=$ejecutar->fetchColumn(0);
+				return $codigo;
+			}
+			else
+				throw new Exception("NO tienes Permiso para agregar a un empleado");
+				
 		}
 		catch(Exception $e){
 			throw $e;
@@ -147,13 +153,19 @@ class EmpleadoServicio
 			$ejecutar->bindParam(':es_docente',$es_docente, PDO::PARAM_STR);
 			$ejecutar->bindParam(':observaciones',$observaciones, PDO::PARAM_STR);
 
-			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EmpleadoModificar')){
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 
-			$ejecutar->execute();
+				$ejecutar->execute();
 
-			$row = $ejecutar->fetchColumn(0);
+				$row = $ejecutar->fetchColumn(0);
 
-			return $row;
+				return $row;
+			}
+			else
+				throw new Exception("NO tienes permiso para modificar a un empleado");
+				
 		}
 		catch(Exception $e){
 			throw $e;
@@ -239,15 +251,20 @@ class EmpleadoServicio
 			$consulta.=" and i.codigo=em.cod_instituto and e.codigo=em.cod_estado
 				and p.codigo=em.cod_pensum order by em.fec_inicio desc";
 
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EmpleadoListar')){
+				$ejecutar=$conexion->prepare($consulta);
 
-			$ejecutar=$conexion->prepare($consulta);
+				$ejecutar-> execute(array());
 
-			$ejecutar-> execute(array());
-
-			if($ejecutar->rowCount() != 0)
-				return $ejecutar->fetchAll();
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
 			else
-				return null;
+				throw new Exception("NO tienes permiso para listar empleados");
+				
 
 		}
 		catch(Exception $e){
@@ -343,6 +360,7 @@ class EmpleadoServicio
 
 			$consulta.=" group by p.codigo order by p.codigo ";
 
+
 			$ejecutar=$conexion->prepare($consulta);
 		//	echo $consulta;
 			$ejecutar-> execute(array());
@@ -419,11 +437,17 @@ class EmpleadoServicio
 			$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 			//ejecuta
-			$ejecutar->execute();
-			//primera columana codigo
-			$row = $ejecutar->fetchColumn(0);
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EmpleadoEliminar')){
+				$ejecutar->execute();
+				//primera columana codigo
+				$row = $ejecutar->fetchColumn(0);
 
-			return $row;
+				return $row;
+			}
+			else
+				throw new Exception("NO tienes permiso para eliminar un empleado");
+				
 		}
 		catch(Exception $e){
 			throw new Exception ("El empleado NO pudo ser eliminado, es posible que tenga registro en otro lugar");
