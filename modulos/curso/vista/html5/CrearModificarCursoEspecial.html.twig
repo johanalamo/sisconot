@@ -2,31 +2,68 @@
 
 {% block contenido %}
 
-<center><h2>Crear/Modificar Curso Especial (Electivas)</h2></center>
+<center><h2>Curso Especial (Electivas)</h2></center>
 <div class="row">
-	<div class="col-md-6">
-		<center><h3>Edición</h3>
-		<div class="col-md-6">
-			Código: <input type="text" class="form-control" disabled></input>
-			Instituto: <input type="text" class="form-control"></input>
-			Pensum: <input type="text" class="form-control"></input>
-			Periodo: <input type="text" class="form-control"></input>
-			Docente: <input type="text" class="form-control"></input>
-			Observaciones: <input type="text" class="form-control"></input>
+	<div class="col-md-6 text-left" >
+		<h3>Crear/Modificar</h3>
+		<div class="col-md-4">				
+			Código: <input type="text" id="codigo" class="form-control" disabled></input>
+		</div>	
+
+		<div class="col-md-12">	
 		</div>
+
+		<div class="col-md-6">	
+			<div id="institutos"></div>
+		</div>
+
 		<div class="col-md-6">
-			Trayecto: <input type="text" class="form-control"></input>
-			Sección: <input type="text" class="form-control"></input>
-			Unidad Curricular: <input type="text" class="form-control"></input>
-			Capacidad: <input type="text" class="form-control"></input>
-			Fecha de Inicio: <input type="text" class="form-control"></input>
+			<div id="pensuma"></div>
+		</div>
+
+		<div class="col-md-6">	
+			<div id="periodo"></div>
+		</div>
+
+		<div class="col-md-3">	
+			Sección: <input type="text" id="seccion" class="form-control">
+		</div>
+
+		<div class="col-md-3">	
+			Capacidad: <input type="text" id="capacidad" class="form-control">
+		</div>
+
+		<div class="col-md-12">	
+			Docente: <input type="text" id="docentes" class="docentes ui-autocomplete-input form-control" onclick="autoCompletarDocentes();" autocomplete="off"></input>
+		</div>
+		
+		<div class="col-md-12">
+			Unidad Curricular: <input type="text" class="uniCurricular ui-autocomplete-input form-control" onclick="autoCompletarUniCurricular();" autocomplete="off" id="unidadCurricular">
+		</div>
+
+		<div class="col-md-6">
+			Fecha de Inicio: <input type="text" class="form-control">
+		</div>		
+
+		<div class="col-md-6">
 			Fecha de Fin: <input type="text" class="form-control"></input>
 		</div>
-		<br>
-		<button class="btn btn-primary">Guardar</button>
+
+		<div class="col-md-12">
+			Observaciones: <Textarea type="text" class="form-control"></Textarea >
+		</div>
+		
+		<div class="col-md-12 text-right" style="margin-top:5%;">
+			<button class="btn btn-primary">Guardar</button>
+		</div>
+	</div>	
+	<div class="col-md-6" >	
+		<div class="col-md-6 subir" id="detalle" style="margin-top:15%;" >
+			detalle
+		</div>
 	</div>
 </div>
-<center>
+
 <div class="row">
 	<center><h3>Lista de Cursos Especiales (Electivas)</h3></center>
 	<div class="col-md-12">
@@ -35,7 +72,41 @@
 </div>
 <div class="row-fluid">
 	<div class="col-md-12">
-		<h1>LISTA</h1>
+		<fieldset class="scheduler-border-1">
+			<legend class="scheduler-border">Electivas</legend>
+			<table class="table table-stdiped table-hover">
+
+			<div class="text-right form-inline">
+
+				<button type="button" name="nueva_electiva" id="nueva_electiva" class="btn btn-primary" onclick="borrarCamposElectiva();"><span class="fa fa-plus" ></span></button>
+				<div id="editar_electiva" class="form-group">
+					<button type="button" name="editar_electiva" id="editar_elective" class="btn btn-info" onclick="modificarElectiva();"><span class="fa fa-pencil" ></span></button>
+				</div>	
+				<div id="borrar_electiva" class="form-group ">
+					<button type="button" name="borrar_electiva" class="btn btn-danger" onclick="crearConfirm('¿Estas de acuerdo en borrar esta convalidacion?',
+					'borrarElectiva()','Aceptar');"><span class="fa fa-times" ></span></button>
+				</div>								
+			</div>
+
+			
+			<table class="table table-hover" id='tablaElectiva'>
+
+				<tr>
+				  <td>N°</td>
+				  <td>Codigo</td>
+				  <td>Nombre</td>
+				  <td>cap</td>
+				  <td>Docente</td>
+				  <td>Fecha de Inicio</td>
+				  <td>Fecha Fin</td>
+				  <td>Observaciones</td>
+				</tr>
+
+				<tbody id="listarElectiva" >
+
+	       		</tbody>
+
+		</fieldset>
 	</div>
 </div>
 

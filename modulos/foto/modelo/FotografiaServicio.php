@@ -78,14 +78,19 @@ class FotografiaServicio {
 			$conexion = Conexion::conectar();
 			$consulta = "delete from sis.t_archivo 
 		         where codigo=?";
-
-			$ejecutar=$conexion->prepare($consulta);		
-			$ejecutar-> execute(array($codigo));			
- 			//var_dump($ejecutar->fetchAll());
-			if($ejecutar->rowCount() != 0)
-				return $ejecutar->fetchAll();
+		    $login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('GestionarArchivo')){
+				$ejecutar=$conexion->prepare($consulta);		
+				$ejecutar-> execute(array($codigo));			
+	 			//var_dump($ejecutar->fetchAll());
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
 			else
-				return null;
+				throw new Exception("NO tienes permiso para Eliminar un archivo");
+				
 		}
 		catch(Exception $e){
 			throw $e;
@@ -111,14 +116,20 @@ class FotografiaServicio {
 			$conexion = Conexion::conectar();
 			if(FotografiaServicio::existe($codigo)== false ){
 				$consulta = "select sis.f_archivo_ins (?,?);";
-				$ejecutar=$conexion->prepare($consulta);
-						
-				$ejecutar-> execute(array($tipo,$ruta));
+				$login=Vista::obtenerDato('login');
+				if($login->obtenerPermiso('GestionarArchivo')){
+					$ejecutar=$conexion->prepare($consulta);
+							
+					$ejecutar-> execute(array($tipo,$ruta));
 
-				if($ejecutar->rowCount() != 0)
-					return $ejecutar->fetchAll();
+					if($ejecutar->rowCount() != 0)
+						return $ejecutar->fetchAll();
+					else
+						return null;
+				}
 				else
-					return null;
+					throw new Exception("NO tienes permiso paraguardar un archivo");
+					
 			}
 			else{
 
@@ -162,15 +173,19 @@ class FotografiaServicio {
 
 			$consulta = "SELECT lo_export(sis.t_archivo.archivo,?) FROM sis.t_archivo WHERE 
 				codigo= ?";
-
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('GestionarArchivo')){
 				$ejecutar=$conexion->prepare($consulta);
-			//	var_dump($consulta);		
-			$ejecutar-> execute(array($ruta,$codigo));			
- 		
-			if($ejecutar->rowCount() != 0)
-				return $ejecutar->fetchAll();
+				//	var_dump($consulta);		
+				$ejecutar-> execute(array($ruta,$codigo));			
+	 		
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
 			else
-				return null;
+				throw new Exception ("NO tienes permiso para consultar un archivo.");
 		//lanza una exception si falla la conexion	
 		
 	}

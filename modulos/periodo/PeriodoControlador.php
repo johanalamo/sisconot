@@ -60,6 +60,8 @@ Descripción:
 					self::eliminarPeriodo();
 				else if($accion == 'obtenerDatos')
 					self::obtenerDatos();
+				else if($accion == 'periodoInsPenEstado')
+					self::periodoInsPenEstado();
 				else
 					throw new Exception("No existe la opción $accion en PeriodoControlador");
 			}
@@ -230,6 +232,31 @@ Descripción:
 				$r = PeriodoServicio::obtenerEstadosPeriodo();
 
 				Vista::asignarDato("estados",$r);
+
+				Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function periodoInsPenEstado(){
+			try{
+				$instituto=PostGet::obtenerPostGet("instituto");
+				$pensum=PostGet::obtenerPostGet("pensum");
+				$estado=PostGet::obtenerPostGet("estado");
+
+				if(!$instituto)
+					$instituto=-1;
+
+				if(!$pensum)
+					$pensum=-1;
+
+				if(!$estado)
+					$estado=-1;
+
+				$r=PeriodoServicio::periodoInsPenEstado($instituto,$pensum,$estado);
+				Vista::asignarDato("periodo",$r);
 
 				Vista::mostrar();
 			}

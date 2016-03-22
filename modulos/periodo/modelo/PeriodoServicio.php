@@ -366,5 +366,29 @@ Descripción:
 				throw $e;
 			}
 		}
+
+		public static function periodoInsPenEstado($instituto=null,$pensum=null,$estado=null){
+			try{
+
+				$conexion = Conexion::conectar();
+
+				$consulta="select * from sis.t_periodo where cod_instituto=$instituto and 
+							cod_pensum=$pensum and cod_estado = '$estado';";
+			
+				$ejecutar = $conexion->prepare($consulta);
+				$ejecutar->execute(array());
+
+				$results = $ejecutar->fetchAll();
+
+				if(count($results)>0)
+					return $results;
+				else
+					return null;
+
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
 	}
 ?>
