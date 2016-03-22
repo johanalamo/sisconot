@@ -8664,3 +8664,31 @@ Trayecto:
 		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 596 *****************************
+codigo Error: 596
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/login/modelo/LoginServicio.php(49): Conexion::conectar()
+		#1 /var/www/github/sisconot/modulos/login/LoginControlador.php(82): LoginServicio::obtenerLogin('admin', '12345')
+		#2 /var/www/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 597 *****************************
+codigo Error: 597
+Mensaje error: Datos de autenticación incorrectos. Revise su usuario y password
+Archivo Error: /var/www/github/sisconot/base/clases/basededatos/Conexion.php
+Linea Error: 66
+Trayecto:
+		#0 /var/www/github/sisconot/modulos/login/modelo/LoginServicio.php(49): Conexion::conectar()
+		#1 /var/www/github/sisconot/modulos/login/LoginControlador.php(82): LoginServicio::obtenerLogin('admin', '12345')
+		#2 /var/www/github/sisconot/modulos/login/LoginControlador.php(53): LoginControlador::iniciarLogin()
+		#3 /var/www/github/sisconot/modulos/principal/Bloque.php(29): LoginControlador::manejarRequerimiento()
+		#4 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/github...')
+		#5 /var/www/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
