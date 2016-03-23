@@ -208,13 +208,20 @@ class EmpleadoServicio
 
 
 			$conexion = Conexion::conectar();
-			$consulta="select em.*, p.nom_corto as nom_pensum, i.nom_corto as nom_instituto, e.nombre,
+			/*$consulta="select em.*, p.nom_corto as nom_pensum, i.nom_corto as nom_instituto, e.nombre,
 							p.nombre as nom_pen_largo, i.nombre as nom_ins_largo,
 							(select to_char(em.fec_inicio,'DD/MM/YYYY')) as fec_inicios,
 							(select to_char(em.fec_fin,'DD/MM/YYYY')) as fec_final
 						from sis.t_empleado em, sis.t_instituto i,
 							sis.t_est_empleado e, sis.t_pensum p where true ";
-
+*/
+			$consulta="select em.*, p.nom_corto as nom_pensum, i.nom_corto as nom_instituto, e.nombre,
+						p.nombre as nom_pen_largo, i.nombre as nom_ins_largo,
+						(select to_char(em.fec_inicio,'DD/MM/YYYY')) as fec_inicios,
+						(select to_char(em.fec_fin,'DD/MM/YYYY')) as fec_final
+						FROM sis.t_empleado em LEFT JOIN sis.t_instituto i ON(i.codigo=em.cod_instituto) LEFT JOIN 
+						sis.t_est_empleado e ON (e.codigo=em.cod_estado) LEFT JOIN 
+						sis.t_pensum p ON (p.codigo=em.cod_pensum) where true";
 			if($codigo)
 				$consulta.= " and em.codigo = $codigo ";
 
@@ -248,13 +255,13 @@ class EmpleadoServicio
 			if($fec_fin)
 				$consulta.= " and em.fec_fin = '$fec_fin' ";
 
-			$consulta.=" and i.codigo=em.cod_instituto and e.codigo=em.cod_estado
-				and p.codigo=em.cod_pensum order by em.fec_inicio desc";
+			$consulta.=" /*and i.codigo=em.cod_instituto and e.codigo=em.cod_estado
+				and p.codigo=em.cod_pensum*/ order by em.fec_inicio desc";
 
 			$login=Vista::obtenerDato('login');
 			if($login->obtenerPermiso('EmpleadoListar')){
 				$ejecutar=$conexion->prepare($consulta);
-
+				//var_dump($consulta);
 				$ejecutar-> execute(array());
 
 				if($ejecutar->rowCount() != 0)
