@@ -726,6 +726,9 @@ function verificarChecks(el){
 	for(var i = 0; i < len; i++){
 		if($("#checkbox"+i).is(":checked")){
 			if(el == 'mod'){
+				/*
+				 * Verificación de permisos.
+				 */
 				if(per.CursoModificar || per.CursoAgregar){
 					if((sec+tra) != ($("#c2"+i).html()+$("#c1"+i).html())){
 						window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=CrearModificarCurso&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
@@ -738,6 +741,9 @@ function verificarChecks(el){
 				}
 			}
 			else if(el == 'le') {
+				/*
+				 * Verificación de permisos.
+				 */
 				if(per.CurEstudianteListar){
 					if($("#cant"+i).html() != '0')
 						window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=ListarEstudiantes&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
@@ -749,6 +755,9 @@ function verificarChecks(el){
 				}
 			}
 			else if(el == 'cn'){
+				/*
+				 * Verificación de permisos.
+				 */
 				if(per.CurEstudianteModificar){
 					if($("#cant"+i).html() != '0')
 						window.open('index.php?m_modulo=curso&m_accion=mostrar&m_vista=CargarNotas&m_formato=html5&codigo='+$("#hid"+i).val(),'_blank');
@@ -863,11 +872,19 @@ function succCargarCursosPensum(data){
 			cad += "<tr>";
 
 			if(cur[i]['codcurso'] != null){
-				cad += "<td style='text-align:center'><input type='checkbox' id='check"+i+"' onchange='validarCurso("+i+",\""+cur[i]['nombre']+"\")' checked></td>";
+				if(per.CursoAgregar || per.CursoEliminar)
+					cad += "<td style='text-align:center'><input type='checkbox' id='check"+i+"' onchange='validarCurso("+i+",\""+cur[i]['nombre']+"\")' checked></td>";
+				else {
+					cad += "<td style='text-align:center'><input disabled type='checkbox' id='check"+i+"' onchange='validarCurso("+i+",\""+cur[i]['nombre']+"\")' checked></td>";
+				}
 				val = '';
 			}
 			else {
-				cad += "<td style='text-align:center'><input type='checkbox' id='check"+i+"' onchange='validarCurso("+i+",\""+cur[i]['nombre']+"\")' ></td>";
+				if(per.CursoAgregar || per.CursoEliminar)
+					cad += "<td style='text-align:center'><input type='checkbox' id='check"+i+"' onchange='validarCurso("+i+",\""+cur[i]['nombre']+"\")' ></td>";
+				else {
+					cad += "<td style='text-align:center'><input disabled type='checkbox' id='check"+i+"' onchange='validarCurso("+i+",\""+cur[i]['nombre']+"\")' ></td>";
+				}
 				val = 'disabled';
 			}
 
@@ -924,6 +941,10 @@ function succCargarCursosPensum(data){
 		}
 
 		cad += "</table>";
+
+		/*
+		 * Verificación de permisos.
+		 */
 
 		if(per.CursoAgregar || per.CursoModificar)
 			cad += "<button id='btn-b' class='btn btn-dark btn-xs' onclick='actualizarCursos()'>Guardar Cambios</button>";
@@ -1254,7 +1275,10 @@ $( document ).ready(function() {
 
 //~ if(obtenerGet('codigo') != null && obtenerGet('m_vista') != 'CargarNotas')
 	//~ montarSelects();
-if((obtenerGet('m_vista') != 'CargarNotas')&&(obtenerGet('codigo') != null))
+// if((obtenerGet('m_vista') != 'CargarNotas')&&(obtenerGet('codigo') != null)){
+// 	montarSelects();
+// }
+if(obtenerGet('codigo') != null)
 	montarSelects();
 else if(datos != null)
 	montarSelectUsuario();

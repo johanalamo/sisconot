@@ -1248,3 +1248,283 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 76 *****************************
+codigo Error: 76
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(421): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 77 *****************************
+codigo Error: 77
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(421): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 78 *****************************
+codigo Error: 78
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(427): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 79 *****************************
+codigo Error: 79
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(422): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 80 *****************************
+codigo Error: 80
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(422): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 81 *****************************
+codigo Error: 81
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «[object Object]»
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 467
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(467): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(374): PensumServicio::pensumConEstActivo('[object Object]')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(71): PensumControlador::pensumEstActivo()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 82 *****************************
+codigo Error: 82
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «[object Object]»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 1309
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(1309): PDOStatement->execute(Array)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(705): CursoServicio::buscarConvalidacionEstudiante('[object Object]')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(92): CursoControlador::convalidaciones()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 83 *****************************
+codigo Error: 83
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 626
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(626): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(422): CursoServicio::obtenerDatosDeCurso('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(66): CursoControlador::obtenerDatosDeCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(173): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 84 *****************************
+codigo Error: 84
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 428
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(428): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(287): PensumServicio::ObtenerPensumTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(63): PensumControlador::buscarPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 85 *****************************
+codigo Error: 85
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 502
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(502): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(455): CursoServicio::listarUniCurricular('', '', '', '1')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(62): CursoControlador::listarUniCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 86 *****************************
+codigo Error: 86
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  la sintaxis de entrada no es válida para integer: «»
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 463
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(463): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(437): CursoServicio::listarSeccionPorTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(60): CursoControlador::buscarSeccionPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 87 *****************************
+codigo Error: 87
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permiso denegado a la relación t_est_cur_estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 506
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(506): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(314): EstudianteServicio::listarEstudiantesDeCurso('16')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(41): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 88 *****************************
+codigo Error: 88
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permiso denegado a la relación t_est_cur_estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 506
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(506): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(314): EstudianteServicio::listarEstudiantesDeCurso('2')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(41): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 89 *****************************
+codigo Error: 89
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permiso denegado a la relación t_est_cur_estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 506
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(506): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(314): EstudianteServicio::listarEstudiantesDeCurso('16')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(41): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 90 *****************************
+codigo Error: 90
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permiso denegado a la relación t_est_cur_estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 506
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(506): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(314): EstudianteServicio::listarEstudiantesDeCurso('2')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(41): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 91 *****************************
+codigo Error: 91
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permiso denegado a la relación t_est_cur_estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 506
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(506): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(314): EstudianteServicio::listarEstudiantesDeCurso('2')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(41): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 92 *****************************
+codigo Error: 92
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permiso denegado a la relación t_est_cur_estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 506
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(506): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(314): EstudianteServicio::listarEstudiantesDeCurso('2')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(41): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 93 *****************************
+codigo Error: 93
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permiso denegado a la relación t_est_cur_estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 506
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(506): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(314): EstudianteServicio::listarEstudiantesDeCurso('2')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(41): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 94 *****************************
+codigo Error: 94
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permiso denegado a la relación t_est_cur_estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 506
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(506): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(314): EstudianteServicio::listarEstudiantesDeCurso('2')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(41): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 95 *****************************
+codigo Error: 95
+Mensaje error: SQLSTATE[42501]: Insufficient privilege: 7 ERROR:  permiso denegado a la relación t_est_cur_estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php
+Linea Error: 506
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/estudiante/modelo/EstudianteServicio.php(506): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(314): EstudianteServicio::listarEstudiantesDeCurso('2')
+		#2 /var/www/html/github/sisconot/modulos/estudiante/EstudianteControlador.php(41): EstudianteControlador::listarEstudiantesPorCurso()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(17): EstudianteControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

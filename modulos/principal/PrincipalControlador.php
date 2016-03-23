@@ -87,13 +87,6 @@ class PrincipalControlador {
 		//colocar todas las claves de los arreglos $_POST y $_GET en
 		Sesion::iniciarSesion();
 
-		//~ if (!Sesion::hayUsuarioLogueado()){
-			//~ $_POST['m_modulo'] = 'login';
-			//~ $_POST['m_accion'] = 'mostrar';
-			//~ $_POST['m_formato'] = 'html5';
-			//~ $_POST['m_vista'] = 'Inicio';
-		//~ }
-
 		if(!Sesion::hayUsuarioLogueado()){
 			if(PostGet::obtenerPostGet('m_modulo') != 'login'){
 				$_POST['m_modulo'] = 'login';
@@ -139,7 +132,18 @@ class PrincipalControlador {
 				Conexion::iniciar($instalacion->obtenerServidor(),$instalacion->obtenerNombreBD(),$instalacion->obtenerPuerto(),$login->obtenerUsuario(),$login->obtenerClave());
 			}
 
+			/*
+			 * Se recargan los permisos de la base de datos.
+			 */
+
 			LoginControlador::restaurarPermisos();
+
+			/*
+			 * Se envía la información del login (permisos, usuario) y
+			 * datos (datos del usuario,instituto, pensum al que pertenece)
+			 * a la vista (para manejarse por javascript y php)
+			 */
+
 			vista::asignarDato("login",Sesion::obtenerLogin());
 			vista::asignarDato("datos",Sesion::obtenerDatosUsuario());
 			Vista::asignarDato("usuBD",$instalacion->obtenerUsuBD());
@@ -153,7 +157,7 @@ class PrincipalControlador {
 					Conexion::iniciar($instalacion->obtenerServidor(),$instalacion->obtenerNombreBD(),$instalacion->obtenerPuerto(),PostGet::obtenerPostGet('usuario'),PostGet::obtenerPostGet('pass'));
 			}
 		}
-		
+
 
 		Vista::iniciar($modulo.":".$formato.":".$vista);
 

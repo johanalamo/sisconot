@@ -196,7 +196,7 @@ Descripción:
 				$fecFinal = PostGet::obtenerPostGet("fecFinal");
 				$capacidad = PostGet::obtenerPostGet("capacidad");
 				$observaciones = PostGet::obtenerPostGet("observaciones");
-			
+
 
 				if($codDocente == '')
 					$codDocente = NULL;
@@ -391,6 +391,7 @@ Descripción:
 
 		public static function mostrarVista(){
 			try{
+
 				Vista::mostrar();
 			}
 			catch(Exception $e){
