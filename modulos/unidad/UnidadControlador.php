@@ -88,6 +88,9 @@
 
 				else if ($accion == "ListarUnidadesPorPenTraPatron")
 					self::ListarUnidadesPorPenTraPatron();
+				elseif ($accion == "uniCurPensum") {
+					self::uniCurPensum();
+				}
 
 
 				else
@@ -637,8 +640,11 @@
 				$codTrayecto=PostGet::obtenerPostGet('trayecto');
 				$codPensum=PostGet::obtenerPostGet('pensum');
 				$patron=PostGet::obtenerPostGet('patron');
-
-				$r=UnidadServicio::ObtenerUnidadesPorPenTraPatron($codTrayecto,$codPensum,$patron);
+				$tipo=PostGet::obtenerPostGet('tipo');
+				if($codTrayecto && $codPensum && $patron && $tipo)
+					$r=UnidadServicio::ObtenerUnidadesPorPenTraPatron($codTrayecto,$codPensum,$patron,$tipo);
+				else
+					$r=null;
 				//var_dump($r);
 				$cad = "[";
 				if ($r != null){
@@ -672,7 +678,47 @@
 			}
 		}
 
+		public static function uniCurPensum(){
+			try{
+				$pensum=PostGet::obtenerPostGet("pensum");
+				$tipo=PostGet::obtenerPostGet("tipo");
+				$patron=PostGet::obtenerPostGet("patron");
 
+				$r=UnidadServicio::uniCurPensum($pensum,$patron,$tipo);
+				
+				$cad = "[";
+				if ($r != null){
+					$c = 0;
+					foreach ($r as $unidad) {
+						if ($c > 0)
+							$cad .= ",";
+						$cad .= "{";
+						$cad .= '"label": "' . $unidad['nombre']. '", ';
+						$cad .= '"value": '.$unidad['codigo'];
+						$cad .= "}";
+						$c++;
+					}
+				}
+				else{
+					$cad .= "{";
+					$cad .= '"label":"No hay coincidencias", ';
+					$cad .= '"value": "null"';
+					$cad .= "}";
+				}
+				$cad .= "]";
+
+				Vista::asignarDato("auto",$cad);
+
+				Vista::asignarDato("detalleUnidad",$r);
+				Vista::asignarDato("estatus",1);
+				Vista::mostrar();
+
+
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
 
 
 	}

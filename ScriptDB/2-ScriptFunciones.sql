@@ -1819,21 +1819,25 @@ $$;
 ALTER FUNCTION sis.f_persona_ins(p_cedula integer, p_rif text, p_nombre1 text, p_nombre2 text, p_apellido1 text, p_apellido2 text, p_sexo text, p_fec_nacimiento date, p_tip_sangre text, p_telefono1 text, p_telefono2 text, p_cor_personal text, p_cor_institucional text, p_direccion text, p_discapacidad text, p_nacionalidad text, p_hijos integer, p_est_civil text, p_observaciones text) OWNER TO sisconot;
 
 
-CREATE FUNCTION sis.f_persona_sel(p_cursor refcursor) RETURNS refcursor
-    LANGUAGE plpgsql
-    AS $$
-BEGIN
-	OPEN p_cursor FOR
-	select * from sis.t_persona;
 
-	RETURN p_cursor;
+
+CREATE OR REPLACE FUNCTION sis.f_persona_sel(p_cursor refcursor)
+  RETURNS refcursor AS
+$BODY$
+BEGIN
+  OPEN p_cursor FOR
+  select *,  (select to_char(fec_nacimiento,'DD/MM/YYYY')) as fec_nacimientos from sis.t_persona;
+
+  RETURN p_cursor;
 
 END;
-$$;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_persona_sel(refcursor)
+  OWNER TO sisconot;
 
-
-ALTER FUNCTION sis.f_persona_sel(p_cursor refcursor) OWNER TO sisconot;
-
+    
 
 CREATE OR REPLACE FUNCTION sis.utf(character varying)
   RETURNS text AS
@@ -1939,4 +1943,54 @@ $BODY$
 ALTER FUNCTION sis.f_convalidacion_eli(integer)
   OWNER TO sisconot;
 
+
+
+
+CREATE OR REPLACE FUNCTION sis.f_archivo_ins(text,text)
+  RETURNS integer AS
+$BODY$
+DECLARE 
+	cod_archivo integer := 0;
+	p_tipo ALIAS for $1;
+	p_archivo ALIAS for $2;
+BEGIN
+	select coalesce(max(codigo),0) from sis.t_archivo into cod_archivo;
+
+	cod_archivo:=cod_archivo+1;
+
+	INSERT INTO sis.t_archivo (codigo,	tipo,	archivo	 )
+			    VALUES (cod_archivo,p_tipo,	lo_import(p_archivo) );
+
+  RETURN cod_archivo;
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_archivo_ins(text, text)
+  OWNER TO sisconot;
+
+
+CREATE OR REPLACE FUNCTION sis.f_archivo_mod(integer,text,text)
+  RETURNS integer AS
+$BODY$
+DECLARE 
+	r_operacion integer := 0;
+	p_codigo ALIAS for $1;
+	p_tipo ALIAS for $2;
+	p_archivo ALIAS for $3;
+BEGIN
+
+  UPDATE sis.t_archivo SET archivo = lo_import(p_archivo),tipo=p_tipo WHERE codigo= p_codigo;
+
+  IF found THEN
+  r_operacion := 1;
+  END IF;
+
+  RETURN cod_archivo;
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION sis.f_archivo_mod(integer,text, text)
+  OWNER TO sisconot;
 

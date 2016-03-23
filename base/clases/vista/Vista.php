@@ -337,7 +337,7 @@
 		private static function mostrarODT(){
 			if(self::obtenerDatos() != null){
 				//require_once("recursos/odf/odf");
-				header("Content-type: application/vnd.oasis.opendocument.spreadsheet");
+				header("Content-type: application/vnd.oasis.opendocument.text");
 				header("Content-Disposition: attachment; filename=reporte.odt");
 				require_once(self::obtenerRuta());
 			}

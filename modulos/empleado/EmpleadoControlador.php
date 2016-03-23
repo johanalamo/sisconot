@@ -91,7 +91,7 @@ class EmpleadoControlador
 
 			$personas=EmpleadoServicio::listarPersonaEmpleado($pnf,$estado,$instituto,null,$campo);
 			$empleado=EmpleadoServicio::listar(null,null,null,$codigo,$codPersona);
-
+			
 			vista::asignarDato('persona',$personas);
 
 			if(!$personas)
@@ -100,7 +100,7 @@ class EmpleadoControlador
 			if(!$codPersona)
 				Vista::asignarDato('empleado',null);
 				
-
+			
 			$pnf=PensumServicio::ObtenerPensumInsituto($instituto);
 			$instituto=InstitutoServicio::listarInstitutos();
 			$estado=EmpleadoServicio::listarEstado();
@@ -279,9 +279,10 @@ class EmpleadoControlador
 			$patron = PostGet::obtenerPostGet("patron");
 			$pensum = PostGet::obtenerPostGet("pensum");
 			$instituto = PostGet::obtenerPostGet("instituto");
+			$completo= PostGet::obtenerPostGet("completo");
 
 			$r = EmpleadoServicio::buscarDocentes($patron,$pensum,$instituto);
-
+			
 			$cad = "[";
 			if ($r != null){
 				$c = 0;
@@ -289,7 +290,12 @@ class EmpleadoControlador
 					if ($c > 0)
 						$cad .= ",";
 					$cad .= "{";
-					$cad .= '"label": "' . $docente['nombre1']. ' ' . $docente['apellido1'] . '", ';
+					if(!$completo)
+						$cad .= '"label": "' . $docente['nombre1']. ' ' . $docente['apellido1'] . '", ';
+					else
+						$cad .= '"label": "' . $docente['nombre1']. ' ' . $docente['nombre2']. ' ' . $docente['apellido1']. ' ' . $docente['apellido2'] . '", ';
+
+
 					$cad .= '"value": '.$docente['codigo'];
 					$cad .= "}";
 					$c++;

@@ -81,15 +81,21 @@ class EstudianteServicio
 			$ejecutar->bindParam(':condicion',$condicion, PDO::PARAM_STR);
 			$ejecutar->bindParam(':observaciones',$observaciones, PDO::PARAM_STR);
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-			$ejecutar->execute();
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EstudianteAgregar')){
+				$ejecutar->execute();
+				
+				$codigo = $ejecutar->fetchColumn(0);
 
-			$codigo = $ejecutar->fetchColumn(0);
 
+				if($ejecutar->rowCount() == 0)
+					throw new Exception("No se pudo inscribir al estudiante.");
 
-			if($ejecutar->rowCount() == 0)
-				throw new Exception("No se pudo inscribir al estudiante.");
-
-			return $codigo;
+				return $codigo;
+			}
+			else
+				throw new Exception("NO tienes permiso para agregar a un estudiant");
+				
 		}
 
 
@@ -106,7 +112,7 @@ class EstudianteServicio
 
 			$ejecutar = $conexion->prepare("SELECT * FROM sis.t_est_estudiante;");
 			$ejecutar->execute(array());
-
+			
 			if($ejecutar->rowCount()!= 0)
 				return $ejecutar->fetchAll();
 			else
@@ -191,17 +197,24 @@ class EstudianteServicio
 				$consulta.= " and es.fec_fin='$fec_fin' ";
 
 			$consulta.=" and i.codigo=es.cod_instituto and e.codigo=es.cod_estado
-						 and p.codigo=es.cod_pensum
+						 and p.codigo=es.cod_pensum 
 						 group by es.codigo, p.codigo, i.codigo,e.codigo";
 
-			$ejecutar= $conexion->prepare($consulta);
 
-			$ejecutar-> execute(array());
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EstudianteListar')){
+				$ejecutar= $conexion->prepare($consulta);
 
-			if($ejecutar->rowCount() != 0)
-				return $ejecutar->fetchAll();
+				$ejecutar-> execute(array());
+
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
 			else
-				return null;
+				throw new Exception("NO tienes permiso para listar estudiantes");
+				
 
 
 		}
@@ -234,14 +247,11 @@ class EstudianteServicio
 	 *
 	 * @throws Exception 					Si se producen errores en operaciones con la base de datos.
 	 */
-
-
+	 
+	 
 	public static function listarPersonaEstudiante(	$cod_pensum=null,			$cod_estado=null,	$cod_instituto=null,
-
-													$campo=null,				$codigo=null,		$cod_esudiante=null,
-													$cod_curso=null,			$cedula=null,
+													$campo=null,				$codigo=null,		$cod_esudiante=null,													$cod_curso=null,			$cedula=null,
 													$correo=null,				$nombre1=null,		$nombre2=null,
-
 													$apellido1=null,			$apellido2=null,	$sexo=null
 
 												  )
@@ -260,7 +270,7 @@ class EstudianteServicio
 						 	where true and p.codigo=es.cod_persona ";
 
 			if(!$cod_curso)
-				$consulta = "select p.*,  p.codigo as cod_persona
+				$consulta = "select p.*,  p.codigo as cod_persona 
 							from sis.t_persona p, sis.t_estudiante es
 						 	where true and p.codigo=es.cod_persona ";
 
@@ -268,9 +278,18 @@ class EstudianteServicio
 				$consulta.= " and p.codigo =$codigo ";
 
 			if($campo){
-				$consulta.=" and CONCAT(cast(p.cedula as varchar),nombre1 || ' ' ||nombre2 || ' ' ||apellido1 || ' '||apellido2)
-							ilike '%$campo%' or CONCAT (cast(p.cedula as varchar),nombre1 || ' ' ||apellido1 || ' '||apellido2)
-							ilike '%$campo%'";
+				$campo=strtoupper($campo);
+				$consulta.=" and (CONCAT(cast(p.cedula as varchar),nombre1 || ' ' ||nombre2 || ' ' ||apellido1 || ' '||apellido2)  
+								ilike '%$campo%' 
+								OR
+								CONCAT(cast(p.cedula as varchar),nombre1 || ' ' ||apellido1)  
+								ilike '%$campo%' 
+								OR
+								CONCAT(cast(p.cedula as varchar),nombre1  || ' ' || nombre2 ||' ' ||apellido1)  
+								ilike '%$campo%' 
+								OR
+								CONCAT(cast(p.cedula as varchar),nombre1  || ' ' || apellido1 ||' ' ||apellido2)  
+								ilike '%$campo%') ";
 			}
 
 			if($cedula)
@@ -426,13 +445,19 @@ class EstudianteServicio
 			$ejecutar->bindParam(':condicion',$condicion, PDO::PARAM_STR);
 			$ejecutar->bindParam(':observaciones',$observaciones, PDO::PARAM_STR);
 
-			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-			//ejecuta
-			$ejecutar->execute();
-			//primera columana codigo
-			$row = $ejecutar->fetchColumn(0);
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EstudianteModificar')){
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				//ejecuta
+				$ejecutar->execute();
+				//primera columana codigo
+				$row = $ejecutar->fetchColumn(0);
 
-			return $row;
+				return $row;
+			}
+			else
+				throw new Exception("NO tienes permiso para modificar a un estudiante");
+				
 		}
 		catch(Exception $e){
 			throw $e;
@@ -459,16 +484,21 @@ class EstudianteServicio
 			// indica
 			// como se indica en parametro y el tipo de parametro que se envia
 			$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
-			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-			//ejecuta
-			$ejecutar->execute();
-			//primera columana codigo
-			$row = $ejecutar->fetchColumn(0);
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EstudianteEliminar')){
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				//ejecuta
+				$ejecutar->execute();
+				//primera columana codigo
+				$row = $ejecutar->fetchColumn(0);
 
-			return $row;
+				return $row;
+			}
+			else
+				throw new Exception ("NO tienes permiso para eliminar a un estudiante");
 		}
 		catch(Exception $e){
-			throw $e;
+			throw new Exception ("El estudiante NO pudo ser eliminado, es posible que ya este registrado en un curso");
 		}
 	}
 
@@ -478,7 +508,6 @@ class EstudianteServicio
 
 			$consulta = "select 	ce.codigo cod_curest,
 									ce.cod_curso,
-									ce.observaciones,
 									est.codigo codigo,
 									per.cedula,
 									per.apellido1,

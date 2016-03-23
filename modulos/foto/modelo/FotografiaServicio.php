@@ -78,14 +78,19 @@ class FotografiaServicio {
 			$conexion = Conexion::conectar();
 			$consulta = "delete from sis.t_archivo 
 		         where codigo=?";
-
-			$ejecutar=$conexion->prepare($consulta);		
-			$ejecutar-> execute(array($codigo));			
- 			//var_dump($ejecutar->fetchAll());
-			if($ejecutar->rowCount() != 0)
-				return $ejecutar->fetchAll();
+		    $login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('GestionarArchivo')){
+				$ejecutar=$conexion->prepare($consulta);		
+				$ejecutar-> execute(array($codigo));			
+	 			//var_dump($ejecutar->fetchAll());
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
 			else
-				return null;
+				throw new Exception("NO tienes permiso para Eliminar un archivo");
+				
 		}
 		catch(Exception $e){
 			throw $e;
@@ -105,32 +110,43 @@ class FotografiaServicio {
 	Exception: si ocurre un error en la conexión a la base de datos.
 	Exception:si los campos están vacios.	
 	*/
-	static public function guardar($cod_persona,$tipo,$ruta){
+	static public function guardar($codigo,$tipo,$ruta){
 		try{
 
 			$conexion = Conexion::conectar();
-			if(FotografiaServicio::existe($cod_persona)== false ){
-				$consulta = "INSERT INTO sis.t_archivo (codigo,tipo,archivo) 				
-								VALUES 
-								(?,?,lo_import(?));";
-				$ejecutar=$conexion->prepare($consulta);
-						
-				$ejecutar-> execute(array($cod_persona,$tipo,$ruta));
+			if(FotografiaServicio::existe($codigo)== false ){
+				$consulta = "select sis.f_archivo_ins (?,?);";
+				$login=Vista::obtenerDato('login');
+				if($login->obtenerPermiso('GestionarArchivo')){
+					$ejecutar=$conexion->prepare($consulta);
+							
+					$ejecutar-> execute(array($tipo,$ruta));
+
+					if($ejecutar->rowCount() != 0)
+						return $ejecutar->fetchAll();
+					else
+						return null;
+				}
+				else
+					throw new Exception("NO tienes permiso paraguardar un archivo");
+					
 			}
 			else{
 
-				$consulta="UPDATE sis.t_archivo SET archivo= lo_import('$ruta'),
-							tipo='$tipo' WHERE codigo= $cod_persona";
+				$consulta="select sis.f_archivo_mod (?,?,?)";
 				$ejecutar=$conexion->prepare($consulta);
-				$ejecutar-> execute(array());
+				$ejecutar-> execute(array($codigo,$tipo,$ruta));
+				if($ejecutar->rowCount() != 0){
+					if($ejecutar->fetchAll()>0)
+						return true;
+				}
+				else
+					return null;
 			}
 
 						
  		
-			if($ejecutar->rowCount() != 0)
-				return $ejecutar->fetchAll();
-			else
-				return null;
+			
 						
 
 		}
@@ -151,21 +167,25 @@ class FotografiaServicio {
 
 	*/
 	
-	static public function extraerEn($cod_persona,$ruta){
+	static public function extraerEn($codigo,$ruta){
 		
 			 $conexion = Conexion::conectar();
-			// $ruta="'/var/www/proyecto/GitHub/sisconot/aqui.JPG'";
-			$consulta = "SELECT lo_export(sis.t_archivo.archivo,'$ruta') FROM sis.t_archivo WHERE 
-				codigo= $cod_persona";
 
+			$consulta = "SELECT lo_export(sis.t_archivo.archivo,?) FROM sis.t_archivo WHERE 
+				codigo= ?";
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('GestionarArchivo')){
 				$ejecutar=$conexion->prepare($consulta);
-			//	var_dump($consulta);		
-			$ejecutar-> execute(array());			
- 		
-			if($ejecutar->rowCount() != 0)
-				return $ejecutar->fetchAll();
+				//	var_dump($consulta);		
+				$ejecutar-> execute(array($ruta,$codigo));			
+	 		
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
 			else
-				return null;
+				throw new Exception ("NO tienes permiso para consultar un archivo.");
 		//lanza una exception si falla la conexion	
 		
 	}

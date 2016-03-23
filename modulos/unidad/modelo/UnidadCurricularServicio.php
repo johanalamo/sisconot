@@ -1,3 +1,5 @@
+
+
 <?php
 
 /**
@@ -436,21 +438,21 @@ class UnidadServicio
 			}
 		}
 
-		public static function ObtenerUnidadesPorPenTraPatron($codigoTra,$codigoPen,$patron){
+		public static function ObtenerUnidadesPorPenTraPatron($codigoTra,$codigoPen,$patron,$tipo){
 			try{
 
 				$conexion = Conexion::conectar();
 				$patron=strtoupper($patron);
 				$cad="";
-				if($codigoTra)
-					$cad=" and t.codigo=$codigoTra and t.cod_pensum=p.codigo and utp.cod_trayecto=t.codigo";
-				if($codigoPen)
-					$cad.=" and p.codigo=$codigoPen and utp.cod_pensum=p.codigo ";
-				
-				
+			
+				$cad=" and t.codigo=$codigoTra and t.cod_pensum=p.codigo and utp.cod_trayecto=t.codigo";
+				$cad.=" and p.codigo=$codigoPen and utp.cod_pensum=p.codigo ";
+
+			
+			
 				$consulta="select u.* from sis.t_uni_curricular u, sis.t_trayecto t, 
 								sis.t_pensum p, sis.t_uni_tra_pensum utp
-							where true $cad
+							where true $cad and utp.cod_tipo='$tipo'
 								and utp.cod_uni_curricular=u.codigo and u.nombre like '%$patron%' 
 								group by u.codigo order by codigo;";
 
@@ -463,6 +465,29 @@ class UnidadServicio
 				else
 					return null;
 
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function uniCurPensum ($pensum=null,$patron=null,$tipo=null){
+			try{
+
+				$conexion = Conexion::conectar();
+
+				$consulta="select uc.* from sis.t_uni_tra_pensum utp, sis.t_uni_curricular uc
+							where utp.cod_pensum=$pensum and utp.cod_uni_curricular=uc.codigo
+							and uc.nombre like upper('%$patron%') and utp.cod_tipo='$tipo'";
+				
+				$ejecutar=$conexion->prepare($consulta);
+				
+				$ejecutar-> execute(array());
+
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
 			}
 			catch(Exception $e){
 				throw $e;

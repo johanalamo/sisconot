@@ -80,13 +80,19 @@ class EmpleadoServicio
 			$ejecutar->bindParam(':es_ministerio',$es_ministerio, PDO::PARAM_STR);
 			$ejecutar->bindParam(':es_docente',$es_docente, PDO::PARAM_STR);
 			$ejecutar->bindParam(':observaciones',$observaciones, PDO::PARAM_STR);
+			
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EmpleadoAgregar')){
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 
-			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+				$ejecutar->execute();
 
-			$ejecutar->execute();
-
-			$codigo=$ejecutar->fetchColumn(0);
-			return $codigo;
+				$codigo=$ejecutar->fetchColumn(0);
+				return $codigo;
+			}
+			else
+				throw new Exception("NO tienes Permiso para agregar a un empleado");
+				
 		}
 		catch(Exception $e){
 			throw $e;
@@ -147,13 +153,19 @@ class EmpleadoServicio
 			$ejecutar->bindParam(':es_docente',$es_docente, PDO::PARAM_STR);
 			$ejecutar->bindParam(':observaciones',$observaciones, PDO::PARAM_STR);
 
-			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EmpleadoModificar')){
+				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 
-			$ejecutar->execute();
+				$ejecutar->execute();
 
-			$row = $ejecutar->fetchColumn(0);
+				$row = $ejecutar->fetchColumn(0);
 
-			return $row;
+				return $row;
+			}
+			else
+				throw new Exception("NO tienes permiso para modificar a un empleado");
+				
 		}
 		catch(Exception $e){
 			throw $e;
@@ -196,13 +208,20 @@ class EmpleadoServicio
 
 
 			$conexion = Conexion::conectar();
-			$consulta="select em.*, p.nom_corto as nom_pensum, i.nom_corto as nom_instituto, e.nombre,
+			/*$consulta="select em.*, p.nom_corto as nom_pensum, i.nom_corto as nom_instituto, e.nombre,
 							p.nombre as nom_pen_largo, i.nombre as nom_ins_largo,
 							(select to_char(em.fec_inicio,'DD/MM/YYYY')) as fec_inicios,
 							(select to_char(em.fec_fin,'DD/MM/YYYY')) as fec_final
 						from sis.t_empleado em, sis.t_instituto i,
 							sis.t_est_empleado e, sis.t_pensum p where true ";
-
+*/
+			$consulta="select em.*, p.nom_corto as nom_pensum, i.nom_corto as nom_instituto, e.nombre,
+						p.nombre as nom_pen_largo, i.nombre as nom_ins_largo,
+						(select to_char(em.fec_inicio,'DD/MM/YYYY')) as fec_inicios,
+						(select to_char(em.fec_fin,'DD/MM/YYYY')) as fec_final
+						FROM sis.t_empleado em LEFT JOIN sis.t_instituto i ON(i.codigo=em.cod_instituto) LEFT JOIN 
+						sis.t_est_empleado e ON (e.codigo=em.cod_estado) LEFT JOIN 
+						sis.t_pensum p ON (p.codigo=em.cod_pensum) where true";
 			if($codigo)
 				$consulta.= " and em.codigo = $codigo ";
 
@@ -236,18 +255,23 @@ class EmpleadoServicio
 			if($fec_fin)
 				$consulta.= " and em.fec_fin = '$fec_fin' ";
 
-			$consulta.=" and i.codigo=em.cod_instituto and e.codigo=em.cod_estado
-				and p.codigo=em.cod_pensum order by em.fec_inicio desc";
+			$consulta.=" /*and i.codigo=em.cod_instituto and e.codigo=em.cod_estado
+				and p.codigo=em.cod_pensum*/ order by em.fec_inicio desc";
 
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EmpleadoListar')){
+				$ejecutar=$conexion->prepare($consulta);
+				//var_dump($consulta);
+				$ejecutar-> execute(array());
 
-			$ejecutar=$conexion->prepare($consulta);
-
-			$ejecutar-> execute(array());
-
-			if($ejecutar->rowCount() != 0)
-				return $ejecutar->fetchAll();
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
 			else
-				return null;
+				throw new Exception("NO tienes permiso para listar empleados");
+				
 
 		}
 		catch(Exception $e){
@@ -286,7 +310,6 @@ class EmpleadoServicio
 													$apellido1=null,  	$apellido2=null,	$sexo=null
 												)
 	{
-
 		try
 		{
 			$conexion = Conexion::conectar();
@@ -324,17 +347,29 @@ class EmpleadoServicio
 			if($cod_pensum)
 				$consulta.= " and em.cod_pensum=$cod_pensum";
 
-			if($campo)
-				$consulta.=" and CONCAT (cast(p.cedula as varchar),p.nombre1,p.nombre2,apellido1, apellido2) 
-							like '%$campo%' ";
+			if($campo){
+				$campo=strtoupper($campo);
+				$consulta.=" and (CONCAT(cast(p.cedula as varchar),nombre1 || ' ' ||nombre2 || ' ' ||apellido1 || ' '||apellido2)  
+								ilike '%$campo%' 
+								OR
+								CONCAT(cast(p.cedula as varchar),nombre1 || ' ' ||apellido1)  
+								ilike '%$campo%' 
+								OR
+								CONCAT(cast(p.cedula as varchar),nombre1  || ' ' || nombre2 ||' ' ||apellido1)  
+								ilike '%$campo%' 
+								OR
+								CONCAT(cast(p.cedula as varchar),nombre1  || ' ' || apellido1 ||' ' ||apellido2)  
+								ilike '%$campo%') ";
+			}
 							
 			if($cod_estado)
 				$consulta.= " and em.cod_estado = '$cod_estado'";
 
 			$consulta.=" group by p.codigo order by p.codigo ";
 
-			$ejecutar=$conexion->prepare($consulta);
 
+			$ejecutar=$conexion->prepare($consulta);
+		//	echo $consulta;
 			$ejecutar-> execute(array());
 
 			if($ejecutar->rowCount() != 0)
@@ -409,14 +444,22 @@ class EmpleadoServicio
 			$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
 			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
 			//ejecuta
-			$ejecutar->execute();
-			//primera columana codigo
-			$row = $ejecutar->fetchColumn(0);
+			$login=Vista::obtenerDato('login');
+			if($login->obtenerPermiso('EmpleadoEliminar')){
+				$ejecutar->execute();
+				//primera columana codigo
+				$row = $ejecutar->fetchColumn(0);
 
-			return $row;
+				return $row;
+			}
+			else
+				throw new Exception("NO tienes permiso para eliminar un empleado");
+				
 		}
 		catch(Exception $e){
-			throw $e;
+			throw new Exception ("El empleado NO pudo ser eliminado, es posible que tenga registro en otro lugar");
+
+			
 		}
 	}
 
@@ -426,7 +469,9 @@ class EmpleadoServicio
 			$consulta = "select
 								emp.codigo,
 								per.nombre1,
-								per.apellido1
+								per.apellido1,
+								per.nombre2,
+								per.apellido2 
 								from sis.t_empleado emp
 								inner join sis.t_persona per
 									on per.codigo = emp.cod_persona

@@ -656,3 +656,7 @@ a:after {
 
   z-index:1049;
 }
+
+.pointer{
+   cursor:pointer;
+}

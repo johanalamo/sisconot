@@ -60,9 +60,9 @@ function montarEstudiante(data){
 		for(var x=0; x<data.estudiante.length; x++)
 		{
 			if(data.codi==data.estudiante[x]['codigo'])
-				cadena+='<tr onclick="modificarEstudiante('+data.estudiante[x]['codigo']+'); verEstudiante('+data.estudiante[x]['codigo']+');" style="background-color:#E5EAEE;">';
+				cadena+='<tr class="pointer" onclick="modificarEstudiante('+data.estudiante[x]['codigo']+'); verEstudiante('+data.estudiante[x]['codigo']+');" style="background-color:#E5EAEE;">';
 			else
-				cadena+='<tr onclick="modificarEstudiante('+data.estudiante[x]['codigo']+'); verEstudiante('+data.estudiante[x]['codigo']+');">';
+				cadena+='<tr class="pointer" onclick="modificarEstudiante('+data.estudiante[x]['codigo']+'); verEstudiante('+data.estudiante[x]['codigo']+');">';
 			cadena+='<td>'+data.estudiante[x]['codigo']+'</td>';
 			cadena+='<td>'+data.estudiante[x]['fec_inicios']+'</td>';
 			if(data.estudiante[x]['fec_fin'])
@@ -114,11 +114,47 @@ function preGuardarEstudiante(){
 		mostrarMensaje("debe de seleccionar un estado",2);
 		bool=false;
 	}
+	else if($("#fec_fin_estudiante").val()){
+		var fecha =$("#fec_ini_estudiante").val().split("/");
+		var fechFin=$("#fec_fin_estudiante").val().split("/");
+		fechFin=new Date (fechFin[2],fechFin[1],fechFin[0]);
+		fecha= new Date(fecha[2],fecha[1],fecha[0]);
+		if(fechFin<=fecha){
+			bool=false;	
+			mostrarMensaje("La fecha de inicio no puede ser mayor a la fecha de culminacion.",2);
+		}
+	}
 	
 	if(bool)
-		guardarEstudiante ();
+		antesGuardarEstudiante();
 
 }
+
+function antesGuardarEstudiante(){
+	arr= Array("m_modulo", "estudiante",
+			   "m_accion", "listar",
+			   "codPersona",$("#cod_persona").val()
+			   );
+
+	ajaxMVC(arr,succAntesGuardarEstudiante,error);
+}
+
+function succAntesGuardarEstudiante(data){
+	var bool=true;
+	if(data.estudiante){
+		for(var x=0;x<data.estudiante.length;x++){
+			if(data.estudiante[0]['fec_inicios']==$("#fec_ini_estudiante").val()){
+				bool=false;
+				break;
+			}
+		}			
+	}
+
+	if(bool)
+		guardarEstudiante();
+	else
+		mostrarMensaje("No puedes inscribir al estudiante con dos fecha de inicio iguales",2);
+}	
 
 /**
 * Funcion Java Script que permite guardar los datos de a un estudiante
@@ -239,12 +275,12 @@ function modificarEstudiante(cod_estudiante=null,cod_persona=null){
  */
 function succMontarModificarEstudiante (data){
 
-	verEstadoEsPrincipal();  verInstitutoEsPrincipal();
+	//verEstadoEsPrincipal();  verInstitutoEsPrincipal();
 	setTimeout(function(){ 
 		$("#estudiante #selectInstituto").val(data.estudiante[0]['cod_instituto']);	
 		$("#estudiante #selectEstado").val(data.estudiante[0]['cod_estado']);
 		verPNFEsPrincipal();
-	}, 800);
+	}, 150);
 
 	$("#cod_estudiante").val(data.estudiante[0]['codigo']);
 	$("#codPersona").val(data.estudiante[0]['cod_persona']);		
@@ -261,7 +297,7 @@ function succMontarModificarEstudiante (data){
 	setTimeout(function(){ 
 		$("#estudiante #selectPNF").val(data.estudiante[0]['cod_pensum']);
 		$('.selectpicker').selectpicker('refresh');
-	}, 1200);
+	}, 450);
 }
 
 function nuevoEstudiante (){
