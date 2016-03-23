@@ -16,10 +16,10 @@ function verTipUniCurricular(){
 
 function succTipUniCurricular (data){
 	var cad ='';
+	$("#insti").val(data.datos[0]['emp_inst']);
 	$("#IdSelectTipoUni").remove();
-
 	cad="<div id='IdSelectTipoUni'> Tipo";
-	cad+= "<select class='selectpicker' id='selectTipoUni' title='tipo unidad curricular' data-live-search='true' data-size='auto' data-max-options='12' >";
+	cad+= "<select class='selectpicker' onchange='borrarCampoUniCurricular();' id='selectTipoUni' title='tipo unidad curricular' data-live-search='true' data-size='auto' data-max-options='12' >";
 	cad+= "<option value='-1' >Seleccionar</option>";
 	if(data.tipUniCurrilular){
 		for(var x=0; x<data.tipUniCurrilular.length;x++){
@@ -33,20 +33,21 @@ function succTipUniCurricular (data){
 }
 
 function verPensum(codigo){
-
 	var arr=Array("m_modulo"	,		"pensum",
 				  "m_accion"	,		"pensumEstActivo",
 				  "codigo"		,		codigo
 				);
+
 	ajaxMVC(arr,succPensumEst,errAjax);
 
 }
 
 function succPensumEst (data){
+
 	var cad ='';
 	$("#IdPensumEst").remove();
 	cad="<div id='IdPensumEst'> Pensum";
-	cad+= "<select onchange='verTrayecto();'class='selectpicker' id='pensumEst' title='tipo unidad curricular' data-live-search='true' data-size='auto' data-max-options='12' >";
+	cad+= "<select onchange='verTrayecto(); borrarCampoUniCurricular();'class='selectpicker' id='pensumEst' title='tipo unidad curricular' data-live-search='true' data-size='auto' data-max-options='12' >";
 	cad+= "<option value='-1' >Seleccionar</option>";
 	if(data.pensum){
 		for(var x=0; x<data.pensum.length;x++){
@@ -74,7 +75,7 @@ function succTrayecto (data){
 	$("#IdTrayecto").remove();
 
 	cad="<div id='IdTrayecto'> Trayecto";
-	cad+= "<select class='selectpicker' id='trayectoEst' title='tipo unidad curricular' data-live-search='true' data-size='auto' data-max-options='12' >";
+	cad+= "<select class='selectpicker' onchange='borrarCampoUniCurricular();' id='trayectoEst' title='tipo unidad curricular' data-live-search='true' data-size='auto' data-max-options='12' >";
 	cad+= "<option value='-1' >Seleccionar</option>";
 	if(data.trayecto){
 		for(var x=0; x<data.trayecto.length;x++){
@@ -85,6 +86,12 @@ function succTrayecto (data){
 	cad+="</div>";
 	$(cad).appendTo('#trayecto');
 	activarSelect();
+}
+
+function borrarCampoUniCurricular(){
+	$("#unidadCurricular").val('');
+	$("#detallePen").remove();
+	$("#codUni").val('');
 }
 function preGuardarConvalidacion(){
 
@@ -267,10 +274,10 @@ function autoCompletarEstudiante(estado){
 				var a=Array("m_modulo"		,		"estudiante",
 							"m_accion"		,		"buscarEstudiante",
 							"patron"		,		request.term,
-							"instituto"		,		1,
+							"instituto"		,		$("#insti").val(),
 							"estado"		,		estado
 							);
-				ajaxMVC(a,function(data){
+				ajaxMVC(a,function(data){					
 							return response(data);
 						  },
 						  function(data){
@@ -285,18 +292,16 @@ function autoCompletarEstudiante(estado){
 				if(ui.item.value == "null"){
 					$(this).val("");
 					event.preventDefault();
-					$("#doc"+$(this).attr("id")).val("");
 					borrarCampos();
 					//verConvalidadasEstudiante();
 				}
 				else{
 					$(this).val(ui.item.label);
 					event.preventDefault();
-					$("#doc"+$(this).attr("id")).val(ui.item.value);
 					$("#codigoPersona").val(ui.item.value);
 					$("#nombre").val(ui.item.nombre);
 					$("#cedula").val(ui.item.cedula);
-					//alert(ui.item.value+"---");
+					//alert(ui.item.value+"---");					
 					verPensum(ui.item.value);
 					$("#codigoPersona").val(ui.item.value);
 					verConvalidadasEstudiante(ui.item.value);
@@ -336,7 +341,8 @@ function autoCompletarUniCurricular(){
 							"m_accion"		,		"ListarUnidadesPorPenTraPatron",
 							"patron"		,		request.term,
 							"trayecto"		,		$("#trayectoEst").val(),
-							"pensum"		,		$("#pensumEst").val()
+							"pensum"		,		$("#pensumEst").val(),
+							"tipo"			,		$("#selectTipoUni").val()
 							);
 
 				ajaxMVC(a,function(data){

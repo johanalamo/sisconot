@@ -96,6 +96,10 @@ Descripción:
 					self::eliminarConvalidacion();
 				else if($accion == "guardarElectiva")
 					self::guardarElectiva();
+				else if($accion == "listarCurElectivas")
+					self::listarCurElectivas();
+				elseif ($accion == "buscarCurElectiva") 
+					self::buscarCurElectiva();
 				else
 					throw new Exception ("No se pudo resolver la acción $accion");
 			}
@@ -763,8 +767,6 @@ Descripción:
 		public static function guardarElectiva(){
 			try{
 
-				$instituto=PostGet::obtenerPostGet("instituto");
-				$pensum=PostGet::obtenerPostGet("pensum");
 				$periodo=PostGet::obtenerPostGet("periodo");
 				$seccion=PostGet::obtenerPostGet("seccion");
 				$capacidad=PostGet::obtenerPostGet("capacidad");
@@ -772,14 +774,8 @@ Descripción:
 				$unidadCurricular=PostGet::obtenerPostGet("uniCurricular");
 				$fecInicio=PostGet::obtenerPostGet("fecInicio");
 				$fecFin=PostGet::obtenerPostGet("fecFin");
-				$observacion=PostGet::obtenerPostGet("observacion");
+				$observaciones=PostGet::obtenerPostGet("observacion");
 				$codigo=PostGet::obtenerPostGet("codigo");
-
-				if(!$instituto)
-					$instituto=null;
-
-				if(!$pensum)
-					$pensum=null;
 
 				if(!$periodo)
 					$periodo=null;
@@ -802,38 +798,77 @@ Descripción:
 				$response=null;
 				$response2=null;
 				if(!$codigo)
-					$response=CursoServicio::agregarElectiva ($instituto,	$pensum,
-															  $periodo,		$seccion,
-															  $capacidad,	$docente,
-															  $docente,		$unidadCurricular,
-															  $fecInicio,	$fecFin,
-															  $observaciones);
+					$response=CursoServicio::agregarElectiva ($periodo,	$unidadCurricular,
+															  $docente,	$seccion,
+															  $fecInicio,$fecFin,	
+															  $capacidad,$observaciones);
 				else
-					$response2=CursoServicio::modificarElectiva ($instituto,	$pensum,
-																  $periodo,		$seccion,
-																  $capacidad,	$docente,
-																  $docente,		$unidadCurricular,
-																  $fecInicio,	$fecFin,
-																  $observaciones,$codigo);
-
-				if($reponse2 || $response){
-					if($response)
+					$response2=CursoServicio::modificarElectiva ($periodo,	$unidadCurricular,
+															   	 $docente,	$seccion,
+															     $fecInicio,$fecFin,	
+															     $capacidad,$observaciones,
+															     $codigo);
+				if($response){
+					if($response>0){
 						Vista::asignarDato("mensaje","La electiva se ha agregado.");
-					else
+						Vista::asignarDato("estatus",1);
+					}
+					else{
+						Vista::asignarDato("estatus",-1);
 						Vista::asignarDato("mensaje", "La electiva NO pudo ser agregada.");
+					}
+				}
 
-					if($response2)
+				if($response2){
+					if($response2>0){
 						Vista::asignarDato("mensaje","Los cambios sobre la electiva han sido guardados.");
-					else
+						Vista::asignarDato("estatus",1);
+					}
+					else{
+						Vista::asignarDato("estatus",-1);
 						Vista::asignarDato("mensaje","Los cambos de la electiva no pudieron ser guardados.");
-
-					Vista::asignarDato("estatus",1);
+					}
+				}
+					
+				if($reponse2 || $response){
+					
 				}
 				else{
 					Vista::asignarDato("mensaje","La informacion NO fue almacenada");
 					Vista::asignarDato("estatus",-1);
 				}
 
+				Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function listarCurElectivas(){
+			try{
+
+				$pensum=PostGet::obtenerPostGet("pensum");
+				$periodo=PostGet::obtenerPostGet("periodo");
+
+				$r=CursoServicio::listarCurElectivas($pensum,$periodo);
+
+				Vista::asignarDato("electivas",$r);
+
+				Vista::mostrar();
+
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function buscarCurElectiva (){
+			try{
+
+				$codigo=PostGet::obtenerPostGet("codigo");
+				$r=CursoServicio::buscarCurElectiva ($codigo);
+				Vista::asignarDato("electiva",$r);
 				Vista::mostrar();
 			}
 			catch(Exception $e){

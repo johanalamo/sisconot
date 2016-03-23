@@ -462,7 +462,9 @@ class EmpleadoServicio
 			$consulta = "select
 								emp.codigo,
 								per.nombre1,
-								per.apellido1
+								per.apellido1,
+								per.nombre2,
+								per.apellido2 
 								from sis.t_empleado emp
 								inner join sis.t_persona per
 									on per.codigo = emp.cod_persona

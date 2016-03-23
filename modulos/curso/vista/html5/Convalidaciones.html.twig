@@ -10,7 +10,7 @@
 		<div class="col-md-12">
 			Nombre: <input type="text" class="form-control" id="nombre" disabled></input>
 		</div>
-		
+		<input type="hidden" value="" id="insti">
 		<div class="col-md-6">
 			Código: <input id='codigoPersona' value="" placeholder="0000" type="text" class="form-control" disabled ></input>
 		</div>
@@ -19,7 +19,7 @@
 		</div>
 		<div class="col-md-12">
 		
-			Estudiante: <input type="text" id="estudiante" class="estudiante docente ui-autocomplete-input form-control" onclick="autoCompletarEstudiante('A');" autocomplete="off"></input>
+			Estudiante: <input type="text" id="estudiante" class="estudiante docente ui-autocomplete-input form-control" onclick="autoCompletarEstudiante('A'); borrarCampoUniCurricular();" autocomplete="off"></input>
 		</div>
 	</div>
 </div>

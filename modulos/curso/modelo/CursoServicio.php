@@ -1410,14 +1410,122 @@ Descripción:
 			}
 		}
 
-		public static function agregarElectiva($instituto,	$pensum,
-											   $periodo,	$seccion,
-											   $capacidad,	$docente,
-											   $docente,	$unidadCurricular,
-											   $fecInicio,	$fecFin,
-											   $observaciones){
+		public static function agregarElectiva($periodo,	$unidadCurricular,
+											   $docente,	$seccion,
+											   $fecInicio,	$fecFin,	
+											   $capacidad,  $observaciones){
 			try{
 
+				$conexion = Conexion::conectar();
+
+				$consulta="insert into sis.t_curso (cod_periodo, cod_uni_curricular,cod_docente,
+													seccion,	 fec_inicio,		fec_final,
+													capacidad,	 observaciones,		cod_estado) 
+							values(?,?,?,?,?,?,?,?,?);";
+
+				$ejecutar=$conexion->prepare($consulta);
+
+				$ejecutar-> execute(array($periodo,	$unidadCurricular,	$docente,
+											 $seccion,	$fecInicio,			$fecFin,
+											 $capacidad,$observaciones,		'A'));
+
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+
+		public static function modificarElectiva($periodo,	$unidadCurricular,
+											     $docente,	$seccion,
+											     $fecInicio,$fecFin,	
+											     $capacidad,$observaciones,
+											     $codigo){
+			try{
+
+				$conexion = Conexion::conectar();
+
+				$consulta="update sis.t_curso set cod_periodo=?, cod_uni_curricular=?, cod_docente=?,
+													seccion=?,	 fec_inicio=?,		   fec_final=?,
+													capacidad=?, observaciones=?,	   cod_estado=? 
+							where codigo=?";
+
+				$ejecutar=$conexion->prepare($consulta);
+
+				$ejecutar-> execute(array($periodo,	$unidadCurricular,	$docente,
+											 $seccion,	$fecInicio,			$fecFin,
+											 $capacidad,$observaciones,		'A',
+											 $codigo));
+
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function listarCurElectivas ($pensum,$periodo){
+			try{
+
+				$conexion = Conexion::conectar();
+
+				$consulta="select 	p.nombre1 || ' ' ||p.apellido1 as nom_persona,
+									 uc.nombre, c.*
+							from sis.t_persona p, sis.t_uni_curricular uc, 
+								sis.t_curso c, sis.t_uni_tra_pensum utp, 
+								sis.t_periodo per,sis.t_empleado e
+
+							where utp.cod_pensum=? and utp.cod_tipo='E' 
+								and utp.cod_uni_curricular=uc.codigo 
+							and c.cod_uni_curricular=uc.codigo 
+							and p.codigo=e.cod_persona and e.codigo=c.cod_docente
+							and per.codigo=? ";
+
+
+				$ejecutar=$conexion->prepare($consulta);
+
+				$ejecutar-> execute(array($pensum,$periodo));
+
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function buscarCurElectiva ($codigo){
+			try{
+
+				$conexion = Conexion::conectar();
+
+				$consulta="select 	p.nombre1 || ' ' ||p.apellido1 as nom_persona, 
+								uc.nombre, c.*, utp.cod_pensum
+							from sis.t_persona p, sis.t_uni_curricular uc, 
+								sis.t_curso c,  sis.t_empleado e,
+								sis.t_uni_tra_pensum utp
+							where c.codigo=? and c.cod_uni_curricular=uc.codigo 
+								and p.codigo=e.cod_persona and e.codigo=c.cod_docente
+								and uc.codigo=utp.cod_uni_curricular";
+
+
+				$ejecutar=$conexion->prepare($consulta);
+
+				$ejecutar-> execute(array($codigo));
+
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
 			}
 			catch(Exception $e){
 				throw $e;

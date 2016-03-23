@@ -34,11 +34,12 @@
 		</div>
 
 		<div class="col-md-12">	
-			Docente: <input type="text" id="docentes" class="docentes ui-autocomplete-input form-control" onclick="autoCompletarDocentes();" autocomplete="off"></input>
+			Docente: <input type="text" id="docentes" class="docentes ui-autocomplete-input form-control" onclick="autocompletarDocentes();" autocomplete="off"></input>
 		</div>
-		
+		<input type="hidden" value="" id="docente">
 		<div class="col-md-12">
 			Unidad Curricular: <input type="text" class="uniCurricular ui-autocomplete-input form-control" onclick="autoCompletarUniCurricularPensum();" autocomplete="off" id="unidadCurricular"></input>
+			<input type="hidden" value="" id="uniCurricular">
 		</div>
 
 		<div class="col-md-6">
@@ -50,7 +51,7 @@
 		</div>
 
 		<div class="col-md-12">
-			Observaciones: <Textarea type="text" id="observacion" class="form-control"></Textarea >
+			Observaciones: <Textarea type="text" id="observacion" maxlength="298" class="form-control"></Textarea >
 		</div>
 		
 		<div class="col-md-12 text-right" style="margin-top:5%;">
@@ -58,8 +59,8 @@
 		</div>
 	</div>	
 	<div class="col-md-6" >	
-		<div class="col-md-12 subir" id="detalle" style="margin-top:15%;" >
-			detalle
+		<div class="col-md-12 subir" id="detalle" style="margin-top:12%;" >
+			
 		</div>
 	</div>
 </div>
