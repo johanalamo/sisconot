@@ -88,6 +88,9 @@
 
 				else if ($accion == "ListarUnidadesPorPenTraPatron")
 					self::ListarUnidadesPorPenTraPatron();
+				elseif ($accion == "uniCurPensum") {
+					self::uniCurPensum();
+				}
 
 
 				else
@@ -672,7 +675,46 @@
 			}
 		}
 
+		public static function uniCurPensum(){
+			try{
+				$pensum=PostGet::obtenerPostGet("pensum");
+				$patron=PostGet::obtenerPostGet("patron");
 
+				$r=UnidadServicio::uniCurPensum($pensum,$patron);
+				
+				$cad = "[";
+				if ($r != null){
+					$c = 0;
+					foreach ($r as $unidad) {
+						if ($c > 0)
+							$cad .= ",";
+						$cad .= "{";
+						$cad .= '"label": "' . $unidad['nombre']. '", ';
+						$cad .= '"value": '.$unidad['codigo'];
+						$cad .= "}";
+						$c++;
+					}
+				}
+				else{
+					$cad .= "{";
+					$cad .= '"label":"No hay coincidencias", ';
+					$cad .= '"value": "null"';
+					$cad .= "}";
+				}
+				$cad .= "]";
+
+				Vista::asignarDato("auto",$cad);
+
+				Vista::asignarDato("detalleUnidad",$r);
+				Vista::asignarDato("estatus",1);
+				Vista::mostrar();
+
+
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
 
 
 	}

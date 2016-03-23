@@ -1410,6 +1410,20 @@ Descripción:
 			}
 		}
 
+		public static function agregarElectiva($instituto,	$pensum,
+											   $periodo,	$seccion,
+											   $capacidad,	$docente,
+											   $docente,	$unidadCurricular,
+											   $fecInicio,	$fecFin,
+											   $observaciones){
+			try{
+
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
 
 	}
 ?>

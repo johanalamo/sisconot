@@ -7,7 +7,7 @@
 	<div class="col-md-6 text-left" >
 		<h3>Crear/Modificar</h3>
 		<div class="col-md-4">				
-			Código: <input type="text" id="codigo" class="form-control" disabled></input>
+			Código: <input type="text" id="codigo" value="" class="form-control" disabled></input>
 		</div>	
 
 		<div class="col-md-12">	
@@ -26,11 +26,11 @@
 		</div>
 
 		<div class="col-md-3">	
-			Sección: <input type="text" id="seccion" class="form-control">
+			Sección: <input type="text" id="seccion" maxlength="2" class="form-control">
 		</div>
 
 		<div class="col-md-3">	
-			Capacidad: <input type="text" id="capacidad" class="form-control">
+			Capacidad: <input type="text" id="capacidad" maxlength="3" class="form-control">
 		</div>
 
 		<div class="col-md-12">	
@@ -38,27 +38,27 @@
 		</div>
 		
 		<div class="col-md-12">
-			Unidad Curricular: <input type="text" class="uniCurricular ui-autocomplete-input form-control" onclick="autoCompletarUniCurricular();" autocomplete="off" id="unidadCurricular">
+			Unidad Curricular: <input type="text" class="uniCurricular ui-autocomplete-input form-control" onclick="autoCompletarUniCurricularPensum();" autocomplete="off" id="unidadCurricular"></input>
 		</div>
 
 		<div class="col-md-6">
-			Fecha de Inicio: <input type="text" class="form-control">
+			Fecha de Inicio: <input type="text" id="fecInicio" class="form-control date">
 		</div>		
 
 		<div class="col-md-6">
-			Fecha de Fin: <input type="text" class="form-control"></input>
+			Fecha de Fin: <input type="text" id="fecFin"class="form-control date"></input>
 		</div>
 
 		<div class="col-md-12">
-			Observaciones: <Textarea type="text" class="form-control"></Textarea >
+			Observaciones: <Textarea type="text" id="observacion" class="form-control"></Textarea >
 		</div>
 		
 		<div class="col-md-12 text-right" style="margin-top:5%;">
-			<button class="btn btn-primary">Guardar</button>
+			<button class="btn btn-primary" onclick="guardarElectiva();">Guardar</button>
 		</div>
 	</div>	
 	<div class="col-md-6" >	
-		<div class="col-md-6 subir" id="detalle" style="margin-top:15%;" >
+		<div class="col-md-12 subir" id="detalle" style="margin-top:15%;" >
 			detalle
 		</div>
 	</div>

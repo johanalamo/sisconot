@@ -1,3 +1,5 @@
+
+
 <?php
 
 /**
@@ -463,6 +465,29 @@ class UnidadServicio
 				else
 					return null;
 
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function uniCurPensum ($pensum=null,$patron=null){
+			try{
+
+				$conexion = Conexion::conectar();
+
+				$consulta="select uc.* from sis.t_uni_tra_pensum utp, sis.t_uni_curricular uc
+							where utp.cod_pensum=$pensum and utp.cod_uni_curricular=uc.codigo
+							and uc.nombre like upper('%$patron%')";
+				
+				$ejecutar=$conexion->prepare($consulta);
+				
+				$ejecutar-> execute(array());
+
+				if($ejecutar->rowCount() != 0)
+					return $ejecutar->fetchAll();
+				else
+					return null;
 			}
 			catch(Exception $e){
 				throw $e;

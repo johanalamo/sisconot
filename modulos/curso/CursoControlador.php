@@ -94,6 +94,8 @@ Descripción:
 					self::buscarConvalidacionCodigo();
 				else if($accion == "eliminarConvalidacion")
 					self::eliminarConvalidacion();
+				else if($accion == "guardarElectiva")
+					self::guardarElectiva();
 				else
 					throw new Exception ("No se pudo resolver la acción $accion");
 			}
@@ -750,6 +752,87 @@ Descripción:
 				}
 				else
 					Vista::asignarDato("Hubo un error al eliminar la convalidacion");
+
+				Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
+
+		public static function guardarElectiva(){
+			try{
+
+				$instituto=PostGet::obtenerPostGet("instituto");
+				$pensum=PostGet::obtenerPostGet("pensum");
+				$periodo=PostGet::obtenerPostGet("periodo");
+				$seccion=PostGet::obtenerPostGet("seccion");
+				$capacidad=PostGet::obtenerPostGet("capacidad");
+				$docente=PostGet::obtenerPostGet("docente");
+				$unidadCurricular=PostGet::obtenerPostGet("uniCurricular");
+				$fecInicio=PostGet::obtenerPostGet("fecInicio");
+				$fecFin=PostGet::obtenerPostGet("fecFin");
+				$observacion=PostGet::obtenerPostGet("observacion");
+				$codigo=PostGet::obtenerPostGet("codigo");
+
+				if(!$instituto)
+					$instituto=null;
+
+				if(!$pensum)
+					$pensum=null;
+
+				if(!$periodo)
+					$periodo=null;
+
+				if(!$capacidad)
+					$capacidad=null;
+
+				if(!$docente)
+					$docente=null;
+
+				if(!$fecInicio)
+					$fecInicio=null;
+
+				if(!$fecFin)
+					$fecFin=null;
+
+				if(!$codigo)
+					$codigo=null;
+
+				$response=null;
+				$response2=null;
+				if(!$codigo)
+					$response=CursoServicio::agregarElectiva ($instituto,	$pensum,
+															  $periodo,		$seccion,
+															  $capacidad,	$docente,
+															  $docente,		$unidadCurricular,
+															  $fecInicio,	$fecFin,
+															  $observaciones);
+				else
+					$response2=CursoServicio::modificarElectiva ($instituto,	$pensum,
+																  $periodo,		$seccion,
+																  $capacidad,	$docente,
+																  $docente,		$unidadCurricular,
+																  $fecInicio,	$fecFin,
+																  $observaciones,$codigo);
+
+				if($reponse2 || $response){
+					if($response)
+						Vista::asignarDato("mensaje","La electiva se ha agregado.");
+					else
+						Vista::asignarDato("mensaje", "La electiva NO pudo ser agregada.");
+
+					if($response2)
+						Vista::asignarDato("mensaje","Los cambios sobre la electiva han sido guardados.");
+					else
+						Vista::asignarDato("mensaje","Los cambos de la electiva no pudieron ser guardados.");
+
+					Vista::asignarDato("estatus",1);
+				}
+				else{
+					Vista::asignarDato("mensaje","La informacion NO fue almacenada");
+					Vista::asignarDato("estatus",-1);
+				}
 
 				Vista::mostrar();
 			}

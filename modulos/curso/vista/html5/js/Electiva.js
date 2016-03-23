@@ -107,4 +107,95 @@ function succPerido(data){
 	activarSelect();
 }
 
+function autoCompletarUniCurricularPensum(){
 
+	$(".uniCurricular").autocomplete({
+			delay: 200,  //milisegundos
+			minLength: 1,
+			source: function( request, response ) {
+
+				var a=Array("m_modulo"		,		"unidad",
+							"m_accion"		,		"uniCurPensum",
+							"patron"		,		request.term,
+							"pensum"		,		$("#SelectPensum").val()
+							);
+
+				ajaxMVC(a,function(data){
+							return response(data);
+						  },
+						  function(data){
+						  	console.log(data);
+							return response([{"label": "Error de conexión", "value": {"nombreCorto":""}}]);
+
+						   }
+						);
+
+			},
+			select: function (event, ui){
+				if(ui.item.value == "null"){
+					$(this).val("");
+					event.preventDefault();
+					$("#doc"+$(this).attr("id")).val("");
+					$("#codUni").val('');
+					$("#detallePen").remove();
+
+				}
+				else{
+					$(this).val(ui.item.label);
+					event.preventDefault();
+					$("#doc"+$(this).attr("id")).val(ui.item.value);
+					var codigo =ui.item.value;
+					verDetalle(codigo);
+					$("#codUni").val(codigo);
+				}
+
+
+			},
+			focus: function (event, ui){
+				if(ui.item.value == "null"){
+					$(this).val("");
+					event.preventDefault();
+					$("#doc"+$(this).attr("id")).val("");
+					$("#codUni").val('');
+					$("#detallePen").remove();
+
+				}
+				else{
+					$(this).val(ui.item.label);
+					event.preventDefault();
+					$("#doc"+$(this).attr("id")).val(ui.item.value);
+					var codigo =ui.item.value;
+					$("#codUni").val(codigo);
+					verDetalle(codigo);
+				}
+			}
+	});
+}
+
+function guardarElectiva(){
+
+	var arr=Array("m_modulo"	,	"unidad",
+				  "m_accion"	,	"guardarElectiva",
+				  "instituto"	,	$("#SelectInstituto").val(),
+				  "pensum"		,	$("#SelectPensum").val(),
+				  "periodo"		,	$("#SelectPeriodo").val(),
+				  "seccion"		,	$("#seccion").val(), 
+				  "capacidad"	,	$("#capacidad").val(),
+				  "docente"		,	$("#docentes").val(),
+				  "uniCurricular",	$("#unidadCurricular").val(),
+				  "fecInicio"	,	$("#fecInicio").val(),
+				  "fecFin"		,	$("#fecFin").val(),
+				  "observacion"	,	$("#observacion").val(),
+				  "codigo"		,	$("#codigo").val()
+				);
+	ajaxMVC(arr,succGuardarElectiva,errAjax);
+
+}
+
+function succGuardarElectiva(data){
+
+	if(data.estatus>0)
+		mostrarMensaje(data.mensaje,1);
+	else
+		mostrarMensaje(data.mensaje,2);
+}
