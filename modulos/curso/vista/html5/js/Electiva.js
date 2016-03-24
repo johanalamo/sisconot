@@ -4,18 +4,18 @@ $( document ).ready(function() {
 });
 
 function setSelects (){
-	var arr = Array("m_modulo","persona");
+	var arr = Array("m_modulo","instituto");
 
-	ajaxMVC(arr,succSetSelects,errAjax);
+	ajaxMVC(arr,succSetSelects,errAjaxs);
 }
 
 function succSetSelects(data){
-	//alert(data.datos[0].toSource());
-	//alert(data.datos[0]['est_pensum']);
+
 	var pensum=data.datos[0]['emp_pensum'];
 	var jc= data.datos[0]['es_jef_con_estudio'];
 	var instituto=data.datos[0]['emp_inst'];
 
+	$("#jc").val(jc);
 
 	verInstitutos(instituto);
 	
@@ -25,6 +25,8 @@ function succSetSelects(data){
 
 	if(!jc)
 		listarElectivas();
+
+
 
 	borrarCamposElectiva(jc);
 }
@@ -49,17 +51,36 @@ function borrarCamposElectiva(jc){
 	$("#fecFin").val("");
 	$("#observacion").val("");
 	$("#codigo").val("");
-	if(!jc)
-		$(".selectpicker").selectpicker("refresh");
+	$("#unidadCurricular").prop('disabled', false);
+
+	if($("#jc").val()=='true')
+		$("#SelectPensum").prop('disabled', false);
+	
+	$("#SelectPeriodo").prop('disabled', false);
+	$("#detallePen").remove();
+	$(".selectpicker").selectpicker("refresh");
 }
 
 function borrarElectiva(){
 
+	var arr=Array("m_modulo"	,		"curso",
+				  "m_accion"	,		"eliminarCurso",
+				  "codCurso"	,		$("#codigo").val()
+				);
+	ajaxMVC(arr,succEliminar,errAjaxs);
 }
 
-function modificarElectiva(){
+function succEliminar(data){
+
+	if(data.estatus>0){
+		mostrarMensaje(data.mensaje,1);
+		listarElectivas();
+	}
+	else
+		mostrarMensaje(data.mensaje,2);
 
 }
+
 
 function verInstitutos(codigo){
 
@@ -70,7 +91,7 @@ function verInstitutos(codigo){
 				  "m_accion"	,		"obtener",
 				  "codigo"		,		codigo
 				);
-	ajaxMVC(arr,succInstituto,errAjax);
+	ajaxMVC(arr,succInstituto,errAjaxs);
 
 }
 
@@ -111,7 +132,7 @@ function verPensuma(codigo,jc,instituto){
 				  "m_accion"	,		accion,
 				  "codigo"		,		codigo
 				);
-	ajaxMVC(arr,succPensum,errAjax);
+	ajaxMVC(arr,succPensum,errAjaxs);
 
 }
 
@@ -161,7 +182,7 @@ function verPeriodo (instituto,jc,pensum){
 				  "pensum"		,	pensum,
 				  "estado"		,	'A'
 				);
-	ajaxMVC(arr,succPerido,errAjax);
+	ajaxMVC(arr,succPerido,errAjaxs);
 }
 
 function succPerido(data){
@@ -196,8 +217,8 @@ function autoCompletarUniCurricularPensum(){
 							"pensum"		,		$("#SelectPensum").val(),
 							"tipo"			,		"E"
 							);
-
 				ajaxMVC(a,function(data){
+
 							return response(data);
 						  },
 						  function(data){
@@ -220,7 +241,7 @@ function autoCompletarUniCurricularPensum(){
 					$(this).val(ui.item.label);
 					event.preventDefault();
 					var codigo =ui.item.value;
-					verDetalle(codigo);
+					verDetalles(codigo);
 					$("#uniCurricular").val(codigo);
 				}
 
@@ -239,7 +260,7 @@ function autoCompletarUniCurricularPensum(){
 					event.preventDefault();
 					var codigo =ui.item.value;
 					$("#uniCurricular").val(codigo);
-					verDetalle(codigo);
+					verDetalles(codigo);
 				}
 			}
 	});
@@ -247,25 +268,32 @@ function autoCompletarUniCurricularPensum(){
 
 function guardarElectiva(){
 
+	if($("#codigo").val()>0)
+		var accion="modificarCurso";
+	else
+		var accion = "agregarCurso";
+
 	var arr=Array("m_modulo"	,	"curso",
-				  "m_accion"	,	"guardarElectiva",
-				  "periodo"		,	$("#SelectPeriodo").val(),
-				  "seccion"		,	$("#seccion").val(), 
+				  "m_accion"	,	accion,
+				  "codPeriodo"		,	$("#SelectPeriodo").val(),
+				  "seccion"		,	$("#seccion").val().toUpperCase(), 
 				  "capacidad"	,	$("#capacidad").val(),
-				  "docente"		,	$("#docente").val(),
-				  "uniCurricular",	$("#uniCurricular").val(),
+				  "codDocente"		,	$("#docente").val(),
+				  "codUniCurricular",	$("#uniCurricular").val(),
 				  "fecInicio"	,	$("#fecInicio").val(),
-				  "fecFin"		,	$("#fecFin").val(),
-				  "observacion"	,	$("#observacion").val(),
-				  "codigo"		,	$("#codigo").val()
+				  "fecFinal"		,	$("#fecFin").val(),
+				  "observaciones"	,	$("#observacion").val(),
+				  "codCurso"		,	$("#codigo").val()
 				);
-	ajaxMVC(arr,succGuardarElectiva,errAjax);
+	ajaxMVC(arr,succGuardarElectiva,errAjaxs);
 
 }
 
 function succGuardarElectiva(data){
-
+console.log(data);
 	if(data.estatus>0){
+		if(data.codCurso)
+			$("#codigo").val(data.codCurso);
 		mostrarMensaje(data.mensaje,1);
 		listarElectivas();
 	}
@@ -273,33 +301,51 @@ function succGuardarElectiva(data){
 		mostrarMensaje(data.mensaje,2);
 }
 
-function listarElectivas(){
+function listarElectivas(codigo){
 	var arr=Array("m_modulo"	,		"curso",
 				  "m_accion"	,		"listarCurElectivas",
 				  "pensum"		,		$("#SelectPensum").val(),
-				  "periodo"		,		$("#SelectPeriodo").val()
+				  "periodo"		,		$("#SelectPeriodo").val(),
+				  "codigo"		,		codigo
 				);
-	ajaxMVC(arr,succListarElectivas,errAjax);
+	ajaxMVC(arr,succListarElectivas,errAjaxs);
 }
 
 function succListarElectivas(data){
 
 	$("#listarElectiva").remove();
 	var cad="";
-	cad="<tbody id='listarElectiva' >";
+	cad="<tbody id='listarElectiva' style='text-align:center;' >";
 	if(data.electivas){
 		for(var x=0; x<data.electivas.length;x++){
 			var dat=data.electivas[x];
-
-			cad+="	<tr onclick='buscarElectiva("+dat['codigo']+");'>";
+			if(data.codigo == dat['codigo'])
+				cad+="	<tr class='pointer' onclick='buscarElectiva("+dat['codigo']+"); listarElectivas("+dat['codigo']+");' style='background-color:#E5EAEE;'>";
+			else
+				cad+="	<tr class='pointer' onclick='buscarElectiva("+dat['codigo']+"); listarElectivas("+dat['codigo']+");' >";
 			cad+="	  <td>"+(x+1)+"</td>";
 			cad+="	  <td>"+dat['codigo']+"</td>";
 			cad+="	  <td>"+dat['nombre']+"</td>";
-			cad+="	  <td>"+dat['capacidad']+"</td>";
-			cad+="	  <td>"+dat['nom_persona']+"</td>";
-			cad+="	  <td>"+dat['fec_inicio']+"</td>";
-			cad+="	  <td>"+dat['fec_final']+"</td>";
-			cad+="	  <td>"+dat['observaciones']+"</td>";
+			if(dat['capacidad'])
+				cad+="	  <td>"+dat['capacidad']+"</td>";
+			else
+				cad+="	 <td> - </td>";
+			if(dat['nom_persona'])
+				cad+="	  <td>"+dat['nom_persona']+"</td>";
+			else
+				cad+="	 <td> - </td>";
+			if(dat['fec_inicios'])
+				cad+="	  <td>"+dat['fec_inicios']+"</td>";
+			else
+				cad+="	 <td> - </td>";
+			if(dat['fec_fin'])
+				cad+="	  <td>"+dat['fec_fin']+"</td>";
+			else
+				cad+="	 <td> - </td>";
+			if(dat['observaciones'])
+				cad+="	  <td>"+dat['observaciones']+"</td>";
+			else
+				cad+="	 <td>- </td>";
 			cad+="	</tr>";       		
 		}
 	}
@@ -313,7 +359,7 @@ function buscarElectiva(codigo){
 				  "m_accion"	,		"buscarCurElectiva",
 				  "codigo"		,		codigo
 				);
-	ajaxMVC(arr,succbuscarElectiva,errAjax);
+	ajaxMVC(arr,succbuscarElectiva,errAjaxs);
 }
 
 function succbuscarElectiva(data){
@@ -329,25 +375,34 @@ function succbuscarElectiva(data){
 		setTimeout(function() {
 			
 			$("#SelectPeriodo").val(dat['cod_periodo']);
+			$("#SelectPeriodo").prop('disabled', true);
 			$(".selectpicker").selectpicker("refresh");
+
 		}, 350);
 		
 	}
 	else
 		$("#SelectPeriodo").val(dat['cod_periodo']);
 
+	$("#SelectPeriodo").prop('disabled', true);
+	$("#SelectPensum").prop('disabled', true);
 	$("#seccion").val(dat['seccion']);
 	$("#capacidad").val(dat['capacidad']);
 	$("#docentes").val(dat['nom_persona']);
 	$("#docente").val(dat['cod_docente']);
 	$("#unidadCurricular").val(dat['nombre']);
+	$("#unidadCurricular").prop('disabled', true);
 	$("#uniCurricular").val(dat['cod_uni_curricular']);
-	$("#fecInicio").val(dat['fec_inicio']);
-	$("#fecFin").val(dat['fec_final']);
+	$("#fecInicio").val(dat['fec_inicios']);
+	$("#fecFin").val(dat['fec_fin']);
 	$("#observacion").val(dat['observaciones']);
 	$("#codigo").val(dat['codigo']);
 	if(!jc)
 		$(".selectpicker").selectpicker("refresh");
+
+	
+	//$("#SelectPeriodo").is(':disabled');
+	verDetalles(dat['cod_uni_curricular']);
 }
 
 function autocompletarDocentes(){
@@ -404,5 +459,118 @@ function autocompletarDocentes(){
 	});
 }
 
+function preGuardar(){
+	var bool=true;
+
+	if($("#SelectPeriodo").val()=="-1"){
+		bool=false;
+		mostrarMensaje("Debe de Seleccionar un periodo.",2);
+	}
+	else if(!validarSoloTextoNumer("#seccion","1","2","true")){
+		bool=false;
+		mostrarMensaje("Debe introducir una seccion");
+	}
+	else if($("#capacidad").val() && ($("#capacidad").val()<1 || !validarSoloNumeros("#capacidad","0","3","false"))){
+		bool=false;
+		mostrarMensaje("Debe introducir una capacidad Valida");
+	}
+	else if(!$("#unidadCurricular").val()){
+		bool=false;
+		mostrarMensaje("Debe introducir una una unidadCurricular");
+	}
+	else if(!validarSoloTextoNumer("#unidadCurricular","1","80","true")){
+		bool=false;
+		mostrarMensaje("Debe introducir una una unidadCurricular valida");
+	}
+	else if(!$("#uniCurricular").val()){
+		bool=false;
+		mostrarMensaje("Debe Seleccionar una unidad curricular");
+	}
+	else if($("#fecInicio").val() && $("#fecFin").val()){
+		var fecha =$("#fecInicio").val().split("/");
+		var fechFin=$("#fecFin").val().split("/");
+		fechFin=new Date (fechFin[2],fechFin[1],fechFin[0]);
+		fecha= new Date(fecha[2],fecha[1],fecha[0]);
+		if(fechFin<=fecha){
+			bool=false;	
+			mostrarMensaje("La fecha de inicio no puede ser mayor a la fecha fin.",2);
+		}
+	}
+
+	if(bool)
+		guardarElectiva();
+}
+
+function borrarDetalle(){
+	
+	if(!$("#detallePen").val()){
+		$("#detallePen").remove();
+		$("#uniCurricular").val('');
+	}
+}
+
+function borrarDocente(){
+
+	if(!$("#docentes").val())
+		$("#docente").val('');
+	
+}
+
+function errAjaxs(data){
+	console.log(data);
+	//alert(data.mensaje);
+	mostrarMensaje("Error de comunicación con el servidor.",2);
+}
 
 
+function verDetalles(codigo){
+	var arr = Array ("m_modulo","unidad",
+	 				 "m_accion","buscarCodigoUnidadCurricular",
+	 				 "codigo",codigo
+	 				 );
+	ajaxMVC(arr,consultarDetalleUnic,errAjaxs);
+}
+
+function consultarDetalleUnic(data) {
+//	console.log(data)
+	if (data.estatus>0){
+		console.log(data);
+		unidad=data.unidad[0];
+	//	console.log(unidad);
+		cadena="";
+		$("#detallePen").remove();
+		cadena+="<div id='detallePen' class='third'>";
+		cadena+="<table id='pesum' class='table table-bordered table-striped' style='clear: both'><tbody>";
+		cadena+="<tr><td style='width: 35%;''>Código:</td><td style='width: 65%;'><a href='#'' >"+unidad[0]+"</a></td></tr>";
+		cadena+="<tr><td>Código de Ministerio:</td><td>";
+		cadena+="<a href='#'' >"+unidad[1]+"</a></td></tr>";
+		cadena+="<tr><td>Nombre:</td><td>";
+		cadena+="<a href='#'' >"+unidad[2]+"</a></td></tr>";
+		cadena+="<tr><td>Horas de Trabajo Acompañadas (HTA):</td><td>";
+		cadena+="<a href='#'' >"+unidad[3]+"</a></td></tr>";
+		cadena+="<tr><td>Horas de Trabajo Independiente (HTI):</td><td>";
+		cadena+="<a href='#'' >"+unidad[4]+"</a></td></tr>";
+		cadena+="<tr><td>Unidades de Crédito:</td><td>";
+		cadena+="<a href='#'' >"+unidad[5]+"</a></td></tr>";
+		cadena+="<tr><td>Duración de Semanas:</td><td>";
+		cadena+="<a href='#'' >"+unidad[6]+"</a></td></tr>";
+		cadena+="<tr><td>Nota Mínima Aprobatoria:</td><td>";
+		cadena+="<a href='#'' >"+unidad[7]+"</a></td></tr>";
+		cadena+="<tr><td>Nota Máxima:</td><td>";
+		cadena+="<a href='#'' >"+unidad[8]+"</a></td></tr>";
+		cadena+="<tr><td>Descripción:</td><td>";
+		cadena+="<a href='#'' >"+unidad[9]+"</a></td></tr>";
+		cadena+="<tr><td>Observación:</td><td>";
+		cadena+="<a href='#'' >"+unidad[10]+"</a></td></tr>";
+		cadena+="<tr><td>Contenido:</td><td>";
+		cadena+="<a href='#'' >"+unidad[11]+"</a></td></tr>";
+		cadena+="</tbody></table></div>";
+	//	$("#detallePen").html(cadena);
+	//	alert(cadena);
+		$("#notaMinima").val(unidad[7]);
+		$("#notaMaxima").val(unidad[8]);
+
+		$(cadena).appendTo('#detalle');
+		//$("detallePen").replaceWith(cadena);
+	}
+}

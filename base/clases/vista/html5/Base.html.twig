@@ -265,18 +265,27 @@
 	                                <span class="fa fa-warning"></span>Retirar Unidad Curricular</a>
 	                        </li>
 	                        {% endif %}
+
+	                        
 	                        <li>
 	                            <a href="index.php?m_vista=ValidacionElectivas&m_formato=html5&m_modulo=curso&m_accion=mostrar">
 	                                <span class="fa fa-warning"></span>Validar Electivas</a>
 	                        </li>
+	                        
+
 	                        <li>
 	                            <a href="index.php?m_vista=Acreditables&m_formato=html5&m_modulo=curso&m_accion=mostrar">
 	                                <span class="fa fa-warning"></span>Actividades Acreditables</a>
 	                        </li>
+
+	                        {% if (login.obtenerPermiso('CursoListar')) %}
 	                        <li>
 	                            <a href="index.php?m_vista=CrearModificarCursoEspecial&m_formato=html5&m_modulo=curso&m_accion=mostrar">
 	                                <span class="fa fa-warning"></span>Crear/Modificar Electiva</a>
 	                        </li>
+
+	                        {% endif %}
+	                        
 	                        {% if (login.obtenerPermiso('convalidar')) %}
 	                        <li>
 	                            <a href="index.php?m_vista=Convalidaciones&m_formato=html5&m_modulo=curso&m_accion=mostrar">

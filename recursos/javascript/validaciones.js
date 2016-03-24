@@ -265,3 +265,40 @@ function detonarAdvertencia(id,mensaje){
 	$(id).popover({title: 'Validación:', content: mensaje , placement : "top", template : '<div id="pop'+id+'" class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'});
 	$(id).trigger("click");
 }
+
+function validarSoloTextoNumer(id,min,max,req){
+	$(".popover").hide();
+	var cad = $(id).val();
+	var val = /^[0-9 A-Za-z ÁÉÍÓÚáéíóúñÑ \w\s]{0,5000}$/;
+	///^[A-Za-z ÁÉÍÓÚáéíóúñÑ]{0,5000}$/;
+
+	if(req){
+		if(cad.length == 0){
+			detonarAdvertencia(id,"Este campo es requerido.");
+			return false;
+		}
+		else{
+			if(!(validarMatch(cad,val))){
+				detonarAdvertencia(id, "El campo no es correcto. Sólo se aceptan letras y numeros.");
+				return false;
+			}
+			if(validarRango(cad,min,max)){
+				detonarAdvertencia(id,"El campo debe tener entre "+min+"-"+max+" caracteres.");
+				return false;
+			}
+		}
+	}
+	else{
+		if(cad.length > 0){
+			if(!(validarMatch(cad,val))){
+				detonarAdvertencia(id, "El campo no es correcto. Sólo letras y numéros.");
+				return false;
+			}
+			if(validarRango(cad,min,max)){
+				detonarAdvertencia(id,"El campo debe tener entre "+min+"-"+max+" caracteres.");
+				return false;
+			}
+		}
+	}
+	return true;
+}

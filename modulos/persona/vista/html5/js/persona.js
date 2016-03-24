@@ -625,6 +625,7 @@ function preGuardarPersona(){
 				bool=false;
 			}
 			if(!validarFecha('#fec_nac',false)){
+				
 				mostrarMensaje("debe de introducir una fecha valida",2);
 				bool=false;
 			}

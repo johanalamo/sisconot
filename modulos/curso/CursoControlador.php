@@ -169,10 +169,22 @@ Descripción:
 				if($fecFinal == '')
 					$fecFinal = NULL;
 
+				if(!$capacidad)
+					$capacidad=NULL;
+
 				$r = CursoServicio::insertarCurso($codPeriodo, $codUniCurricular, $codDocente, $seccion, $fecInicio, $fecFinal, $capacidad, $observaciones);
 
 
 				Vista::asignarDato("codCurso",$r);
+				if($r>0){
+					Vista::asignarDato("mensaje","Se ha creado un curso");
+					Vista::asignarDato("estatus",1);
+				}
+				else{
+					Vista::asignarDato("mensaje","El Curso NO se pudo crear");
+					Vista::asignarDato("estatus",-1);
+				}
+
 
 
 				Vista::mostrar();
@@ -214,9 +226,15 @@ Descripción:
 					$fecFinal = NULL;
 
 				$r = CursoServicio::modificarCurso($codigo,$codPeriodo, $codUniCurricular, $codDocente, $seccion, $fecInicio, $fecFinal, $capacidad, $observaciones);
-
-
-				Vista::asignarDato("mensaje","El curso con código $codigo se ha modificado exitosamente.");
+				
+				if($r>0){
+					Vista::asignarDato("mensaje","El curso con código $codigo se ha modificado exitosamente.");
+					Vista::asignarDato("estatus",1);
+				}
+				else{
+					Vista::asignarDato("mensaje","El Curso NO se pudo modificar");
+					Vista::asignarDato("estatus",-1);
+				}
 
 
 				Vista::mostrar();
@@ -855,6 +873,7 @@ Descripción:
 				$r=CursoServicio::listarCurElectivas($pensum,$periodo);
 
 				Vista::asignarDato("electivas",$r);
+				Vista::asignarDato("codigo",PostGet::obtenerPostGet("codigo"));
 
 				Vista::mostrar();
 

@@ -9,7 +9,7 @@
     {% if (login.obtenerPermiso('convalidar')) %}
     	<script src="modulos/curso/vista/html5/js/Convalidar.js"></script>
     {% endif %}
-
-    <script src="modulos/curso/vista/html5/js/Electiva.js"></script>
-    
+    {% if (login.obtenerPermiso('CursoListar')) %}
+    	<script src="modulos/curso/vista/html5/js/Electiva.js"></script>
+    {% endif %}
 {% endblock %}

@@ -26,37 +26,40 @@
 		</div>
 
 		<div class="col-md-3">	
-			Sección: <input type="text" id="seccion" maxlength="2" class="form-control">
+			Sección: <input type="text" id="seccion" onkeyup='validarSoloTextoNumer("#seccion","1","2","true");' maxlength="2" class="form-control">
 		</div>
 
 		<div class="col-md-3">	
-			Capacidad: <input type="text" id="capacidad" maxlength="3" class="form-control">
+			Capacidad: <input type="text" id="capacidad" maxlength="3" class="form-control" onkeyup='validarSoloNumeros("#capacidad","0","3","false");'>
 		</div>
 
 		<div class="col-md-12">	
-			Docente: <input type="text" id="docentes" class="docentes ui-autocomplete-input form-control" onclick="autocompletarDocentes();" autocomplete="off"></input>
+			Docente: <input type="text" id="docentes" class="docentes ui-autocomplete-input form-control" onclick="autocompletarDocentes();" autocomplete="off" onkeyup='validarSoloTexto("#docentes","1","80","false"); borrarDocente();'></input>
 		</div>
+		<input id="jc" value="false" type="hidden"> 
 		<input type="hidden" value="" id="docente">
 		<div class="col-md-12">
-			Unidad Curricular: <input type="text" class="uniCurricular ui-autocomplete-input form-control" onclick="autoCompletarUniCurricularPensum();" autocomplete="off" id="unidadCurricular"></input>
-			<input type="hidden" value="" id="uniCurricular">
+			Unidad Curricular: <input type="text" class="uniCurricular ui-autocomplete-input form-control" onclick="autoCompletarUniCurricularPensum();" autocomplete="off" id="unidadCurricular" onkeyup='validarSoloTextoNumer("#unidadCurricular","1","80","true"); borrarDetalle();'></input>
+			<input type="hidden" value="" id="uniCurricular" >
 		</div>
 
 		<div class="col-md-6">
-			Fecha de Inicio: <input type="text" id="fecInicio" class="form-control date">
+			Fecha de Inicio: <input type="text" id="fecInicio" class="form-control date" onkeyup="validarFecha('#fecInicio',false);">
 		</div>		
 
 		<div class="col-md-6">
-			Fecha de Fin: <input type="text" id="fecFin"class="form-control date"></input>
+			Fecha de Fin: <input type="text" id="fecFin"class="form-control date" onkeyup="validarFecha('#fecFin',false);"></input>
 		</div>
 
 		<div class="col-md-12">
-			Observaciones: <Textarea type="text" id="observacion" maxlength="298" class="form-control"></Textarea >
+			Observaciones: <Textarea type="text" id="observacion" maxlength="298" class="form-control" onkeyup="validarRangos('#observacion','0','300','false');"></Textarea >
 		</div>
 		
-		<div class="col-md-12 text-right" style="margin-top:5%;">
-			<button class="btn btn-primary" onclick="guardarElectiva();">Guardar</button>
-		</div>
+		{% if (login.obtenerPermiso('CursoAgregar') or login.obtenerPermiso('CursoModificar')) %}
+			<div class="col-md-12 text-right" style="margin-top:5%;">
+				<button class="btn btn-primary" onclick="preGuardar();">Guardar</button>
+			</div>
+		{% endif %}
 	</div>	
 	<div class="col-md-6" >	
 		<div class="col-md-12 subir" id="detalle" style="margin-top:12%;" >
@@ -79,24 +82,26 @@
 
 			<div class="text-right form-inline">
 
-				<button type="button" name="nueva_electiva" id="nueva_electiva" class="btn btn-primary" onclick="borrarCamposElectiva();"><span class="fa fa-plus" ></span></button>
-				<div id="editar_electiva" class="form-group">
-					<button type="button" name="editar_electiva" id="editar_elective" class="btn btn-info" onclick="modificarElectiva();"><span class="fa fa-pencil" ></span></button>
-				</div>	
-				<div id="borrar_electiva" class="form-group ">
-					<button type="button" name="borrar_electiva" class="btn btn-danger" onclick="crearConfirm('¿Estas de acuerdo en borrar esta convalidacion?',
-					'borrarElectiva()','Aceptar');"><span class="fa fa-times" ></span></button>
-				</div>								
+				{% if (login.obtenerPermiso('CursoAgregar')) %}
+					<button type="button" name="nueva_electiva" id="nueva_electiva" class="btn btn-primary" onclick="borrarCamposElectiva();"><span class="fa fa-plus" ></span></button>
+				{% endif %}
+				
+				{% if (login.obtenerPermiso('CursoEliminar')) %}
+					<div id="borrar_electiva" class="form-group ">
+						<button type="button" name="borrar_electiva" class="btn btn-danger" onclick="crearConfirm('¿Estas de acuerdo en borrar esta convalidacion?',
+						'borrarElectiva()','Aceptar');"><span class="fa fa-times" ></span></button>
+					</div>	
+				{% endif %}							
 			</div>
 
 			
-			<table class="table table-hover" id='tablaElectiva'>
+			<table class="table table-hover" id='tablaElectiva' style='text-align:center;' >
 
 				<tr>
 				  <td>N°</td>
 				  <td>Codigo</td>
 				  <td>Nombre</td>
-				  <td>cap</td>
+				  <td title="capacidad">cap</td>
 				  <td>Docente</td>
 				  <td>Fecha de Inicio</td>
 				  <td>Fecha Fin</td>

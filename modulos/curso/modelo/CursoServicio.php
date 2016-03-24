@@ -130,7 +130,7 @@ Descripción:
 		 * 		Código que se generó para el curso.
 		 */
 
-		public static function insertarCurso($codPeriodo, $codUniCurricular, $codDocente, $seccion, $fecInicio, $fecFinal, $capacidad, $observaciones){
+		public static function insertarCurso($codPeriodo, $codUniCurricular, $codDocente, $seccion, $fecInicio, $fecFinal, $capacidad=NULL, $observaciones){
 			try{
 				$conexion=Conexion::conectar();
 				$consulta="select sis.f_curso_ins(:p_cod_periodo, :p_cod_uni_curricular, :p_cod_docente, upper(:p_seccion), :p_fec_inicio, :p_fec_final, :p_capacidad, :p_observaciones)";
@@ -144,8 +144,13 @@ Descripción:
 				$ejecutar->bindParam(':p_fec_final',$fecFinal, PDO::PARAM_STR);
 				$ejecutar->bindParam(':p_capacidad',$capacidad, PDO::PARAM_INT);
 				$ejecutar->bindParam(':p_observaciones',$observaciones, PDO::PARAM_STR);
-
-				$ejecutar->execute();
+				
+				$login=Vista::obtenerDato('login');
+				if($login->obtenerPermiso('CursoAgregar'))
+					$ejecutar->execute();
+				else
+					throw new Exception("No posees permisos para agregar un curso");
+					
 
 				$row = $ejecutar->fetchColumn(0);
 
@@ -191,9 +196,20 @@ Descripción:
 				$ejecutar->bindParam(':p_fec_final',$fecFinal, PDO::PARAM_STR);
 				$ejecutar->bindParam(':p_capacidad',$capacidad, PDO::PARAM_INT);
 				$ejecutar->bindParam(':p_observaciones',$observaciones, PDO::PARAM_STR);
+				
+				$login=Vista::obtenerDato('login');
+				if($login->obtenerPermiso('CursoModificar'))
+					$ejecutar->execute();
+				else
+					throw new Exception("No tienes permiso para modificar un curso");
+					
 
 
-				$ejecutar->execute();
+				$row = $ejecutar->fetchColumn(0);
+
+
+				return $row;
+
 			}
 			catch(Exception $e){
 				throw $e;
@@ -218,8 +234,12 @@ Descripción:
 
 				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
 				$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
-
-				$ejecutar->execute();
+				$login=Vista::obtenerDato('login');
+				if($login->obtenerPermiso('CursoEliminar'))
+					$ejecutar->execute();
+				else
+					throw new Exception("No tiene permiso para eliminar un curso");
+					
 
 				$row = $ejecutar->fetchColumn(0);
 
@@ -569,15 +589,20 @@ Descripción:
 				$patron = "%".$patron."%";
 
 				$r = Array($codIns,$codPen,$codPer,$patron,$patron,$patron,$patron,$patron);
+				$login=Vista::obtenerDato('login');
+				if($login->obtenerPermiso('CursoListar')){
+					$ejecutar->execute($r);
+					$results = $ejecutar->fetchAll();
+					$conexion->commit();
 
-				$ejecutar->execute($r);
-				$results = $ejecutar->fetchAll();
-				$conexion->commit();
-
-				if(count($results) > 0)
-					return $results;
+					if(count($results) > 0)
+						return $results;
+					else
+						return null;
+				}
 				else
-					return null;
+					throw new Exception("No tienes permiso para listar cursos");
+					
 			}
 			catch(Exception $e){
 				throw $e;
@@ -1477,7 +1502,8 @@ Descripción:
 				$conexion = Conexion::conectar();
 
 				$consulta="select 	p.nombre1 || ' ' ||p.apellido1 as nom_persona,
-									 uc.nombre, c.*
+									 uc.nombre, c.*, (select to_char(c.fec_final,'DD/MM/YYYY')) as fec_fin,
+									 (select to_char(c.fec_inicio,'DD/MM/YYYY')) as fec_inicios
 							from sis.t_persona p, sis.t_uni_curricular uc, 
 								sis.t_curso c, sis.t_uni_tra_pensum utp, 
 								sis.t_periodo per,sis.t_empleado e
@@ -1509,7 +1535,8 @@ Descripción:
 				$conexion = Conexion::conectar();
 
 				$consulta="select 	p.nombre1 || ' ' ||p.apellido1 as nom_persona, 
-								uc.nombre, c.*, utp.cod_pensum
+								uc.nombre, c.*, utp.cod_pensum, (select to_char(c.fec_final,'DD/MM/YYYY')) as fec_fin,
+									 (select to_char(c.fec_inicio,'DD/MM/YYYY')) as fec_inicios
 							from sis.t_persona p, sis.t_uni_curricular uc, 
 								sis.t_curso c,  sis.t_empleado e,
 								sis.t_uni_tra_pensum utp
