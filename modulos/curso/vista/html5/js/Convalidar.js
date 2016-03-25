@@ -209,8 +209,9 @@ alert();
 	if(data.estatus>0){
 		if(data.codigo){
 			$("#codConvalidacion").val(data.codigo);
+			$('#btn-nuevo').remove();
 			var cad="";
-			cad='<button class="btn btn-primary form-group" ';
+			cad='<button id="btn-nuevo" class="btn btn-primary form-group" ';
 			cad+='onclick="borrarCampos();">Nuevo</button>';
 			$(cad).appendTo('#nuevo');
 		}
