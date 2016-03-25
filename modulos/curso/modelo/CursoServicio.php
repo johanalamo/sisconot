@@ -1356,7 +1356,8 @@ Descripción:
 
 				$consulta = "select c.*, uc.nombre,
 								p.nombre1 || ' ' || p.nombre2 || ' ' || p.apellido1 || ' ' ||
-								p.apellido2 as nomPersona, p.cedula
+								p.apellido2 as nomPersona, p.cedula, 
+								(select to_char(c.fecha,'DD/MM/YYYY')) as fechas
 							from sis.t_convalidacion c, sis.t_uni_curricular uc,
 								sis.t_persona p, sis.t_estudiante e
 							where c.codigo=? and c.cod_uni_curricular=uc.codigo

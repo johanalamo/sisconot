@@ -205,7 +205,7 @@ function guardarConvalidacion (){
 function succGuardarConvalidacion(data){
 
 	console.log(data);
-
+alert();
 	if(data.estatus>0){
 		if(data.codigo){
 			$("#codConvalidacion").val(data.codigo);
@@ -220,8 +220,14 @@ function succGuardarConvalidacion(data){
 		mostrarMensaje(data.mensaje,2);
 }
 
-function borrarCampos(){
-	$("#codigoPersona").val("");
+function borrarCampos(bool){
+	if(!bool){
+		$("#codigoPersona").val("");
+		$("#nombre").val("");
+		$("#cedula").val("");
+		$("#estudiante").val("");
+	}
+
 	$("#no").prop("checked",false);
 	$("#si").prop("checked",false);
 	$("#nota").val("");
@@ -230,9 +236,7 @@ function borrarCampos(){
 	$("#codUni").val("");
 	$("#descripcionText").val("");
 	$("#codConvalidacion").val("");
-	$("#nombre").val("");
-	$("#cedula").val("");
-	$("#estudiante").val("");
+	
 	$("#selectTipoUni").val("-1");
 	$("#selectTipoUni").selectpicker("refresh");
 	$("#IdPensumEst").remove();
@@ -298,6 +302,9 @@ function autoCompletarEstudiante(estado){
 				else{
 					$(this).val(ui.item.label);
 					event.preventDefault();
+					borrarCampos(true);
+					habilitarCampos();
+					//alert(ui.item.value);
 					$("#codigoPersona").val(ui.item.value);
 					$("#nombre").val(ui.item.nombre);
 					$("#cedula").val(ui.item.cedula);
@@ -313,13 +320,14 @@ function autoCompletarEstudiante(estado){
 				if(ui.item.value == "null"){
 					$(this).val("");
 					event.preventDefault();
-					$("#doc"+$(this).attr("id")).val("");
+					habilitarCampos();
 					borrarCampos();
 				}
 				else{
 					$(this).val(ui.item.label);
 					event.preventDefault();
-					$("#doc"+$(this).attr("id")).val(ui.item.value);
+					borrarCampos(true);
+					habilitarCampos();
 					$("#codigoPersona").val(ui.item.value);
 					$("#nombre").val(ui.item.nombre);
 					$("#cedula").val(ui.item.cedula);
@@ -360,7 +368,6 @@ function autoCompletarUniCurricular(){
 				if(ui.item.value == "null"){
 					$(this).val("");
 					event.preventDefault();
-					$("#doc"+$(this).attr("id")).val("");
 					$("#codUni").val('');
 					$("#detallePen").remove();
 
@@ -368,7 +375,6 @@ function autoCompletarUniCurricular(){
 				else{
 					$(this).val(ui.item.label);
 					event.preventDefault();
-					$("#doc"+$(this).attr("id")).val(ui.item.value);
 					var codigo =ui.item.value;
 					verDetalle(codigo);
 					$("#codUni").val(codigo);
@@ -380,7 +386,6 @@ function autoCompletarUniCurricular(){
 				if(ui.item.value == "null"){
 					$(this).val("");
 					event.preventDefault();
-					$("#doc"+$(this).attr("id")).val("");
 					$("#codUni").val('');
 					$("#detallePen").remove();
 
@@ -388,7 +393,6 @@ function autoCompletarUniCurricular(){
 				else{
 					$(this).val(ui.item.label);
 					event.preventDefault();
-					$("#doc"+$(this).attr("id")).val(ui.item.value);
 					var codigo =ui.item.value;
 					$("#codUni").val(codigo);
 					verDetalle(codigo);
@@ -410,9 +414,12 @@ function verConvalidadasEstudiante(codigo,codConvalidacion){
 
 function succConvalidadas(data){
 	var cadena="";
+	
 	//alert(data.codConvalidacion);
-	var codConvalidacion=data.codConvalidacion;
-	if(data.convalidaciones){
+	$("#convalida").remove();
+	
+	if(/*data.convalidaciones*/data.convalidaciones.toSource()){
+		var codConvalidacion=data.codConvalidacion;
 		$("#codigoPersona").val(data.codPersona);
 		$("#convalida").remove();
 		var dat=data.convalidaciones;
@@ -476,7 +483,7 @@ function succBuscarConvalidacion (data){
 		$("#cedula").val(dat['cedula']);
 		$("#codConvalidacion").val(dat['codigo']);
 		$("#selectTipoUni").val(dat['cod_tip_uni_curricular']);
-		$("#fecha").val(dat['fecha']);
+		$("#fecha").val(dat['fechas']);
 		if(dat['con_nota']==true){
 			$("#si").prop("checked", true);
 			$("#nota").val(dat['nota']);
@@ -491,6 +498,16 @@ function succBuscarConvalidacion (data){
 		verTrayecto();
 		setTimeout(function(){
 			$("#trayectoEst").val(dat['cod_trayecto']);
+			$("#nombre").prop('disabled', true);
+			$("#selectTipoUni").prop('disabled', true);
+			$("#fecha").prop('disabled', true);
+			$("#nota").prop('disabled', true);
+			$("#si").prop('disabled', true);
+			$("#no").prop('disabled', true);
+			$("#pensumEst").prop('disabled', true);
+			$("#unidadCurricular").prop('disabled', true);
+			$("#trayectoEst").prop('disabled', true);
+
 			$(".selectpicker").selectpicker("refresh");
 	 	},200);
 
@@ -499,6 +516,19 @@ function succBuscarConvalidacion (data){
 	}
 }
 
+function habilitarCampos(){
+	//borrarCampos(true);
+	$("#nombre").prop('disabled', false);
+	$("#selectTipoUni").prop('disabled', false);
+	$("#fecha").prop('disabled', false);
+	$("#nota").prop('disabled', false);
+	$("#si").prop('disabled', false);
+	$("#no").prop('disabled', false);
+	$("#pensumEst").prop('disabled', false);
+	$("#unidadCurricular").prop('disabled', false);
+	$("#trayectoEst").prop('disabled', false);
+	$(".selectpicker").selectpicker("refresh");
+}
 function notaHide(){
 	$("#nota").hide();
 }
