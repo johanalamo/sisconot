@@ -489,5 +489,143 @@ class PersonaServicio
 			throw $e;
 		}
 	}
+
+		/**
+	 * Método que permite crear un usuario de base de datos. 
+	 * @param Usuario $usuario	    		Objeto que contiene la información del usuario.
+	 * @param Char    $tipo	    		    Caracter que representa el tipo de usuario a crear u= usuario normal y
+	 *										u= superusuario.
+	 *
+	 * @return True 		  				True si lo crea.      
+	 * @throws Ninguna.     
+	 */
+	public static function creUsuario($usuario,$clave,$tipo="u"){
+		try{
+
+			$conexion=Conexion::conectar();
+			$consulta="select per.f_usuario_crear(?,?,?)";
+			$ejecutar=$conexion->prepare($consulta);
+			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+			$ejecutar->execute(array($usuario, $clave, $tipo)); 
+			return true;
+
+		}catch(Exception $e){
+		
+				throw $e;
+		}
+	}
+
+	/**
+	 * Método que permite agregar un usuario a la tabla t_usuario cuando son de base de datos 
+	 *
+	 * @param Usuario $usuario	    		Objeto que contiene la información del usuario.
+	 *
+	 * @return Integer || null              Código del usuario agregado. 
+	 * @throws Exception 					En caso de haber un error al agregar el usuario.
+	 */
+
+	public static function agregarUsuBsaDatos($usuario,$codPersona){
+		try{
+			$conexion=Conexion::conectar();
+			$consulta="select per.f_ins_usuario(?,?,?,?,?)";
+			$ejecutar=$conexion->prepare($consulta);
+			$ejecutar->setFetchMode(PDO::FETCH_ASSOC);
+			$ejecutar->execute(array($usuario,
+									 "U",
+									 $codPersona,
+									 "",
+									 ""
+									)); 
+			
+			//primera columana código
+			$codigo = $ejecutar->fetchColumn(0);
+			if ($codigo)
+				return $codigo;
+			else 
+				throw new Exception("Error al agregar el usuario");
+
+		}catch(Exception $e){
+			throw $e;
+		}
+	}
+
+	public static function existeUsuario($codigo,$usuario){
+		try{
+
+			$conexion=Conexion::conectar();
+			$consulta="select * from per.t_usuario where campo1=? or usuario=?;";
+			$ejecutar=$conexion->prepare($consulta);
+
+			$ejecutar->execute(array($codigo,$usuario));			
+			
+			if($ejecutar->rowCount()!= 0)
+				return $ejecutar->fetchAll();
+			else
+				return null;
+
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+	public static function obtenerPermisos($rol){
+		try{
+
+			$conexion=Conexion::conectar();
+			$consulta="select * from per.t_acc_usuario where cod_usuario=?;";
+			$ejecutar=$conexion->prepare($consulta);
+
+			$ejecutar->execute(array($rol));			
+			
+			if($ejecutar->rowCount()!= 0)
+				return $ejecutar->fetchAll();
+			else
+				return null;
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+	public static function darPermisos($codigo,$permiso){
+		try{
+			$conexion=Conexion::conectar();
+			for($x=0;$x<count($permiso);$x++){
+				
+				$consulta="select per.f_usuario_usu_acc_insertar(?,?);";
+				$ejecutar=$conexion->prepare($consulta);
+
+				$ejecutar->execute(array($codigo,$permiso[$x]['cod_accion']));	
+			}		
+			
+			if($ejecutar->rowCount()!= 0)
+				return $ejecutar->fetchAll();
+			else
+				return null;
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+	public static function listarRoles(){
+		try{
+			$conexion=Conexion::conectar();			
+				
+			$consulta="select * from per.t_usuario where tipo ='R';";
+			$ejecutar=$conexion->prepare($consulta);
+			
+			$ejecutar->execute(array());				
+			
+			if($ejecutar->rowCount()!= 0)
+				return $ejecutar->fetchAll();
+			else
+				return null;
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
 }
 ?>

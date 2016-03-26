@@ -61,6 +61,10 @@
 				self::listarSelects();
 			else if($accion == 'listarEstadoEstudianteEmpleado')
 				self::listarEstadoEstudianteEmpleado();
+			else if($accion == "agregarUsuario")
+				self::agregarUsuario();
+			else if($accion == "obtenerRol")
+				self::obtenerRol();
 			else
 				throw new Exception ("'PersonaControlador' La accion $accion no es valida");
 		}
@@ -335,9 +339,7 @@
 					$arch=pg_escape_string($archivo["tmp_name"]);	
 					if($tipo){
 						$ruta=$path."/temp/".$codigo.".".$tipo[1];
-						if(file_exists($ruta))
-							unlink($ruta);
-						
+												
 						copy($arch,$ruta);
 						$ruta="temp/".$codigo.".".$tipo[1];
 						
@@ -345,25 +347,20 @@
 
 						$foto=FotoControlador::Iniciar();
 					}	
-
 				}
 				
 				
 				if($foto===true && ($response>0 || $response2>0)){
 					$tipo=$tipo[count($tipo)-1];
 					$codigo=FotografiaServicio::guardar($persona[0]["cod_foto"],$tipo,$path."/temp/".$codigo.".".$tipo);
-					
-					if($codigo[0][0]==true){
+				
+
+					if($codigo[0][0]==true){									
 						PersonaServicio::AgregarFoto(Vista::obtenerDato("codPersona"),$codigo[0][0]);
 					}
 				}
 
-				/*if(isset($ruta)){
-					if(file_exists($ruta))
-						unlink($ruta);
-				}*/
-				
-				
+								
 				if($foto!=='2' && $foto===true){
 					Vista::asignarDato("foto",$ruta);
 				}
@@ -415,6 +412,55 @@
 			}
 		}
 
+		private static function agregarUsuario() {
+		try{
 
+			$usuario=PostGet::obtenerPostGet('usuSistema');
+			$clave=PostGet::obtenerPostGet('clave');
+			$rol=PostGet::obtenerPostGet('rol');
+			$codPersona=PostGet::obtenerPostGet('codPersona');
+			
+			if (!PersonaServicio::existeUsuario($codPersona,$usuario) 
+				&& $clave && $usuario && $codPersona){
+
+				if (PersonaServicio::creUsuario($usuario,$clave)){
+					$codigo=PersonaServicio::agregarUsuBsaDatos($usuario,$codPersona);	
+					$permiso=PersonaServicio::obtenerPermisos($rol);
+					if($permiso){
+						PersonaServicio::darPermisos($codigo,$permiso);	
+
+					}
+					
+				}		
+
+			}
+			else
+				throw new Exception("Este usuario ya existe");
+				
+			
+			Vista::asignarDato('mensaje','Se ha agregado el usuario'.$usuario.".");
+			Vista::asignarDato('estatus',1);
+			Vista::mostrar();
+			}
+			catch(Exception $e){
+				throw $e;	
+			}
+		}
+
+		public static function obtenerRol(){
+			try{
+
+				$r=PersonaServicio::listarRoles();
+			
+				Vista::asignarDato("rol",$r);
+				Vista::asignarDato('estatus',1);
+				Vista::mostrar();
+				
+
+			}
+			catch(Exception $e){
+				throw $e;
+			}
+		}
 	}
 ?>

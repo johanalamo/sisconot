@@ -275,7 +275,15 @@
 							<input type="hidden" name="codigoPersona" id="codigoPersona">
 
 
-							<div class="text-right formuario-persona form-group">
+							<div class="text-right formuario-persona form-group" id="botonera">
+
+							{% if (login.obtenerPermiso('AdministrarPrivilegios')
+								and login.obtenerPermiso('UsuarioAgregar')) %}
+								
+									<button type="button" class='btn btn-warning' type='button' id='crearUsuario' onclick='crearUsuario();' data-toggle="modal" data-target="#dialogoCrearUsuario"><b>Crear Usuario</b></button>
+								
+
+							{% endif  %}
 
 							{% if (login.obtenerPermiso('PersonaModificar')) %}
 
@@ -303,6 +311,7 @@
 								</button>
 
 							{% endif  %}
+
 							</div>
 							
 						</div>

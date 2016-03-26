@@ -302,3 +302,53 @@ function validarSoloTextoNumer(id,min,max,req){
 	}
 	return true;
 }
+
+function validarUsuario(id,min,max,req){
+	$(".popover").hide();
+	var cad = $(id).val();
+	var val = ' ';
+	///^[A-Za-z ÁÉÍÓÚáéíóúñÑ]{0,5000}$/;
+
+	if(req){
+		if(cad.length == 0){
+			detonarAdvertencia(id,"Este campo es requerido.");
+			return false;
+		}
+		else{
+			if((validarMatch(cad,val))){
+				detonarAdvertencia(id, "El Nombre de usuario invalido. no se aceptan espacios.");				return false;
+			}
+			if(validarRango(cad,min,max)){
+				detonarAdvertencia(id,"El campo debe tener entre "+min+"-"+max+" caracteres.");
+				return false;
+			}
+		}
+	}
+	else{
+		if(cad.length > 0){
+			if((validarMatch(cad,val))){
+				detonarAdvertencia(id, "El Nombre de usuario invalido. no se aceptan espacios.");
+				return false;
+			}
+			if(validarRango(cad,min,max)){
+				detonarAdvertencia(id,"El campo debe tener entre "+min+"-"+max+" caracteres.");
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+function validarRequerdido(id){
+	$(".popover").hide();
+	var cad = $(id).val();
+	
+
+	if(cad.length == 0){
+		detonarAdvertencia(id,"Este campo es requerido.");
+		return false;
+	}
+	
+	
+	return true;
+}
