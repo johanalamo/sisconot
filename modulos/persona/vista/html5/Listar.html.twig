@@ -88,7 +88,7 @@
 						{% endif %}
 							
 						{% if (login.obtenerPermiso('PersonaListar')) %}
-							<button type="button" class="btn btn-info" title="Ver persona" onclick="mostrarPersona();" id="btnVerPersona">
+							<button type="button" class="btn btn-info" title="Ver persona" onclick="bloquearCamposPersona(); mostrarPersona(); " id="btnVerPersona">
 							  <span class="fa fa-search "></span>
 							</button>
 						{% endif %}

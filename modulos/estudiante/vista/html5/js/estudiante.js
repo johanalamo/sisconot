@@ -33,6 +33,14 @@ $(document).ready(function() {
 
 	verEstudiante();
 
+	setTimeout(function() {
+		
+		var accion =getVarsUrl().accion;
+		if(accion=="V")
+			bloquearCamposEstudiante();
+	
+	}, 1500);
+
 } );
 
 function verEstudiante (cod_estudiante,cod_persona){
@@ -296,6 +304,8 @@ function succMontarModificarEstudiante (data){
 	
 	setTimeout(function(){ 
 		$("#estudiante #selectPNF").val(data.estudiante[0]['cod_pensum']);
+		if(getVarsUrl().accion=="V")
+			$("#estudiante #selectPNF").prop("disabled",true);
 		$('.selectpicker').selectpicker('refresh');
 	}, 450);
 }
@@ -319,6 +329,23 @@ function nuevoEstudiante (){
 	$("#selectInstituto").val("seleccionar");	
 	$('#selectInstituto').selectpicker('refresh');
 
+}
+
+function bloquearCamposEstudiante(){
+
+	$("#cod_estudiante").prop('disabled',true);
+	$("#codPersona").prop('disabled',true);
+	$("#selectPNF").prop('disabled',true);
+	$("#num_carnet").prop('disabled',true);
+	$("#expediente").prop('disabled',true);
+	$("#cod_rusnies").prop('disabled',true);
+	$("#selectEstado").prop('disabled',true);
+	$("#fec_ini_estudiante").prop('disabled',true);
+	$("#fec_fin_estudiante").prop('disabled',true);
+	$("#condicion").prop('disabled',true);
+	$("#obs_estudiante").prop('disabled',true);								
+
+	$("#selectInstituto").prop('disabled',true);	
 }
 	
 /**

@@ -87,7 +87,11 @@ $(document).ready(function() {
 		verInstitutoEm2(); 
 		verEstadoEm2(); 
 		verPNFEm2();
-
+		var accion =getVarsUrl().accion;
+		if(accion=="V"){
+			bloquearCamposPersona();
+		}
+		
 		mostrarInformaion();
 		activarCal();
 	}
@@ -855,7 +859,8 @@ function mostrarInformaion(){
 		$("#guardarPersona").remove();
 		$("#nuevo_persona").remove();
 	}
-	if(getVarsUrl().persona!="-1" && getVarsUrl().persona)
+	var accion =getVarsUrl().accion;
+	if(getVarsUrl().persona!="-1" && getVarsUrl().persona && (accion=="V" || accion=="M" || accion=="V"))
 		ajaxMVC(arr,succMontarModificarPersona,error);
 }
 
@@ -965,10 +970,36 @@ function limpiarCamposPersona(){
 	$('#hijo').val('0');
 	$('#est_civil').val('S');
 	$('#nacionalidad').val('V');
-	$('#fecNacimiento').val('');
+	$('#fec_nac').val('');
 	$('#cod_persona').val('');
 	$('#codigoPersona').val('');
 	
+}
+
+function bloquearCamposPersona(){
+
+	$("#ced_persona").prop('disabled',true);
+	$("#rif_persona").prop('disabled',true);
+	$("#nombre1").prop('disabled',true);
+	$("#nombre2").prop('disabled',true);
+	$("#apellido1").prop('disabled',true);
+	$("#apellido2").prop('disabled',true);
+	$("#telefono1").prop('disabled',true);
+	$("#telefono2").prop('disabled',true);
+	$("#cor_personal").prop('disabled',true);
+	$("#cor_institucional").prop('disabled',true);
+	$("#discapacidad").prop('disabled',true);
+	$("#direccion").prop('disabled',true);
+	$("#obs_persona").prop('disabled',true);
+	$('#sexo').prop('disabled',true);
+	$('#tip_sangre').prop('disabled',true);
+	$('#hijo').prop('disabled',true);
+	$('#est_civil').prop('disabled',true);
+	$('#nacionalidad').prop('disabled',true);
+	$('#fec_nac').prop('disabled',true);
+	$('#cod_persona').prop('disabled',true);
+	$('#codigoPersona').prop('disabled',true);
+
 }
 
 function buscarFoto(codigo,codPersona){

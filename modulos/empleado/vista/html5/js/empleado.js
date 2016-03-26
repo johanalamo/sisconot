@@ -31,6 +31,13 @@ Diseñador - Programador /   Fecha   / Descripción del cambio
 
 $(document).ready(function() {
 	verEmpleado();
+	setTimeout(function() {
+
+		var accion =getVarsUrl().accion;
+		if(accion=="V")
+			bloquearCamposEmpleado();
+	
+	}, 1500);
 } );
 
 
@@ -567,6 +574,8 @@ function succMontarModificarEmpleado (data){
 	}, 150);
 	setTimeout(function(){ 
 		$("#empleado #selectPNF").val(data.empleado[0]['cod_pensum']);
+		if(getVarsUrl().accion=="V")
+			$("#empleado #selectPNF").prop("disabled",true);
 		$('.selectpicker').selectpicker('refresh');  
 	}, 250);
 	$("#fec_ini_empleado").val(data.empleado[0]['fec_inicios']);
@@ -597,6 +606,24 @@ function NuevoEmpleado (){
 	$("#es_jef_pensum").prop( "checked",false);
 	$("#es_jef_con_estudio").prop( "checked",false);
 	$("#Docente").prop( "checked",false);
+}
+
+function bloquearCamposEmpleado(){
+	$("#cod_empleado").prop('disabled',true);
+	$("#empleado #selectPNF").prop('disabled',true);
+	$('#empleado #selectPNF').prop('disabled',true);
+	$("#empleado #selectEstado").prop('disabled',true);
+	$("#empleado #selectEstado").prop('disabled',true);
+	$("#empleado #selectInstituto").prop('disabled',true);
+	$('#empleado #selectInstituto').prop('disabled',true);
+	$("#fec_ini_empleado").prop('disabled',true);
+	$("#fec_fin_empleado").prop('disabled',true);
+	$("#obs_empleado").prop('disabled',true);
+	$("#es_ministerio").prop('disabled',true);
+	$("#es_jef_pensum").prop('disabled',true);
+	$("#es_jef_con_estudio").prop('disabled',true);
+	$("#Docente").prop('disabled',true);
+	$(".selectpicker").selectpicker("refresh");
 }
 
 /**
