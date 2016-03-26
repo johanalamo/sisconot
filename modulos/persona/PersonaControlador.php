@@ -360,7 +360,8 @@
 					}
 				}
 
-								
+				
+
 				if($foto!=='2' && $foto===true){
 					Vista::asignarDato("foto",$ruta);
 				}
