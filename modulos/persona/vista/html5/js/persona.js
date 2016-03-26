@@ -125,12 +125,87 @@ function nuevoPersonaEmpleado (){
 	window.location.href = 'index.php?m_modulo=persona&m_vista=Agregar&m_formato=html5&accion=N&persona=-1'; 
 }
 
-function foto(data){
+function fotoTamaño(mensaje){
+	input = document.getElementById('foto');
+	if($("#foto").val()){
+		if((input.files[0].size/1024/1024)>1){
+			if(!mensaje)
+				mostrarMensaje("La imagen NO puede ser mayor a 1 MB ",2);
+
+			$("#foto").val("");
+			$("#imagen").remove();
+			var cadena ="";
+			///var fso = new ActiveXObject("Scripting.FileSystemObject");
+			var archivo= 'modulos/persona/vista/html5/imagen/foto.png';
+			cadena+="<div id='imagen'>";
+			cadena+="<img src="+archivo+" width='200' height='200'>";
+			cadena+="</div>";
+			//alert(FileExists(fso.archivo));
+			$("#superImagen").append(cadena);
+			return false;
+		}
+		else
+			return true;
+	}
+}
+
+function fotoExtencion (mensaje){ 
+	
+	var  extensiones_permitidas = new Array(".png", ".jpg",".gif","jpeg"); 
+	var  error = ""; 
+	var  archivo=$("#foto").val();
+	
+	if (archivo) 	  
+   { 
+	    //recupero la extensión de este nombre de archivo 
+	    var  extension = (archivo.substring(archivo.lastIndexOf("."))).toLowerCase(); 
+	     
+	    //compruebo si la extensión está entre las permitidas 
+	    var  permitida = false; 
+	    for (var i = 0; i < extensiones_permitidas.length; i++) 
+	    { 
+	       if (extensiones_permitidas[i] == extension) 
+	       { 
+		       permitida = true; 		        
+		       break; 
+	        } 
+	    } 	      
+	} 
+
+	
+
+	if (!permitida){
+
+		if(!mensaje){
+			error = "Comprueba la extension de los archivos a subir. \n Solo se pueden subir archivos con extensiones: " + extensiones_permitidas.join(); 
+			mostrarMensaje(error,2);
+		}
+		//mostrarMensaje(error,2); 
+		$("#foto").val("");
+		$("#imagen").remove();
+		var cadena ="";
+		///var fso = new ActiveXObject("Scripting.FileSystemObject");
+		var archivo= 'modulos/persona/vista/html5/imagen/foto.png';
+		cadena+="<div id='imagen'>";
+		cadena+="<img src="+archivo+" width='200' height='200'>";
+		cadena+="</div>";
+		//alert(FileExists(fso.archivo));
+		$("#superImagen").append(cadena);
+		
+		return false;
+	}
+	else 
+		return true;
+
+
+
+}
+
+function foto(){
 
 	$("#foto").on("change", function(){
-
-	    /* Limpiar vista previa */
-
+		
+	/* Limpiar vista previa */
 	    $("#vista-previa").html('');
 
 	    var archivos = document.getElementById('foto').files;
@@ -138,18 +213,21 @@ function foto(data){
 	    var navegador = window.URL || window.webkitURL;
 
 	    /* Recorrer los archivos */
-	    $("#imagen").remove();
-	    for(x=0; x<archivos.length; x++)
-	    {   	
-	   		var objeto_url = navegador.createObjectURL(archivos[x]);
-		}
-		var cadena ="";
-		cadena+="<div id='imagen'>";
-		cadena+="<img src="+objeto_url+" width='200' height='200'>";
-		cadena+="</div>";
-		
-		$("#superImagen").append(cadena);
 
+	    if(fotoExtencion(true) && fotoTamaño(true)){
+		    $("#imagen").remove();
+		    for(x=0; x<archivos.length; x++)
+		    {   	
+		   		var objeto_url = navegador.createObjectURL(archivos[x]);
+			}
+			var cadena ="";
+			cadena+="<div id='imagen'>";
+			cadena+="<img src="+objeto_url+" width='200' height='200'>";
+			cadena+="</div>";
+			
+			$("#superImagen").append(cadena);
+		}
+		
 	});
 }
 
@@ -580,8 +658,19 @@ function montarPersona(data){
 
 function preGuardarPersona(){
 	var bool=true;
+	
 	if(!validarSoloNumeros('#ced_persona',6,8,true)){
 		mostrarMensaje("Debes introducir una cedula",2);
+		bool=false;
+	}
+	else if(!fotoExtencion(true) && $("#foto").val()){
+		var  extensiones_permitidas = new Array(".png", ".jpg",".gif","jpeg"); 
+	    error = "Comprueba la extension de los archivos a subir. \n Solo se pueden subir archivos con extensiones: " + extensiones_permitidas.join(); 
+	    mostrarMensaje(error,2);
+		bool=false;
+	}
+	else if(!fotoTamaño(true) && $("#foto").val()){
+		 mostrarMensaje(error,2);
 		bool=false;
 	}
 	else if(!validarSoloTexto('#nombre1',2,20,true)){

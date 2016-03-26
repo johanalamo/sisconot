@@ -115,7 +115,7 @@
 							or	login.obtenerPermiso('PersonaAgregar') ) %} 
 								<span class="file-input btn btn-primary btn-file" id="fotoSpan">
                 					Cargar&hellip;
-								<input name="foto" class="form-group btn" type="file" id="foto" onfocus="foto();">
+								<input name="foto" class="form-group btn" type="file" id="foto" onfocus="foto();" onchange="fotoExtencion(); fotoTamaño();">
             					</span>
             			{% endif %} 
 							   
