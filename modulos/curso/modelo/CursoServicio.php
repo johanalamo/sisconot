@@ -1186,20 +1186,20 @@ Descripción:
 									cur.seccion,
 									cur.capacidad,
 									(select  	count(codigo)
-												from sis.t_cur_estudiante
-												where  cod_estado = 'C'
-												and cod_curso = cur.codigo
-												and codigo < (select codigo
-												from sis.t_cur_estudiante
-												where cod_estudiante = est.codigo
-												and cod_estado = 'C'
-												and cod_curso = cur.codigo) + 1)
+											from sis.t_cur_estudiante
+											where  cod_estado = 'C'
+											and cod_curso = cur.codigo
+											and codigo < (select codigo
+											from sis.t_cur_estudiante
+											where cod_estudiante = per.codigo
+											and cod_estado = 'C'
+											and cod_curso = cur.codigo) + 1)
 									as orden
 									from sis.t_estudiante est
 									inner join sis.t_persona per
 										on per.codigo = est.cod_persona
 									inner join sis.t_cur_estudiante curest
-										on curest.cod_estudiante = est.codigo
+										on curest.cod_estudiante = per.codigo
 									inner join sis.t_curso cur
 										on cur.codigo = curest.cod_curso
 									inner join sis.t_periodo pdo
@@ -1214,11 +1214,11 @@ Descripción:
 										on emp.codigo = cur.cod_docente
 									left join sis.t_persona per2
 										on per2.codigo = emp.cod_persona
-									where est.cod_persona = :estudiante
+									where per.codigo = :estudiante
 									and pdo.codigo = :periodo
 									and pen.codigo = :pensum
 									and curest.cod_estado = 'C';";
-
+					
 					$ejecutar=$conexion->prepare($consulta);
 					$conexion->beginTransaction();
 					$ejecutar->bindParam(':estudiante', $codEstudiante, PDO::PARAM_INT);

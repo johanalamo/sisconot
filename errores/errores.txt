@@ -321,3 +321,175 @@ Trayecto:
 		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
 		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
 		#7 {main}
+**************************** Error n° 24 *****************************
+codigo Error: 24
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 522
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(522): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(479): CursoServicio::listarUniCurricular('', '1', '1', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(62): CursoControlador::listarUniCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 25 *****************************
+codigo Error: 25
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 483
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(483): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(461): CursoServicio::listarSeccionPorTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(60): CursoControlador::buscarSeccionPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 26 *****************************
+codigo Error: 26
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 522
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(522): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(479): CursoServicio::listarUniCurricular('', '1', '', '102')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(62): CursoControlador::listarUniCurricular()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 27 *****************************
+codigo Error: 27
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 382
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(382): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(259): PensumServicio::ObtenerPensumInsituto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(61): PensumControlador::buscarPorInstituto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 28 *****************************
+codigo Error: 28
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php
+Linea Error: 428
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/pensum/modelo/PensumServicio.php(428): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(287): PensumServicio::ObtenerPensumTrayecto('')
+		#2 /var/www/html/github/sisconot/modulos/pensum/PensumControlador.php(63): PensumControlador::buscarPorTrayecto()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(33): PensumControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 29 *****************************
+codigo Error: 29
+Mensaje error: SQLSTATE[22P02]: Invalid text representation: 7 ERROR:  invalid input syntax for integer: ""
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 703
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(703): PDOStatement->execute()
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(495): CursoServicio::obtenerCursosPensum('1', '', '')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(64): CursoControlador::obtenerCursosPensum()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 30 *****************************
+codigo Error: 30
+Mensaje error: No se puede generar el PDF.
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/vista/pdf/ticketInscripcion.php
+Linea Error: 74
+Trayecto:
+		#0 /var/www/html/github/sisconot/base/clases/vista/Vista.php(326): require_once()
+		#1 /var/www/html/github/sisconot/base/clases/vista/Vista.php(239): Vista::mostrarPDF()
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(648): Vista::mostrar()
+		#3 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(84): CursoControlador::generarTicketInscripcion()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 30 *****************************
+codigo Error: 30
+Mensaje error: No se puede generar el PDF.
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/vista/pdf/ticketInscripcion.php
+Linea Error: 74
+Trayecto:
+		#0 /var/www/html/github/sisconot/base/clases/vista/Vista.php(326): require_once()
+		#1 /var/www/html/github/sisconot/base/clases/vista/Vista.php(239): Vista::mostrarPDF()
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(648): Vista::mostrar()
+		#3 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(84): CursoControlador::generarTicketInscripcion()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 30 *****************************
+codigo Error: 30
+Mensaje error: No se puede generar el PDF.
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/vista/pdf/ticketInscripcion.php
+Linea Error: 74
+Trayecto:
+		#0 /var/www/html/github/sisconot/base/clases/vista/Vista.php(326): require_once()
+		#1 /var/www/html/github/sisconot/base/clases/vista/Vista.php(239): Vista::mostrarPDF()
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(648): Vista::mostrar()
+		#3 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(84): CursoControlador::generarTicketInscripcion()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 30 *****************************
+codigo Error: 30
+Mensaje error: No se puede generar el PDF.
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/vista/pdf/ticketInscripcion.php
+Linea Error: 74
+Trayecto:
+		#0 /var/www/html/github/sisconot/base/clases/vista/Vista.php(326): require_once()
+		#1 /var/www/html/github/sisconot/base/clases/vista/Vista.php(239): Vista::mostrarPDF()
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(648): Vista::mostrar()
+		#3 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(84): CursoControlador::generarTicketInscripcion()
+		#4 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#6 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#7 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#8 {main}
+**************************** Error n° 30 *****************************
+codigo Error: 30
+Mensaje error: SQLSTATE[HY093]: Invalid parameter number: :estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 1215
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(1215): PDOStatement->bindParam(':estudiante', '2073', 1)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(644): CursoServicio::obtenerTicketInscripcion('2073', '1', '102')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(84): CursoControlador::generarTicketInscripcion()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}
+**************************** Error n° 31 *****************************
+codigo Error: 31
+Mensaje error: SQLSTATE[HY093]: Invalid parameter number: :estudiante
+Archivo Error: /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php
+Linea Error: 1215
+Trayecto:
+		#0 /var/www/html/github/sisconot/modulos/curso/modelo/CursoServicio.php(1215): PDOStatement->bindParam(':estudiante', '2074', 1)
+		#1 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(644): CursoServicio::obtenerTicketInscripcion('2074', '1', '102')
+		#2 /var/www/html/github/sisconot/modulos/curso/CursoControlador.php(84): CursoControlador::generarTicketInscripcion()
+		#3 /var/www/html/github/sisconot/modulos/principal/Bloque.php(5): CursoControlador::manejarRequerimiento()
+		#4 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(177): require_once('/var/www/html/g...')
+		#5 /var/www/html/github/sisconot/modulos/principal/PrincipalControlador.php(72): PrincipalControlador::manejarRequerimiento()
+		#6 /var/www/html/github/sisconot/index.php(41): PrincipalControlador::iniciar()
+		#7 {main}

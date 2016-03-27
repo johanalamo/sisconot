@@ -1455,7 +1455,7 @@ function succListarEstudiantesCargarNotas(data){
 				else
 					cad += "<td style='text-align:center'><center><input class='form-control' type='text' onkeyup='validarSoloNumeros(\"#asis"+i+"\",1,3,false)' onchange='actualizarEstado("+i+")' id='asis"+i+"' size='4' style='width:50px;' value='"+est[i]['por_asistencia']+"'></td>";
 
-				cad += "<td style='text-align:center'><select class='selectpicker' onchange='actualizarEstado("+i+")' data-live-search='true' data-width='150px' id='estado"+i+"'>"+cad2+"</select></td>";
+				cad += "<td style='text-align:center'><select class='selectpicker' onchange='actualizarEstado("+i+")' data-live-search='true' data-width='200px' id='estado"+i+"'>"+cad2+"</select></td>";
 
 
 				if(est[i]['observaciones'] == null)
@@ -1532,7 +1532,7 @@ function succMontarSelects(data){
 		setTimeout(function (){
 			$("#selInst").val(dat[0]['cod_instituto']);
 			cargarPensums();
-		}, 150*i);
+		}, 200*i);
 	}
 
 	if(dat[0]['cod_pensum'] != null){
@@ -1547,7 +1547,7 @@ function succMontarSelects(data){
 
 			cargarPeriodos();
 			i++;
-		}, 150*i);
+		}, 200*i);
 	}
 
 	if(dat[0]['codigo'] != null){
@@ -1556,7 +1556,7 @@ function succMontarSelects(data){
 			$("#selPer").val(dat[0]['codigo']);
 			cargarTrayectos();
 
-		}, 150*i);
+		}, 200*i);
 	}
 
 	if(dat[0]['cod_trayecto'] != null){
@@ -1566,14 +1566,14 @@ function succMontarSelects(data){
 
 			if($("#selSec").length > 0)
 				cargarSeccion();
-		}, 150*i);
+		}, 200*i);
 	}
 
 	if($("#sec").length > 0){
 		i++;
 		setTimeout(function (){
 			$("#sec").val(dat[0]['seccion']);
-		}, 150*i);
+		}, 200*i);
 	}
 	else if(dat[0]['seccion'] != null){
 		i++;
@@ -1582,7 +1582,7 @@ function succMontarSelects(data){
 
 			if($("#selUni").length > 0)
 				cargarUni();
-		}, 150*i);
+		}, 200*i);
 	}
 
 	if($("#selUni").length > 0){
@@ -1590,7 +1590,7 @@ function succMontarSelects(data){
 			i++;
 			setTimeout(function (){
 				$("#selUni").val(dat[0]['codigocurso']);
-			}, 150*i);
+			}, 200*i);
 		}
 	}
 
@@ -1609,7 +1609,7 @@ function succMontarSelects(data){
 				listarEstudiantes(succListarEstudiantes,$("#selUni").val());
 			}
 		}
-	}, 150*i);
+	}, 200*i);
 }
 
 
