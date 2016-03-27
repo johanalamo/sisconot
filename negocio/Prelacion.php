@@ -109,7 +109,7 @@ class Prelacion {
 		return $this->codigoUniCurPrelada;
 	}
 
-	public function toArray(){
+/*	public function toArray(){
 		$arr =  array(
 			'codigo' => !empty($this->obtenerCodigo())?$this->obtenerCodigo():'',	
 			'codigoPesum' => !empty($this->obtenerNombre())?$this->obtenerNombre():'',	
@@ -118,7 +118,7 @@ class Prelacion {
 			'codigoUniCurPrelada' => !empty($this->obtenerCodigoUniCurPrelada())?$this->obtenerCodigoUniCurPrelada():''
 		 );	
 		return $arr;
-	}
+	} */
 
 }
 

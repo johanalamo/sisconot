@@ -125,7 +125,7 @@ class Trayecto {
 		return $this->minCanElectiva;
 	}
 
-	public function toArray(){
+	/*public function toArray(){
 		
 		$arr =  array(
 			'codigo' => !empty($this->obtenerCodigo())?$this->obtenerCodigo():'',	
@@ -138,7 +138,7 @@ class Trayecto {
 			'minCanElectiva' => !empty($this->obtenerMinCanElectiva())?$this->obtenerMinCanElectiva():''
 		 );	
 		return $arr;
-	}
+	}*/
 
 }
 

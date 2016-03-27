@@ -204,7 +204,7 @@ class UniCurricular {
 		return $this->contenido;
 	}
 
-	public function toArray(){		
+	/*public function toArray(){		
 
 		$arr =  array(
 			'codigo' => !empty($this->obtenerCodigo())?$this->obtenerCodigo():'',	
@@ -222,7 +222,7 @@ class UniCurricular {
 		 );	
 
 		return $arr;
-	}
+	} */
 	
 }
 
