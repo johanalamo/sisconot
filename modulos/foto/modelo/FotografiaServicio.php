@@ -42,9 +42,11 @@ class FotografiaServicio {
 	Exception: si ocurre un error en la conexión a la base de datos..	
 	*/
 	
-	static public function existe($codigo) {
+	static public function existe($codigo=NULL) {
 		try{
 			//var_dump($codigo);
+			if(!$codigo)
+				$codigo=NULL;
 			$conexion = Conexion::conectar();
 			$consulta = "SELECT * FROM sis.t_archivo WHERE 
 					codigo= ?";
@@ -170,7 +172,7 @@ class FotografiaServicio {
 	static public function extraerEn($codigo,$ruta){
 		
 			 $conexion = Conexion::conectar();
-
+			
 			$consulta = "SELECT lo_export(sis.t_archivo.archivo,?) FROM sis.t_archivo WHERE 
 				codigo= ?";
 			$login=Vista::obtenerDato('login');

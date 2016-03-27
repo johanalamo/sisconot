@@ -419,7 +419,7 @@ function verPNFEm2(){
 	
 		var arr = Array("m_modulo"	,	"pensum",
 						"m_accion"	,	"buscarPorInstituto",
-						"codigo"	,	$("#empleado #selectInstituto").val()
+						"codigo"	,	null
 						);
 		ajaxMVC(arr,montarSelectPNFE,error);	
 }

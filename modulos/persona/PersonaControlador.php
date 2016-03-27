@@ -172,7 +172,7 @@
 
 				$path.="/".$a[$x];
 				
-				$ruta=$path."/temp/".$codigo.".".$foto[0]["tipo"]; 
+			//	$ruta=$path."/temp/".$codigo.".".$foto[0]["tipo"]; 
 
 				$codigo=PostGet::obtenerPostGet("codPersona");
 				

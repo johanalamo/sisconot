@@ -932,18 +932,14 @@ function succMontarModificarPersona(data){
 		borrarFoto(data.foto);
 	 
 	}
-	
+
+
 	if(data.empleado)
 		setTimeout(function(){ succMontarModificarEmpleado(data); }, 400);
-	else{
-	//	verInstitutoEm2(); verEstadoEm2(); verPNFEm2();
-	}
 
-	if(data.estudiante)
+	 if(data.estudiante)
 		setTimeout(function(){ succMontarModificarEstudiante(data); }, 400);
-	else{
-	///	verEstadoEsPrincipal();  verInstitutoEsPrincipal(); verPNFEsPrincipal();
-	}
+	
 }
 
 function borrarFoto(ruta){

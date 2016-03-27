@@ -160,7 +160,7 @@ class FotoControlador{
 			}
 
 			$path.="/".$a[$x];
-
+	
 			$codigo=PostGet::obtenerPostGet("codigo");
 			$codPersona=PostGet::obtenerPostGet("codPersona");
 			$foto=FotografiaServicio::existe($codigo);
