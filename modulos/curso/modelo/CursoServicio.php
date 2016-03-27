@@ -866,7 +866,7 @@ Descripción:
 											on uni.codigo = utp.cod_uni_curricular
 										left join sis.t_curso as cur
 											on cur.cod_uni_curricular = utp.cod_uni_curricular
-										where est.codigo = :codigo
+										where est.cod_persona = :codigo
 										group by utp.cod_uni_curricular;";
 
 				$ejecutar=$conexion->prepare($consulta);
@@ -1023,7 +1023,7 @@ Descripción:
 												group by ce.cod_curso) cantc
 
 										    on cantc.codigo = cur.codigo
-								where est.codigo = :estudiante
+								where est.cod_persona = :estudiante
 										and coalesce(cantc.t,0) < cur.capacidad
 										and pdo.cod_estado = 'A'
 										";
@@ -1214,7 +1214,7 @@ Descripción:
 										on emp.codigo = cur.cod_docente
 									left join sis.t_persona per2
 										on per2.codigo = emp.cod_persona
-									where est.codigo = :estudiante
+									where est.cod_persona = :estudiante
 									and pdo.codigo = :periodo
 									and pen.codigo = :pensum
 									and curest.cod_estado = 'C';";

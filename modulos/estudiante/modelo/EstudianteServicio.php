@@ -359,7 +359,7 @@ class EstudianteServicio
 		try{
 			$conexion = Conexion::conectar();
 
-			$consulta="select 	est.codigo,
+			$consulta="select 	per.codigo,
 								per.cedula ,
 								per.apellido1 || ' ' || per.nombre1 as nombrecompleto,
 								per.nacionalidad
@@ -508,7 +508,7 @@ class EstudianteServicio
 
 			$consulta = "select 	ce.codigo cod_curest,
 									ce.cod_curso,
-									est.codigo codigo,
+									per.codigo,
 									per.cedula,
 									per.apellido1,
 									per.nombre1,
@@ -519,16 +519,15 @@ class EstudianteServicio
 									ece.nombre,
 									per.nacionalidad
 									from sis.t_cur_estudiante ce
-									inner join sis.t_estudiante est
-										on est.codigo = ce.cod_estudiante
-									inner join sis.t_persona per
-										on per.codigo = est.cod_persona
+									left join sis.t_persona per
+									on per.codigo = ce.cod_estudiante
 									inner join sis.t_est_cur_estudiante ece
-										on ce.cod_estado = ece.codigo
+									on ce.cod_estado = ece.codigo
 									where ce.cod_curso = :codigo
 									order by
-										ce.cod_estado,
-										per.apellido1";
+									ce.cod_estado,
+									per.apellido1
+									;";
 
 			$ejecutar=$conexion->prepare($consulta);
 			$ejecutar->bindParam(":codigo", $codigo, PDO::PARAM_INT);

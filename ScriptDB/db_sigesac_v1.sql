@@ -1498,7 +1498,7 @@ SET search_path = sis, pg_catalog;
 
 --
 -- TOC entry 263 (class 1255 OID 25281)
--- Name: f_archivo_ins(text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_archivo_ins(text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_archivo_ins(text, text) RETURNS integer
@@ -1521,11 +1521,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_archivo_ins(text, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_archivo_ins(text, text) OWNER TO admin;
 
 --
 -- TOC entry 264 (class 1255 OID 25282)
--- Name: f_archivo_mod(integer, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_archivo_mod(integer, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_archivo_mod(integer, text, text) RETURNS integer
@@ -1549,11 +1549,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_archivo_mod(integer, text, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_archivo_mod(integer, text, text) OWNER TO admin;
 
 --
 -- TOC entry 265 (class 1255 OID 25283)
--- Name: f_convalidacion_eli(integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_convalidacion_eli(integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_convalidacion_eli(integer) RETURNS integer
@@ -1574,11 +1574,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_convalidacion_eli(integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_convalidacion_eli(integer) OWNER TO admin;
 
 --
 -- TOC entry 295 (class 1255 OID 25284)
--- Name: f_convalidar_ins(integer, boolean, real, date, text, integer, integer, integer, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_convalidar_ins(integer, boolean, real, date, text, integer, integer, integer, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_convalidar_ins(integer, boolean, real, date, text, integer, integer, integer, text) RETURNS integer
@@ -1616,11 +1616,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_convalidar_ins(integer, boolean, real, date, text, integer, integer, integer, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_convalidar_ins(integer, boolean, real, date, text, integer, integer, integer, text) OWNER TO admin;
 
 --
 -- TOC entry 296 (class 1255 OID 25285)
--- Name: f_convalidar_mod(integer, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_convalidar_mod(integer, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_convalidar_mod(integer, text) RETURNS integer
@@ -1647,11 +1647,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_convalidar_mod(integer, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_convalidar_mod(integer, text) OWNER TO admin;
 
 --
 -- TOC entry 297 (class 1255 OID 25286)
--- Name: f_cur_estudiante_del(integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_cur_estudiante_del(integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_cur_estudiante_del(p_codigo integer) RETURNS integer
@@ -1671,11 +1671,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_cur_estudiante_del(p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_cur_estudiante_del(p_codigo integer) OWNER TO admin;
 
 --
 -- TOC entry 298 (class 1255 OID 25287)
--- Name: f_cur_estudiante_ins(integer, integer, double precision, double precision, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_cur_estudiante_ins(integer, integer, double precision, double precision, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_cur_estudiante_ins(p_cod_estudiante integer, p_cod_curso integer, p_por_asistencia double precision, p_nota double precision, p_cod_estado text, p_observaciones text) RETURNS integer
@@ -1705,11 +1705,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_cur_estudiante_ins(p_cod_estudiante integer, p_cod_curso integer, p_por_asistencia double precision, p_nota double precision, p_cod_estado text, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_cur_estudiante_ins(p_cod_estudiante integer, p_cod_curso integer, p_por_asistencia double precision, p_nota double precision, p_cod_estado text, p_observaciones text) OWNER TO admin;
 
 --
 -- TOC entry 299 (class 1255 OID 25288)
--- Name: f_cur_estudiante_mod(integer, integer, integer, double precision, double precision, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_cur_estudiante_mod(integer, integer, integer, double precision, double precision, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_cur_estudiante_mod(p_codigo integer, p_cod_estudiante integer, p_cod_curso integer, p_por_asistencia double precision, p_nota double precision, p_cod_estado text, p_observaciones text) RETURNS integer
@@ -1737,7 +1737,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_cur_estudiante_mod(p_codigo integer, p_cod_estudiante integer, p_cod_curso integer, p_por_asistencia double precision, p_nota double precision, p_cod_estado text, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_cur_estudiante_mod(p_codigo integer, p_cod_estudiante integer, p_cod_curso integer, p_por_asistencia double precision, p_nota double precision, p_cod_estado text, p_observaciones text) OWNER TO admin;
 
 --
 -- TOC entry 300 (class 1255 OID 25289)
@@ -1768,7 +1768,7 @@ ALTER FUNCTION sis.f_cur_estudiante_sel(p_cursor refcursor) OWNER TO postgres;
 
 --
 -- TOC entry 301 (class 1255 OID 25290)
--- Name: f_cur_estudiante_sel_por_codigo(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_cur_estudiante_sel_por_codigo(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_cur_estudiante_sel_por_codigo(p_cursor refcursor, p_codigo integer) RETURNS refcursor
@@ -1790,11 +1790,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_cur_estudiante_sel_por_codigo(p_cursor refcursor, p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_cur_estudiante_sel_por_codigo(p_cursor refcursor, p_codigo integer) OWNER TO admin;
 
 --
 -- TOC entry 302 (class 1255 OID 25291)
--- Name: f_curso_del(integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_curso_del(integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_curso_del(p_codigo integer) RETURNS integer
@@ -1814,11 +1814,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_curso_del(p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_curso_del(p_codigo integer) OWNER TO admin;
 
 --
 -- TOC entry 303 (class 1255 OID 25292)
--- Name: f_curso_ins(integer, integer, integer, text, date, date, integer, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_curso_ins(integer, integer, integer, text, date, date, integer, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_curso_ins(p_cod_periodo integer, p_cod_uni_curricular integer, p_cod_docente integer, p_seccion text, p_fec_inicio date, p_fec_final date, p_capacidad integer, p_observaciones text) RETURNS integer
@@ -1852,11 +1852,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_curso_ins(p_cod_periodo integer, p_cod_uni_curricular integer, p_cod_docente integer, p_seccion text, p_fec_inicio date, p_fec_final date, p_capacidad integer, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_curso_ins(p_cod_periodo integer, p_cod_uni_curricular integer, p_cod_docente integer, p_seccion text, p_fec_inicio date, p_fec_final date, p_capacidad integer, p_observaciones text) OWNER TO admin;
 
 --
 -- TOC entry 304 (class 1255 OID 25293)
--- Name: f_curso_mod(integer, integer, integer, integer, text, date, date, integer, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_curso_mod(integer, integer, integer, integer, text, date, date, integer, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_curso_mod(p_codigo integer, p_cod_periodo integer, p_cod_uni_curricular integer, p_cod_docente integer, p_seccion text, p_fec_inicio date, p_fec_final date, p_capacidad integer, p_observaciones text) RETURNS integer
@@ -1886,11 +1886,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_curso_mod(p_codigo integer, p_cod_periodo integer, p_cod_uni_curricular integer, p_cod_docente integer, p_seccion text, p_fec_inicio date, p_fec_final date, p_capacidad integer, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_curso_mod(p_codigo integer, p_cod_periodo integer, p_cod_uni_curricular integer, p_cod_docente integer, p_seccion text, p_fec_inicio date, p_fec_final date, p_capacidad integer, p_observaciones text) OWNER TO admin;
 
 --
 -- TOC entry 305 (class 1255 OID 25294)
--- Name: f_curso_sel(refcursor); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_curso_sel(refcursor); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_curso_sel(p_cursor refcursor) RETURNS refcursor
@@ -1915,11 +1915,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_curso_sel(p_cursor refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_curso_sel(p_cursor refcursor) OWNER TO admin;
 
 --
 -- TOC entry 306 (class 1255 OID 25295)
--- Name: f_curso_sel_por_codigo(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_curso_sel_por_codigo(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_curso_sel_por_codigo(p_cursor refcursor, p_codigo integer) RETURNS refcursor
@@ -1943,11 +1943,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_curso_sel_por_codigo(p_cursor refcursor, p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_curso_sel_por_codigo(p_cursor refcursor, p_codigo integer) OWNER TO admin;
 
 --
 -- TOC entry 307 (class 1255 OID 25296)
--- Name: f_empleado_act(integer, integer, integer, integer, text, date, date, boolean, boolean, boolean, boolean, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_empleado_act(integer, integer, integer, integer, text, date, date, boolean, boolean, boolean, boolean, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_empleado_act(p_codigo integer, p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_es_jef_pensum boolean, p_es_jef_con_estudio boolean, p_es_ministerio boolean, p_es_docente boolean, p_observaciones text) RETURNS integer
@@ -1970,11 +1970,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_empleado_act(p_codigo integer, p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_es_jef_pensum boolean, p_es_jef_con_estudio boolean, p_es_ministerio boolean, p_es_docente boolean, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_empleado_act(p_codigo integer, p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_es_jef_pensum boolean, p_es_jef_con_estudio boolean, p_es_ministerio boolean, p_es_docente boolean, p_observaciones text) OWNER TO admin;
 
 --
 -- TOC entry 308 (class 1255 OID 25297)
--- Name: f_empleado_eli(integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_empleado_eli(integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_empleado_eli(p_codigo integer) RETURNS integer
@@ -1994,11 +1994,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_empleado_eli(p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_empleado_eli(p_codigo integer) OWNER TO admin;
 
 --
 -- TOC entry 309 (class 1255 OID 25298)
--- Name: f_empleado_ins(integer, integer, integer, text, date, date, boolean, boolean, boolean, boolean, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_empleado_ins(integer, integer, integer, text, date, date, boolean, boolean, boolean, boolean, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_empleado_ins(p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_es_jef_pensum boolean, p_es_jef_con_estudio boolean, p_es_ministerio boolean, p_es_docente boolean, p_observaciones text) RETURNS integer
@@ -2026,11 +2026,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_empleado_ins(p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_es_jef_pensum boolean, p_es_jef_con_estudio boolean, p_es_ministerio boolean, p_es_docente boolean, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_empleado_ins(p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_es_jef_pensum boolean, p_es_jef_con_estudio boolean, p_es_ministerio boolean, p_es_docente boolean, p_observaciones text) OWNER TO admin;
 
 --
 -- TOC entry 310 (class 1255 OID 25299)
--- Name: f_empleado_sel(refcursor); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_empleado_sel(refcursor); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_empleado_sel(p_cursor refcursor) RETURNS refcursor
@@ -2045,11 +2045,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_empleado_sel(p_cursor refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_empleado_sel(p_cursor refcursor) OWNER TO admin;
 
 --
 -- TOC entry 311 (class 1255 OID 25300)
--- Name: f_empleado_sel_cod(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_empleado_sel_cod(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_empleado_sel_cod(p_cursor refcursor, p_codigo integer) RETURNS refcursor
@@ -2064,11 +2064,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_empleado_sel_cod(p_cursor refcursor, p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_empleado_sel_cod(p_cursor refcursor, p_codigo integer) OWNER TO admin;
 
 --
 -- TOC entry 312 (class 1255 OID 25301)
--- Name: f_estudiante_act(integer, integer, integer, integer, text, text, text, text, date, date, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_estudiante_act(integer, integer, integer, integer, text, text, text, text, date, date, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_estudiante_act(p_codigo integer, p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_num_carnet text, p_num_expediente text, p_cod_rusnies text, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_condicion text, p_observaciones text) RETURNS integer
@@ -2092,11 +2092,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_estudiante_act(p_codigo integer, p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_num_carnet text, p_num_expediente text, p_cod_rusnies text, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_condicion text, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_estudiante_act(p_codigo integer, p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_num_carnet text, p_num_expediente text, p_cod_rusnies text, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_condicion text, p_observaciones text) OWNER TO admin;
 
 --
 -- TOC entry 251 (class 1255 OID 25302)
--- Name: f_estudiante_eli(integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_estudiante_eli(integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_estudiante_eli(p_codigo integer) RETURNS integer
@@ -2116,11 +2116,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_estudiante_eli(p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_estudiante_eli(p_codigo integer) OWNER TO admin;
 
 --
 -- TOC entry 330 (class 1255 OID 25303)
--- Name: f_estudiante_ins(integer, integer, integer, text, text, text, text, date, date, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_estudiante_ins(integer, integer, integer, text, text, text, text, date, date, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_estudiante_ins(p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_num_carnet text, p_num_expediente text, p_cod_rusnies text, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_condicion text, p_observaciones text) RETURNS integer
@@ -2150,11 +2150,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_estudiante_ins(p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_num_carnet text, p_num_expediente text, p_cod_rusnies text, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_condicion text, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_estudiante_ins(p_cod_persona integer, p_cod_instituto integer, p_cod_pensum integer, p_num_carnet text, p_num_expediente text, p_cod_rusnies text, p_cod_estado text, p_fec_inicio date, p_fec_fin date, p_condicion text, p_observaciones text) OWNER TO admin;
 
 --
 -- TOC entry 331 (class 1255 OID 25304)
--- Name: f_estudiante_sel(refcursor); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_estudiante_sel(refcursor); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_estudiante_sel(p_cursor refcursor) RETURNS refcursor
@@ -2170,11 +2170,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_estudiante_sel(p_cursor refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_estudiante_sel(p_cursor refcursor) OWNER TO admin;
 
 --
 -- TOC entry 332 (class 1255 OID 25305)
--- Name: f_instituto_actualizar(integer, text, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_instituto_actualizar(integer, text, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_instituto_actualizar(p_codigo integer, p_nom_corto text, p_nombre text, p_direccion text) RETURNS integer
@@ -2210,11 +2210,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_instituto_actualizar(p_codigo integer, p_nom_corto text, p_nombre text, p_direccion text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_instituto_actualizar(p_codigo integer, p_nom_corto text, p_nombre text, p_direccion text) OWNER TO admin;
 
 --
 -- TOC entry 333 (class 1255 OID 25306)
--- Name: f_instituto_eliminar(integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_instituto_eliminar(integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_instituto_eliminar(p_codigo integer) RETURNS integer
@@ -2237,11 +2237,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_instituto_eliminar(p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_instituto_eliminar(p_codigo integer) OWNER TO admin;
 
 --
 -- TOC entry 334 (class 1255 OID 25307)
--- Name: f_instituto_insertar(text, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_instituto_insertar(text, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_instituto_insertar(text, text, text) RETURNS integer
@@ -2283,11 +2283,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_instituto_insertar(text, text, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_instituto_insertar(text, text, text) OWNER TO admin;
 
 --
 -- TOC entry 335 (class 1255 OID 25308)
--- Name: f_instituto_seleccionar(); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_instituto_seleccionar(); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_instituto_seleccionar() RETURNS refcursor
@@ -2306,11 +2306,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_instituto_seleccionar() OWNER TO sisconot;
+ALTER FUNCTION sis.f_instituto_seleccionar() OWNER TO admin;
 
 --
 -- TOC entry 336 (class 1255 OID 25309)
--- Name: f_instituto_seleccionar(refcursor); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_instituto_seleccionar(refcursor); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_instituto_seleccionar(refcursor) RETURNS refcursor
@@ -2328,11 +2328,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_instituto_seleccionar(refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_instituto_seleccionar(refcursor) OWNER TO admin;
 
 --
 -- TOC entry 337 (class 1255 OID 25310)
--- Name: f_instituto_seleccionar_por_codigo(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_instituto_seleccionar_por_codigo(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_instituto_seleccionar_por_codigo(refcursor, integer) RETURNS refcursor
@@ -2350,11 +2350,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_instituto_seleccionar_por_codigo(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_instituto_seleccionar_por_codigo(refcursor, integer) OWNER TO admin;
 
 --
 -- TOC entry 338 (class 1255 OID 25311)
--- Name: f_pensum_actualizar(integer, text, text, text, integer, integer, integer, date); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_pensum_actualizar(integer, text, text, text, integer, integer, integer, date); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_pensum_actualizar(integer, text, text, text, integer, integer, integer, date) RETURNS integer
@@ -2383,11 +2383,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_actualizar(integer, text, text, text, integer, integer, integer, date) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_actualizar(integer, text, text, text, integer, integer, integer, date) OWNER TO admin;
 
 --
 -- TOC entry 339 (class 1255 OID 25312)
--- Name: f_pensum_eliminar(integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_pensum_eliminar(integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_pensum_eliminar(integer) RETURNS integer
@@ -2411,11 +2411,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_eliminar(integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_eliminar(integer) OWNER TO admin;
 
 --
 -- TOC entry 340 (class 1255 OID 25313)
--- Name: f_pensum_insertar(text, text, text, integer, integer, integer, date); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_pensum_insertar(text, text, text, integer, integer, integer, date); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_pensum_insertar(text, text, text, integer, integer, integer, date) RETURNS integer
@@ -2444,11 +2444,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_insertar(text, text, text, integer, integer, integer, date) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_insertar(text, text, text, integer, integer, integer, date) OWNER TO admin;
 
 --
 -- TOC entry 266 (class 1255 OID 25314)
--- Name: f_pensum_por_codigo_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_pensum_por_codigo_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_pensum_por_codigo_seleccionar(refcursor, integer) RETURNS refcursor
@@ -2466,11 +2466,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_por_codigo_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_por_codigo_seleccionar(refcursor, integer) OWNER TO admin;
 
 --
 -- TOC entry 341 (class 1255 OID 25315)
--- Name: f_pensum_por_filtro_seleccionar(refcursor, text, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_pensum_por_filtro_seleccionar(refcursor, text, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_pensum_por_filtro_seleccionar(refcursor, text, integer) RETURNS refcursor
@@ -2540,11 +2540,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_por_filtro_seleccionar(refcursor, text, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_por_filtro_seleccionar(refcursor, text, integer) OWNER TO admin;
 
 --
 -- TOC entry 342 (class 1255 OID 25316)
--- Name: f_pensum_por_instituto_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_pensum_por_instituto_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_pensum_por_instituto_seleccionar(refcursor, integer) RETURNS refcursor
@@ -2588,11 +2588,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_por_instituto_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_por_instituto_seleccionar(refcursor, integer) OWNER TO admin;
 
 --
 -- TOC entry 359 (class 1255 OID 25317)
--- Name: f_pensum_por_trayecto_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_pensum_por_trayecto_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_pensum_por_trayecto_seleccionar(refcursor, integer) RETURNS refcursor
@@ -2633,11 +2633,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_por_trayecto_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_por_trayecto_seleccionar(refcursor, integer) OWNER TO admin;
 
 --
 -- TOC entry 360 (class 1255 OID 25318)
--- Name: f_pensum_seleccionar(refcursor); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_pensum_seleccionar(refcursor); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_pensum_seleccionar(refcursor) RETURNS refcursor
@@ -2656,11 +2656,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_pensum_seleccionar(refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_pensum_seleccionar(refcursor) OWNER TO admin;
 
 --
 -- TOC entry 361 (class 1255 OID 25319)
--- Name: f_periodo_del(integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_periodo_del(integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_periodo_del(p_codigo integer) RETURNS integer
@@ -2680,11 +2680,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_periodo_del(p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_periodo_del(p_codigo integer) OWNER TO admin;
 
 --
 -- TOC entry 362 (class 1255 OID 25320)
--- Name: f_periodo_ins(text, integer, integer, date, date, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_periodo_ins(text, integer, integer, date, date, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_periodo_ins(p_nombre text, p_cod_instituto integer, p_cod_pensum integer, p_fec_inicio date, p_fec_final date, p_observaciones text, p_cod_estado text) RETURNS integer
@@ -2716,11 +2716,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_periodo_ins(p_nombre text, p_cod_instituto integer, p_cod_pensum integer, p_fec_inicio date, p_fec_final date, p_observaciones text, p_cod_estado text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_periodo_ins(p_nombre text, p_cod_instituto integer, p_cod_pensum integer, p_fec_inicio date, p_fec_final date, p_observaciones text, p_cod_estado text) OWNER TO admin;
 
 --
 -- TOC entry 363 (class 1255 OID 25321)
--- Name: f_periodo_mod(integer, text, integer, integer, date, date, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_periodo_mod(integer, text, integer, integer, date, date, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_periodo_mod(p_codigo integer, p_nombre text, p_cod_instituto integer, p_cod_pensum integer, p_fec_inicio date, p_fec_final date, p_observaciones text, p_cod_estado text) RETURNS integer
@@ -2749,11 +2749,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_periodo_mod(p_codigo integer, p_nombre text, p_cod_instituto integer, p_cod_pensum integer, p_fec_inicio date, p_fec_final date, p_observaciones text, p_cod_estado text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_periodo_mod(p_codigo integer, p_nombre text, p_cod_instituto integer, p_cod_pensum integer, p_fec_inicio date, p_fec_final date, p_observaciones text, p_cod_estado text) OWNER TO admin;
 
 --
 -- TOC entry 364 (class 1255 OID 25322)
--- Name: f_periodo_pensum_sel(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_periodo_pensum_sel(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_periodo_pensum_sel(p_cursor refcursor, p_codigo integer) RETURNS refcursor
@@ -2770,11 +2770,11 @@ BEGIN
     $$;
 
 
-ALTER FUNCTION sis.f_periodo_pensum_sel(p_cursor refcursor, p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_periodo_pensum_sel(p_cursor refcursor, p_codigo integer) OWNER TO admin;
 
 --
 -- TOC entry 365 (class 1255 OID 25323)
--- Name: f_periodo_sel(refcursor); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_periodo_sel(refcursor); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_periodo_sel(p_cursor refcursor) RETURNS refcursor
@@ -2798,11 +2798,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_periodo_sel(p_cursor refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_periodo_sel(p_cursor refcursor) OWNER TO admin;
 
 --
 -- TOC entry 366 (class 1255 OID 25324)
--- Name: f_periodo_sel_por_codigo(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_periodo_sel_por_codigo(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_periodo_sel_por_codigo(p_cursor refcursor, p_codigo integer) RETURNS refcursor
@@ -2825,7 +2825,7 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_periodo_sel_por_codigo(p_cursor refcursor, p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_periodo_sel_por_codigo(p_cursor refcursor, p_codigo integer) OWNER TO admin;
 
 --
 -- TOC entry 367 (class 1255 OID 25325)
@@ -2865,7 +2865,7 @@ ALTER FUNCTION sis.f_persona_act(p_codigo integer, p_cedula integer, p_rif text,
 
 --
 -- TOC entry 368 (class 1255 OID 25326)
--- Name: f_persona_eli(integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_persona_eli(integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_persona_eli(p_codigo integer) RETURNS integer
@@ -2885,11 +2885,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_persona_eli(p_codigo integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_persona_eli(p_codigo integer) OWNER TO admin;
 
 --
 -- TOC entry 374 (class 1255 OID 25327)
--- Name: f_persona_ins(integer, text, text, text, text, text, text, date, text, text, text, text, text, text, text, text, integer, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_persona_ins(integer, text, text, text, text, text, text, date, text, text, text, text, text, text, text, text, integer, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_persona_ins(p_cedula integer, p_rif text, p_nombre1 text, p_nombre2 text, p_apellido1 text, p_apellido2 text, p_sexo text, p_fec_nacimiento date, p_tip_sangre text, p_telefono1 text, p_telefono2 text, p_cor_personal text, p_cor_institucional text, p_direccion text, p_discapacidad text, p_nacionalidad text, p_hijos integer, p_est_civil text, p_observaciones text) RETURNS integer
@@ -2925,11 +2925,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_persona_ins(p_cedula integer, p_rif text, p_nombre1 text, p_nombre2 text, p_apellido1 text, p_apellido2 text, p_sexo text, p_fec_nacimiento date, p_tip_sangre text, p_telefono1 text, p_telefono2 text, p_cor_personal text, p_cor_institucional text, p_direccion text, p_discapacidad text, p_nacionalidad text, p_hijos integer, p_est_civil text, p_observaciones text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_persona_ins(p_cedula integer, p_rif text, p_nombre1 text, p_nombre2 text, p_apellido1 text, p_apellido2 text, p_sexo text, p_fec_nacimiento date, p_tip_sangre text, p_telefono1 text, p_telefono2 text, p_cor_personal text, p_cor_institucional text, p_direccion text, p_discapacidad text, p_nacionalidad text, p_hijos integer, p_est_civil text, p_observaciones text) OWNER TO admin;
 
 --
 -- TOC entry 375 (class 1255 OID 25328)
--- Name: f_persona_sel(refcursor); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_persona_sel(refcursor); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_persona_sel(p_cursor refcursor) RETURNS refcursor
@@ -2945,11 +2945,11 @@ END;
 $$;
 
 
-ALTER FUNCTION sis.f_persona_sel(p_cursor refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_persona_sel(p_cursor refcursor) OWNER TO admin;
 
 --
 -- TOC entry 376 (class 1255 OID 25329)
--- Name: f_prelacion_actualizar(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_prelacion_actualizar(integer, integer, integer, integer, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_prelacion_actualizar(integer, integer, integer, integer, integer) RETURNS integer
@@ -2978,11 +2978,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_prelacion_actualizar(integer, integer, integer, integer, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_prelacion_actualizar(integer, integer, integer, integer, integer) OWNER TO admin;
 
 --
 -- TOC entry 377 (class 1255 OID 25330)
--- Name: f_prelacion_eliminar(integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_prelacion_eliminar(integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_prelacion_eliminar(integer) RETURNS integer
@@ -3006,11 +3006,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_prelacion_eliminar(integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_prelacion_eliminar(integer) OWNER TO admin;
 
 --
 -- TOC entry 378 (class 1255 OID 25331)
--- Name: f_prelacion_insertar(integer, integer, integer, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_prelacion_insertar(integer, integer, integer, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_prelacion_insertar(integer, integer, integer, integer) RETURNS integer
@@ -3037,11 +3037,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_prelacion_insertar(integer, integer, integer, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_prelacion_insertar(integer, integer, integer, integer) OWNER TO admin;
 
 --
 -- TOC entry 379 (class 1255 OID 25332)
--- Name: f_prelacion_por_codigo_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_prelacion_por_codigo_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_prelacion_por_codigo_seleccionar(refcursor, integer) RETURNS refcursor
@@ -3058,11 +3058,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_prelacion_por_codigo_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_prelacion_por_codigo_seleccionar(refcursor, integer) OWNER TO admin;
 
 --
 -- TOC entry 380 (class 1255 OID 25333)
--- Name: f_trayecto_actualizar(integer, integer, integer, text, integer, integer, integer, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_trayecto_actualizar(integer, integer, integer, text, integer, integer, integer, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_trayecto_actualizar(integer, integer, integer, text, integer, integer, integer, integer) RETURNS integer
@@ -3092,11 +3092,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_trayecto_actualizar(integer, integer, integer, text, integer, integer, integer, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_trayecto_actualizar(integer, integer, integer, text, integer, integer, integer, integer) OWNER TO admin;
 
 --
 -- TOC entry 381 (class 1255 OID 25334)
--- Name: f_trayecto_eliminar(integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_trayecto_eliminar(integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_trayecto_eliminar(integer) RETURNS integer
@@ -3120,11 +3120,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_trayecto_eliminar(integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_trayecto_eliminar(integer) OWNER TO admin;
 
 --
 -- TOC entry 382 (class 1255 OID 25335)
--- Name: f_trayecto_insertar(integer, integer, text, integer, integer, integer, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_trayecto_insertar(integer, integer, text, integer, integer, integer, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_trayecto_insertar(integer, integer, text, integer, integer, integer, integer) RETURNS integer
@@ -3153,11 +3153,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_trayecto_insertar(integer, integer, text, integer, integer, integer, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_trayecto_insertar(integer, integer, text, integer, integer, integer, integer) OWNER TO admin;
 
 --
 -- TOC entry 383 (class 1255 OID 25336)
--- Name: f_trayecto_por_codigo_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_trayecto_por_codigo_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_trayecto_por_codigo_seleccionar(refcursor, integer) RETURNS refcursor
@@ -3175,11 +3175,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_trayecto_por_codigo_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_trayecto_por_codigo_seleccionar(refcursor, integer) OWNER TO admin;
 
 --
 -- TOC entry 384 (class 1255 OID 25337)
--- Name: f_trayecto_por_patron_seleccionar(refcursor, integer, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_trayecto_por_patron_seleccionar(refcursor, integer, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_trayecto_por_patron_seleccionar(refcursor, integer, text) RETURNS refcursor
@@ -3201,11 +3201,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_trayecto_por_patron_seleccionar(refcursor, integer, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_trayecto_por_patron_seleccionar(refcursor, integer, text) OWNER TO admin;
 
 --
 -- TOC entry 385 (class 1255 OID 25338)
--- Name: f_trayecto_seleccionar(refcursor); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_trayecto_seleccionar(refcursor); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_trayecto_seleccionar(refcursor) RETURNS refcursor
@@ -3225,11 +3225,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_trayecto_seleccionar(refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_trayecto_seleccionar(refcursor) OWNER TO admin;
 
 --
 -- TOC entry 343 (class 1255 OID 25339)
--- Name: f_uni_tra_pensu_actualizar(integer, integer, integer, integer, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_uni_tra_pensu_actualizar(integer, integer, integer, integer, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_uni_tra_pensu_actualizar(integer, integer, integer, integer, text) RETURNS integer
@@ -3258,11 +3258,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_uni_tra_pensu_actualizar(integer, integer, integer, integer, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_uni_tra_pensu_actualizar(integer, integer, integer, integer, text) OWNER TO admin;
 
 --
 -- TOC entry 344 (class 1255 OID 25340)
--- Name: f_uni_tra_pensu_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_uni_tra_pensu_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_uni_tra_pensu_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) RETURNS integer
@@ -3293,11 +3293,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_uni_tra_pensu_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_uni_tra_pensu_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) OWNER TO admin;
 
 --
 -- TOC entry 345 (class 1255 OID 25341)
--- Name: f_uni_tra_pensu_eliminar(integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_uni_tra_pensu_eliminar(integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_uni_tra_pensu_eliminar(integer) RETURNS integer
@@ -3321,11 +3321,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_uni_tra_pensu_eliminar(integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_uni_tra_pensu_eliminar(integer) OWNER TO admin;
 
 --
 -- TOC entry 346 (class 1255 OID 25342)
--- Name: f_uni_tra_pensu_insertar(integer, integer, integer, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_uni_tra_pensu_insertar(integer, integer, integer, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_uni_tra_pensu_insertar(integer, integer, integer, text) RETURNS integer
@@ -3351,11 +3351,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_uni_tra_pensu_insertar(integer, integer, integer, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_uni_tra_pensu_insertar(integer, integer, integer, text) OWNER TO admin;
 
 --
 -- TOC entry 369 (class 1255 OID 25343)
--- Name: f_uni_tra_pensu_por_codigo_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_uni_tra_pensu_por_codigo_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_uni_tra_pensu_por_codigo_seleccionar(refcursor, integer) RETURNS refcursor
@@ -3375,11 +3375,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_uni_tra_pensu_por_codigo_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_uni_tra_pensu_por_codigo_seleccionar(refcursor, integer) OWNER TO admin;
 
 --
 -- TOC entry 389 (class 1255 OID 25344)
--- Name: f_unicurricular_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_unicurricular_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_unicurricular_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) RETURNS integer
@@ -3418,11 +3418,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_actualizar(integer, text, text, integer, integer, integer, integer, integer, integer, text, text, text) OWNER TO admin;
 
 --
 -- TOC entry 390 (class 1255 OID 25345)
--- Name: f_unicurricular_eliminar(integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_unicurricular_eliminar(integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_unicurricular_eliminar(integer) RETURNS integer
@@ -3446,11 +3446,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_eliminar(integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_eliminar(integer) OWNER TO admin;
 
 --
 -- TOC entry 391 (class 1255 OID 25346)
--- Name: f_unicurricular_insertar(text, text, integer, integer, integer, integer, integer, integer, text, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_unicurricular_insertar(text, text, integer, integer, integer, integer, integer, integer, text, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_unicurricular_insertar(text, text, integer, integer, integer, integer, integer, integer, text, text, text) RETURNS integer
@@ -3484,11 +3484,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_insertar(text, text, integer, integer, integer, integer, integer, integer, text, text, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_insertar(text, text, integer, integer, integer, integer, integer, integer, text, text, text) OWNER TO admin;
 
 --
 -- TOC entry 392 (class 1255 OID 25347)
--- Name: f_unicurricular_por_codigo_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_unicurricular_por_codigo_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_unicurricular_por_codigo_seleccionar(refcursor, integer) RETURNS refcursor
@@ -3506,11 +3506,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_por_codigo_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_por_codigo_seleccionar(refcursor, integer) OWNER TO admin;
 
 --
 -- TOC entry 393 (class 1255 OID 25348)
--- Name: f_unicurricular_por_patron_seleccionar(refcursor, text, text); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_unicurricular_por_patron_seleccionar(refcursor, text, text); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_unicurricular_por_patron_seleccionar(refcursor, text, text) RETURNS refcursor
@@ -3551,11 +3551,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_por_patron_seleccionar(refcursor, text, text) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_por_patron_seleccionar(refcursor, text, text) OWNER TO admin;
 
 --
 -- TOC entry 394 (class 1255 OID 25349)
--- Name: f_unicurricular_por_pen_usado(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_unicurricular_por_pen_usado(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_unicurricular_por_pen_usado(refcursor, integer) RETURNS refcursor
@@ -3572,11 +3572,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_por_pen_usado(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_por_pen_usado(refcursor, integer) OWNER TO admin;
 
 --
 -- TOC entry 395 (class 1255 OID 25350)
--- Name: f_unicurricular_por_pen_y_tray_seleccionar(refcursor, integer, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_unicurricular_por_pen_y_tray_seleccionar(refcursor, integer, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_unicurricular_por_pen_y_tray_seleccionar(refcursor, integer, integer) RETURNS refcursor
@@ -3597,11 +3597,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_por_pen_y_tray_seleccionar(refcursor, integer, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_por_pen_y_tray_seleccionar(refcursor, integer, integer) OWNER TO admin;
 
 --
 -- TOC entry 396 (class 1255 OID 25351)
--- Name: f_unicurricular_por_pensum_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_unicurricular_por_pensum_seleccionar(refcursor, integer); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_unicurricular_por_pensum_seleccionar(refcursor, integer) RETURNS refcursor
@@ -3631,11 +3631,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_por_pensum_seleccionar(refcursor, integer) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_por_pensum_seleccionar(refcursor, integer) OWNER TO admin;
 
 --
 -- TOC entry 397 (class 1255 OID 25352)
--- Name: f_unicurricular_seleccionar(refcursor); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: f_unicurricular_seleccionar(refcursor); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION f_unicurricular_seleccionar(refcursor) RETURNS refcursor
@@ -3656,11 +3656,11 @@ END;
 $_$;
 
 
-ALTER FUNCTION sis.f_unicurricular_seleccionar(refcursor) OWNER TO sisconot;
+ALTER FUNCTION sis.f_unicurricular_seleccionar(refcursor) OWNER TO admin;
 
 --
 -- TOC entry 398 (class 1255 OID 25353)
--- Name: utf(character varying); Type: FUNCTION; Schema: sis; Owner: sisconot
+-- Name: utf(character varying); Type: FUNCTION; Schema: sis; Owner: admin
 --
 
 CREATE FUNCTION utf(character varying) RETURNS text
@@ -3673,7 +3673,7 @@ CREATE FUNCTION utf(character varying) RETURNS text
   $_$;
 
 
-ALTER FUNCTION sis.utf(character varying) OWNER TO sisconot;
+ALTER FUNCTION sis.utf(character varying) OWNER TO admin;
 
 SET search_path = per, pg_catalog;
 
