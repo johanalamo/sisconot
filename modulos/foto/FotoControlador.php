@@ -14,7 +14,15 @@ class FotoControlador{
 		if($accion=="borrar")
 			self::borrar();
 		else if($accion == "buscarFoto")
-			self::buscarFoto();
+			self::buscarFoto(); //
+		else if($accion == "guardarFoto")
+			self::guardarFoto();
+		else if($accion == "eliminarFoto")
+			self::eliminarFoto();
+		else if($accion == "extraerFoto")
+			self::extraerFoto();
+		else if($accion == "Existencia")
+			self::Existencia();
 		else
 			throw new Exception ("'FotoControlador' La accion $accion no es valida");
 	}
@@ -163,8 +171,6 @@ class FotoControlador{
 			if($foto)
 				$foto=FotografiaServicio::extraerEn($codigo,$ruta);
 
-
-
 			if($foto)
 				Vista::asignarDato("foto",$ruta2);
 			else
@@ -176,5 +182,91 @@ class FotoControlador{
 			throw $e;
 		}
 	}
+
+
+	public static function guardarFoto($codigo,$tipo,$ruta){
+		try{
+			
+			$r=FotografiaServicio::guardar($codigo,$tipo,$ruta);
+			if($r){
+				Vista::asignarDato("codFoto",$r);
+				Vista::asignarDato("mensaje","La foto ha sido guardada");
+				Vista::asignarDato("estatus",1);
+			}
+			else{
+				Vista::asignarDato("mensaje","La foto NO se guardo");
+				Vista::asignarDato("estatus",-1);
+			}
+
+
+			Vista::Mostrar();
+			
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+	public static function eliminarFoto($codigo){
+		try{
+			$r=FotografiaServicio::eliminar($codigo);
+
+			if($r){
+				Vista::asignarDato("mensaje","La foto ha sido borrada");
+				Vista::asignarDato("estatus",1);
+			}
+			else{
+				Vista::asignarDato("mensaje","La foto NO se pudo borrar");
+				Vista::asignarDato("estatus",-1);
+			}
+
+
+			Vista::Mostrar();
+
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+
+	public static function extraerFoto($codigo,$ruta){
+		try{
+
+			$r=FotografiaServicio::extraerEn($codigo,$ruta);
+
+			if($r){
+				Vista::asignarDato("mensaje","La foto fue extraida");
+				Vista::asignarDato("estatus",1);
+			}
+			else{
+				Vista::asignarDato("mensaje","La foto NO pudo ser extraida");
+				Vista::asignarDato("estatus",-1);
+			}
+
+
+			Vista::Mostrar();
+
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
+	public static function Existencia($codigo){
+		try{
+
+			$r=FotografiaServicio::existe($codigo);		
+
+			Vista::asignarDato("existe",$r);
+			Vista::asignarDato("mensaje","La foto si existe");
+
+			Vista::Mostrar();
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
+
 }
 ?>

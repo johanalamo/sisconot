@@ -837,12 +837,15 @@ function mostrarInformaion(){
 		$("#nuevo_estudiante").remove();
 		$("#fotoSpan").remove();
 		$("#borrar_persona").remove();
+		$("#crearUsuario").remove();
 	}
 	else if(getVarsUrl().accion=='N'){
 		$("#borrar_persona").remove();
 		$("#md_persona").remove();
+		$("#crearUsuario").remove();
 	}
 	else {
+		$("#crearUsuario").remove();
 		$("#md_estudiante").remove();
 		$("#md_empleado").remove();
 		$("#borrar_estudiante").remove();
@@ -1016,7 +1019,9 @@ function buscarFoto(codigo,codPersona){
 
 function succBuscarFoto(data){
 	if(data){
+		
 		if(data.foto){
+			
 			$("#imagen").remove();
 			var cadena ="";		
 			cadena+="<div id='imagen'>";
@@ -1025,6 +1030,15 @@ function succBuscarFoto(data){
 			
 			$("#superImagen").append(cadena);		
 			borrarFoto(data.foto);
+		}
+		else{
+			var cadena ="";
+			$("#imagen").remove();		
+			cadena+="<div id='imagen' class='text-center'>";
+			cadena+="<img src='modulos/persona/vista/html5/imagen/foto.png' width='300' height='300'>";
+			cadena+="</div>";
+			
+			$("#superImagen").append(cadena);	
 		}
 	}
 	else{
@@ -1065,7 +1079,103 @@ function succMontarEliminarPersona (data){
 		mostrarMensaje(data.mensaje,2);
 }
 
+function roles (){
 
+	var arr = Array("m_modulo"	,	"persona",
+					"m_accion"	,	"obtenerRol"							
+				   );
+		
+	ajaxMVC(arr,succRoles,errors);
+}
+
+function succRoles(data){
+
+	var cadena = "";
+	$("#DivSelectRol").remove();
+	console.log(data);
+	cadena+="<div id='DivSelectRol'>";
+	
+	cadena += "<select name='selectRol' class='selectpicker' id='rol' title='Roles' data-live-search='true' data-size='auto' data-max-options='12' >"; 
+	cadena += "<option value='-1'>Seleccionar</option>";
+	if(data.rol){
+		for(var x=0; x<data.rol.length;x++)
+		{
+			cadena += '<option value="'+data.rol[x]["codigo"]+'">'+data.rol[x]["usuario"]+'</option>';
+		}
+	}
+	cadena +="</select></div>";
+
+	$(cadena).appendTo('#selectRol2');
+	activarSelect();
+}
+function  abrirDialogoCrearUsuario(nombreDialogo,titulo,tipoAccion,montarImpu=true){
+	$('.modal').remove();
+	$('#'+nombreDialogo).remove();
+	
+	crearDialogo(nombreDialogo,'<center>'+titulo+'</center>','',500,"preGuardarUsuario()","Crear Usuario",true);
+	//crearDialogo("dialogoCrearUsuario","Crear Usuario</center>","",1,"preGuardarUsuario()","Crear Usuario");
+	
+}
+function crearUsuario(){	
+
+	abrirDialogoCrearUsuario("dialogoCrearUsuario","Crear Usuario","preGuardarUsuario()",true);
+	roles ();
+	cadena= "<div class='col-md-6'> <h4>Nombre de Usuario: </h4> <input id='usuario' type='text' maxlength='40' onkeyup='validarUsuario(\"#usuario\",\"0\",\"40\",\"true\")'> </div> ";	
+	cadena+= "<div class='col-md-6'> <h4>Rol:</h4> <div id='selectRol2'> </div> </div>";	
+	cadena+= "<div class='col-md-6'> <h4>Clave: </h4> <input id='clave1' type='password' onkeyup='validarRequerdido(\"#clave1\");'> </div> ";	
+	cadena+= "<div class='col-md-6'> <h4>Confirmar Clave: </h4> <input id='clave2' type='password' onkeyup='validarRequerdido(\"#clave2\");'> </div> ";	
+	cadena+= "<h4></h4>";
+	
+	$(cadena).appendTo(".modal-body");
+}
+
+function preGuardarUsuario(){
+	var bool=true;
+
+	if(!$("#usuario").val().trim()){
+		bool=false;
+		mostrarMensaje("Debes introducir un nombre de usuario",2);
+	}
+	else if($("#rol").val()=="-1"){
+		bool=false;
+		mostrarMensaje("Debes seleccionar un rol",2);
+	}
+	else if(!$("#clave1").val()){
+		bool=false;
+		mostrarMensaje("Debes ingresar una clave",2);
+	}
+	else if(!$("#clave2").val()){
+		bool=false;
+		mostrarMensaje("Debes confirmar la clave",2);
+	}
+	else if($("#clave1").val() != $("#clave2").val()){
+		bool=false;
+		mostrarMensaje("Las claves introducidas NO coinciden",2);
+	}
+
+	if(bool)
+		guardarUsuario();
+}
+
+function guardarUsuario(){
+
+	var arr = Array("m_modulo"	,	"persona",
+					"m_accion"	,	"agregarUsuario",
+					"codPersona",   $("#cod_persona").val(),
+					"rol"		,	$("#rol").val(),	
+					"clave"		,	$("#clave1").val(),
+					"usuSistema",	$("#usuario").val()							
+					);		
+	ajaxMVC(arr,succGuardarUsuario,errors);
+}
+
+function succGuardarUsuario(data){
+
+	if(data.estatus>0)
+		mostrarMensaje(data.mensaje,1);
+	else
+		mostrarMensaje(data.mensaje,2);
+}
 
 function succAgregarPersona(data){
 	console.log(data);
@@ -1076,7 +1186,16 @@ function succAgregarPersona(data){
 
 	$('#cod_persona').val(data.codPersona);
 	$('#codigoPersona').val(data.codPersona);
+
 	if(data.codPersona){
+		if(per.UsuarioAgregar && per.AdministrarPrivilegios){
+			$("#crearUsuario").remove();
+			var cad="<button type='button' class='btn btn-warning' type='button' ";
+				cad+="id='crearUsuario' onclick='crearUsuario();' data-toggle='modal'";
+				cad+=" data-target='#dialogoCrearUsuario'><b>Crear Usuario</b></button>";
+			$("#botonera").append(cad);
+		}
+
 		tabsActivos(); 
 		verEmpleado();
 		verEstudiante();				

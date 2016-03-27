@@ -131,8 +131,6 @@ function crearDialogo(id, titulo, segundoTitulo, size, accion, boton, tipo){
 						'<h4 class="modal-title" id="myModalLabel"><div id="segtitulo">'+segundoTitulo+'</div></h4>'+
 					'</div>'+
 					'<div class="modal-body">'+
-
-
 					'</div>'+
 					'<div class="modal-footer">'+
 						cad3+
@@ -180,6 +178,7 @@ function crearDialogo(id, titulo, segundoTitulo, size, accion, boton, tipo){
 				'</div>'+
 			'</div>'+
 		'</div>').appendTo("body");
+
 	}
 }
 
