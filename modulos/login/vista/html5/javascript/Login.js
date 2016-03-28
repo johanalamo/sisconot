@@ -464,3 +464,5 @@ function error(data){
 //		$(cadena).appendTo("#seccionInstitutos");
 //		buscarInstitutos()
 //	}
+
+//function 

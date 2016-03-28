@@ -51,19 +51,23 @@
 					<div class="text-left" id="botones">
 					
 						<br>
-						
+						{% if (login.obtenerPermiso('EmpleadoListar')) %}
 							<button type="button" id="bTodos1" class="btn btn-info boton-focus" title="Solo Empleados" onclick="empleadoFocus(); verPersonaEmpleado(); verEstadoEm(); succBuscarFoto();">
 							  <b>Empleados</b>
 							</button>
+						{% endif %}
 
+						{% if (login.obtenerPermiso('EstudianteListar')) %}
 							<button type="button" id="bTodos2" class="btn btn-info boton-focus" title="Solo Estudiantes" onclick="estudianteFocus(); verPersonaEstudiante(); verEstadoEs(); succBuscarFoto();">
 								<b>Estudiantes<b>
 							</button>
+						{% endif %}
 
+						{% if (login.obtenerPermiso('PersonaListar')) %}
 							<button type="button" class="btn btn-info boton-focus" title="todos" id="bTodos3" onclick=" TodosFocus(); asignarAmbos(); verPersona(); succBuscarFoto(); ">
 								<b>Todos<b>
 							</button><!--antes se llamaba ambos-->	
-
+						{% endif %}
 
 					</div>
 					</div>

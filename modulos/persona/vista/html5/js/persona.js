@@ -73,20 +73,12 @@ $(function()
 $(document).ready(function() {
 
 	if($('#pantalla').val()=="principal"){
-		limpiarCamposPersona();
-
-		nuevoEstudiante ();
-		NuevoEmpleado ();
+		limpiarCamposPersona();		
+		
 
 		tabsBloqueados();
-		removerEsEm();
-
-		verEstadoEsPrincipal();  
-		verInstitutoEsPrincipal(); 
-		verPNFEsPrincipal();
-		verInstitutoEm2(); 
-		verEstadoEm2(); 
-		verPNFEm2();
+		removerEsEm();		
+		
 		var accion =getVarsUrl().accion;
 		if(accion=="V"){
 			bloquearCamposPersona();
@@ -862,6 +854,7 @@ function mostrarInformaion(){
 		$("#guardarPersona").remove();
 		$("#nuevo_persona").remove();
 	}
+
 	var accion =getVarsUrl().accion;
 	if(getVarsUrl().persona!="-1" && getVarsUrl().persona && (accion=="V" || accion=="M" || accion=="V"))
 		ajaxMVC(arr,succMontarModificarPersona,error);
@@ -893,7 +886,7 @@ function succMontarModificarPersona2(data){
 function succMontarModificarPersona(data){
 	
 	tabsActivos(); 
-	
+
 	$("#ced_persona").val(data.persona[0]['cedula']);
 	$("#rif_persona").val(data.persona[0]['rif']);
 	$("#nombre1").val(data.persona[0]['nombre1']);

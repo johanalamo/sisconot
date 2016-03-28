@@ -32,7 +32,10 @@ Diseñador - Programador /   Fecha   / Descripción del cambio
 $(document).ready(function() {
 
 	verEstudiante();
-
+	nuevoEstudiante ();
+	verEstadoEsPrincipal();  
+		verInstitutoEsPrincipal(); 
+		verPNFEsPrincipal();
 	setTimeout(function() {
 		
 		var accion =getVarsUrl().accion;

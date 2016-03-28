@@ -81,6 +81,7 @@ class LoginServicio{
 			
 			$consulta = "select 	per.nombre1 || ' ' || per.apellido1 as nombre,
 									per.codigo,
+									per.cod_foto,
 									emp.es_jef_pensum,
 									emp.es_jef_con_estudio,
 									emp.es_ministerio,
