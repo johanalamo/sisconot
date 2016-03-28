@@ -73,9 +73,8 @@ $(function()
 $(document).ready(function() {
 
 	if($('#pantalla').val()=="principal"){
-		limpiarCamposPersona();		
 		
-
+		limpiarCamposPersona();	
 		tabsBloqueados();
 		removerEsEm();		
 		

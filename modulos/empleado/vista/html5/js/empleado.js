@@ -31,10 +31,12 @@ Diseñador - Programador /   Fecha   / Descripción del cambio
 
 $(document).ready(function() {
 	verEmpleado();
-	NuevoEmpleado();
-	verInstitutoEm2(); 
-	verEstadoEm2(); 
-	verPNFEm2();
+	if($('#pantalla').val()=="principal"){
+		NuevoEmpleado();
+		verInstitutoEm2(); 
+		verEstadoEm2(); 
+		verPNFEm2();
+	}
 	setTimeout(function() {
 
 		var accion =getVarsUrl().accion;

@@ -175,16 +175,16 @@
 			//	$ruta=$path."/temp/".$codigo.".".$foto[0]["tipo"]; 
 
 				$codigo=PostGet::obtenerPostGet("codPersona");	
-				$login=Vista::obtenerDato('login');
-				if($login->obtenerPermiso('PersonaListar'))			
+			/*	$login=Vista::obtenerDato('login');
+				if($login->obtenerPermiso('PersonaListar'))		*/	
 					$persona=PersonaServicio::listar(null,null,null,null,$codigo);	
 
-				$login=Vista::obtenerDato('login');
-				if($login->obtenerPermiso('EstudianteListar'))
+			/*	$login=Vista::obtenerDato('login');
+				if($login->obtenerPermiso('EstudianteListar'))*/
 					$estudiante=EstudianteServicio::listar(null,null,null,null,$codigo);
 
-				$login=Vista::obtenerDato('login');
-				if($login->obtenerPermiso('EmpleadoListar'))
+			/*	$login=Vista::obtenerDato('login');
+				if($login->obtenerPermiso('EmpleadoListar'))*/
 					$empleado=EmpleadoServicio::listar(null,null,null,null,$codigo);
 
 				$foto=FotografiaServicio::existe($persona[0]['cod_foto']);
