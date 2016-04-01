@@ -41,6 +41,7 @@ Johan Alamo  - Geraldine Castillo /  diciembre del 2013  /se modificó la config
 //objeto que contendrá el arreglo con la información de $_POST y $GET
 //estará disponible como un objeto global a toda la aplicación
 require_once 'modulos/login/LoginControlador.php';
+require_once 'modulos/foto/modelo/FotografiaServicio.php';
 require_once 'base/clases/utilitarias/PostGet.clase.php';
 require_once 'base/clases/utilitarias/Util.clase.php';
 require_once 'negocio/Sesion.php';
@@ -144,8 +145,23 @@ class PrincipalControlador {
 			 * a la vista (para manejarse por javascript y php)
 			 */
 
-			vista::asignarDato("login",Sesion::obtenerLogin());
-			vista::asignarDato("datos",Sesion::obtenerDatosUsuario());
+			Vista::asignarDato("login",Sesion::obtenerLogin());
+			Vista::asignarDato("datos",Sesion::obtenerDatosUsuario());
+			
+			//var_dump(Sesion::obtenerDatosUsuario());
+			
+			$dat = Vista::obtenerDato("datos");
+			
+
+			$r = FotografiaServicio::extraer(null, $dat[0]['codigo'], $dat[0]['tipo']);
+			
+			FotografiaServicio::extraerEn($dat[0]['codigo'],$r);
+			
+			if(file_exists($r))
+				Vista::asignarDato("fotoPerfil","temp/".$dat[0]['codigo'].".".$dat[0]['tipo']);
+			else
+				Vista::asignarDato("fotoPerfil","profile_avatar.png");
+			
 			Vista::asignarDato("usuBD",$instalacion->obtenerUsuBD());
 
 		}

@@ -36,7 +36,7 @@ function succ(data){
 }
 
 function err(data){
-	alert("err");
+	mostrarMensaje("Ocurrió un error de comunicación con el servidor. Es probable que no se haya procesado la petición.",2);
 	console.log(data);
 }
 
@@ -81,7 +81,7 @@ function limpiarCampos(val){
 	if($("#selEstudiante").length > 0){
 			$("#selEstudiante").selectpicker('destroy');
 
-			$("#divEstudiante").append("<select class='selectpicker' id='selEstudiante' data-live-search='true' data-size='auto'></select>");
+			$("#divEstudiante").append("<select class='selectpicker' id='selEstudiante' data-live-search='true' data-size='20'></select>");
 			$("#selEstudiante").selectpicker();
 	}
 
@@ -99,7 +99,7 @@ function limpiarCampos(val){
 	if($("#selUni").length > 0){
 		$("#selUni").selectpicker('destroy');
 
-		$("#divUni").append("<select class='selectpicker' id='selUni' data-live-search='true' data-size='auto'></select>");
+		$("#divUni").append("<select class='selectpicker' id='selUni' data-live-search='true' data-size='20'></select>");
 		$("#selUni").selectpicker();
 	}
 
@@ -122,7 +122,7 @@ function limpiarCampos(val){
 	else if($("#selSec").length > 0){
 		$("#selSec").selectpicker('destroy');
 
-		$("#divSec").append("<select class='selectpicker' id='selSec' data-live-search='true' data-size='auto'></select>");
+		$("#divSec").append("<select class='selectpicker' id='selSec' data-live-search='true' data-size='20'></select>");
 		$("#selSec").selectpicker();
 	}
 
@@ -139,7 +139,7 @@ function limpiarCampos(val){
 	if($("#selTra").length > 0){
 		$("#selTra").selectpicker('destroy');
 
-		$("#divTra").append("<select class='selectpicker' id='selTra' data-live-search='true' data-size='auto'></select>");
+		$("#divTra").append("<select class='selectpicker' id='selTra' data-live-search='true' data-size='20'></select>");
 		$("#selTra").selectpicker();
 	}
 
@@ -156,7 +156,7 @@ function limpiarCampos(val){
 	if($("#selPer").length > 0){
 		$("#selPer").selectpicker('destroy');
 
-		$("#divPer").append("<select class='selectpicker' id='selPer' data-live-search='true' data-size='auto'></select>");
+		$("#divPer").append("<select class='selectpicker' id='selPer' data-live-search='true' data-size='20'></select>");
 		$("#selPer").selectpicker();
 	}
 
@@ -173,7 +173,7 @@ function limpiarCampos(val){
 	if($("#selPen").length > 0){
 		$("#selPen").selectpicker('destroy');
 
-		$("#divPen").append("<select class='selectpicker' id='selPen' data-live-search='true' data-size='auto'></select>");
+		$("#divPen").append("<select class='selectpicker' id='selPen' data-live-search='true' data-size='20'></select>");
 		$("#selPen").selectpicker();
 	}
 
@@ -190,7 +190,7 @@ function limpiarCampos(val){
 	if($("#selInst").length > 0){
 		$("#selInst").selectpicker('destroy');
 
-		$("#divInst").append("<select class='selectpicker' id='selInst' data-live-search='true' data-size='auto'></select>");
+		$("#divInst").append("<select class='selectpicker' id='selInst' data-live-search='true' data-size='20'></select>");
 		$("#selInst").selectpicker();
 	}
 
@@ -233,7 +233,7 @@ function succCargarInstitutos(data){
 	var ins = data.institutos;
 
 	var cad = "";
-	cad += "<select class='selectpicker' id='selInst' onchange='cargarPensums()' data-live-search='true' data-size='auto'>";
+	cad += "<select class='selectpicker' id='selInst' onchange='cargarPensums()' data-live-search='true' data-size='20'>";
 
 	if(ins){
 		cad += "<option value='-1' disabled selected> Seleccione Instituto</option>";
@@ -254,8 +254,6 @@ function succCargarInstitutos(data){
 
 	datos = data.datos;
 
-	if(datos != null)
-		montarSelectUsuario();
 }
 
 /*
@@ -297,7 +295,7 @@ function succCargarPensums(data){
 	var pen = data.pensum;
 	var cad = "";
 
-	cad += "<select class='selectpicker' id='selPen' onchange='cargarPeriodos()' data-live-search='true' data-size='auto'>";
+	cad += "<select class='selectpicker' id='selPen' onchange='cargarPeriodos()' data-live-search='true' data-size='20'>";
 
 	if(pen){
 		cad += "<option value='-1' disabled selected> Seleccione Pensum</option>";
@@ -315,7 +313,6 @@ function succCargarPensums(data){
 	$("#selPen").selectpicker('destroy');
 	$("#divPen").append(cad);
 	$("#selPen").selectpicker();
-
 	limpiarCampos('pen');
 }
 
@@ -357,10 +354,10 @@ function succCargarPeriodos(data){
 	var cad = "";
 
 	if($("#divEstudiante").length > 0){
-		cad += "<select class='selectpicker' id='selPer' onchange='cargarEstudiantes()' data-live-search='true' data-size='auto'>";
+		cad += "<select class='selectpicker' id='selPer' onchange='cargarEstudiantes()' data-live-search='true' data-size='20'>";
 	}
 	else {
-		cad += "<select class='selectpicker' id='selPer' onchange='cargarTrayectos()' data-live-search='true' data-size='auto'>";
+		cad += "<select class='selectpicker' id='selPer' onchange='cargarTrayectos()' data-live-search='true' data-size='20'>";
 	}
 	if(per){
 		cad += "<option value='-1' disabled selected> Seleccione Periodo</option>";
@@ -380,7 +377,6 @@ function succCargarPeriodos(data){
 	$("#selPer").selectpicker('destroy');
 	$("#divPer").append(cad);
 	$("#selPer").selectpicker();
-
 	limpiarCampos('per');
 }
 
@@ -422,9 +418,9 @@ function succCargarTrayectos(data){
 	var cad = "";
 
 	if($("#selSec").length > 0)
-		cad += "<select class='selectpicker' id='selTra' data-live-search='true' onchange='cargarSeccion()' data-size='auto'>";
+		cad += "<select class='selectpicker' id='selTra' data-live-search='true' onchange='cargarSeccion()' data-size='20'>";
 	else
-		cad += "<select class='selectpicker' id='selTra' onchange='limpiarCampos(\"tra\")' data-live-search='true' data-size='auto'>";
+		cad += "<select class='selectpicker' id='selTra' onchange='limpiarCampos(\"tra\")' data-live-search='true' data-size='20'>";
 
 
 	if(tra){
@@ -441,7 +437,6 @@ function succCargarTrayectos(data){
 	$("#selTra").selectpicker("destroy");
 	$("#divTra").append(cad);
 	$("#selTra").selectpicker();
-
 	limpiarCampos('tra');
 }
 
@@ -456,8 +451,9 @@ function succCargarTrayectos(data){
 function cargarSeccion(){
 	var arr = Array("m_modulo"		,		"curso",
 					"m_accion"		,		"buscarSeccionPorTrayecto",
-					"codTrayecto"	,		$("#selTra").val());
-
+					"codTrayecto"	,		$("#selTra").val(),
+					"periodo"		,		$("#selPer").val());
+	
 	ajaxMVC(arr,succCargarSeccion,err);
 }
 
@@ -485,7 +481,7 @@ function succCargarSeccion(data){
 		$("#sec").val(sec[0][0]);
 	}
 	else{
-		cad += "<select class='selectpicker' id='selSec' data-live-search='true' onchange='cargarUni()' data-size='auto'>";
+		cad += "<select class='selectpicker' id='selSec' data-live-search='true' onchange='cargarUni()' data-size='20'>";
 
 		if(sec){
 			cad += "<option value='-1' disabled selected>Seleccione Sección</option>";
@@ -547,7 +543,7 @@ function succCargarUni(data){
 	var uni = data.uni;
 	var cad = "";
 
-	cad += "<select class='selectpicker' id='selUni' data-live-search='true' onchange=\"listarEstudiantes(succListarEstudiantes,$('#selUni').val())\" data-size='auto'>";
+	cad += "<select class='selectpicker' id='selUni' data-live-search='true' onchange=\"listarEstudiantes(succListarEstudiantes,$('#selUni').val())\" data-size='20'>";
 
 	if(uni){
 		cad += "<option value='-1' disabled selected> Seleccione Unidad Curricular</option>";
@@ -563,7 +559,6 @@ function succCargarUni(data){
 	$("#selUni").selectpicker("destroy");
 	$("#divUni").append(cad);
 	$("#selUni").selectpicker();
-
 	limpiarCampos('uni');
 }
 
@@ -1266,10 +1261,7 @@ function succListarEstudiantes(data){
 $( document ).ready(function() {
 	if($("#selInst").length > 0)
 		cargarInstitutos();
-	else {
-		cargarNotas();
-		listarEstudiantes(succListarEstudiantesCargarNotas,obtenerGet('codigo'));
-	}
+	
 });
 
 
@@ -1278,11 +1270,10 @@ $( document ).ready(function() {
 // if((obtenerGet('m_vista') != 'CargarNotas')&&(obtenerGet('codigo') != null)){
 // 	montarSelects();
 // }
-if(obtenerGet('codigo') != null)
-	montarSelects();
-else if(datos != null)
-	montarSelectUsuario();
 
+if(obtenerGet('codigo') != null && obtenerGet('m_vista') != 'CargarNotas'){
+	montarSelects();
+}
 
 function montarSelectUsuario(){
 
@@ -1291,30 +1282,29 @@ function montarSelectUsuario(){
 	if(datos.emp_inst != null){
 		$("#selInst").val(datos.emp_inst);
 		$("#selInst").attr('disabled',true);
-		$("#selInst").selectpicker("refresh");
 		cargarPensums();
 	}
 	else if(datos.est_inst != null){
 		$("#selInst").val(datos.est_inst);
 		$("#selInst").attr('disabled',true);
-		$("#selInst").selectpicker("refresh");
 		cargarPensums();
 	}
-
+	
+	
 	setTimeout(function(){
 		if(datos.emp_pensum != null){
 			$("#selPen").val(datos.emp_pensum);
 			$("#selPen").prop("disabled",true);
-			$("#selPen").selectpicker("refresh");
+			$(".selectpicker").selectpicker("refresh");
 			cargarPeriodos();
 		}
 		else if(datos.est_pensum != null){
 			$("#selPen").val(datos.est_pensum);
 			$("#selPen").prop("disabled",true);
-			$("#selPen").selectpicker("refresh");
-			cargarPeriodos();
+			$(".selectpicker").selectpicker("refresh");
+			cargarPeriodos();	
 		}
-	},250);
+	},700);
 
 
 }
@@ -1523,18 +1513,25 @@ function succGuardarNotas(data){
 }
 
 function succMontarSelects(data){
-
+	
 	var dat = data.cursoInfoMontar;
-
-	var i = 2;
+	var tmp = 300;
+	var i = 1;
+	
 	if(dat[0]['cod_instituto'] != null){
 		i++;
 		setTimeout(function (){
 			$("#selInst").val(dat[0]['cod_instituto']);
+			if(datos != null){
+				if(datos.est_instituto != null || datos.emp_instituto != null){
+					$("#selPen").prop("disabled",true);
+				}
+			}
 			cargarPensums();
-		}, 200*i);
+		}, tmp*i);
 	}
 
+	
 	if(dat[0]['cod_pensum'] != null){
 		i++;
 		setTimeout(function (){
@@ -1544,10 +1541,8 @@ function succMontarSelects(data){
 					$("#selPen").prop("disabled",true);
 				}
 			}
-
 			cargarPeriodos();
-			i++;
-		}, 200*i);
+		}, tmp*i);
 	}
 
 	if(dat[0]['codigo'] != null){
@@ -1556,7 +1551,7 @@ function succMontarSelects(data){
 			$("#selPer").val(dat[0]['codigo']);
 			cargarTrayectos();
 
-		}, 200*i);
+		}, tmp*i);
 	}
 
 	if(dat[0]['cod_trayecto'] != null){
@@ -1566,14 +1561,14 @@ function succMontarSelects(data){
 
 			if($("#selSec").length > 0)
 				cargarSeccion();
-		}, 200*i);
+		}, tmp*i);
 	}
 
 	if($("#sec").length > 0){
 		i++;
 		setTimeout(function (){
 			$("#sec").val(dat[0]['seccion']);
-		}, 200*i);
+		}, tmp*i);
 	}
 	else if(dat[0]['seccion'] != null){
 		i++;
@@ -1582,7 +1577,7 @@ function succMontarSelects(data){
 
 			if($("#selUni").length > 0)
 				cargarUni();
-		}, 200*i);
+		}, tmp*i);
 	}
 
 	if($("#selUni").length > 0){
@@ -1590,15 +1585,11 @@ function succMontarSelects(data){
 			i++;
 			setTimeout(function (){
 				$("#selUni").val(dat[0]['codigocurso']);
-			}, 200*i);
+			}, tmp*i);
 		}
 	}
 
-
-	i++;
 	setTimeout(function (){
-		$(".selectpicker").selectpicker("refresh");
-
 		if($("#divLis").length == 0)
 			cargarCursosPensum();
 		else{
@@ -1609,7 +1600,9 @@ function succMontarSelects(data){
 				listarEstudiantes(succListarEstudiantes,$("#selUni").val());
 			}
 		}
-	}, 200*i);
+		$(".selectpicker").selectpicker("refresh");
+	}, tmp*i);
+	
 }
 
 
@@ -1649,7 +1642,7 @@ function succCargarEstudiantes(data){
 	var dat = data.estudiantes;
 	var cad = "";
 
-	cad += "<select class='selectpicker' id='selEstudiante' onchange='listarUniEstudiante()' data-live-search='true' data-size='auto'a>";
+	cad += "<select class='selectpicker' id='selEstudiante' onchange='listarUniEstudiante()' data-width='500px' data-live-search='true' data-size='20'>";
 
 	if(dat){
 
@@ -1684,8 +1677,9 @@ function listarUniEstudiante(){
 						"estudiante"	,		$("#selEstudiante").val(),
 						"instituto"		,		$("#selInst").val(),
 						"pensum"		,		$("#selPen").val(),
-						"periodo"		,		$("#selPer").val());
-
+						"periodo"		,		$("#selPer").val(),
+						"prelaciones"	,		($("#chckPrelacion").is(':checked')));
+		
 		ajaxMVC(arr,succCursosInscribir,err);
 	}
 }
@@ -1868,13 +1862,13 @@ function succInscribirUC(data){
 function succListarUniEstudiante(data){
 	var dat = data.cursos;
 	var cad = "";
-
 	if(dat){
 		cad += "<table class='table table-hover table-condensed table-responsive' id='tableC'>";
 
 		cad += "<th class='dark' style='text-align:center'>Seleccionar</th>";
+		cad += "<th class='dark' style='text-align:center'>Código del Curso</th>";
 		cad += "<th class='dark' style='text-align:center'>Trayecto</th>";
-		cad += "<th class='dark' style='text-align:center'>Nombre UC</th>";
+		cad += "<th class='dark' style='text-align:center'>Nombre UC (Código de Ministerio)</th>";
 		cad += "<th class='dark' style='text-align:center'>Sección</th>";
 		cad += "<th class='dark' style='text-align:center'>Estado</th>";
 
@@ -1884,10 +1878,15 @@ function succListarUniEstudiante(data){
 			cad += "<td style='text-align:center'><input type='checkbox' id='checkbox"+i+"'></input></td>";
 
 			cad += "<input type='hidden' id='hid"+i+"' value="+dat[i]['cod_ce']+"></input>";
-
+	
+			cad += "<td style='text-align:center'>"+dat[i]['cod_cur']+"</td>";
+			
 			cad += "<td style='text-align:center'>"+dat[i]['num_trayecto']+"</td>";
 
-			cad += "<td style='text-align:center'>"+dat[i]['nombre']+" ("+dat[i]['cod_uni_ministerio']+")</td>";
+			if(dat[i]['cod_uni_ministerio'] == null)
+				cad += "<td style='text-align:center'>"+dat[i]['nombre']+" (No Disponible)</td>";
+			else
+				cad += "<td style='text-align:center'>"+dat[i]['nombre']+" ("+dat[i]['cod_uni_ministerio']+")</td>";
 
 			cad += "<td style='text-align:center'>"+dat[i]['seccion']+"</td>";
 

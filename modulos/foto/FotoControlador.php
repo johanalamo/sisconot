@@ -230,22 +230,21 @@ class FotoControlador{
 	}
 
 
-	public static function extraerFoto($codigo,$ruta){
+	public static function extraerFoto(/*$codigo,$ruta*/){
 		try{
-
+			
+			
+			$codigo=PostGet::obtenerPostGet("codigo");
+			$ruta=PostGet::obtenerPostGet("ruta");
+			$codPersona=PostGet::obtenerPostGet("codPersona");
+			$tipo=PostGet::obtenerPostGet("tipo");
+			
+			if(!$ruta){
+				FotografiaServicio::extraer($ruta, $codPersona, $tipo);
+			}			
 			$r=FotografiaServicio::extraerEn($codigo,$ruta);
 
-			if($r){
-				Vista::asignarDato("mensaje","La foto fue extraida");
-				Vista::asignarDato("estatus",1);
-			}
-			else{
-				Vista::asignarDato("mensaje","La foto NO pudo ser extraida");
-				Vista::asignarDato("estatus",-1);
-			}
-
-
-			Vista::Mostrar();
+			return ($r);
 
 		}
 		catch(Exception $e){

@@ -358,7 +358,7 @@ function agregarPeriodoD(){
 }
 
 function succAgregarPeriodoD(data){
-	console.log(data);
+	
 	var inst = data.institutos;
 	var est = data.estados;
 
@@ -449,8 +449,8 @@ function agregarPeriodo(){
 	var arr = Array("m_modulo"			,		"periodo",
 					"m_accion"			,		"agregarPeriodo",
 					"nomPeriodo"		,		$("#dialogoPerAgregar #nombreP").val(),
-					"codIns"			,		$("#dialogoPerAgregar #selInst").val()[0],
-					"codPen"			,		$("#dialogoPerAgregar #selPen").val()[0],
+					"codIns"			,		$("#dialogoPerAgregar #selInst").val(),
+					"codPen"			,		$("#dialogoPerAgregar #selPen").val(),
 					"fecIni"			,		$("#dialogoPerAgregar #fecIP").val(),
 					"fecFin"			,		$("#dialogoPerAgregar #fecFP").val(),
 					"observaciones"		,		$("#dialogoPerAgregar #obsP").val(),

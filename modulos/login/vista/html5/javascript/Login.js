@@ -322,7 +322,7 @@ function error(data){
      *
      * */
 	function succConectar(data){
-		console.log(data);
+		console.log(data.datos);
 		if(data.estatus>0){
 			//$("#nombreUsuario").html(data.datos[0][0]);
 			//~ cadena="";
@@ -341,10 +341,6 @@ function error(data){
 				mostrarMensaje("Bienvenido, "+data.datos[0][0]+". Gracias por utilizar SISGESAC. En pocos segundos será redirigido a la página de inicio.",5);
 			else
 				mostrarMensaje("Bienvenido, ADMIN. Gracias por utilizar SISGESAC. En pocos segundos será redirigido a la página de inicio.",5);
-
-
-
-
 
 			setTimeout(function(){
 				window.location.assign("index.php");
@@ -465,4 +461,19 @@ function error(data){
 //		buscarInstitutos()
 //	}
 
-//function 
+//~ function fotoPerfil(){
+//~ 
+	//~ arr=Array('m_modulo','foto',
+			  //~ 'm_accion','extraerFoto',
+			  //~ 'codigo',Gdatos.cod_foto,
+			  //~ 'codPersona',Gdatos.codigo
+			 //~ );
+	//~ if(Gdatos.cod_foto)
+		//~ ajaxMVC(arr,succFotoPerfil,error);
+//~ }
+//~ 
+//~ function succFotoPerfil(data){
+	//~ alert();
+	//~ console.log(data);
+	//~ 
+

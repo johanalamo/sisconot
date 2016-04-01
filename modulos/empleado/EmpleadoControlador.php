@@ -290,13 +290,17 @@ class EmpleadoControlador
 					if ($c > 0)
 						$cad .= ",";
 					$cad .= "{";
+					
 					if(!$completo)
-						$cad .= '"label": "' . $docente['nombre1']. ' ' . $docente['apellido1'] . '", ';
+						$cad .= '"label": "' . $docente['nombre1']. ' '. $docente['apellido1'].' ('.$docente['cedula'].')", ';
 					else
 						$cad .= '"label": "' . $docente['nombre1']. ' ' . $docente['nombre2']. ' ' . $docente['apellido1']. ' ' . $docente['apellido2'] . '", ';
 
-
-					$cad .= '"value": '.$docente['codigo'];
+					if(!$completo)
+						$cad .= '"value": '.$docente['cod_persona'];
+					else
+						$cad .= '"value":'.$docente['codigo'];
+					
 					$cad .= "}";
 					$c++;
 				}

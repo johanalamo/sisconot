@@ -278,7 +278,7 @@ function compararDatosEmpleados(data){
 	else
 		bool=false;		
 
-	alert(bool+" ** "+boolAux);
+	//alert(bool+" ** "+boolAux);
 
 	if(boolNada){
 		if(boolAux && data.empleado)
@@ -295,7 +295,7 @@ function compararDatosEmpleados(data){
 }
 
 
-function preDobleGuardar(bool=null,boolAux=null,data=null){
+function preDobleGuardar(bool,boolAux,data){
 
 	if(boolAux && boolAux){
 		guardarEmpleadoAux(data,boolAux);
@@ -336,7 +336,7 @@ function guardarEmpleadoAux(data,boolAux){
 
 }
 
-function guardarEmpleado(bool=null,data=null){
+function guardarEmpleado(bool,data){
 	var fec_ini=$("#fec_ini_empleado").val();
 	var fec_fin=null;
 	
@@ -425,7 +425,7 @@ function verPNFEm2(){
 	
 		var arr = Array("m_modulo"	,	"pensum",
 						"m_accion"	,	"buscarPorInstituto",
-						"codigo"	,	null
+						"codigo"	,	$("#empleado #selectInstituto").val()
 						);
 		ajaxMVC(arr,montarSelectPNFE,error);	
 }
@@ -542,7 +542,7 @@ function montarPersonaEmpleado(){
 * por ajax.
 */
 
-function modificarEmpleado(cod_empleado=null,cod_persona=null){
+function modificarEmpleado(cod_empleado,cod_persona){
 	
 	if(!cod_persona && $("#cod_persona").val())
 		cod_persona=$("#cod_persona").val();
@@ -577,13 +577,18 @@ function succMontarModificarEmpleado (data){
 		$("#empleado #selectInstituto").val(data.empleado[0]['cod_instituto']);	
 
 	verPNFEm2();
-	}, 150);
+	}, 950);
 	setTimeout(function(){ 
 		$("#empleado #selectPNF").val(data.empleado[0]['cod_pensum']);
-		if(getVarsUrl().accion=="V")
+		if(getVarsUrl().accion=="V"){
+			$("#empleado #selectInstituto").prop("disabled",true);
 			$("#empleado #selectPNF").prop("disabled",true);
-		$('.selectpicker').selectpicker('refresh');  
-	}, 250);
+			$("#empleado #selectEstado").prop("disabled",true);
+		}
+		$('#empleado #selectInstituto').selectpicker('refresh'); 
+		$('#empleado #selectPNF').selectpicker('refresh');  
+		$('#empleado #selectEstado').selectpicker('refresh');   
+	}, 2000);
 	$("#fec_ini_empleado").val(data.empleado[0]['fec_inicios']);
 	if(data.empleado[0]['fec_final'])
 		$("#fec_fin_empleado").val(data.empleado[0]['fec_final']);

@@ -156,7 +156,8 @@ function succAntesGuardarEstudiante(data){
 	var bool=true;
 	if(data.estudiante){
 		for(var x=0;x<data.estudiante.length;x++){
-			if(data.estudiante[0]['fec_inicios']==$("#fec_ini_estudiante").val()){
+			if(data.estudiante[x]['fec_inicios']==$("#fec_ini_estudiante").val()
+				&& data.estudiante[x]['codigo']!= $("#cod_estudiante").val()){
 				bool=false;
 				break;
 			}
@@ -262,7 +263,7 @@ function verEstadoEsPrincipal(){
 * que lugo se modifique su informacionde la base de datos. Los Datos son enviados
 * por ajax.
 */
-function modificarEstudiante(cod_estudiante=null,cod_persona=null){
+function modificarEstudiante(cod_estudiante,cod_persona){
 
 	if(!cod_persona && $("#cod_persona").val())
 		cod_persona=$("#cod_persona").val();
@@ -293,7 +294,7 @@ function succMontarModificarEstudiante (data){
 		$("#estudiante #selectInstituto").val(data.estudiante[0]['cod_instituto']);	
 		$("#estudiante #selectEstado").val(data.estudiante[0]['cod_estado']);
 		verPNFEsPrincipal();
-	}, 150);
+	}, 850);
 
 	$("#cod_estudiante").val(data.estudiante[0]['codigo']);
 	$("#codPersona").val(data.estudiante[0]['cod_persona']);		
@@ -305,14 +306,19 @@ function succMontarModificarEstudiante (data){
 	$("#fec_fin_estudiante").val(data.estudiante[0]['fec_final']);
 	$("#condicion").val(data.estudiante[0]['condicion']);
 	$("#obs_estudiante").val(data.estudiante[0]['observaciones']);										
-	$("#estadoEs").val(data.estudiante[0]['cod_estado']);		
+	//$("#estadoEs").val(data.estudiante[0]['cod_estado']);		
 	
 	setTimeout(function(){ 
 		$("#estudiante #selectPNF").val(data.estudiante[0]['cod_pensum']);
-		if(getVarsUrl().accion=="V")
+		if(getVarsUrl().accion=="V"){
+			$("#estudiante #selectInstituto").prop("disabled",true);
 			$("#estudiante #selectPNF").prop("disabled",true);
-		$('.selectpicker').selectpicker('refresh');
-	}, 450);
+			$("#estudiante #selectEstado").prop("disabled",true);
+		}
+		$('#estudiante #selectInstituto').selectpicker('refresh');
+		$('#estudiante #selectPNF').selectpicker('refresh');
+		$('#estudiante #selectEstado').selectpicker('refresh');
+	}, 1850);
 }
 
 function nuevoEstudiante (){

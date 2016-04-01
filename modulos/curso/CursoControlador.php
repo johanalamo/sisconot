@@ -457,8 +457,9 @@ Descripción:
 		public static function buscarSeccionPorTrayecto(){
 			try{
 				$cod = PostGet::obtenerPostGet("codTrayecto");
+				$per = PostGet::obtenerPostGet("periodo");
 
-				$r = CursoServicio::listarSeccionPorTrayecto($cod);
+				$r = CursoServicio::listarSeccionPorTrayecto($cod,$per);
 
 				Vista::asignarDato("secciones",$r);
 
@@ -602,7 +603,10 @@ Descripción:
 				$instituto = PostGet::obtenerPostGet("instituto");
 				$pensum = PostGet::obtenerPostGet("pensum");
 				$periodo = PostGet::obtenerPostGet("periodo");
-
+				$conPrelaciones = PostGet::obtenerPostGet("prelaciones");
+				
+				$conPrelaciones = !($conPrelaciones == "true");
+				
 				/* Unidades curriculares que tiene que ver en el pensum */
 				$listaUniCur = CursoServicio::obtenerUnidadesCurricularesDelPensumPorEstudiante($estudiante);
 
@@ -611,20 +615,23 @@ Descripción:
 
 				//arreglo
 				$aprobadas = CursoServicio::obtenerUnidadesCurricularesAprobadasPorEstudiante($estudiante,$pensum);
-
+				
 				if ($aprobadas != null)
 					$listaUniCur = array_diff ($listaUniCur, $aprobadas);
 				if ($convalidaciones != null)
 					$listaUniCur = array_diff( $listaUniCur, $convalidaciones);
 
-				//arreglo
-				$preladas = CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares($listaUniCur,$pensum,$instituto);
-
+				
+				if($conPrelaciones)
+					$preladas = CursoServicio::obtenerUnidadesCurricularesPreladasPorListaDeUnidadesCurriculares($listaUniCur,$pensum,$instituto);
+				else
+					$preladas = array();
+					
 				//arreglo
 				$cursando = CursoServicio::obtenerCursosCursando($estudiante,$pensum);
 
 				//arreglo
-				$r = CursoServicio::obtenerCursosDisponiblesParaInscripcionPorEstudiante($estudiante, $aprobadas, $convalidaciones, $preladas, $cursando);
+				$r = CursoServicio::obtenerCursosDisponiblesParaInscripcionPorEstudiante($estudiante, $aprobadas, $convalidaciones, $preladas, $cursando, $periodo);
 
 				Vista::asignarDato("cursos",$r);
 

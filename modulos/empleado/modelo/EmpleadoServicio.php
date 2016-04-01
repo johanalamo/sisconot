@@ -466,12 +466,13 @@ class EmpleadoServicio
 	public static function buscarDocentes($patron,$pensum,$instituto){
 		try{
 			$conexion=Conexion::conectar();
-			$consulta = "select
+			$consulta = "select per.codigo cod_persona,
 								emp.codigo,
 								per.nombre1,
 								per.apellido1,
 								per.nombre2,
-								per.apellido2 
+								per.apellido2,
+								per.cedula
 								from sis.t_empleado emp
 								inner join sis.t_persona per
 									on per.codigo = emp.cod_persona

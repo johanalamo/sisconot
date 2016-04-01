@@ -82,6 +82,7 @@ class LoginServicio{
 			$consulta = "select 	per.nombre1 || ' ' || per.apellido1 as nombre,
 									per.codigo,
 									per.cod_foto,
+									arc.tipo,
 									emp.es_jef_pensum,
 									emp.es_jef_con_estudio,
 									emp.es_ministerio,
@@ -97,6 +98,8 @@ class LoginServicio{
 										on emp.cod_persona = per.codigo
 									left join sis.t_estudiante as est
 										on est.cod_persona = per.codigo
+									left join sis.t_archivo arc
+										on arc.codigo = per.cod_foto
 									where per.codigo = $codigo";
 									
 			$ejecutar = $conexion->prepare($consulta);

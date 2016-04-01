@@ -480,7 +480,7 @@ function montarSelectEstado(data){
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarPersona().
 */
-function verPersona(codi=null){
+function verPersona(codi){
 	
 	
 	var modulo="";
@@ -536,7 +536,7 @@ function buscarPorCampo(){
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarPersona().
 */
-function verPersonaEmpleado(codi=null){
+function verPersonaEmpleado(codi){
 	$("#tipoPersona").val("empleado");
 
 	var arr = Array("m_modulo"	,	"empleado",
@@ -560,7 +560,7 @@ function verPersonaEmpleado(codi=null){
 * por ajax para que se haga la consulta a la base de datos y mostrar 
 * los resultados en la funcion montarPersona().
 */
-function verPersonaEstudiante(codi=null){
+function verPersonaEstudiante(codi){
 	$("#tipoPersona").val("estudiante");
 	var arr = Array("m_modulo"	,	"estudiante",
 					"m_accion"	,	"listar",
@@ -770,7 +770,7 @@ function guardarPersona(){
 * que lugo se modifique su informacionde la base de datos. Los Datos son enviados
 * por ajax.
 */
-function modificarPersona(codigo=null){
+function modificarPersona(codigo){
 
 	if(getVarsUrl().persona)
 		codigo=getVarsUrl().persona;
@@ -1096,7 +1096,7 @@ function succRoles(data){
 	$(cadena).appendTo('#selectRol2');
 	activarSelect();
 }
-function  abrirDialogoCrearUsuario(nombreDialogo,titulo,tipoAccion,montarImpu=true){
+function  abrirDialogoCrearUsuario(nombreDialogo,titulo,tipoAccion,montarImpu){
 	$('.modal').remove();
 	$('#'+nombreDialogo).remove();
 	

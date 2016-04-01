@@ -361,7 +361,7 @@ class EstudianteServicio
 
 			$consulta="select 	per.codigo,
 								per.cedula ,
-								per.apellido1 || ' ' || per.nombre1 as nombrecompleto,
+								coalesce(per.apellido1,'') || ' ' || coalesce(per.apellido2,'') || ', ' || coalesce(per.nombre1,'') || ' ' || coalesce(per.nombre2,'') as nombrecompleto,
 								per.nacionalidad
 								from sis.t_estudiante as est
 								inner join sis.t_persona as per

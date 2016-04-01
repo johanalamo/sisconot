@@ -466,19 +466,23 @@ Descripción:
 			}
 		 }
 
-		public static function listarSeccionPorTrayecto($codigo){
+		public static function listarSeccionPorTrayecto($codigo,$periodo){
 		 	try{
 				$conexion=Conexion::conectar();
-
+				
+				
+				
 				$consulta="select 	distinct(cur.seccion)
 									from sis.t_uni_tra_pensum as utp
 									inner join sis.t_curso as cur
 									on utp.cod_uni_curricular = cur.cod_uni_curricular
 									where utp.cod_trayecto = :codigo
+									and cur.cod_periodo = :periodo
 									order by cur.seccion;";
 
 				$ejecutar=$conexion->prepare($consulta);
 				$ejecutar->bindParam(':codigo',$codigo, PDO::PARAM_INT);
+				$ejecutar->bindParam(':periodo',$periodo, PDO::PARAM_INT);
 				$conexion->beginTransaction();
 				$ejecutar->execute();
 
@@ -564,8 +568,11 @@ Descripción:
 									where (per.cod_instituto = ?)
 									and (per.cod_pensum = ?)
 									and (per.codigo = ?)
-									and (sis.utf(uni.nombre) ilike sis.utf(?) or sis.utf(pers.nombre1) ilike sis.utf(?) or sis.utf(pers.nombre2) ilike sis.utf(?)
-									or sis.utf(pers.apellido1) ilike sis.utf(?) or sis.utf(pers.apellido2) ilike sis.utf(?))
+									and (sis.utf(uni.nombre) ilike sis.utf(?) 
+									or sis.utf(pers.nombre1) ilike sis.utf(?) 
+									or sis.utf(pers.nombre2) ilike sis.utf(?)
+									or sis.utf(pers.apellido1) ilike sis.utf(?) 
+									or sis.utf(pers.apellido2) ilike sis.utf(?))
 									group by
 										t1.t,
 										cur.codigo,
@@ -632,7 +639,8 @@ Descripción:
 									inner join sis.t_periodo per
 										on per.codigo = cur.cod_periodo
 									inner join sis.t_uni_tra_pensum utp
-										on utp.cod_pensum = per.cod_pensum and utp.cod_uni_curricular = cur.cod_uni_curricular
+										on utp.cod_pensum = per.cod_pensum 
+									and utp.cod_uni_curricular = cur.cod_uni_curricular
 									inner join sis.t_instituto ins
 										on ins.codigo = per.cod_instituto
 									inner join sis.t_pensum pen
@@ -684,10 +692,8 @@ Descripción:
 												where cu.seccion= :seccion
 												and cu.cod_periodo= :periodo) as cur
 										on utp.cod_uni_curricular = cur.cod_uni_curricular
-									left join sis.t_empleado as emp
-										on emp.codigo = cur.cod_docente
 									left join sis.t_persona as pers
-										on pers.codigo = emp.cod_persona
+										on pers.codigo = cur.cod_docente
 									inner join sis.t_uni_curricular as uni
 										on uni.codigo = utp.cod_uni_curricular
 									where (utp.cod_trayecto = :trayecto and per.codigo = :periodo2)
@@ -857,8 +863,8 @@ Descripción:
 				$conexion = Conexion::conectar();
 
 				$consulta = "select 	utp.cod_uni_curricular
-										from sis.t_estudiante est
-										inner join sis.t_persona per
+										from sis.t_persona per
+										inner join sis.t_estudiante est
 											on per.codigo = est.cod_persona
 										inner join sis.t_uni_tra_pensum utp
 											on utp.cod_pensum = est.cod_pensum
@@ -866,7 +872,7 @@ Descripción:
 											on uni.codigo = utp.cod_uni_curricular
 										left join sis.t_curso as cur
 											on cur.cod_uni_curricular = utp.cod_uni_curricular
-										where est.cod_persona = :codigo
+										where per.codigo = :codigo
 										group by utp.cod_uni_curricular;";
 
 				$ejecutar=$conexion->prepare($consulta);
@@ -924,7 +930,7 @@ Descripción:
 									inner join sis.t_curso cur
 										on cur.codigo = ce.cod_curso
 									inner join sis.t_estudiante est
-										on est.codigo = ce.cod_estudiante
+										on est.cod_persona = ce.cod_estudiante
 									where ce.cod_estudiante = :codigo
 									and ce.cod_estado = 'A'
 									and est.cod_pensum = :pensum;";
@@ -989,14 +995,14 @@ Descripción:
 			}
 		}
 
-		public static function obtenerCursosDisponiblesParaInscripcionPorEstudiante($estudiante, $aprobadas, $convalidadas, $prelacion, $cursando){
+		public static function obtenerCursosDisponiblesParaInscripcionPorEstudiante($estudiante, $aprobadas, $convalidadas, $prelacion, $cursando, $periodo){
 			try{
 				$conexion = Conexion::conectar();
 
 				//incluye el periodo
 
 				$consulta = "select
-										utp.cod_uni_curricular,   --dlkjf
+										utp.cod_uni_curricular, 
 										cur.codigo,
 										tra.num_trayecto,
 										uni.nombre,
@@ -1005,7 +1011,9 @@ Descripción:
 										coalesce(cantc.t,0) cantidad,
 										cur.capacidad,
 										uni.cod_uni_ministerio
-								from sis.t_estudiante est
+								from sis.t_persona per
+										inner join sis.t_estudiante est
+											on est.cod_persona = per.codigo
 										inner join sis.t_uni_tra_pensum utp
 											on utp.cod_pensum = est.cod_pensum
 										inner join sis.t_uni_curricular uni
@@ -1023,7 +1031,7 @@ Descripción:
 												group by ce.cod_curso) cantc
 
 										    on cantc.codigo = cur.codigo
-								where est.cod_persona = :estudiante
+								where per.codigo = :estudiante
 										and coalesce(cantc.t,0) < cur.capacidad
 										and pdo.cod_estado = 'A'
 										";
@@ -1050,7 +1058,7 @@ Descripción:
 											$consulta .= " and utp.cod_uni_curricular not in $prelacion ";
 										}
 										$consulta .="
-
+										and cur.cod_periodo = $periodo
 										group by
 											utp.cod_uni_curricular,
 											utp.cod_trayecto,
@@ -1210,10 +1218,8 @@ Descripción:
 										on uni.codigo = cur.cod_uni_curricular
 									inner join sis.t_instituto ins
 										on ins.codigo = pdo.cod_instituto
-									left join sis.t_empleado emp
-										on emp.codigo = cur.cod_docente
 									left join sis.t_persona per2
-										on per2.codigo = emp.cod_persona
+										on per2.codigo = cur.cod_docente
 									where per.codigo = :estudiante
 									and pdo.codigo = :periodo
 									and pen.codigo = :pensum

@@ -191,6 +191,34 @@ class FotografiaServicio {
 		//lanza una exception si falla la conexion	
 		
 	}
+	
+	public static function extraer($ruta, $nombre, $tipo){
+		try{
+			if(!$ruta){
+				$a=explode("/", (__DIR__));
+				$path="";
+				$x=0;
+				while($a[$x]!="sisconot"){
+					if($x!=1)
+						$path.="/".$a[$x];
+					else
+						$path.=$a[$x];
+					$x++;
+				}
+
+				$path.="/".$a[$x]."/temp/".$nombre.".".$tipo;
+				//~ $path.="temp/".$nombre.".".$tipo;
+				$ruta=$path;
+			}
+			
+			if($nombre)
+				return $ruta;
+			return null;	
+		}
+		catch(Exception $e){
+			throw $e;
+		}
+	}
 }
 
 ?>
