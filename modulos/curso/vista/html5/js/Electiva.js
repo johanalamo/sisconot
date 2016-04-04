@@ -23,7 +23,7 @@ function succSetSelects(data){
 
 	verPeriodo(instituto,jc,pensum);
 
-	if(!jc && $("#SelectPeriodo").val() && $("#SelectPensum").val())
+	if(!jc && $("#SelectPeriodo").val() && $("#SelectPensum").val() )
 		listarElectivas();
 
 
