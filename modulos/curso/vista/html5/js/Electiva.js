@@ -18,12 +18,12 @@ function succSetSelects(data){
 	$("#jc").val(jc);
 
 	verInstitutos(instituto);
-	
-	verPensuma(pensum,jc,instituto);
+	if(instituto)
+		verPensuma(pensum,jc,instituto);
 
 	verPeriodo(instituto,jc,pensum);
 
-	if(!jc)
+	if(!jc && $("#SelectPeriodo").val() && $("#SelectPensum").val())
 		listarElectivas();
 
 
@@ -132,7 +132,9 @@ function verPensuma(codigo,jc,instituto){
 				  "m_accion"	,		accion,
 				  "codigo"		,		codigo
 				);
-	ajaxMVC(arr,succPensum,errAjaxs);
+
+	//if(accion && codigo)
+		ajaxMVC(arr,succPensum,errAjaxs);
 
 }
 
