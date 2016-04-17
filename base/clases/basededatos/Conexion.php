@@ -13,7 +13,8 @@
  * 
  *  
  * @author JHONNY VIELMA (jhonnyvq1@gmail.com)
- * @author RAFAEL GARCIA (rafaelantoniorf@gmail.com) modificacion 
+ * @author Geraldine Castillo (geritha_19@hotmmail.com)
+ * @author Johan Alamo (lider de proyecto) <johan.alamo@gmail.com>
  * @package Componentes
  */
 

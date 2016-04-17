@@ -11,7 +11,7 @@
  * comprobar todo lo necesario para realizar la instalación del mvc con
  * todos sus componentes.
  *
- * 
+ * @author Johan Alamo (lider de proyecto) <johan.alamo@gmail.com>
  * @author GERALDINE CASTILLO (jhonnyvq1@gmail.com)
  * @author JHONNY VIELMA      (jhonnyvq1@gmail.com)
  * 

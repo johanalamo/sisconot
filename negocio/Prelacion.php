@@ -17,6 +17,7 @@ específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
 Nombre: Prelacion.php
 Diseñador: Rafael Garcia
 Programador: Rafael Garcia
+Lide del proyecto: Johan Alamo
 Fecha: Septiembre de 2015
 Descripción:  
 	Este archivo contiene la implementación del objeto Pensum, el cual

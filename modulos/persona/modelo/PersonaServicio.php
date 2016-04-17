@@ -22,6 +22,7 @@
  * @link /base/clases/Errores.php 		Clase manejadora de errores.
  *  
  * @author JEAN PIERRE SOSA GOMEZ (jean_pipo_10@hotmail.com)
+ * @author Johan Alamo (lider de proyecto) <johan.alamo@gmail.com>
  * 
  * @package Servicios
  */

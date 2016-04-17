@@ -15,6 +15,7 @@ específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
  * * * * * * * * * * ARCHIVO * * * * * * * * * * * * * * * * * * * * *
 
 Nombre: Pensum.clase.php
+Lider del proyecto: Johan Alamo
 Diseñador: Jhonny vielma
 Programador: Jhonny vielma
 Fecha: Enero de 2014

@@ -17,6 +17,7 @@ específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
 Nombre: CursoControlador.php
 Diseñador: Juan De Sousa (juanmdsousa@gmail.com)
 Programador: Juan De Sousa
+Lider de proyecto: Johan Alamo (johan.alamo@gmail.com)
 Fecha: Diciembre de 2015
 Descripción:
 	Controlador del módulo curso, encargado de procesar todas las peticiones del módulo.

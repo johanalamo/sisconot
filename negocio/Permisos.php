@@ -14,7 +14,7 @@
  * de base de datos ya que los usuarios que se utilizaran seran usuarios de base de datos, no usuarios comunes,
  * obtendremos sus permisos de usuario mediante los catalogos.
  * 
- *  
+ * @author Johan Alamo (lider de proyecto) <johan.alamo@gmail.com>
  * @author JHONNY VIELMA      (jhonnyvq1@gmail.com)
  * @author GERALDINE CASTILLO (geralcs94@gmail.com)
  * 

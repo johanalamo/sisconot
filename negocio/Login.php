@@ -16,6 +16,7 @@ específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
  * * * * * * * * * * ARCHIVO * * * * * * * * * * * * * * * * * * * * *
 
 Nombre: Login.php
+Lider de proyecto: Johan Alamo
 Diseñador: Geraldine Castillo, Jhonny Vielma
 Programador: Geraldin Castillo , Jhonny Vielma
 Fecha: julio 2015

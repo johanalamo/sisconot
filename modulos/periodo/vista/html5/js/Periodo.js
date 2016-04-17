@@ -16,6 +16,7 @@ específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
 Nombre: Periodo.js
 Diseñador: Juan De Sousa
 Programador: Juan De Sousa
+Lider de proyecto: Johan Alamo (johan.alamo@gmail.com)
 Fecha:10-1-16
 Descripción:
 	Este es el javascript del módulo periodo, encargado de todas las

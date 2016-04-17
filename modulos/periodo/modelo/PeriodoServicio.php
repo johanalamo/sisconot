@@ -17,6 +17,7 @@ específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
 Nombre: PeriodoServicio.php
 Diseñador: Juan De Sousa (juanmdsousa@gmail.com)
 Programador: Juan De Sousa
+Lider de proyecto: Johan Alamo (johan.alamo@gmail.com)
 Fecha: Diciembre de 2015
 Descripción:
 	Este es el servicio del módulo Periodo. Encargado de todas las operaciones que involucren la base de datos.

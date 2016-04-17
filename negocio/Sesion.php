@@ -16,7 +16,7 @@
  *  
  * @author GERALDINE CASTILLO	(geralcs94@gmail.com)
  * @author JHONNY VIELMA 		(jhonnyvq1@gmail.com)
- * @author JOHAN ALAMO 			(johan.alamo@gmail.com)
+ * @author Johan Alamo (lider de proyecto) <johan.alamo@gmail.com>
  * 
  * @package Componentes
  */

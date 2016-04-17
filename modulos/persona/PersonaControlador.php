@@ -21,6 +21,7 @@
  * Es el intermediario entre la base de datos y la vista.
  *  
  * @author Jean Pierre Sosa Gómez (jean_pipo_10@hotmail.com)  
+ * @author Johan Alamo (lider de proyecto) <johan.alamo@gmail.com>
  * 
  * @package Controladores
  */

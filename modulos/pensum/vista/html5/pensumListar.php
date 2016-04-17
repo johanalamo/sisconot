@@ -17,6 +17,7 @@ específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
 Nombre: pensumListar.php
 Diseñador: Jhonny Vielma
 Programador: Jhonny Vielma
+Lider de proyecto: Johan Alamo (johan.alamo@gmail.com)
 Fecha: Enero de 2014
 Descripción:  
 	Es la vista utilizada para mostrar una lista de pensums desde un

@@ -16,6 +16,7 @@
  * 
  *  
  * @author RAFAEL GARCIA 		(rafaelantoniorf@gmail.com)
+ * @author Johan Alamo (lider de proyecto) <johan.alamo@gmail.com>
  * 
  * @link modulos/unidad/modelo/UnidadCurricularServicio.php			 Clase UnidadCurricularServicio
  * @link /negocio/UniCurricular.php 			                         Clase UnidadCurricular

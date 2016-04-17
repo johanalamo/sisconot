@@ -13,7 +13,7 @@
  * @license GPLv3
  * @license http://www.gnu.org/licenses/gpl-3.0.html
  *
- *
+ * @author Johan Alamo (lider de proyecto) <johan.alamo@gmail.com>
  * @author GERALDINE CASTILLO (jhonnyvq1@gmail.com)
  * @author JHONNY VIELMA      (jhonnyvq1@gmail.com)
  * 

@@ -18,6 +18,7 @@ específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
 Nombre: FotografiaServicio.clase.php
 Diseñador: Geraldine Castillo (geritha_19@hotmmail.com)
 Programador: Geraldine Castillo
+Lider de proyecto: Johan Alamo (johan.alamo@gmail.com)
 Fecha: Diciembre de 2013
 Descripción: 
 

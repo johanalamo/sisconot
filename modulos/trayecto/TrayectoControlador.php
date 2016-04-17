@@ -17,6 +17,7 @@
  * Esto con el fin de que la clase manejadora de errores las capture y procese.
  *
  * @author Rafael Garcia (rafaelantoniorf@gmail.com)s
+ * @author Johan Alamo (lider de proyecto) <johan.alamo@gmail.com>
  *
  *  clase TrayectoServicio 
  * @link modulos/trayecto/modelo/TrayectoServicio.php 			 Clase PensumServicio

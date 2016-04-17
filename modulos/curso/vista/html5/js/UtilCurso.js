@@ -19,6 +19,7 @@ específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
 Nombre: UtilCurso.js
 Diseñador: Juan De Sousa (juanmdsousa@gmail.com)
 Programador: Juan De Sousa
+Lider de proyecto: Johan Alamo (johan.alamo@gmail.com)
 Fecha: Febrero de 2016
 Descripción:
 	Librería JS del módulo. Encargada de todas las llamadas AJAX y

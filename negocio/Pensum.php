@@ -15,6 +15,7 @@ específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
  * * * * * * * * * * ARCHIVO * * * * * * * * * * * * * * * * * * * * *
 
 Nombre: Pensum.php
+Lider del proyecto: Johan Alamo
 Diseñador: Rafael Garcia
 Programador: Rafael Garcia
 Fecha: Septiembre de 2015

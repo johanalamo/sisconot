@@ -17,7 +17,7 @@
  *
  * @link /base/clases/Errores.php 		Clase manejadora de errores.
  * 
- *  
+ * @author Johan Alamo (lider de proyecto) <johan.alamo@gmail.com>
  * @author JHONNY VIELMA (jhonnyvq1@gmail.com)
  * 
  * @package Componentes

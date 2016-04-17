@@ -15,6 +15,7 @@ específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
  * * * * * * * * * * ARCHIVO * * * * * * * * * * * * * * * * * * * * *
 
 Nombre: Fotografia.php
+Lider de proyecto: Johan Alamo
 Diseñador: Daniel Abreu (dabreuperes@gmail.com)
 Programador: Daniel Abreu
 Fecha: Diciembre de 2012
