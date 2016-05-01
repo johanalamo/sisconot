@@ -152,7 +152,10 @@ class PrincipalControlador {
 			
 			$dat = Vista::obtenerDato("datos");
 			
-
+			
+/*      //comentado por johan alamo porque el método extraer tiene un error que busca de manera
+ *      // directa (cableado) en un directorio llamado "sisconot"
+ * 
 			$r = FotografiaServicio::extraer(null, $dat[0]['codigo'], $dat[0]['tipo']);
 			
 			FotografiaServicio::extraerEn($dat[0]['codigo'],$r);
@@ -160,6 +163,7 @@ class PrincipalControlador {
 			if(file_exists($r))
 				Vista::asignarDato("fotoPerfil","temp/".$dat[0]['codigo'].".".$dat[0]['tipo']);
 			else
+			*/
 				Vista::asignarDato("fotoPerfil","profile_avatar.png");
 			
 			Vista::asignarDato("usuBD",$instalacion->obtenerUsuBD());

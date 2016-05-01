@@ -502,7 +502,25 @@ class EstudianteServicio
 		}
 	}
 
-	public static function listarEstudiantesDeCurso($codigo){
+	/** Función que obtiene la lista de estudiantes de un curso específico,
+	 * Parámetros de entrada:
+	 *   $codigo: código del curso a consultar
+	 *   $estados: cadena que contiene los estudiantes a consultar, es decir,
+	 *			la consulta traerá aquellos estudiantes que cuyo código de estado
+	 * 			esté contenido dentro de la cadena. El valor por defecto de 
+	 * 			este parámetro es 'XARIC' para que los obtenga a todos
+	 * Valor de retorno
+	 *  la lista de estudiantes ordenada por apellido, coloca de último los
+	 * 	retirados
+	 * Ejemplo:
+	 * 
+	 * EstudianteServicio::listarEstudiantesDeCurso(207): trae todos los estudiantes
+	 * 			
+	 * EstudianteServicio::listarEstudiantesDeCurso(207,'ARIC'): trae todos los
+	 * 			estudiantes menos los retirados.
+	 */
+
+	public static function listarEstudiantesDeCurso($codigo, $est_estudiante='XARIC'){
 		try{
 			$conexion = Conexion::conectar();
 
@@ -518,14 +536,16 @@ class EstudianteServicio
 									ce.cod_estado,
 									ece.nombre,
 									per.nacionalidad
-									from sis.t_cur_estudiante ce
-									left join sis.t_persona per
+						from sis.t_cur_estudiante ce
+							left join sis.t_persona per
 									on per.codigo = ce.cod_estudiante
-									inner join sis.t_est_cur_estudiante ece
+							inner join sis.t_est_cur_estudiante ece
 									on ce.cod_estado = ece.codigo
-									where ce.cod_curso = :codigo
-									order by
-									ce.cod_estado,
+						where ce.cod_curso = :codigo
+							and position(ce.cod_estado in '$est_estudiante') > 0 -- para obtener los que tienen el estado indicado dentro de la cadena est_estudiante					
+						order by
+									case when ce.cod_estado = 'X' then 'Z' --para colocar los retirados de ultimo
+											else 'A' end,                  -- y los demás de primero
 									per.apellido1
 									;";
 

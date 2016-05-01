@@ -310,8 +310,16 @@ class EstudianteControlador
 	public static function listarEstudiantesPorCurso(){
 		try{
 			$codigo = PostGet::obtenerPostGet("codigo");
-			if($codigo)
-				Vista::asignarDato("estudiante",EstudianteServicio::listarEstudiantesDeCurso($codigo));
+			
+			//estado de los estudiantes a consultar (en formato cadena)
+			$est_estudiante = PostGet::obtenerPostGet("est_estudiante");
+			if($codigo){
+				if (is_null($est_estudiante))
+					Vista::asignarDato("estudiante",EstudianteServicio::listarEstudiantesDeCurso($codigo));
+				else
+					Vista::asignarDato("estudiante",EstudianteServicio::listarEstudiantesDeCurso($codigo,$est_estudiante));
+				Vista::asignarDato("datocurso",CursoServicio::obtenerDatosDeCurso($codigo));
+			}
 			
 			$r = CursoServicio::obtenerEstusEstudiante();
 
