@@ -1,4 +1,3 @@
-
 /*
  * * * * * * * * * * LICENCIA * * * * * * * * * * * * * * * * * * * * *
 
@@ -17,6 +16,7 @@ específicamente en la dirección http://www.gnu.org/licenses/gpl-3.0.html
 Nombre: persona.js
 Diseñador:Jean Pierre Sosa.
 Programador:Jean Pierre Sosa.
+Lider de proyecto: Johan Alamo (johan.alamo@gmail.com)
 Fecha:10-1-16
 Descripción:  
 	Este es el javascript del módulo error, encargado de todas las 
@@ -282,7 +282,7 @@ function montarSelectInstitutoPersona(data){
 	var cadena = "";
 
 	$("#selectIns").remove();
-	cadena+="<div id='selectIns'> institutos ";
+	cadena+="<div id='selectIns'> Instituto ";
 	
 	if(data.tipo_persona=='estudiante')
 		cadena += "<select onchange='verPersonaEstudiante(); succBuscarFoto(); verPNFEs();' class='selectpicker' id='selectInstituto' title='institutos' data-live-search='true' data-size='auto' data-max-options='12' >"; 
@@ -885,7 +885,7 @@ function succMontarModificarPersona2(data){
 function succMontarModificarPersona(data){
 	
 	tabsActivos(); 
-
+	alert(data);
 	$("#ced_persona").val(data.persona[0]['cedula']);
 	$("#rif_persona").val(data.persona[0]['rif']);
 	$("#nombre1").val(data.persona[0]['nombre1']);
@@ -1282,3 +1282,5 @@ function errors(data){
 	alert(data.mensaje);
 	mostrarMensaje("Error de comunicación con el servidor.",2);
 }
+
+

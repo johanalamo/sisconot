@@ -292,7 +292,7 @@ class EmpleadoControlador
 					$cad .= "{";
 					
 					if(!$completo)
-						$cad .= '"label": "' . $docente['nombre1']. ' '. $docente['apellido1'].' ('.$docente['cedula'].')", ';
+						$cad .= '"label": "' . $docente['nombre1']. ' '. $docente['nombre2'].' '. $docente['apellido1'].' '. $docente['apellido2'] .' ('.$docente['cedula'].')", ';
 					else
 						$cad .= '"label": "' . $docente['nombre1']. ' ' . $docente['nombre2']. ' ' . $docente['apellido1']. ' ' . $docente['apellido2'] . '", ';
 

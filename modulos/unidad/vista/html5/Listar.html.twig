@@ -57,7 +57,12 @@
 													<tr >
 														
 														<td><a href="#" onmouseover="verDetalle({{unidad.codigo}})" >{{unidad.codigo}}</a></td>
-														<td><a href="#"  onmouseover="verDetalle({{unidad.codigo}})">{{unidad.nombre}} ({{unidad.cod_uni_ministerio}}) </a></td>
+														
+														{% if (unidad.cod_uni_ministerio != '') %}
+															<td><a href="#"  onmouseover="verDetalle({{unidad.codigo}})">{{unidad.nombre}} ({{unidad.cod_uni_ministerio}}) </a></td>
+														{% else %}
+															<td><a href="#"  onmouseover="verDetalle({{unidad.codigo}})">{{unidad.nombre}} (N/A) </a></td>
+														{% endif %}
 														
 														<td style="padding-left: 0px; padding-right: 0px; min-width: 54px;">										
 															<button class="btn btn-xs btn-info" title="Modificar la Unidada Curricular" onclick="redirectEdit({{unidad.codigo}})" title="Modificar Unidad">

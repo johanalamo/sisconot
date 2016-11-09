@@ -1,6 +1,8 @@
+
 $( document ).ready(function() {
 	activarCal();
 	setSelects();
+
 });
 
 function setSelects (){
@@ -295,13 +297,14 @@ console.log(data);
 		if(data.codCurso)
 			$("#codigo").val(data.codCurso);
 		mostrarMensaje(data.mensaje,1);
-		listarElectivas();
+		listarElectivas(undefined);
 	}
 	else
 		mostrarMensaje(data.mensaje,2);
 }
 
 function listarElectivas(codigo){
+	
 	var arr=Array("m_modulo"	,		"curso",
 				  "m_accion"	,		"listarCurElectivas",
 				  "pensum"		,		$("#SelectPensum").val(),
@@ -354,7 +357,7 @@ function succListarElectivas(data){
 }
 
 function buscarElectiva(codigo){
-
+	
 	var arr=Array("m_modulo"	,		"curso",
 				  "m_accion"	,		"buscarCurElectiva",
 				  "codigo"		,		codigo
@@ -416,7 +419,7 @@ function autocompletarDocentes(){
 							"patron"		,		request.term,
 							"instituto"		,		$("#SelectInstituto").val(),
 							"pensum"		,		$("#SelectPensum").val(),
-							"completo"		, 		true
+							"completo"		, 		false
 							);
 
 				ajaxMVC(a,function(data){
@@ -461,7 +464,7 @@ function autocompletarDocentes(){
 
 function preGuardar(){
 	var bool=true;
-
+alert("dfdsf");
 	if($("#SelectPeriodo").val()=="-1"){
 		bool=false;
 		mostrarMensaje("Debe de Seleccionar un periodo.",2);

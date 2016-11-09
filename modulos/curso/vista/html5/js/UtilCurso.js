@@ -655,7 +655,10 @@ function succListarCursos(data){
 					if(i == 5)
 						cad += "<td style='text-align:center' class='"+p+"' id='cant"+cont+"'>"+cur[cont][i]+"</td>";
 					else if(i == 3)
-						cad += "<td  class='"+p+"' id='"+cont+"'>"+cur[cont]['nombre']+" ("+cur[cont]['cod_uni_ministerio']+")</td>";
+						if(cur[cont]['cod_uni_ministerio'] != null)
+							cad += "<td  class='"+p+"' id='"+cont+"'>"+cur[cont]['nombre']+" ("+cur[cont]['cod_uni_ministerio']+")</td>";
+						else
+							cad += "<td  class='"+p+"' id='"+cont+"'>"+cur[cont]['nombre']+" (N/A)</td>";
 					else
 						cad += "<td style='text-align:center' class='"+p+"' id='c"+i+cont+"'>"+cur[cont][i]+"</td>";
 				}
@@ -1285,9 +1288,9 @@ $( document ).ready(function() {
 // 	montarSelects();
 // }
 
-if(obtenerGet('codigo') != null && obtenerGet('m_vista') != 'CargarNotas'){
+if(obtenerGet('codigo') != null)
 	montarSelects();
-}
+//}
 
 function montarSelectUsuario(){
 
@@ -1341,8 +1344,11 @@ function montarSelects(){
 	var arr = Array("m_modulo"		,		"curso",
 					"m_accion"		,		"obtenerDatosDeCurso",
 					"codigo"		,		obtenerGet('codigo'));
-
-	ajaxMVC(arr,succMontarSelects,err);
+	
+	if(obtenerGet("m_vista") == "CargarNotas")
+		ajaxMVC(arr,succCargarNotas,err);
+	else	
+		ajaxMVC(arr,succMontarSelects,err);
 }
 
 function cargarNotas(){
@@ -1386,6 +1392,8 @@ function succCargarNotas(data){
 
 		$("#per").html(dat[0]['nombreperiodo']);
 		$("#uni").html(dat[0]['nombreuni']);
+	
+		listarEstudiantes(succListarEstudiantesCargarNotas,obtenerGet('codigo'));
 	}
 }
 
@@ -1527,7 +1535,6 @@ function succGuardarNotas(data){
 }
 
 function succMontarSelects(data){
-	
 	var dat = data.cursoInfoMontar;
 	var tmp = 300;
 	var i = 1;

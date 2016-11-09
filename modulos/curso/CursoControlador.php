@@ -416,7 +416,6 @@ Descripción:
 
 		public static function mostrarVista(){
 			try{
-
 				Vista::mostrar();
 			}
 			catch(Exception $e){

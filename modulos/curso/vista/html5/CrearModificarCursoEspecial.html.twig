@@ -58,6 +58,7 @@
 		{% if (login.obtenerPermiso('CursoAgregar') or login.obtenerPermiso('CursoModificar')) %}
 			<div class="col-md-12 text-right" style="margin-top:5%;">
 				<button class="btn btn-primary" onclick="preGuardar();">Guardar</button>
+				<button class="btn btn-danger" onclick="borrarCamposElectiva();">Limpiar</button>
 			</div>
 		{% endif %}
 	</div>	

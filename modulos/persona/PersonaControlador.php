@@ -163,15 +163,11 @@
 				$a=explode("/", (__DIR__));
 				$path="";
 				$x=0;
-				while($a[$x]!="sisconot"){
-					if($x!=1)
-						$path.="/".$a[$x];
-					else
-						$path.=$a[$x];
-					$x++;
-				}
-
-				$path.="/".$a[$x];
+				$contador=count($a);
+				unset($a[$contador-1]);
+				unset($a[$contador-2]);
+				
+				$path=implode("/",$a);
 				
 				//$ruta=$path."/temp/".$codigo.".".$foto[0]["tipo"]; 
 				$estudiante=null;
@@ -281,15 +277,11 @@
 				$a=explode("/", (__DIR__));
 				$path="";
 				$x=0;
-				while($a[$x]!="sisconot"){
-					if($x!=1)
-						$path.="/".$a[$x];
-					else
-						$path.=$a[$x];
-					$x++;
-				}
-
-				$path.="/".$a[$x];
+				$contador=count($a);
+				unset($a[$contador-1]);
+				unset($a[$contador-2]);
+				
+				$path=implode("/",$a);
 
 				
 				$response=null;
