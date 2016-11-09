@@ -631,7 +631,9 @@ Descripción:
 									cur.cod_uni_curricular,
 									cur.cod_docente,
 									ins.nombre nombreins,
+									ins.nom_corto nom_cor_instituto,
 									pen.nombre nombrepen,
+									pen.nom_corto nom_cor_pensum,
 									tra.num_trayecto numtrayecto,
 									uni.nombre nombreuni,
 									per.nombre nombreperiodo,
@@ -641,7 +643,7 @@ Descripción:
 										on per.codigo = cur.cod_periodo
 									inner join sis.t_uni_tra_pensum utp
 										on utp.cod_pensum = per.cod_pensum 
-									and utp.cod_uni_curricular = cur.cod_uni_curricular
+									       and utp.cod_uni_curricular = cur.cod_uni_curricular
 									inner join sis.t_instituto ins
 										on ins.codigo = per.cod_instituto
 									inner join sis.t_pensum pen
