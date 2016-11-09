@@ -26,7 +26,7 @@
 	</style>
 
 	<script>
-	   
+	
 	</script>
 	
 {% endblock %}
@@ -92,12 +92,12 @@
 						<div class="form-inline formuario-persona row primeraCaja">
 							
 							<div class="form-group espacio-input col-md-3">
-								Código
+								Codigo
 								 <input type="text" name="cod_persona" id="cod_persona" class="form-control" placeholder="00000" maxlength="7" disabled>
 							</div>
 							
 							<div class="form-group espacio-input col-md-3">
-							 Cédula
+							 Cedula
 								 <input type="text" name="ced_persona" id="ced_persona" class="form-control"  maxlength="8" onkeyup="validarSoloNumeros('#ced_persona',6,8,true)">
 							</div>
 							
@@ -127,19 +127,19 @@
 				
 							
 							<div class="form-group espacio-input col-md-3">
-								Nombre 1
+								Nombre1
 								 <input type="name" name="nombre1" id="nombre1" class="form-control" maxlength="20" onkeyup="validarSoloTexto('#nombre1',2,20,true)">
 							</div>
 							
 							
 							<div class="form-group espacio-input col-md-3">
-								Nombre 2
+								Nombre2
 								 <input type="name" name="nombre2" id="nombre2" class="form-control" maxlength="20" onkeyup="validarSoloTexto('#nombre2',2,20,false)">
 							</div>
 							
 							
 							<div class="form-group espacio-input col-md-3">
-								Apellido 1
+								Apellido1
 								 <input type="name" name="apellido1" id="apellido1" class="form-control"  maxlength="20" onkeyup="validarSoloTexto('#apellido1',2,20,true)">
 							</div>
 
@@ -150,7 +150,7 @@
 				
 							
 							<div class="form-group espacio-input col-md-3">
-								Apellido 2
+								Apellido2
 								 <input type="name" name="apellido2" id="apellido2" class="form-control" maxlength="20" onkeyup="validarSoloTexto('#apellido2',2,20,false)">
 							</div>
 							
@@ -183,11 +183,11 @@
 						<div class="form-inline formuario-persona row">			
 							
 							<div class="form-group espacio-input col-md-3">
-								Teléfono 1
+								Telefono1
 								 <input type="name" name="telefono1" id="telefono1" class="form-control"  maxlength="12" onkeyup="validarTelefono('#telefono1',7,12,true)">
 							</div>					
 							<div class="form-group espacio-input col-md-3">
-								Teléfono 2
+								Telefono2
 								 <input type="name" name="telefono2" id="telefono2" class="form-control" maxlength="12" onkeyup="validarTelefono('#telefono2',7,12,false)">
 							</div>
 							
@@ -261,7 +261,7 @@
 								 <textarea  name="discapacidad" id="discapacidad" class="form-control" maxlength="48" ></textarea>
 							</div>
 							
-							Dirección
+							Direccion
 							<div class="form-group espacio-input">
 								 <textarea  name="direccion" id="direccion" class="form-control" maxlength="148"></textarea>
 							</div>
@@ -275,11 +275,8 @@
 							<input type="hidden" name="codigoPersona" id="codigoPersona">
 
 
-
 							<div class="text-right formuario-persona form-group" id="botonera">
 
-								<button type="button" name="md_volver" id="md_volver" class="btn btn-info" onclick="VolverPersona();"><b>Volver</b></button>
-						
 							{% if (login.obtenerPermiso('AdministrarPrivilegios')
 								and login.obtenerPermiso('UsuarioAgregar')) %}
 								

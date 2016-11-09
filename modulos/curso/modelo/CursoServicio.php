@@ -1521,7 +1521,7 @@ Descripción:
 							where utp.cod_pensum=? and utp.cod_tipo='E' 
 								and utp.cod_uni_curricular=uc.codigo 
 							and c.cod_uni_curricular=uc.codigo 
-							and p.codigo=e.cod_persona and e.cod_persona=c.cod_docente
+							and p.codigo=e.cod_persona and e.codigo=c.cod_docente
 							and per.codigo=? ";
 
 

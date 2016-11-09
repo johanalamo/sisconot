@@ -151,11 +151,16 @@ class FotoControlador{
 			$a=explode("/", (__DIR__));
 			$path="";
 			$x=0;
-			$contador=count($a);
-			unset($a[$contador-1]);
-			unset($a[$contador-2]);
-			
-			$path=implode("/",$a);
+			while($a[$x]!="sisconot"){
+				if($x!=1)
+					$path.="/".$a[$x];
+				else
+					$path.=$a[$x];
+				$x++;
+			}
+
+			$path.="/".$a[$x];
+	
 			$codigo=PostGet::obtenerPostGet("codigo");
 			$codPersona=PostGet::obtenerPostGet("codPersona");
 			$foto=FotografiaServicio::existe($codigo);

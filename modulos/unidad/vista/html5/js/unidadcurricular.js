@@ -31,11 +31,7 @@ function consultarDetalleUni(data) {
 		cadena+="<table id='pesum' class='table table-bordered table-striped table-responsive' style='clear: both'><tbody>";
 		cadena+="<tr><td style='width: 35%;''>Código:</td><td style='width: 65%;'><a href='#'' >"+unidad[0]+"</a></td></tr>";
 		cadena+="<tr><td>Código de Ministerio:</td><td>";
-		
-		if(unidad[1] != null)
-			cadena+="<a href='#'' >"+unidad[1]+"</a></td></tr>";
-		else
-			cadena+="<a href='#'>(N/A)</a></td></tr>";
+		cadena+="<a href='#'' >"+unidad[1]+"</a></td></tr>";
 		cadena+="<tr><td>Nombre:</td><td>";
 		cadena+="<a href='#'' >"+unidad[2]+"</a></td></tr>";		
 		cadena+="<tr><td>Horas de Trabajo Acompañadas (HTA):</td><td>";
@@ -157,7 +153,6 @@ function setCampos(data){
 	unidad=data.unidad[0];
 //		console.log(unidad);
 	$("#codigo").val(unidad["codigo"]);
-	
 	$("#codigoMinisterio").val(unidad["cod_uni_ministerio"]);
 	$("#nombre").val(unidad["nombre"]);
 	$("#unidadCredito").val(unidad["uni_credito"]);
@@ -384,6 +379,7 @@ function verCoincidenciaLista(){
 function errorLista(){mostrarMensaje("Error en Lista",2);}
 
 function actualizarLista(data){
+	console.log(data);
 	if(data.estatus>0){
 		$('#tableTT').remove();		
 
@@ -399,12 +395,7 @@ function actualizarLista(data){
 			for (i=0;i<data.unidades.length;i++){
 				cadena+="<tr >";
 					cadena+="<td><a href='#' onmouseover='verDetalle("+data.unidades[i]["codigo"]+")'>"+data.unidades[i]["codigo"]+"</a></td>";
-					
-					
-					if(data.unidades[i]["cod_uni_ministerio"] != null)
-						cadena+="<td><a href='#' onmouseover='verDetalle("+data.unidades[i]["codigo"]+")'>"+data.unidades[i]["nombre"]+" ("+data.unidades[i]["cod_uni_ministerio"]+")</a></td>";				
-					else
-						cadena+="<td><a href='#' onmouseover='verDetalle("+data.unidades[i]["codigo"]+")'>"+data.unidades[i]["nombre"]+" (N/A)</a></td>";
+					cadena+="<td><a href='#' onmouseover='verDetalle("+data.unidades[i]["codigo"]+")'>"+data.unidades[i]["nombre"]+" ("+data.unidades[i]["cod_uni_ministerio"]+")</a></td>";				
 					
 					cadena+="<td style='padding-left: 0px; padding-right: 0px; min-width: 54px;'>";
 						cadena+="<button class='btn btn-xs btn-info' title='Modificar la Unidada Curricular' onclick='redirectEdit("+data.unidades[i]["codigo"]+")'>";
