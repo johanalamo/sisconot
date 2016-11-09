@@ -736,7 +736,7 @@ function verificarChecks(el){
 					mostrarMensaje("Se ha detectado que no posee permisos para crear/modificar cursos.",4);
 				}
 			}
-			else if(el == 'le') { //lista de estudiantes
+			else if(el == 'le') {
 				/*
 				 * Verificación de permisos.
 				 */
@@ -748,19 +748,6 @@ function verificarChecks(el){
 				}
 				else {
 
-				}
-			}
-			else if(el == 'lepdf') { //lista de estudiantes en pdf
-				/*
-				 * Verificación de permisos.
-				 */
-				if(per.CurEstudianteListar){
-					if($("#cant"+i).html() != '0'){
-						//ARIC: Aprobados, Reprobados, reprobados por Inasistencia, Cursando
-						window.open('index.php?m_modulo=estudiante&m_accion=listarEstudiantesPorCurso&m_vista=listaAsistencia&m_formato=pdf&codigo='+$("#hid"+i).val() + '&est_estudiante=ARIC','_blank');
-						
-					}else
-						mostrarMensaje("No se puede generar la lista de estudiantes para este curso porque no posee estudiantes inscritos.",3);
 				}
 			}
 			else if(el == 'cn'){
